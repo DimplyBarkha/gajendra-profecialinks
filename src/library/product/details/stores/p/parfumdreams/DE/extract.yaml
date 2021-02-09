@@ -1,112 +1,121 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id='outer-wrapper']
+recordXPath: //form[@id='formVariatonPost']/div[@id='schema-offer']
 fields:
-  # - name: name
-  #   singleValue: true
-  #   xpath: /html/head/title
-  #   regExp: (.*) \|
-  #   regExpReplace: $1
-  # - name: id
-  #   singleValue: true
-  #   xpath: (//meta[@itemprop='sku']/@content)[1]
-  # - name: productUrl
-  #   singleValue: true
-  #   xpath: //link[@rel="canonical"]/@href
-  # - name: nameExtended
-  #   singleValue: true
-  #   xpath: //*[@id="right-column"]/div/div[1]/div/div[2]/div[1]/div[1]/h1
-  # - name: gtin
-  #   singleValue: true
-  #   xpath: //*[@id="right-column"]/div/meta/@content
-  # - name: description
-  #   singleValue: true
-  #   xpath: //div[@class='footer-content']/div[1]
-  - name: price
-    singleValue: false
-    xpath: ancestor::html//meta[@itemprop='price']/@content
-    #xpath: (//div[@class="variation clearfix active"]//div[@class="font-headline mbs05"]/text()[1]|//div[@itemprop='offers']/div/div[contains(text(),'€')]/text())[1]
-    #regExp: (€.+)\*
+  - name: name
+    singleValue: true
+    xpath: ancestor::html//*[@id="right-column"]/div/div[1]/div/div[2]/div[1]/div[1]/h1
+    #regExp: (.*) \|
     #regExpReplace: $1
-  # - name: listPrice
-  #   singleValue: false
-  #   xpath: /html/body/div[1]/div[1]/div[1]/div[2]/div[3]/div/div[1]/div/div[2]/form/div[1]/div[3]/div[1]/div/span
+  - name: id
+    singleValue: true
+    xpath: (ancestor::html//meta[@itemprop='sku']/@content)[1]
+  - name: productUrl
+    singleValue: true
+    xpath: ancestor::html//link[@rel="canonical"]/@href
+  - name: nameExtended
+    singleValue: true
+    xpath: concat(ancestor::html//*[@id="right-column"]/div/div[1]/div/div[2]/div[1]/div[1]/h1,' - ',//*[@id="schema-offer"]/div/div/div/div)
+  - name: gtin
+    singleValue: true
+    xpath: (ancestor::html//div[@id="schema-offer"]/div[3]/meta[@itemprop='gtin13']/@content)[1]
+  - name: description
+    singleValue: true
+    xpath: ancestor::html(//div[@class='footer-content']/div[1])
+  - name: price
+    singleValue: true
+    xpath: //div[@id='schema-offer']/@data-retail-price
+    #xpath: (//div[@class="variation clearfix active"]//div[@class="font-headline mbs05"]/text()[1]|//div[@itemprop='offers']/div/div[contains(text(),'€')]/text())[1]
+    regExp: (\d\d?)\.(\d\d?)
+    regExpReplace: $1,$2 €
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@id="schema-offer"]/div[3]/div[1]/div/span
   - name: image
-    #singleValue: true
+    singleValue: true
     xpath: ancestor::html//img[@role='presentation']/@src
-  # - name: brandText
-  #   singleValue: true
-  #   xpath: //h1[@class='hide-text']
+  - name: brandText
+    singleValue: true
+    xpath: ancestor::html//h1[@class='hide-text']
   - name: sku
     singleValue: false
-    xpath: ancestor::html//div[@id='schema-offer']/@data-runningnumber
-  #   #regExp: (\d*)
-  #   #regExpReplace: $1
-  # - name: mpc
-  #   singleValue: true
-  #   #xpath: //*[@id="right-column"]/div/meta/@content   
-  # - name: aggregateRating
-  #   singleValue: true
-  #   xpath: //*[@id="right-column"]/div/div[1]/div/div[2]/div/div[2]/div/a/text()
-  # - name: category
-  #   singleValue: false
-  #   xpath: //div[@class="breadcrumb"]/div[position()>1 and position() < last()]/a/span/text()
-  # - name: weightNet
-  #   singleValue: true
-  #   xpath: //div[@class='font-headline description mbs1']
-  # - name: variantInformation
-  #   singleValue: true
-  #   xpath: //div[@class="variation clearfix active"]//div[@class="font-headline description mbs1"]/text()
-  # - name: variantId
-  #   singleValue: false
-  #   xpath: //div[@class='custom-radio']/input[@name='variationId']/@value
-  # - name: availabilityText
-  #   singleValue: true
-  #   xpath: //html//div[@id="name"]
-  # - name: quantity
-  #   singleValue: true
-  #   xpath: //div[@class="variation clearfix active"]//div[@class="font-headline description mbs1"]/text()
-  # - name: alternateImages
-  #   singleValue: false
-  #   xpath: //div[@class="carousel more-pictures"]/div[@class="swiper-wrapper"]/div[position()>1]/div/img/@src
-  # - name: ingredientsList
-  #   singleValue: false
-  #   xpath: //div[@class='footer-content']/div[2]/p[1]
-  # - name: directions
-  #   singleValue: false
-  #   xpath: //div[@class='footer-content']/div[2]/p[2]
+    xpath: //div[@id='schema-offer']/@data-runningnumber
+    regExp: (\d*)
+    regExpReplace: $1
+  - name: mpc
+    singleValue: true
+    #xpath: //*[@id="right-column"]/div/meta/@content   
+  - name: aggregateRating
+    singleValue: true
+    xpath: ancestor::html//span[@itemprop="ratingValue"]
+  - name: category
+    singleValue: false
+    xpath: ancestor::html//div[@class="breadcrumb"]/div[position()>1 and position() < last()]/a/span/text()
+  - name: weightNet
+    singleValue: true
+    xpath: //div[@class='font-headline description mbs1']
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@id="schema-offer"]/div[2]/div/div[1]/div
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id="schema-offer"]/div[3]/meta[@itemprop='sku']/@content
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@id="schema-offer"]/@data-outofstock
+    regExp: (True)
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
+  - name: quantity
+    singleValue: true
+    xpath: //div[@id="schema-offer"]/div[2]/div/div[1]/div
+  - name: alternateImages
+    singleValue: false
+    xpath: ancestor::html//div[@class="carousel more-pictures"]/div[@class="swiper-wrapper"]/div[position()>1]/div/img/@src
+  - name: ingredientsList
+    singleValue: false
+    xpath: ancestor::html//div[@class='footer-content']/div[2]/p[1]
+  - name: directions
+    singleValue: false
+    xpath: ancestor::html//*[@id="right-column"]/div[3]/div[3]/div[3]/div[2]/p/text()
   # - name: eangtin
   #   singleValue: true
   #   xpath: //*[@id="schema-offer"]/div[3]/meta[3]/@content
-  # - name: variantCount
-  #   singleValue: true
-  #   xpath: count(//div[@id='schema-offer'])
-  #   defaultValue: 0
-  # - name: pricePerUnit
-  #   singleValue: true
-  #   xpath: (//*[@id="schema-offer"]/div[2]/p[1]/text())[1]
-  #   #regExp: \€(.+)\*(.*)
-  #   #regExpReplace: $1$2
-  # - name: pricePerUnitUom
-  #   singleValue: true
-  #   xpath: //html//div[@id='perunit']
+  - name: variantCount
+    singleValue: true
+    xpath: count(//div[@id='schema-offer'])
+    defaultValue: 0
+  - name: pricePerUnit
+    singleValue: true
+    xpath: (ancestor::html//*[@id="schema-offer"]/div[2]/p[1]/text())[1]
+  #  regExp: \€(.+)\*(.*)
+  #  regExpReplace: $1$2
+  - name: pricePerUnitUom
+    singleValue: true
+    xpath: ancestor::html//html//div[@id='perunit']
   #   #regExp: \/(.*)
   #   #regExpReplace: $1 
-  # - name: imageAlt
-  #   singleValue: true
-  #   xpath: //*[@id="article-primary-image"]/div/img[1]/@alt
-  # - name: firstVariant
-  #   singleValue: true
-  #   xpath: (//div[@class='variation-alt-images clearfix']/div/@data-variation-id|//*[@id="schema-offer"]/div[1]/div/input/@value)[1]
-  # - name: variants
-  #   singleValue: false
-  #   xpath: //html//div[@id='str']
-  # - name: imageZoomFeaturePresent
-  #   singleValue: true
-  #   defaultValue: Yes
-  # - name: color
-  #   singleValue: true
-  #   xpath: //*[@id="variationsdropdownsearch"]/div
-  #   regExp: (.*) \/
-  #   regExpReplace: $1
+  - name: imageAlt
+    singleValue: true
+    xpath: ancestor::html//*[@id="article-primary-image"]/div/img[1]/@alt
+  - name: firstVariant
+    singleValue: true
+    xpath: (ancestor::html//div[@class='variation-alt-images clearfix']/div/@data-variation-id|ancestor::html//div[@id="schema-offer"]/div[2]/div/div[1]/div)[1]
+  - name: variants
+    singleValue: false
+    xpath: //html//div[@id='str']
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: Yes
+  - name: color
+    singleValue: true
+    xpath: ancestor::html//*[@id="variationsdropdownsearch"]/div
+    regExp: (.*) \/
+    regExpReplace: $1
+  - name: promotion
+    xpath: //*[@id="schema-offer"]/div[2]/div/div[2]/div
+    singleValue: true
+  - name: videos
+    xpath: ancestor::html//*[@id="right-column"]/div/div[1]/div/div[1]/div/div[1]/div/a[2]/@href
+    singleValue: true
