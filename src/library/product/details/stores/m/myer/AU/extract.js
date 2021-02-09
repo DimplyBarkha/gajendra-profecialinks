@@ -29,49 +29,29 @@ module.exports = {
     
     try{
       await context.evaluate(function () {
-        let cVariantGot=false;
-        let tmpData1=JSON.parse(document.querySelector('script#__NEXT_DATA__').textContent);
-        if(tmpData1.props.initialState.productDetails.attributes.hasOwnProperty('selectedAttributes')){
-          console.log('hasOwnProperty === selectedAttributes');
-          console.log('tmpData1111 :',tmpData1.props.initialState.productDetails.attributes.selectedAttributes);
-          let selAtt=tmpData1.props.initialState.productDetails.attributes.selectedAttributes;
-          if(selAtt.hasOwnProperty('id')){
-            console.log(' has id',selAtt.id);
-            console.log('tmpData1id :',tmpData1.props.initialState.productDetails.attributes.selectedAttributes.id);
-            const newDiv = document.createElement('div');
-            newDiv.id = 'customselectedVariantDiv';
-            newDiv.textContent = tmpData1.props.initialState.productDetails.attributes.selectedAttributes.id;
-            newDiv.style.display = 'none';
-            document.body.appendChild(newDiv);
-            cVariantGot=true;
-          }else{
-            console.log(' has no id');
-          }
+        function addHiddenDiv(className, content) {
+          const newDiv = document.createElement('div');
+          newDiv.className = className;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          return newDiv;
         }
-        //try{
-          
-        /*  
-          
-        }catch(e){
-
-        }*/
-        if(cVariantGot==false){
-          console.log('going for normal variant');
-          let tmpData=JSON.parse(document.querySelector('script#__NEXT_DATA__').textContent);
-          let tmpObj=tmpData.props.initialState.productDetails.attributes.variantsMap;
-          console.log('tmpObj:',tmpObj);
-
-          for(let tmp in tmpObj){
-            console.log('tmp:',tmp);
-            let sizeObj=tmpObj[tmp].id;
-            console.log('sizeObj:',sizeObj);
-            const newDiv = document.createElement('div');
-            newDiv.id = 'customselectedVariantDiv';
-            newDiv.textContent = sizeObj;
-            newDiv.style.display = 'none';
-            document.body.appendChild(newDiv);
-            break;
-          }
+        const outerDiv = addHiddenDiv('variants_outer', '');
+        let tmpOBJ=JSON.parse(document.querySelector('script#__NEXT_DATA__').textContent);
+        let rootObj=tmpOBJ.props.initialState.productDetails.attributes.variantsMap;
+        //const sku = document.querySelector('p[data-automation="product-part-number"] span');
+        for(let tmp in rootObj){
+          const skuId = rootObj[tmp].id;
+          const skudiv = addHiddenDiv('sku_id', skuId);
+          //let skuURL = rootObj[tmp].size;
+          let sku_price = addHiddenDiv('sku_price', "$ "+parseFloat(rootObj[tmp].price).toFixed(3).toString());
+          let skuGTIN = addHiddenDiv('sku_gtin',rootObj[tmp].ean);
+          const innerDiv = addHiddenDiv('variants_inner', '');
+          innerDiv.appendChild(skudiv);
+          innerDiv.appendChild(sku_price);
+          innerDiv.appendChild(skuGTIN);
+          outerDiv.appendChild(innerDiv);
+          document.body.appendChild(outerDiv);
         }        
       })
     }catch(e){
