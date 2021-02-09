@@ -57,10 +57,13 @@ module.exports = {
     console.log('ean', ean);
 
     // need to check for EC iframe
-    let iframeSel = 'div[id="loadbeeTabId"] > iframe';
+    let iframeSel = 'div[id="loadbeeTabId"] > iframe, iframe#eky-dyson-iframe';
     let ECText = '';
     let ECImagesArr = [];
     let ECVideosArr = [];
+    let inTheBoxUrls = [];
+    let inTheBoxText = [];
+    let comparisonTable = null;
     try {
       await context.waitForSelector(iframeSel);
       console.log('got the iframe');
@@ -199,7 +202,19 @@ module.exports = {
       }
 
       console.log(ECVideosArr.length, ECImagesArr.length);
-
+      await context.evaluate(async function () {
+        comparisonTable = document.querySelector('#flix-comp') ? "Yes" : "No";
+        const inTheBoxImageSelector = 'div[class*=eky-accesory] img';
+        const inTheBoxTextSelector = 'div[class*=eky-accesory] div[class*=accesory-title]';
+        document.querySelectorAll(inTheBoxImageSelector).forEach(q => {
+          if (q.hasAttribute('src')) {
+            inTheBoxUrls.push(`https://media.flixfacts.com/eyekandy/dyson/v11/es` + q.getAttribute('src'));
+          }
+        });
+        document.querySelectorAll(inTheBoxTextSelector).forEach(q => {
+          inTheBoxText.push(q.innerText.trim());
+        });
+      });
 
       const URL = thisProdPageUrl;
       await context.goto(URL, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: false });
@@ -329,7 +344,7 @@ module.exports = {
 
     });
 
-    await context.evaluate(async (ECText, ECImagesArrText, ECVideosArrText) => {
+    await context.evaluate(async (ECText, ECImagesArrText, ECVideosArrText, inTheBoxUrls, inTheBoxText,comparisonTable) => {
       console.log(ECText, ECImagesArrText, ECVideosArrText);
       async function addElementToDocumentAsync(key, value) {
         const catElement = document.createElement('div');
@@ -337,13 +352,20 @@ module.exports = {
         catElement.textContent = value;
         document.body.appendChild(catElement);
       }
+
       await addElementToDocumentAsync('ectext', ECText);
       await addElementToDocumentAsync('ecimages', ECImagesArrText);
       await addElementToDocumentAsync('ecvideos', ECVideosArrText);
+      await addElementToDocumentAsync('inTheBoxUrls', inTheBoxUrls);
+      await addElementToDocumentAsync('inTheBoxText', inTheBoxText);
+      await addElementToDocumentAsync('comparisonTable', comparisonTable);
     },
       ECText,
       ECImagesArr.join(' || '),
-      ECVideosArr.join(' || '));
+      ECVideosArr.join(' || '),
+      inTheBoxUrls.join(' || '),
+      inTheBoxText.join(' || '),
+      comparisonTable);
     await context.extract(productDetails, { transform });
   },
 };
