@@ -30,6 +30,7 @@ fields:
     xpath: //h2[text()='Product Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text() | //h2[text()='Bundle Details']/following-sibling::wow-view-more//div[contains(@class,'viewMore-')]//div//text()
   - name: variantCount
     singleValue: false
+    defaultValue: '0'
   - name: ratingCount
     sinngleValue: false
     xpath: //div[@class='ng-star-inserted']//script[@type='application/ld+json']
@@ -100,3 +101,10 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //wow-product-details-panel//shared-price//div[contains(@class,'price-was price--large ng-star-inserted')]//text()
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //section[@class="shelfProductTile"]//div[contains(@class,'shelfProductTile-cupPrice ng-star-inserted')]//text()
+    defaultValue: 'null'
+  - name: pricePerUnitUom
+    singleValue: false
+    xpath: //section[@class="shelfProductTile"]//div[contains(@class,'shelfProductTile-cupPrice ng-star-inserted')]//text()

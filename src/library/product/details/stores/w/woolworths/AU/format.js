@@ -185,6 +185,19 @@ const transform = (data) => {
           item.text = item.text.split("g").join("").trim();
         });
       }
+      if (row.pricePerUnit) {
+        row.pricePerUnit.forEach(item => {
+          item.text = item.text.replace(/(\s*)+/g, '').trim();
+          item.text = item.text.replace(/\/.*/, '');
+          item.text = item.text+',"Instore';
+        });
+      }
+      if (row.pricePerUnitUom) {
+        row.pricePerUnitUom.forEach(item => {
+          item.text = item.text.replace(/(\s*)+/g, '').trim();
+          item.text = item.text.split("/").pop();
+        });
+      }
       if (row.price) {
         let info = [];
         row.price.forEach(item => {
