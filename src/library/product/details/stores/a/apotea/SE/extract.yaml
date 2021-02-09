@@ -33,15 +33,14 @@ fields:
 - name: size
   singleValue: false
   xpath: //div[contains(@class,"product-facts")]/div[4]/div[2]
-- name: upc
+- name: gtin
   singleValue: false
-  xpath: //div[contains(@class,"product-facts")]/div[1]/div[2]
+  xpath: //div[@class="product-facts"]//div[contains(text(), "EAN")]/following-sibling::div/text()
+- name: variantId
+  xpath: //div[@class="product-facts"]//div[contains(text(), "EAN")]/following-sibling::div/text()
 - name: sku
   singleValue: false
   xpath: //div[contains(@id,"product-subscription")]/@data-sku
-- name: retailerProductCode
-  singleValue: false
-  xpath: //div[contains(@class,"product-facts")]/div[1]/div[2]
 - name: directionsInformation
   singleValue: false
   xpath: //div[contains(@id,"tab-product-dosage-details")]
