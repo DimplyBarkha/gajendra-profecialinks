@@ -111,9 +111,16 @@ const transform = (data) => {
           row.variantCount = [{ text: variations.length }];
           row.variants = [{ text: variations.join(' | ') }];
         } else {
-          delete row.variants;
-          row.variantCount = [{ text: 0 }];
+          delete row.variant
+{
+  row.promotion
+}          row.variantCount = [{ text: 0 }];
         }
+      }
+      if(row.promotion){
+        row.promotion.forEach(item => {
+         item.text = item.text
+        })
       }
       if (row.color && row.quantity) {
         row.variantInformation = [{ text: row.color[0].text + ' ' + row.quantity[0].text }];
