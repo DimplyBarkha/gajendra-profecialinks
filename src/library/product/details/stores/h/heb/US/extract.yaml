@@ -23,8 +23,8 @@ fields:
     xpath: //div[@class="first-block"]/h1[@class="pdp-product-name"]/text()
   - name: listPrice
     singleValue: true
-    xpath: (//span[@class="uomListPrice"]/text())[1]
-    regExp: (\$\d.+\d)
+    # xpath: (//span[@class="uomListPrice"]/text())[1]
+    # regExp: (\$\d.+\d)
   - name: price
     singleValue: true
     xpath: (//div[@class='PDP__add-to-cart-price']/span[@id='addToCartPrice'])[1] | //div[@class="pdp-container pdp-mobile-layout"]//div[@class='price clearfix']//div[@class="sale2"]/text()[2]
