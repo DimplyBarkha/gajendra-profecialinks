@@ -19,10 +19,9 @@ fields:
   # xpath: //div[@class="boxProductDetail"]//h1[@itemprop="name"]//text()
   xpath: //img[@name="mainImage"]/@alt
 - name: alternateImages
-  type: FILE[]
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: (//div[@class="photo with-multiple-photo" or @class="photo sparset with-multiple-photo" or @class="multiple-photo slick-initialized slick-slider"]//div[@class="slick-track"]//img/@src)[position()>1]
+  xpath: //div[@class="photo with-multiple-photo" or @class="photo sparset with-multiple-photo" or @class="multiple-photo slick-initialized slick-slider"]//div[@class="slick-track"]//div[not(contains(@class,'fl slick-slide slick-current slick-active'))]//img/@src
   regExp: (.+)
   regExpReplace: https://www.medikamente-per-klick.de$1
 - name: metaKeywords
@@ -88,7 +87,7 @@ fields:
   singleValue: true
   description: The store-specific product identifier
   # xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@itemprop="productID"]//text()
-  # xpath: (//dl[@class="productInfos"]//dd[@itemprop="productID"]//text())[1]
+  xpath: (//dl[@class="productInfos"]//dd[@itemprop="productID"]//text())[1]
 - name: variantId
   singleValue: true
   # xpath: //div[@class="wide-6 productInformations offerDetails"]//dd[@itemprop="productID"]//text()

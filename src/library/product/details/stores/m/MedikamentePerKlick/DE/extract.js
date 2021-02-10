@@ -82,7 +82,11 @@ module.exports = {
           availability = "Out of Stock";
         }
         addElementToDocument('availability', availability);
+      }else {
+        availability = "Out of Stock";
+        addElementToDocument('availability', availability);
       }
+      
 
     });
     return await context.extract(productDetails);
