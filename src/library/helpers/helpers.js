@@ -119,7 +119,7 @@ module.exports.Helpers = class {
   }
 
   // Function which makes a click
-  async ifThereClickOnIt (selector, timeoutOptions) {
+  async ifThereClickOnIt (selector, timeoutOptions, reloadPage = false) {
     const { wait = timeoutOptions || 3000, click = timeoutOptions || 3000 } = timeoutOptions || {};
     try {
       await this.context.waitForSelector(selector, { timeout: wait });
@@ -134,6 +134,7 @@ module.exports.Helpers = class {
       // try both click
       try {
         await this.context.click(selector, { timeout: click });
+        if (reloadPage) await this.context.reload();
       } catch (error) {
         // context click did not work and that is ok
       }
@@ -141,6 +142,7 @@ module.exports.Helpers = class {
         const elem = document.querySelector(selector);
         if (elem) elem.click();
       }, selector);
+      if (reloadPage) await this.context.reload();
       return true;
     }
     return false;
