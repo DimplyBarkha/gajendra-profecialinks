@@ -1,4 +1,4 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../../colesonline/AU/shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -83,7 +83,7 @@ async function implementation (
       addHiddenDiv('ii_variantId', variantId.replace(/ /gm, ''));
       const additionalProperty = script.additionalProperty ? script.additionalProperty : '';
       additionalProperty.forEach(element => {
-        element.name === 'Warning' && addHiddenDiv('ii_warning', element.text);
+        element.name === 'Warning' && addHiddenDiv('ii_warning', element.value);
       });
     }
     let servingSize = findXpath("//*[@class='nutritional-table-intro']");
