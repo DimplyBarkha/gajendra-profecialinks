@@ -144,7 +144,7 @@ async function implementation (
   if (loadedXpath) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.evaluate(sel, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext() || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, loadedXpath, noResultsXPath);
+    }, { timeout: 30000 }, loadedXpath, noResultsXPath);
   }
   console.log('Checking no results', noResultsXPath);
 
