@@ -43,7 +43,7 @@ fields:
     xpath: //div[contains(@class,"j-size-list size-list")]//label[contains(@class,"active")]//input/@value
   - name: variants
     singleValue: false
-    xpath: //div[contains(@class,"j-size-list size-list")]/label//input/@value
+    xpath: //div[contains(@class,"j-size-list size-list")]/label//input/@value | //div[contains(@class,'colors-preview j-colors-preview')]//ul//li/@data-cod1s
   - name: ratingCount
     singleValue: false
     xpath: //a[@id="comments_reviews_link"]/span/i
@@ -76,20 +76,17 @@ fields:
     defaultValue: "Yes"
   - name: variantCount
     singleValue: false
-    xpath: count(//div[contains(@class,'colors-preview j-colors-preview')]//ul//li)
+    xpath: count(//div[contains(@class,"j-size-list size-list")]/label//input/@value | //div[contains(@class,'colors-preview j-colors-preview')]//ul//li/@data-cod1s)
     defaultValue: 0
   - name: countryOfOrigin
     singleValue: false
     xpath: //div[@class="params"]//div[@class="pp"]//span/b[text()="Страна производитель"]/parent::*/parent::*/span[2]
   - name: variantInformation
     singleValue: false
-    xpath: //div[contains(@class,'colors-preview j-colors-preview')]//ul//li//img/@alt
+    xpath: //div[contains(@class,"j-size-list size-list")]/label/span | //div[contains(@class,'colors-preview j-colors-preview')]//ul//li//img/@alt
   - name: firstVariant
     singleValue: false
-    xpath: //div[contains(@class,'colors-preview j-colors-preview')]//ul//li[1]/@data-cod1s
-  - name: variants
-    singleValue: false
-    xpath: //div[contains(@class,'colors-preview j-colors-preview')]//ul//li/@data-cod1s
+    xpath: //div[contains(@class,"j-size-list size-list")]/label[1]//input/@value | //div[contains(@class,'colors-preview j-colors-preview')]//ul//li[1]/@data-cod1s
   - name: videos
     singleValue: false
     xpath: //meta[@property='og:video']//@content

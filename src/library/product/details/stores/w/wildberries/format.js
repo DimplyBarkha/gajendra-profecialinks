@@ -59,13 +59,13 @@ const transform = (data) => {
               });
             }
         }
-        /*if (row.variants) {
+        if (row.variants) {
             let variantsInfo = [];
             row.variants.forEach(item => {                    
                 variantsInfo.push(item.text.trim());
             });
             row.variants = [{'text':variantsInfo.join(' | '),'xpath':row.variants[0].xpath}];
-        }*/
+        }
         if (row.availabilityText) {                    
             row.availabilityText.forEach(item => {
               item.text = "In Stock";
