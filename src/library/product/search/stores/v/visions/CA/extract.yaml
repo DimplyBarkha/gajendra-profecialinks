@@ -39,16 +39,23 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating
+    xpath: //div[contains(@class,"p-w-r")]//section/div/child::script
+    regExp: ("ratingValue":)(\d+(\.\d{1,2})?)
+    regExpReplace: $2
   - name: ratingCount
     singleValue: false
-    xpath: //div[@class='prodlist-rating-txt']//span[position()=2]
     description: The number of ratings
+    xpath: //div[contains(@class,"p-w-r")]/section/div/child::script
+    regExp: ("reviewCount":)(\d+(\.\d{1,2})?)
+    regExpReplace: $2
   - name: reviewCount
-    xpath: //div[@class='prodlist-rating-txt']//span[position()=2]
     singleValue: false
     description: The number of reviews
+    xpath: //div[contains(@class,"p-w-r")]/section/div/child::script
+    regExp: ("reviewCount":)(\d+(\.\d{1,2})?)
+    regExpReplace: $2
   - name: price
     singleValue: false
     # manualSelector: div[class*='pricingtag-leftcell'] , div[class='prodlist-regprice pricing-font']
@@ -93,8 +100,10 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per extractor)
   - name: aggregateRating2
     singleValue: false
-    xpath: //span[@title='rating value']
     description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[contains(@class,"p-w-r")]/section/div/child::script
+    regExp: ("ratingValue":)(\d+(\.\d{1,2})?)
+    regExpReplace: $2
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id='added-searchurl'][last()]
