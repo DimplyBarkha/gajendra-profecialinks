@@ -118,7 +118,7 @@ module.exports = {
     store: 'colesonline_burwoodEast',
     domain: 'shop.coles.com.au',
     loadedSelector: 'div[class*="product-hero-image-container"] img',
-    noResultsXPath: "//h1[contains(@class,'error-heading')] | //nav[not(contains(@class,'ng-hide'))]//ol[contains(@id,'tablist')]//li",
+    noResultsXPath: '//h1[contains(@class,"error-heading")] | //nav[not(contains(@class,"ng-hide"))]//ol[contains(@id,"tablist")]//li | //*[@id="emptyCatalogEntryList"]',
     zipcode: '',
   },
   implementation,

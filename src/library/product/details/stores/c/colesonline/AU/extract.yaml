@@ -320,3 +320,11 @@ fields:
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[contains(@class,"product-information")]//div[contains(@class,"rating-details")]//span[contains(@data-ng-bind,"product.rating")]
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class,"product-information")]//div[contains(@class,"rating-details")]//span[contains(@data-ng-bind,"reviews")]
+    regExp: \((\d+)\)
+    regExpReplace: $1
