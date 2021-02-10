@@ -1,4 +1,4 @@
-const { transform } = require('../format');
+const { transform } = require('./format');
 async function implementation(
   inputs,
   parameters,

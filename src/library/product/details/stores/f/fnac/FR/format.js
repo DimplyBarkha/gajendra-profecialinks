@@ -146,9 +146,12 @@ const transform = (data) => {
       }
       if (row.inTheBoxUrl) {
         row.inTheBoxUrl.forEach((element) => {
-          const text = element.text.includes(',') ? ((element.text.split(',')[0].match(/(.+)(jpg)/g)) ? element.text.split(',')[0].match(/(.+)(jpg)/g)[0] : element.text) : element.text;
-          const finalText = `https:${text}`;
-          element.text = finalText;
+          if (element.text && element.text.includes(',')) {
+            const isMatchingText = element.text.split(',')[0].match(/(.+)(jpg)/g);
+            const text = isMatchingText ? isMatchingText[0] : element.text;
+            const finalText = `https:${text}`;
+            element.text = finalText;
+          }
         });
       }
       if (row.unInterruptedPDP) {
