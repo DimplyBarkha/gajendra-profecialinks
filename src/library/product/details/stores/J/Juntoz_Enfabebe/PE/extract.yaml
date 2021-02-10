@@ -20,11 +20,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ol[@class="list-inline list-unstyled breadcrumb-detail"]/li/breadcrumb/a
-  - name: sub-category
-    singleValue: false
-    description: The categories (e.g. from breadcrumbs)
-    xpath: //ol[@class="list-inline list-unstyled breadcrumb-detail"]/li/breadcrumb/span[@ng-repeat="child in item.children"]    
+    xpath: //ol[@class="list-inline list-unstyled breadcrumb-detail"]/li/breadcrumb/a   
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -51,7 +47,7 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //meta[@name="description"]/@content
+    xpath: //meta[@itemprop="name"]/@content
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -86,10 +82,10 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+    xpath: //div[@jztm-prop="productId"]/@jztm-content
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //div[@jztm-prop="productId"]/@jztm-content
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -229,7 +225,6 @@ fields:
   - name: otherSellersName
     singleValue: false
     description: null
-    xpath: //div[@class="single-product-store"]/a
   - name: otherSellersPrice
     singleValue: false
     description: null

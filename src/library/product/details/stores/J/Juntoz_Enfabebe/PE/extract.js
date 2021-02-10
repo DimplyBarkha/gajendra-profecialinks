@@ -1,10 +1,11 @@
+const { cleanUp } = require('../../../../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'PE',
     store: 'Juntoz_Enfabebe',
-    transform: null,
+    transform: cleanUp,
     domain: 'enfabebe.juntoz.com',
     zipcode: '',
   },
@@ -13,7 +14,7 @@ module.exports = {
     window.location.reload()
     
     });
-    await new Promise(r => setTimeout(r, 3000));
+    await new Promise(r => setTimeout(r, 6000));
     await context.extract(productDetails);
     },
     };

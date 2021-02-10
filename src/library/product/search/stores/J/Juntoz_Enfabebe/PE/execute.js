@@ -5,9 +5,9 @@ module.exports = {
     country: 'PE',
     store: 'Juntoz_Enfabebe',
     domain: 'enfabebe.juntoz.com',
-    url: 'https://enfabebe.juntoz.com/catalogo?keywords={searchTerms}',
+    url: 'https://enfabebe.juntoz.com/catalogo?keywords={searchTerms}&allStore=false&specialPrice=false',
     loadedSelector: 'body',
-    noResultsXPath: '//li[@class="pagination-next ng-scope disabled"]/a',
+    noResultsXPath: null,
     zipcode: '',
   },
 };
