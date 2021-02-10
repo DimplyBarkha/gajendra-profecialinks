@@ -29,6 +29,15 @@ const transform = (data, context) => {
           row.variantId = row.sku;
         }
       }
+      if (!row.directions && row.directionsFromPTag) {
+        let directionsInfo = row.directionsFromPTag[0].text;
+        directionsInfo = directionsInfo.replace('Modo de empleo:', '');
+        row.directions = [{ text: directionsInfo.trim() }];
+      }
+
+      if (!row.quantity && row.quantityFromSingleVariant) {
+        row.quantity = row.quantityFromSingleVariant;
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
