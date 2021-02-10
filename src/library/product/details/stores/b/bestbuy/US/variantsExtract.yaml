@@ -1,14 +1,14 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: ul.seo-list
-recordXPath: //ul[@class="seo-list"]
+# recordSelector: ul.seo-list
+# recordXPath: //ul[@class="seo-list"]
 fields:
   - name: variantId
     singleValue: false
-    xpath: //ul[@class="seo-list"]//li/a/@href
-    regExp: (?<=skuId=).*
+    xpath: //div[@class="sku_id"]
+    # regExp: (?<=skuId=).*
     # regExpReplace: $1
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //ul[@class="seo-list"]//li/a/@href
+    xpath: //div[@class="sku_url"]

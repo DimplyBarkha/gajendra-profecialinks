@@ -4,7 +4,8 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { id } = inputs;
+  let { id } = inputs;
+  id = id.toString();
   if (id.includes('-')) {
     const gotoUrl = `https://www.bestbuy.com/site/combo/${id}?intl=nosplash`;
     return gotoUrl;

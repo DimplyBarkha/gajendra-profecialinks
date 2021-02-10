@@ -20,16 +20,27 @@ async function implementation(
         const innerDiv = addHiddenDiv('variants_ul', '');
         const skuId = variant.href.replace(/.*skuId=(.*)/, '$1');
         const skudiv = addHiddenDiv('sku_id', skuId);
-        const skuUrl = addHiddenDiv('sku_url', variant.href);
+        let sku = variant.href;
+        if (sku.includes('?')) {
+          sku = `${sku.replace(/#(.*)/g, '')}&intl=nosplash`;
+        } else {
+          sku = `${sku.replace(/#(.*)/g, '')}?intl=nosplash`;
+        }
+        const skuUrl = addHiddenDiv('sku_url', sku);
         innerDiv.appendChild(skudiv);
         innerDiv.appendChild(skuUrl);
         outerDiv.appendChild(innerDiv);
       });
     }
     const innerDiv = addHiddenDiv('variants_ul', '');
-    const sku = window.location.href
+    let sku = window.location.href
     const skuId = sku.replace(/.*skuId=(.*)/, '$1');
-    const skudiv = addHiddenDiv('sku_id', skuId);
+    const skudiv = addHiddenDiv('sku_id', skuId.replace(/#(.*)/g, ''));
+    if (sku.includes('?')) {
+      sku = `${sku.replace(/#(.*)/g, '')}&intl=nosplash`;
+    } else {
+      sku = `${sku.replace(/#(.*)/g, '')}?intl=nosplash`;
+    }
     let skuUrl = addHiddenDiv('sku_url', sku)
     innerDiv.appendChild(skudiv);
     innerDiv.appendChild(skuUrl);

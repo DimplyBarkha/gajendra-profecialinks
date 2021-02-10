@@ -4,6 +4,10 @@ parameters:
   store: bestbuy
   domain: bestbuy.com
   zipcode: ""
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+  retryWithResidentialProxyAfter: 1
 meta:
   branches:
     dev:
