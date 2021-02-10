@@ -147,14 +147,14 @@ module.exports = {
     }
 
     await context.evaluate(async function () {
-      function addElementToDocument(key, value) {
+      function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.className = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      function addElementToHTML(key, value) {
+      function addElementToHTML (key, value) {
         const catElement = document.createElement('div');
         catElement.className = key;
         catElement.innerHTML = value;
@@ -177,7 +177,7 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      function stall(ms) {
+      function stall (ms) {
         // @ts-ignore
         return new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -314,7 +314,7 @@ module.exports = {
       //   }
       // }
 
-      function getVideoUrl(videoUrl, addToDOM) {
+      function getVideoUrl (videoUrl, addToDOM) {
         if (videoUrl.length > 0) {
           for (let i = 0; i < videoUrl.length; i++) {
             if (videoUrl[i] && typeof videoUrl[i] === 'string') {
