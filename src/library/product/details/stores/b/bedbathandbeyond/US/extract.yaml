@@ -92,7 +92,7 @@ fields:
     # xpath: //div[@id='productDetails']//*[self::div or self::li]
   - name: videos
     SingleValue: false
-    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li//button/img[@alt='Video']/@src|//div[@id="ii_manufVid"]
+    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li//button/img[@alt='Video'][not(contains(@src, '.jpg'))]/@src|//div[@id="ii_manufVid"]
   - name: specifications
     SingleValue: false    
     xpath: //div[@id='specs']//div[@class='grid-x Specs_5UF8Em']//div[@class='grid-x Specs_2u7UG5']

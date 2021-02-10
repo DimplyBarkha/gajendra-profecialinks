@@ -110,6 +110,9 @@ module.exports = {
         addHiddenDiv('product-desc', desc);
         addHiddenDiv('ii_manufContent', desc);
       }
+      // function isVisible( elem ) {
+      //   return !!( elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length );
+      // }
       let moreManufContent = '';
       let manufImg = '';
       let manufVideoText = '';
@@ -132,7 +135,10 @@ module.exports = {
             
             if (iframeWindow.document.querySelectorAll('img').length) {
               [...iframeWindow.document.querySelectorAll('img')].forEach(img => {
-                arrManufImg.push(img.src);
+                const imgSrc = img.src.replace(/(?<=.jpeg).*|(?<=.jpg).*/g, '');
+                if (arrManufImg.indexOf(imgSrc)  === -1) {
+                  arrManufImg.push(imgSrc);
+                }
               });
             }
           }
@@ -290,6 +296,23 @@ module.exports = {
       await context.evaluate(function () {
         const firstItem = document.querySelector('a[class^="ProductMediaCarouselStyle"] span, div[class^="ProductMediaCarouselStyle"] a');
         firstItem.click();
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+        const videosInMain = document.querySelectorAll('ul[class^="ProductMediaCarouselStyle"] > li > button > img[alt="Video"][src*=".jp"]');
+        if (videosInMain.length) {
+          [...videosInMain].forEach((ele) => {
+            ele.click();
+            const tvPlayerVid = document.querySelector('div[class^="ProductMediaCarouselStyle"] iframe');
+            if (tvPlayerVid) {
+              addHiddenDiv('ii_manufVid', tvPlayerVid.getAttribute('src'));
+            }
+          })
+        }
       });
     } catch (err) { }
 
