@@ -42,7 +42,12 @@ fields:
     xpath:  //div[@class="productsList"]//dd[@itemprop="brand"]
   - name: rank
     singleValue: false
-    xpath: //div[starts-with(@id,'ii_rank')]
+    # xpath: //div[starts-with(@id,'ii_rank')]
   - name: rankOrganic
     singleValue: false
-    # xpath: //div[starts-with(@id,'ii_rank')]
+    # xpath: //div[starts-with(@id,'ii_rankorganic')]
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    xpath: //div[@class="boxProduct specialProduct"]//div[@class="h3"]/a/@href
