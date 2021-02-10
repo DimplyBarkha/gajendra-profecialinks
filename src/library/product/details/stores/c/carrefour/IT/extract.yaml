@@ -24,9 +24,12 @@ fields:
     xpath: //link[@rel="canonical"]/@href
     regExp: (.+)
     regExpReplace: https://www.carrefour.it$
-    #name: category
-    #xpath: //ul[@class="glide__slides"]/li[@id="cat-pane-farine-e-preparati"]/a/span/child::text()
-    #singleValue: false 
+  - name: category
+    xpath: (//div/div/div[contains(@class,"glide")]/div[contains(@class,"glide__track")]/ul[contains(@class,"glide__slides")]/li[contains(@class,"selected")])[1]
+    singleValue: false 
+  - name: name
+    xpath: //h1[@class="product-description"]
+    singleValue: false 
   - name: nameExtended
     xpath: //h1[@class="product-description"]
     singleValue: false 
@@ -34,13 +37,13 @@ fields:
     xpath: //div[contains(@id,"panel-otherInformation")]
     singleValue: false
   - name: ingredientsList
-    xpath: //div[contains(@id,"panel-ingredientAndAllergens")]/p[contains(@class,"inner-title")][1]|//div[contains(@id,"panel-ingredientAndAllergens")]/ul/*
+    xpath: //div[contains(@id,"panel-ingredientAndAllergens")]/ul/*
     singleValue: false
   - name: allergyAdvice
     xpath: //div[contains(@id,"panel-ingredientAndAllergens")]/p[position()>2][1]
     singleValue: false
   - name: storage
-    xpath: (//div[contains(@id,"panel-usageTips")]/p)[2] #try to give space in first word
+    xpath: (//div[contains(@id,"panel-usageTips")]/p)[2] | //div[contains(@id,"panel-usageTips")]/p[2]/span #try to give space in first word
     singleValue: false
     #name: countryOfOrigin
     #xpath: //div[contains(@id,"panel-otherInformation")]/p[@class][8]
@@ -52,19 +55,19 @@ fields:
     #xpath: //*[@id="maincontent"]/div[3]/div[2]/div/div[3]/div[2]/div/div/div/div[1]
     #singleValue: false
   - name: price
-    xpath: //div[@class="product-main"]/div[@class="product-main-info"]/div[@class="prices-add-to-cart-actions"]/div/div/span/span/span[@class="value"]
+    xpath: //div[@class="product-main-info"]/div[contains(@class,"price")]/div[contains(@class,"price")]/div/span/span/span[contains(@class,"value")]
     singleValue: false  
   - name: brandText
     xpath: (//p[contains(@class,"product-name")])[1]
     singleValue: false
   - name: quantity  #remind me chaneg this
     singleValue: false
-    xpath: //*[@id="maincontent"]/div[3]/div[2]/div[1]/div[3]/div[2]/div[1]/div/span/span/span[1]
-    regExp: '([^/]*$)'
-    regExpReplace: '$1'
-    #name: servingSize
-    #singleValue: false
-    #xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/span)[2]
+    xpath: //h1[@class="product-description"]
+    #regExp: '([^/]*$)'
+    #regExpReplace: '$1'
+    name: servingSize
+    singleValue: false
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"er")])[1]
     #regExp: '([\d]+\s*(.+))'
     #regExpReplace: '$1'
   - name: caloriesPerServing
@@ -97,7 +100,9 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //div[contains(@class,"prices-add-to-cart-actions")]/div[contains(@class,"add-to-cart")]/button[contains(@class,"btn-add-to-cart")]
-    defaultValue: In Stock    
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock    
 
 
 
