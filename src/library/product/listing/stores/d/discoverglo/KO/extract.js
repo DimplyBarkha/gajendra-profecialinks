@@ -35,26 +35,31 @@ async function implementation (
   await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
 
   const resultsCount = await context.evaluate((resultsCountSelector) => {
-    let reviewCount = document.querySelector(resultsCountSelector).textContent;
-    return Number(reviewCount.replace(/,/g, ''));
+    if (document.querySelector(resultsCountSelector)) {
+      const reviewCount = document.querySelector(resultsCountSelector).textContent;
+      return Number(reviewCount.replace(/,/g, ''));
+    } else {
+      return 0;
+    }
   }, resultsCountSelector);
 
+  if (resultsCount > 0) {
+    const totalPages = Math.ceil(Number(resultsCount) / numberResultPerPage);
 
-  const totalPages = Math.ceil(Number(resultsCount) / numberResultPerPage);
+    const currentUrl = await context.evaluate(() => {
+      return window.location.href;
+    });
+    const urlArray = [];
+    const currentUrlTemplate = currentUrl + '?page={page}';
 
-  const currentUrl = await context.evaluate(() => {
-    return window.location.href;
-  });
-  const urlArray = [];
-  const currentUrlTemplate = currentUrl+'?page={page}';
+    for (let i = 1; i <= totalPages; i++) {
+      urlArray.push(currentUrlTemplate
+        .replace('{page}', i));
+    }
 
-  for (let i = 1; i <= totalPages; i++) {
-    urlArray.push(currentUrlTemplate
-      .replace('{page}', i));
+    await helper.addArrayToDocument('my-urls', urlArray);
+    await helper.addItemToDocument('my-results-count', resultsCount);
   }
-
-  await helper.addArrayToDocument('my-urls', urlArray);
-  await helper.addItemToDocument('my-results-count', resultsCount);
 
   return await context.extract(productDetails, { transform });
 }
