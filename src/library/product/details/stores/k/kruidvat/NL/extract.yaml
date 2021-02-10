@@ -55,6 +55,7 @@ fields:
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
+    xpath: //div[@id="count"]
     type: NUMBER
   - name: brandText
     singleValue: true
@@ -106,6 +107,7 @@ fields:
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
+    xpath: //h5[contains(text(),'Verplichte algemene verme')]/following::p[1]
   - name: ratingCount
     singleValue: true
     description: The number of ratings
@@ -256,7 +258,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //*[contains(text(),'Ingredientendeclaratie')]/following::p[1]
+    xpath: (//*[contains(text(),'Ingredientendeclaratie')]/following::p[1])
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.

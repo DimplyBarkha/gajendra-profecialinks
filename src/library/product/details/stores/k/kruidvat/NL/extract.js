@@ -29,6 +29,27 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+        const element = nodeSet.snapshotItem(index);
+        if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+        };
+      var bullet = getAllXpath('//div[@class="product-information__wrapper"]/p//text()', 'nodeValue');
+      var count=0
+      for (var i = 0; i < bullet.length; i++)
+    {
+      if(bullet[i].includes('•'))
+      {
+        var z = bullet[i].toString()
+        count = count + 1
+              }
+    }
+    console.log(count,'-------------------count')
+    addElementToDocument('count', count);
       var getXpath = (xpath, prop) => {
         var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -38,6 +59,15 @@ module.exports = {
       };
       // var elmnt = document.getElementById("myAnchor");
       // var attr = elmnt.getAttributeNode("target").value;
+      // var ing=''
+      // var ing1=''
+      // var ingrediant = getXpath("//*[contains(text(),'Ingredientendeclaratie')]/following::p[1]//text()",'node');
+      // if (ingrediant != null){
+      //     ing = ingrediant.replace('ingredienten:','')
+      //     ing1=ing.replace('Ingrediënten:','')
+
+      // }
+      // addElementToDocument('ing1', ing1);
       var backgroundURL = getXpath('(//@data-stock)[1]').value;
       var price = getXpath('//span[@itemprop="price"]').innerText;
       var upc1 = ''
