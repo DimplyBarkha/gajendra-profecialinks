@@ -24,10 +24,10 @@ fields:
     regExpReplace: $3
   - name: directions
     singleValue: false
-    xpath: //*[contains(text(), 'Serving Recommendation')]/following-sibling::*[1]
+    xpath: //h3[contains(text(), 'Indicazioni')]/following-sibling::*[1] | //*[contains(text(), 'Serving Recommendation') or contains(text(),"Istruzioni di conservazione")]/following-sibling::*[1]
   - name: warnings
     singleValue: false
-    xpath: //b[contains(text(), 'Avvertenze:')]/parent::* | //*[normalize-space(text())="Avvertenze"]/following-sibling::p[not(.="")]
+    xpath: //h3[contains(text(), 'Avviso di sicurezza')]/following-sibling::*[1] | //b[contains(text(), 'Avvertenze:')]/parent::* | //*[normalize-space(text())="Avvertenze"]/following-sibling::p[not(.="")] | //*[@data-feature-name="legalEUBtf"]//text()[starts-with(.,"Avvertenza")]
   - name: shippingDimensions
     singleValue: false
     xpath: //*[contains(text(), 'Dimensioni del collo')]/following-sibling::*
