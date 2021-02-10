@@ -70,12 +70,12 @@ const transform = (data) => {
           item.text = (descJSON && descJSON.aggregateRating && descJSON.aggregateRating.ratingCount) ? descJSON.aggregateRating.ratingCount.trim() : '';
         }
       }
-      if (row.aggregateRating) {
-        for (const item of row.aggregateRating) {
-          const descJSON = (JSON.parse(item.text)) ? JSON.parse(item.text) : [];
-          item.text = (descJSON && descJSON.aggregateRating && descJSON.aggregateRating.ratingValue) ? descJSON.aggregateRating.ratingValue.trim() : '';
-        }
-      }
+      // if (row.aggregateRating) {
+      //   for (const item of row.aggregateRating) {
+      //     const descJSON = (JSON.parse(item.text)) ? JSON.parse(item.text) : [];
+      //     item.text = (descJSON && descJSON.aggregateRating && descJSON.aggregateRating.ratingValue) ? descJSON.aggregateRating.ratingValue.trim() : '';
+      //   }
+      // }
       if (row.manufacturerImages) {
         for (const item of row.manufacturerImages) {
           item.text = 'https://www.visions.ca' + item.text;

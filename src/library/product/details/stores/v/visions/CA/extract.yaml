@@ -24,7 +24,8 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
-    xpath: //*[@itemprop='name']
+    # xpath: //*[@itemprop='name']
+    xpath: (//div[contains(@id,"detailview-right-container")]/div/span)[1]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -89,7 +90,8 @@ fields:
     description: The number of ratings
   - name: aggregateRating
     singleValue: true
-    xpath: //script[@type='application/ld+json']
+    xpath: (//div[contains(@class,"pr-snippet-rating-decimal")])[1]
+    # xpath: //script[@type='application/ld+json']
     # xpath: //dd[@class='bv-rating-ratio-number']
     # manualSelector: dd.bv-rating-ratio-number
     description: The stated aggregate rating normalized to be out of 5
@@ -122,7 +124,8 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: true
-    xpath: //*[@itemprop='name']
+    # xpath: //*[@itemprop='name']
+    xpath: (//div[contains(@id,"detailview-right-container")]/div/span)[1]
     description: The product name
   - name: featureBullets
     singleValue: false
