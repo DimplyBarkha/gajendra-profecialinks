@@ -1,13 +1,25 @@
+// this is a module containing some ready made functions
+// to use it do the following in extract.js
+/*
+//at the bottom of the file, add the following in the module.exports object:
+dependencies: {
+    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    helperModule: 'module:helpers/helpers',
+  },
+
+//inside the implementation function
+  const { helperModule: { Helpers } } = dependencies;
+  const helper = new Helpers(context);
+
+  // you can now use any of the function like that
+  helper.function()
+
+*/
 
 module.exports.Helpers = class {
   constructor (context) {
     this.context = context;
   }
-
-  // this file is invoked by writting the following:
-  // const { Helpers } = require('../../../../../../helpers/helpers');
-  // const helper = new Helpers(context)
-  // helper.function()
 
   // Function which adds an element to the document
   async addItemToDocument (key, value, { parentID = '', type = 'div', clss = '' } = {}) {
@@ -77,11 +89,12 @@ module.exports.Helpers = class {
   }
 
   // Function which checks if the provided object of selectors is there then navigate and click
-  async checkAndClick (selector, type, timeout, input) {
+  async checkAndClick (selector, type, timeoutOrOptions, input) {
     if (!this.checkSelector(selector, type)) return;
+    const options = typeof timeoutOrOptions === 'number' ? { timeout: timeoutOrOptions } : timeoutOrOptions;
     await Promise.all([
-      this.context.waitForNavigation({ timeout }),
-      !input ? this.context.click(selector) : this.context.setInputValue(selector, input),
+      this.context.waitForNavigation(options),
+      !input ? this.ifThereClickOnIt(selector) : this.context.setInputValue(selector, input),
     ]).catch(e => {});// do nothing if an error arise
   }
 
@@ -106,11 +119,12 @@ module.exports.Helpers = class {
   }
 
   // Function which makes a click
-  async ifThereClickOnIt (selector) {
+  async ifThereClickOnIt (selector, timeoutOptions) {
+    const { wait = timeoutOptions || 3000, click = timeoutOptions || 3000 } = timeoutOptions || {};
     try {
-      await this.context.waitForSelector(selector, { timeout: 5000 });
+      await this.context.waitForSelector(selector, { timeout: wait });
     } catch (error) {
-      console.log(`The following selector was not found: ${selector}`);
+      console.log(`The following selector was not found: ${selector}`, `timeout: wait: ${wait}, click: ${click}`);
       return false;
     }
     const hasItem = await this.context.evaluate((selector) => {
@@ -119,7 +133,7 @@ module.exports.Helpers = class {
     if (hasItem) {
       // try both click
       try {
-        await this.context.click(selector, { timeout: 2000 });
+        await this.context.click(selector, { timeout: click });
       } catch (error) {
         // context click did not work and that is ok
       }
@@ -130,5 +144,71 @@ module.exports.Helpers = class {
       return true;
     }
     return false;
+  };
+
+  // Function which allows to wait for an element within an iframe or a shadowroot
+  async waitForInDifferentContext (selector, documentSelector, options) {
+    const { timeout = Number(options) ? options : 500 } = options || {};
+    console.log('..waitForLoader..:', documentSelector);
+    const waitingTime = 500;
+    const limit = Math.ceil(timeout / waitingTime);
+    const rootIsThere = await this.context.evaluate((docSel) => {
+      const docOrIframe = document.querySelector(docSel);
+      const doc = docOrIframe.contentDocument || docOrIframe.shadowRoot || docOrIframe;
+      console.log('=====================');
+      console.log(`the document context node is iframe ${!!docOrIframe.contentDocument}, shadowRoot: ${!!docOrIframe.shadowRoot}, elem: ${!!docOrIframe}`);
+      console.log(doc);
+      console.log('=====================');
+      return !!doc;
+    }, documentSelector);
+    if (!rootIsThere) {
+      console.log('Root document for waiting loop is not there.');
+      return false;
+    }
+    let loopCounter = 0;
+    let isThere = false;
+    while (loopCounter < limit && !isThere) {
+      loopCounter += 1;
+      isThere = await this.context.evaluate(([sel, docSel]) => {
+        const docOrIframe = document.querySelector(docSel);
+        const doc = docOrIframe.contentDocument || docOrIframe.shadowRoot || docOrIframe;
+        console.log(`Checking if the following selector is there: ${sel}`);
+        return !!doc.querySelector(sel);
+      }, [selector, documentSelector]);
+      await new Promise(resolve => setTimeout(resolve, waitingTime));
+    }
+    console.log(`The wait for selector ${selector} within context ${documentSelector} returned ${isThere}`);
+    return isThere;
+  };
+
+  // Check if an iframe fully loaded
+  async waitForFrameToLoad (selector, options) {
+    const { timeout = Number(options) ? options : 500, selectorType: type = 'css' } = options || {};
+    if (!this.checkSelector(selector, type)) return false;
+    const waitingTime = 500;
+    const limit = Math.ceil(timeout / waitingTime);
+    let loopCounter = 0;
+    let isLoaded = false;
+    while (loopCounter < limit && !isLoaded) {
+      loopCounter += 1;
+      isLoaded = await this.context.evaluate((sel) => {
+        const docOrIframe = document.querySelector(sel);
+        const doc = docOrIframe.contentDocument || docOrIframe; // does not support shadowRoot
+        return doc.readyState === 'complete';
+      }, selector);
+      console.log(`Checking if the following frame selector is loaded: ${selector}, -> ${isLoaded}`);
+      await new Promise(resolve => setTimeout(resolve, waitingTime));
+    }
+    return isLoaded;
+  }
+
+  // remove script tag breaking the html extraction
+  async removeScriptsWhichContains (text) {
+    return this.context.evaluate((text) => {
+      [...document.querySelectorAll('script')]
+        .map(node => ({ node, textContent: node.textContent, src: node.src }))
+        .filter(({ textContent, src }) => textContent.includes(text) || src.includes(text))
+        .forEach(({ node }) => node.remove());
+    }, text);
   }
 };
