@@ -85,11 +85,11 @@ async function implementation (
         addHiddenDiv('my-variantId', variantId);
         let variantInf = '';
         if (variantLength > 2) {
-          const variantInfXpath = '(//h2[contains(@class,"rd__headline--80") and @title] | //div[contains(@class,"rd__headline--80") and @title])[2]';
+          const variantInfXpath = '//h2[contains(@class,"rd__headline--80") and @title] | //div[contains(@class,"rd__headline--80") and @title]';
           variantInf = getSingleText(variantInfXpath, document, index - 1);
           addHiddenDiv('my-variantInf', variantInf);
         } else {
-          const variantInfXpath = '//h2[contains(@class,"rd__headline--80") and @title] | //div[contains(@class,"rd__headline--80") and @title]';
+          const variantInfXpath = '(//h2[contains(@class,"rd__headline--80") and @title] | //div[contains(@class,"rd__headline--80") and @title])[2]';
           variantInf = getSingleText(variantInfXpath, document, index - 1);
           addHiddenDiv('my-variantInf', variantInf);
         }

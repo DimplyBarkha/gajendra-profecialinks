@@ -113,6 +113,9 @@ const transform = (data) => {
       if (row.directions && row.directions.length > 1) {
         row.directions = row.directions.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
       };
+      if (row.brandText && row.nameExtended) {
+        row.nameExtended[0].text = row.brandText[0].text + ' ' + row.nameExtended[0].text;
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
