@@ -8,7 +8,7 @@ const { cleanUp } = require('../../../../shared');
       domain: 'sainsburys.co.uk',
       zipcode: '',
     },
-    implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {    
+    implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {
   await context.waitForSelector('h2[class="pt__info__description"] a', 3000);
    await context.click('h2[class="pt__info__description"] a');
   await new Promise((resolve) => setTimeout(resolve, 5000));
@@ -31,15 +31,19 @@ const { cleanUp } = require('../../../../shared');
     const jsondata = JSON.parse(rawdata);
     const gtin = jsondata.gtin13;
     let availabilityText = jsondata.offers.availability;
-    if (availabilityText=='InStock'){
-      availabilityText=="In stock"
+    if (availabilityText=='https://schema.org/InStock'){
+      availabilityText = "In Stock"
     }
+    if (availabilityText=='https://schema.org/OutOfStock'){
+      availabilityText = "Out of Stock"
+    }
+    addHiddenDiv('availabilityText',availabilityText);
     const url=jsondata.url;
     // const price= jsondata.offers.price;
     const aggregateRating = jsondata.review.reviewRating.ratingValue;
     const brand = jsondata.brand.name;
     addHiddenDiv('url', url,);
-    addHiddenDiv('availabilityText',availabilityText);
+    
     addHiddenDiv('aggregateRating', aggregateRating);
     addHiddenDiv('brandText',brand);
   // let firstChildNode;
