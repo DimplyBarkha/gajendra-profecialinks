@@ -57,7 +57,7 @@ module.exports = {
         window.scrollTo(0, 0);
         await new Promise((resolve, reject) => {
           var totalHeight = 0;
-          var distance = 50;
+          var distance = 250;
           var timer = setInterval(() => {
             var scrollHeight = document.body.scrollHeight;
             window.scrollBy(0, distance);
