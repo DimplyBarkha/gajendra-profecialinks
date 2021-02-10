@@ -29,7 +29,8 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: concat(//div[contains(@class, "product-detail-header")]//h1, ' ',//div[contains(@class, "product-detail-header")]//h2)
-    description: The product name, prefixing "${brand} - " if not included in "name"
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
@@ -52,7 +53,8 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[contains(@class, "product-desc__body")]//ul//li|//div[contains(@class, "container-product-detail")]//div[@id="tab-content"]//div[contains(@class, "tab-pane in active")]//text()
-    description: Product description supplied by website - may be concatenanted from
+    description:
+      Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
@@ -62,7 +64,8 @@ fields:
   - name: brandText
     singleValue: true
     xpath: (//div[contains(@class, "product-detail-header")]//img/@alt)[1]
-    description: Product brand shown - this may actually NOT be just a brand name,
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: manufacturer
     singleValue: true
@@ -102,7 +105,8 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
-    description: The number of packs in the product offer (if stated separately on
+    description:
+      The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
     singleValue: true
@@ -187,11 +191,13 @@ fields:
     description: Text next to bullet point
   - name: salesRank
     singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
+    description:
+      Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: salesRankCategory
     singleValue: false
-    description: Amazon best selling rank from product details (linked back) - needs
+    description:
+      Amazon best selling rank from product details (linked back) - needs
       to be collapsed
   - name: subscriptionPrice
     singleValue: true
@@ -314,11 +320,13 @@ fields:
       (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
   - name: newAsin
     singleValue: true
-    description: In product page, information about a new version of the product -
+    description:
+      In product page, information about a new version of the product -
       new asin info
   - name: newDescription
     singleValue: true
-    description: In product page, information about a new version of the product -
+    description:
+      In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
     singleValue: true
@@ -421,5 +429,5 @@ fields:
     description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
   - name: unInterruptedPDP
     singleValue: false
-    xpath: //div[@id=(translate(//a[contains(.,"Verwandte Produkte")]/@href,'#',''))]//div[contains(@class, "product-item-desc")]//a
+    xpath: //div[@id=(translate(//h2[contains(text(),"Zubehör")]/../@href,'#',''))]//div[contains(@class, "product-item-desc")]//a | //div[@id=(translate(//a[contains(.,"Verwandte Produkte")]/@href,'#',''))]//div[contains(@class, "product-item-desc")]//a
     description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections
