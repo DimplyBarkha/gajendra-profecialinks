@@ -204,7 +204,7 @@ async function implementation (inputs,
 
   try {
     await context.evaluate(function () {
-      const xpath = "//div[contains(@class, 'accordionButton') and contains(., 'Description')]/following-sibling::div[contains(@class, 'accordionContent ')][1]//ul/li";
+      const xpath = "//div[contains(@class, 'accordionButton') and (contains(., 'Description') or contains(.,'Other Info'))]/following-sibling::div[contains(@class, 'accordionContent ')][1]//ul/li";
       const descUl = getEleByXpath(xpath);
       function getEleByXpath (xpath) {
         const element = document.evaluate(xpath, document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);

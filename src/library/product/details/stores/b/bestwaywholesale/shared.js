@@ -63,65 +63,42 @@ const transform = (data) => {
         ];
       }
 
-      // if (row.description) {
-      //   let text = '';
-      //   row.description.forEach(item => {
-      //     text += `|| ${item.text} `;
-      //   });
-      //   row.description = [
-      //     {
-      //       text: `${text.trim()}`,
-      //     },
-      //   ];
-      // }
+      if (row.productOtherInformation) {
+        let text = '';
+        row.productOtherInformation.forEach(item => {
+          text += `${item.text} `;
+        });
+        row.productOtherInformation = [
+          {
+            text: `${text.trim()}`,
+          },
+        ];
+      }
 
-      // if (row.descriptionExtended) {
-      //   let text = '';
-      //   row.descriptionExtended.forEach(item => {
-      //     text += `${item.text} `;
-      //   });
-      //   text = text.trim();
-      //   if (row.description) {
-      //     row.description = [
-      //       {
-      //         text: `${row.description[0].text} ${text}`,
-      //       },
-      //     ];
-      //   } else {
-      //     row.description = [
-      //       {
-      //         text: `${text}`,
-      //       },
-      //     ];
-      //   }
-      //   delete row.descriptionExtended;
-      // }
-
-      // if (row.descriptionAdditional) {
-      //   let text = '';
-      //   row.descriptionAdditional.forEach(item => {
-      //     text += `|| ${item.text} `;
-      //   });
-      //   text = text.trim();
-      //   if (row.description) {
-      //     row.description = [
-      //       {
-      //         text: `${row.description[0].text} ${text}`,
-      //       },
-      //     ];
-      //   } else {
-      //     row.description = [
-      //       {
-      //         text: `${text}`,
-      //       },
-      //     ];
-      //   }
-      //   delete row.descriptionAdditional;
-      // }
+      if (row.descriptionAdditional) {
+        let text = '';
+        row.descriptionAdditional.forEach(item => {
+          text += `${item.text} `;
+        });
+        text = text.trim();
+        if (row.description) {
+          row.description = [
+            {
+              text: `${row.description[0].text} ${text}`,
+            },
+          ];
+        } else {
+          row.description = [
+            {
+              text: `${text}`,
+            },
+          ];
+        }
+        delete row.descriptionAdditional;
+      }
 
       if (row.additionalDescBulletInfo) {
         row.additionalDescBulletInfo.map(function (bullet) {
-          // return [{ text: bullet[0].text.replace('||', '') }];
           bullet.text = bullet.text.replace('||', '');
         });
       }
