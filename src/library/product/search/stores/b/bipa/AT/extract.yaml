@@ -5,7 +5,8 @@ recordXPath: //ul[@class='product-grid first']/li
 fields:
   - name: id
     description: Unique id (within this extractor)
-    xpath: //ul[@class='product-grid first']//input[@name='pid']/@value
+    xpath: //ul[@class='product-grid first']/li/@data-gtmdata
+    regExp: (?<="id":").+?(?=",)
   - name: searchUrl
     description: Unique id (within this extractor)
     xpath: //div[@class='productmini-inner']/@searchurl
