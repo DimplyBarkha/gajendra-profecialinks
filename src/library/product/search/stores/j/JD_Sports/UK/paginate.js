@@ -7,7 +7,7 @@ module.exports = {
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector:'ul[id=productListMain]',
+    loadedSelector:'body',
     loadedXpath: null,
     noResultsXPath: null,
     stopConditionSelectorOrXpath:null,
