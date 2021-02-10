@@ -18,7 +18,8 @@ fields:
     xpath: //span[@dir="auto"][following-sibling::span[@data-action="s-show-all-offers-display"]][not(contains(@class,"a-color-secondary"))]
   - name: name
     singleValue: true
-    xpath: //img[contains(@class,"multi-card-creative-desktop_Image")]/@alt | //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div//a/div/img/@alt | //div[@class="_multi-card-creative-desktop_ImageContainer_container__3o-Yn"]/img/@alt | //h2 
+    xpath: //img[contains(@class,"multi-card-creative-desktop_Image")]/@alt | //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div//a/div/img/@alt | //div[@class="_multi-card-creative-desktop_ImageContainer_container__3o-Yn"]/img/@alt | //h2 | //span[contains(@class,"a-truncate-cut")]
+  - name: sponsored
   - name: sponsored
     singleValue: false
     description: Is sponsored/paid
