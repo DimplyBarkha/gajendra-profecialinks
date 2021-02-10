@@ -258,7 +258,7 @@ fields:
     xpath: count(//ul[@id="images_old_gallary"]/li[position()>1])
     type: NUMBER
   - name: ingredientsList
-    singleValue: true
+    singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: (//div[@class="col-lg-12 col-md-12 col-sm-12 col-xs-12"]//p[@class="prodInfoTxtData"])[2]
+    xpath: (//div[@class="col-lg-12 col-md-12 col-sm-12 col-xs-12"]//p[@class="prodInfoTxtData"])[2]|//div[@class="col-lg-12 col-md-12 col-sm-12 col-xs-12"]//p[@class="MsoNormal"]
