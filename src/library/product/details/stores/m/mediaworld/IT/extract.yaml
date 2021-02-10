@@ -173,7 +173,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@class="added_video_url"] | //body[@video-url]/@video-url
+    xpath: //div[@class="added_video_url"] | //body[@video-url]/@video-url | //div[@class="added_gallery_video"]
   - name: galleryVideos
     singleValue: false
     description: URLs of videos on page
