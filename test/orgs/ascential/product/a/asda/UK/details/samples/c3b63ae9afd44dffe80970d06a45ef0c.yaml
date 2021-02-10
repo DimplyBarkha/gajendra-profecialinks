@@ -1,0 +1,338 @@
+input:
+  id: 1003226
+  _url: http://groceries.asda.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5c8629cb-fa73-4ed9-88d7-5bd8ef1d08e3/task=0660d566-84ff-47da-8803-be27a2b05e76/9be76740-61b0-4ab5-8bc6-a9a60fc0accd.html
+    extractionConfigId: product/details/stores/a/asda/UK/extract
+    data:
+      - group:
+          - imageFromAPi:
+              - text: https://ui.assets-asda.com:443/dm/5000328613956
+                xpath: /html/body/script[12]
+            price:
+              - text: £1.50
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[2]/div[1]/strong[1]
+            brandText:
+              - text: Walkers
+                xpath: /html/body/script[12]
+            quantity:
+              - text: 6x24g
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
+            retailerProductCode:
+              - text: "1003226"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            jsonGtin:
+              - text: "5000328613956"
+                xpath: /html/body/script[12]
+            packaging:
+              - text: Heat Sealed
+                xpath: /html/body/script[12]
+            pricePerUnit2:
+              - text: £1.04/100
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[2]/span[1]
+            pricePerUnitUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[2]/span[1]
+            variantId:
+              - text: "1003226"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            availability:
+              - text: In stock
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[3]/form[1]/div[1]/div[1]/div[1]/button[1]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[3]/form[1]/div[1]/div[1]/div[1]/button[1]
+            description:
+              - text: |-
+                  Net Content
+                  24 Grams
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[1]
+              - text: |-
+                  Life Style
+                  Suitable for Vegetarians.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[2]
+              - text: |-
+                  Additives
+                  Free From: Artificial Colours.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[3]
+              - text: |-
+                  Ingredients
+                  Potatoes, Sunflower Oil, Rapeseed Oil, Salt (in Sachet)
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[4]
+              - text: |-
+                  Nutritional Values
+                  Typical values
+                  Per Pack 24g(%*)
+                  Per 100g
+                  Energy 
+                  534 kJ
+                  2223 kJ
+                  128 kcal(6%*)
+                  533 kcal
+                  Fat 
+                  7.8 g(11%*)
+                  32.3 g
+                   of which saturates 
+                  0.6 g(3%*)
+                  2.6 g
+                   of which mono-unsaturates 
+                  6.1 g
+                  25.5 g
+                   of which polyunsaturates 
+                  1.0 g
+                  4.2 g
+                  Carbohydrate 
+                  12.5 g
+                  52.2 g
+                   of which sugars 
+                  0.1 g(<1%*)
+                  0.4 g
+                  Fibre 
+                  1.1 g
+                  4.4 g
+                  Protein 
+                  1.5 g
+                  6.2 g
+                  Salt 
+                  0.00 g(0%*)
+                  0.00 g
+                  Salt (in sachet)
+                  0.60 g
+                  *Reference intake of an average adult (8400 kJ/2000 kcal)
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]
+              - text: |-
+                  Storage
+                  Store in a cool, dry place.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[6]
+              - text: >-
+                  Product Information
+
+                  - Salt & Shake crisps with separate salt sachet
+
+                  - Add as little salt or as much as you like, and give the pack a shake
+
+                  - Great multipack crisps for lunch and snacking
+
+                  - Suitable for vegetarians
+
+                  - No artificial colours
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[7]
+              - text: >-
+                  Brand Marketing
+
+                  Celebrating 70 Years of the Nation's Favourite - In 1948, Leicester Butcher Henry Walker took the humble potato and created a delicious new snack, Walkers Crisps. Since then, your tastes and passions have inspired us to create new flavours that tickle the taste buds of this unique nation. Whilst your tastes may have changed over the years, one thing's remained the same... you are still our secret ingredient. Follow us on: Facebook and Twitter for our latest news and competitions
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[8]
+              - text: |-
+                  Other Information
+                  Packaged in a protective atmosphere.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[9]
+              - text: |-
+                  Regulated Product Name
+                  6 x Salt & Shake Crisps with Separate Salt Sachet.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[10]
+              - text: |-
+                  Storage Type
+                  Ambient
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[11]
+              - text: |-
+                  Manufacturer Address
+                  Walkers Snack Foods Ltd.,
+                  PO Box 23,
+                  Leicester,
+                  LE4 8ZU,
+                  UK.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[12]
+              - text: >-
+                  Return To
+
+                  If dissatisfied, tell us why, where purchased and send the pack(s) and its contents to:
+
+                  Consumer Care at
+
+                  Walkers Snack Foods Ltd.,
+
+                  PO Box 23,
+
+                  Leicester,
+
+                  LE4 8ZU,
+
+                  UK.
+
+                  UK: 0800 274777
+
+                  ROI: 1800 509408
+
+                  Lines open Weekdays 9am-5pm
+
+                  Applies to UK and ROI only.
+
+                  Your statutory rights are not affected.
+
+                  Visit us at www.walkers.co.uk
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[13]
+              - text: >-
+                  ASDA Product Information
+                   At ASDA, we do everything we can to make sure the information about the products we sell is always as accurate as possible. However, because products are regularly improved, the product information, ingredients, nutritional guides and dietary or allergy advice may occasionally change. 
+                   As a result, we recommend that you always read the label carefully before using or consuming any products. Please do not solely rely on the information provided on this website Because of this, ASDA is unable to accept liability for any inaccuracies or incorrect information contained on this site. 
+                   If you have any queries, or you'd like advice on any ASDA own label products, please contact our friendly Customer Services team on 0800 952 0101. For up to date information on other products, please speak to the manufacturer. 
+                   This does not affect your statutory rights. This information is supplied for personal use only. It must not be reproduced in any way whatsoever without the prior consent of ASDA, nor without due acknowledgement.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[14]
+            descriptionOld:
+              - text: >-
+                  - Salt & Shake crisps with separate salt sachet
+
+                  - Add as little salt or as much as you like, and give the pack a shake
+
+                  - Great multipack crisps for lunch and snacking
+
+                  - Suitable for vegetarians
+
+                  - No artificial colours
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[7]/div[2]
+              - text: "Celebrating 70 Years of the Nation's Favourite - In 1948, Leicester
+                  Butcher Henry Walker took the humble potato and created a
+                  delicious new snack, Walkers Crisps. Since then, your tastes
+                  and passions have inspired us to create new flavours that
+                  tickle the taste buds of this unique nation. Whilst your
+                  tastes may have changed over the years, one thing's remained
+                  the same... you are still our secret ingredient. Follow us on:
+                  Facebook and Twitter for our latest news and competitions"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[8]/div[2]
+              - text: >-
+                  At ASDA, we do everything we can to make sure the information
+                  about the products we sell is always as accurate as possible.
+                  However, because products are regularly improved, the product
+                  information, ingredients, nutritional guides and dietary or
+                  allergy advice may occasionally change. 
+                   As a result, we recommend that you always read the label carefully before using or consuming any products. Please do not solely rely on the information provided on this website Because of this, ASDA is unable to accept liability for any inaccuracies or incorrect information contained on this site. 
+                   If you have any queries, or you'd like advice on any ASDA own label products, please contact our friendly Customer Services team on 0800 952 0101. For up to date information on other products, please speak to the manufacturer. 
+                   This does not affect your statutory rights. This information is supplied for personal use only. It must not be reproduced in any way whatsoever without the prior consent of ASDA, nor without due acknowledgement.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[14]/div[2]
+            ingredientsList:
+              - text: Potatoes, Sunflower Oil, Rapeseed Oil, Salt (in Sachet)
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[4]/div[2]
+            manufacturer:
+              - text: |-
+                  Walkers Snack Foods Ltd.,
+                  PO Box 23,
+                  Leicester,
+                  LE4 8ZU,
+                  UK.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[12]/div[2]
+            upc:
+              - text: "5000328613956"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            sku:
+              - text: "888410"
+                xpath: /html/head[1]/link[61]/@href
+            aggregateRating:
+              - text: "4.25"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/@aria-label
+            aggregateRatingText:
+              - text: "4.25"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/@aria-label
+            alternateImages:
+              - text: https://ui.assets-asda.com/dm/asdagroceries/5000328613956_T2
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/@style
+              - text: https://ui.assets-asda.com/dm/asdagroceries/5000328613956_T3
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[3]/div[1]/@style
+            ratingCount:
+              - text: "12"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[1]/button[2]/@aria-label
+            storage:
+              - text: Ambient
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[11]/div[2]
+            dietaryInformation:
+              - text: Suitable for Vegetarians.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[2]/div[2]
+            additives:
+              - text: "Free From: Artificial Colours."
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[3]/div[2]
+            promotion:
+              - text: 3 for £3.50
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[4]
+            listPrice:
+              - text: £1.50
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[2]/div[1]/strong[1]
+            harvestedProductDescription:
+              - text: Walkers Salt & Shake Multipack Crisps - ASDA Groceries
+                xpath: /html/head[1]/title[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/small-multipack-crisps-4-8-packs/walkers-salt-shake-multipack-crisps/888410
+                xpath: /html/head[1]/link[61]/@href
+            image:
+              - text: https://ui.assets-asda.com/dm/asdagroceries/5000328613956_T1
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            nameExtended:
+              - text: Walkers Salt & Shake Multipack Crisps 6x24g
+            name:
+              - text: Walkers Salt & Shake Multipack Crisps 6x24g
+            servingSize:
+              - text: " Pack 24g(%*)"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[2]
+            caloriesPerServing:
+              - text: 534 kJ/128 kcal(6%*)
+            totalFatPerServing:
+              - text: "7.8"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[4]/div[2]
+              - text: "11"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[4]/div[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[4]/div[2]
+              - text: "%"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[4]/div[2]
+            saturatedFatPerServing:
+              - text: "0.6"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[5]/div[2]
+              - text: "3"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[5]/div[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[5]/div[2]
+              - text: "%"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[5]/div[2]
+            totalCarbPerServing:
+              - text: "12.5"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[8]/div[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[8]/div[2]
+            dietaryFibrePerServing:
+              - text: "1.1"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[10]/div[2]
+            dietaryFibrePerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[10]/div[2]
+            totalSugarsPerServing:
+              - text: "0.1"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[9]/div[2]
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[9]/div[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[9]/div[2]
+              - text: "%"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[9]/div[2]
+            proteinPerServing:
+              - text: "1.5"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[11]/div[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[11]/div[2]
+            gtin:
+              - text: "5000328613956"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            saltPerServing:
+              - text: "0.00"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[12]/div[2]
+              - text: "0"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[12]/div[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[12]/div[2]
+              - text: "%"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]/div[1]/div[12]/div[2]
+        xpath: /html
+    timestamp: 1612963429790

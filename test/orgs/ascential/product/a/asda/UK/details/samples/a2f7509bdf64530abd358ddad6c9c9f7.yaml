@@ -1,0 +1,32 @@
+input:
+  id: 1679670
+  _url: http://groceries.asda.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5c8629cb-fa73-4ed9-88d7-5bd8ef1d08e3/task=98da8373-c24c-42f6-8bf5-b8cda7e69e87/81bc5394-39fa-4f6b-a0f6-a9b1ce5fde22.html
+    extractionConfigId: product/details/stores/a/asda/UK/extract
+    data:
+      - group:
+          - urlId:
+              - text: "1679670"
+                xpath: /html/head[1]/link[58]/@href
+            sku:
+              - text: "1679670"
+                xpath: /html/head[1]/link[58]/@href
+            harvestedProductDescription:
+              - text: Search Results - ASDA Groceries
+                xpath: /html/head[1]/title[1]
+            productUrl:
+              - text: https://groceries.asda.com//search/1679670
+                xpath: /html/head[1]/link[58]/@href
+            nameExtended:
+              - text: " "
+            name:
+              - text: " "
+            caloriesPerServing:
+              - text: /
+            availability:
+              - text: Out of Stock
+            availabilityText:
+              - text: Out of Stock
+        xpath: /html
+    timestamp: 1612963436476

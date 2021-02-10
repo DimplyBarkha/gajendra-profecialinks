@@ -1,0 +1,168 @@
+input:
+  id: 1814333
+  _url: http://groceries.asda.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5c8629cb-fa73-4ed9-88d7-5bd8ef1d08e3/task=1d9b295b-862d-4c72-bb76-034dc25249e1/e5165637-8e60-46a4-9938-d7350d796aed.html
+    extractionConfigId: product/details/stores/a/asda/UK/extract
+    data:
+      - group:
+          - imageFromAPi:
+              - text: https://ui.assets-asda.com:443/dm/5012523231972
+                xpath: /html/body/script[12]
+            price:
+              - text: £22.00
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[2]/div[1]/strong[1]
+            brandText:
+              - text: Tia Maria
+                xpath: /html/body/script[12]
+            quantity:
+              - text: 1l
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
+            retailerProductCode:
+              - text: "1814333"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            packaging:
+              - text: Bottle
+                xpath: /html/body/script[12]
+            pricePerUnit2:
+              - text: £22.00/
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[2]/span[1]
+            pricePerUnitUom:
+              - text: lt
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[2]/span[1]
+            variantId:
+              - text: "1814333"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            availability:
+              - text: In stock
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[3]/form[1]/div[1]/div[1]/div[1]/button[1]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[3]/form[1]/div[1]/div[1]/div[1]/button[1]
+            description:
+              - text: |-
+                  Net Content
+                  1 Litres
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[1]
+              - text: >-
+                  General Alcohol Data
+
+                  Alcohol By Volume
+
+                  20
+
+                  Tasting Notes
+
+                  Coffee exudes cacao and tobacco notes providing the rich full bodied taste. Vanilla provides softness and roundness with an hint of Jamaican rhum that gives our body, depth and structure
+
+                  Units
+
+                  14
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[2]
+              - text: |-
+                  Country of Origin
+                  Italy
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[3]
+              - text: >-
+                  Product Information
+
+                  An enchanted fusion between 100% Arabica coffee beans and premium Vanilla. 100% Arabica releases the unique Tia Maria fragrance thanks to special cold brew extraction. Coffee exudes cacao and tobacco notes providing the rich full bodied taste. Vanilla provides softness and roundness with an hint of Jamaican rhum that gives our body, depth and structure.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[4]
+              - text: |-
+                  Other Information
+                  14 UK Units per bottle
+                  0.5 UK Unit Per 25ml
+                  Drink Responsibly
+                  Enjoy Tia Maria responsibly
+                  For further health information visit www.drinkaware.co.uk
+                  Green Dot
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]
+              - text: |-
+                  Storage Type
+                  Ambient
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[6]
+              - text: |-
+                  Manufacturer Address
+                  Produced and bottled by:
+                  Illva Saronno S.p.A.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[7]
+              - text: |-
+                  Return To
+                  William Grant & Sons UK Limited,
+                  Hook,
+                  RG27 9XA.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[8]
+              - text: >-
+                  ASDA Product Information
+                   At ASDA, we do everything we can to make sure the information about the products we sell is always as accurate as possible. However, because products are regularly improved, the product information, ingredients, nutritional guides and dietary or allergy advice may occasionally change. 
+                   As a result, we recommend that you always read the label carefully before using or consuming any products. Please do not solely rely on the information provided on this website Because of this, ASDA is unable to accept liability for any inaccuracies or incorrect information contained on this site. 
+                   If you have any queries, or you'd like advice on any ASDA own label products, please contact our friendly Customer Services team on 0800 952 0101. For up to date information on other products, please speak to the manufacturer. 
+                   This does not affect your statutory rights. This information is supplied for personal use only. It must not be reproduced in any way whatsoever without the prior consent of ASDA, nor without due acknowledgement.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[9]
+            descriptionOld:
+              - text: An enchanted fusion between 100% Arabica coffee beans and premium Vanilla.
+                  100% Arabica releases the unique Tia Maria fragrance thanks to
+                  special cold brew extraction. Coffee exudes cacao and tobacco
+                  notes providing the rich full bodied taste. Vanilla provides
+                  softness and roundness with an hint of Jamaican rhum that
+                  gives our body, depth and structure.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[4]/div[2]
+              - text: >-
+                  At ASDA, we do everything we can to make sure the information
+                  about the products we sell is always as accurate as possible.
+                  However, because products are regularly improved, the product
+                  information, ingredients, nutritional guides and dietary or
+                  allergy advice may occasionally change. 
+                   As a result, we recommend that you always read the label carefully before using or consuming any products. Please do not solely rely on the information provided on this website Because of this, ASDA is unable to accept liability for any inaccuracies or incorrect information contained on this site. 
+                   If you have any queries, or you'd like advice on any ASDA own label products, please contact our friendly Customer Services team on 0800 952 0101. For up to date information on other products, please speak to the manufacturer. 
+                   This does not affect your statutory rights. This information is supplied for personal use only. It must not be reproduced in any way whatsoever without the prior consent of ASDA, nor without due acknowledgement.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[9]/div[2]
+            manufacturer:
+              - text: |-
+                  Produced and bottled by:
+                  Illva Saronno S.p.A.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[7]/div[2]
+            upc:
+              - text: "5012523231972"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            sku:
+              - text: "15734591"
+                xpath: /html/head[1]/link[61]/@href
+            aggregateRating:
+              - text: "4.55"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/@aria-label
+            aggregateRatingText:
+              - text: "4.55"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/@aria-label
+            ratingCount:
+              - text: "31"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[1]/button[2]/@aria-label
+            storage:
+              - text: Ambient
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[6]/div[2]
+            listPrice:
+              - text: £22.00
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[2]/div[1]/strong[1]
+            alcoholContent:
+              - text: "20"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[2]/div[2]/table[1]/tbody[1]/tr[1]/td[2]
+            harvestedProductDescription:
+              - text: Tia Maria Dark Coffee Liqueur - ASDA Groceries
+                xpath: /html/head[1]/title[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/liqueurs/tia-maria-dark-coffee-liqueur/15734591
+                xpath: /html/head[1]/link[61]/@href
+            image:
+              - text: https://ui.assets-asda.com/dm/asdagroceries/5012523231972_T1
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            nameExtended:
+              - text: Tia Maria Dark Coffee Liqueur 1l
+            name:
+              - text: Tia Maria Dark Coffee Liqueur 1l
+            caloriesPerServing:
+              - text: /
+            gtin:
+              - text: "5012523231972"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+        xpath: /html
+    timestamp: 1612963427645

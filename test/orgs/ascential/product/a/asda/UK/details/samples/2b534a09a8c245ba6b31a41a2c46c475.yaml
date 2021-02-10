@@ -1,0 +1,163 @@
+input:
+  id: 4409412
+  _url: http://groceries.asda.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5c8629cb-fa73-4ed9-88d7-5bd8ef1d08e3/task=4d4c6cc1-bf96-4054-9f70-9c009c83cc77/f425dca1-6c5d-4262-9e1f-201ecc375ce8.html
+    extractionConfigId: product/details/stores/a/asda/UK/extract
+    data:
+      - group:
+          - imageFromAPi:
+              - text: https://ui.assets-asda.com:443/dm/7322540574876
+                xpath: /html/body/script[12]
+            price:
+              - text: £8.50
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[2]/div[1]/strong[1]
+            brandText:
+              - text: Tena
+                xpath: /html/body/script[12]
+            quantity:
+              - text: 8pk
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]
+            retailerProductCode:
+              - text: "4409412"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            packaging:
+              - text: Bag - Plastic
+                xpath: /html/body/script[12]
+            pricePerUnit2:
+              - text: £1.06/
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[2]/span[1]
+            variantId:
+              - text: "4409412"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/span[1]
+            availability:
+              - text: In stock
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/button[1]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/button[1]
+            description:
+              - text: >-
+                  Features
+
+                  Contents: 8 disposable underwear/protective underwear. For moderate to severe bladder weakness/incontinence. Large = hip circumference of 100 – 135 cm. More protection against leaks. Suitable for both men and women.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[1]
+              - text: |-
+                  Country of Origin
+                  Netherlands
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[2]
+              - text: >-
+                  Product Information
+
+                  TENA Pants Plus are disposable pants for moderate to heavy bladder weakness. Highly effective for both men and women, they look and feel like everyday underwear and are easy to put on and take off. The advanced Dual Absorption zone gives optimal comfort and Triple Protection from leaks, odour and moisture; helping the wearer stay dry, secure and confident every day. The perfect choice for moderate to heavy bladder weakness.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[3]
+              - text: >-
+                  Brand Marketing
+
+                  TENA Pants product are designed for men and women experiencing moderate to heavy bladder weakness. They are white products with a Dual Absorption zone and have side-seam openings for easy removal.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[4]
+              - text: |-
+                  Storage Type
+                  Ambient
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]
+              - text: |-
+                  Third Party Logo
+                  CE Mark - European Conformance.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[6]
+              - text: |-
+                  Manufacturer Address
+                  Essity Hygiene Products AB,
+                   Bäckstensgatan 5,
+                   S-431 49 Mölndal,
+                   Sweden
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[7]
+              - text: |-
+                  Return To
+                  Essity UK Ltd,
+                  Freepost TENA.
+                  Tel: 0800 6556022
+                  www.TENA.co.uk
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[8]
+              - text: >-
+                  ASDA Product Information
+                   At ASDA, we do everything we can to make sure the information about the products we sell is always as accurate as possible. However, because products are regularly improved, the product information, ingredients, nutritional guides and dietary or allergy advice may occasionally change. 
+                   As a result, we recommend that you always read the label carefully before using or consuming any products. Please do not solely rely on the information provided on this website Because of this, ASDA is unable to accept liability for any inaccuracies or incorrect information contained on this site. 
+                   If you have any queries, or you'd like advice on any ASDA own label products, please contact our friendly Customer Services team on 0800 952 0101. For up to date information on other products, please speak to the manufacturer. 
+                   This does not affect your statutory rights. This information is supplied for personal use only. It must not be reproduced in any way whatsoever without the prior consent of ASDA, nor without due acknowledgement.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[9]
+            descriptionOld:
+              - text: "Contents: 8 disposable underwear/protective underwear. For moderate to
+                  severe bladder weakness/incontinence. Large = hip
+                  circumference of 100 – 135 cm. More protection against leaks.
+                  Suitable for both men and women."
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[1]/div[2]
+              - text: TENA Pants Plus are disposable pants for moderate to heavy bladder
+                  weakness. Highly effective for both men and women, they look
+                  and feel like everyday underwear and are easy to put on and
+                  take off. The advanced Dual Absorption zone gives optimal
+                  comfort and Triple Protection from leaks, odour and moisture;
+                  helping the wearer stay dry, secure and confident every day.
+                  The perfect choice for moderate to heavy bladder weakness.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[3]/div[2]
+              - text: TENA Pants product are designed for men and women experiencing moderate to
+                  heavy bladder weakness. They are white products with a Dual
+                  Absorption zone and have side-seam openings for easy removal.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[4]/div[2]
+              - text: >-
+                  At ASDA, we do everything we can to make sure the information
+                  about the products we sell is always as accurate as possible.
+                  However, because products are regularly improved, the product
+                  information, ingredients, nutritional guides and dietary or
+                  allergy advice may occasionally change. 
+                   As a result, we recommend that you always read the label carefully before using or consuming any products. Please do not solely rely on the information provided on this website Because of this, ASDA is unable to accept liability for any inaccuracies or incorrect information contained on this site. 
+                   If you have any queries, or you'd like advice on any ASDA own label products, please contact our friendly Customer Services team on 0800 952 0101. For up to date information on other products, please speak to the manufacturer. 
+                   This does not affect your statutory rights. This information is supplied for personal use only. It must not be reproduced in any way whatsoever without the prior consent of ASDA, nor without due acknowledgement.
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[9]/div[2]
+            manufacturer:
+              - text: |-
+                  Essity Hygiene Products AB,
+                   Bäckstensgatan 5,
+                   S-431 49 Mölndal,
+                   Sweden
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[7]/div[2]
+            upc:
+              - text: "7322540574876"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            sku:
+              - text: "910001152638"
+                xpath: /html/head[1]/link[61]/@href
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/@aria-label
+            aggregateRatingText:
+              - text: "5"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/@aria-label
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[1]/button[2]/@aria-label
+            storage:
+              - text: Ambient
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[5]/div[2]
+            listPrice:
+              - text: £8.50
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[2]/div[1]/div[2]/div[1]/strong[1]
+            harvestedProductDescription:
+              - text: Tena Incontinence Plus 8 Pants Large - ASDA Groceries
+                xpath: /html/head[1]/title[1]
+            productUrl:
+              - text: https://groceries.asda.com/product/pants/tena-incontinence-plus-8-pants-large/910001152638
+                xpath: /html/head[1]/link[61]/@href
+            image:
+              - text: https://ui.assets-asda.com/dm/asdagroceries/7322540574876_T1
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+            nameExtended:
+              - text: Tena Incontinence Plus 8 Pants Large 8pk
+            name:
+              - text: Tena Incontinence Plus 8 Pants Large 8pk
+            caloriesPerServing:
+              - text: /
+            gtin:
+              - text: "7322540574876"
+                xpath: /html/body/div[1]/div[2]/section[1]/main[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+        xpath: /html
+    timestamp: 1612963427010
