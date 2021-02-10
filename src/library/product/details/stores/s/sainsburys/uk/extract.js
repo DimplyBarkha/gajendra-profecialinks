@@ -30,7 +30,10 @@ const { cleanUp } = require('../../../../shared');
     const rawdata = document.querySelectorAll('script[type="application/ld+json"]')[0].innerText;
     const jsondata = JSON.parse(rawdata);
     const gtin = jsondata.gtin13;
-    const availabilityText = jsondata.offers.availability;
+    let availabilityText = jsondata.offers.availability;
+    if (availabilityText=='InStock'){
+      availabilityText=="In stock"
+    }
     const url=jsondata.url;
     // const price= jsondata.offers.price;
     const aggregateRating = jsondata.review.reviewRating.ratingValue;
