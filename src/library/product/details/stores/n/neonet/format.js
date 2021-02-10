@@ -59,23 +59,16 @@ const transform = (data) => {
 
       if (row.aggregateRating) {
         row.aggregateRating.forEach(item => {
-          const val = item.value;
-          let newval = 0;
-          if (val === 0) {
-            newval = 0;
-          } else if (val > 0 && val <= 20) {
-            newval = 1;
-          } else if (val > 20 && val <= 40) {
-            newval = 2;
-          } else if (val > 40 && val <= 60) {
-            newval = 3;
-          } else if (val > 60 && val <= 80) {
-            newval = 4;
-          } else if (val > 80 && val <= 100) {
-            newval = 5;
-          }
-          item.value = newval;
-          item.text = newval.toString();
+            if(item.value) {
+              let value = Number(item.value);
+              if(value === 0) {
+                item.value = null;
+              } else {
+                value = value/20;
+                item.value = value.toString();
+                item.text = value.toString();
+              }
+            }
         });
       }
 
