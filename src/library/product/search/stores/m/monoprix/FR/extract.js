@@ -48,15 +48,20 @@ module.exports = {
       }
 
       const productUrl = document.querySelectorAll('div[class*=\'item__description-offre\']>a');
+      const product = document.querySelectorAll('div[class*="ui cards products"]>li');
       if (productUrl.length) {
         const productBrand = document.querySelectorAll('div[class*=\'item-brand\']');
         const productTitle = document.querySelectorAll('div[class*=\'item-range\']');
         for (let i = 0; i < productUrl.length; i++) {
-          productUrl[i].focus();
-          await new Promise((resolve, reject) => setTimeout(resolve, 300));
-          addProp('div[class*=\'item__description-offre\']>a', i, 'product_url', productUrl[i].href);
-          addProp('div[class*=\'item-brand\']', i, 'product_title', productBrand[i].textContent +
-            ' ' + productTitle[i].innerText);
+          if (i < 150) {
+            productUrl[i].focus();
+            await new Promise((resolve, reject) => setTimeout(resolve, 300));
+            addProp('div[class*=\'item__description-offre\']>a', i, 'product_url', productUrl[i].href);
+            addProp('div[class*=\'item-brand\']', i, 'product_title', productBrand[i].textContent +
+              ' ' + productTitle[i].innerText);
+          } else {
+            product[i].remove();
+          }
         }
       }
     });
