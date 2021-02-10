@@ -154,38 +154,41 @@ module.exports = {
       } catch (err) {}
     });
     await new Promise(resolve => setTimeout(resolve, 1000));
-    var variantLength1 = await context.evaluate(async () => {
+    var variantRadio = await context.evaluate(async () => {
       return (document.querySelectorAll('span[role="radiogroup"] label')) ? document.querySelectorAll('span[role="radiogroup"] label').length : 0;
     });
-    console.log('Variant Length1', variantLength1);
+    console.log('Variant Length1', variantRadio);
 
     await new Promise(resolve => setTimeout(resolve, 1000));
-    var variantLength = await context.evaluate(async () => {
-      return (document.querySelectorAll('div[id=theSwatches] a')) ? document.querySelectorAll('div[id=theSwatches] a').length : 0;
+    var variantColor = await context.evaluate(async () => {
+      if (document.querySelectorAll('div[id=theSwatches][class=hide] a').length === 0) {
+        return (document.querySelectorAll('div[id=theSwatches] a')) ? document.querySelectorAll('div[id=theSwatches] a').length : 0;
+      }
     });
 
     // const check = await context.evaluate(async () => {
     //   return document.querySelector('div[id=theSwatches][class=hide]') ? 1 : 0;
     // });
-    console.log('Variant Length', variantLength);
-    if (variantLength >= 1 && variantLength1 >= 1) {
+    console.log('Variant Radio', variantRadio);
+    console.log('Variant Color', variantColor);
+    if (variantColor >= 1 && variantRadio >= 1) {
       try {
-        for (let j = 0; j < variantLength; j++) {
+        for (let j = 0; j < variantColor; j++) {
           await context.evaluate(async (j) => {
             // @ts-ignore
             return document.querySelectorAll('div[id=theSwatches] a>img')[j].click();
           }, j);
           await new Promise(resolve => setTimeout(resolve, 1000));
-          for (let k = 0; k < variantLength1; k++) {
+          for (let k = 0; k < variantRadio; k++) {
             await context.evaluate(async (k) => {
               // @ts-ignore
               return document.querySelectorAll('span[role="radiogroup"] label')[k].click();
             }, k);
 
             // await clickBtn(j);
-            console.log('Inside variants', k);
+            console.log('Inside variants radio', k);
             await new Promise(resolve => setTimeout(resolve, 1000));
-            if (k !== variantLength1) {
+            if (k !== variantRadio) {
               await context.extract(productDetails, { transform });
             }
           }
@@ -196,12 +199,12 @@ module.exports = {
           if (j === 0) {
             await context.extract(productDetails, { transform });
           }
-          // if (j !== variantLength - 1) { await context.extract(productDetails, { transform }); }
+          // if (j !== variantColor - 1) { await context.extract(productDetails, { transform }); }
         }
       } catch (err) {}
     } else {
-      if (variantLength >= 1 && variantLength1 === 0) {
-        for (let k = 0; k < variantLength; k++) {
+      if (variantColor >= 1 && variantRadio === 0) {
+        for (let k = 0; k < variantColor; k++) {
           await context.evaluate(async (k) => {
             // @ts-ignore
             return document.querySelectorAll('div[id=theSwatches] a>img')[k].click();
@@ -210,13 +213,13 @@ module.exports = {
           // await clickBtn(j);
           console.log('Inside variants', k);
           await new Promise(resolve => setTimeout(resolve, 1000));
-          if (k !== variantLength - 1) {
+          if (k !== variantColor) {
             await context.extract(productDetails, { transform });
           }
         }
       } else {
-        if (variantLength1 >= 1 && variantLength === 0) {
-          for (let k = 0; k < variantLength1; k++) {
+        if (variantRadio >= 1 && !variantColor) {
+          for (let k = 0; k < variantRadio; k++) {
             await context.evaluate(async (k) => {
               // @ts-ignore
               return document.querySelectorAll('span[role="radiogroup"] label')[k].click();
@@ -225,7 +228,7 @@ module.exports = {
             // await clickBtn(j);
             console.log('Inside variants', k);
             await new Promise(resolve => setTimeout(resolve, 1000));
-            if (k !== variantLength1) {
+            if (k !== variantRadio) {
               await context.extract(productDetails, { transform });
             }
           }

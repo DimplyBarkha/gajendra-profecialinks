@@ -197,8 +197,8 @@ const transform = (data) => {
         if (row.mpc2 && row.mpc2.length > 0) {
           row.mpc2 = row.mpc2.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
           row.mpc2.pop();
+          row.mpc = row.mpc2;
         }
-        row.mpc = row.mpc2;
       }
       if (row.myPrice && row.myPrice.length > 0) {
         row.price = row.myPrice;
