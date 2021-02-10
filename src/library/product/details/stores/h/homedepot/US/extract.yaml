@@ -1,0 +1,256 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  # - name: image
+  #   singleValue: true
+  #   xpath: //img[@id="mainImage"]/@src | //div[@class="mediagallery__mainimage"]//img/@src
+  - name: image
+    singleValue: false
+    description: URL of the main product image
+    xpath: //*[@itemprop="image"]/@src | //*[@id="media-gallery"]/div/div/div[2]/div/a/div/img/@src | //img[@id="mainImage"]/@src | //div[@class="mediagallery__mainimage"]//img/@src
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name,"keyword")]/@content
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@id="extendedName"]
+    #xpath: //meta[@itemprop="name"]/@content
+  
+  - name: price
+    singleValue: false
+    description: The offered price for the selected product variant - if a user
+       clicks add to basket this is the price they would be charged
+    xpath: //div[@id="price"]
+    #xpath: //*[@id="ajaxPrice"]/@content | 
+    #xpath: //*[@id="ajaxPrice"] | //*[@id="unit-price"]/div[1]/div | //*[@class="price-format__large price-format__main-price"]
+    # regExp: (\d.*)([0-9.]+\d)
+    # regExpReplace: $1.$2
+    # xpath: //div[@class="zone-card overflow"]//div[@class="price-detailed__wrapper"] 
+    # regExp: ([0-9.]+)(\d.)
+    # regExpReplace: $1.$2 
+  # - name: price
+  #   singleValue: false
+  #   xpath: concat(//span[@id="ajaxPrice"]/span[@class="price__currency"],//span[@id="ajaxPrice"]/@content,//script[@type="application/ld+json" and contains(text(),'Product')])
+  # # - name: brandText
+  #   singleValue: true
+  #   xpath: //h2[@itemprop="brand"]//span | //span[@class="product-details__brand-name"] | //h2[@itemprop="brand"]//span | //span[@class="product-details__brand-name"]
+  # - name: manufacturerDescription
+  #   singleValue: false
+  #   xpath: //div[@id='product_description']//div[@class="rich-content-container"]`
+  - name: warnings
+    singleValue: true
+    xpath: //a[@class='prop65-warning__link u__default-link'][1]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id="thumbnails"]//img/@src|//div[starts-with(@id,"altImage")] | //*[@class="mediagallery__imgblock--standard"]/@src
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="product_description"]//img[@class="stretchy"]/@src|//div[@data-component="description"]//img/@src | | //*[@class="mediagallery__imgblock--standard"]/@src
+  # - name: ratingCount
+  #   singleValue: true
+  #   xpath: //span[@class="product-details__review-count"]
+  #   type: NUMBER
+  - name: shippingDimensions
+    singleValue: true
+    xpath: //div[@id="specsContainer"]//div[h4[contains(text(),"Dimensions")]]/following-sibling::div[@class="specs__table"][1]|//h4[contains(text(),"Dimensions")]/following-sibling::div
+  # - name: specifications
+  #   singleValue: false
+  #   xpath: //div[@id="specsContainer"]
+  - name: shippingWeight
+    singleValue: false
+    xpath: //div[@itemprop="weight"]
+  - name: warranty
+    singleValue: false
+    xpath: //div[text()="Manufacturer Warranty"]/following-sibling::div
+  # - name: gtin
+  #   singleValue: false
+  #   xpath: substring(//upc, 2, string-length(//upc)) | substring(//gtin13, 2, string-length(//gtin13))
+  # - name: videos
+  #   singleValue: true
+  #   xpath: //div[starts-with(@id,"video_url")]
+  - name: imageAlt
+    singleValue: true
+    xpath: //img[@id="mainImage"]/@alt|//div[@class="mediagallery__mainimage"]//img/@alt
+  - name: aggregateRatingText
+    singleValue: false
+  # - name: aggregateRating
+  #   singleValue: false
+  #   xpath: //div[@id="itemRating"]//div[contains(@class,"ratings")]/@title
+  #   type: NUMBER
+  # - name: name
+  #   singleValue: true
+  #   xpath: //h1[@class='product-title__title']|//h1[@class='product-details__title']
+  # - name: listPrice
+  #   singleValue: false
+  - name: description
+    singleValue: false
+    xpath: //div[@id="description"]
+    #xpath: //p[@itemprop="description"]/text() | //div[@class="grid desktop-content-wrapper__main-description"]
+    #xpath: //h1[contains(@class,'product-details__title')]/text()|//div[contains(@class,'main_description')]|//div[contains(@class,'product-description__main-description')]
+  
+  - name: descriptionBullets
+    singleValue: true
+    xpath: //div[@id="descriptionBullets"]
+    #xpath: count(//div[@class="grid desktop-content-wrapper__main-description"]/div[@class="bullet-list-wrapper"]/ul/li)
+  - name: promotion
+    xpath: normalize-space(//div[@id="savingsText"]/p) | //*[@class="price-detailed__was-price"]/div/text()
+  - name: mpc
+    singleValue: false
+    description: The manufacturer model code (unique) of the product
+    xpath: //*[@class="product_details modelNo"] | //*[@class="product-info-bar"]/h2[2]
+    #regExp: (\#)(..\w.+)
+    regExp: ([\#])(.+)
+    regExpReplace: $2
+  
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+    
+  - name: secondaryImageTotal
+    xpath: count(//div[contains(@class,"mediagallery__thumbnail")][position()>1]/button/img/@src) 
+    #xpath: count(//*[@id="thumbnails"]//img/@src) | count(//*[@class="mediagallery__imgblock--standard"]/@src)
+  - name: packSize
+    singleValue: true
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+    xpath: //div[@id="packSize"]
+      
+    
+  - name: listPrice
+    singleValue: false
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //span[@class="pStrikeThru"] | //*[@class="price-detailed__was-price"]/span
+    regExp: (\d.+)
+  - name: availabilityText
+    singleValue: false
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+    xpath: //*[@id="atc_appliance"]/span/text() | //*[@class="buybox__atc"]//span/text()
+  # - name: description
+  #   singleValue: false
+  #   description: Product description supplied by website - may be concatenanted from
+  #     multiple places; specifically not the manufacturer description
+  #   xpath: normalize-space(//*[@class="buybox__salient-points hidden-xs-down"]/ul) | //h1[contains(@class,'product-details__title')]/text()
+  # - name: descriptionBullets
+  #   singleValue: false
+  #   xpath: count(//*[@class="card__contents pip-row"]/div[3]/ul/li) | count(//ul[contains(@class,'bullet-list bullet-list')]/li)
+  # - name: videoLength  
+  #   xpath: //*[@class="vjs-duration-display"]/text()
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //div[@id="brand"]
+    # xpath: //*[@class="sticky_brand_info"]/text() | //h2[@class="product-details__brand-name"] | //h2[@itemprop="brand"]//span|//span[@class="product-details__brand-name"]
+  # # - name: manufacturer
+  #   singleValue: false
+  #   description: Product manufacturer
+  #   xpath: //*[@class="sticky_brand_info"]/text() | //h2[@class="product-details__brand-name"]
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //div[@id="sku"]
+    # xpath: //*[@id="mediaPlayerContainer"]/div/div[1]/h2[3]/span | //*[@class="product-info-bar"]/h2[3]/text()[2] 
+    #xpath: //div/div[3]/div/div/div[2]/div/div[1]/div/div/h2[starts-with(@class,"product")][contains(text(),'Store SO SKU')]/text()[2] | //*[@id="mediaPlayerContainer"]/div/div[1]/h2[starts-with(@class,"product")][contains(text(),'Store SO SKU')]/span/text()
+    #| //script[contains(text(), "sku")]/text()
+    # regExp: sku"([^\d]+)(\d+)
+    # regExpReplace: $2
+    #regExp: (\d{13})
+  - name: specifications
+    singleValue: false
+    xpath: //*[@id="specsContainer"]/div[2]/div[2] | //*[@class="specifications__wrapper"]
+  - name: category
+    singleValue: false
+    xpath: //*[contains(@class,"breadcrumb__item")][position()>1]
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: //*[@class="product-details__review-count"]
+    regExp: (\d+)
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+    # xpath: /html/body/footer/div[2]/nav[1]/ul/li[5]/a/@href
+    # regExp: (.+)
+    # regExpReplace: https:$1
+  - name: color
+    singleValue: false
+    description: A textual description of the colour
+    xpath: //*[@class="swatch__image"]/img/@alt | //div[contains(text(),'Color/Finish')]/following-sibling::*[1]
+  - name: manufacturerDescription
+    singleValue: false
+    description: The extended description of the product supplied by the lister
+    xpath: //*[@class="card__contents pip-row"]/div[3]/ul | //ul[contains(@class,'bullet-list bullet-list')]/li
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: //h1[@class="product-title__title"]/text() | //h1[@class="product-details__title"]/text()
+  - name: brandLink
+    singleValue: true
+    xpath: //a[contains(@class,"bttn-outline bttn--cta")]/@href | //a[@class="product-details__brand"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.homedepot.com$1
+  - name: ProductUrl
+    singleValue: false
+    xpath: //*[@rel="canonical"]/@href
+    # regExe: (.+)
+    # regExeReplace: https://www.homedepot.com$1
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+    xpath: //nav[1]/h3/text()
+  - name: videos
+    singleValue: false
+    description: videos
+    xpath: //*[@itemprop="contentURL"]/@content | //script[contains(text(),"contentUrl")]/text()
+    regExp: (h[https:]+[\/\/f1.media.brightcove.com\/4\/1834613806001\/]\/([^,]+\d\.mp4\?\w+.\d+.\w.+\=\d{13})|(\d.+\w+\.jpg))
+    regExpReplace: https://$2
+  - name: productId
+    singleValue: false
+    description: product id
+    xpath: //*[@class="product-info-bar"]/h2[1]/text()[2] | //*[@id="product_internet_number"]
+  - name: variantId
+    singleValue: false
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //*[@class="product-info-bar"]/h2[1]/text()[2] | //*[@id="product_internet_number"] | //div[@class="col__12-12"]//h2[contains(text(), "Internet ")]/text()[2]
+  - name: variantInformation
+    singleValue: false
+    description: colour / scent / flavour / other
+    xpath: //div[@id="color"]
+    # xpath: //div[@class="grid"]//div[@class="specifications__wrapper"]/div/div[contains(text(), "Color Family")]/following-sibling::*[1]
+  
+  - name: gtin
+    singleValue: false
+    description: upc
+    xpath: //meta[@itemprop="gtin13"]/@content | //script[contains(text(), "gtin13")]/text()
+    regExp: (\d{13})
+    regExpReplace: $1
+  # - name: eangtin
+  #   singleValue: false
+  #   description: eangtin
+  #   xpath: //meta[@itemprop="gtin13"]/@content | //script[contains(text(), "gtin13")]/text()
+  #   regExp: (\d{13})
+  #   regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //*[@class="product-details__rating-container rr-container-algin"]/@title | //*[@id="product-details__review__target"]/div/span | //*[@class="product-details__rating-container"]/@title
+    regExp: (\d+.\d)
+
+  - name: quantity
+    singleValue: false
+    description: Quantity as described on the page
+    xpath: //div[@class="grid"]//div[@class="specifications__wrapper"]/div/div[contains(text(), "(oz.)")]/following-sibling::*[1] | //div[@id="specsContainer"]//div[contains(text(), "(oz.)")]/following-sibling::*[1] | //div[@class="attribute__label"]/div[starts-with(text(),"Size")]/span
+    #xpath: //div/div/div[contains(text(), "(oz.)")]/following-sibling::*[1]
+
+

@@ -43,7 +43,7 @@ module.exports = {
         const response = await fetch(`https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/products/${url.match(/q=(\d+)/)[1]}.json?fields=BASIC_SPA&lang=en`)
           .then(response => response.json())
           .catch(error => console.error('Error:', error));
-          await new Promise(resolve => setTimeout(resolve, 10000));
+        await new Promise(resolve => setTimeout(resolve, 10000));
         if (response) {
           if (response.variantOptionsSorted) {
             response.variantOptionsSorted.forEach(variants => {

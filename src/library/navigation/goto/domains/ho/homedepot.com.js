@@ -10,7 +10,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
-    await context.setFirstRequestTimeout(90000);
+    await context.setFirstRequestTimeout(50000);
     await context.goto(url, {
       block_ads: false,
       load_all_resources: true,
@@ -21,8 +21,7 @@ module.exports = {
   },
 };
 
-//***************************** */
-
+//* **************************** */
 
 // module.exports = {
 //   implements: 'navigation/goto',

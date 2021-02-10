@@ -30,7 +30,6 @@ module.exports = {
       }
     });
 
-  
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -45,7 +44,7 @@ module.exports = {
         const response = await fetch(`https://www.homedepot.ca/homedepotcacommercewebservices/v2/homedepotca/products/${url.match(/q=(\d+)/)[1]}.json?fields=BASIC_SPA&lang=en`)
           .then(response => response.json())
           .catch(error => console.error('Error:', error));
-          await new Promise(resolve => setTimeout(resolve, 10000));
+        await new Promise(resolve => setTimeout(resolve, 10000));
         if (response) {
           if (response.alternateImages) {
             response.alternateImages.forEach(image => {
@@ -90,29 +89,28 @@ module.exports = {
         }
       }
 
-      async function getUnInterruptedPDP() {
+      async function getUnInterruptedPDP () {
         const skutemp = document.evaluate('//nav[@id="breadcrumbs"]//ol//li[@itemscope="false"]', document, null, XPathResult.ANY_TYPE, null).iterateNext();
-        
-        if (skutemp){
+
+        if (skutemp) {
           const sku = skutemp.textContent;
-          if (sku && sku.length){            
-            const jsApi = `https://www.homedepot.ca/api/rec/v1/recommendations?scheme=product1_rr&trackingId=900360419029528&products=${sku}&store=7077&fields=FULL&catalogVersion=Online&lang=en`
+          if (sku && sku.length) {
+            const jsApi = `https://www.homedepot.ca/api/rec/v1/recommendations?scheme=product1_rr&trackingId=900360419029528&products=${sku}&store=7077&fields=FULL&catalogVersion=Online&lang=en`;
             const response = await fetch(jsApi);
-            if(response) {
+            if (response) {
               const jsonData = await response.json();
-              const data = jsonData && jsonData.schemes[0] && jsonData.schemes[0].items && jsonData.schemes[0].items.map(e=> e.manufacturer+ ' '+ e.name);
+              const data = jsonData && jsonData.schemes[0] && jsonData.schemes[0].items && jsonData.schemes[0].items.map(e => e.manufacturer + ' ' + e.name);
               return data;
             }
           }
         }
-        return ;
-    }
-   
-    const unInterruptedPDP = await getUnInterruptedPDP();
-    if(unInterruptedPDP && unInterruptedPDP.length) {
-      const uPdp = unInterruptedPDP.join(' || ');
-      document.querySelector('h1') && document.querySelector('h1').setAttribute('recommend-products',uPdp);
-    }
+      }
+
+      const unInterruptedPDP = await getUnInterruptedPDP();
+      if (unInterruptedPDP && unInterruptedPDP.length) {
+        const uPdp = unInterruptedPDP.join(' || ');
+        document.querySelector('h1') && document.querySelector('h1').setAttribute('recommend-products', uPdp);
+      }
     });
     await new Promise(resolve => setTimeout(resolve, 10000));
     return await context.extract(productDetails, { transform });

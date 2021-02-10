@@ -17,16 +17,16 @@ const transform = (data) => {
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-    for (const { group } of data) {	
-      for (const row of group) {	
-        if (!row.variantId && row.variantId1) {	
-          row.variantId = row.variantId1;	
-        }	
-        if (!row.variantUrl && row.variantUrl1) {	
-          row.variantUrl = row.variantUrl1;	
-        }	
-      }	
+  for (const { group } of data) {
+    for (const row of group) {
+      if (!row.variantId && row.variantId1) {
+        row.variantId = row.variantId1;
+      }
+      if (!row.variantUrl && row.variantUrl1) {
+        row.variantUrl = row.variantUrl1;
+      }
     }
+  }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
   }))));
