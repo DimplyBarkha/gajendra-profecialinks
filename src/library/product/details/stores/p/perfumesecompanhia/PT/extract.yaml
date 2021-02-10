@@ -152,7 +152,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
-  xpath: ancestor::html//div[@class="tituloProdutoDetalhe"]/..
+  xpath: "@prodname"
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store

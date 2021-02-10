@@ -42,6 +42,10 @@ module.exports = {
             const price = document.evaluate('.//form//div[@id="price"]/text()', variantElement, null, XPathResult.STRING_TYPE, null).stringValue;
             const listPrice = document.evaluate('.//form//div[@class="old-price"]/text()', variantElement, null, XPathResult.STRING_TYPE, null).stringValue;
             const variantName = variantElement.querySelector('div.nome_detalhe_produto') ? variantElement.querySelector('div.nome_detalhe_produto').textContent.trim() : '';
+            const productName = document.querySelectorAll('div[class="produto_linha"], div[class="produto_concentracao"]')
+              ? document.querySelectorAll('div[class="produto_linha"], div[class="produto_concentracao"]') : [];
+            const nameText = [];
+            productName.forEach(e => nameText.push(e.textContent));
             const name = document.querySelector('div.produto-consulta-detalhes > h1').textContent.replace(/\n|\s{2,}/g, ' ').trim();
             const availability = variantElement.querySelector('div.disponibilidade') ? 'In Stock' : 'Out Of Stock';
             const quantity = document.querySelector(`div.wrap-ml > button[data-id="${variantId}"]`)
@@ -52,6 +56,7 @@ module.exports = {
             const thumbnailPart = document.querySelector(`button[data-id="${variantId}"]`) ? document.querySelector(`button[data-id="${variantId}"]`).getAttribute('data-img-url') : '';
             const thumbnailAlt = document.querySelector(`button[data-id="${variantId}"]`) ? document.querySelector(`button[data-id="${variantId}"]`).getAttribute('data-img-alt') : '';
             const promotion = variantElement.querySelector('div.perc-preco') ? variantElement.querySelector('div.perc-preco').textContent.trim() : '';
+            addedVariant.setAttribute('prodName', nameText.join(' '));
             addedVariant.setAttribute('price', price);
             addedVariant.setAttribute('list-price', listPrice);
             addedVariant.setAttribute('variant-id', variantId);
