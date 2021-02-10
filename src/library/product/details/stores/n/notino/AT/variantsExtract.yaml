@@ -1,0 +1,18 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id='pdVariantsTile']//ul[@class='variantsStyled__VariantList-sc-1hj58ih-6 ihUKVz']//li
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //a[contains(@id,'pd-variant')]/@id
+    regExp: pd-variant-(\d+)
+    regExpReplace: $1
+  - name: variantUrl
+    singleValue: false
+    xpath: //a[contains(@id,'pd-variant')]/@href
+    regExp: (.+)
+    regExpReplace: https://www.notino.at$1
+  - name: variant
+    singleValue: false
+    xpath: //div[contains(@class,'pd-variant-label')]

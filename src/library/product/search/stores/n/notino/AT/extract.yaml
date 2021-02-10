@@ -1,0 +1,29 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id='productsList']//li[@class='item']
+fields: 
+  - name: id
+    SingleValue: false
+    xpath: //li[@class='item']/@data-product-code
+  - name: productUrl
+    SingleValue: false
+    xpath: //a[@class='spc push-to-dl']/@href
+    regExp: (.+)
+    regExpReplace: https://www.notino.at$1
+  - name: thumbnail
+    SingleValue: false
+    xpath: //span[@class='img-wrap']//img[@class='loaded']/@src
+  - name: name
+    SingleValue: false
+    xpath: //h2[@class='title']//span[@class='subname']
+  - name: price
+    SingleValue: false
+    xpath: //p[@class='price']//strong  
+  - name: brandText
+    SingleValue: false
+    xpath: //h2[@class='title']//span[@class='name']//span[@class='brand']
+  - name: rankOrganic
+    SingleValue: false
+  - name: rank
+    SingleValue: false

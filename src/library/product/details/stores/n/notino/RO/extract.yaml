@@ -1,0 +1,110 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[@class='styled__ImageWrapper-sz48g6-2 PneRI']//@src
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: count(//div[@class='styled__Div-sc-1rh5pwd-2 kzchAg'])
+    # //div[@class='styled__Div-sc-1rh5pwd-2 kzchAg']//@src
+    
+    # //div[@class='styled__ImageWrapper-sz48g6-2 PneRI']//@src
+    description: URL of the main product image
+  - name: imageAlt
+    singleValue: true
+    xpath: //div[@class='styled__ImageWrapper-sz48g6-2 PneRI']//@alt
+    description: Alt text of the main product image
+  - name: metaKeywords
+    singleValue: true
+    xpath: //meta[@name='keywords']
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    xpath: //a[@class='styled__BreadcrumbLink-sc-1pbk7u7-4 cSsYma']//text()
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    singleValue: true
+    xpath: //div[@class='styled__StyledHeader-sc-3sotvb-0 hEtkTG']//h1[@class='sc-AykKD styled__H1-sc-3sotvb-1 igslcx']
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: price
+    singleValue: true
+    xpath: concat(//div[@id='pd-price']//span[1]//text() ,' ', //div[@id='pd-price']//span[2]//text())
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: listPrice
+    singleValue: true
+    xpath: concat(//span[@class='styled__PriceWrapper-wpdhab-5 lgUoac']//span[1]//text() ,' ', //span[@class='styled__PriceWrapper-wpdhab-5 lgUoac']//span[2]//text())
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@class='styled__Wrapper-mu8uqe-0 dZKbf']//span[@class='styled__Availability-mu8uqe-4 gMIVDc']
+    # description: Availability as described on page for the selected variant. If
+    #   there is no availability but the product can be added to cart, this field
+    #   should be "In Stock"
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@class='styled__Description-sc-1eu1dd2-3 iiKKfp']
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: descriptionBullets
+    singleValue: true
+    xpath: count(//div[@class='styled__Description-sc-1eu1dd2-3 iiKKfp']//ul//li)
+
+  - name: brandText
+    singleValue: true
+    xpath: //h1[@class='sc-AykKD styled__H1-sc-3sotvb-1 igslcx']//span[@class='styled__Brand-sc-3sotvb-2 eXClxK']
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+
+  - name: quantity
+    singleValue: true
+    xpath: //div[@class='styled__Name-h83s98-4 izOgAK']//span
+    description: Quantity as described on the page
+    # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    # regExpReplace: $1$2$3$4
+
+  - name: gtin
+    singleValue: true
+    xpath: //input[@name='productId']//@value
+    description: GTIN code (includes UPC/EAN)
+  - name: sku
+    singleValue: true
+    xpath: //main[@class='ViewPort-sc-1rubo24-0 djsCYk']//@data-product-code
+    description: The store-specific product identifier
+  - name: variantId
+    singleValue: true
+    xpath: //div[@id= 'variantId'] 
+      # //span[@class='styled__CodeBlock-mu8uqe-1 fuzqBd']
+    description: Identifier for a variant from a store where variants share the same sku
+
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@id='pdReviews']//div[@class='styled__Header-sc-1bita0g-0 kOYccX']//span[@class='styled__OverallValue-sc-1bita0g-2 hSMsLU']
+
+  - name: name
+    singleValue: true
+    xpath: //span[@class='styled__Description-sc-3sotvb-4 jmRfQZ']
+    description: The product name
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id= 'added_manufacture_images']
+  - name: ratingCount
+    singleValue: true
+    xpath: //span[@class='styled__ReviewSummaryCount-sc-1vl91i4-6 KIBPh']//text()
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id= 'added_images']
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@class='styled__Name-h83s98-4 izOgAK']
+      
+
+  
