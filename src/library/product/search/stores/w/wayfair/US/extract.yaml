@@ -1,22 +1,24 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@id="sbprodgrid"]/div/div
+recordXPath: //div[@id="sbprodgrid"]//div[@class="BrowseProductCard-wrapper"]
 fields:
   - name: productUrl
     xpath: //a[contains(@class,"ProductCard")]//@href
   - name: thumbnail
-    xpath: //div[contains(@class,"BrowseProductCardImage")]//img/@src
-    regExp: (.+)h160-w160(.+)
-    regExpReplace: $1h700-w700$2
+    xpath: //div[contains(@class,"BrowseProductCardImage")]//img/@srcset
+    regExp: (.+)( 160w)
+    regExpReplace: $1
   - name: name
-    xpath: //h2[@class="ProductCard-name"] | //div[contains(@class,"header-name")]/p
+    xpath: //h2[@class="ProductCard-name"]|//div[contains(@class,"header-name")]/p
   - name: reviewCount
     xpath: //p[@class="pl-ReviewStars-reviews"]
   - name: price
-    xpath: //div[@id="sbprodgrid"]/div/div//span[contains(@class,"ProductCard-price")][1]
+    xpath: //span[contains(@class,"ProductCard-price")][1]|//span[contains(@class,"BrowseMinimizedPriceBlock-price")][1]|//div[1]/p/following-sibling::span[contains(@class,"LightningDealsBanner-price")]
+    regExp: (\d+\.\d+|\d+|\d+\,\d+)
+    regExpReplace: $1
   - name: manufacturer
-    xpath: //p[@class="ProductCard-manufacturer"] | //h2[contains(@class,'manufacture')]
+    xpath: //p[@class="ProductCard-manufacturer"]|//h2[contains(@class,'manufacture')]
     regExp: (by\s)(.+)
     regExpReplace: $2
   - name: rank

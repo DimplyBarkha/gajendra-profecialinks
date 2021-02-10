@@ -6,7 +6,7 @@ module.exports = {
     store: 'wayfair',
     nextLinkSelector: 'a.pl-Pagination-icon--next',
     loadedSelector: '.BrowseProductCardImage',
-    noResultsXPath: 'h2.NoResults-title',
+    noResultsXPath: '//h2[@class="NoResults-title"]',
     domain: 'wayfair.com',
   },
 };

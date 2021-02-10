@@ -3,14 +3,19 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'wayfair.com',
-    timeout: 80000,
+    timeout: 8000000,
     country: 'US',
     store: 'wayfair',
     zipcode: '',
   },
-  implementation: async ({ url }, parameters, context, dependencies) => {
-    // const URL = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
-    await context.goto(url, { timeout: 50000, waitUntil: 'load' });
-    // await context.waitForNavigation({ timeout: 50000, waitUntil: 'networkidle0' });
-  },
+  // implementation: async ({ url }, parameters, context, dependencies) => {
+  //   url = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true}[/!opt!]`;
+  //   await context.goto(url, {
+  //     block_ads: false,
+  //     load_all_resources: true,
+  //     images_enabled: true,
+  //     timeout: 1000000,
+  //     waitUntil: 'load',
+  //   });
+  // },
 };
