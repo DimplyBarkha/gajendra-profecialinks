@@ -10,7 +10,7 @@ fields:
     regExpReplace: https://www.coolblue.be$1
   - name: thumbnail
     singleValue: false
-    xpath: //figure[@class="fitted-product-image-box"]//picture[@class="picture"]//img[@class="picture__image"]/@src
+    xpath: //figure[@class="fitted-product-image-box"]//picture[@class="picture"]//img[@class="picture__image"]/@src | //figure[contains(@class,"fitted-product-image-box js-product-image")]/img/@srcset
   - name: name
     singleValue: false
     xpath: //div[@id="product-results"]//div[contains(@class,"product-card")]//div[contains(@class,"product-card__details")]//div[@class="product-card__title"]//h3[contains(@class,"color--link")]
