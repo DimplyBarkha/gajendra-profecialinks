@@ -29,13 +29,13 @@ module.exports = {
 
     const noResults = await isSelectorAvailable(cssNoProduct);
 
-    if (noResults) {
-      // throw new Error('ERROR: Failed to load product details page');
-      return;
-    }
+    // if (noResults) {
+    //   // throw new Error('ERROR: Failed to load product details page');
+    //   return;
+    // }
 
     console.log('.....waiting......');
-    await context.waitForSelector(cssProduct, { timeout: 10000 });
+    //await context.waitForSelector(cssProduct, { timeout: 10000 });
 
     const productAvailable = await isSelectorAvailable(cssProduct);
     console.log(`productAvailable: ${productAvailable}`);
