@@ -8,7 +8,7 @@ fields:
     xpath: //figure[@id="image-preview-container"]/img/@src
   - name: ratingCount
     singleValue: true
-    xpath: (//div[@class="ooB-rel item-rating-stars ooB-ib"]/div/div/span/text())[1]
+    xpath: //div[@class="ooB-table ooG-col-12"]//span[@class="votes"]
   - name: name
     singleValue: true
     xpath: //h1[@id="oo-block-hl"]/text()
@@ -57,14 +57,18 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //section[@class="ooB ooB-mb48 ooG"]/@data-init_itemcode
-    # xpath: //html//div[@id="sku"]
+    # xpath: //section[@class="ooB ooB-mb48 ooG"]/@data-init_itemcode
+    xpath: //html//div[@id="sku"]
     # regExp: (.+ART_)(\d+)(_+.+)
     # regExp: (.+ART_)(\d+)(([A-Z]+)?)(_+.+)
     # regExReplace: $2$3
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: true
-    xpath: //div[@class="rating-stars-copy"]/text()
+    # manualSelector: script[type='application/ld+json']
+    # regExp: '("ratingValue" : ")(\d.+)",'
+    # regExpReplace: $2
+    xpath: //div[@class="rating-stars-copy"]
+    regExp: \d.\d
   - name: url
     singleValue: true
     xpath: //html//div[@id="URL"]
