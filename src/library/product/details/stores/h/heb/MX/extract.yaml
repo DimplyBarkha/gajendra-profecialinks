@@ -22,6 +22,21 @@ fields:
     regExp: ( .+)
   - name: variantId
     singleValue: true
-    xpath: //div[@class='product-sku'][1]
+    path: //div[@class='product-sku'][1]
     regExp: (\d+)
+  - name: description
+    singleValue: true
+    xpath: (//div[@class='tab-pane fade in active'])[1]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="product-info-wrapper"]//div[@class="fotorama__nav fotorama__nav--thumbs"]/div[@class="fotorama__nav__shaft"]/div[@class="fotorama__nav__frame fotorama__nav__frame--thumb"]/div/img/@src
+  - name: availabilityText
+    defaultValue: 'In Stock'
+    singleValue: true
+    xpath: 
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class="fotorama__thumb fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]//img//@src)
+  
+    
     
