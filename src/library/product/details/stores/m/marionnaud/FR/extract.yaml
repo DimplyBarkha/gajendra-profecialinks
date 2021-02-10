@@ -16,9 +16,8 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //ul[@id='images_galery_mobile']/li/span/img/@src
-    description: Other product images (not in manufacturer description)
-    regExp: (.+)
-    regExpReplace: https://www.marionnaud.fr$1
+    regExp: (medias/.*)
+    regExpReplace: https://www.marionnaud.fr/$1
   - name: url
     singleValue: true
     description: A harvest url
@@ -32,7 +31,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@class='productNameInfo ']|//h1[@class='productNameInfo productNameInfo--chanel']
+    xpath: concat(//h1[@class='productNameInfo ']|//h1[@class='productNameInfo productNameInfo--chanel']," ",//span[@class="size-box selected "]/text())
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -124,8 +123,8 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[@class='global-rating__rating']
-    regExp: (.*)(?=\/)
+    xpath: //html//div[@id="aggregate"]
+    # regExp: (.*)(?=\/)
     # type: NUMBER
   - name: shippingInfo
     singleValue: true
