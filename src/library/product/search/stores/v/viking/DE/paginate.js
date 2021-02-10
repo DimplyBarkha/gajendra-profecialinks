@@ -1,10 +1,10 @@
 
 module.exports = {
-  implements: 'product/search/paginate',
+  implements: 'navigation/paginate',
   parameterValues: {
     country: 'DE',
     store: 'viking',
-    nextLinkSelector: '#paginationPageNext[rel="next"] > span',
+    nextLinkSelector: 'a#paginationPageNext[rel="next"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'main#siteContent',

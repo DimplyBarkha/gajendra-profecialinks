@@ -6,7 +6,7 @@ module.exports = {
     store: 'viking',
     domain: 'viking.de',
     url: 'https://www.viking.de/de/search/?text={searchTerms}',
-    loadedSelector: null,
+    loadedSelector: 'main#siteContent',
     noResultsXPath: '//div[@id="searchEmpty"] | //div[@id="productPage"]',
     zipcode: '',
   },
