@@ -44,7 +44,7 @@ module.exports = {
       console.log('Alternate images not loading');
     }
 
-    await helper.ifThereClickOnIt('#onetrust-accept-btn-handler'); // accept cookies
+    await helper.ifThereClickOnIt('#onetrust-accept-btn-handler', 8000, true); // accept cookies
 
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
