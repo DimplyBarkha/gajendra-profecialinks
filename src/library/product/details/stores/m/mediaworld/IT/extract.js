@@ -129,14 +129,11 @@ module.exports = {
       }
     };
     await optionalWaitXpath('//div[@id="flix-inpage"]//img/@srcset | //div[@id="flix-inpage"]//img/@data-img-src|//div[@id="flix-inpage"]//img/@data-srcset');
-
-
     try {
       await context.click('div[id="flix_hotspots"] svg[id="flix_key_features"]', {}, { timeout: 100000 });
     } catch (error) {
       console.log('error');
     }
-
     try {
       await context.waitForSelector('div[id="flix_hotspots"] svg[id="flix_product_video"]', { timeout: 100000 });
       await context.click('div[id="flix_hotspots"] svg[id="flix_product_video"]', {}, { timeout: 100000 });
@@ -224,7 +221,6 @@ module.exports = {
         // VideoXpath.substring(VideoXpath.indexOf('src=') + 4, VideoXpath.indexOf('frameborder'))
         // addElementToDocument('added_video_url', VideoXpath.substring(VideoXpath.indexOf('src=') + 5, VideoXpath.indexOf('frameborder') - 2));
         addElementToDocument('added_gallery_video', VideoXpath.substring(VideoXpath.indexOf('src=') + 5, VideoXpath.indexOf('frameborder') - 2));
-
       }
       const name = getXpath("//div[contains(@class,'hidden-tab-up')]//div[@data-component='productDetailInfo']//h1", 'innerText');
       // var el = document.querySelector("div.hidden-lg h2[itemprop='description']").textContent;
