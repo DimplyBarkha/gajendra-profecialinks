@@ -51,7 +51,7 @@ module.exports = {
       var rating = getAllXpath("//script[@type='application/ld+json' and contains(text(),'aggregateRating')]/text()","nodeValue");
       if (rating.length > 0) {
         let jsonrating = JSON.parse(rating[0])
-        addHiddenDiv("aggrating", parseFloat(jsonrating.aggregateRating.ratingValue).toFixed(1));
+        addHiddenDiv("aggrating", parseFloat(jsonrating.aggregateRating.ratingValue).toFixed(1).replace(".", ","));
         addHiddenDiv("reviewCount", jsonrating.aggregateRating.reviewCount);
       }
     });
