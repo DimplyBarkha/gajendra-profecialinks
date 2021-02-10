@@ -8,6 +8,10 @@ module.exports = {
     domain: 'expertonline.it',
     zipcode: '',
   },
+  dependencies: {
+    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    helperModule: 'module:helpers/helpers',
+  },
   implementation,
 };
 async function implementation (
@@ -17,12 +21,16 @@ async function implementation (
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails } = dependencies;
+  const { productDetails, helperModule: { Helpers } } = dependencies;
+
+  const helper = new Helpers(context);
 
   const productUrl = await context.evaluate(async () => {
     const url = window.location.href;
     return url;
   });
+
+  await helper.ifThereClickOnIt('#btn_cookie_warning', 10000, true); // accept cookies
 
   const iframeLink = await context.evaluate(async () => {
     let iframeLink = null;
@@ -238,16 +246,12 @@ async function implementation (
   // await context.waitForSelector('#flix-comp', { timeout: 45000 });
 
   try {
-    await context.waitForSelector('#flix-comp', { timeout: 45000 });
+    await context.waitForSelector('#flix-comp', { timeout: 10000 });
   } catch (error) {
     console.log(error);
   }
 
-  try {
-    await new Promise((resolve) => setTimeout(resolve, 6000));
-  } catch (error) {
-    console.log('error: ', error);
-  }
+  await new Promise((resolve) => setTimeout(resolve, 6000));
   await context.evaluate(() => {
     var elmt = document.getElementById('flix-comp-mainTitle');
     elmt && elmt.scrollIntoView(true);
