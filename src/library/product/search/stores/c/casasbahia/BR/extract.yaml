@@ -15,8 +15,9 @@ fields:
     SingleValue: true
     xpath: //li//span[contains(@class,"ProductPrice__PriceValu")]
   - name: thumbnail
-    SingleValue: true
-    xpath: //div[contains(@class,"LazyLoadImg__Wrapper-sc-1vnijxj-2 ctGTsY")]/img/@src
+    SingleValue: false
+    # xpath: //div[contains(@class,"LazyLoadImg__Wrapper-sc-1vnijxj-2 ctGTsY")]/img/@src
+    xpath: //div[@class="extra-info"]/@data-thumbnail
   - name: name
     SingleValue: true
     xpath: //li//p[contains(@class,"ProductCard__Title")]
@@ -26,10 +27,10 @@ fields:
     SingleValue: true
   - name: reviewCount
     singleValue: true
-    xpath: //meta[@itemprop="reviewCount"]/@content
+    xpath: //meta[@itemprop="reviewCount"]/@content    
   - name: ratingCount
     singleValue: true
-    xpath: //meta[@itemprop="reviewCount"]/@content
+    xpath: //meta[@itemprop="reviewCount"]/@content   
   - name: aggregateRating
     singleValue: false
-    xpath: //meta[@itemprop="ratingValue"]/@content
+    xpath: //meta[@itemprop="ratingValue"]/@content   
