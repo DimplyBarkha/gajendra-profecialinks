@@ -14,6 +14,7 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    const { transform } = parameters;
     const { productReviews } = dependencies;
 
     try {
