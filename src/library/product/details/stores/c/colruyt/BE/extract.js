@@ -175,11 +175,18 @@ async function implementation (inputs, parameters, context, dependencies) {
     addHiddenDiv('saltPerServing_added', saltPerServing);
     addHiddenDiv('storage_added', storage);
     addHiddenDiv('gtin_added', gtin);
-    addHiddenDiv('quantity_added', quantity);
     addHiddenDiv('calciumPerServing_added', calciumPerServing);
     addHiddenDiv('SodiumPerServing_added', SodiumPerServing);
     addHiddenDiv('magnesiumPerServing_added', magnesiumPerServing);
     addHiddenDiv('vitaminAPerServing_added', vitaminAPerServing);
+    let size = '';
+    const quantitySelector = document.querySelector('div.product__weight');
+    size = quantitySelector ? quantitySelector.innerText : '';
+    if (quantity) {
+      addHiddenDiv('quantity_added', quantity);
+    } else {
+      addHiddenDiv('quantity_added', size);
+    }
     let desc = document.querySelector('p.product__details');
     if (desc) {
       var descList1;
