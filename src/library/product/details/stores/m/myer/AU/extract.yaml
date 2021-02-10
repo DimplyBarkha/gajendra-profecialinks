@@ -62,10 +62,10 @@ fields:
     xpath: //div[@class="variants_outer"]/div[@class="variants_inner"]/div[@class="sku_id"]
   - name: ratingCount
     singleValue: false
-    xpath: ancestor::html//div[@class="rating_summary_container"]//meta[@itemprop="reviewCount"]/@content
+    xpath: ancestor::html//div[contains(@class,"rating_summary_container")]//meta[@itemprop="reviewCount"]/@content
   - name: aggregateRating
     singleValue: false
-    xpath: ancestor::html//div[@class="rating_summary_container"]//div[@itemprop="ratingValue"]      
+    xpath: ancestor::html//div[contains(@class,"rating_summary_container")]//div[@itemprop="ratingValue"]  
   - name: variantCount
     singleValue: false
     #xpath: count(//div[@class="drawers-container"]//ul[@data-automation="drawer-body"]//li)
