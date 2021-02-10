@@ -1,0 +1,31 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+# recordXPath: //ul[@id="productsList"]/li
+fields: 
+  - name: price
+    singleValue: false
+    xpath: (//ul[@id="productsList"]/li/a[@data-datalayer]/p[@class="price"])/strong
+    type: CURRENCY
+  - name: productUrl
+    singleValue: false
+    xpath: //li[@class="item"]/a/@data-url-redirect
+    # regExp: (.+)
+    # regExpReplace: https://www.notino.de/$1
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: false
+    xpath: //ul[@id="productsList"]/li//span[@class="img-wrap"]//span/img/@src
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: false
+    xpath: //ul[@id="productsList"]/li//span[@class="name"]
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@id='rankOrganic']
+  - name: rank
+    singleValue: false
+    xpath: //div[@id='rankOrganic']
+  - name: id
+    xpath: //ul[@id="productsList"]/li//@data-product-code
+    description: The store-specific product identifier
