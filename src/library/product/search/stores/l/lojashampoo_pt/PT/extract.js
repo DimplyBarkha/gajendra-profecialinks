@@ -23,17 +23,17 @@ async function implementation(
       var elems = document.querySelectorAll(xpathforpagination);
       elems[0].classList.add('pagination');
     }
-    // function addHiddenDiv(id, content, index) {
-    //   const newDiv = document.createElement('div');
-    //   newDiv.id = id;
-    //   newDiv.textContent = content;
-    //   newDiv.style.display = 'none';
-    //   const originalDiv = document.querySelectorAll('div[class="NETREVIEWS_PRODUCT_STARS"]>div')[index];
-    //   originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-    // }
+    function addHiddenDiv(id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('div[class="product-block item-default"]')[index];
+      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+    }
     function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
-      catElement.className = key;
+      catElement.id = key;
       catElement.textContent = value;
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
@@ -57,6 +57,7 @@ async function implementation(
         addElementToDocument('rating', rating[i]);
       }
     }
+    // addElementToDocument('rating', "rating Text");
   });
   return await context.extract(productDetails, { transform });
 };
