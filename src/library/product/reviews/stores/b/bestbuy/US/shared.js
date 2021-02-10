@@ -18,6 +18,20 @@ const transform = (data, context) => {
           }
         });
       }
+      if (row.reviewRating) {
+        if (row.reviewRating[0].text.includes('out of')) {
+          const rating = row.reviewRating[0].text.split(' ');
+          row.reviewRating[0].text = rating[1];
+        }
+      }
+      if (!row.brandText && row.brandText1) {
+        row.brandText = row.brandText1;
+      }
+      // if (row.gtin && row.gtin.length) {
+      //   while (row.gtin[0].text.charAt(0) === '0') {
+      //     row.gtin[0].text = row.gtin[0].text.substring(1);
+      //   }
+      // }
     }
   }
   const clean = text => text.toString()

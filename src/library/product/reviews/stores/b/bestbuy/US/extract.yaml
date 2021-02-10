@@ -1,19 +1,20 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"reviews-content-wrapper")]//ul/li[contains(@class,"review-item")]
+recordXPath: //div[contains(@class,"reviews-content-wrapper")]//ul/li[contains(@class,"review-item")] | //div[@id="BVRRDisplayContentBodyID"]/div
 fields:
   - name: name
     singleValue: false
-    xpath: ancestor::html//h2[@class="heading-6 product-title"]
+    xpath: ancestor::html//h2[@class="heading-6 product-title"] | //div[@class="BVRRSyndicatedReviewsListingProductName"]
     description: The product name
   - name: sku
     singleValue: false
-    xpath: ancestor::html//dt[contains(text(),"SKU")]/following-sibling::dd
+    # xpath: ancestor::html//dt[contains(text(),"SKU")]/following-sibling::dd
+    xpath: ancestor::html//div[@id='skuValues'] | ancestor::html//dt[contains(text(),"SKU")]/following-sibling::dd
     description: The store-specific product identifier
   - name: productUrl
     singleValue: false
-    xpath: ancestor::html//h2[@class="heading-6 product-title"]/a/@href
+    xpath: ancestor::html//h2[@class="heading-6 product-title"]/a/@href | //div[@id="product-url"]
     description: The url of the product details page
   - name: reviewUrl
     singleValue: false
@@ -21,21 +22,21 @@ fields:
     description: A direct link to the review
   - name: reviewDate
     singleValue: false
-    xpath: //div[@class="review-context"]/div[@class="disclaimer"]/time/@title
+    xpath: //div[@class="review-context"]/div[@class="disclaimer"]/time/@title | //span[@property="v:dtreviewed"]/@content
     description: Date the review was made
   - name: reviewRating
     singleValue: false
-    regExp: ^([\s]*[\S]+[\s])(.+) out of (.)
-    regExpReplace: $2
-    xpath: //div[@class="review-rating"]
+    # regExp: ^([\s]*[\S]+[\s])(.+) out of (.)
+    # regExpReplace: $2
+    xpath: //div[@class="review-rating"] | //div[@id="BVRRDisplayContentID"]//span[contains(@class,"BVRRRatingNumber")]
     description: Rating normalized to be out of 5
   - name: reviewText
     singleValue: false
-    xpath: //div[contains(@class,"ugc-review-body")]
+    xpath: //div[contains(@class,"ugc-review-body")] | //span[@class="BVRRReviewText"]
     description: The text of the review
   - name: reviewTitle
     singleValue: false
-    xpath: //h4[contains(@class,"review-title")]
+    xpath: //h4[contains(@class,"review-title")] | //span[@property="v:summary"]
     description: The title of the review
   - name: verifiedPurchase
     xpath: //div[@class="review-context"]//button[@data-track="Verified Purchase Badge"]
@@ -43,6 +44,11 @@ fields:
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
   - name: brandText
     singleValue: false
-    xpath: ancestor::html//script[@type="application/ld+json"][contains(text(),"brand")]
+    xpath: ancestor::html//script[@type="application/ld+json"][contains(text(),"brand")] 
     regExp: brand":{"@type":"Thing","name":"([^"]+)
     regExpReplace: $1
+  - name: brandText1
+    singleValue: false
+    xpath: ancestor::html//div[@id="brand"]
+  - name: gtin
+    xpath: ancestor::html//div[@id="upcValue"]
