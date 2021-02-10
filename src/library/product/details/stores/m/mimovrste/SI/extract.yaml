@@ -44,7 +44,8 @@ fields:
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@id='added_description'] | //h2[text()='Predstavitev']/following-sibling::section[contains(@class,'panel-inner')]//table
+    # xpath: //div[@id='added_description'] | //h2[text()='Predstavitev']/following-sibling::section[contains(@class,'panel-inner')]//table
+    xpath: //h2[text()='Predstavitev']/following-sibling::section[contains(@class,'panel-inner')]//table
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
