@@ -6,7 +6,7 @@ module.exports = {
     store: 'walmart',
     domain: 'walmart.com.mx',
     loadedSelector: "div[class^='product-details_productDetails']",
-    noResultsXPath: "//p[contains(text(),'Es posible que la página que estás buscando no exista')]",
+    noResultsXPath: "//p[contains(text(),'Es posible que la página que estás buscando no exista')] | //*[@data-automation-id='department_name' and contains(text(),'Inicio')]",
     zipcode: '',
   },
 };
