@@ -9,6 +9,7 @@ module.exports = {
     domain: 'perfumesecompanhia.pt',
     zipcode: "''",
   },
+  // @ts-ignore
   implementation: async ({ inputString, id }, { transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
       const productOnSearchPage = document.querySelector('#containerResultsFilter img');
@@ -16,6 +17,7 @@ module.exports = {
       if (productOnSearchPage) {
         // @ts-ignore
         productOnSearchPage.click();
+        // @ts-ignore
         await new Promise((resolve, reject) => setTimeout(resolve, 2000));
       }
     });
@@ -34,6 +36,13 @@ module.exports = {
       for (let i = 0; i < numOfVariants; i++) {
         await context.evaluate(
           async ({ i, variantsIdArr }) => {
+            const addElementToDocument = (key, value) => {
+              const catElement = document.createElement('div');
+              catElement.id = key;
+              catElement.textContent = value;
+              catElement.style.display = 'none';
+              document.body.appendChild(catElement);
+            };
             const addedVariant = document.createElement('div');
             addedVariant.id = `added_variant${i}`;
             addedVariant.style.display = 'none';
@@ -52,7 +61,21 @@ module.exports = {
               ? document.querySelector(`div.wrap-ml > button[data-id="${variantId}"]`).textContent : '';
             const color = document.querySelector(`div.wrap-cor > button[data-id="${variantId}"]`)
               ? variantName : '';
-            const variantInfo = variantElement.querySelector('div.nome_detalhe_produto') ? variantElement.querySelector('div.nome_detalhe_produto').textContent : '';
+            const buttonVariantInfo = document.querySelector(`button[onclick*="${variantId}"]`)
+              // @ts-ignore
+              ? document.querySelector(`button[onclick*="${variantId}"]`).innerText : '';
+            if (buttonVariantInfo !== '') {
+              addElementToDocument('variantinfo', buttonVariantInfo);
+              addedVariant.setAttribute('variant-info', buttonVariantInfo);
+            }
+            // @ts-ignore
+            const variantInfoText = variantElement.querySelector('div.nome_detalhe_produto').innerText.trim()
+              // @ts-ignore
+              ? variantElement.querySelector('div.nome_detalhe_produto').innerText : '';
+            if (variantInfoText !== '' && buttonVariantInfo === '') {
+              addElementToDocument('variantinfo', variantInfoText);
+              addedVariant.setAttribute('variant-info', variantInfoText);
+            }
             const thumbnailPart = document.querySelector(`button[data-id="${variantId}"]`) ? document.querySelector(`button[data-id="${variantId}"]`).getAttribute('data-img-url') : '';
             const thumbnailAlt = document.querySelector(`button[data-id="${variantId}"]`) ? document.querySelector(`button[data-id="${variantId}"]`).getAttribute('data-img-alt') : '';
             const promotion = variantElement.querySelector('div.perc-preco') ? variantElement.querySelector('div.perc-preco').textContent.trim() : '';
@@ -60,7 +83,6 @@ module.exports = {
             addedVariant.setAttribute('price', price);
             addedVariant.setAttribute('list-price', listPrice);
             addedVariant.setAttribute('variant-id', variantId);
-            addedVariant.setAttribute('variant-info', variantInfo);
             addedVariant.setAttribute('name-extended', variantName ? `${name} - ${variantName}` : name);
             addedVariant.setAttribute('availability', availability);
             addedVariant.setAttribute('quantity', quantity);
