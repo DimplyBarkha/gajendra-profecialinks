@@ -1,4 +1,3 @@
-
 module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
@@ -9,4 +8,4 @@ module.exports = {
     noResultsXPath: null,
     zipcode: '',
   },
-};
+  };
