@@ -59,7 +59,7 @@ fields:
   - name: weightGross
     description: Gross weight as described on the page
   - name: gtin
-    xpath: (//li[contains(text(),"EAN")])[1] | //li[contains(text(),"EAN")]
+    xpath: (//li[contains(text(),"EAN")])[1] | //li[contains(text(),"EAN")] |//th[contains(text(),'EAN')]/..//td
     regExp: (:\s)?(\d+)
     regExpReplace: $2
     description: GTIN code (includes UPC/EAN)
