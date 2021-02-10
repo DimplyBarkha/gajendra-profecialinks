@@ -72,7 +72,7 @@ fields:
     description: Images within the third party description
     xpath: //div[contains(@class,'WaymoreModulesContainer')]//section//img//@src | //div[@id="wc-power-page"]//img//@src[contains(.,'jpg')]
   - name: videos
-    xpath: //video[@class="VideoPlayer-element"]/source[1]/@src | //video/source//@src[contains(.,'mp4')]
+    xpath: //video[@class="VideoPlayer-element"]/source[1]/@src | //video/source[1]//@src[contains(.,'mp4')]
   - name: warranty
     xpath: //dt[contains(.,'Warranty Length')]/following-sibling::dd[1]
   - name: materials
