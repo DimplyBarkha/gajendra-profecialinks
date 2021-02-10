@@ -13,9 +13,9 @@ module.exports = {
     const url = `${inputs.url}`;
     await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
     // Functionality deployed for search extractor
-    // const LogoutBtn = await context.evaluate(async () => {
-    //   return document.querySelector('a.logout-btn');
-    // });
+    const LogoutBtn = await context.evaluate(async () => {
+      return document.querySelector('a.logout-btn');
+    });
     // if (!LogoutBtn) {
     //   await context.waitForSelector('input#CustomerNumber');
     //   await context.setInputValue('input#CustomerNumber', '703636209');
@@ -31,16 +31,19 @@ module.exports = {
     const branchLocator = await context.evaluate(async () => {
       return document.querySelector('header#shopping-header-desktop a[href*=branch]');
     });
-    if (!branchLocator) {
+    if (!branchLocator && !LogoutBtn) {
       await context.waitForSelector('input#postcode');
       await context.setInputValue('input#postcode', 'SY23 3JQ');
       await context.click('div#logo-and-login+nav div#postcode-input button.btn-branch-search');
       await context.waitForSelector('main#booker_branch_locator');
-      await context.click('div#search-results li.list-group-item:nth-child(1) a.view-branch');
-      await context.waitForSelector('main#booker_branch_locator');
-      await context.click('a[href*=categories]');
+      await context.click('a.distance.view-branch');
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await context.goto('https://www.booker.co.uk/products/categories', { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+      // await context.waitForSelector('main#booker_branch_locator');
+      // await context.click('a[href*=categories]');
+      // await new Promise((resolve) => setTimeout(resolve, 1000));
       await context.waitForSelector('div#navbarMenuItems');
-      await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+      await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
     }
   },
 };
