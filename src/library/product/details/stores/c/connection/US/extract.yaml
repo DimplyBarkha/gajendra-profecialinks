@@ -14,6 +14,10 @@ fields:
   singleValue: true
   description: The extended description of the product supplied by the lister
   xpath: //div[@id="enhanced_added"]     
+- name: manufacturer
+  singleValue: true
+  description: The extended description of the product supplied by the lister
+  xpath: //span[@id="productNameLink"]/a/text() 
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
