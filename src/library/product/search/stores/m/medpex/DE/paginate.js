@@ -3,15 +3,12 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'medpex',
-    //nextLinkSelector: '#searchresult > div.pagenav > table > tbody > tr > td:nth-last-child(2)>a',
+    nextLinkSelector: null,
     nextLinkXpath: '//div[@class="pagenav"]//tr//td//a[contains(text(),">")]',
     mutationSelector: null,
     spinnerSelector: null,
-    //noResultsXPath: '//div[@id="messageContainer"]/table[@class="error"]',
-    loadedSelector: 'div.product-list-entry.data-tracking-product',
-    // openSearchDefinition: {
-    //  template: 'https://www.medpex.de/search.do?q={searchTerms}&pn={page}',
-    // },
+    noResultsXPath: null,
+    loadedSelector: 'div[id="product-list"] form',
     domain: 'medpex.de',
   },
 };

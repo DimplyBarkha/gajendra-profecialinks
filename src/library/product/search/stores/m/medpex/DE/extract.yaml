@@ -1,13 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="product-list-entry data-tracking-product"]
+recordXPath: //form[@name="productform"]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="product-list-entry data-tracking-product"]/@data-tracking-product-code
-    # regExp: \:(.*)
-    # regExpReplace: $1
+    xpath: //form[@name="productform"]/@id
   - name: name
     singleValue: false
     xpath: //span[@class="product-name"]//a//text()
@@ -21,12 +19,9 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="image"]/a/img[@class="product"]/@src
-  - name: url
-    singleValue: false
-    xpath: //div[@id="pd_url"]
-  # - name: aggregateRating
+  # - name: url
   #   singleValue: false
-  #   xpath: //div[@id="pd_aggregateRating"]
+  #   xpath: //div[@id="pd_url"]
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="rating"]/span/a
@@ -36,10 +31,6 @@ fields:
   - name: manufacturer
     singleValue: false
     xpath: //select[@id="sort"]//option[@value="manufacturer"]/text()
-  - name: soldBy
-    singleValue: false
-  - name: endorsementText
-    singleValue: false
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="rating"]/span/a
