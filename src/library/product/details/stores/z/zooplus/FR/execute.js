@@ -6,7 +6,7 @@ module.exports = {
     store: 'zooplus',
     domain: 'zooplus.fr',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: "//span[@class='exo-noResults']",
     zipcode: '',
   },
 };
