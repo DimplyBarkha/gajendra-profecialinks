@@ -116,11 +116,11 @@ module.exports = {
         if (manuFacturerDesc) {
           addHiddenDiv('descriptionMenu', manuFacturerDesc);
         }
-        if (images.length > 0) {
-          for (let x = 0; x < images.length; x++) {
-            addHiddenDiv(`manuf-images-${x}`, images[x]);
-          }
-        }
+        // if (images.length > 0) {
+        //   for (let x = 0; x < images.length; x++) {
+        //     addHiddenDiv(`manuf-images-${x}`, images[x]);
+        //   }
+        // }
       }
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
