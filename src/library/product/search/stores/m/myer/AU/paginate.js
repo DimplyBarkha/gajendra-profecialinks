@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'myer',
-    nextLinkSelector: 'li.next > a',
+    nextLinkSelector: 'li[class="next"] > a',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
