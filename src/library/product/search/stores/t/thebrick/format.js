@@ -24,9 +24,9 @@ const transform = (data, context) => {
     for (const row of group) {
       if (row.aggregateRating2) {
         row.aggregateRating2.forEach(item => {
-          item.text = item.value.toFixed(1)
-          item.value = +item.value.toFixed(1)
-        })
+          item.text = item.value.toFixed(1);
+          item.value = +item.value.toFixed(1);
+        });
       }
       rankCounter += 1;
       if (!row.sponsored) {
