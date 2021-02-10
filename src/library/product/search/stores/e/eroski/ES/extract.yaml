@@ -6,7 +6,7 @@ recordXPath: //div[@id="productListZone"]//div[contains(@class,"product-item-lin
 fields:
   - name: thumbnail
     singleValue: false
-    xpath: //a[contains(@class,"product-image-resp")]//img/@src
+    xpath: //a[contains(@class,"product-image-resp")]//img/@src | //div[@class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 product-item big-item"]/div/div/div[@class="slick-track"]/a[position() = 1]/img/@src
   - name: name
     xpath: //h2[@class="product-title"]//a/text()
     singleValue: false
@@ -19,7 +19,8 @@ fields:
     description: The offered price for the product
   - name: id
     singleValue: false
-    xpath: //a[contains(@class,"product-image-resp")]/@href
+    # xpath: //a[contains(@class,"product-image-resp")]/@href
+    xpath: //div[@class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 product-item big-item"]/a[position() =1]/@href
     regExp: \Wes\Wproductdetail\W([^-]+)
     regExpReplace: $1
     description: Unique id (within this extractor)
