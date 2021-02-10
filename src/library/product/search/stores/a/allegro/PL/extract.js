@@ -10,12 +10,12 @@ module.exports = {
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-    const policyAcceptPopup = await context.evaluate(function () {
-      return !!document.evaluate('//button[@data-role="accept-consent"]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    await context.evaluate(async function (context) {
+      const seeAllSelector = document.querySelector('button[data-role="accept-consent"]');
+      if (seeAllSelector) {
+        seeAllSelector.click();
+      }
     });
-    if (policyAcceptPopup) {
-      await context.click('button[data-role="accept-consent"]');
-    }
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
@@ -24,7 +24,7 @@ module.exports = {
           scrollTop += 100;
           window.scroll(0, scrollTop);
           if (scrollTop === 20000) {
-            await stall(5000);
+            await stall(1000);
             break;
           }
         }

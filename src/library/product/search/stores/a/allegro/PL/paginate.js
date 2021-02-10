@@ -5,7 +5,7 @@ module.exports = {
     template: null,
     country: 'PL',
     store: 'allegro',
-    nextLinkSelector: null,
+    nextLinkSelector: 'div[data-box-name="pagination bottom"] [data-role="next-page"] i',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
