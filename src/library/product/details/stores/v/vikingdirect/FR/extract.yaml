@@ -91,14 +91,12 @@ fields:
 - name: sku
   singleValue: false
   description: The store-specific product identifier
-  xpath: //input[@name="recordSpecValue"]/@value
-  regExp: (.+)
-  regExpReplace: Q46-$1
+  xpath: (//input[@name="entryFormList[0].sku"]/@value)[1]
 - name: variantId
   singleValue: false
   description: Identifier for a variant from a store where variants share the same
     sku
-  xpath: //input[@name="recordSpecValue"]/@value
+  xpath: (//input[@name="entryFormList[0].sku"]/@value)[1]
 - name: mpc
   singleValue: true
   description: The manufacturer model code (unique) of the product
