@@ -49,6 +49,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: ancestor::html//@data-gtin
   - name: productUrl
     singleValue: false
     description: The url of the product details page
