@@ -12,9 +12,9 @@ module.exports = {
     noResultsXPath: '//h2[contains(.,"0 résultats correspondants à")]',
     // noResultsXPath: '//div[@class="slp-container" and contains(.,"Aucun résultat ne correspond à votre recherche. Veuillez faire une nouvelle recherche")]',
     resultsDivSelector: null,
-    // openSearchDefinition: null,
+    openSearchDefinition: null,
     openSearchDefinition: {
-      pageStartNb:0,
+      pageStartNb: 0,
       template: 'https://drive.carrefour.eu/fr/search?q={searchTerms}&page={page}',
     },
     domain: 'carrefour.eu',
