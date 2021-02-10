@@ -11,25 +11,15 @@ module.exports = {
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
     await context.setFirstRequestTimeout(50000);
-    await context.goto(url, {
+    const lastResponseData = await context.goto(url, {
       block_ads: false,
       load_all_resources: true,
       images_enabled: true,
       timeout: 100000,
       waitUntil: 'load',
     });
+    if (lastResponseData.status === 403 || lastResponseData.status === 502) {
+      return context.reportBlocked(lastResponseData.status, 'Reportd Blocked.');
+    }
   },
 };
-
-//* **************************** */
-
-// module.exports = {
-//   implements: 'navigation/goto',
-//   parameterValues: {
-//     domain: 'homedepot.com',
-//     timeout: null,
-//     country: 'US',
-//     store: 'homedepot',
-//     zipcode: '',
-//   },
-// };
