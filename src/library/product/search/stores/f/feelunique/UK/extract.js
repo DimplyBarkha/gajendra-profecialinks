@@ -12,29 +12,30 @@ async function implementation(
     // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     // await context.waitForSelector('a.loadMoreButton', 10000)
     // await context.click('a.loadMoreButton');
-    const applyScroll = async function (context) {
-    await context.evaluate(async () => {
-        let scrollTop = 0;
-        while (scrollTop !== 20000) {
-          scrollTop += 1000;
-          window.scroll(0, scrollTop);
-          await stall(2000);
-        }
-        while (!!document.querySelector('a.loadMoreButton')) {
-            // @ts-ignore
-            document.querySelector('a.loadMoreButton').click()
-            await new Promise(r => setTimeout(r, 6000));
-        }
-        function stall(ms) {
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              resolve();
-            }, ms);
-          });
-        }
-      });
-    };
-    await applyScroll(context);
+
+    // const applyScroll = async function (context) {
+    // await context.evaluate(async () => {
+    //     let scrollTop = 0;
+    //     while (scrollTop !== 20000) {
+    //       scrollTop += 1000;
+    //       window.scroll(0, scrollTop);
+    //       await stall(2000);
+    //     }
+    //     while (!!document.querySelector('a.loadMoreButton')) {
+    //         // @ts-ignore
+    //         document.querySelector('a.loadMoreButton').click()
+    //         await new Promise(r => setTimeout(r, 6000));
+    //     }
+    //     function stall(ms) {
+    //       return new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //           resolve();
+    //         }, ms);
+    //       });
+    //     }
+    //   });
+    // };
+    // await applyScroll(context);
     await context.evaluate(async function () {   
         
         function addHiddenDiv(id, content, index) {
