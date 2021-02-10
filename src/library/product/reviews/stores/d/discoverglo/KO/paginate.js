@@ -50,7 +50,8 @@ async function implementation (
     if (url) {
       await Promise.all([
         context.click('a.arr-next'),
-        context.waitForMutuation(mutationSelector, { timeout: 20000 }),
+        // context.waitForMutuation(mutationSelector, { timeout: 20000 }),
+        new Promise((resolve) => setTimeout(resolve, 5000)),
       ]);
     }
   }
