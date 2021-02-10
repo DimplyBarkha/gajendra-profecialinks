@@ -26,10 +26,10 @@ data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => 
       if (row.availabilityText) {
         let newText = '';
         row.availabilityText.forEach(item => {
-          if ((!item.text.includes('Out of Stock') && (!item.text.includes('Disponible')))) {
-            newText = 'Out of Stock';
-          } else {
+          if (item.text.includes('Disponible')) {
             newText = 'In Stock';
+          } else {
+            newText = 'Out of Stock';
           }
           item.text = newText;
         });
