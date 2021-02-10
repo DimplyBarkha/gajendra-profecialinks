@@ -7,6 +7,5 @@ module.exports = {
     domain: 'medpex.de',
     url: 'https://www.medpex.de/search.do?method=similarity&q={searchTerms}',
     loadedSelector: 'div[id="product-list"] form',
-    //noResultsXPath: '//div[@id="messageContainer"]/table[@class="error"]',
   },
 };
