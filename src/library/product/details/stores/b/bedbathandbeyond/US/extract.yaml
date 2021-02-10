@@ -24,15 +24,15 @@ fields:
     xpath: //div[@class='slick-initialized slick-slider']//div[@class='slick-list']//div[contains(@class,'slick-slide slick-active')]//a//img/@alt
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count(//div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src[not(contains(., "v.tvpage"))]|//div[@id="productitemlist"]//img/@src)
+    xpath: count(//div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[position()>1]//button/img/@src[not(contains(., "v.tvpage"))])
     # xpath: count(//div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img[contains(@alt, "image")]/@src|//div[@id="productitemlist"]//img/@src)
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src[not(contains(., "v.tvpage"))]
+    xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[position()>1]//button/img/@src[not(contains(., "v.tvpage"))]
     # xpath: //div[@id='rclModal']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//button/img/@src[not(contains(., "v.tvpage"))]|//div[@id="productitemlist"]//img/@src
-  - name: alternateImages2
-    singleValue: false
-    xpath: //div[@class='slick-initialized slick-slider']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//img[contains(@class,'ProductMediaCarouselStyle_')]/@src
+  # - name: alternateImages2
+  #   singleValue: false
+  #   xpath: //div[@class='slick-initialized slick-slider']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//img[contains(@class,'ProductMediaCarouselStyle_')]/@src
   - name: metaKeywords
     singleValue: false
     xpath: //title
