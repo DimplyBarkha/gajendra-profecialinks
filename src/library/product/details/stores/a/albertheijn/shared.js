@@ -80,6 +80,15 @@ const transform = (data, context) => {
         let text = Number(row.descriptionBullets[0].text) + Number(row.totalSecondaryBullets[0].text);
         row.descriptionBullets = [{ text }]
       }
+      if (row.image) {
+        if (row.image[0].text.startsWith('/')) {
+          row.image = [
+            {
+              text: 'https://www.ah.nl' + row.image[0].text,
+            },
+          ];
+        }
+      }
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
