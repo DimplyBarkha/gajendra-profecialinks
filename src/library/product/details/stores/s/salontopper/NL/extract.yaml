@@ -58,11 +58,11 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //h1[@itemprop='name']/strong
+    xpath: //h1[@itemprop='name']/strong | //meta[@itemprop='brand']/@content
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //h1[@itemprop='name']/strong
+    xpath: //h1[@itemprop='name']/strong | //meta[@itemprop='brand']/@content
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
