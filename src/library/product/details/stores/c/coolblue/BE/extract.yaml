@@ -35,7 +35,7 @@ fields:
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
     and appending " - ${variantType}" if necessary (fixed per feed)
-  xpath: //span[@class="js-product-name"]
+  xpath: //span[@class="js-product-name"] | //div[@id='product-content']//h1/text() | //h1//span/text() | //h1[contains(@class, 'product-name')]
 - name: listPrice
   singleValue: true
   description: The stated undiscounted price for the product
@@ -117,7 +117,9 @@ fields:
 - name: ratingCount
   singleValue: true
   description: The number of ratings
-  xpath: //div[@id="added-rating-count"]
+  xpath: //div[@id="added-rating-count"]  | //div[@class="review-rating__icons"]/@title
+  regExp: (.*?)(from|uit)(.*)reviews
+  regExpReplace: $3
   type: NUMBER
   defaultValue: 0
 - name: aggregateRatingText
@@ -164,7 +166,7 @@ fields:
 - name: name
   singleValue: true
   description: The product name
-  xpath: //div[@id='product-content']//h1/text() | //h1//span/text()
+  xpath: //div[@id='product-content']//h1/text() | //h1//span/text() | //h1[contains(@class, 'product-name')]
 - name: inStorePrice
   singleValue: true
   description: Price in the selected store
@@ -478,7 +480,10 @@ fields:
 - name: customerServiceAvailability
   singleValue: true
   description: Information related to customer service availability (text), ['Yes','No']
-  defaultValue: false
+  xpath: //a[@title="Go to our customer service"]
+  regExp: (.*?)
+  regExpReplace: Yes
+  defaultValue: No
 - name: materials
   description: Materials used to make the product
   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
