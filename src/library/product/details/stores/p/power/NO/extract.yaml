@@ -103,6 +103,8 @@ fields:
     singleValue: false
     description: The manufacturer model code (unique) of the product
     xpath: //div[@id="header-page"]//p[@class="product-ids ng-star-inserted"]
+    regExp: (.+)\/(.+)
+    regExpReplace: $1
   - name: packSize
     singleValue: false
     description:
