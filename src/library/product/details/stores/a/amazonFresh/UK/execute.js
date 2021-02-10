@@ -7,6 +7,6 @@ module.exports = {
     domain: 'amazon.co.uk',
     loadedSelector: null,
     noResultsXPath: null,
-   
+    zipcode: 'SW1P 3EU',
   },
 };
