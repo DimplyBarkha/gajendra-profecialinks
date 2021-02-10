@@ -5,7 +5,7 @@ module.exports = {
     country: 'NL',
     store: 'wehkamp',
     domain: 'wehkamp.nl',
-    loadedSelector: 'section.PdpDesktop__pdpd-buying-area--sticky___Js7Et',
+    loadedSelector: 'div#content',
     noResultsXPath: "//div[@class='errorpage-content']//div[@class='errorpage-message']",
     zipcode: '',
   },
