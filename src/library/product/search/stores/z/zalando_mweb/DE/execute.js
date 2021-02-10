@@ -44,17 +44,24 @@ module.exports = {
       });
       if (changingLanguage) {
         await context.click('div.z-navicat-header_modalContent button[class*="Primary"]');
-        await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
+        try {
+          await context.waitForSelector('a[title="Sprache auswählen"]', { timeout: 30000 });
+          await context.waitForFunction(() => !!window.location.href.match(/(.+m.zalando.de\/).+?(\/.+)/), {
+            timeout: 10000,
+          });
+        } catch (err) {
+          console.log('Failed waiting for language to change.');
+        }
       }
       console.log('Finished changing language');
     }
 
     // This part was added in case we wanted to extract women products as well.
-    let newUrl = await context.evaluate(async () => window.location.href);
-    console.log(`Current URL: ${newUrl}`);
-    newUrl = newUrl.match(/(.+m.zalando.de\/).+?(\/.+)/)
-      ? `${newUrl.match(/(.+m.zalando.de\/).+?(\/.+)/)[1]}alle${newUrl.match(/(.+m.zalando.de\/).+?(\/.+)/)[2]}`
-      : newUrl;
+    const currentUrl = await context.evaluate(async () => window.location.href);
+    console.log(`Current URL: ${currentUrl}`);
+    const newUrl = currentUrl.match(/(.+m.zalando.de\/).+?(\/.+)/)
+      ? `${currentUrl.match(/(.+m.zalando.de\/).+?(\/.+)/)[1]}alle${currentUrl.match(/(.+m.zalando.de\/).+?(\/.+)/)[2]}`
+      : currentUrl;
     console.log(`New URL: ${newUrl}`);
     await dependencies.goto({ ...inputs, url: newUrl });
 
