@@ -1,24 +1,26 @@
 robot: product/details
+proxy:
+  zone: FRA
+  type: RESIDENTIAL
 parameters:
   country: FR
   domain: fnac.com
   store: fnac
   zipcode: ""
-proxy:
-  zone: ZFR
-  type: DATA_CENTER
-#For Dyson
-# policy:
-#   numberRetries: 10
-#   priority: MEDIUM
-#   retryDelay: 60
-#   backoffPolicy: EXPONENTIAL
-#   retryWithResidentialProxyAfter: 99
 meta:
   branches:
+    dev: # Dyson High frequency
+      extractor: f0e9caa3-b7f9-423a-974b-00114bf1f125
+      legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
+    techops_test:
+      extractor: 6a786347-9b9d-4a2b-b35e-6ba8f6f71766
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
     profecia:
       extractor: 5262a9bd-788b-448c-870b-be7d9cf7b560
       legacyAccountId: 85e1dabd-5c4e-414e-925b-b1692098d5f0
     fnac_fr_dyson:
       extractor: 18aefd35-8b97-495a-b939-553e487d3893
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    techops-fnac_fr-core:
+      extractor: a43223a0-f0ba-47d9-8f46-613675fa4009
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013

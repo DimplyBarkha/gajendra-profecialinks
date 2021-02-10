@@ -28,9 +28,9 @@ const transform = (data) => {
           item.text = cleanUp(item.text);
         });
       }
-      if (row.name && row.brandText) {
-        row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
-      }
+      // if (row.name && row.brandText) {
+      //   row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
+      // }
       if (row.listPrice) {
         row.listPrice.forEach(item => {
           // item.text = item.text.replace(/^(\d+)(.*?)(\d+)/, '$2$1,$3');
@@ -48,7 +48,7 @@ const transform = (data) => {
           descriptionItem.text = cleanUp(descriptionItem.text);
         });
       }
-      if (row.additionalDescBulletInfo) {
+      if (row.additionalDescBulletInfo && Array.isArray(row.additionalDescBulletInfo) && (row.additionalDescBulletInfo.length > 0)) {
         row.additionalDescBulletInfo[0].text = row.additionalDescBulletInfo[0].text.replace(/(\n\s*){1,}/g, ' || ');
         row.additionalDescBulletInfo[0].text = cleanUp(row.additionalDescBulletInfo[0].text);
       }
@@ -78,6 +78,12 @@ const transform = (data) => {
         });
         row.manufacturerDescription = [{ text: arrTemp.join(' ') }];
       }
+      if (row.description2) {
+        if (row.description && Array.isArray(row.description) && (row.description.length > 0)) {
+          row.description = [{ text: row.description[0].text + ' || ' + row.description2[0].text }];
+        }
+        delete row.description2;
+      }
       if (row.productOtherInformation) {
         var arrInfo = [];
         row.productOtherInformation.forEach(item => {
@@ -86,6 +92,37 @@ const transform = (data) => {
           arrInfo.push(item.text);
         });
         row.productOtherInformation = [{ text: arrInfo.join(' | ') }];
+      }
+      if (row.imageAlt) {
+        var arrImgs = [];
+        row.imageAlt.forEach(item => {
+          if (arrImgs.includes(item.text)) {
+            arrImgs.push(item.text);
+          }
+        });
+        if (arrImgs.length) {
+          row.imageAlt = [{ text: arrImgs.join(' | ') }];
+          row.secondaryImageTotal = [{ text: arrImgs.length }];
+        }
+      }
+      if (row.videos) {
+        var arrVideo = [];
+        row.videos.forEach(item => {
+          arrVideo.push(item.text);
+        });
+        row.videos = [{ text: arrVideo.join(' | ') }];
+      }
+      if (row.videos2) {
+        var arrV2 = [];
+        row.videos2.forEach(item => {
+          arrV2.push(item.text);
+        });
+        row.videos2 = [{ text: arrV2.join(' | ') }];
+        if(row.videos && (row.videos.length > 0) && row.videos2 && (row.videos2.length > 0)) {
+          row.videos = [{ text: row.videos[0].text + ' | ' + row.videos2[0].text }];
+        }
+        
+        delete row.videos2;
       }
       if (row.manufacturerImages) {
         var arrImg = [];
@@ -102,7 +139,7 @@ const transform = (data) => {
           warrantyItem.text = warrantyItem.text.replace('Garantie', '').trim();
         });
       }
-      if (row.specifications) {
+      if (row.specifications && Array.isArray(row.specifications) && (row.specifications.length > 0)) {
         row.specifications[0].text = cleanUp(row.specifications[0].text
           .replace(/(\n\s*){4,}/g, ' || ')
           .replace(/(\n\s*){2,}/g, ' : '));
@@ -114,8 +151,15 @@ const transform = (data) => {
           element.text = finalText;
         });
       }
+      if (row.unInterruptedPDP) {
+        const pdp = Array.from(new Set(row.unInterruptedPDP.map(elm => elm.text.trim())));
+        row.unInterruptedPDP = pdp.map(text => ({ text }));
+      }
     }
   }
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    el.text = cleanUp(el.text);
+  }))));
   return data;
 };
 module.exports = { transform };

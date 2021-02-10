@@ -105,7 +105,7 @@ fields:
     xpath: //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Color')]//parent::div/dd/p
   - name: videos
     singleValue: false
-    xpath: //meta[@itemprop="contentURL"]/@content[1] | //iframe[contains(@id,'flix-iframe')]/@src
+    xpath: //meta[@itemprop="contentURL"]/@content[1] | //iframe[contains(@id,'flix-iframe')]/@src | //div[@id="galleryvideos"]
   - name: name
     singleValue: false
     manualSelector: h1.f-productHeader-Title
@@ -147,3 +147,11 @@ fields:
     xpath: //div[@class="includedAccessoriesStrate__lists"]//li
   - name: hasComparisonTable
     defaultValue: No
+  - name: manufacturerDescription
+    xpath: //div[@id='manufacturerDescription']
+  - name: manufacturerImages
+    xpath: //div[@class='da-premium-main']//img/@src
+#name: manufacturerDescription
+    #xpath: //div[contains(@class,"inpage_selector_info dyson_introduction") or contains(@class,"inpage_block inpage_selector_feature")]
+#name: manufacturerImages
+    #xpath: (//div[@class="dyson_visual"]/img/@srcset)[1] | (//ul[contains(@class,"features_grid")])[1]//img/@srcset

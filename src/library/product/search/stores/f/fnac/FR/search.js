@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'fnac',
-    domain: 'fnac.fr',
-    zipcode: "''",
+    domain: 'fnac.com',
+    zipcode: '',
   },
 };

@@ -53,7 +53,7 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
-    xpath:  (//dt[contains(text(), "Poids") or  contains(text(), "Poids du produit")]//following-sibling::*)[1]
+    xpath:  //dt[contains(text(), "Poids") or  contains(text(), "Poids du produit")]//following-sibling::*
   - name: ratingCount
     singleValue: false
     description: The number of ratings
@@ -86,10 +86,7 @@ fields:
     xpath: //div[@class="characteristicsStrate__item  characteristicsStrate__item--long "]//dt[contains(text(), "Mention Légale")]//following-sibling::*
   - name: sku
     singleValue: false
-    xpath: //script[contains(text(),'sku')]
-    #"sku":"9172525",
-    regExp: \"sku\"\s*:\s*\"(.+?)\"
-    regExpReplace: $1
+    xpath: //div[@id="added_sku"]
   - name: gtin
     singleValue: false
     xpath: //div[contains(@class, "f-productPage")]/@data-ean13
@@ -101,7 +98,6 @@ fields:
     xpath: //dt[contains(text(), "Dimensions")]//following-sibling::*
   - name: manufacturer
     singleValue: false
-    xpath: //div[@class='f-productHeader-additionalInformation f-productHeader-subTitle']//span[@class='f-productHeader-subTitleLabel']/a
   - name: promotion
     singleValue: false
     xpath: //div[@class='f-productOffer-commercialOperation']
@@ -119,10 +115,14 @@ fields:
     xpath: //div[@class='characteristicsStrate__lists']//dl[@class='characteristicsStrate__item']
   - name: videos
     singleValue: false  
-    xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/@src|//div[contains(@class, "flix-videodiv")]//iframe/@src
+    xpath: //div[@id='videos']|//div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/@src|//div[contains(@class, "flix-videodiv")]//iframe/@src
   - name: galleryVideos
     singleValue: false  
     xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/@src|//iframe[contains(@id, "flix-iframe")]/@src
+  # - name: videos
+  #   singleValue: false  
+    # xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/@src
+    # xpath: //div[@id='videos']
   - name: variantId
     singleValue: false  
     xpath: //div[contains(@class, "f-productPage")]/@data-prid
@@ -139,4 +139,6 @@ fields:
   - name: inTheBoxUrl
     xpath:  //div[@class="flix-std-table"]//img[not(ancestor::div[@class="flix-dimensional-image"])]/@data-flixsrcset
   - name: inTheBoxText
-    xpath: //div[@class="flix-std-content"]//span
+    # xpath: //div[@class="flix-std-content"]//span
+    singleValue: false
+    xpath: //div[contains(@class, "summaryStrate__raw")] | //div[contains(@class, "characteristicsStrate__item") and contains(@class, "item--long")]
