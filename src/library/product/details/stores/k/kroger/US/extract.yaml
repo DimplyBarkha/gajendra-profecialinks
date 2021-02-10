@@ -76,7 +76,7 @@ fields:
     description: The URL for the product thumbnail image
   - name: image
     singleValue: true
-    xpath: //head/meta[@name='og:image']/@content   
+    xpath: //head/meta[@property='og:image']/@content   
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='swiper-wrapper']/div[not(contains(@class,'active'))]//img[contains(@class,'ProductImages')][not(contains(@src,'thumbnail'))]/@src
@@ -98,9 +98,9 @@ fields:
     # xpath: //span[@class='ProductDetails-upc']
     # regExp: >-   
     #   [0-9]+
-    xpath: //div[contains(@class,"ProductDetails-sizeAndUpc")]
-    regExp: UPC:\s(\d+)
-    regExpReplace: $1
+    xpath: //div[@id='my-sku']
+    # regExp: UPC:\s(\d+)
+    # regExpReplace: $1
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
