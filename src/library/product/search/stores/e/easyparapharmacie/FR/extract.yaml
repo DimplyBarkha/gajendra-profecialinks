@@ -25,12 +25,10 @@ fields:
     regExpReplace: https:$1
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class='rating']/@style
-    regExp: \s(\d\.?\d?)
+    xpath: //div[@class='aggregateRating']
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class='rating']/@style
-    regExp: \s(\d\.?\d?)
+    xpath: //div[@class='aggregateRating']
   - name: reviewCount
     singleValue: false
   - name: ratingCount

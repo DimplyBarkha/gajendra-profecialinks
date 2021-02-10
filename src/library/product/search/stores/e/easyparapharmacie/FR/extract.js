@@ -30,6 +30,34 @@ const implementation = async (inputs, parameters, context, dependencies) => {
     }
   });
 
+  await context.evaluate(async function () {
+    const allProducts = document.querySelectorAll('div.product-container');
+    allProducts.forEach((product) => {
+      const div = document.createElement('div');
+      div.classList.add('aggregateRating');
+      let rating;
+      const aggregateRating = product.querySelector('div.ratings > div.rating-box');
+
+        if(aggregateRating.children.length > 0){
+        const ratingChild = aggregateRating.children[0];
+        //@ts-ignore
+        const width = ratingChild.style.width;
+        //@ts-ignore
+        const numberFromWidth = width.match(/\d+/);
+        const ratingWithPoint = numberFromWidth / 20 ;
+        const ratingAsString = ratingWithPoint.toString();
+          rating = ratingAsString.replace('.', ',');
+        }
+        else{
+          rating = '';
+        }
+        div.innerHTML = rating;
+        product.appendChild(div);
+    
+    });
+  });
+
+
   const addSearchUrl = async function (context) {
     await context.evaluate(async () => {
       const productList = document.querySelectorAll('.products-list div[class="products small-product"]');
