@@ -25,7 +25,8 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
         hasAddOnModalBtn: '#attachSiNoCoverage-announce',
         hasAddOnModalBtnAlt: '#attach-popover-lgtbox:not([style*="display: none"])',
         hasAddOnPopUp: '#siNoCoverage-announce',
-        hasToCartFromModal: 'input[type=submit][aria-labelledby*="cart"]',
+        hasAddOnSlideOutBtn: '#attach-view-cart-button-form input',
+        hasToCartFromModal: '#attach-desktop-sideSheet input[type=submit][aria-labelledby*="cart"]',
         hasItemsInCart: '#nav-cart-count:not([class*="cart-0"])',
         hasdropDownQuantity: '[import=element] span[data-action*=dropdown]',
         hasBuyNewBtn: '#buyNew_cbb',
@@ -51,7 +52,7 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
       elementChecks.isOffersPage = window.ue_pty ? window.ue_pty.includes("OfferListing") : false
       elementChecks.hasVariants = !!window.isTwisterPage
       elementChecks.windowLocation =  window.location ? window.location : {}
-      elementChecks.sellerName = elementChecks.sellerName ? document.evaluate('(//*[contains(@id, "buyNew_cbb")]//*[contains(@id, "sfsb_accordion_head")]/div[contains(*, "Sold")]/div//span[2] | //*[contains(@id, "qualifiedBuybox")]//*[contains(@id, "tabular-buybox")]/table/tbody/tr[2]/td[2]//span[contains(@class, "a-truncate-full")]//a | //div[contains(@id,"new")]//*[contains(@id, "tabular-buybox")]/table/tbody/tr[2]/td[2]//span[contains(@class, "a-truncate-full")]//a | //*[contains(@id,"qualifiedBuybox")]//*[contains(@id, "merchant-info")]//a | //div[contains(@id,"new")]//*[contains(@id,"merchant-info")]//a | //div[@id="used"]//*[contains(@id,"tabular-buybox")]/table/tbody/tr[1]/td[2]//span[contains(@class, "a-truncate-full")]//a | //div[contains(@id,"used")]//*[contains(@id,"merchant-info")]/a[contains(@id,"seller")][1] | //div[contains(@id,"used")]//*[contains(@id, "merchant-info")]/a[contains(@id,"seller")] )[1]', document, null, XPathResult.ANY_TYPE, null).iterateNext().innerText : false;
+      elementChecks.sellerName = elementChecks.sellerName ? document.evaluate('(//*[contains(@id, "buyNew_cbb")]//*[contains(@id, "sfsb_accordion_head")]/div[2]//div[contains(@class, "a-column")]//span[2][not(@class)] | //*[contains(@id, "buyNew_cbb")]//*[contains(@id, "sfsb_accordion_head")]/div[2]//div[contains(@class, "a-column")]//span[@class] | //*[contains(@id, "qualifiedBuybox")]//*[contains(@id, "tabular-buybox")]/table/tbody/tr[2]/td[2]//span[contains(@class, "a-truncate-full")]//a | //div[contains(@id,"new")]//*[contains(@id, "tabular-buybox")]/table/tbody/tr[2]/td[2]//span[contains(@class, "a-truncate-full")]//a | //*[contains(@id,"qualifiedBuybox")]//*[contains(@id, "merchant-info")]//a | //div[contains(@id,"new")]//*[contains(@id,"merchant-info")]//a | //div[@id="used"]//*[contains(@id,"tabular-buybox")]/table/tbody/tr[1]/td[2]//span[contains(@class, "a-truncate-full")]//a | //div[contains(@id,"used")]//*[contains(@id,"merchant-info")]/a[contains(@id,"seller")][1] | //div[contains(@id,"used")]//*[contains(@id, "merchant-info")]/a[contains(@id,"seller")])[1]', document, null, XPathResult.ANY_TYPE, null).iterateNext().innerText : false;
       if(!!document.body){
         document.body.setAttribute('current_page_url', window.location.href);
       }
@@ -272,6 +273,9 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
     } else if (!page.hasToCartFromModal && !page.hasAdOnModal && page.hasItemsInCart) {
       await context.click('#nav-cart');
       await new Promise(resolve => setTimeout(resolve, 2000));
+    } else if (page.hasToCartFromModal && page.hasAddOnSlideOutBtn && pageCheck > 0) {
+      await context.click('#attach-view-cart-button-form input')
+      await new Promise(resolve => setTimeout(resolve, 2000));
     }
     pageCheck++;
     await context.waitForNavigation();
@@ -281,7 +285,6 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
   }
 
   if (page.isCartPage) {
-
     await context.waitForSelector('span.quantity span span,input.sc-quantity-textfield');
     if (await productSellerFound(sellerId, id)) {
       while (await artifactCartItems()) {
@@ -322,6 +325,8 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
         await new Promise(resolve => setTimeout(resolve, 2000));
       }
     }
+  }else{
+    throw Error('Not on cart page');
   }
 };
 module.exports = { getStockFunc };

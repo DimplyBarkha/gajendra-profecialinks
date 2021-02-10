@@ -10,4 +10,5 @@ fields:
   - name: productPrice
     xpath: //html//*[@import="element"]//span[contains(@class, "product-price")]
   - name: resellerName
-    xpath: //html//*[@import="element"]/@seller
+    xpath: (//html//*[@import="element"]/@seller | //html//*[@import="element"]//span[a and contains(@class, "seller")]/a/text())[1]
+    defaultValue: Amazon
