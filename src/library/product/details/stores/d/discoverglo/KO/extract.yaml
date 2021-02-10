@@ -9,12 +9,13 @@ fields:
     xpath: //ul[@class="colorset"]/li/button/@data_color
   - name: flavour
   - name: image
-    xpath: //div[@class="rotation-box"]/img[1]/@src
-    regExp: (.*)
-    regExpReplace: https://www.discoverglo.co.kr$1
+    xpath: //div[@class="image"]/img/@src
   - name: pageTitle
     xpath: //meta[@property="og:title"]/@content
   - name: category
+    xpath: //p//a[@data-location="add_cart"]/@href
+    regExp: ko/(.*)/
+    regExpReplace: $1
   - name: subCategory
   - name: reviewCount
     xpath: //div[@class='review_topicon']//a/span

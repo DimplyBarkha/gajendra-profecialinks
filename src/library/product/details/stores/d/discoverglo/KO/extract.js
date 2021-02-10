@@ -1,10 +1,11 @@
+const { transform } = require('../shared');
 
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'KO',
     store: 'discoverglo',
-    transform: null,
+    transform,
     domain: 'discoverglo.co.kr',
     zipcode: '',
   },
@@ -13,6 +14,9 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
+
     try {
       await context.waitForSelector('div#Cookie', { timeout: 5000 });
     } catch (e) {
@@ -36,7 +40,7 @@ module.exports = {
         }
       }
     });
-    const { productDetails } = dependencies;
-    return await context.extract(productDetails);
+
+    return await context.extract(productDetails, { transform });
   },
 };
