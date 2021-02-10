@@ -8,6 +8,7 @@ module.exports = {
     domain: 'notino.de',
     zipcode: '',
   },
+<<<<<<< HEAD
   implementation: async ({ inputString }, { country, store, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async () => {      
       while (document.querySelector('a[class="btn btn--secondary"]')) {
@@ -19,5 +20,7 @@ module.exports = {
     });
     return await context.extract(productDetails, { transform: transformParam });
   },
+=======
+>>>>>>> 3c209d5e96462b24d30cc86f7e47a137ab410d21
 };
 
