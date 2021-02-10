@@ -90,6 +90,7 @@ module.exports = {
     domain: 'carrefour.eu',
     zipcode: "''",
   },
+};
   //implementation,
   // implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
   //   await context.evaluate(async () => {
@@ -128,4 +129,4 @@ module.exports = {
   //   });
   //   return await context.extract(productDetails, { transform });
   // },
-};
+
