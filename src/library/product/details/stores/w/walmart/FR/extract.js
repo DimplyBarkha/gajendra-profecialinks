@@ -8,6 +8,16 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  try {
+    await context.waitForXPath('//div[.//h1[@data-automation="product-title"]]//button[@data-automation="cta-button"]');
+  } catch (error) {
+    console.log('Wait for page load');
+  }
+  try {
+    await context.waitForXPath('//span[@data-automation="buybox-price"]');
+  } catch (error) {
+    console.log('Wait for page load');
+  }
   await context.evaluate(async () => {
     async function infiniteScroll () {
       let prevScroll = document.documentElement.scrollTop;
@@ -125,16 +135,40 @@ async function implementation (
     }
     addHiddenDiv('manu', '');
     try {
-      const manuDesc = document.querySelector('div[id="syndi_powerpage"] div[class*="syndi_powerpage"]').shadowRoot.querySelector('div[class*="syndi_powerpage"]').innerText;
+      let manuDesc = document.querySelector('div[id="syndi_powerpage"] div[class*="syndi_powerpage"]');
       if (manuDesc) {
-        addHiddenDiv('manu_desc', manuDesc.trim());
+        // @ts-ignore
+        manuDesc = manuDesc.shadowRoot.querySelector('div[class*="syndi_powerpage"]').innerText;
+        addHiddenDiv('manu_desc', manuDesc);
+      } else {
+        // @ts-ignore
+        manuDesc = document.querySelectorAll('div[id="wc-power-page"] p,div[id="wc-power-page"] ul, div[id="wc-power-page"] h1, div[id="wc-power-page"] h2');
+        let manuText = '';
+        // @ts-ignore
+        manuDesc.forEach(text => {
+          if (text && text.innerText) {
+            manuText += text.innerText;
+          }
+        });
+        // @ts-ignore
+        manuText && addHiddenDiv('manu_desc', manuText);
       }
     } catch (error) {
       console.log('manufacturer iframe not present');
     }
     try {
-      const manuImages = document.querySelector('div[id="syndi_powerpage"] div[class*="syndi_powerpage"]').shadowRoot.querySelectorAll('img');
+      let manuImages = document.querySelector('div[id="syndi_powerpage"] div[class*="syndi_powerpage"]');
       if (manuImages) {
+        // @ts-ignore
+        manuImages = manuImages.shadowRoot.querySelectorAll('img');
+        // @ts-ignore
+        manuImages.forEach(image => {
+          image && image.src && addHiddenDiv('manu_images', image.src);
+        });
+      } else {
+        // @ts-ignore
+        manuImages = document.querySelectorAll('div[id="wc-power-page"] img');
+        // @ts-ignore
         manuImages.forEach(image => {
           image && image.src && addHiddenDiv('manu_images', image.src);
         });
@@ -142,15 +176,89 @@ async function implementation (
     } catch (error) {
       console.log('manufacturer iframe not present');
     }
-    const shadowDom = document.querySelector('div[id="syndi_powerpage"] div[class*="syndi_powerpage"]').shadowRoot;
-    if (shadowDom) {
-      const mainDiv = shadowDom.querySelector('div[class="syndi_powerpage"]');
-      if (mainDiv) {
-        // @ts-ignore
-        mainDiv.style.display = 'none';
-        document.querySelector('#manu').appendChild(mainDiv);
+    try {
+      const x = document.querySelector('div[class*="wc-video-gallery"] iframe');
+      // @ts-ignore
+      let y = (x.contentWindow || x.contentDocument);
+      if (y.document)y = y.document;
+      if (y) {
+        const videos = y.querySelectorAll('video');
+        videos && videos.forEach(vid => {
+          vid && vid.src && addHiddenDiv('pd_videos', vid.src);
+        });
+      }
+    } catch (error) {
+      console.log('video not present!');
+    }
+    try {
+      const shadowDom = document.querySelector('div[id="syndi_powerpage"] div[class*="syndi_powerpage"]').shadowRoot;
+      if (shadowDom) {
+        const mainDiv = shadowDom.querySelector('div[class="syndi_powerpage"]');
+        if (mainDiv) {
+          // @ts-ignore
+          mainDiv.style.display = 'none';
+          document.querySelector('#manu').appendChild(mainDiv);
+        }
+      }
+    } catch (error) {
+      console.log('shadow dom not present');
+    }
+  }
+  async function getVariantIds () {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    // @ts-ignore
+    const dataObj = window.__PRELOADED_STATE__;
+    if (dataObj) {
+      if (dataObj.product) {
+        if (dataObj.product.item.skus && dataObj.product.item.skus) {
+          dataObj.product.item.skus.forEach(element => {
+            element && addHiddenDiv('pd_variants', element);
+          });
+          dataObj.product.item.skus && addHiddenDiv('pd_variants_count', dataObj.product.item.skus.length - 1);
+        }
       }
     }
+  }
+  async function getVideos () {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    try {
+      const x = document.querySelector('div[class*="wc-video-gallery"] iframe');
+      // @ts-ignore
+      let y = (x.contentWindow || x.contentDocument);
+      if (y.document)y = y.document;
+      if (y) {
+        const videos = y.querySelectorAll('video');
+        videos && videos.forEach(vid => {
+          vid && vid.src && addHiddenDiv('pd_videos', vid.src);
+        });
+      }
+    } catch (error) {
+      console.log('video not present!');
+    }
+  }
+
+  try {
+    await context.evaluate(getVideos);
+  } catch (error) {
+    console.log('videos ', error);
+  }
+
+  try {
+    await context.evaluate(getVariantIds);
+  } catch (error) {
+    console.log('variant information ', error);
   }
   try {
     await context.evaluate(addWITB);

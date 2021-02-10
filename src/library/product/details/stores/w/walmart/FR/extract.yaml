@@ -39,9 +39,9 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //span[@data-automation="buybox-price-old"]
-  - name:  description
+  - name: description
     singleValue: false
-    xpath: //div[@data-automation="long-description" and not(text()='.')]  | //div[@data-automation="feature-specifications" and not(text()='• .') and not(text()='•')]
+    xpath: //div[@data-automation="long-description"]/descendant::text()[not(.='.')]  | //div[@data-automation="feature-specifications"]/descendant::text()[not(.='• .') and not(.='•')] 
   - name: brandText
     singleValue: false
     xpath: //span[@data-automation="brand"]
@@ -60,12 +60,17 @@ fields:
     regExpReplace: $1
   - name: sku
     singleValue: false
-    xpath: //@sku
+    xpath: //script[@type="application/ld+json" and contains(.,"sku")] | //no-script[@type="application/ld+json" and contains(.,"sku:")]
+    regExp: sku":"([^,]+)"
+    regExpReplace: $1
   - name: variantId
     singleValue: false
-    xpath: //@sku
+    xpath: //script[@type="application/ld+json" and contains(.,"sku")] | //no-script[@type="application/ld+json" and contains(.,"sku:")]
+    regExp: sku":"([^,]+)"
+    regExpReplace: $1
   - name: variantCount
     singleValue: false
+    xpath: //div[@id="pd_variants_count"]  
     defaultValue: '0'
     type: NUMBER    
   - name: promotion
@@ -92,7 +97,7 @@ fields:
     regExpReplace: $1
   - name: quantity
     singleValue: false
-    xpath:    
+    xpath: 
   - name: pricePerUnit
     singleValue: false
     xpath: //span[@data-automation="buybox-price-ppu"]
@@ -162,9 +167,7 @@ fields:
     xpath: //div[contains(@class,'css-1dar8at')]//div[contains(@class,'css-w8lmum')]//div[contains(text(),'Couleur') or contains(text(),'Color') or contains(text(),'color')]//following-sibling::div
   - name: weightNet
     singleValue: false
-    xpath: //script[@type="application/ld+json" and contains(.,"Item weight:")] | //no-script[@type="application/ld+json" and contains(.,"Item weight:")]
-    regExp: Item\s*weight:\s*([^<]+)
-    regExpReplace: $1
+    xpath: //div[contains(@class,'css-1dar8at')]//div[contains(@class,'css-w8lmum')]//div[contains(text(),'Poids de l’article') or contains(text(),'poids de l’article')]//following-sibling::div
   - name: weightGross
     singleValue: false
     xpath: //script[@type="application/ld+json" and contains(.,"Package weight:")] | //no-script[@type="application/ld+json" and contains(.,"Package weight:")]
@@ -183,7 +186,7 @@ fields:
     xpath: //div[@data-automation="variant"]//button[1]/@aria-label
   - name: variants
     singleValue: false
-    xpath: //script[contains(text(),"skus")] |  //no-script[contains(text(),"skus")]
-    regExp: skus":\["(([^\]]+)","([^\]]+))"
-    regExpReplace: $2 | $3
-    
+    xpath: //div[@id="pd_variants"][position()>1]
+  - name: videos
+    singleValue: false
+    xpath: //div[@id="pd_videos"]

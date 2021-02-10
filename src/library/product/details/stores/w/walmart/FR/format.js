@@ -24,18 +24,23 @@ const transform = (data) => {
 
   for (const { group } of data) {
     for (const row of group) {
+      let variantInformation = '';
       if (row.brandLink) {
         row.brandLink.forEach(item => {
           item.text = 'https://www.walmart.ca' + item.text;
         });
       }
       if (row.description) {
-        var text = [];
+        let text = '';
         row.description.forEach(item => {
-          text += item.text.replace(/•/g, '||').replace(/❋/g, '||').replace(/\|\|\s*\|\|/g, '||');
+          if (item.xpath.includes('/li')) {
+            text += ` || ${item.text}`;
+          } else {
+            text += item.text.replace(/•/g, '||').replace(/❋/g, '||').replace(/\|\|\s*\|\|/g, '||');
+          }
         });
-        row.description = [{ text }];
-        const bulletCount = text.match(/\|\|/g);
+        row.description = [{ text: text.replace(/\|\|\s*\|\|/g, '||') }];
+        const bulletCount = text.replace(/\|\|\s*\|\|/g, '||').match(/\|\|/g);
         if (bulletCount) {
           row.descriptionBullets = [{ text: bulletCount.length }];
         }
@@ -77,13 +82,24 @@ const transform = (data) => {
         row.manufacturerDescription = [{ text }];
       }
       if (row.variantInformation) {
-        let text = '';
+        variantInformation = '';
         row.variantInformation.forEach(item => {
-          text += ` ${item.text.trim()}`;
+          variantInformation += ` ${item.text.trim().replace('; non disponible', '')}`;
         });
         row.variantInformation = [
           {
-            text: text.trim(),
+            text: variantInformation.trim(),
+          },
+        ];
+      }
+      if (row.nameExtended) {
+        let nameExtended = '';
+        row.nameExtended.forEach(item => {
+          nameExtended += ` ${item.text.trim()}`;
+        });
+        row.nameExtended = [
+          {
+            text: variantInformation ? `${nameExtended.trim()} - ${variantInformation.trim()}` : nameExtended.trim(),
           },
         ];
       }
