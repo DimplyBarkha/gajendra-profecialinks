@@ -1,0 +1,93 @@
+input:
+  _url: http://sbermarket.ru/metro
+  URL: https://sbermarket.ru/metro/224571?sid=1
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=392632d2-4881-4422-b299-85bea3014586/task=6c2eb1c5-17f3-4fef-82de-d7a396202b03/74bff0cd-7c68-4df0-b21f-d3b32cb3b6f8.html
+    extractionConfigId: product/details/stores/s/sbermarket/RU/extract
+    data:
+      - group:
+          - image:
+              - text: https://sbermarket.ru/spree/products/251579/preview/224571_1.jpg?1589856513
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/meta[1]/@content
+            imageAlt:
+              - text: Вино Regina Viarum Mencia Ribeira Sacra DO красное сухое 13,5% 0,75 л
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@alt
+            category:
+              - text: Алкоголь
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]
+              - text: Вино
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/a[1]
+              - text: Красное вино
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[3]/a[1]
+            nameExtended:
+              - text: Вино Regina Viarum Mencia Ribeira Sacra DO красное сухое 13,5% 0,75 л
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
+            listPrice:
+              - text: 1 529,00 ₽
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/span[1]
+            brandText:
+              - text: Regina Viarum
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[2]
+            manufacturer:
+              - text: HGA Bodegas y Vinedos de Altura
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[2]
+            quantity:
+              - text: 0,75 л
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/p[1]
+            sku:
+              - text: "224571"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
+            color:
+              - text: Красный
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[6]/div[1]/div[2]
+            name:
+              - text: Вино Regina Viarum Mencia Ribeira Sacra DO красное сухое 13,5% 0,75 л
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
+            brandLink:
+              - text: https://sbermarket.ru/metro/alcohol/vino/krasnoie-vino/b/regina-viarum
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/a[1]/@href
+            ingredientsList:
+              - text: Менсия 100%.
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[12]/div[1]/div[2]
+            caloriesPerServing:
+              - text: 68 ккал
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[2]
+            countryOfOrigin:
+              - text: Испания
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[2]
+            alcoholContent:
+              - text: 13,5 %
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/ul[1]/li[8]/div[1]/div[2]
+            variantId:
+              - text: "637246"
+                xpath: /html/body/div[5]
+            storage:
+              - text: При температуре от +5°C до +20°C и относительной влажности не более 85% |
+                  После вскрытия упаковки хранить при температуре от +2°C до
+                  +6°C
+                xpath: /html/body/div[7]
+            packaging:
+              - text: Без упаковки
+                xpath: /html/body/div[8]
+            description:
+              - text: Чрезмерное употребление алкоголя может нанести вред вашему здоровью.
+                xpath: /html/body/div[9]
+            price:
+              - text: 1529,00 RUB
+                xpath: /html/body/div[10]
+            servingSize:
+              - text: "100"
+                xpath: /html/body/div[17]
+            servingSizeUom:
+              - text: г
+                xpath: /html/body/div[18]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[19]
+            productUrl:
+              - text: https://sbermarket.ru/metro/224571?sid=1
+                xpath: /html/body/div[20]
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1612948830285

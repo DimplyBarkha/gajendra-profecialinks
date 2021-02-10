@@ -1,0 +1,105 @@
+input:
+  _url: http://sbermarket.ru/metro
+  URL: https://sbermarket.ru/metro/podguzniki-trusiki-pampers-premium-care-pants-5-12-17-kg?sid=1
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=392632d2-4881-4422-b299-85bea3014586/task=177fde53-ab54-4416-8ef0-fa5c749b5daf/92a63e83-5683-4585-b985-7be07135ca6e.html
+    extractionConfigId: product/details/stores/s/sbermarket/RU/extract
+    data:
+      - group:
+          - image:
+              - text: https://sbermarket.ru/spree/products/113615/preview/115983.jpg?1607939609
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/meta[1]/@content
+            imageAlt:
+              - text: Подгузники-трусики Pampers Premium Care Pants 5 (12-17 кг) 34 шт
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/picture[1]/img[1]/@alt
+            category:
+              - text: Детские товары
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/a[1]
+              - text: Ежедневный уход
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[2]/a[1]
+              - text: Подгузники и трусики
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/span[3]/a[1]
+            nameExtended:
+              - text: Подгузники-трусики Pampers Premium Care Pants 5 (12-17 кг) 34 шт
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
+            listPrice:
+              - text: 1 758,00 ₽
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/span[1]
+            brandText:
+              - text: Pampers
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[2]
+            manufacturer:
+              - text: The Procter & Gamble Company
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[2]/div[1]/div[2]
+            quantity:
+              - text: 1 шт
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/p[1]
+            sku:
+              - text: "115983"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[7]/@data-fl-item-id
+            packSize:
+              - text: 34 шт
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[4]/div[1]/div[2]
+            name:
+              - text: Подгузники-трусики Pampers Premium Care Pants 5 (12-17 кг) 34 шт
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
+            brandLink:
+              - text: https://sbermarket.ru/metro/dietskiie-tovary/iezhiednievnyi-ukhod/podghuzniki-i-trusiki/b/pampers
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/a[1]/@href
+            countryOfOrigin:
+              - text: Польша
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[3]/div[1]/div[2]
+            ageSuitability:
+              - text: С 10 мес
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/ul[1]/li[7]/div[1]/div[2]
+            variantId:
+              - text: "639107"
+                xpath: /html/body/div[6]
+            alternateImages:
+              - text: https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3NwcmVlL3Byb2R1Y3RzLzIzMzY3My9vcmlnaW5hbC8xMTU5ODNfMi5qcGc_MTU5MTI3NDM0Nw.jpg
+                  |
+                  https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3NwcmVlL3Byb2R1Y3RzLzIzMzY2OC9vcmlnaW5hbC8xMTU5ODNfNC5qcGc_MTU3OTcxNTgwMQ.jpg
+                  |
+                  https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3NwcmVlL3Byb2R1Y3RzLzIzMzY2OS9vcmlnaW5hbC8xMTU5ODNfNS5qcGc_MTU3OTcxNTgwMg.jpg
+                  |
+                  https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3NwcmVlL3Byb2R1Y3RzLzIzMzY3OC9vcmlnaW5hbC8xMTU5ODNfNi5qcGc_MTU3OTcxNTgwOQ.jpg
+                  |
+                  https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3NwcmVlL3Byb2R1Y3RzLzIzMzY3MC9vcmlnaW5hbC8xMTU5ODNfNy5qcGc_MTU3OTcxNTgwMw.jpg
+                  |
+                  https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3NwcmVlL3Byb2R1Y3RzLzIzMzY2NS9vcmlnaW5hbC8xMTU5ODNfOC5qcGc_MTU3OTcxNTc5OQ.jpg
+                  |
+                  https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3NwcmVlL3Byb2R1Y3RzLzIzMzY4MC9vcmlnaW5hbC8xMTU5ODNfOS5qcGc_MTU3OTcxNTgxMA.jpg
+                  |
+                  https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3NwcmVlL3Byb2R1Y3RzLzIzMzY2Ni9vcmlnaW5hbC8xMTU5ODNfMTAuanBnPzE1Nzk3MTU4MDA.jpg
+                  |
+                  https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3NwcmVlL3Byb2R1Y3RzLzIzMzY2Ny9vcmlnaW5hbC8xMTU5ODNfMTEuanBnPzE1Nzk3MTU4MDE.jpg
+                  |
+                  https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3NwcmVlL3Byb2R1Y3RzLzIzMzY3Mi9vcmlnaW5hbC8xMTU5ODNfMTIuanBnPzE1Nzk3MTU4MDU.jpg
+                  |
+                  https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3NwcmVlL3Byb2R1Y3RzLzIzMzY3Ni9vcmlnaW5hbC8xMTU5ODNfMTMuanBnPzE1Nzk3MTU4MDk.jpg
+                  |
+                  https://imgproxy.sbermarket.ru/imgproxy/size-500-500/aHR0cHM6Ly9zYmVybWFya2V0LnJ1L3NwcmVlL3Byb2R1Y3RzLzIzMzY3NC9vcmlnaW5hbC8xMTU5ODNfMTQuanBnPzE1Nzk3MTU4MDc.jpg
+                xpath: /html/body/div[7]
+            description:
+              - text: "Малыш начал активничать и вертеться? Пора переходить на трусики! Забудьте
+                  о неудобствах смены подгузника c идеальными первыми трусиками
+                  Pampers Premium Care. Трусики легко надевать, даже если малыш
+                  активно двигается. Ультра мягкие и воздушные материалы -
+                  окружают малыша облаком комфорта. Трусики Pampers Premium Care
+                  обеспечивают сухость до 12 часов, чтобы ничто не отвлекало
+                  малыша, когда он познает мир. На 100% безопасные: клинически и
+                  дерматологически протестированы, без вредных веществ."
+                xpath: /html/body/div[8]
+            price:
+              - text: 1758,00 RUB
+                xpath: /html/body/div[9]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[18]
+            productUrl:
+              - text: https://sbermarket.ru/metro/podguzniki-trusiki-pampers-premium-care-pants-5-12-17-kg?sid=1
+                xpath: /html/body/div[19]
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /html/body
+    timestamp: 1612948822038

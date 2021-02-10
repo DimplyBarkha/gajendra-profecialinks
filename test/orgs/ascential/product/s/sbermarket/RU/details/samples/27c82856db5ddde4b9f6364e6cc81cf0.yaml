@@ -2,7 +2,7 @@ input:
   _url: http://sbermarket.ru/metro
   URL: https://sbermarket.ru/metro/bumazhnye-polotentsa-focus-extra-z-slozheniya-dvuhsloynye-20-pachek-po-200-listov
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9758d46c-5d37-4fc5-91de-63f4e9123eba/task=45bb4d46-c3fa-4359-853a-a00584c907f2/3d29a61f-19e1-45e1-84f2-050751a9ee4a.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=392632d2-4881-4422-b299-85bea3014586/task=9e7841ff-924c-43fd-921f-d419271304ae/a58e979b-4992-4644-88d1-0426edb5afd4.html
     extractionConfigId: product/details/stores/s/sbermarket/RU/extract
     data:
       - group:
@@ -25,8 +25,8 @@ extractions:
                   листов
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/h1[1]
             listPrice:
-              - text: 1 709,00 ₽
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/span[1]
+              - text: 2 192,00 ₽
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/span[1]
             brandText:
               - text: Focus
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[1]/div[1]/div[2]
@@ -58,9 +58,6 @@ extractions:
             countryOfOrigin:
               - text: Россия
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/ul[1]/li[3]/div[1]/div[2]
-            promotion:
-              - text: -22%
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]
             variantId:
               - text: "635842"
                 xpath: /html/body/div[6]
@@ -68,17 +65,17 @@ extractions:
               - text: Двухслойные бумажные полотенца в листах удобны в использовании и прекрасно
                   впитывают влагу. Подходят для диспенсеров с листовой подачей
                   бумажных полотенец.
-                xpath: /html/body/div[7]
-            price:
-              - text: 1709,00 RUB
                 xpath: /html/body/div[8]
+            price:
+              - text: 2192,00 RUB
+                xpath: /html/body/div[9]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[18]
             productUrl:
               - text: https://sbermarket.ru/metro/bumazhnye-polotentsa-focus-extra-z-slozheniya-dvuhsloynye-20-pachek-po-200-listov
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[19]
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html/body
-    timestamp: 1611222794080
+    timestamp: 1612948820300

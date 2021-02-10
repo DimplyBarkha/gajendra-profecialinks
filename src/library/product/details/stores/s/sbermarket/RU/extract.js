@@ -13,6 +13,17 @@ module.exports = {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
 
     await context.evaluate(async function () {
+      const confrimAge = document.querySelector('input[data-qa="disclaimer_modal_checkbox"]');
+      if (confrimAge) confrimAge.click();
+    });
+    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+
+    await context.evaluate(async function () {
+      const confrimAgeButton = document.querySelector('button[data-qa="disclaimer_modal_ok_button"]');
+      if (confrimAgeButton) confrimAgeButton.click();
+    });
+
+    await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -42,6 +53,28 @@ module.exports = {
         imgArr.push(imgUrl);
       };
       addElementToDocument('imgUrl', imgArr.join(' | '));
+
+      const storageInfo = document.evaluate('//div[@class="product-property__name"]/strong[contains(text(),"Условия хранения")]/parent::div/following-sibling::div[@class="product-property__value"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      console.log(storageInfo.snapshotLength);
+      const stogareArr = [];
+      if (storageInfo.snapshotLength > 0) {
+        for (let i = 0; i < storageInfo.snapshotLength; i++) {
+          const storage = storageInfo.snapshotItem(i).textContent ? storageInfo.snapshotItem(i).textContent : '';
+          console.log(storage);
+          stogareArr.push(storage);
+        };
+        addElementToDocument('storageInfoText', stogareArr.join(' | '));
+      }
+
+      const packingInfo = document.evaluate('//div[@class="product-property__name"]/strong[contains(text(),"Вид упаковки")]/parent::div/following-sibling::div[@class="product-property__value"]|//div[@class="product-property__name"]/strong[contains(text(),"Особенности упаковки")]/parent::div/following-sibling::div[@class="product-property__value"]|//div[@class="product-property__name"]/strong[contains(text(),"Упаковка")]/parent::div/following-sibling::div[@class="product-property__value"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      const packingArr = [];
+      if (packingInfo.snapshotLength > 0) {
+        for (let i = 0; i < packingInfo.snapshotLength; i++) {
+          const packing = packingInfo.snapshotItem(i).textContent ? packingInfo.snapshotItem(i).textContent : '';
+          packingArr.push(packing);
+        };
+        addElementToDocument('packingInfoText', packingArr.join(' | '));
+      }
 
       const availability = getEleByXpath('//link[@itemprop="availability"]/@href[contains(., "InStock")]');
       const availabilityText = availability ? 'In Stock' : 'Out Of Stock';

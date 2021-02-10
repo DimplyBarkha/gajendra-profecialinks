@@ -254,7 +254,7 @@ fields:
   singleValue: true
   description: List of Ingredients from site - can be string of data if no discernible
     start/end point
-  xpath: //div[@class="ingredients__text"]|//div[@class="product-property__name"]/strong[.="Состав"]/parent::div/following-sibling::div[@class="product-property__value" and not (//div[@class="ingredients__text"])]
+  xpath: //div[@class="ingredients__text"]|(//div[@class="product-property__name"]/strong[.="Состав"]/parent::div/following-sibling::div[@class="product-property__value" and not (//div[@class="ingredients__text"])])[1]
 - name: servingSize
   description: The size of serving Nutritional information is based on.
   xpath: //div[@id="serving_size_value"]
@@ -402,7 +402,7 @@ fields:
 - name: storage
   singleValue: true
   description: Suggested storage location for product
-  xpath: //div[@class="product-property__name"]/strong[contains(text(),"Условия хранения")]/parent::div/following-sibling::div[@class="product-property__value"]
+  xpath: //div[@id="storageInfoText"]
 - name: countryOfOrigin
   singleValue: true
   description: The country from which the product originates
@@ -419,7 +419,7 @@ fields:
 - name: packaging
   singleValue: true
   description: Packaging information
-  xpath: //div[@class="product-property__name"]/strong[contains(text(),"Вид упаковки")]/parent::div/following-sibling::div[@class="product-property__value"]|//div[@class="product-property__name"]/strong[contains(text(),"Особенности упаковки")]/parent::div/following-sibling::div[@class="product-property__value"]|//div[@class="product-property__name"]/strong[contains(text(),"Упаковка")]/parent::div/following-sibling::div[@class="product-property__value"]
+  xpath: //div[@id="packingInfoText"]
 - name: additives
   singleValue: true
   description: List of additives in the product
