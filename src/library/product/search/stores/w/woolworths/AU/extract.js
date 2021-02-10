@@ -1,10 +1,10 @@
-const { transform } = require('../shared')
+const { transform } = require('../AU/format')
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'AU',
     store: 'woolworths',
-    transform: transform,
+    transform,
     domain: 'woolworths.com.au',
     zipcode: "''",
   },
