@@ -22,12 +22,39 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      rankCounter += 1;
-      if (!row.sponsored) {
-        orgRankCounter += 1;
-        row.rankOrganic = [{ text: orgRankCounter }];
+      if (row.name) {
+        row.name.forEach(item => {
+          item.text = item.text.replace(/\s\n/g, '').trim();
+        });
       }
-      row.rank = [{ text: rankCounter }];
+      if ((!row.id || !row.id.length) && row.id1) {
+        console.log('id1', row.id1);
+        row.id = row.id1;
+        console.log('id', row.id);
+      }
+      if (row.name) {
+        row.name.forEach(item => {
+          item.text = item.text.replace(/\s\n/g, '').trim();
+        });
+      }
+      if (row.reviewCount) {
+        row.reviewCount.forEach(item => {
+          var tmp = item.text.replace('(', '');
+          item.text = tmp.replace(')', '');
+          item.text = parseInt(item.text);
+        });
+      }
+      if (row.ratingCount) {
+        row.ratingCount = [{ text: row.ratingCount.length, xpath: row.ratingCount[0].xpath }];
+      }
+      if (row.id) {
+        rankCounter += 1;
+        if (!row.sponsored) {
+          orgRankCounter += 1;
+          row.rankOrganic = [{ text: orgRankCounter }];
+        }
+        row.rank = [{ text: rankCounter }];
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
