@@ -63,7 +63,7 @@ fields:
   - name: thumbnail
     description: The URL for the product thumbnail image
   - name: image
-    xpath: //head/meta[@name='og:image']/@content   
+    xpath: //head/meta[@name='og:image']/@content | //div[contains(@class,"ProductImages")]//div[@class="swiper-wrapper"]/div[1]//img/@src   
   - name: alternateImages
     singleValue: false
     xpath: (//div[contains(@class,"ProductImages")]//img[@class="ProductImages-image"]/@src)[position()>1]
@@ -78,7 +78,7 @@ fields:
     description: The model code of the product
   - name: gtin
     description: GTIN code (includes UPC/EAN)
-    xpath: //span[@class='ProductDetails-upc']
+    xpath: //span[contains(@class,'ProductDetails-upc')]
     regExp: >-   
       [0-9]+
   - name: aggregateRatingText
