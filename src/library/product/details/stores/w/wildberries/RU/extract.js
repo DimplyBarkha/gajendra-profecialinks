@@ -22,7 +22,7 @@ module.exports = {
     await context.extract(productDetails, { transform });
     for (let index = 1; index <= variantCount; index++) {
       try {
-        await context.click(`div.size-list label:nth-child(${index})`);
+        await context.click(`div.size-list label:nth-of-type(${index})`);
         await new Promise(resolve => setTimeout(resolve, 500));
         if (variantCount !== index) {
           await context.extract(productDetails, { type: 'APPEND', transform  });

@@ -1,0 +1,14 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="options" or @class="options-v1"]
+fields:
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="options" or @class="options-v1"]//ul/li[contains(@class, "active")]/a/@href
+  - name: variantUrl
+    singleValue: false
+    xpath: //div[@class="options" or @class="options-v1"]//ul/li/a/@href
+  - name: variant
+    singleValue: false
+    xpath: //div[@class="options" or @class="options-v1"]//ul/li/a/@href
