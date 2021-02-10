@@ -74,6 +74,14 @@ module.exports = {
         const originalDiv = document.querySelectorAll("div[class*='font-headline description']")[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
+      function addHiddenDiv2(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll("div[class*='font-headline ']")[index];
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const result = [];
@@ -115,13 +123,16 @@ module.exports = {
         }
         //addElementToDocument('name', name);
       }
-      var perunit = getXpath('(//*[@id="schema-offer"]/div[2]/p[1]/text())[1]', 'nodeValue');
-      if (perunit != null) {
-        var priceper = perunit.split("/")[0].split('GP: ')[1];
-        var peruni2 = perunit.split("/")[1];
-        addElementToDocument('priceper', priceper);
-        addElementToDocument('perunit', peruni2);
+      try{
+        var perunit = getXpath('(//*[@id="schema-offer"]/div[2]/p[1]/text())[1]', 'nodeValue');
+        if (perunit != null) {
+          var priceper = perunit.split("/")[0].split('GP: ')[1];
+          var peruni2 = perunit.split("/")[1];
+          addElementToDocument('priceper', priceper);
+          addElementToDocument('perunit', peruni2);
+        }
       }
+      catch (error){}
       // var qty = getAllXpath('//div[@id="schema-offer"]/div[2]/div/div[1]/div/text()', 'nodeValue');
       // for (var i = 0; i < qty.length; i++){
       //   var aa= qty[i]
@@ -139,34 +150,61 @@ module.exports = {
       //     }
       //   }
       // }
-      // @ts-ignore
-      var d2 = document.querySelector('div[class="footer-content"]').innerText
-      if (d2 != null) {
-        addElementToDocument('d2', d2)
-      }
-
-      var desc = []
-
-      var units = getAllXpath('//div[@id="schema-offer"]/div[2]/div/div[1]/div/text()', 'nodeValue');
-      // @ts-ignore
-      var unitz = document.querySelectorAll('div[id="variationsdropdown"]>ul> li> a> img').innerText
-      if (units != null) {
+      
+      try {
         // @ts-ignore
-        var name = document.querySelector("h1[class='article-header']").innerText
-        
-        for (var i = 0; i < units.length; i++) {
-          addHiddenDiv('desc', name + '- ' + units[i], i)
-          addHiddenDiv('qty', units[i], i)
+        var d2 = document.querySelector('div[class="footer-content"]> div:nth-child(1)').innerText
+        if (d2 != null) {
+          addElementToDocument('d2', d2)
         }
       }
-      else {
-        for (var i = 0; i < unitz.length; i++) {
-          addHiddenDiv('desc', name + '- ' + unitz[i], i)
-        }
-      }
+      catch (error) { }
 
-      var currurl = window.location.href
+      var qq = getAllXpath('//div[@id="schema-offer"]/div[2]/div/div[1]/div/text()', 'nodeValue');
+      if (qq != null) {
+        for (var i = 0; i < qq.length; i++) {
+          addHiddenDiv('qty', qq[i], i)
+        }
+      }
+      try {
+        //concat(+'- '+//*[@id="schema-offer"]/div[2]/p[1]/span/text())
+        var type1 = getAllXpath('//*[@id="schema-offer"]/div[2]/p[1]/span/text()', 'nodeValue');
+        //var name = getXpath("//*[@id='right-column']/div/div[1]/div/div[2]/div[1]/div[1]/h1", 'nodeValue')
+        // @ts-ignore
+        var name = document.querySelector('h1[class="article-header"]').innerText
+        if (type1 != null) {
+          // @ts-ignore
+          for (var i = 0; i < type1.length; i++) {
+            addHiddenDiv2('desc', name + '- ' + type1[i], i)
+          }
+        }
+        // else {
+        //   var type2= getAllXpath('//*[@id="schema-offer"]/div[2]/p[1]/span/text()', 'nodeValue');
+        //   if (type2 != null) {
+        //     // @ts-ignore
+        //     var name = getXpath("//*[@id='right-column']/div/div[1]/div/div[2]/div[1]/div[1]/h1", 'nodeValue')
+        //     for (var i = 0; i < type2.length; i++) {
+        //       addHiddenDiv2('desc', name + '- ' + type2[i], i)
+        //     }
+        //   }
+        // }
+
+
+      }
+      catch (error) { }
+      try{
+        var currurl = window.location.href
       addElementToDocument('currurl', currurl);
+      var gtin = currurl.split('index_')[1].split('.aspx')[0]
+    
+      addElementToDocument('gtin', gtin);
+      }
+      catch (error){}
+
+      var imgcount = getAllXpath('//div[@class="carousel more-pictures"]/div[@class="swiper-wrapper"]/div[position()>1]/div/img/@src|//div[@class="slick-track"]/div[position()>1]/div/@data-image-m', 'nodeValue');
+      addElementToDocument('imgcount', imgcount.length);
+      
+      
     });
 
 

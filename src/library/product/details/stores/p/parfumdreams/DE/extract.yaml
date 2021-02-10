@@ -16,11 +16,12 @@ fields:
     xpath: ancestor::html//div[@id='currurl']
     # xpath: ancestor::html//link[@rel="canonical"]/@href
   - name: nameExtended
-    singleValue: true
+    # xpath: concat(//*[@id='right-column']/div/div[1]/div/div[2]/div[1]/div[1]/h1,' - ',//*[@id="schema-offer"]/div[2]/p[1]/span)
     xpath: //html//div[@id='desc']
   - name: gtin
     singleValue: true
-    xpath: (ancestor::html//div[@id="schema-offer"]/div[3]/meta[@itemprop='gtin13']/@content)[1]
+    xpath: ancestor::html//div[@id='gtin']
+    # xpath: ancestor::html//div[@class='box box-article']/meta[@itemprop='sku']/@content
   - name: description
     singleValue: true
     xpath: ancestor::html//div[@id='d2']
@@ -82,7 +83,11 @@ fields:
     # regExpReplace: $1
   - name: alternateImages
     singleValue: false
-    xpath: ancestor::html//div[@class="carousel more-pictures"]/div[@class="swiper-wrapper"]/div[position()>1]/div/img/@src
+    xpath: ancestor::html//div[@class="carousel more-pictures"]/div[@class="swiper-wrapper"]/div[position()>1]/div/img/@src|ancestor::html//div[@class='slick-track']/div[position()>1]/div/@data-image-m
+  - name: secondaryImageTotal
+    singleValue: true
+    xpath: ancestor::html//div[@id="imgcount"]
+    # xpath: count(//div[@class="carousel more-pictures"]/div[@class="swiper-wrapper"]/div[position()>1]/div/img/@src|//div[@class='slick-track']/div[position()>1]/div/@data-image-m)
   - name: ingredientsList
     singleValue: false
     xpath: ancestor::html//div[@class='footer-content']/div[2]/p[1]
