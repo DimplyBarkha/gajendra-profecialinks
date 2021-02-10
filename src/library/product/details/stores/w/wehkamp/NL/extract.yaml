@@ -94,6 +94,7 @@ fields:
   - name: directions
     singleValue: false
     #Gebruiksadvies
+    xpath: //div[@class='ProductDescription__pipd-header___2bpsQ']
     regExp: Gebruiksadvies(.+)
     regExpReplace: $1
   - name: videos
