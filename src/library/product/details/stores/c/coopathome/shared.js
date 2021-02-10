@@ -112,17 +112,17 @@ const transform = (data) => {
           },
         ];
       }
-      if (row.aggregateRating) {
-        let text = '';
-        row.aggregateRating.forEach(item => {
-          text += item.text.replace('.', ',');
-        });
-        row.aggregateRating = [
-          {
-            text: text,
-          },
-        ];
-      }
+      // if (row.aggregateRating) {
+      //   let text = '';
+      //   row.aggregateRating.forEach(item => {
+      //     text += item.text.replace('.', ',');
+      //   });
+      //   row.aggregateRating = [
+      //     {
+      //       text: text,
+      //     },
+      //   ];
+      // }
       if (row.description) {
         let text = '';
         row.description.forEach(item => {
