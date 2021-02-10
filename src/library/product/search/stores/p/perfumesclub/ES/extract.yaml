@@ -23,11 +23,11 @@ fields:
     xpath: //span[@class="newPriceND"]/strong
     type: CURRENCY
   - name: aggregateRating
-    xpath: //div[@class="quedanMenos"]/img/@alt
-  - name: aggregateRating2
-    singleValue: false
-    xpath: //div[@class="quedanMenos"]/img/@alt
-    regExp: ([\d.]+)
+    xpath: //html//div[@id="aggregateRating"]
+  # - name: aggregateRating2
+  #   singleValue: false
+  #   xpath: //div[@class="quedanMenos"]/img/@alt
+  #   regExp: ([\d.]+)
   # - name: aggregateRating
   #   xpath: //div[@class="quedanMenos"]/img/@alt
   #   regExp: (\d).?(\d)?

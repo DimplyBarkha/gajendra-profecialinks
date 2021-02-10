@@ -18,7 +18,7 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  
+
   await context.evaluate(async function () {
     let scrollTop = 0;
     while (scrollTop !== 20000) {
@@ -44,8 +44,25 @@ async function implementation(
       // }
       // addHiddenDiv('aggregateRating', singleRating, i);
     }
+    function addHiddenDiv(id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll('div[id*="productList"]')[index];
+      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+    }
 
-  
+    const rating = document.querySelectorAll("div[class='quedanMenos']")
+
+    for (let i = 0; i <= rating.length; i++) {
+      //ts-ignore
+      if (i < rating.length) {
+        ratingValue = rating[i].lastElementChild.alt; console.log(ratingValue)
+      }
+      addHiddenDiv('aggregateRating', ratingValue.replace('stars', ''), i);
+    }
+
   });
   return await context.extract(productDetails, { transform });
 }
