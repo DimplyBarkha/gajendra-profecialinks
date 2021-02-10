@@ -164,8 +164,8 @@ module.exports = {
           if(gotRespOk) {
             if(Object.keys(jsonResp).length > 0) {
               try {
-                if(Array.isArray(jsonResp.style.sizes) && jsonResp.style.sizes.length > 0) {
-                  sku = jsonResp.style.sizes[0].skuId;
+                if(Array.isArray(jsonResp.style.sizes) && jsonResp.style.sizes.length > 0 && jsonResp.style.sizes[0].styleId) {
+                  sku = jsonResp.style.sizes[0].styleId;
                 }
                 mpc = sku;
                 if(jsonResp.style.flags.outOfStock) {
