@@ -28,9 +28,9 @@ const transform = (data) => {
         if (row.availabilityText) {                    
           row.availabilityText.forEach(item => {
             if(item.text == "Manufacturer is currently out of stock."){
-              item.text = "Out of Stock";
+              item.text = "Out of stock";
             }else if(item.text == "Sorry! This item is not available."){
-              item.text = "Out of Stock";
+              item.text = "Out of stock";
             }else{
               item.text = "In stock";
             }
@@ -48,7 +48,7 @@ const transform = (data) => {
             let skuVal=item.text.replace('var digitalData = ', '');
             skuVal=skuVal.slice(0, skuVal.indexOf(';'));
             let data = JSON.parse(skuVal);
-            //console.log("skudata: ", data.eCommerce.productInfo[0].productSKU);
+            console.log("skudata: ", data);
             if(data.eCommerce.hasOwnProperty('productInfo')){
               item.text=data.eCommerce.productInfo[0].productSKU;
             }else{

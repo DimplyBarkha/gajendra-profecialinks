@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'wbmason.com',
     prefix: null,
-    url: 'https://www.wbmason.com/ProductDetail.aspx?ItemID={id}',
+    url: 'https://www.wbmason.com/ProductDetail.aspx?ItemID={id}&uom=CT&COID=',
     country: 'US',
     store: 'wbmason',
     zipcode: '',

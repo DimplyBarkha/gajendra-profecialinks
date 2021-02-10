@@ -30,7 +30,7 @@ fields:
     defaultValue: In stock
   - name: description
     singleValue: false
-    xpath: //div[@id="tab2_content"]//p
+    xpath: //div[@class="product-info"]/ul[@class="item-points"]/li
   - name: descriptionBullets
     singleValue: false
     xpath: count(//div[@class="product-info"]//ul[@class="item-points"]/li)
