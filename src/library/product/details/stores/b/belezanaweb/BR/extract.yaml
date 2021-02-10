@@ -26,7 +26,7 @@ fields:
     xpath: //h1[@class='nproduct-title']
   - name: price
     singleValue: false
-    xpath: //div[@class='nprodct-price']//div[@class='nproduct-price-value']
+    xpath: //div[@class='nprodct-price']//div[@class='nproduct-price-value'] | //meta[@property="product:price:amount"]/@content
   - name: listPrice
     singleValue: false
     xpath: //div[@class='nprodct-price']//strong[@class='nproduct-price-max']//s

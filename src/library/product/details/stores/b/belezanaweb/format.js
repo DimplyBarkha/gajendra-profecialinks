@@ -53,6 +53,14 @@ const transform = (data) => {
       //     }
       //   });
       // }
+      if (row.price) {
+        let video = [];
+        row.price.forEach(item => {
+          if (item.text.indexOf('R$:') === -1) {
+            item.text = `R$${item.text}`;
+          }
+        });
+      }
       if (row.description) {
         const nDesc = [];
         let newDesc = '';
