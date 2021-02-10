@@ -22,10 +22,9 @@ fields:
     description: The offered price for the product
     xpath: //span[@class="newPriceND"]/strong
     type: CURRENCY
-  - name: aggregateRating 
-    singleValue: false
   - name: aggregateRating2
-    type: STRING
+    singleValue: false
+  - name: aggregateRating
     singleValue: false
     xpath: //div[@class="quedanMenos"]/img/@alt
     regExp: ([\d.]+)
