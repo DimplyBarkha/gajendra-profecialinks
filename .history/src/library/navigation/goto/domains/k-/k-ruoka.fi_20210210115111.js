@@ -1,9 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto/setZipCode',
+  implements: 'navigation/goto',
   parameterValues: {
-    country: 'FI',
     domain: 'k-ruoka.fi',
+    timeout: 20000,
+    country: 'FI',
     store: 'k-ruoka',
     zipcode: '',
   },
@@ -65,21 +66,21 @@ module.exports = {
       // }
     }
 
-    const changedLocationStreetAddress = await context.evaluate(function () {
-      return document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]') ? document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]').textContent : '';
-    });
+    // const changedLocationStreetAddress = await context.evaluate(function () {
+    //   return document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]') ? document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]').textContent : '';
+    // });
 
     // TODO: need to set this as input
-    if (!(changedLocationStreetAddress === '4208 Pleasant Crossing Blvd') && disabledContinueButton === false) {
-      await changeLocation(zipcode);
-      if (locationStreetAddress !== changedLocationStreetAddress) {
-        await changeLocation(zipcode);
-      }
-      if (locationStreetAddress !== changedLocationStreetAddress) {
-        console.log(locationStreetAddress);
-        console.log(changedLocationStreetAddress);
-        throw new Error('Fail to change zipcode');
-      }
-    }
+    // if (!(changedLocationStreetAddress === '4208 Pleasant Crossing Blvd') && disabledContinueButton === false) {
+    //   await changeLocation(zipcode);
+    //   if (locationStreetAddress !== changedLocationStreetAddress) {
+    //     await changeLocation(zipcode);
+    //   }
+    //   if (locationStreetAddress !== changedLocationStreetAddress) {
+    //     console.log(locationStreetAddress);
+    //     console.log(changedLocationStreetAddress);
+    //     throw new Error('Fail to change zipcode');
+    //   }
+    // }
   },
 };

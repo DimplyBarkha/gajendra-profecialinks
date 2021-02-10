@@ -104,11 +104,6 @@ const transform = (data) => {
         });
         row.otherSellersName = [{ text }];
       }
-
-      if (row.drive) {
-        const driveJson = JSON.parse(row.drive[0].text);
-        row.drive[0].text = driveJson.zipcode;
-      }
     }
   }
 
