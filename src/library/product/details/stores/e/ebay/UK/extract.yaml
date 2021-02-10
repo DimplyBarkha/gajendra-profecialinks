@@ -7,3 +7,8 @@ fields:
     singleValue: false
     regExp: (£)(.+)
     regExpReplace: $2  
+  - name: inTheBoxText
+    xpath: //div[contains(@class,"inthebox")][.//img[@src[string()]]]/*[@class='title']/text()
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,"inthebox")][.//img[@src[string()]]]//img/@src
+  #   type: IMAGE
