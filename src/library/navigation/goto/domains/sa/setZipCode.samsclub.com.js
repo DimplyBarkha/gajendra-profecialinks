@@ -1,9 +1,9 @@
+
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'navigation/goto/setZipCode',
   parameterValues: {
-    domain: 'samsclub.com',
-    timeout: 100000,
     country: 'US',
+    domain: 'samsclub.com',
     store: 'samsclub',
     zipcode: '',
   },
