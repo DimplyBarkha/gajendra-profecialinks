@@ -1,11 +1,12 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details/createUrl',
   parameterValues: {
     domain: 'countdown.co.nz',
-    timeout: 100000,
+    prefix: null,
+    url: null,
     country: 'NZ',
     store: 'countdown',
-    zipcode: '',
+    zipcode: "''",
   },
 };
