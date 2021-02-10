@@ -17,18 +17,19 @@ fields:
     xpath: //ul[@data-test="pnlBreadcrumbs"]/li
   - name: nameExtended
     singleValue: true
-    xpath: //h2[@class='sc-3gouww-5 bzsrUa']/a/text() 
+    xpath: //h2[@class='sc-3gouww-5 bzsrUa']/a/text()
+    regExp: (\d+\sml$)
   - name: listPrice
     singleValue: true
     xpath: //span[@class='unitPrice priceOffer']/following::del/text()
   - name: price
     singleValue: true
-    xpath: //span[@class='currentPrice']
+    xpath: //span[@class='currentPrice'] | //span[@class='unitPrice']
   - name: availabilityText
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out Of Stock
-    xpath: //button[@class="sc-1tiied5-2 bkyfBN"]
+    xpath: //button[@class="sc-1tiied5-2 ijJwMS"]
   - name: description
     singleValue: false
     xpath: //div[@class='ckContent']/p[1] | //div[@class='ckContent']/p[6]
