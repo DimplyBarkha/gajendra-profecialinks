@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'DE',
     store: 'notino',
-    nextLinkSelector: 'span[class="pages"]:last-child a[class="next"]',
+    // nextLinkSelector: 'span[class="pages"]:last-child a[class="next"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'body',
+    loadedSelector: null,
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'notino.de',
