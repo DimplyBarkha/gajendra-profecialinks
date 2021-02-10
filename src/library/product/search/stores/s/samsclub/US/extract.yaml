@@ -1,22 +1,40 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, "sc-infinite-loader")]//ul/li
+#recordXPath: //div[contains(@class, "sc-infinite-loader")]//ul/li
+recordXPath: //div[@id="jdCustomDivJSONData"]/div
 fields:
   - name: name
     singleValue: false
-    xpath: //div[@class="sc-pc-title-medium"]/h3
+    #xpath: //div[@class="sc-pc-title-medium"]/h3
+    xpath: //div[@id="jdCustomDivJSONData"]/div
   - name: id
     singleValue: false
-    xpath: //div[contains(@class, "sc-plp-cards-card")]/a/@href
+    #xpath: //div[contains(@class, "sc-plp-cards-card")]/a/@href
+    xpath: //div[@id="jdCustomDivJSONData"]/div
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class, "sc-plp-cards-card")]/a/@href
-    regExp: (\/.*)
-    regExpReplace: https://www.samsclub.com$1
+    #xpath: //div[contains(@class, "sc-plp-cards-card")]/a/@href
+    #regExp: (\/.*)
+    #regExpReplace: https://www.samsclub.com$1
+    xpath: //div[@id="jdCustomDivJSONData"]/div
   - name: thumbnail
     singleValue: false
-    xpath: //img[@class="sc-pc-image-controller"]/@src
+    #xpath: //img[@class="sc-pc-image-controller"]/@src
+    xpath: //div[@id="jdCustomDivJSONData"]/div
   - name: price
     singleValue: false
-    xpath: //span[@class="Price-group"]/span[@class="visuallyhidden"]
+    #xpath: //span[@class="Price-group"]/span[@class="visuallyhidden"]
+    xpath: //div[@id="jdCustomDivJSONData"]/div
+  - name: aggregateRating
+    singleValue: false
+    #xpath: //span[@class="Price-group"]/span[@class="visuallyhidden"]
+    xpath: //div[@id="jdCustomDivJSONData"]/div
+  - name: reviewCount
+    singleValue: false
+    #xpath: //span[@class="Price-group"]/span[@class="visuallyhidden"]
+    xpath: //div[@id="jdCustomDivJSONData"]/div
+  - name: ratingCount
+    singleValue: false
+    #xpath: //span[@class="Price-group"]/span[@class="visuallyhidden"]
+    xpath: //div[@id="jdCustomDivJSONData"]/div
