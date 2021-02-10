@@ -5,13 +5,14 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //button[@class="sc-image-viewer-img-button"]/img/@src
+    xpath: //div[@role="presentation"]/img/@src
   - name: imageAlt
     singleValue: true
-    xpath: /html/body/@imagealt
+    # xpath: /html/body/@imagealt
+    xpath: //div[@role="presentation"]/img/@alt
   - name: alternateImages
     singleValue: true
-    xpath: //img[@class="sc-image-viewer-thumb"]/@src
+    xpath: (//button[contains(@class,'sc-image-viewer-thumb-wrapper')])[position()>1]//img//@src
   - name: metaKeywords
     singleValue: true
     xpath: /html/head/meta[@name="keywords"]/@content
@@ -23,7 +24,7 @@ fields:
     xpath: //ol[@class="sc-breadcrumbs"]
   - name: nameExtended
     singleValue: true
-    xpath: //div[@class="sc-product-header-title-container"]
+    xpath: //div[@class="sc-pc-title-full-desktop"]//h1//text()
   - name: listPrice
     singleValue: true
     xpath: //span[@class="sc-channel-savings-list-price"]
@@ -32,7 +33,7 @@ fields:
     xpath: //span[@class="Price-group"]
   - name: availabilityText
     singleValue: true
-    xpath: //div[@class="sc-oos-card-label"]
+    xpath: //meta[@itemprop='availability']//@content
   - name: description
     singleValue: true
     xpath: //div[@class="sc-full-description-long"]
@@ -52,6 +53,7 @@ fields:
   - name: weightGross
     singleValue: true
   - name: gtin
+    xpath: //meta[@itemprop='image']	//@content
     singleValue: true
   - name: sku
     singleValue: true
@@ -92,11 +94,13 @@ fields:
   - name: colorCode
     singleValue: true
   - name: manufacturerDescription
-    singleValue: true
+    singleValue: false
+    xpath: //div[contains(@class,'wc-richfeatures-layout-computer')]//h1[@class="wc-ppp-caption"] | //h2[@class="wc-first-header"] | //h2[contains(@class,'wc-rich-features-center-')] | //div[@class="wc-rich-content-description"]//text()
   - name: manufacturerImages
     singleValue: true
   - name: videos
     singleValue: true
+    xpath: //div[@class="wc-media-wrap"]//img//@wcobj
   - name: name
     singleValue: true
     xpath: //div[@class="sc-product-header-title-container"]
