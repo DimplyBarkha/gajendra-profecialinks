@@ -239,7 +239,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //body//@ingredients | //h2[contains(text(),'INGRÉDIENTS')]/following::p[1]
+    xpath: //body//@ingredients | //h2[contains(text(),'INGRÉDIENTS')]/following::p[1] | //body//@ingredientslist
     regExpReplace: $2
   - name: servingSize
     singleValue: false

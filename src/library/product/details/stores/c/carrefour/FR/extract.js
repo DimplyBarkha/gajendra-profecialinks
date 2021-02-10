@@ -45,6 +45,20 @@ module.exports = {
         let ingredientsList = ingredients.textContent.replace('Ingrédients: Ingrédients : ','').replace('Ingrédients: ','').replace('Ingrédients : ','').replace('INGREDIENTS : ','');
         document.body.setAttribute('ingredients', ingredientsList);
       }
+      const query = document.evaluate(`//h3[contains(., 'Ingrédients')]/../div/p`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      if(query) {
+        const results = Array(query.snapshotLength).fill(0).map((element, index) => query.snapshotItem(index));
+        let ingredientsList = "";
+        if(results.length){
+          for (const result of results){
+            ingredientsList = ingredientsList + result.textContent;
+          }
+          document.body.setAttribute('ingredientslist', ingredientsList);
+        }
+      }
+
+
+
 
     });
     const { transform } = parameters;
