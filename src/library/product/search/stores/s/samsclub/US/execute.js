@@ -23,13 +23,13 @@ async function implementation (
   const applyScroll = async function (context) {
     await context.evaluate(async function (inputs) {
       console.log('tmpInput after context', inputs);
-      let keywords12=inputs.keywords;
+      let keywords12=encodeURIComponent(inputs.keywords);
 
       const hiddenDataDiv = document.createElement('div');
       hiddenDataDiv.id = 'jdCustomDivJSONData';
       hiddenDataDiv.style.display = 'none';
       document.body.appendChild(hiddenDataDiv);
-      let URL=`https://www.samsclub.com/api/node/vivaldi/v2/az/products/search?sourceType=1&sortKey=relevance&sortOrder=1&searchTerm=${keywords12}&clubId=6384&br=true&limit=48`;
+      let URL=`https://www.samsclub.com/api/node/vivaldi/v2/az/products/search?sourceType=1&sortKey=relevance&sortOrder=1&searchTerm=${keywords12}&clubId=undefined&br=true&limit=48`;
       console.log('URL::',URL)
       const allData = await fetch(URL).then(r => r.json());
       await new Promise((resolve, reject) => setTimeout(resolve, 1000));
@@ -50,7 +50,7 @@ async function implementation (
         }
       }
       if(slNo>47){
-        const allData1 = await fetch(`https://www.samsclub.com/api/node/vivaldi/v2/az/products/search?sourceType=1&sortKey=relevance&sortOrder=1&searchTerm=${keywords12}&clubId=6384&br=true&limit=48&offset=48`).then(r => r.json());
+        const allData1 = await fetch(`https://www.samsclub.com/api/node/vivaldi/v2/az/products/search?sourceType=1&sortKey=relevance&sortOrder=1&searchTerm=${keywords12}&clubId=undefined&br=true&limit=48&offset=48`).then(r => r.json());
         await new Promise((resolve, reject) => setTimeout(resolve, 1000));
         if (allData && allData.payload.records) {
           if(allData.payload.numberOfRecords>0){
@@ -69,7 +69,7 @@ async function implementation (
         }
       }
       if(slNo>95){
-        const allData1 = await fetch(`https://www.samsclub.com/api/node/vivaldi/v2/az/products/search?sourceType=1&sortKey=relevance&sortOrder=1&searchTerm=${keywords12}&clubId=6384&br=true&limit=48&offset=96`).then(r => r.json());
+        const allData1 = await fetch(`https://www.samsclub.com/api/node/vivaldi/v2/az/products/search?sourceType=1&sortKey=relevance&sortOrder=1&searchTerm=${keywords12}&clubId=undefined&br=true&limit=48&offset=96`).then(r => r.json());
         await new Promise((resolve, reject) => setTimeout(resolve, 1000));
         if (allData && allData.payload.records) {
           if(allData.payload.numberOfRecords>0){
@@ -88,7 +88,7 @@ async function implementation (
         }
       }
       if(slNo>143){
-        const allData1 = await fetch(`https://www.samsclub.com/api/node/vivaldi/v2/az/products/search?sourceType=2&sortKey=relevance&sortOrder=1&searchTerm=${keywords12}&clubId=6384&br=true&limit=48&offset=144`).then(r => r.json());
+        const allData1 = await fetch(`https://www.samsclub.com/api/node/vivaldi/v2/az/products/search?sourceType=2&sortKey=relevance&sortOrder=1&searchTerm=${keywords12}&clubId=undefined&br=true&limit=48&offset=144`).then(r => r.json());
         await new Promise((resolve, reject) => setTimeout(resolve, 1000));
         if (allData && allData.payload.records) {
           if(allData.payload.numberOfRecords>0){
