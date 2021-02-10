@@ -44,7 +44,7 @@ fields:
     defaultValue: 0
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="body"]//table//td//img/@src |  //div[@class="body"]//p//img/@src
+    xpath: //div[@class="body"]//table//td//img/@src |  //div[@class="body"]//p//img/@src   |  (//div[@class="body"]//img/@src)[1]
   - name: videos
     singleValue: false
     # xpath: //div[@class="ytp-title-text"]/a/@href
@@ -173,7 +173,7 @@ fields:
   - name: vitaminCPerServing
     singleValue: false
     xpath: //table[@class='nutrientsTable']//td[contains(.,'vitamina C ')]//following-sibling::td[1]
-  - name: vitaminCperservingUom
+  - name: VitaminCPerServingUom
     singleValue: false
     xpath: //table[@class='nutrientsTable']//td[contains(.,'vitamina C ')]//following-sibling::td[2]
   - name: productOtherInformation
