@@ -23,14 +23,37 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-     try{const brand = getXpath('//span[@class="productDetails-name"]//text()','nodeValue');
-     var brand1=brand.split(" ");
-      addElementToDocument('brand1', brand1[0])
-     }
-     catch(e)
-     {
+      try {
+        const brand = getXpath('//span[@class="productDetails-name"]//text()', 'nodeValue');
+        var brand1 = brand.split(" ");
+        addElementToDocument('brand1', brand1[0])
+      }
+      catch (e) {
 
-     }
+      }
+      try {
+        const directions = document.querySelectorAll('div.content.content--productDescription p');
+        let siblingsDirections = '';
+        for (let index = 0; index < directions.length; index++) {
+          let element = directions[index];
+          // @ts-ignore
+          if (element.innerText === 'Anwendung:') {
+            element = element.nextElementSibling;
+            while (element) {
+              if (element) {
+                // @ts-ignore
+                siblingsDirections += element.innerText;
+                element = element.nextElementSibling;
+              } else {
+                break;
+              }
+            }
+          }
+        }
+        addElementToDocument('directions', siblingsDirections)
+      } catch (error) {
+
+      }
     });
     await context.extract(productDetails, { transform: transformParam });
   },
