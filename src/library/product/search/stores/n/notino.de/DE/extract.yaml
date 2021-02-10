@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@id="productsList"]/li[position()<=150]
+recordXPath: //ul[@id="productsList"]/li
 fields: 
   - name: price
     singleValue: false
@@ -17,3 +17,6 @@ fields:
     xpath: //ul[@id="productsList"]/li//span[@class="name"]  
   - name: id
     xpath: //ul[@id="productsList"]/li//@data-product-code
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl'] 
