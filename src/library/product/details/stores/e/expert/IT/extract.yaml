@@ -21,7 +21,8 @@ fields:
     xpath: //ul[contains(@class , 'breadcrumb')]/li[position()> 1]/a/span
   - name: nameExtended
     singleValue: false
-    description: The product name, prefixing "${brand} - " if not included in "name"
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //div[@class="skywalker_scheda_nome"]/h1
   - name: listPrice
@@ -44,7 +45,8 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
-    description: Product description supplied by website - may be concatenanted from
+    description:
+      Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: //div[@id="ex_description"]
   - name: descriptionBullets
@@ -53,7 +55,8 @@ fields:
     xpath: count(//div[@class="skywalker_scheda_descrizione"]//ul/li | //div[@class="skywalker_scheda_descrizione"]/ul/li )
   - name: brandText
     singleValue: false
-    description: Product brand shown - this may actually NOT be just a brand name,
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //div[@id="ex_brand"] | //div[@class="skywalker_scheda_nome"]/h1/span[1]
   - name: weightNet
@@ -91,13 +94,13 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id="flix-inpage"]//div[contains(@id,"inpage_container")]
+    xpath: //div[@id="flix-inpage"]//div[contains(@id,"inpage_container")] | //div[@id="enhancedContent"]/text()
     # xpath: //div[@id="flix-inpage"]/div/*[not(self::style)] | //div[@data-equal-heights="div.boxMiele"]|//div[@id="enhancedContent"]/text()
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
     # xpath: //div[@id="flix-inpage"]/div//img/@srcset|//div[@id='aplusImages']/text()
-    xpath: //div[@id="flix-inpage"]//img/@data-flixsrcset
+    xpath: //div[@id="flix-inpage"]//img/@data-flixsrcset | //div[@id='aplusImages']/text()
   - name: videos
     singleValue: false
     description: URLs of videos on page
@@ -148,7 +151,7 @@ fields:
     defaultValue: Yes
   - name: variantCount
     singleValue: false
-    defaultValue: '0'
+    defaultValue: "0"
   - name: variantId
     singleValue: false
     # xpath: //*/@data-codice

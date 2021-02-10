@@ -20,137 +20,115 @@ async function implementation (
   const { productDetails } = dependencies;
 
   const productUrl = await context.evaluate(async () => {
-    let url = window.location.href;
+    const url = window.location.href;
     return url;
   });
-  
-  let iframeLink=await context.evaluate(async () => {
-    let iframeLink=null;
-   let iframeSelector=document.querySelector('iframe#eky-dyson-iframe');
-   if(iframeSelector){
-    iframeLink=iframeSelector.getAttribute('src');
-   }
-   console.log('here is the iframe link '+iframeLink);
-   return iframeLink;
- });
- let manufacturerDesc=[],manufacturerImages=[];
 
- 
- if(iframeLink!==null){
-  await context.goto(iframeLink, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
-  await context.waitForXPath('//img');
- }
+  const iframeLink = await context.evaluate(async () => {
+    let iframeLink = null;
+    const iframeSelector = document.querySelector('iframe#eky-dyson-iframe');
+    if (iframeSelector) {
+      iframeLink = iframeSelector.getAttribute('src');
+    }
+    console.log('here is the iframe link ' + iframeLink);
+    return iframeLink;
+  });
+  let manufacturerDesc = []; let manufacturerImages = [];
 
- manufacturerDesc=await context.evaluate(async (manufacturerDesc) => {
-
- function pushToEnhancedContent(textSelector,manufacturerDesc){
-  for(let i=0;i<textSelector.length;i++){
-    manufacturerDesc.push(textSelector[i].innerText);
+  if (iframeLink) {
+    await context.goto(iframeLink, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
+    await context.waitForXPath('//img');
   }
-  return manufacturerDesc;
- }
 
-  let textSelector1=document.querySelectorAll('div[class*="eky-header"] h2');
-  let textSelector2=document.querySelector('div[class*="eky-header"] h3');
-  let textSelector3=document.querySelectorAll('div[class*="eky-row"] h1');
-  let textSelector4=document.querySelectorAll('div[class*="eky-row"] h2');
-  let textSelector5=document.querySelectorAll('li[class*="eky-overlay-text"]');
-  let textSelector6=document.querySelectorAll('div[class*="eky-accessory"]');
-  let textSelector7=document.querySelectorAll('div[class*="eky-specs"]');
-
-  if(textSelector1){
-    manufacturerDesc=pushToEnhancedContent(textSelector1,manufacturerDesc);
-  }
-  if(textSelector2){
-    manufacturerDesc=pushToEnhancedContent(textSelector2,manufacturerDesc);
-  }
-  if(textSelector3){
-    manufacturerDesc=pushToEnhancedContent(textSelector3,manufacturerDesc);
-  }
-  if(textSelector4){
-    manufacturerDesc=pushToEnhancedContent(textSelector4,manufacturerDesc);
-  }
-  if(textSelector5){
-    manufacturerDesc=pushToEnhancedContent(textSelector5,manufacturerDesc);
-  }
-  if(textSelector6){
-    manufacturerDesc=pushToEnhancedContent(textSelector6,manufacturerDesc);
-  }
-  if(textSelector7){
-    manufacturerDesc=pushToEnhancedContent(textSelector7,manufacturerDesc);
-  }
-  console.log(manufacturerDesc+' is enhanced content');
-  return manufacturerDesc;
-},manufacturerDesc);
-
-
-manufacturerImages=await context.evaluate(async (manufacturerImages) => {
-  function pushToEnhancedContent(imageSelector,manufacturerImages){
-   for(let i=0;i<imageSelector.length;i++){
-     manufacturerImages.push(imageSelector[i].getAttribute('src'));
-   }
-   return manufacturerImages;
-  }
- 
-   let imageSelector=document.querySelectorAll('img');
- 
-   if(imageSelector){
-     manufacturerImages=pushToEnhancedContent(imageSelector,manufacturerImages);
-   }
-  //  console.log(manufacturerDesc+' is enhanced content');
-   return manufacturerImages;
- },manufacturerImages);
-
-
-await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
-
-    await context.evaluate(async (manufacturerDesc,manufacturerImages) => {
-     
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
+  manufacturerDesc = await context.evaluate(async (manufacturerDesc) => {
+    function pushToEnhancedContent (textSelector, manufacturerDesc) {
+      for (let i = 0; i < textSelector.length; i++) {
+        manufacturerDesc.push(textSelector[i].innerText);
       }
+      return manufacturerDesc;
+    }
 
-      if(manufacturerDesc.length!==0){
-        let enhancedContent="";
-        for(let i=0;i<manufacturerDesc.length;i++){
-          if(i!==manufacturerDesc.length-1)
-            enhancedContent+=manufacturerDesc[i]+" || ";
-          else
-            enhancedContent+=manufacturerDesc[i];
-        }
-        addHiddenDiv('enhancedContent',enhancedContent);
+    const textSelector1 = document.querySelectorAll('div[class*="eky-header"] h2');
+    const textSelector2 = document.querySelector('div[class*="eky-header"] h3');
+    const textSelector3 = document.querySelectorAll('div[class*="eky-row"] h1');
+    const textSelector4 = document.querySelectorAll('div[class*="eky-row"] h2');
+    const textSelector5 = document.querySelectorAll('li[class*="eky-overlay-text"]');
+    const textSelector6 = document.querySelectorAll('div[class*="eky-accessory"]');
+    const textSelector7 = document.querySelectorAll('div[class*="eky-specs"]');
+
+    if (textSelector1) {
+      manufacturerDesc = pushToEnhancedContent(textSelector1, manufacturerDesc);
+    }
+    if (textSelector2) {
+      manufacturerDesc = pushToEnhancedContent(textSelector2, manufacturerDesc);
+    }
+    if (textSelector3) {
+      manufacturerDesc = pushToEnhancedContent(textSelector3, manufacturerDesc);
+    }
+    if (textSelector4) {
+      manufacturerDesc = pushToEnhancedContent(textSelector4, manufacturerDesc);
+    }
+    if (textSelector5) {
+      manufacturerDesc = pushToEnhancedContent(textSelector5, manufacturerDesc);
+    }
+    if (textSelector6) {
+      manufacturerDesc = pushToEnhancedContent(textSelector6, manufacturerDesc);
+    }
+    if (textSelector7) {
+      manufacturerDesc = pushToEnhancedContent(textSelector7, manufacturerDesc);
+    }
+    console.log(manufacturerDesc + ' is enhanced content');
+    return manufacturerDesc;
+  }, manufacturerDesc);
+
+  manufacturerImages = await context.evaluate(async (manufacturerImages) => {
+    return manufacturerImages.push([...document.querySelectorAll('img')].map(elm => elm.src));
+  }, manufacturerImages);
+
+  await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+
+  await context.evaluate(async (manufacturerDesc, manufacturerImages) => {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+
+    if (manufacturerDesc.length) {
+      let enhancedContent = '';
+      for (let i = 0; i < manufacturerDesc.length; i++) {
+        if (i !== manufacturerDesc.length - 1) { enhancedContent += manufacturerDesc[i] + ' || '; } else { enhancedContent += manufacturerDesc[i]; }
       }
-      if(manufacturerImages.length!==0){
-        let aplusImages="";
-        let iframeUrl= window.location.href;
-        for(let i=0;i<manufacturerImages.length;i++){
-          if(i!==manufacturerImages.length-1){
-            if(manufacturerImages[i] && manufacturerImages[i].substring(0,6)==='images'){
-            let tempUrl='https://media.flixfacts.com/eyekandy/dyson/v11/it/';
-            tempUrl+=manufacturerImages[i];
-            aplusImages+=tempUrl+" || ";}
-          else
-          {aplusImages+=manufacturerImages[i]+" || ";
-            }
+      addHiddenDiv('enhancedContent', enhancedContent);
+    }
+    if (manufacturerImages.length) {
+      let aplusImages = '';
+      const iframeUrl = window.location.href;
+      for (let i = 0; i < manufacturerImages.length; i++) {
+        if (i !== manufacturerImages.length - 1) {
+          if (manufacturerImages[i] && manufacturerImages[i].substring(0, 6) === 'images') {
+            let tempUrl = 'https://media.flixfacts.com/eyekandy/dyson/v11/it/';
+            tempUrl += manufacturerImages[i];
+            aplusImages += tempUrl + ' || ';
+          } else {
+            aplusImages += manufacturerImages[i] + ' || ';
           }
-          else{
-            if(manufacturerImages[i] && manufacturerImages[i].substring(0,6)==='images'){
-              let tempUrl='https://media.flixfacts.com/eyekandy/dyson/v11/it/';
-              tempUrl+=manufacturerImages[i];
-              aplusImages+=tempUrl;}
-              else{
-            aplusImages+=manufacturerImages[i];}
-            }
+        } else {
+          if (manufacturerImages[i] && manufacturerImages[i].substring(0, 6) === 'images') {
+            let tempUrl = 'https://media.flixfacts.com/eyekandy/dyson/v11/it/';
+            tempUrl += manufacturerImages[i];
+            aplusImages += tempUrl;
+          } else {
+            aplusImages += manufacturerImages[i];
+          }
         }
-        addHiddenDiv('aplusImages',aplusImages);
       }
-    },manufacturerDesc,manufacturerImages);
+      addHiddenDiv('aplusImages', aplusImages);
+    }
+  }, manufacturerDesc, manufacturerImages);
 
-    
   await context.evaluate(async () => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 5000));
@@ -184,10 +162,10 @@ await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    let scriptNode = document.querySelector("[id*='productMicroData']");
-    let JSONArr = "";
-    if(scriptNode) {
-      let scriptData = scriptNode.textContent;
+    const scriptNode = document.querySelector("[id*='productMicroData']");
+    let JSONArr = '';
+    if (scriptNode) {
+      const scriptData = scriptNode.textContent;
       JSONArr = JSON.parse(scriptData);
     }
     const offerText = JSONArr ? JSONArr.offers : null;
@@ -257,7 +235,7 @@ await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked
     }
     addHiddenDiv('ex_description', finalDes);
   });
- // await context.waitForSelector('#flix-comp', { timeout: 45000 });
+  // await context.waitForSelector('#flix-comp', { timeout: 45000 });
 
   try {
     await context.waitForSelector('#flix-comp', { timeout: 45000 });
@@ -271,17 +249,17 @@ await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked
     console.log('error: ', error);
   }
   await context.evaluate(() => {
-    var elmt = document.getElementById("flix-comp-mainTitle");
+    var elmt = document.getElementById('flix-comp-mainTitle');
     elmt && elmt.scrollIntoView(true);
   });
   try {
-  await context.waitForSelector('div.flix-comp-mainTitle');
+    await context.waitForSelector('div.flix-comp-mainTitle');
   } catch (error) {
     console.log(error);
   }
   await context.evaluate(() => {
     const imgSelelctor = document.querySelector('div.flix-comp-mainTitle');
     console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', !!imgSelelctor);
-  });  
+  });
   return await context.extract(productDetails, { transform });
 }
