@@ -11,7 +11,7 @@ fields:
     # xpath: /html/body/@imagealt
     xpath: //div[@role="presentation"]/img/@alt
   - name: alternateImages
-    singleValue: true
+    singleValue: false
     xpath: (//button[contains(@class,'sc-image-viewer-thumb-wrapper')])[position()>1]//img//@src
   - name: metaKeywords
     singleValue: true
@@ -60,8 +60,11 @@ fields:
     xpath: //div[@id="sc-bv-summary-container"]/@data-bv-product-id
   - name: variantId
     singleValue: true
+    xpath: //div[@class='sc-product-header-item-number']
   - name: mpc
     singleValue: true
+    xpath: //meta[@itemprop="mpn"]//@content
+    # xpath: //script[@type='application/json'][contains(text(),"manufacturingInfo")]
   - name: packSize
     singleValue: true
   - name: legalDisclaimer
@@ -69,7 +72,8 @@ fields:
   - name: directions
     singleValue: true
   - name: warnings
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class='sc-manufacturing-element-content']//p[contains(.,'GOVERNMENT WARNING:')] | //div[@class='sc-disclaimers-item']//p[contains(.,'GOVERNMENT WARNING:')]
   - name: ratingCount
     singleValue: true
     xpath: //div[@class="bv_numReviews_component_container"]/meta/@content
@@ -98,9 +102,14 @@ fields:
     xpath: //div[contains(@class,'wc-richfeatures-layout-computer')]//h1[@class="wc-ppp-caption"] | //h2[@class="wc-first-header"] | //h2[contains(@class,'wc-rich-features-center-')] | //div[@class="wc-rich-content-description"]//text()
   - name: manufacturerImages
     singleValue: true
+    xpath: //*[@id="inBoxArray1"]
   - name: videos
     singleValue: true
     xpath: //div[@class="wc-media-wrap"]//img//@wcobj
   - name: name
     singleValue: true
     xpath: //div[@class="sc-product-header-title-container"]
+  - name: secondaryImagesTotal
+    singleValue: true
+    xpath: count((//button[contains(@class,'sc-image-viewer-thumb-wrapper')])[position()>1]//img//@src)
+

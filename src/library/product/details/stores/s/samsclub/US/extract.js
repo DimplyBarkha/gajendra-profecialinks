@@ -29,28 +29,7 @@ async function implementation(
     if (popUps) {
       popUps.click();
     }
-    // await new Promise(resolve => setTimeout(resolve, 2000));
-    // const video = document.querySelector('div.wc-media-wrap img[@wcobj]') ? document.querySelector('div.wc-media-wrap img [@wcobj]') : null;
-    // document.body.setAttribute('imagealt', video);
-    // function stall(ms) {
-    //   return new Promise(resolve => {
-    //     setTimeout(() => {
-    //       resolve();
-    //     }, ms);
-    //   });
-    // }
-    // let scrollTop = 0;
-    // while (scrollTop !== 20000) {
-    //   await stall(500);
-    //   scrollTop += 1000;
-    //   window.scroll(0, scrollTop);
-    //   if (scrollTop === 20000) {
-    //     break;
-    //   }
-    // }
-
-    // await stall(1000);
-
+    await new Promise((resolve, reject) => setTimeout(resolve, 20000));
   });
   return await context.extract(productDetails, { transform });
 }
