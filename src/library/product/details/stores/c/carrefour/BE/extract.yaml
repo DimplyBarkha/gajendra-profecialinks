@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -129,7 +129,7 @@ fields:
     singleValue: false
     xpath: (//td[contains(.,"Energie")]/following-sibling::td)[1]
     regExp: \s+(.+)
-    regExpReplace: $1    
+    regExpReplace: $1 
   - name: saltPerServing
     singleValue: false
     xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'Sel')]//following-sibling::td)[1]
