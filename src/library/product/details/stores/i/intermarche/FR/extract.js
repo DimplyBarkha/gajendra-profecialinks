@@ -1,47 +1,84 @@
-const { transform } = require('./format');
-
 module.exports = {
-  implements: 'product/details/extract',
+  implements: "product/details/extract",
   parameterValues: {
-    country: 'FR',
-    store: 'intermarche',
-    transform,
-    domain: 'intermarche.com',
-    zipcode: '',
+    country: "FR",
+    store: "intermarche",
+    transform: null,
+    domain: "intermarche.com",
+    zipcode: "",
   },
-  implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-    await new Promise(resolve => setTimeout(resolve, 10000));
-    try {
-      await context.evaluate(async function () {
-        const cookieButton = document.querySelector('.didomi-popup-view .didomi-popup-close.didomi-no-link-style');
-        if (cookieButton) {
-          cookieButton.click();
+  implementation: async (
+    { url },
+    { country, domain },
+    context,
+    dependencies
+  ) => {
+    await context.evaluate(() => {
+      if (document.querySelector("#didomi-notice-agree-button") != null) {
+        async () => {
+          const button = await document.querySelector(
+            "#didomi-notice-agree-button"
+          );
+          button.click();
+        };
+      }
+
+      function findLabel(productObj, label) {
+        const value = productObj[label];
+        if (Array.isArray(value)) {
+          return {
+            label: value.reduce((prevVal, currentVal) => {
+              return prevVal ? prevVal + "," + currentVal : currentVal;
+            }, ""),
+          };
+        } else if (value) {
+          return { label: value };
         }
-      });
-    } catch (error) {
-      console.log('cookie button not found', error.message);
-    }
-    try {
-      await context.waitForSelector('div[class*="ProductGeneralInfoContainer"]', { timeout: 80000 });
-    } catch (error) {
-      console.log('Page not loaded', error.message);
-      throw new Error('Product page not loaded');
-    }
-    
-    await context.evaluate(function (parentInput) {
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
+        return null;
+      }
+      function addHiddenDiv(id, content) {
+        const newDiv = document.createElement("div");
         newDiv.id = id;
         newDiv.textContent = content;
-        newDiv.style.display = 'none';
+        newDiv.style.display = "none";
         document.body.appendChild(newDiv);
       }
-      const prodUrl = window.location.href.split('product/');
-      if (prodUrl[1]) {
-        addHiddenDiv('ii_url', prodUrl[1]);
+      function findAndInsertLabel(obj, labelName, outputName) {
+        const result = findLabel(obj, labelName);
+        if (result != null) {
+          addHiddenDiv("ii_" + outputName, result.label);
+        }
       }
-      addHiddenDiv('ii_parentInput', parentInput);
-    }, parentInput);
-    return await context.extract(productDetails, { transform: transformParam });
+      var energy = document.getElementsByClassName(
+        "NutritionalTable__TableCell-sc-49ty6u-8 gUJdBI"
+      );
+      console.log(energy);
+      if (energy[0] != null) {
+        var energy_num = energy[0].innerText;
+        var energy_num = energy[0].innerText.match(/([\d.]+) *kcal/)[1];
+        addHiddenDiv("ii_" + "energy", energy_num);
+        addHiddenDiv("ii_" + "gram", "g");
+        addHiddenDiv("ii_" + "energykilo", "kcal");
+      }
+      if (window.location.href != null) {
+        var url = window.location.href;
+        var id = url.split("/product/");
+        addHiddenDiv("ii_" + "productid", id[1]);
+      }
+      if (
+        document.querySelector(
+          ".styled__ProductConditionnement-rc4bd7-2.kvnQKM"
+        ) != null
+      ) {
+        var size = document.querySelectorAll(
+          ".styled__ProductConditionnement-rc4bd7-2.kvnQKM"
+        );
+        var t = size[2].innerText;
+        var s = t.split(" de ");
+        var p = s.reverse();
+        addHiddenDiv("ii_" + "size", p[0]);
+      }
+    });
+    await context.extract(dependencies.productDetails);
   },
 };
