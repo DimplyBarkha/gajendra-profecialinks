@@ -5,7 +5,7 @@ module.exports = {
     country: 'IT',
     store: 'carrefour',
     domain: 'carrefour.it',
-    loadedSelector: '.product-images',
+    loadedSelector: 'div.product-images',
     noResultsXPath: '//h2[contains(text(),"la pagina richiesta non esiste")]',
     zipcode: '',
   },
