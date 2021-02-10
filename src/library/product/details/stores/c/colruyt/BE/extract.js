@@ -194,6 +194,14 @@ async function implementation (inputs, parameters, context, dependencies) {
       });
       addHiddenDiv('description_added', description1);
     }
+    let sku = document.evaluate('//script[contains(text(),"product_sku")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    if (sku) {
+      let sku1;
+      sku = sku ? sku.innerText : '';
+      // eslint-disable-next-line prefer-const
+      sku1 = sku.replace(/(.+)product_sku\s:\s([^,]+)(.+)/ms, '$2');
+      addHiddenDiv('sku_added', sku1);
+    }
   }, { totalSugarsPerServing, proteinPerServing, totalCarbPerServing, saturatedFatPerServing, totalFatPerServing, caloriesPerServing, servingSize, legalDisclaimer, ingredientsList, saltPerServing, storage, gtin, quantity, calciumPerServing, SodiumPerServing, magnesiumPerServing, vitaminAPerServing });
 
   return await context.extract(productDetails, { transform });
