@@ -137,32 +137,22 @@ async function implementation (
     }
   }, manufacturerDesc, manufacturerImages);
 
-  await context.evaluate(async () => {
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 5000));
-    } catch (error) {
-      console.log(error);
-    }
-    async function infiniteScroll () {
-      let prevScroll = document.documentElement.scrollTop;
-      while (true) {
-        window.scrollBy(0, document.documentElement.clientHeight);
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        const currentScroll = document.documentElement.scrollTop;
-        if (currentScroll === prevScroll) {
-          break;
-        }
-        prevScroll = currentScroll;
+  const infiniteScroll = () => context.evaluate(async () => {
+    let prevScroll = document.documentElement.scrollTop;
+    while (true) {
+      window.scrollBy(0, document.documentElement.clientHeight);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      const currentScroll = document.documentElement.scrollTop;
+      if (currentScroll === prevScroll) {
+        break;
       }
+      prevScroll = currentScroll;
     }
-    await infiniteScroll();
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 5000));
-      await context.waitForSelector('script#productMicroData');
-    } catch (error) {
-      console.log(error);
-    }
-
+  });
+  await infiniteScroll();
+  await context.waitForSelector('script#productMicroData', 7000)
+    .catch(() => console.log('selector not found'));
+  await context.evaluate(async () => {
     function addHiddenDiv (id, content, index) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
