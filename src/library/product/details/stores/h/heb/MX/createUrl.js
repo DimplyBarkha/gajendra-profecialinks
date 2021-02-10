@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'heb.com',
     prefix: null,
-    url: null,
+    url: 'https://www.heb.com.mx/catalogsearch/result/?q={id}',
     country: 'MX',
     store: 'heb',
     zipcode: '',
