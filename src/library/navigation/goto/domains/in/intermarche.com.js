@@ -86,9 +86,9 @@ module.exports = {
         await context.waitForNavigation(timeout);
       }
     }
-    var hasAcceptLink = await context.evaluate((selector) => !!document.querySelector(selector), 'a.didomi-popup-close.didomi-no-link-style');
+    var hasAcceptLink = await context.evaluate((selector) => !!document.querySelector(selector), '#didomi-notice-agree-button > span');
     if (hasAcceptLink) {
-      await context.click('a.didomi-popup-close.didomi-no-link-style');
+      await context.click('#didomi-notice-agree-button > span');
     }
   },
 };
