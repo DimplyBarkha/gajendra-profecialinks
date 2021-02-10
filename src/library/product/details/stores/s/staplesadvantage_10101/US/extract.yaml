@@ -66,14 +66,19 @@ fields:
   regExpReplace: $2
 - name: sku
   singleValue: false
-  xpath: //span[@id="manufacturer_number"]/@skunumber
+  xpath: //span[@id="item_number"]
+  regExp: '([^:]*)$'
+  regExpReplace: $1
 - name: variantId
   singleValue: true
   xpath: //span[@id="item_number"]
-  regExp: '([0-9]\w+)'
+  regExp: '([^:]*)$'
   regExpReplace: $1
 - name: mpc
-  singleValue: true
+  singleValue: false
+  xpath: //span[@id="manufacturer_number"]
+  regExp: ': (.*)'
+  regExpReplace: $1
 - name: packSize
   singleValue: true
   xpath: (//th[contains(., 'Pack Size')]/following-sibling::td | //th[contains(., 'Pack Qty')]/following-sibling::td)[1]
@@ -98,7 +103,7 @@ fields:
   singleValue: false
   type: STRING
   description: The stated aggregate rating normalized to be out of 5
-  xpath: (//span[@class="rating__rating_label"])[1]
+  xpath: //span[@aria-label="4 out of 5 stars"]
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
