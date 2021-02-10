@@ -118,9 +118,26 @@ module.exports.Helpers = class {
     }, { selector, property, type });
   }
 
+  // Function which properly handles a page reload
+  async reload (timeoutOptions) {
+    const defTimeOut = 3000;
+    const {
+      pause = timeoutOptions || defTimeOut,
+      wait = timeoutOptions || defTimeOut,
+    } = timeoutOptions || {};
+    await this.context.reload();
+    await new Promise(resolve => setTimeout(resolve, pause));
+    await this.context.waitForNavigation(wait);
+  }
+
   // Function which makes a click
   async ifThereClickOnIt (selector, timeoutOptions, reloadPage = false) {
-    const { wait = timeoutOptions || 3000, click = timeoutOptions || 3000 } = timeoutOptions || {};
+    const defTimeOut = 3000;
+    const {
+      wait = timeoutOptions || defTimeOut,
+      click = timeoutOptions || defTimeOut,
+      reload = timeoutOptions || defTimeOut,
+    } = timeoutOptions || {};
     try {
       await this.context.waitForSelector(selector, { timeout: wait });
     } catch (error) {
@@ -134,7 +151,7 @@ module.exports.Helpers = class {
       // try both click
       try {
         await this.context.click(selector, { timeout: click });
-        if (reloadPage) await this.context.reload();
+        if (reloadPage) await this.reload(reload);
       } catch (error) {
         // context click did not work and that is ok
       }
@@ -142,7 +159,7 @@ module.exports.Helpers = class {
         const elem = document.querySelector(selector);
         if (elem) elem.click();
       }, selector);
-      if (reloadPage) await this.context.reload();
+      if (reloadPage) await this.reload(reload);
       return true;
     }
     return false;
