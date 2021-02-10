@@ -11,10 +11,11 @@ module.exports = {
   },
   dependencies: {
     productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
-    Helpers: 'module:helpers/helpers',
-    SharedHelpers: 'module:product/details/stores/${store[0:1]}/${store}/helpersShared',
+    helperModule: 'module:helpers/helpers',
   },
-  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails, Helpers, SharedHelpers }) => {
+  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, dependencies) => {
+    const { productDetails, helperModule: { Helpers } } = dependencies;
+    const helper = new Helpers(context);
     await context.evaluate(async function () {
       var elmnt = document.querySelector('div.page-wrapper, div.footer-main');
       elmnt.scrollIntoView();
@@ -42,6 +43,9 @@ module.exports = {
     } catch (error) {
       console.log('Alternate images not loading');
     }
+
+    await helper.ifThereClickOnIt('#onetrust-accept-btn-handler'); // accept cookies
+
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
