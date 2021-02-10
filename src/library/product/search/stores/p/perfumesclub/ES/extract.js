@@ -60,7 +60,7 @@ async function implementation(
       if (i < rating.length) {
         ratingValue = rating[i].lastElementChild.alt; console.log(ratingValue)
       }
-      addHiddenDiv('aggregateRating', ratingValue.replace('stars', ''), i);
+      addHiddenDiv('aggregateRating', ratingValue.replace('stars', '').replace('.',','), i);
     }
 
   });
