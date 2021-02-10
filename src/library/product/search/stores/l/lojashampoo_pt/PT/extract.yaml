@@ -7,15 +7,11 @@ fields:
     singleValue: false
     xpath: //h3[@itemprop="name"]/a/text()
     regExp: (.+)([^\d,-])
-  - name: aggregateRating2
-    singleValue: false
-    xpath: //div[@class="NETREVIEWS_PRODUCT_STARS"]/div/text()
-    regExp: (\d\.\d)
-    type: NUMBER
   - name: price
     singleValue: false
     xpath: //span[@class="price-new"]//text()
-    regExp: (\d+,\d+)
+    regExp: (.+)\.(.+)
+    regExpReplace: $1,$2
   - name: productUrl
     singleValue: false
     xpath: //h3[@itemprop="name"]/a/@href
@@ -25,6 +21,11 @@ fields:
     description: The URL for the product thumbnail image
   - name: id
     xpath: //div[@class="NETREVIEWS_PRODUCT_STARS"]/@data-product-id
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class="NETREVIEWS_PRODUCT_STARS"]/div/text()
+    regExp: \d.\d
+    type: number  
   - name: rank 
   - name: rankOrganic
   
