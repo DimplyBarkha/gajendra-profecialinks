@@ -1,4 +1,4 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -174,16 +174,21 @@ fields:
 - name: aggregateRatingText
   singleValue: false
   description: The stated aggregate rating
-  xpath: //div[@class='product-rating']/span[@class='item-rating-num']
-  regExp: ([0-9]+)
+  # xpath: //div[@class='product-rating']/span[@class='item-rating-num']
+  # regExp: ([0-9]+)
+  # regExpReplace: $1
+  xpath: //div[@title='Read reviews...']/i/@title | //div[@class="rating-views"]//span[contains(@class, 'rating-views-num')] | //div[contains(@class,'product-rating')]//i[contains(@class, 'rating')]/@title
+  regExp: (.+) out of 
   regExpReplace: $1
+
 
 - name: aggregateRating
   singleValue: false
   description: The stated aggregate rating normalized to be out of 5
-  type: NUMBER
+  # type: NUMBER
   xpath: //div[@title='Read reviews...']/i/@title | //div[@class="rating-views"]//span[contains(@class, 'rating-views-num')] | //div[contains(@class,'product-rating')]//i[contains(@class, 'rating')]/@title
-  regExp: ([\d])(\s)(o)
+  # regExp: ([\d])(\s)(o)
+  regExp: (.+) out of 
   regExpReplace: $1
 
 - name: shippingInfo
@@ -219,9 +224,9 @@ fields:
 - name: manufacturerDescription
   singleValue: false
   description: The extended description of the product supplied by the lister
-  xpath: //div[@class='tab-pane']//div[@id="overview-content"]//div[contains(@class,"a_plus_info")] | //div[@class='tab-pane']//div[@id="wc-power-page"]//div[contains(@class,"wc-fragment")]//text()
   # xpath: //div[@id="product-details"]/div[@class='tab-panes']/div[@class='tab-pane']/div 
   # //div[@class='tab-panes']/div[@class='tab-pane'][1]
+  xpath: //div[@id='manufacturerDescription']
 
 
 - name: manufacturerImages

@@ -11,6 +11,8 @@ module.exports = {
   },
   implementation: async (
     // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
     { url },
     parameters,
     context,
@@ -29,6 +31,8 @@ module.exports = {
         }
         function stall(ms) {
           // @ts-ignore
+          // @ts-ignore
+          // @ts-ignore
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve();
@@ -38,6 +42,8 @@ module.exports = {
       });
     };
     // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
     await context.evaluate(async function (context) {
       const seeAllSelector = document.querySelector('[class="top-country-bottom"]>button');
       if (seeAllSelector) {
@@ -45,6 +51,8 @@ module.exports = {
         seeAllSelector.click();
       }
     });
+    // @ts-ignore
+    // @ts-ignore
     // @ts-ignore
     await context.evaluate(async function (context) {
       const seeAllSelector1 = document.querySelector('[id="popup"]>a');
@@ -148,6 +156,19 @@ module.exports = {
         var sku = skuMatch[2];
       }
       addHiddenDiv('sku', sku);
+
+      const textArray = document.querySelectorAll('div#overview-content h3,div#overview-content p, div#wc-power-page h2, div.wc-reset h3, div.wc-reset p, span.wc-markup-rich-text, div.a_plus_info ul li ');
+      let manufacturerDesc = [];
+      textArray.forEach(txt => {
+        // @ts-ignore
+        if (txt.innerText) {
+          // @ts-ignore
+          manufacturerDesc.push(txt.innerText);
+        }
+      });
+      // @ts-ignore
+      addHiddenDiv('manufacturerDescription', manufacturerDesc.join(' || '));
+
 
       if (document.getElementsByTagName('video')) {
         const vLink = parent.document.getElementById('wcframable1-0');
