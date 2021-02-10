@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'kohls.com',
     prefix: null,
-    url: 'https://www.kohls.com/product/prd-{id}/',
+    url: null,
     country: 'US',
     store: 'kohls',
     zipcode: '',

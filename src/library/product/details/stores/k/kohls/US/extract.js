@@ -4,8 +4,6 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  await context.waitForXPath('//div[@class="bv_main_container"]', 50000);
-
   await context.evaluate(async () => {
     function addElementToDom (element, id) {
       const div = document.createElement('div');
@@ -15,7 +13,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
 
     const availability = document.querySelector('h3[class="OOSprodNotAvail"]')
-      ? 'Out of Stock'
+      ? 'Out Of Stock'
       : 'In Stock';
 
     addElementToDom(availability, 'availability');
