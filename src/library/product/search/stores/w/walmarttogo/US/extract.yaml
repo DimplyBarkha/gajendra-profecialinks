@@ -27,7 +27,8 @@ fields:
   - name: id
     singleValue: false
     description: Product Id
-    xpath: //td[@class="products"]/table/tbody/tr/td[@class="USItemId"]
+    xpath: //td[@class="products"]/table/tbody/tr/td[@class="sku"]
+    # xpath: //td[@class="products"]/table/tbody/tr/td[@class="USItemId"]
   - name: price
     singleValue: false
     description: display Price
