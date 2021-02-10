@@ -71,21 +71,35 @@ async function implementation(
     }
 
     // list-price
-    var desc2 = getXpath('//p[@id="old_price"]/span[@id="old_price_display"]/text()', 'nodeValue');
+    var desc2 = getXpath('//p[@id="old_price"]/span[@class="old-price"]/text()', 'nodeValue');
 
     if (desc2 != null) {
-      if (desc2.includes(":")) {
-        desc2 = desc2.split(": ")[1]
-      }
+      // if (desc2.includes(":")) {
+      //   desc2 = desc2.split(": ")[1]
+      // }
       desc2 = desc2.replace(",", ".")
       addElementToDocument('desc2', desc2);
     }
+
+    //availibility//
+    var ava = getXpath('//link[@itemprop="availability"]/@href', 'nodeValue');
+    if (ava != null) {
+       if (ava.includes("OutOfStock")) {
+         ava = "Out of Stock"
+       }else if (ava.includes("InStock")) {
+        ava = "In Stock"
+      }
+      addElementToDocument('avail', ava);
+    }
+
 
 
     // product Description
     var brand1 = getXpath('//span[@itemprop="brand"]/text()', 'nodeValue');
     var brand2 = getAllXpath('//h1[@itemprop="name"]/text()', 'nodeValue');
     var brand3 = getXpath('//span[@class="checked"]/following::span[1]/text()', 'nodeValue');
+    var brand4 = getXpath('//span[@class="attribute-name"]/text()', 'nodeValue');
+    var brand5 = getXpath('//span[@id="selected-product-name"]/text()', 'nodeValue');
 
     if (brand2.length >= 1) {
       var temp = "";
@@ -101,8 +115,15 @@ async function implementation(
       final = final + temp;
     }
     if (brand3 != null){
-      final = final + " - " + brand3;
+      final = final + " " + brand3;
     }
+    if (brand4 != null){
+      final = final + " - " + brand4;
+    }
+    if (brand5 != null && brand4==null){
+      final = final + " - " + brand5;
+    }
+
     addElementToDocument('product_desc', final);
 
     // promotion
