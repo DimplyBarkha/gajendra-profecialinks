@@ -628,7 +628,8 @@ fields:
     xpath: //div[contains(@class, 'pdp-description-tab-item')]
   - name: ingredientsList
     description: List of Ingredients from site - can be string of data if no discernible start/end point
-    xpath: //div[contains(@class,"finalIngrediantsList")]/@ingrediantsData
+    # xpath: //div[contains(@class,"finalIngrediantsList")]/@ingrediantsData
+    xpath: //div[contains(@class, 'finalIngrediantsList')]
   - name: promotion
     description: promotion text on product page
     xpath: //div[contains(@class,"product-des__details")]//div[@class="discount-info"]/span

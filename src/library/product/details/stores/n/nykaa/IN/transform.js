@@ -83,6 +83,24 @@ const cleanUp = (data, context) => {
         variantImageTitle = variantImageTitle.substring(variantImageTitle.lastIndexOf('-') + 1, variantImageTitle.length);
         row.variantInformation[0].text = variantImageTitle;
       }
+
+      if (row.directions) {
+        const directionsInfo = row.directions[0].text;
+        if (directionsInfo.includes('simplewrapper img')) {
+          delete row.directions;
+        }
+      }
+
+      if (row.ingredientsList) {
+        const ingredientsListInfo = row.ingredientsList[0].text;
+        if (ingredientsListInfo.includes('simplewrapper img')) {
+          delete row.directions;
+        }
+      }
+
+      if (!row.manufacturerImages && row.manufacturerDescription) {
+        delete row.manufacturerDescription;
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

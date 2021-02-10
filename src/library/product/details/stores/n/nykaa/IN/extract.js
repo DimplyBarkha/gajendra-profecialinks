@@ -137,7 +137,8 @@ module.exports = {
 
       const appendElement = document.createElement('div');
       appendElement.className = 'finalIngrediantsList';
-      appendElement.setAttribute('ingrediantsData', finalIngrediantsList);
+      // appendElement.setAttribute('ingrediantsData', finalIngrediantsList);
+      appendElement.innerHTML = finalIngrediantsList;
       document.body.appendChild(appendElement);
     }, inputs);
 
