@@ -5,7 +5,7 @@ recordXPath: //div[@class='showcase-gondola']/div[contains(@class,'showcase-item
 fields: 
   - name: id
     SingleValue: false
-    xpath: //div[contains(@class,'showcase-item')]/@data-event
+    xpath: //div[contains(@class,'showcase-item')]/@data-event | //a[contains(@class,'showcase-item-image')]//img/@src
     regExp: \d{4,}
     # regExpReplace: 
   - name: productUrl
