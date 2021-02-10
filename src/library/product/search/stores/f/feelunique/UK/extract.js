@@ -36,6 +36,7 @@ async function implementation(
     //   });
     // };
     // await applyScroll(context);
+
     await context.evaluate(async function () {   
         
         function addHiddenDiv(id, content, index) {
@@ -61,20 +62,30 @@ async function implementation(
 
             const data = getAllXpath('//div[@class="Product-image-wrapper"]/img/@data-src', 'nodeValue')
           for (let k = 0; k < data.length; k++) {
+            try {
+                var first = data[k].split("products/")[1].split("/")[0]
 
-            var first = data[k].split("products/")[1].split("/")[0]
-            var check = data[k].split("products/")[1].split("/")[1]
-            if (check == "sub-") {
-                var second = data[k].split("products/")[2].split("_")[0]
+                var check = data[k].split("products/")[1].split("/")[1]
+                if (check == "sub-") {
+                    var second = data[k].split("products/")[2].split("_")[0]
+                }
+                var result = ""
+                if (first & second) {
+                    result = first + '-' + second
+                }
+                else {
+                    result = first
+                }
+                addHiddenDiv("searchID", result,k)
+                first = ""
+                second = ""
+                check = ""
+            } catch (error) {
+                var sku_no = document.querySelectorAll('div[class="Product"]')[k].getAttribute('data-sku')
+                addHiddenDiv("searchID", sku_no,k)
+                continue;
             }
-            var result = ""
-            if (first & second) {
-                result = first + '-' + second
-            }
-            else {
-                result = first
-            }
-            addHiddenDiv("searchID", result,k)
+           
         }
         } catch (error) {
 
