@@ -16,6 +16,9 @@ fields:
     xpath: //div[contains(@class,"swiper-wrapper")]/div[position()>1]/img/@src
     regExp: (.+)
     regExpReplace: https://www.carrefour.it$1
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class,"swiper-wrapper")]/div[position()>1]/img/@src)
   - name: secondaryImageTotal #count alternateImage
     singleValue: false
     xpath:
