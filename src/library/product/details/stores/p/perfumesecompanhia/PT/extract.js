@@ -61,15 +61,15 @@ module.exports = {
               ? document.querySelector(`div.wrap-ml > button[data-id="${variantId}"]`).textContent : '';
             const color = document.querySelector(`div.wrap-cor > button[data-id="${variantId}"]`)
               ? variantName : '';
-            const buttonVariantInfo = document.querySelector(`button[onclick*="${variantId}"]`)
+            const buttonVariantInfo = document.querySelector(`button[onclick*="${variantId}"], button[onclick][data-id="${variantId}"]`)
               // @ts-ignore
-              ? document.querySelector(`button[onclick*="${variantId}"]`).innerText : '';
+              ? document.querySelector(`button[onclick*="${variantId}"], button[onclick][data-id="${variantId}"]`).innerText : '';
             if (buttonVariantInfo !== '') {
               addElementToDocument('variantinfo', buttonVariantInfo);
               addedVariant.setAttribute('variant-info', buttonVariantInfo);
             }
             // @ts-ignore
-            const variantInfoText = variantElement.querySelector('div.nome_detalhe_produto').innerText.trim()
+            const variantInfoText = variantElement.querySelector('div.nome_detalhe_produto') !== null && variantElement.querySelector('div.nome_detalhe_produto').innerText.trim()
               // @ts-ignore
               ? variantElement.querySelector('div.nome_detalhe_produto').innerText : '';
             if (variantInfoText !== '' && buttonVariantInfo === '') {
