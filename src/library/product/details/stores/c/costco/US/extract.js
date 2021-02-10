@@ -138,7 +138,7 @@ module.exports = {
               document.querySelector('head').setAttribute(`vid${count}`, item);
               count++;
             });
-            addHiddenDiv('videos123', arr[0]);
+            addHiddenDiv('videos', arr[0]);
           }
         }
       } catch (err) {}
@@ -185,7 +185,7 @@ module.exports = {
             // await clickBtn(j);
             console.log('Inside variants', k);
             await new Promise(resolve => setTimeout(resolve, 1000));
-            if (k !== variantLength1 - 1) {
+            if (k !== variantLength1) {
               await context.extract(productDetails, { transform });
             }
           }
@@ -225,7 +225,7 @@ module.exports = {
             // await clickBtn(j);
             console.log('Inside variants', k);
             await new Promise(resolve => setTimeout(resolve, 1000));
-            if (k !== variantLength1 - 1) {
+            if (k !== variantLength1) {
               await context.extract(productDetails, { transform });
             }
           }
@@ -503,7 +503,7 @@ module.exports = {
 
     // Syndigo API2 code to append enhanced content.
     async function syndigoAPI2 (productID, pageId) {
-      async function appendData(productID, pageId) {
+      async function appendData (productID, pageId) {
         async function createElement ({ type = 'div', styles = {}, attributes = {}, props = {}, appendTo }) {
           const element = document.createElement(type);
           for (const key in styles) { element.style[key] = styles[key]; }
@@ -695,25 +695,29 @@ module.exports = {
         async function addECWidgets (productID, pageId) {
           const json = await getJsonData(productID, pageId);
           if (!json) return false;
-          const widgets = Object.values(Object.values(Object.values(json.experiences).find(elm => elm.hasOwnProperty('experiences')).experiences)).filter(elm => elm.widgets)
+          const widgets = Object.values(Object.values(Object.values(json.experiences).find(elm => elm.hasOwnProperty('experiences')).experiences)).filter(elm => elm.widgets);
           const powerPage = widgets.find(elm => elm.experienceType === 'power-page');
           const heroPage = widgets.find(elm => elm.experienceType === 'hero');
           const powerPageContent = document.createElement('div');
           const heroPageContent = document.createElement('div');
-          for (const widget of Object.values(powerPage.widgets)) {
-            const element = await getWidgetHtml(widget);
-            powerPageContent.appendChild(element);
+          if (powerPage && powerPage.widgets) {
+            for (const widget of Object.values(powerPage.widgets)) {
+              const element = await getWidgetHtml(widget);
+              powerPageContent.appendChild(element);
+            }
+            powerPageContent.id = 'added-ec2';
+            // @TODO Should we retrun div instead?
+            document.body.append(powerPageContent);
           }
-          powerPageContent.id = 'added-ec2';
-          // @TODO Should we retrun div instead?
-          document.body.append(powerPageContent);
-          for (const widget of Object.values(heroPage.widgets)) {
-            const element = await getWidgetHtml(widget);
-            heroPageContent.appendChild(element);
+          if (heroPage && heroPage.widgets) {
+            for (const widget of Object.values(heroPage.widgets)) {
+              const element = await getWidgetHtml(widget);
+              heroPageContent.appendChild(element);
+            }
+            heroPageContent.id = 'added-hero';
+            // @TODO Should we retrun div instead?
+            document.body.append(heroPageContent);
           }
-          heroPageContent.id = 'added-hero';
-          // @TODO Should we retrun div instead?
-          document.body.append(heroPageContent);
           return true;
         }
         return await addECWidgets(productID, pageId);

@@ -133,7 +133,9 @@ const transform = (data) => {
           }
         });
       }
-
+      if (!row.image && row.image1) {
+        row.image = row.image1;
+      }
       if (row.sku && row.sku.length > 0) {
         for (const item of row.sku) {
           item.text = item.text.replace('Model ', '');
@@ -191,7 +193,13 @@ const transform = (data) => {
         row.mpcforAll = [{ text: text1.slice(0, -2).trim() }];
         row.mpc = row.mpcforAll;
       }
-
+      if ((!row.mpc || row.mpc.length <= 0) && (!row.mpc1 || row.mpc1.length <= 0)) {
+        if (row.mpc2 && row.mpc2.length > 0) {
+          row.mpc2 = row.mpc2.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
+          row.mpc2.pop();
+        }
+        row.mpc = row.mpc2;
+      }
       if (row.myPrice && row.myPrice.length > 0) {
         row.price = row.myPrice;
       } else {

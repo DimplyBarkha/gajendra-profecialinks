@@ -81,6 +81,10 @@ fields:
   - name: mpc1
     # xpath: //div[contains(@class,'product-info-specs')]//div[contains(text(),'Model')]/following::div[1]
     xpath: //span[contains(@class,"model-number")]//span
+  - name: mpc2
+    xpath: //script[contains(text(),'vendorModelNumber')]
+    regExp: vendorModelNumber"\s:\s"([^"]+)
+    regExpReplace: $1
   - name: mpcValid
     xpath: //span[contains(@role,'radiogroup')]
   - name: mpcforAll
@@ -123,7 +127,7 @@ fields:
     xpath: //div[contains(@id,"manuf-images")] | //div[@class="product-info-description"]//img//@srcset | //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))]
     # xpath: //div[@class="wc-aplus-body"]//img/@src | //div[@class="product-info-description"]//img//@src[contains(.,'img/') or (contains(.,'http') and contains(.,'.jpg'))]
   - name: videos
-    xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4')] | //head/@*[contains(.,'http')] | //head/@video | //head/@*[contains(.,'http')] | //div[@id='videos'] | //div[@id='videoSrc'] | //form[contains(@action,"video-player")]/@action | //div[@id="added-ec1"]//div[@data-section-template-code="video-gallery"]//div[@itemprop="video"]/@wcobj | //video[contains(@id,'video_')]/@src
+    xpath: //div[@class="wc-player-outer-wrap wc-vp"]//video/@src | //meta[@itemprop="contentUrl"]/@content | //body/@videos | //meta//@content[contains(.,'.mp4')] | //head/@*[contains(.,'http')] | //head/@video | //head/@*[contains(.,'http')] | //div[@id='videos'] | //div[@id='videoSrc'] | //form[contains(@action,"video-player")]/@action | //div[@id="added-ec1"]//div[@data-section-template-code="video-gallery"]//div[@itemprop="video"]/@wcobj | //video[contains(@id,'video_')]/@src | //div[@id="added-hero"]//video/@src
   - name: videos1
     xpath: //div[@class="fullJwPlayerWarp fullPlaylist-0"]/input/@value
     regExp: file":"([^"]+)
@@ -198,3 +202,5 @@ fields:
     xpath: //h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//li/h3 | //import-custom-description//h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//li/h3 | //import-custom-description//h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//h3
   - name: inTheBoxUrl
     xpath: //h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//li//img/@src | //import-custom-description//h2[contains(., 'In the Box')]/following-sibling::div[1]//img/@src | //h2[contains(.,"In the box") or contains(.,"In the box")]/following-sibling::div//div[contains(@class,"syndigo-featureset-feature")]//img/@src
+  - name: image1
+    xpath: //img[@id="productImage"]/@src
