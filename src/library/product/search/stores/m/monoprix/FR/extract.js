@@ -9,7 +9,11 @@ module.exports = {
     domain: 'monoprix.fr',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+  implementation: async ({ inputString }, {
+    country,
+    domain,
+    transform,
+  }, context, { productDetails }) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     await context.evaluate(async function () {
       function addProp (selector, iterator, propName, value) {
@@ -29,9 +33,11 @@ module.exports = {
       const searchUrl = currentUrl.replace(searchUrlRegex, '/$2/$2$3');
       addElementToDocument('search_url', searchUrl);
 
+      let allProductsCount = document.querySelectorAll('div.grocery-item-item').length;
       let pageLoader = document.querySelector('div[class*="catalog-page__loader"]')
         ? document.querySelector('div[class*="catalog-page__loader"]') : '';
-      while (pageLoader) {
+      while (pageLoader && allProductsCount < 150) {
+        allProductsCount = document.querySelectorAll('div.grocery-item-item').length;
         pageLoader = document.querySelector('div[class*="catalog-page__loader"]')
           ? document.querySelector('div[class*="catalog-page__loader"]') : '';
         window.scrollTo({
