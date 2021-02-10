@@ -67,9 +67,10 @@ module.exports = {
         const jsonObject = document.querySelector('.PDP.loaded script')
                           ? JSON.parse(document.querySelector('.PDP.loaded script').textContent)
                           : {};
-        aggrRating = jsonObject.aggregateRating.ratingValue
-                    ? Number(jsonObject.aggregateRating.ratingValue).toFixed(1)
-                    : '';
+        console.log(jsonObject);
+        if(jsonObject.aggregateRating && jsonObject.aggregateRating.ratingValue){
+          aggrRating = Number(jsonObject.aggregateRating.ratingValue).toFixed(1);
+        }
 
         const reviewItems = document.querySelectorAll('.bv-content-list-reviews>li.bv-content-review, .ReviewTileExpert');
         reviewItems.forEach(reviewItem => {
