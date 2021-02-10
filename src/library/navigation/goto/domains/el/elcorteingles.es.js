@@ -7,7 +7,11 @@ module.exports = {
     country: 'ES',
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
-    url = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true}[/!opt!]`;
+    url = `${url}`;
+    await context.setBlockAds(false);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setAntiFingerprint(false);
     await context.goto(url, {
       block_ads: false,
       load_all_resources: true,
