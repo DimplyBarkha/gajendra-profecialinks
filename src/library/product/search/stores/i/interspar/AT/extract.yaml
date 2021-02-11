@@ -1,0 +1,61 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: 
+fields:
+  - name: name
+    singleValue: false
+    description: desired url to pass in chain
+    xpath: //div[@class="offer-item"]/div/header
+  - name: image
+    singleValue: false
+    description: total number of results
+    xpath: //*[@id="quicklinks_link-3"]
+  - name : pageTimestamp
+    singleValue : false
+    description : 
+    xpath: //div[contains(@class,'search-filter__inner-container')]//div[contains(@class,'container')]//div/h2
+  - name : producturl
+    singleValue : false
+    description:
+    xpath : //div[@class="offer-item"]/div/header
+  - name : gtin
+    singleValue: false
+    description:
+    xpath : //div[@class="offer-item"]/div/header
+  - name : input
+    singleValue : false
+    description:
+    xpath : //div[@class="offer-item"]/div/header
+  - name : rankOrganic
+    singleValue : false
+    description :
+    xpath : //*[@id="jobs-content"]/div/div[1]/div/h2
+  - name : id
+    singleValue : false
+    description :
+    xpath: //*[@id="topics-content"]/div/div[1]
+  - name : url
+    singleValue : false
+    description :
+    xpath :  //*[@id="productsFood-content"]/div/div[2]/div/a[1]/div/div/header/h3[1]
+  - name : image
+    singleValue : false
+    description:
+    xpath: /*[@id="productsFood-content"]/div/div[2]/div/a[1]/div/div/div[2]/figure/img
+  - name : price
+    singleValue : false
+    description :
+    xpath : //*[@id="productsNonFood-content"]/div/div[2]/div/a[3]/div/div/header/h3[2]
+  - name : subscribe
+    singleValue : false
+    description : 
+    xpath : //*[@id="productsFood-content"]/div/div[2]/div/a[1]/div/div/header/h3[1]
+  - name : range
+    singleValue : false
+    description :
+    xpath : //*[@id="productDetailsPageCenterWrapper"]/div[2]/div[2]/div[1]/div[2]/h1 
+
+    
+
+
