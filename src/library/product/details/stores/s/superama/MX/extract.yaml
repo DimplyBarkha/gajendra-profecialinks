@@ -11,19 +11,29 @@ fields:
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@class,"pdp-preview-image")][1]/div/@alt
-  - name: alternateImages
-    singleValue: false
-    xpath: (//div[contains(@class,"pdp-preview-image")]/div/@style)[position()=1]
-    regExp: url\W+([^"]+)
-    regExpReplace: $1
+  # - name: alternateImages
+  #   singleValue: false
+  #   xpath: (//div[contains(@class,"pdp-preview-image")]/div/@style)[position()=1]
+  #   regExp: url\W+([^"]+)
+  #   regExpReplace: $1
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
-  - name: category
-    singleValue: false
-    xpath: //script[contains(.,"BreadcrumbList")]/text()
-    regExp: name\W+([^"]+)
-    regExpReplace: $1
+  # - name: category1
+  #   singleValue: false
+  #   xpath: //script[contains(.,"lcCategory")]/text()
+  #   regExp: lcSubCategory\W+([^']+).*
+  #   regExpReplace: $1
+  # - name: category2
+  #   singleValue: false
+  #   xpath: //script[contains(.,"lcCategory")]/text()
+  #   regExp: lcSubSubCategory\W+([^;]+).*
+  #   regExpReplace: $1
+  # - name: category3
+  #   singleValue: false
+  #   xpath: //script[contains(.,"lcCategory")]/text()
+  #   regExp: lcCategory\W+([^']+).*
+  #   regExpReplace: $1
   - name: nameExtended
     singleValue: false
     xpath: //a[contains(@class,"agregarProductoALista")]/@data-descripcion | //h1[@class="h1"]/text() 
@@ -50,7 +60,7 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: false
-    xpath: //script[contains(.,"UrlImagenes") and (contains(.,"upc"))]/text()
+    xpath: //script[contains(.,"UrlImagenes") and (contains(.,"Brand"))]/text()
     regExp: Brand\W+([^"]+)
     regExpReplace: $1
   - name: manufacturer
@@ -122,8 +132,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    description: Number of variants listed
-    type: NUMBER
+    defaultValue: 0
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -231,9 +240,9 @@ fields:
   - name: otherSellersShipping
     singleValue: false
     description: null
-  - name: secondaryImageTotal
-    singleValue: false
-    xpath: count((//div[contains(@class,"pdp-preview-image")]/div/@style)[position()>1])
+  # - name: secondaryImageTotal
+  #   singleValue: false
+  #   xpath: count((//div[contains(@class,"pdp-preview-image")]/div/@style)[position()>1])
   - name: news
     singleValue: false
     description: null
@@ -250,9 +259,9 @@ fields:
     # regExpReplace: $1
   - name: servingSize
     singleValue: false
-    xpath: //li[@class="head-detail"]/span[@class="name"]/text()
-    regExp: (\d+)
-    # 
+    xpath: //li[@class="head-detail"]/span[contains(.,"Porciones por envase:")]
+    # regExp: Porciones por envase\W+
+    # regExpReplace: $1
   - name: servingSizeUom
     singleValue: false
     xpath: //li[@class="head-detail"]/span[@class="name"]/text()
@@ -260,8 +269,8 @@ fields:
     regExpReplace: $1
   - name: numberOfServingsInPackage
     singleValue: false
-    xpath: //li[@class="head-detail"]/span[@class="value"]/text()
-    regExp: \d+
+    # xpath: //li[@class="head-detail"]/span[@class="value"]/text()
+    # regExp: \d+
   - name: caloriesPerServing
     singleValue: false
     xpath: //p[contains(text(), "Energía")]//../following-sibling::div/p[@class="number"]/text()
@@ -419,7 +428,7 @@ fields:
     description: Suggested storage location for product
   - name: countryOfOrigin
     singleValue: false
-    description: The country from which the product originates
+    xpath: //span[contains(.,"País de Procedencia")]/following-sibling::span
   - name: allergyAdvice
     singleValue: false
     description: Allergy information associated with the product
@@ -446,7 +455,7 @@ fields:
     xpath: //text[@id="labelPromotionDescriptionSuperahorro"]
   - name: alcoholContent
     singleValue: false
-    description: Alcohol content information
+    xpath: //span[contains(.,"Porcentaje de Alcohol")]/following-sibling::span
   - name: newVersion
     singleValue: false
     description: In product page, information about a new version of the product

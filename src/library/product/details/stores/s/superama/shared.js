@@ -64,6 +64,9 @@ const transform = (data) => {
       if (row.gtin && row.gtin[0]) {
         row.gtin[0].text = row.gtin[0].text.replace('UPC ', '');
       }
+      if (row.servingSize && row.servingSize[0]) {
+        row.servingSize[0].text = row.servingSize[0].text.replace('Porciones por envase: ', '');
+      }
       if (row.listPrice && row.listPrice[0]) {
         row.listPrice[0].text = row.listPrice[0].text.replace('$0.00', '');
         row.listPrice[0].text = row.listPrice[0].text.replace(',', '.');
