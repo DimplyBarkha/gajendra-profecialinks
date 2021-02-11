@@ -17,6 +17,9 @@
  *  spinnerSelector: string,
  *  stopConditionSelectorOrXpath: string,
  *  resultsDivSelector: string,
+ *  dateSelector: string,
+ *  datePattern: string,
+ *  dateReplacePattern: string
  *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number, pageIndexMultiplier?: number, pageStartNb?: number }
  * }} parameters
  * @param { ImportIO.IContext } context
@@ -32,12 +35,12 @@ async function implementation (
   dependencies,
 ) {
   const { id, date, keywords, page, offset } = inputs;
-  const { nextPageUrlSelector, stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
+  const { nextPageUrlSelector, stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, dateSelector, datePattern, dateReplacePattern, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
 
   let nextLink;
 
   if (stopConditionSelectorOrXpath) {
-    const conditionIsTrue = await context.waitForFunction((sel) => {
+    const conditionIsTrue = await context.evaluate((sel) => {
       try {
         const isThere = document.querySelector(sel);
         return !!isThere;
@@ -49,9 +52,34 @@ async function implementation (
           return false;
         }
       }
-    }, { timeout: 10000 }, stopConditionSelectorOrXpath);
+    }, stopConditionSelectorOrXpath);
     // @ts-ignore
     if (conditionIsTrue) return false;
+  }
+
+  if (dateSelector) {
+    const stopDateFound = await context.evaluate((sel, stopDate, datePattern, dateReplacePattern) => {
+      try {
+        const isThere = document.querySelectorAll(sel);
+        if (isThere[isThere.length - 1]) {
+          let pageDateStr = isThere[isThere.length - 1].textContent;
+          if (datePattern && dateReplacePattern) {
+            const pattern = new RegExp(datePattern, 'g');
+            pageDateStr = pageDateStr.replace(pattern, dateReplacePattern);
+          }
+
+          if (new Date(pageDateStr).getTime() < new Date(stopDate).getTime()) {
+            return true;
+          }
+        }
+        return false;
+      } catch (error) {
+        return error.message;
+      }
+    }, dateSelector, date, datePattern, dateReplacePattern);
+    // @ts-ignore
+    console.log(stopDateFound);
+    if (stopDateFound) return false;
   }
 
   if (nextLinkSelector) {
