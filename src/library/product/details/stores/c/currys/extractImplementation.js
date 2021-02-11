@@ -17,7 +17,9 @@ const implementation = async (
   await optionalWaitForSelector('.shopList .product');
 
   const readMore = await optionalWaitForSelector('div[data-open-label="Read more"] ~ .long-text-ctl a');
+  console.log('!!!!!!!!!!!!!!!!!!!!!readmore!!!!!!!!!!!!!!!!!!' + readMore);
 
+  console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!32!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
   if (readMore) {
     await context.click('div[data-open-label="Read more"] ~ .long-text-ctl a');
     const readMore = await context.evaluate(() => {
@@ -29,7 +31,6 @@ const implementation = async (
       });
     }
   }
-
   const checkExistance = async (selector) => {
     return await context.evaluate(async (currentSelector) => {
       return await Boolean(document.querySelector(currentSelector));
@@ -37,19 +38,19 @@ const implementation = async (
   };
   const delay = t => new Promise(resolve => setTimeout(resolve, t));
 
-  // check for cookie button - 
+  // check for cookie button -
   const cookieBtnSel = 'button[id*="onetrust-accept-btn-handler"]';
   try {
     await context.waitForSelector(cookieBtnSel);
-  } catch(err) {
+  } catch (err) {
     console.log('error while waiting for cookie btn', err.message);
   }
   let cookieBtnPresent = await checkExistance(cookieBtnSel);
-  if(cookieBtnPresent) {
+  if (cookieBtnPresent) {
     console.log('cookie btn is present');
     try {
       await context.click(cookieBtnSel);
-    } catch(err) {
+    } catch (err) {
       console.log('error while clicking the cookies btn', err.message);
     }
   } else {
@@ -60,10 +61,13 @@ const implementation = async (
     if (document.querySelector('meta[property="og:url"]')) { return document.querySelector('meta[property="og:url"]').getAttribute('content'); }
   });
   const iframeSelector = '#eky-dyson-iframe';
+  console.log('iframe: ' + iframeSelector);
   if (await checkExistance(iframeSelector)) {
     const iframeUrl = await context.evaluate((iframeSelector) => {
       if (document.querySelector(iframeSelector)) { return document.querySelector(iframeSelector).getAttribute('src'); }
     }, iframeSelector);
+    console.log('!!!!!!!!!!!!goto Iframe!!!!!!!!!!!!!!!!!!!!!!!!!');
+    // await context.setBypassCSP(true);
     await context.goto(iframeUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
     await context.waitForXPath('//video');
     await delay(20000);
@@ -101,22 +105,22 @@ const implementation = async (
     });
     let intheboxURL = await context.evaluate(() => {
       console.log('implementing in the box');
-      let inthebox= document.querySelectorAll('.eky-accesory-container img');
-      intheboxURL=[]
-      for(let i=0; i<inthebox.length;i++){
+      const inthebox = document.querySelectorAll('.eky-accesory-container img');
+      intheboxURL = [];
+      for (let i = 0; i < inthebox.length; i++) {
         intheboxURL.push(inthebox[i].getAttribute('src'));
       }
-      console.log('in the box URL are',intheboxURL);
+      console.log('in the box URL are', intheboxURL);
       return intheboxURL;
     });
     let intheboxText = await context.evaluate(() => {
       console.log('implementing in the box');
-      let intheboxtxt= document.querySelectorAll('.eky-accesory-container .eky-accesory-title');
-      intheboxText=[]
-      for(let i=0; i<intheboxtxt.length;i++){
+      const intheboxtxt = document.querySelectorAll('.eky-accesory-container .eky-accesory-title');
+      intheboxText = [];
+      for (let i = 0; i < intheboxtxt.length; i++) {
         intheboxText.push(intheboxtxt[i].innerText);
       }
-      console.log('in the box URL are',intheboxText);
+      console.log('in the box URL are', intheboxText);
       return intheboxText;
     });
 
@@ -131,23 +135,27 @@ const implementation = async (
       }
       return value;
     });
+    // await context.setBypassCSP(true);
     await context.goto(currentUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+    await new Promise(resolve => setTimeout(resolve, 15000));
+    await context.waitForSelector('#product-info');
+    await new Promise(resolve => setTimeout(resolve, 15000));
     await context.evaluate((video) => {
       video = video.join(' | ');
       document.querySelector('body').setAttribute('video-src', video);
     }, video);
-    await context.evaluate(async function(intheboxURL,intheboxText){
-    function addHiddenDiv (id, content) {
-      const newDiv = document.createElement('div');
-      newDiv.id = id;
-      newDiv.textContent = content;
-      newDiv.style.display = 'none';
-      document.body.appendChild(newDiv);
+    await context.evaluate(async function (intheboxURL, intheboxText) {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
       }
-      addHiddenDiv('intheboxURL',intheboxURL);
-      addHiddenDiv('intheboxText',intheboxText);
-      console.log('intheboxurl is:',intheboxURL);
-    },intheboxURL,intheboxText);
+      addHiddenDiv('intheboxURL', intheboxURL.join(' || '));
+      addHiddenDiv('intheboxText', intheboxText.join(' || '));
+      console.log('intheboxurl is:', intheboxURL);
+    }, intheboxURL, intheboxText);
     await context.evaluate((images) => {
       images = images.join(' | ');
       console.log(images);
@@ -163,13 +171,44 @@ const implementation = async (
       desc = desc.join(' | ');
       document.querySelector('body').setAttribute('desc', desc);
     }, desc);
+  } else {
+    var intheboxText = await context.evaluate(async function () {
+      var intheboxText = document.evaluate('//div[@id="tab2"]//th[contains(text(),"Box contents")]/../td', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      intheboxText = intheboxText.innerText.split('\n').join(' || ');
+      for (let index = 0; index < intheboxText.match(/-\s/g).length; index++) {
+        intheboxText = intheboxText.replace('- ', '');
+      }
+      return intheboxText;
+    });
+    await context.evaluate(async function (intheboxText) {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      // addHiddenDiv('intheboxURL', intheboxURL.join(' || '));
+      addHiddenDiv('intheboxText', intheboxText);
+      // console.log('intheboxurl is:', intheboxURL);
+    }, intheboxText);
   }
   await delay(10000);
 
   await context.evaluate(async function (zip, country) {
     // eslint-disable-next-line
-    const basicDetails = JSON.parse(document.evaluate(`//script[contains(.,'"@type": "Product"')]`, document).iterateNext().textContent);
-    const productDigitalData = JSON.parse(document.querySelector('script[id="app.digitalData"]').textContent).product[0];
+    var basicDetails = {}
+    try {
+      basicDetails = JSON.parse(document.evaluate('//script[contains(.,\'"@type": "Product"\')]', document).iterateNext().textContent);
+    } catch (error) {
+      console.log('error basicDetails: ', error);
+    }
+    var productDigitalData = {};
+    try {
+      productDigitalData = JSON.parse(document.querySelector('script[id="app.digitalData"]').textContent).product[0];
+    } catch (error) {
+      console.log('error productDigitalData: ', error);
+    }
 
     const addElement = (id, content) => {
       const packagingElem = document.createElement('div');
@@ -202,12 +241,15 @@ const implementation = async (
     const buildDescription = () => {
       const article = document.querySelector('#product-info article');
       const description = document.querySelector('.highlights-tablet .main-desc .section-title ~ ul');
-      const subNodes = description.querySelectorAll('li');
+      const subNodes = description ? description.querySelectorAll('li') : '';
+      console.log('!!!!!!!!!!!!!!!subnodes: ' + subNodes.length + '!!!!!!!!!!!!!!!');
 
       let text = '';
-      subNodes.forEach(subNode => {
-        text += `||${subNode.textContent}`;
-      });
+      if (subNodes) {
+        subNodes.forEach(subNode => {
+          text += `||${subNode.textContent}`;
+        });
+      }
 
       text += article ? ` ${article.textContent.trim()}` : '';
       return text.trim();
@@ -216,15 +258,23 @@ const implementation = async (
     const getSpecification = () => {
       const tbodys = document.querySelectorAll('div#tab2 tbody');
       let content = '';
-      tbodys.forEach(tb => {
-        const trs = tb.querySelectorAll('tr');
-        trs.forEach(t => {
-          if (content) {
-            content += ' || ';
+      if (tbodys.length > 0) {
+        tbodys.forEach(tb => {
+          const trs = tb.querySelectorAll('tr');
+          if (trs) {
+            trs.forEach(t => {
+              if (t.innerText) {
+                content += ' || ';
+              }
+              try {
+                content += t.querySelector('th').textContent + ' : ' + t.querySelector('td').textContent;
+              } catch (error) {
+                console.log('error 237 : ', error);
+              }
+            });
           }
-          content += t.querySelector('th').textContent + ' : ' + t.querySelector('td').textContent;
         });
-      });
+      } else { console.log('!!!!!!!!!Tbody: Empty!!!!!!!'); }
 
       return content;
     };
@@ -282,38 +332,38 @@ const implementation = async (
 
   try {
     await context.waitForSelector(cookieBtnSel);
-  } catch(err) {
+  } catch (err) {
     console.log('error while waiting for cookie btn', err.message);
   }
   cookieBtnPresent = await checkExistance(cookieBtnSel);
-  if(cookieBtnPresent) {
+  if (cookieBtnPresent) {
     console.log('cookie btn is present');
     try {
       await context.click(cookieBtnSel);
-    } catch(err) {
+    } catch (err) {
       console.log('error while clicking the cookies btn', err.message);
     }
   } else {
     console.log('cookie btn is not present');
   }
   // need to get the videos
-  let manufacturerContentVideoSel = 'iframe[title*="Flix-media-video"]';
+  const manufacturerContentVideoSel = 'iframe[title*="Flix-media-video"]';
   try {
     await context.waitForSelector(manufacturerContentVideoSel);
     console.log('we have the video iframe');
-  } catch(err) {
+  } catch (err) {
     console.log('got some error while waiting for video in manufac-content', err.message);
     try {
       await context.waitForSelector(manufacturerContentVideoSel);
       console.log('we have the video iframe');
-    } catch(err) {
+    } catch (err) {
       console.log('got some error while waiting for video in manufac-content -- again', err.message);
     }
   }
 
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
-      async function stall ( ms ) {
+      async function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             console.log('waiting!!');
@@ -334,21 +384,21 @@ const implementation = async (
       }
     });
   };
-  
+
   await applyScroll(context);
 
   await context.evaluate(async (manufacturerContentVideoSel) => {
     let videoUrlArr = [];
-    let allVideoElms = document.querySelectorAll(manufacturerContentVideoSel);
-    if((!allVideoElms) || (allVideoElms.length === 0)) {
+    const allVideoElms = document.querySelectorAll(manufacturerContentVideoSel);
+    if ((!allVideoElms) || (allVideoElms.length === 0)) {
       return;
     }
 
-    for(let i = 0; i < allVideoElms.length; i++) {
+    for (let i = 0; i < allVideoElms.length; i++) {
       let thisUrl = '';
-      if(allVideoElms[i].hasAttribute('src')) {
+      if (allVideoElms[i].hasAttribute('src')) {
         thisUrl = allVideoElms[i].getAttribute('src');
-      } else if(allVideoElms[i].hasAttribute('_src')) {
+      } else if (allVideoElms[i].hasAttribute('_src')) {
         thisUrl = allVideoElms[i].getAttribute('_src');
       } else {
         console.log('we do not have src or _src for ' + i + 'th iframe');
@@ -357,7 +407,7 @@ const implementation = async (
       videoUrlArr.push(thisUrl);
     }
 
-    let videoSet = new Set(videoUrlArr);
+    const videoSet = new Set(videoUrlArr);
     console.log('we got ' + videoSet.size + ' unique elements');
     videoUrlArr = Array.from(videoSet);
 
@@ -369,12 +419,12 @@ const implementation = async (
     }
 
     await addElementToDocumentAsync('manufacvideos', videoUrlArr.join(' || '));
-    return;
   },
   manufacturerContentVideoSel);
 
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!EXTRACTION COMPLETE!!!!!!!!!!!!!!!!!!!!');
   return await context.extract(productDetails, { transform });
 };
 

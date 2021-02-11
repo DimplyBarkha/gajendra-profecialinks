@@ -28,13 +28,17 @@ const implementation = async (
   };
 
   if (url) {
+    await context.setBypassCSP(true);
     await context.goto(url, { timeout, waitUntil: 'networkidle0' });
+    console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@GOTO@@@@@@@@@@@@@@@@@@@@@@@@@@');
     await acceptCookies();
     await waitForSelectorLoad();
   } else if (id) {
+    await context.setBypassCSP(true);
     await context.goto(`https://www.currys.co.uk/gbuk/search-keywords/xx_xx_xx_xx_xx/${id}/xx-criteria.html`, { timeout, waitUntil: 'networkidle0' });
+    console.log('$$$$$$$$$$$$$$$$$$$$$$$$ID$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$');
     await acceptCookies();
-    //await context.waitForSelector('input[name="search-field"]', { timeout });
+    // await context.waitForSelector('input[name="search-field"]', { timeout });
     // await context.evaluate(async function (inpId) {
     //   const inp = document.querySelector('input[name="search-field"]');
     //   inp.value = inpId;

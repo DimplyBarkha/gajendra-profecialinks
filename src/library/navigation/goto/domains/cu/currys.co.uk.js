@@ -17,7 +17,7 @@ module.exports = {
     await context.setFirstRequestTimeout(60000);
     await context.setUseRelayProxy(false);
     await context.setJavaScriptEnabled(true);
-
+    await context.setBypassCSP(true);
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
     if (zipcode) {
