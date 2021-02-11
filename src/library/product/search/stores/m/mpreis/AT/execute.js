@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AT',
     store: 'mpreis',
-    domain: 'mpreis.at',
+    domain: 'shop.mpreis.at',
     url: 'https://shop.mpreis.at/index.php?lang=0&cl=search&searchparam={searchTerms}',
     loadedSelector: 'ul[id="searchList"]',
     noResultsXPath: '//div[contains(text(), "Leider keine Artikel gefunden.")]',

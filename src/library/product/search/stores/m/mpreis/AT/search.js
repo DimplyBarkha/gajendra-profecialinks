@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AT',
     store: 'mpreis',
-    domain: 'mpreis.at',
+    domain: 'shop.mpreis.at',
     zipcode: '',
   },
 };

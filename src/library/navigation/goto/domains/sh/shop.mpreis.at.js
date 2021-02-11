@@ -1,10 +1,11 @@
 
 module.exports = {
-  implements: 'product/details',
+  implements: 'navigation/goto',
   parameterValues: {
+    domain: 'shop.mpreis.at',
+    timeout: null,
     country: 'AT',
     store: 'mpreis',
-    domain: 'shop.mpreis.at',
     zipcode: '',
   },
 };

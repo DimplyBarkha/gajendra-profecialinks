@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'AT',
     store: 'mpreis',
-    domain: 'mpreis.at',
-    loadedSelector: 'div.c3-shop-product__media-slider img',
-    noResultsXPath: 'h1.c3-page-not-found__title',
+    domain: 'shop.mpreis.at',
+    loadedSelector: '',
+    noResultsXPath: '//h1[@class="pageHead"][contains(.,"Fehler")]',
     zipcode: '',
   },
 };

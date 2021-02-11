@@ -11,7 +11,7 @@ module.exports = {
     noResultsXPath: '//div[contains(text(), "Leider keine Artikel gefunden.")]',
     resultsDivSelector: null,
     openSearchDefinition: null,
-    domain: 'mpreis.at',
+    domain: 'shop.mpreis.at',
     zipcode: '',
   },
 };

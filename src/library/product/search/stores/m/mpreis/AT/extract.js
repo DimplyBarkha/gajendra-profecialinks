@@ -53,7 +53,7 @@ module.exports = {
     country: 'AT',
     store: 'mpreis',
     transform: transform,
-    domain: 'mpreis.at',
+    domain: 'shop.mpreis.at',
     zipcode: '',
   },
   implementation,
