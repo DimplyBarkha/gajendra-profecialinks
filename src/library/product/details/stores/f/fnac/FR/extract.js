@@ -92,6 +92,37 @@ async function implementation(
   }
   await stall(3000);
 
+  await context.evaluate(async () => {
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+
+    async function infiniteScroll() {
+      let prevScroll = document.documentElement.scrollTop;
+      while (true) {
+        window.scrollBy(0, document.documentElement.clientHeight);
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        const currentScroll = document.documentElement.scrollTop;
+        if (currentScroll === prevScroll) {
+          break;
+        }
+        prevScroll = currentScroll;
+      }
+    }
+    await infiniteScroll();
+  });
+  async function scrollToRec (node) {
+    await context.evaluate(async (node) => {
+      const element = document.querySelector(node) || null;
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+        await new Promise((resolve) => {
+          setTimeout(resolve, 5000);
+        });
+      }
+    }, node);
+  }
+  await scrollToRec('footer, div.footer-component');
+  await scrollToRec('section#Opinions');
+  await scrollToRec('section#BrandWord');
   await context.evaluate(async function (video) {
 
     function addHiddenDiv(id, content) {

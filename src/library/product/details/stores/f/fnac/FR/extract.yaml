@@ -14,9 +14,9 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class, "slick-list draggable")]//div[@class="slick-track"]//div[contains(@class, "productVisuals-") and not(contains(@class, "slick-cloned"))][position()>1]/@data-src-zoom
+    xpath: //div[contains(@class, "f-productVisuals-thumbnailsWrapper")]//div[contains(@class, "productVisuals-") and not(contains(@class, "slick-cloned"))][position()>1]/@data-src-zoom
   - name: secondaryImageTotal
-    xpath: count(//div[contains(@class, "slick-list draggable")]//div[@class="slick-track"]//div[contains(@class, "productVisuals-") and not(contains(@class, "slick-cloned"))][position()>1]/@data-src-zoom)
+    xpath: count(//div[contains(@class, "f-productVisuals-thumbnailsWrapper")]//div[contains(@class, "productVisuals-") and not(contains(@class, "slick-cloned"))][position()>1]/@data-src-zoom)
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
@@ -29,6 +29,7 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@class="f-productHeader-Title"]
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -128,7 +129,7 @@ fields:
     xpath: //div[contains(@class, "f-productPage")]/@data-prid
   - name: description
     singleValue: false  
-    xpath: //div[contains(@class, "summaryStrate__raw")] | //div[contains(@class, "characteristicsStrate__item") and contains(@class, "item--long")] | //div[contains(@class, "characteristicsStrate__list")]//dl[contains(@class, "characteristicsStrate__item")]|//ul[contains(@class, "f-productVariousData-contents")]
+    xpath: //div[contains(@class, "productStrate__header")][contains(., "Description")]//following-sibling::div[contains(@class, "summaryStrate__raw")] | //div[contains(@class, "characteristicsStrate__item") and contains(@class, "item--long")] | //div[contains(@class, "characteristicsStrate__list")]//dl[contains(@class, "characteristicsStrate__item")]|//ul[contains(@class, "f-productVariousData-contents")]
   - name: unInterruptedPDP
     xpath: //div[contains(@class,"miniFA__top")]//img/@alt
   - name: hasComparisonTable
