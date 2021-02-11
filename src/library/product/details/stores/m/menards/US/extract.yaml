@@ -50,7 +50,7 @@ fields:
     regExp: (\d{5,9})
   - name: sku
     singleValue: true
-    xpath: //div[@id="itemDetailsDataVars"]//@data-main-item-id
+    xpath: //div[@class="modelSKU h4"]/span/span/text()
   - name: mpc
     singleValue: true
     xpath: //div[@class="modelSKU h4"]//span/span
