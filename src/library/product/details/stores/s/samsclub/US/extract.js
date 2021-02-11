@@ -29,7 +29,34 @@ async function implementation(
     if (popUps) {
       popUps.click();
     }
-    await new Promise((resolve, reject) => setTimeout(resolve, 20000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 30000));
+  });
+  await context.evaluate(async function () {
+    await new Promise((resolve, reject) => setTimeout(resolve, 30000));
+    let getManufatureImageArray = [];
+    let getContent = document.querySelector('iframe#wcframable1-1');
+    const getManufatureImage = getContent.contentDocument.querySelectorAll('div.wc-media-available img');
+    if(getManufatureImage){
+      for (let i = 0; i < getManufatureImage.length; i++) {
+        let urls = getManufatureImage[i].src;
+        getManufatureImageArray.push(urls);
+        // getManufatureImageArray.join("|");
+
+      }
+    console.log("inBoxArray >>>>>>>>>>>>>>>>", getManufatureImageArray);
+    }
+
+
+    function addHiddenDiv (elementID, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = elementID;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+
+    addHiddenDiv('getManufatureImageArray1',getManufatureImageArray);
+
   });
   return await context.extract(productDetails, { transform });
 }
