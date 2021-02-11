@@ -21,7 +21,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@class="photo with-multiple-photo" or @class="photo sparset with-multiple-photo" or @class="multiple-photo slick-initialized slick-slider"]//div[@class="slick-track"]//div[not(contains(@class,'fl slick-slide slick-current slick-active'))]//img/@src
+  xpath: //div[@class="photo sparset with-multiple-photo" or @class="multiple-photo slick-initialized slick-slider"]//div[@class="slick-list draggable"]//img/@src
   regExp: (.+)
   regExpReplace: https://www.medikamente-per-klick.de$1
 - name: metaKeywords
@@ -42,7 +42,7 @@ fields:
   description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   # xpath: //dl[@class="productPrice"]//dd[@class="yourPrice price" or @class="yourPrice"]//text()
-  xpath: //div[starts-with(@id,'ii_price')]
+  xpath: //div[@id="ii_price"]
 - name: availabilityText
   singleValue: true
   xpath: //html//div[@id="availability"] 
@@ -143,6 +143,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
+  xpath: count(null)
   type: NUMBER
 - name: color
   singleValue: true
@@ -452,14 +453,14 @@ fields:
   description: List of additives in the product
 - name: pricePerUnit
   singleValue: true
-  type: CURRENCY
   description: Price of the product split into certain units
-  xpath: //dl[@class="productPrice"]//dd[@class="groundPrice"]
-  # regExp: '(\d+,\d+)'
-  # regExpReplace: $1
+  xpath: //div[@id="ii_pricePerUnit"]
 - name: pricePerUnitUom
   singleValue: true
   description: The unit of measurement used in price_per_unit
+  xpath: //dl[@class="productPrice"]//dd[@class="groundPrice"]
+  regExp: '(\s\/\s)(\w.+)'
+  regExpReplace: $2
 - name: promotion
   singleValue: true
   description: promotion text on product page
@@ -480,10 +481,10 @@ fields:
   description: In product page, information about a new version of the product -
       new desription info
 - name: variantInformation
-  singleValue: true
+  singleValue: false
   description: colour / scent / flavour / other
-  # xpath: //div[@class="similarProducts wide-12"]//dl[@class="productInfos"]//dd[@class="quantity"]//text()
-  xpath: concat((//div[@class="similarProducts wide-12"]//dl[@class="productInfos"]//dd[@class="quantity"]//text())[1],',',(//div[@class="similarProducts wide-12"]//dl[@class="productInfos"]//dd[@class="quantity"]//text())[2])
+  xpath: //div[@class="similarProducts wide-12"]//div[@class="boxProductSimilar"]//dd[@class="quantity"]//text()
+  # xpath: concat((//div[@class="similarProducts wide-12"]//dl[@class="productInfos"]//dd[@class="quantity"]//text())[1],(//div[@class="similarProducts wide-12"]//dl[@class="productInfos"]//dd[@class="quantity"]//text())[2])
 - name: firstVariant
   singleValue: true
   description: Unique identifier for a collection of variants. For a subset of
@@ -498,6 +499,7 @@ fields:
 - name: variants
   singleValue: false
   description: null
+  xpath: //div[@class="similarProducts wide-12"]//div[@class="boxProductSimilar"]//dd[@class="quantity"]//text()
 - name: additionalDescBulletInfo
   singleValue: false
   description: null

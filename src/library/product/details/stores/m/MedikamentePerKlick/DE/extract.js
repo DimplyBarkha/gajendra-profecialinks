@@ -31,7 +31,13 @@ module.exports = {
       const listPrice = listPriceSelector ? listPriceSelector.innerText.replace('.', '').replace(',', '.').trim() : '';
       addHiddenDiv('ii_listPrice', listPrice);
 
-      // manufaturer Images
+      var PricePerUnitSelector = document.querySelector('dl[class="productPrice"]>dd[class="groundPrice"]');
+      // @ts-ignore
+      var pricePerUnit = PricePerUnitSelector ? PricePerUnitSelector.innerText.replace('.', '').replace(',', '.').trim() : '';
+      if (pricePerUnit.includes("*")) {
+        pricePerUnit = pricePerUnit.split("*")[0];
+        addHiddenDiv('ii_pricePerUnit', pricePerUnit);
+      }
       let imageURL = '';
       document.querySelectorAll('#productDesc img').forEach(image => {
         // @ts-ignore
@@ -82,11 +88,11 @@ module.exports = {
           availability = "Out of Stock";
         }
         addElementToDocument('availability', availability);
-      }else {
+      } else {
         availability = "Out of Stock";
         addElementToDocument('availability', availability);
       }
-      
+
 
     });
     return await context.extract(productDetails);
