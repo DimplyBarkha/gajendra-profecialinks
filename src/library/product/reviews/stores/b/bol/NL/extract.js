@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 const { transform } = require('../../../../shared');
 
 module.exports = {
@@ -84,7 +85,7 @@ module.exports = {
       if (!lastReviewDate) return true;
       const datesDiffInDays = getDatesDiffInDays(todayDate, lastReviewDate);
       console.log(`The difference between dates: ${datesDiffInDays} days`);
-      if (datesDiffInDays > 360) {
+      if (datesDiffInDays > 30) {
         console.log('Not loading more reviews.');
         return false;
       }
@@ -109,11 +110,87 @@ module.exports = {
     }
     console.log('Finished loading reviews');
 
-    // await context.evaluate(async () => {
+    await context.evaluate(async () => {
+      /**
+       * Function translating a given date to english.
+       * @param {String} date date in Dutch
+       */
+      const translateDate = (date) => {
+        const monthsDict = {
+          januari: 'january',
+          februari: 'february',
+          maart: 'march',
+          april: 'april',
+          mei: 'may',
+          juni: 'june',
+          juli: 'july',
+          augustus: 'august',
+          september: 'september',
+          oktober: 'october',
+          november: 'november',
+          december: 'december',
+        };
 
-    // });
+        return date
+          .split(' ')
+          .map((item) => (Object.keys(monthsDict).includes(item.toLowerCase()) ? monthsDict[item] : item))
+          .join(' ');
+      };
 
-    // return await context.extract(productReviews, { transform });
+      /**
+       * Function parsing a given date string to a date object
+       * @param {String} dateStr date as extracted on the page
+       */
+      const getDate = (dateStr) => {
+        try {
+          return new Date(translateDate(dateStr));
+        } catch (err) {
+          return null;
+        }
+      };
+
+      const brand = document.querySelector('a[data-analytics-tag="brand"]')
+        ? document.querySelector('a[data-analytics-tag="brand"]').innerText
+        : '';
+      const name = document.querySelector('h1.page-heading > span')
+        ? document.querySelector('h1.page-heading > span').innerText
+        : '';
+      const sku = document.evaluate(
+        '(//div[@class="buy-block"]//a/@data-product-id | //div[@class="buy-block"]//div/@data-global-id)[1]',
+        document,
+        null,
+        XPathResult.STRING_TYPE,
+        null,
+      ).stringValue;
+
+      const ratingElem = document.querySelector('div[class="rating-horizontal__average-score"]');
+      const rating = ratingElem ? ratingElem.textContent.replace('.', ',') : '';
+      if (rating) document.body.setAttribute('rating', rating);
+
+      document.body.setAttribute('added_brand', brand);
+      document.body.setAttribute('added_name', name);
+      document.body.setAttribute('added_sku', sku);
+      document.body.setAttribute('product_url', window.location.href);
+
+      const allReviews = document.querySelectorAll('ul[data-test="review-list"] > li');
+      for (let i = 0; i < allReviews.length; i++) {
+        const review = allReviews[i];
+
+        const dateStr = review.querySelector('li[data-test="review-author-date"]')
+          ? review.querySelector('li[data-test="review-author-date"]').textContent
+          : '';
+        const reviewDate = getDate(dateStr);
+        if (reviewDate) review.setAttribute('review_date', reviewDate.toLocaleDateString());
+
+        const ratingValue = review.querySelector('input[data-test="review-rating-value"]')
+          ? review.querySelector('input[data-test="review-rating-value"]').getAttribute('value')
+          : '';
+        const rating = ratingValue ? parseInt(ratingValue, 10) / 20 : null;
+        if (rating) review.setAttribute('added_rating', rating.toString());
+      }
+    });
+
     return await context.extract(productReviews);
+    // return await context.extract(productReviews, { transform });
   },
 };

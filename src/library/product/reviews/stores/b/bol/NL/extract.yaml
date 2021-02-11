@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@data-test="review-list"]/li[position() < 10000]
+recordXPath: //ul[@data-test="review-list"]/li[position() < 10000 and @review_date]
 fields:
   - name: helpfulCount
     singleValue: true
@@ -15,21 +15,25 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: ancestor::html/body/@added_brand
   - name: name
     singleValue: true
     description: The product name
+    xpath: ancestor::html/body/@added_name
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: ancestor::html/body/@added_sku
   - name: reviewDate
     singleValue: true
     type: DATETIME
     description: Date the review was made
+    xpath: '@review_date'
   - name: reviewRating
     type: NUMBER
     singleValue: true
     description: Rating normalized to be out of 5
-    xpath: 
+    xpath: '@added_rating'
   - name: reviewText
     singleValue: true
     description: The text of the review
@@ -44,9 +48,11 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: ancestor::html//dt[normalize-space(text())='EAN']/following-sibling::dd[1]
   - name: productUrl
     singleValue: true
     description: The url of the product details page
+    xpath: ancestor::html/body/@product_url
   - name: verifiedPurchase
     singleValue: true
     type: BOOLEAN
@@ -57,6 +63,7 @@ fields:
   - name: syndicatedFrom
     singleValue: true
     description: Stated place the review was syndicated from
+    defaultValue: 'https://www.bol.com/nl/'
   - name: reviewUrl
     singleValue: true
     description: A direct link to the review
@@ -65,9 +72,13 @@ fields:
     description: The SKU of the item that was reviewed (may be different from the
       sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
       value, transform will handle the value.
+    xpath: //p[@data-test="review-title"]/a/@href
+    regExp: .+\/(\d{16})\/?
+    regExpReplace: $1
   - name: user
     description: The user name of the reviewer
-    xpath: //li[@data-test="review-author-name"]
     type: TEXT
+    xpath: //li[@data-test="review-author-name"]
   - name: aggregateRating
     description: The product rating
+    xpath: ancestor::html/body/@rating
