@@ -55,6 +55,9 @@ async function implementation({ url, id, zipcode, date, days }, { reviewUrl, sor
         console.log(xp, r);
         const e = r.iterateNext();
         console.log(e);
+        if (e) {
+            throw new Error()
+        }
         return !e;
     }, noResultsXPath);
 
