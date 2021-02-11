@@ -41,8 +41,10 @@ fields:
   - name: description
     singleValue: false
     # xpath: //div[contains(@class,"product_description")]//div[contains(@class,"info_shortdescription")]//li
-    # xpath: concat(//h1[@class="product__name"]/text(),' ',//meta[@property="product:color"]/@content,' ',//ul[@id="product_size"]//label[contains(@class,'available')]//span/text())
-    xpath: //div[@id='currentDiv']/text()
+    xpath: concat(//h2[contains(@class,'product__brandname')]//a,' ',//h1[@class="product__name"]/text(),' ',//meta[@property="product:color"]/@content,' ',//ul[@id="product_size"]//label[contains(@class,'available')]//span/text())
+    #xpath: //div[@id='currentDiv']/text()
+    #xpath: concat(//h2[contains(@class,'product__brandname')]//a,' ',//h1[contains(@class,'product__name'),' ',//meta[@property='product:color']/@content,' ',//ul[contains(@id,'product_size')]//li[1]//span)
+    #xpath: //h1[contains(@class,'product__name')]
   - name: nameExtended
     # xpath: concat(//h1[@class="product__name"]/text(),' ',//meta[@property="product:color"]/@content)
     xpath: concat(//meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/text())
@@ -66,9 +68,10 @@ fields:
     singleValue: false
     xpath: //div[@class="info_content"]
   - name: variantInformation
-    xpath: concat(//meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/text())
-    regExp: ^([a-z]+)(\s.+\s)(.+)
-    regExpReplace: $1 $3
+    xpath: concat(//meta[@property='product:color']/@content ,'',//ul[contains(@id,'product_size')]//li[1]//span[1])
+    #xpath: concat(//meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/text())
+    #regExp: ^([a-z]+)(\s.+\s)(.+)
+    #regExpReplace: $1 $3
   - name: variantId
     singleValue: false
     xpath: //div[@id='currentDiv']/@retailerProdCode
@@ -89,3 +92,5 @@ fields:
   - name: promotion
     description: promotion text on product page
     xpath: //div[@class="product__details"]//p[@class="reduction_tag_wrapper"]//span[3]
+  - name: size
+    xpath: //ul[contains(@id,'product_size')]//li[1]//span[1]
