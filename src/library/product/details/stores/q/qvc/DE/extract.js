@@ -136,11 +136,11 @@ async function implementation (
         }
 
         if (manufacturerDesc.length !== 0) {
-          let enhancedContent = '';
-          for (let i = 0; i < manufacturerDesc.length; i++) {
-            if (i !== manufacturerDesc.length - 1) { enhancedContent += manufacturerDesc[i] + ' || '; } else { enhancedContent += manufacturerDesc[i]; }
-          }
-          addHiddenDiv('enhancedContent', enhancedContent);
+          // let enhancedContent = '';
+          // for (let i = 0; i < manufacturerDesc.length; i++) {
+          //   if (i !== manufacturerDesc.length - 1) { enhancedContent += manufacturerDesc[i] + ' || '; } else { enhancedContent += manufacturerDesc[i]; }
+          // }
+          addHiddenDiv('enhancedContent', manufacturerDesc.join(" || "));
         }
         if (manufacturerImages.length !== 0) {
           let aplusImages = '';
