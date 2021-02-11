@@ -68,7 +68,7 @@ fields:
     xpath: //h1[@class="product-description"]
     #regExp: '([^/]*$)'
     #regExpReplace: '$1'
-    name: servingSize
+  - name: servingSize
     singleValue: false
     xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"er")])[1]
     #regExp: '([\d]+\s*(.+))'
