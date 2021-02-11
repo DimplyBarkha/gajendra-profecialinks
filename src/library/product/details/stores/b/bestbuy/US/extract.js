@@ -45,8 +45,14 @@ async function implementation (
       document.body.appendChild(catElement);
     }
     let skuId;
-    if (document.querySelector('button.add-to-cart-button')) {
-      skuId = document.querySelector('button.add-to-cart-button').getAttribute('data-sku-id');
+    const currentUrl = window.location.href;
+    if (currentUrl) {
+      skuId = currentUrl.match(/[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}/) && currentUrl.match(/[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12}/)[0];
+    }
+    if (skuId == null) {
+      if (document.querySelector('button.add-to-cart-button')) {
+        skuId = document.querySelector('button.add-to-cart-button').getAttribute('data-sku-id');
+      }
     }
     addElementToDocument('pd_skuId', skuId);
 
@@ -293,7 +299,7 @@ async function implementation (
   if (iFrameSrc) {
     console.log('IFRAME SRC found', iFrameSrc);
     try {
-      await context.goto(`${iFrameSrc}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`);
+      await context.goto(`${iFrameSrc}#[!opt!]{"force200": true, "block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`);
       await context.waitUntil('load');
       console.log('on iFrame page');
     } catch (error) {
@@ -391,7 +397,7 @@ async function implementation (
     } catch (error) {
       console.log('Enhanced content not loaded', error);
     }
-    await context.goto(`${mainUrl}&intl=nosplash#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+    await context.goto(`${mainUrl}&intl=nosplash#[!opt!]{"force200": true, "block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
   }
 
   let shadowTextApiData;
@@ -464,7 +470,7 @@ async function implementation (
   } catch (error) {
     console.log('Could not execute enhanced content js. Error: ', error);
   }
-  await context.goto(`${mainUrl}&intl=nosplash#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+  await context.goto(`${mainUrl}&intl=nosplash#[!opt!]{"force200": true, "block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
 
   if (manufacturerData != null) {
     await context.evaluate(async function (manufacturerData) {
