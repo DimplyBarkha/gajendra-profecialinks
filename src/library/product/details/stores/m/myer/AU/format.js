@@ -39,7 +39,7 @@ const transform = (data) => {
           item.text = item.text.slice(1, -3);
           item.text = item.text.replace("http://schema.org/", '');
           if (item.text == 'LimitedAvailability') {
-            row.availabilityText = [{ "text": 'LowStock', "xpath": row.availabilityText[0].xpath }]
+            row.availabilityText = [{ "text": 'In Stock', "xpath": row.availabilityText[0].xpath }]
           }
           if (item.text == 'InStock') {
             row.availabilityText = [{ "text": 'In Stock', "xpath": row.availabilityText[0].xpath }]
