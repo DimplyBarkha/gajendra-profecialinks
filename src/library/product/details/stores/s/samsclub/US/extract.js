@@ -10,6 +10,10 @@ module.exports = {
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await context.evaluate(async () => {
+      const noResultsSelector = document.querySelector('div[role="alertdialog"] div[class="sc-error-page-title"]');
+      if (noResultsSelector) {
+        throw new Error('Loading again');
+      }
       try {
         await context.waitForSelector('button div[role="presentation"]>img,div[class="sc-pc-image"]>img', { timeout: 60000 });
         console.log('selector for image exist');
@@ -98,6 +102,12 @@ module.exports = {
       let VideoLink = '';
       VideoLink = jsonData && jsonData.sources && jsonData.sources[1].src;
       appendElements && appendElements.setAttribute('videolink2', VideoLink);
+      try {
+        await context.waitForSelector('li.slider-slide:nth-last-child(1)', { timeout: 20000 });
+        await context.waitForSelector('div.bv_numReviews_component_container div.bv_numReviews_text', { timeout: 20000 });
+      } catch (error) {
+        console.log('error loading enhanced content' + error);
+      }
     });
     return await context.extract(productDetails, { transform });
   },

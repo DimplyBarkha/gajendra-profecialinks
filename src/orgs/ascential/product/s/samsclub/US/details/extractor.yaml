@@ -5,8 +5,14 @@ parameters:
   store: samsclub
   zipcode: ""
 proxy:
-  zone: ZUS
+  zone: USA
   type: DATA_CENTER
+policy:
+  numberRetries: 2
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 1
 meta:
   branches:
     samsclub:

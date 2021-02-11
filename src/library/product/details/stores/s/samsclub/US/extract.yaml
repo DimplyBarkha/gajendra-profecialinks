@@ -19,7 +19,7 @@ fields:
   - name: category
     xpath: //div[@class="sc-pc-breadcrumbs"]/ol/li[position()>1] | //nav[contains(@class,"breadcrumbs")]/ol/li[position()>1]
   - name: nameExtended
-    xpath: //div[contains(@class,"sc-pc-large-desktop-oos-card-columns")]//div[contains(@class,"sc-pc-title-medium")]//h3
+    xpath: //div[contains(@class,"sc-pc-large-desktop-oos-card-columns")]//div[contains(@class,"sc-pc-title-medium")]//h3 | //meta[@itemprop="name"]/@content | //div[contains(@class,"sc-pc-title-full-desktop")]//h1
   - name: listPrice
     xpath: //span[@class="sc-channel-savings-list-price"]
   - name: price
@@ -95,4 +95,4 @@ fields:
     regExp: (.*)/(.*?)_(.*)
     regExpReplace: $2
   - name: productUrl
-    xpath: //link[@rel="canonical"]/@href
+    xpath: //link[@rel="canonical"]/@href | //meta[@property="og:url"]/@content
