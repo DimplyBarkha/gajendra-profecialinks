@@ -6,6 +6,12 @@ fields:
   - name: searchUrl
     singleValue: false
     xpath: ancestor::html//a[@id='currentPage']/@href
+  - name: productUrl
+    singleValue: false
+    xpath: //td[@class="basic"]/table/tbody/tr/td[@class="productUrl"]
+    regExp: (.+)
+    regExpReplace: https://www.walmart.com/grocery$1
+    description: URL of the main product image
   - name: name
     singleValue: false
     description: The product name
