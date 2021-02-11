@@ -20,8 +20,9 @@ module.exports = {
       try {
         const responseStatus = await context.goto(url, {
           antiCaptchaOptions: {
-            provider: 'geetest-captcha-solver',
+            provider: 'anti-captcha',
             type: 'GEETEST',
+            autoSubmit: true,
           },
           firstRequestTimeout: 60000,
           timeout,
@@ -45,7 +46,7 @@ module.exports = {
       }, selector);
     };
 
-    const optionalWait = async (selector) => {
+    const optionalWait = async (selector, timeout) => {
       try {
         await context.waitForSelector(selector, { timeout });
         console.log(`Found selector => ${selector}`);
@@ -61,7 +62,7 @@ module.exports = {
     await gotoPage();
 
     const captchaSelector = 'iframe[src*="https://geo.captcha"]';
-    await optionalWait(captchaSelector);
+    await optionalWait(captchaSelector, 60000);
     const isCaptchaFramePresent = await checkExistance(captchaSelector);
 
     console.log('isCaptcha', isCaptchaFramePresent);
@@ -69,7 +70,10 @@ module.exports = {
     if (isCaptchaFramePresent) {
       try {
         const isHardBlocked = await context.evaluateInFrame(captchaSelector, function () {
-          return document.body.innerText.search('You have been blocked') > -1;
+          if (document.body.innerText.search('Vous avez été bloqué') > -1 || document.body.innerText.search('You have been blocked') > -1) {
+            return true;
+          }
+          return false;
         });
 
         if (isHardBlocked) {
@@ -94,29 +98,46 @@ module.exports = {
           document.querySelector('.captcha-handler').click();
         });
 
+
+
         // Wait for iframe to disappear
         let iframeStillExists = await checkExistance(captchaSelector);
+        let isCaptchaSolved = await context.evaluateInFrame(captchaSelector, function () {
+          return Boolean(document.querySelector('div[captchastatus="ok"]'));
+        });
+
+        let isCaptchaFailed = await context.evaluateInFrame(captchaSelector, function () {
+          return Boolean(document.querySelector('div[captchastatus="fail"]'));
+        });
+
         let counter = 0;
-        while (iframeStillExists) {
+        while (iframeStillExists && !isCaptchaSolved && !isCaptchaFailed) {
           iframeStillExists = await checkExistance(captchaSelector);
+          isCaptchaSolved = await context.evaluateInFrame(captchaSelector, function () {
+            return Boolean(document.querySelector('div[captchastatus="ok"]'));
+          });
+          isCaptchaFailed = await context.evaluateInFrame(captchaSelector, function () {
+            return Boolean(document.querySelector('div[captchastatus="fail"]'));
+          });
           await delay(500);
           ++counter;
 
           // Waiting for a minute before throwing an error
-          if (counter === 120) {
+          if (counter === 120 || isCaptchaFailed) {
             throw new Error('CAPTCHA_FAIL');
           }
         }
 
         console.log('Captcha Resolved.');
+
         await context.waitForNavigation({ timeout: 30000 });
         // we may be navigated to an index page after captcha solve
         const productPageSelector = '#product-content';
-        const isWaitProduct = await optionalWait(productPageSelector);
+        const isWaitProduct = await optionalWait(productPageSelector, 30000);
 
         console.log('isProduct', isWaitProduct);
         const cookieButtonSelector = 'body > div.optanon-alert-box-wrapper > div.optanon-alert-box-bg > div.optanon-alert-box-button-container > div.optanon-alert-box-button.optanon-button-allow > div > button';
-        const cookieButton = await optionalWait(cookieButtonSelector);
+        const cookieButton = await optionalWait(cookieButtonSelector, 30000);
         console.log('isCookie', cookieButton);
 
         if (cookieButton) {
@@ -139,11 +160,15 @@ module.exports = {
       } catch (error) {
         console.log('CAPTCHA error: ', error);
         if (error.message === 'Blocked') {
+          console.log('Blocked');
           await context.reportBlocked(403);
+          console.log('Throw blocked error.')
           throw error;
         } else if (error.message === 'CAPTCHA_FAIL') {
+          console.log('Captcha failed.');
           throw error;
         }
+        throw error;
       }
     } else {
       console.log('NO CAPTCHA ENCOUNTER');
