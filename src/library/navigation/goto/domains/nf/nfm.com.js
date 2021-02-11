@@ -15,8 +15,8 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
-    // await context.setUseRelayProxy(false); 
-    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true, first_request_timeout: 60, load_timeout:60 });
+    // await context.setUseRelayProxy(false);
+    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true, first_request_timeout: 60, load_timeout: 60 });
     console.log(zipcode);
     if (zipcode) {
       await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
