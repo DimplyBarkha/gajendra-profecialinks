@@ -4,7 +4,20 @@ const { transform } = require('../shared');
 async function implementation (inputs, parameters, context, dependencies) {
   const { helperModule: { Helpers } } = dependencies;
   const helper = new Helpers(context);
-
+  const applyScroll = async () => {
+    await context.evaluate(async () => {
+      let scrollTop = 0;
+      while (scrollTop !== 20000) {
+        await new Promise((resolve) => setTimeout(resolve, 500));
+        scrollTop += 1000;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 20000) {
+          await new Promise((resolve) => setTimeout(resolve, 5000));
+          break;
+        }
+      }
+    });
+  };
   function getAPI () {
     if (!window.location.pathname.includes('/product/')) {
       return false;
@@ -195,7 +208,11 @@ async function implementation (inputs, parameters, context, dependencies) {
   }
 
   // For the Additional Fields
-  await context.evaluate(() => {
+  await applyScroll();
+  if (await helper.checkSelector('.syndi_powerpage', 'css')) {
+    await helper.waitForInDifferentContext('div[class*="comparison-table"] table', '.syndi_powerpage', 10000);
+  }
+  await context.evaluate(async () => {
     const syndiPowerpage = document.querySelector('.syndi_powerpage');
     let inTheBoxText = '';
     let inTheBoxUrl = '';
@@ -222,11 +239,16 @@ async function implementation (inputs, parameters, context, dependencies) {
         }
       });
       const table = syndiPowerpage.shadowRoot.querySelector('div[class*="comparison-table"] table');
+      const tabux = syndiPowerpage.shadowRoot.querySelector('.wc-comparison-table-responsive');
+      console.log('=========')
+      console.log(tabux)
+      console.log('=========')
       if (table) {
         hasComparisonTable = 'Yes';
       }
     } else {
       const table = document.querySelector('div[class*="comparison-table"] table');
+
       if (table) {
         hasComparisonTable = 'Yes';
       }
@@ -272,9 +294,10 @@ async function implementation (inputs, parameters, context, dependencies) {
       // @ts-ignore
       const videos = [...shadow.querySelectorAll('video')];
 
-      await Promise.all(videos.map(vid => {
+      await Promise.all(videos.map(async vid => {
         vid.click();
-        return new Promise((resolve) => setTimeout(resolve, 4000));
+        await new Promise((resolve) => setTimeout(resolve, 4000));
+        vid.click();
       }));
       // @ts-ignore
       const images = [...shadow.querySelectorAll('div[class*="syndigo"] img')].map(im => im.getAttribute('src'));
