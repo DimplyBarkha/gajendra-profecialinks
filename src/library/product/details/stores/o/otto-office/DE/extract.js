@@ -114,12 +114,23 @@ if(url.length>= 1){
   }
 }
 catch(e){
-  
+
 }
 //SKU
 var sku = getXpath('//figure[@id="image-preview-container"]/img/@src', 'nodeValue');
 sku = sku.replace(/(.+ART_)(\d+)(([A-Z]+)?)(_+.+)/g,'$2$3');
 addElementToDocument("sku", sku);
+//Aggregate rating
+var aggrating = getXpath('//div[@class="rating-stars-copy"]/text()', 'nodeValue');
+if(aggrating != null){
+aggrating = aggrating.split(" ")[0];
+addElementToDocument("aggrating", aggrating);
+}
+
+
+
+
+
 
 
     });

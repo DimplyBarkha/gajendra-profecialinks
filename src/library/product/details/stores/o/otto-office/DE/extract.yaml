@@ -62,15 +62,16 @@ fields:
     # regExp: (.+ART_)(\d+)(_+.+)
     # regExp: (.+ART_)(\d+)(([A-Z]+)?)(_+.+)
     # regExReplace: $2$3
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: true
     # manualSelector: script[type='application/ld+json']
     # regExp: '("ratingValue" : ")(\d.+)",'
     # regExpReplace: $2
-    xpath: //div[@class="rating-stars-copy"]/text()
+    # xpath: //div[@class="rating-stars-copy"]/text()
     # manualSelector: script[type='application/ld+json']
     # regExp: ("ratingValue" : ")(\d.\d)
     # regExp: $2
+    xpath: //html//div[@id="aggrating"]
   - name: url
     singleValue: true
     xpath: //html//div[@id="URL"]
