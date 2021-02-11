@@ -77,8 +77,9 @@ fields:
     singleValue: false
     description: Net weight as described on the page
     xpath: //table[@class="table specficsWrapper"]//tbody//tr//td//span[contains(text(),'Weight')]//following-sibling::text()
-    # regexp: (^[^:\r\n]+:\h*)
-    # regExpReplace: $2
+    regexp: /(:)(\s)?(.+)/gm
+    #regexp: (:\h*)
+    regExpReplace: $3
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page

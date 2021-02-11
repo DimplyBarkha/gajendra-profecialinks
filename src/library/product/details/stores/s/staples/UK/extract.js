@@ -10,6 +10,7 @@ module.exports = {
     domain: 'staples.co.uk',
     zipcode: '',
   },
+  // @ts-ignore
   implementation: async ({ inputString }, { country, store, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {

@@ -7,12 +7,12 @@ parameters:
 proxy:
   zone: GBR
   type: DATA_CENTER
-# policy:
-#   numberRetries: 3
-#   priority: MEDIUM
-#   retryDelay: 120
-#   backoffPolicy: EXPONENTIAL
-#   retryWithResidentialProxyAfter: 3
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 2
 meta:
   branches:
     dev:
