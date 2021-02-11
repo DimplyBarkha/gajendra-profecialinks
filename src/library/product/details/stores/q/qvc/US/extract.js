@@ -140,13 +140,6 @@ module.exports = {
     }
     if (colorVariants !== 0 && sizeVariants !== 0) {
       let dataId = 0;
-      const colorVariantAvailability = await context.evaluate(() => {
-        const colorVariantAvailability = [];
-        document.querySelectorAll('ul[aria-label="Color"] li').forEach((element) => {
-          colorVariantAvailability.push(element.getAttribute('ats'));
-        });
-        return colorVariantAvailability;
-      });
       const variantInfo = await context.evaluate(() => {
         const variantInfo = [];
         for (let i = 0; i < document.querySelectorAll('ul[aria-label="Color"] li').length; i++) {
@@ -163,21 +156,12 @@ module.exports = {
           document.querySelectorAll('ul[aria-label="Color"] li')[i].click();
         }, i);
         // wait for extraction
-        const sizeVariantAvailability = await context.evaluate(() => {
-          const sizeVariantAvailability = [];
-          document.querySelectorAll('ul[aria-label="Size"] li').forEach((element) => {
-            sizeVariantAvailability.push(element.getAttribute('ats'));
-          });
-          return sizeVariantAvailability;
-        });
         for (let j = 0; j < sizeVariants; j++) {
-          if (colorVariantAvailability[i] !== 'N' && sizeVariantAvailability[j] !== 'N') {
-            await context.evaluate((j) => {
-              document.querySelectorAll('ul[aria-label="Size"] li')[j].click();
-            }, j);
-            await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-            dataConversion(await context.extract(productDetails, { transform }), info.offers[dataId].sku, info.offers[dataId].availability, variantInfo[dataId], info.offers[dataId].price);
-          }
+          await context.evaluate((j) => {
+            document.querySelectorAll('ul[aria-label="Size"] li')[j].click();
+          }, j);
+          await new Promise((resolve, reject) => setTimeout(resolve, 1000));
+          dataConversion(await context.extract(productDetails, { transform }), info.offers[dataId].sku, info.offers[dataId].availability,variantInfo[dataId], info.offers[dataId].price);
           dataId++;
         }
       };
