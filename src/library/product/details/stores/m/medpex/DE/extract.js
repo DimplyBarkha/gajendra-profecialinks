@@ -58,6 +58,48 @@ module.exports = {
       } catch (error) {
 
       }
+      try {
+        let additionalDescBulletInfo = '';
+        const desription = document.querySelectorAll('div[class="content content--productDescription"]')[0].children;
+        let siblingsDescription = '';
+        let element = desription[0];
+        while (element) {
+          if (element) {
+            if (element.nodeName == 'UL') {
+              let ULData = element.children;
+              for (let i = 0; i < ULData.length; i++) {
+                // @ts-ignore
+                siblingsDescription += '||' + ULData[i].innerText;
+                // @ts-ignore
+                additionalDescBulletInfo += '||' + ULData[i].innerText;
+              }
+              addElementToDocument('additionalDescBulletInfo', additionalDescBulletInfo)
+              element = element.nextElementSibling;
+            }
+            else {
+              // @ts-ignore
+              siblingsDescription += ' ' + element.innerText;
+              element = element.nextElementSibling;
+            }
+          } else {
+            break;
+          }
+        }
+        addElementToDocument('description', siblingsDescription)
+      } catch (error) {
+
+      }
+      try {
+        const pdf = document.querySelectorAll('a[class="sp2p sp-pdf"]');
+        if (pdf.length > 0) {
+          addElementToDocument('pdf', 'Yes')
+        }
+        else {
+          addElementToDocument('pdf', 'No')
+        }
+      } catch (error) {
+        addElementToDocument('pdf', 'No')
+      }
     });
     await context.extract(productDetails, { transform: transformParam });
   },
