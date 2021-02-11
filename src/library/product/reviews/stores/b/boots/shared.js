@@ -19,15 +19,15 @@ const transform = (data, context) => {
     .trim();
   for (const { group } of data) {
     for (const row of group) {
-      if (row.syndicatedFrom) {
-        row.syndicatedFrom.forEach(item => {
-          const pattern = 'Originally posted on (.*)';
-          const results = item.text.match(pattern);
-          if (results && results.length > 0) {
-            item.text = results[1];
-          }
-        });
-      }
+      // if (row.syndicatedFrom) {
+      //   row.syndicatedFrom.forEach(item => {
+      //     const pattern = 'Originally posted on (.*)';
+      //     const results = item.text.match(pattern);
+      //     if (results && results.length > 0) {
+      //       item.text = results[1];
+      //     }
+      //   });
+      // }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
