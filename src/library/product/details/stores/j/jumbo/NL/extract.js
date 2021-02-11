@@ -81,16 +81,6 @@ module.exports = {
       extractNutritionInfo();
       changebulletPointsToDoublePipes('//div[@class="jum-summary-description"]/p/text()');
 
-      const categories = document.evaluate('//a[contains(@href,"categorieen")]/@href', document, null, XPathResult.STRING_TYPE, null).stringValue;
-      if (categories) {
-        const categoriesArray = categories.match(/categorieen\/(.+)/)[1].split('/');
-        if (categories.length > 0) {
-          categoriesArray.forEach(category => {
-            addHiddenDiv('category', category);
-          });
-        }
-      }
-
       const brandNode = document.evaluate('//section[@class="jum-additional-info row"]//div[@data-jum-product-details]/@data-jum-product-details | (//div[@class="jum-column-main "]//*[@data-jum-brand]/@data-jum-brand)[1]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (brandNode.textContent.includes('brand')) {
         addHiddenDiv('brand', brandNode.textContent.match(/"brand":"(.+)",/)[1]);
@@ -156,6 +146,12 @@ module.exports = {
         text: dataRef[0].group[0].variantId[0].text.match(/(\d+)/)[1],
       }];
     }
+    if (dataRef[0].group[0].manufacturer) {
+      const manufactuerName = dataRef[0].group[0].manufacturer[0].text.match(/www\.?(.+?)\.|(\w+)\.com/);
+      if (manufactuerName) {
+        manufactuerName[1] ? dataRef[0].group[0].manufacturer[0].text = manufactuerName[1] : dataRef[0].group[0].manufacturer[0].text = manufactuerName[2];
+      }
+    }
     if (dataRef[0].group[0].description && dataRef[0].group[0].description[0].text.includes('||')) {
       const bulletInfoArray = dataRef[0].group[0].description[0].text.match(/( ?\|\|.+)/g);
       let bulletInfoString = '';
@@ -169,10 +165,6 @@ module.exports = {
         text: bulletInfoArray.length,
       }];
     }
-    if (dataRef[0].group[0].category) {
-      dataRef[0].group[0].category[0].text = dataRef[0].group[0].category[0].text.replace(/(-)/g, '');
-    }
-
     dataRef[0].group[0].variantCount = [{
       text: '0',
     }];
