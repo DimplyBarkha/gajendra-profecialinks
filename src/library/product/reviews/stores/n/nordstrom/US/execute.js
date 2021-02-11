@@ -94,7 +94,7 @@ async function implementation (
     const targetReviews = await getData(reviewURL, 1);
     extractedReviews = extractedReviews.concat(targetReviews.reviews);
     console.log('Page #1 API call done');
-    const totalReviews = targetReviews.totalResults;
+    const totalReviews = targetReviews.totalResults ? targetReviews.totalResults : 0;
     console.log('Total reviews present' + totalReviews);
     if (extractedReviews.length === 0) {
       return false;
