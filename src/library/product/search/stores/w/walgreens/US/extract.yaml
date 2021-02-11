@@ -1,43 +1,49 @@
 singleRecord: false
 regionsSelector: null
-recordSelector: div.wag-product-card-details
+recordSelector: div.card__product
 recordXPath: null
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class='extra-info']/@data-id
+    xpath: //@data-id
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id='filtered-url']
   - name: name
     singleValue: false
-    xpath: //div[contains(@class, 'wag-prod-title')]//a/text()
+    xpath: //div[@name="product-title"]
   - name: productUrl
     singleValue: false
-    xpath: //div[@class='extra-info']/@data-url
+    xpath: //div[contains(@class,"product__text")]/a//@href
+    regExp: (.+)
+    regExpReplace: https://www.walgreens.com$1
   - name: gtin
     singleValue: false
-    xpath: //div[@class='extra-info']/@data-upc
+    xpath: //@data-upc
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class='extra-info']/@data-thumbnail 
+    xpath: //div[contains(@class,"card__product")]//a//*[contains(@class,"product__img")]//img/@src
+    regExp: ^(.*[\/])
+    regExpReplace: https:$1300.jpg
   - name: aggregateRating
     singleValue: false
-    xpath: //div[@class='extra-info']/@data-rating
-    type: NUMBER
+    xpath: //*[contains(@class,"product__rating")]//img//@title
+    regExp: >-
+      ^.{0,3}
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class='extra-info']/@data-rating
-    type: NUMBER
+    xpath: //*[contains(@class,"product__rating")]//img//@title
+    regExp: >-
+      ^.{0,3}
   - name: reviewCount
     singleValue: false
-    xpath: //div[contains(@class, 'wag-prod-review-info')]//span
+    xpath: //*[contains(@class,"product__rating")]//figcaption
     regExp: (\d+)
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
-    xpath:  //div[@class='extra-info']/@data-price
+    xpath: //div[contains(@class,"product__details")]//*[contains(@class,"price__contain")]//*[contains(@class,"product__price")]/text()
   - name: manufacturer
     singleValue: true
   - name: soldBy
@@ -53,7 +59,7 @@ fields:
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
   - name: sponsored
-    singleValue: true
+    singleValue: false
     description: Is sponsored/paid
     type: BOOLEAN
-    selector: div.sponsored-text
+    xpath: //*[contains(@class,"card__product")]//*[contains(@class,"sponsored")]//span
