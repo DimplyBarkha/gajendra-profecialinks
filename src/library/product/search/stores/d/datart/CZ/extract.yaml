@@ -1,0 +1,123 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+# recordXPath: //*[@id="fulltext-products-list"]/div | //*[@id="products-list"]/div
+fields:
+  - name: price
+    singleValue: true
+    description: The offered price for the product
+    xpath: //div[starts-with(@class,'category-page-item')]//span[@class="actual"]/span[2]
+    #regExp: (\d+)?(\s*)(\d+)
+    #regExpReplace: $1$3
+
+  - name: paid
+    singleValue: true
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+
+  - name: brand
+    singleValue: true
+    description: The brand name
+    example: Panasonic
+    xpath: //div[starts-with(@class,'category-page-item')]/@data-brand
+
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
+    xpath: //*[@id="breadcrumbs"]/a[3] 
+  
+  - name: thumbnail
+    singleValue: true
+    description: The URL for the product thumbnail image
+    xpath: //div[starts-with(@class,'category-page-item')]//a[@class="item-thumbnail-link"]/img/@src
+
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[starts-with(@class,'category-page-item')]//h3/a/@title
+
+
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+  - name: productUrl
+    singleValue: false
+    description: The URL for the product details page
+    xpath: //div[starts-with(@class,'category-page-item')]//h3/a/@href | //div[starts-with(@class,'category-page-item')]//h3/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.datart.cz$1
+
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    xpath: //*[@id="fulltext-products-list"]/div/div/div[1]/div[2]/div[1]/div/div/span
+
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+    xpath: //*[@id="fulltext-products-list"]/div/div/div/div/div/div/a
+
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER    
+    #xpath: //div[starts-with(@class,'category-page-item')]/@data-position
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+    #xpath: //div[starts-with(@class,'category-page-item')]/@data-position
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN    
+
+    
+#  Should these be source specific formulas or in the extractor? 
+  - name: id
+    singleValue: true
+    description: Unique id (within this extractor)
+    xpath: //div[starts-with(@class,'category-page-item')]/@data-id 
+    
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //div[starts-with(@class,'category-page-item')]//h3/a/@title
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER 
+  - name: searchUrl
+    singleValue: true
+    xpath: //div[@id='added-searchurl']
+    #xpath: ancestor::html//div[@id='added-searchurl']  
+  - name: listPrice
+    singleValue: false
+    description: The stated undiscounted price for the product
+    xpath: //div[starts-with(@class,'category-page-item')]//span[@class="del"]/del
+    #regExp: (\d+)?(\s*)(\d+)
+    #regExpReplace: $1$3
+
