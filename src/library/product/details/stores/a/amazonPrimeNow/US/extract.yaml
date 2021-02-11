@@ -13,8 +13,7 @@ fields:
     regExp: (.*)(_SX.*_|_AC.*_|_SS.*_)(.*)
     regExpReplace: $1_SR500,500_$3
   - name: metaKeywords
-    xpath: //meta[contains(@name, "keywords")]/@content
-    xpath: //link[@rel='canonical']/@href
+    xpath: //meta[contains(@name, "keywords")]/@content | //link[@rel='canonical']/@href
   - name: category
     singleValue: false
     xpath: //div[contains(@id, 'breadcrumbs')]//ul/li[not(@class)]
@@ -178,7 +177,7 @@ fields:
     regExp: p\/([A-Z0-9]{9,})\/
     regExpReplace: $1
   - name: specifications
-    xpath: //table[contains(@id, "productDetails_techSpec")]/tbody/tr[text()]
+    xpath: //table[contains(@id, "productDetails")]/tbody/tr[text()]
   - name: primeFlag
     singleValue: false
     xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
