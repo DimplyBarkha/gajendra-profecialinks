@@ -1,0 +1,232 @@
+[
+  {
+    "mergeOptions": {
+      "transform": "(data, context) => {\n  // Default transform function\n  const clean = (text) =>\n    text\n      .toString()\n      .replace(/\\r\\n|\\r|\\n/g, ' ')\n      .replace(/&amp;nbsp;/g, ' ')\n      .replace(/&amp;#160/g, ' ')\n      .replace(/\\u00A0/g, ' ')\n      .replace(/\\s{2,}/g, ' ')\n      .replace(/\"\\s{1,}/g, '\"')\n      .replace(/\\s{1,}\"/g, '\"')\n      .replace(/^ +| +$|( )+/g, ' ')\n    // eslint-disable-next-line no-control-regex\n      .replace(/[\\x00-\\x1F]/g, '')\n      .replace(/[\\uD800-\\uDBFF][\\uDC00-\\uDFFF]/g, ' ');\n  data.forEach((obj) =>\n    obj.group.forEach((row) =>\n      Object.keys(row).forEach((header) =>\n        row[header].forEach((el) => {\n          el.text = clean(el.text);\n        }),\n      ),\n    ),\n  );\n\n  for (const { group } of data) {\n    for (const row of group) {\n      try {\n        console.log('CodeTrade');\n        console.log(row);\n      } catch (exception) {\n        console.log('Error in transform', exception);\n      }\n    }\n  }\n  return data;\n}"
+    },
+    "extractionConfig": "product/details/stores/j/joker/TR/extract",
+    "data": [
+      {
+        "group": [
+          {
+            "image": [
+              {
+                "text": "https://statics.joker.com.tr/images/catalog/510x538/68/111068/prima-mayo-bebek-bezi-5-6-beden-10-adet111068_859534011.jpg",
+                "xpath": "/html/body/main[1]/div[1]/div[8]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src"
+              }
+            ],
+            "availabilityText": [
+              {
+                "text": "Out of Stock"
+              }
+            ],
+            "technicalInformationPdfPresent": [
+              {
+                "text": "No"
+              }
+            ],
+            "termsAndConditions": [
+              {
+                "text": "No"
+              }
+            ],
+            "privacyPolicy": [
+              {
+                "text": "No"
+              }
+            ],
+            "customerServiceAvailability": [
+              {
+                "text": "No"
+              }
+            ],
+            "Image360Present": [
+              {
+                "text": "No"
+              }
+            ],
+            "imageZoomFeaturePresent": [
+              {
+                "text": "No"
+              }
+            ]
+          },
+          {
+            "image": [
+              {
+                "text": "https://statics.joker.com.tr/images/catalog/510x538/68/111068/prima-mayo-bebek-bezi-5-6-beden-10-adet111068_1488712878.jpg",
+                "xpath": "/html/body/main[1]/div[1]/div[8]/div[1]/div[2]/div[2]/div[1]/div[1]/div[5]/div[1]/a[1]/div[1]/img[1]/@src"
+              }
+            ],
+            "availabilityText": [
+              {
+                "text": "Out of Stock"
+              }
+            ],
+            "technicalInformationPdfPresent": [
+              {
+                "text": "No"
+              }
+            ],
+            "termsAndConditions": [
+              {
+                "text": "No"
+              }
+            ],
+            "privacyPolicy": [
+              {
+                "text": "No"
+              }
+            ],
+            "customerServiceAvailability": [
+              {
+                "text": "No"
+              }
+            ],
+            "Image360Present": [
+              {
+                "text": "No"
+              }
+            ],
+            "imageZoomFeaturePresent": [
+              {
+                "text": "No"
+              }
+            ]
+          },
+          {
+            "image": [
+              {
+                "text": "https://statics.joker.com.tr/images/catalog/510x538/68/111068/prima-mayo-bebek-bezi-5-6-beden-10-adet111068_859534011.jpg",
+                "xpath": "/html/body/main[1]/div[1]/div[8]/div[1]/div[2]/div[2]/div[1]/div[1]/div[6]/div[1]/a[1]/div[1]/img[1]/@src"
+              }
+            ],
+            "availabilityText": [
+              {
+                "text": "Out of Stock"
+              }
+            ],
+            "technicalInformationPdfPresent": [
+              {
+                "text": "No"
+              }
+            ],
+            "termsAndConditions": [
+              {
+                "text": "No"
+              }
+            ],
+            "privacyPolicy": [
+              {
+                "text": "No"
+              }
+            ],
+            "customerServiceAvailability": [
+              {
+                "text": "No"
+              }
+            ],
+            "Image360Present": [
+              {
+                "text": "No"
+              }
+            ],
+            "imageZoomFeaturePresent": [
+              {
+                "text": "No"
+              }
+            ]
+          },
+          {
+            "image": [
+              {
+                "text": "https://statics.joker.com.tr/images/catalog/510x538/68/111068/prima-mayo-bebek-bezi-5-6-beden-10-adet111068_1488712878.jpg",
+                "xpath": "/html/body/main[1]/div[1]/div[8]/div[1]/div[2]/div[2]/div[1]/div[1]/div[10]/div[1]/a[1]/div[1]/img[1]/@src"
+              }
+            ],
+            "availabilityText": [
+              {
+                "text": "Out of Stock"
+              }
+            ],
+            "technicalInformationPdfPresent": [
+              {
+                "text": "No"
+              }
+            ],
+            "termsAndConditions": [
+              {
+                "text": "No"
+              }
+            ],
+            "privacyPolicy": [
+              {
+                "text": "No"
+              }
+            ],
+            "customerServiceAvailability": [
+              {
+                "text": "No"
+              }
+            ],
+            "Image360Present": [
+              {
+                "text": "No"
+              }
+            ],
+            "imageZoomFeaturePresent": [
+              {
+                "text": "No"
+              }
+            ]
+          },
+          {
+            "image": [
+              {
+                "text": "https://statics.joker.com.tr/images/catalog/510x538/68/111068/prima-mayo-bebek-bezi-5-6-beden-10-adet111068_859534011.jpg",
+                "xpath": "/html/body/main[1]/div[1]/div[8]/div[1]/div[2]/div[2]/div[1]/div[1]/div[11]/div[1]/a[1]/div[1]/img[1]/@src"
+              }
+            ],
+            "availabilityText": [
+              {
+                "text": "Out of Stock"
+              }
+            ],
+            "technicalInformationPdfPresent": [
+              {
+                "text": "No"
+              }
+            ],
+            "termsAndConditions": [
+              {
+                "text": "No"
+              }
+            ],
+            "privacyPolicy": [
+              {
+                "text": "No"
+              }
+            ],
+            "customerServiceAvailability": [
+              {
+                "text": "No"
+              }
+            ],
+            "Image360Present": [
+              {
+                "text": "No"
+              }
+            ],
+            "imageZoomFeaturePresent": [
+              {
+                "text": "No"
+              }
+            ]
+          }
+        ],
+        "xpath": "/html/body/main[1]/div[1]/div[8]/div[1]/div[2]/div[2]/div[1]/div[1]"
+      }
+    ],
+    "url": "https://www.joker.com.tr/urun/prima-mayo-bebek-bezi-5-6-beden-10-adet-111068",
+    "timestamp": "2021-02-11T07:00:55.950Z"
+  }
+]
