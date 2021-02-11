@@ -6,7 +6,7 @@ module.exports = {
     store: 'cromwell',
     nextLinkSelector: 'li[class=""] a.linkNext',
     mutationSelector: null,
-    spinnerSelector: null,
+    spinnerSelector: 'div.ScreenLoadPending',
     loadedSelector: null,
     noResultsXPath: '//div[@class="NoResultsView_Body col-sm-9"]//h1 | //div[@class="ProductVariantScreen"]',
     openSearchDefinition: null,
