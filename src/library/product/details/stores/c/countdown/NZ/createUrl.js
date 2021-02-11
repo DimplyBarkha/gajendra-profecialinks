@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'countdown.co.nz',
     prefix: null,
-    url: null,
+    url: 'https://shop.countdown.co.nz/shop/productdetails?stockcode={id}',
     country: 'NZ',
     store: 'countdown',
     zipcode: "''",
