@@ -99,10 +99,10 @@ fields:
     singleValue: true
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class,'wc-richfeatures-layout-computer')]//h1[@class="wc-ppp-caption"] | //h2[@class="wc-first-header"] | //h2[contains(@class,'wc-rich-features-center-')] | //*[@id="getManufatureTextArray1"] | //div[@class="wc-rich-content-description"]//text()
+    xpath: //div[contains(@class,'wc-richfeatures-layout-computer')]//h1[@class="wc-ppp-caption"] | //h2[@class="wc-first-header"] | //h2[contains(@class,'wc-rich-features-center-')] | //*[@id="getManufatureTextArray1"]  |  //*[@id="getManufatureTextFromShadowArray12"]  | //div[@class="wc-rich-content-description"]//text()
   - name: manufacturerImages
     singleValue: true
-    xpath: //*[@id="getManufatureImageArray1"]
+    xpath:  //*[@id="getManufatureImageFromShadowArray11"] | //*[@id="getManufatureImageArray1"]
   - name: videos
     singleValue: true
     xpath: //div[@class="wc-media-wrap"]//img//@wcobj
