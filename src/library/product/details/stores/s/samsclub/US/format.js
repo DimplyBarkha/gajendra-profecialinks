@@ -86,8 +86,23 @@ const transform = (data) => {
             }
             if (row.variantId) {
                 row.variantId.forEach(item => {
+                    console.log("item.text",item.text);
                     if (item.text.includes('Item # ')) {
                     item.text = item.text.replace('Item # ','').trim();
+                    }
+                });
+            }
+            if (row.price) {
+                row.price.forEach(item => {
+                    if (item.text.includes('current price: ')) {
+                    item.text = item.text.replace('current price: ','').trim();
+                    }
+                });
+            }
+            if (row.sku) {
+                row.sku.forEach(item => {
+                    if (item.text.includes('Model # ')) {
+                    item.text = item.text.replace('Model # ','').trim();
                     }
                 });
             }

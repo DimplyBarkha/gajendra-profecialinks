@@ -30,7 +30,7 @@ fields:
     xpath: //span[@class="sc-channel-savings-list-price"]
   - name: price
     singleValue: true
-    xpath: //span[@class="Price-group"]
+    xpath: //div[@class='sc-pc-large-desktop-layout-content']//span[@class="Price-group"]//@title
   - name: availabilityText
     singleValue: true
     xpath: //meta[@itemprop='availability']//@content
@@ -56,10 +56,10 @@ fields:
     xpath: //meta[@itemprop='image']	//@content
     singleValue: true
   - name: sku
-    singleValue: true
-    xpath: //div[@id="sc-bv-summary-container"]/@data-bv-product-id
+    singleValue: false
+    xpath: (//span[@class="sc-product-header-item-number"])[2]
   - name: variantId
-    singleValue: true
+    singleValue: false
     xpath: //div[@class='sc-product-header-item-number']
   - name: mpc
     singleValue: true
