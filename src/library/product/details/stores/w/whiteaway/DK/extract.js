@@ -35,6 +35,25 @@ module.exports = {
     return result && result.trim ? result.trim() : result;
     };
     var backgroundURL = getAllXpath('//*[contains(text(),"Specifikationer")]/following-sibling::div//text()', 'nodeValue');
+    var brand=''
+    var currency=''
+    var value1 = getXpath('(//*[contains(text(),"dataLayer")])[1]//text()', 'nodeValue');
+    if (value1.includes('brand')){
+      brand=value1.split('brand":"')[1]
+      brand=brand.split('","')[0]
+    }
+    else{
+      brand=''
+    }
+    if (value1.includes('currency')){
+      currency=value1.split('currency":"')[1]
+      currency=currency.split('","')[0]
+    }
+    else{
+      currency=''
+    }
+    addElementToDocument('brand', brand);
+    addElementToDocument('currency', currency);
     var xyz = [];
     for(var i=0; i<backgroundURL.length ; i++){
       var y = backgroundURL[i].replace(/\s/g, '')

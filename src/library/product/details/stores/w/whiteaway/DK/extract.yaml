@@ -26,7 +26,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//div[@class="vip__heading"]/div/h1, //span[@class="vip__heading__secondary"])
+    xpath: concat(//div[@class="vip__heading"]/div/h1, ' ', //span[@class="vip__heading__secondary"])
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -59,8 +59,9 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //li[@class="breadcrumb-list__item"][5]/a/span
-    regExp: ^\S+\s+
+    # xpath: //li[@class="breadcrumb-list__item"][5]/a/span
+    # regExp: ^\S+\s+
+    xpath: //div[@id="brand"]
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -440,6 +441,7 @@ fields:
   - name: pricePerUnit
     singleValue: true
     description: Price of the product split into certain units
+    xpath: //div[@id="currency"]
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit
