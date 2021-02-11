@@ -92,6 +92,14 @@ async function implementation(
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+     
+      const videoIds = document.evaluate("//div[contains(@class,'flix-videocontainer')]//input/@value", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      for (let index = 0; index < videoIds.snapshotLength; index++) {
+        const element = videoIds.snapshotItem(index);
+        let videoId = element && element.textContent.replace(/(.*){"file":"\\\/\\\/(.+)(.mp4)"(.*)/g, 'https://$2$3').replace(/\\\//g,'/');
+        addHiddenDiv('videos', videoId);
+      }
+      
 
       addHiddenDiv('manufacturerDescription', enhancedContent.description);
       addHiddenDiv('manufacturerImages', enhancedContent.images.join(" | "));
