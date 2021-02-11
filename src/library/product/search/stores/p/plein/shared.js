@@ -27,8 +27,8 @@ const transform = (data, context) => {
           item.text = item.text.replace(/\s\n/g, '').trim();
         });
       }
-      if ((!row.id || !row.id.length) && row.id1) {
-        console.log('id1', row.id1);
+      if ((!row.id || row.id.length === 0) && row.id1) {
+        // console.log('id1', row.id1);
         row.id = row.id1;
         console.log('id', row.id);
       }

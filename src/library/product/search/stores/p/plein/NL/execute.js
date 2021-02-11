@@ -59,7 +59,7 @@ module.exports = {
     country: 'NL',
     store: 'plein',
     domain: 'plein.nl',
-    url: 'https://www.plein.nl/zoeken?search={searchTerms}&p=1',
+    url: 'https://www.plein.nl/zoeken?search={searchTerms}',
     loadedSelector: 'div[class*="product-view-container"]',
     noResultsXPath: '//div[contains(text(),"Probeer eens een merknaam of beschrijving van je product in te typen.")]',
     zipcode: "''",
