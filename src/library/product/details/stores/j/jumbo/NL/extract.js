@@ -47,33 +47,19 @@ module.exports = {
       await new Promise((resolve) => setTimeout(resolve, 3000));
     }
 
-    async function expandStoreElement () {
-      await context.evaluate(async () => {
-        const expandElement = document.querySelector('div.jum-store-list li:first-of-type a');
-        if (expandElement) {
-        // @ts-ignore
-          expandElement.click();
-        }
-      });
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-    }
-
-    async function selectStore () {
-      await context.evaluate(async () => {
-        const saveStoreButton = document.querySelector('div.jum-store-list li:first-of-type div.jum-store-expanded-info button[data-jum-action="savePreferredStore"]');
-        if (saveStoreButton) {
-        // @ts-ignore
-          saveStoreButton.click();
-        }
-      });
-      await context.goto(currentUrl);
-    }
     await goToStoreSelectPage();
     await searchForStores();
-    await expandStoreElement();
-    await selectStore();
+    const retailerName = await context.evaluate(async () => {
+      const retailerElement = document.querySelector('#jum-store-list > ul > li:nth-child(1) > h3');
+      return retailerElement ? retailerElement.textContent : '';
+    });
+    const drive = await context.evaluate(async () => {
+      const driveElement = document.evaluate('//div[@id="jum-store-list"]/ul/li[1]', document, null, XPathResult.STRING_TYPE, null).stringValue.match(/[a-zA-Z]+.\d+/);
+      return driveElement || '';
+    });
+    await context.goto(currentUrl);
 
-    await context.evaluate(async () => {
+    await context.evaluate(async (retailerName, drive) => {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -81,24 +67,6 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
         return newDiv;
-      }
-
-      function extractGeoData () {
-        const retailerInfo = document.querySelector('#jum-homestore-slot > div > div > div > span');
-        if (retailerInfo) {
-          const retailerId = retailerInfo.getAttribute('data-jum-homestore-sapid');
-          const retailerName = retailerInfo.textContent;
-          addHiddenDiv('retailerId', retailerId);
-          addHiddenDiv('retailerName', retailerName);
-        }
-
-        const addressExpandButton = document.querySelector('#jum_store_finder_button');
-        if (addressExpandButton) {
-        // @ts-ignore
-          addressExpandButton.click();
-          const drive = document.querySelector('div.dropdown-body > div > span:nth-child(3)');
-          addHiddenDiv('drive', drive);
-        }
       }
 
       // select each text node in description section and replace signs which are indicating that text is bullet point to double pipes
@@ -157,7 +125,6 @@ module.exports = {
         addHiddenDiv('magnesiumPerServing', magnesiumPerServing);
         addHiddenDiv('saltPerServing', saltPerServing);
       }
-      extractGeoData();
       extractNutritionInfo();
       changebulletPointsToDoublePipes('//div[@class="jum-summary-description"]/p/text()');
 
@@ -208,7 +175,9 @@ module.exports = {
       }
 
       addHiddenDiv('url', window.location.href);
-    });
+      addHiddenDiv('retailerName', retailerName);
+      addHiddenDiv('drive', drive);
+    }, retailerName, drive);
     const dataRef = await context.extract(productDetails, { transform });
     function reduceInfoToOneField (field, separator = ' ') {
       if (field && field.length > 1) {
