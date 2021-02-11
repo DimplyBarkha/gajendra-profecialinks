@@ -79,7 +79,7 @@ async function implementation(
     if( aggregate != null){
       if(aggregate.includes("/")){
         aggregate = aggregate.split("/")[0];
-        aggregate = aggregate.replace(",",".");
+        // aggregate = aggregate.replace(",",".");
         addElementToDocument('aggregate', aggregate);
       }
     }

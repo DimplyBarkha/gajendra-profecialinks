@@ -31,7 +31,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//h1[@class='productNameInfo ']|//h1[@class='productNameInfo productNameInfo--chanel']," ",//span[@class="size-box selected "]/text())
+    xpath: concat(//h1[@class='productNameInfo ']|//h1[@class='productNameInfo productNameInfo--chanel']," ",//span[@class="size-box selected "]/text() | //select[@class="variant-select form-control select-to-style select-hidden"]/following::div[1]/text())
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
@@ -83,7 +83,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //span[@class="product-code"]
+    xpath: //input[@name="code"]/@value
     regExp: \d+
   - name: variantId
     singleValue: false
