@@ -1,0 +1,16 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath:
+fields:
+  - name: paginationUrl
+    singleValue: false
+    description: desired url to pass in chain
+    # xpath: //text()
+  - name: resultsCount
+    singleValue: false
+    description: total number of results
+    xpath: //*[@id="quicklinks_link-3"]
+  - name: name
+    singleValue: false
+    xpath: //div[@class="content noselect"]/header
