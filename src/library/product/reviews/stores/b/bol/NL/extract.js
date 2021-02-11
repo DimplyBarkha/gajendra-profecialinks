@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow */
-const { transform } = require('../../../../shared');
+const { transform } = require('../shared');
 
 module.exports = {
   implements: 'product/reviews/extract',
@@ -63,6 +63,13 @@ module.exports = {
       await context.click('button[class="js-confirm-button"]');
     } catch (err) {
       console.log('Cookies popup not present.');
+    }
+
+    try {
+      await context.waitForSelector('*[id="modalWindow"]', { timeout: 20000 });
+      await context.click('button[data-test="modal-window-close"]');
+    } catch (err) {
+      console.log('Modal not present.');
     }
 
     // Selecting the most recent reviews
@@ -149,11 +156,23 @@ module.exports = {
         }
       };
 
+      /**
+       * Function returning a string representation of a date object in the US date format.
+       * @param {object} date review date object
+       */
+      const formatDate = (date) => {
+        const year = date.getFullYear();
+        const month = (1 + date.getMonth()).toString().padStart(2, '0');
+        const day = date.getDate().toString().padStart(2, '0');
+
+        return month + '/' + day + '/' + year;
+      };
+
       const brand = document.querySelector('a[data-analytics-tag="brand"]')
-        ? document.querySelector('a[data-analytics-tag="brand"]').innerText
+        ? document.querySelector('a[data-analytics-tag="brand"]').textContent
         : '';
       const name = document.querySelector('h1.page-heading > span')
-        ? document.querySelector('h1.page-heading > span').innerText
+        ? document.querySelector('h1.page-heading > span').textContent
         : '';
       const sku = document.evaluate(
         '(//div[@class="buy-block"]//a/@data-product-id | //div[@class="buy-block"]//div/@data-global-id)[1]',
@@ -179,8 +198,8 @@ module.exports = {
         const dateStr = review.querySelector('li[data-test="review-author-date"]')
           ? review.querySelector('li[data-test="review-author-date"]').textContent
           : '';
-        const reviewDate = getDate(dateStr);
-        if (reviewDate) review.setAttribute('review_date', reviewDate.toLocaleDateString());
+        const reviewDate = formatDate(getDate(dateStr));
+        if (reviewDate) review.setAttribute('review_date', reviewDate);
 
         const ratingValue = review.querySelector('input[data-test="review-rating-value"]')
           ? review.querySelector('input[data-test="review-rating-value"]').getAttribute('value')
@@ -190,7 +209,7 @@ module.exports = {
       }
     });
 
-    return await context.extract(productReviews);
-    // return await context.extract(productReviews, { transform });
+    // return await context.extract(productReviews);
+    return await context.extract(productReviews, { transform });
   },
 };

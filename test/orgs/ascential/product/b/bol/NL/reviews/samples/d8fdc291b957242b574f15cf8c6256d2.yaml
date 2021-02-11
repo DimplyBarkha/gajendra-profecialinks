@@ -1,0 +1,657 @@
+input:
+  _url: http://bol.com
+  URL: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=0c19b513-9fc6-4031-8b0a-572b3cd12c60/task=739b2c0c-1fcd-4f44-aa82-87ed59c85b8a/22762523-24a6-429d-938a-a785e3164c84.html
+    extractionConfigId: product/reviews/stores/b/bol/NL/extract
+    data:
+      - group:
+          - reviewText:
+              - text: Maar had eigenlijk de automatische variant moeten nemen. Nu moet je het
+                  zelf uitzoeken
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[1]/div[4]/p[2]
+            reviewTitle:
+              - text: Mooi en compact
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[1]/div[1]/strong[1]
+            reviewedSku:
+              - text: "9300000004962240"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[1]/div[4]/p[1]/a[1]/@href
+            user:
+              - text: Aqualiene
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[1]/div[2]/ul[1]/li[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/@added_brand
+            name:
+              - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
+                xpath: /html/body/@added_name
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-02-09T00:00:00.000+00:00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[1]/@review_date
+                type: DATETIME
+                raw: 02/09/2021
+                locale: nl_NL
+                tz: Europe/Amsterdam
+            reviewRating:
+              - text: "3"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[1]/@added_rating
+                type: NUMBER
+                raw: "3"
+                locale: nl_NL
+                value: 3
+            productUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+                xpath: /html/body/@product_url
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/@rating
+            syndicatedFrom:
+              - text: https://www.bol.com/nl/
+          - reviewText:
+              - text: Klein koffiemachine. Leuk.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[2]/div[4]/p[2]
+            reviewTitle:
+              - text: Tevreden
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[2]/div[1]/strong[1]
+            user:
+              - text: Agtt
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[2]/div[2]/ul[1]/li[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/@added_brand
+            name:
+              - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
+                xpath: /html/body/@added_name
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-02-08T00:00:00.000+00:00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[2]/@review_date
+                type: DATETIME
+                raw: 02/08/2021
+                locale: nl_NL
+                tz: Europe/Amsterdam
+            reviewRating:
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[2]/@added_rating
+                type: NUMBER
+                raw: "4"
+                locale: nl_NL
+                value: 4
+            productUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+                xpath: /html/body/@product_url
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/@rating
+            syndicatedFrom:
+              - text: https://www.bol.com/nl/
+          - reviewText:
+              - text: |-
+                  Gekocht voor op mijn slaapkamer. :) 
+                  Koffie is echt veel lekkerder dan filterkoffie
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[3]/div[4]/p[2]
+            reviewTitle:
+              - text: Compact en top kwaliteit
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[3]/div[1]/strong[1]
+            reviewedSku:
+              - text: "9300000004962240"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[3]/div[4]/p[1]/a[1]/@href
+            user:
+              - text: Adriaann
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[3]/div[2]/ul[1]/li[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/@added_brand
+            name:
+              - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
+                xpath: /html/body/@added_name
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-02-04T00:00:00.000+00:00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[3]/@review_date
+                type: DATETIME
+                raw: 02/04/2021
+                locale: nl_NL
+                tz: Europe/Amsterdam
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[3]/@added_rating
+                type: NUMBER
+                raw: "5"
+                locale: nl_NL
+                value: 5
+            productUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+                xpath: /html/body/@product_url
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/@rating
+            syndicatedFrom:
+              - text: https://www.bol.com/nl/
+          - reviewText:
+              - text: "Ik ben nog nooit zo enthousiast geweest over een koffiemaker. Hij is mooi
+                  en piepklein. Past dus altijd. Gaat automatisch aan als je de
+                  cuphouder eruit haalt. En gaat na 5 min ook weer uit. De
+                  koffie is super snel klaar. Temperatuur 79/80 graden. En wat
+                  een diversiteit in Dolce Gusto Cups; koffie, thee en
+                  chocomelk. Bij ons rammelt de Piccolo totaal niet en maakt
+                  weinig geluid. En dat je er even bij moet blijven omdat je
+                  handmatig het water moet uitzetten, vind ik juist een
+                  voordeel. Je maakt zelf uit hoe sterk jij je koffie wilt
+                  hebben. Ik had de Piccolo veel eerder moeten kopen! En: het
+                  rode snoer is een statement. :)"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[4]/p[2]
+            reviewTitle:
+              - text: GEWELDIG!
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[1]/strong[1]
+            user:
+              - text: TanteEppie
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[4]/div[2]/ul[1]/li[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/@added_brand
+            name:
+              - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
+                xpath: /html/body/@added_name
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-02-04T00:00:00.000+00:00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[4]/@review_date
+                type: DATETIME
+                raw: 02/04/2021
+                locale: nl_NL
+                tz: Europe/Amsterdam
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[4]/@added_rating
+                type: NUMBER
+                raw: "5"
+                locale: nl_NL
+                value: 5
+            productUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+                xpath: /html/body/@product_url
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/@rating
+            syndicatedFrom:
+              - text: https://www.bol.com/nl/
+          - reviewText:
+              - text: Werkt perfect
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[5]/div[4]/p[2]
+            reviewTitle:
+              - text: Echt een aanrader
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[5]/div[1]/strong[1]
+            reviewedSku:
+              - text: "9300000004962240"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[5]/div[4]/p[1]/a[1]/@href
+            user:
+              - text: Lounan
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[5]/div[2]/ul[1]/li[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/@added_brand
+            name:
+              - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
+                xpath: /html/body/@added_name
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-01-26T00:00:00.000+00:00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[5]/@review_date
+                type: DATETIME
+                raw: 01/26/2021
+                locale: nl_NL
+                tz: Europe/Amsterdam
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[5]/@added_rating
+                type: NUMBER
+                raw: "5"
+                locale: nl_NL
+                value: 5
+            productUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+                xpath: /html/body/@product_url
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/@rating
+            syndicatedFrom:
+              - text: https://www.bol.com/nl/
+          - reviewText:
+              - text: Lekker en makkelijk
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[6]/div[4]/p[2]
+            reviewTitle:
+              - text: Ja inderdaad fantastisch je hebt zo koffie
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[6]/div[1]/strong[1]
+            user:
+              - text: "28150"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[6]/div[2]/ul[1]/li[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/@added_brand
+            name:
+              - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
+                xpath: /html/body/@added_name
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-01-26T00:00:00.000+00:00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[6]/@review_date
+                type: DATETIME
+                raw: 01/26/2021
+                locale: nl_NL
+                tz: Europe/Amsterdam
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[6]/@added_rating
+                type: NUMBER
+                raw: "5"
+                locale: nl_NL
+                value: 5
+            productUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+                xpath: /html/body/@product_url
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/@rating
+            syndicatedFrom:
+              - text: https://www.bol.com/nl/
+          - reviewText:
+              - text: compact, ideaal voor op kot van mijn zoon
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[7]/div[4]/p[2]
+            reviewTitle:
+              - text: Compact
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[7]/div[1]/strong[1]
+            reviewedSku:
+              - text: "9300000004962240"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[7]/div[4]/p[1]/a[1]/@href
+            user:
+              - text: Mie21
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[7]/div[2]/ul[1]/li[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/@added_brand
+            name:
+              - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
+                xpath: /html/body/@added_name
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-01-19T00:00:00.000+00:00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[7]/@review_date
+                type: DATETIME
+                raw: 01/19/2021
+                locale: nl_NL
+                tz: Europe/Amsterdam
+            reviewRating:
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[7]/@added_rating
+                type: NUMBER
+                raw: "4"
+                locale: nl_NL
+                value: 4
+            productUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+                xpath: /html/body/@product_url
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/@rating
+            syndicatedFrom:
+              - text: https://www.bol.com/nl/
+          - reviewText:
+              - text: Mijn dochter is heel content met haar cadeau
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[8]/div[4]/p[2]
+            reviewTitle:
+              - text: Fantastisch
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[8]/div[1]/strong[1]
+            user:
+              - text: Omie2
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[8]/div[2]/ul[1]/li[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/@added_brand
+            name:
+              - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
+                xpath: /html/body/@added_name
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-01-19T00:00:00.000+00:00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[8]/@review_date
+                type: DATETIME
+                raw: 01/19/2021
+                locale: nl_NL
+                tz: Europe/Amsterdam
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[8]/@added_rating
+                type: NUMBER
+                raw: "5"
+                locale: nl_NL
+                value: 5
+            productUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+                xpath: /html/body/@product_url
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/@rating
+            syndicatedFrom:
+              - text: https://www.bol.com/nl/
+          - reviewText:
+              - text: Handig compact apparaat en je kunt er veel verschillende koffies mee
+                  maken.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[9]/div[4]/p[2]
+            reviewTitle:
+              - text: Top apparaat
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[9]/div[1]/strong[1]
+            reviewedSku:
+              - text: "9300000004962240"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[9]/div[4]/p[1]/a[1]/@href
+            user:
+              - text: Melly33
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[9]/div[2]/ul[1]/li[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/@added_brand
+            name:
+              - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
+                xpath: /html/body/@added_name
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-01-19T00:00:00.000+00:00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[9]/@review_date
+                type: DATETIME
+                raw: 01/19/2021
+                locale: nl_NL
+                tz: Europe/Amsterdam
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[9]/@added_rating
+                type: NUMBER
+                raw: "5"
+                locale: nl_NL
+                value: 5
+            productUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+                xpath: /html/body/@product_url
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/@rating
+            syndicatedFrom:
+              - text: https://www.bol.com/nl/
+          - reviewText:
+              - text: Slecht. Het artikel stopt plotseling, loopt nauwelijks door en er zit geen
+                  stop op.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[10]/div[4]/p[2]
+            reviewTitle:
+              - text: Loopt langzaam zonder te stoppen door
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[10]/div[1]/strong[1]
+            user:
+              - text: Koffiedrinkermetliefde8
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[10]/div[2]/ul[1]/li[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/@added_brand
+            name:
+              - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
+                xpath: /html/body/@added_name
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-01-16T00:00:00.000+00:00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[10]/@review_date
+                type: DATETIME
+                raw: 01/16/2021
+                locale: nl_NL
+                tz: Europe/Amsterdam
+            reviewRating:
+              - text: "1"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[10]/@added_rating
+                type: NUMBER
+                raw: "1"
+                locale: nl_NL
+                value: 1
+            productUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+                xpath: /html/body/@product_url
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/@rating
+            syndicatedFrom:
+              - text: https://www.bol.com/nl/
+          - reviewText:
+              - text: Écht een aanrader als je van een lekker verwen bakje houdt! Koffie is
+                  super snel klaar en er is een ruim aanbod aan koffie cups
+                  smaken. Ik ben heel blij met mijn aankoop en raad het iedereen
+                  aan. Vooral voor zij die thuiswerken. Be your own barista ;)
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[11]/div[4]/p[2]
+            reviewTitle:
+              - text: "Voor alle thuiswerkers: Barista at home! Écht een aanrader!"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[11]/div[1]/strong[1]
+            reviewedSku:
+              - text: "9300000004962240"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[11]/div[4]/p[1]/a[1]/@href
+            user:
+              - text: Megjane10
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[11]/div[2]/ul[1]/li[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/@added_brand
+            name:
+              - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
+                xpath: /html/body/@added_name
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-01-12T00:00:00.000+00:00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[11]/@review_date
+                type: DATETIME
+                raw: 01/12/2021
+                locale: nl_NL
+                tz: Europe/Amsterdam
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[11]/@added_rating
+                type: NUMBER
+                raw: "5"
+                locale: nl_NL
+                value: 5
+            productUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+                xpath: /html/body/@product_url
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/@rating
+            syndicatedFrom:
+              - text: https://www.bol.com/nl/
+          - reviewText:
+              - text: Heel onderhoudsvriendelijk en makkelijk te gebruiken
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[12]/div[4]/p[2]
+            reviewTitle:
+              - text: Heel goed
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[12]/div[1]/strong[1]
+            user:
+              - text: FannyH1984
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[12]/div[2]/ul[1]/li[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/@added_brand
+            name:
+              - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
+                xpath: /html/body/@added_name
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-01-12T00:00:00.000+00:00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[12]/@review_date
+                type: DATETIME
+                raw: 01/12/2021
+                locale: nl_NL
+                tz: Europe/Amsterdam
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[12]/@added_rating
+                type: NUMBER
+                raw: "5"
+                locale: nl_NL
+                value: 5
+            productUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+                xpath: /html/body/@product_url
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/@rating
+            syndicatedFrom:
+              - text: https://www.bol.com/nl/
+          - reviewText:
+              - text: Compact, design en hij maakt veel minder geluid dan mijn vorige model
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[13]/div[4]/p[2]
+            reviewTitle:
+              - text: Zeer goed
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[13]/div[1]/strong[1]
+            reviewedSku:
+              - text: "9300000004962240"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[13]/div[4]/p[1]/a[1]/@href
+            user:
+              - text: Koffieteutje
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[13]/div[2]/ul[1]/li[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/@added_brand
+            name:
+              - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
+                xpath: /html/body/@added_name
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-01-06T00:00:00.000+00:00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[13]/@review_date
+                type: DATETIME
+                raw: 01/06/2021
+                locale: nl_NL
+                tz: Europe/Amsterdam
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[13]/@added_rating
+                type: NUMBER
+                raw: "5"
+                locale: nl_NL
+                value: 5
+            productUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+                xpath: /html/body/@product_url
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/@rating
+            syndicatedFrom:
+              - text: https://www.bol.com/nl/
+          - reviewText:
+              - text: >-
+                  Werkt over het algemeen goed,makkelijk lekkere koffie. 
+
+                  Wanneer je koffie cups van andere merken gebruikt gaat er echter af en toe wat mis en loopt het water niet goed door de cup.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[14]/div[4]/p[2]
+            reviewTitle:
+              - text: Goed apparaat
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[14]/div[1]/strong[1]
+            user:
+              - text: Kellie1007
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[14]/div[2]/ul[1]/li[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/@added_brand
+            name:
+              - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
+                xpath: /html/body/@added_name
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-01-05T00:00:00.000+00:00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[14]/@review_date
+                type: DATETIME
+                raw: 01/05/2021
+                locale: nl_NL
+                tz: Europe/Amsterdam
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[14]/@added_rating
+                type: NUMBER
+                raw: "5"
+                locale: nl_NL
+                value: 5
+            productUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+                xpath: /html/body/@product_url
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/@rating
+            syndicatedFrom:
+              - text: https://www.bol.com/nl/
+          - reviewText:
+              - text: Het enige nadeel is dat je zelf de koffie moet stopzetten, maar er nergens
+                  duidelijk te vinden is over elke soort koffie hoe lang je het
+                  moet laten doorlopen.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[15]/div[4]/p[2]
+            reviewTitle:
+              - text: ‘Een klein nadeel’
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[15]/div[1]/strong[1]
+            reviewedSku:
+              - text: "9300000004962240"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[15]/div[4]/p[1]/a[1]/@href
+            user:
+              - text: SOPHIE0000000
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[15]/div[2]/ul[1]/li[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/@added_brand
+            name:
+              - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
+                xpath: /html/body/@added_name
+            sku:
+              - text: "9200000119890739"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-01-05T00:00:00.000+00:00
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[15]/@review_date
+                type: DATETIME
+                raw: 01/05/2021
+                locale: nl_NL
+                tz: Europe/Amsterdam
+            reviewRating:
+              - text: "4"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/ul[1]/li[15]/@added_rating
+                type: NUMBER
+                raw: "4"
+                locale: nl_NL
+                value: 4
+            productUrl:
+              - text: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
+                xpath: /html/body/@product_url
+            aggregateRating:
+              - text: 4,1
+                xpath: /html/body/@rating
+            syndicatedFrom:
+              - text: https://www.bol.com/nl/
+        xpath: /html
+    timestamp: 1613055000483
