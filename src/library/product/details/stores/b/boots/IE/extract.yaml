@@ -363,7 +363,7 @@ fields:
     description: The country from which the product originates
   - name: allergyAdvice
     # xpath: ancestor::html//text()[contains(.,"Allergy advice")] | //text()[contains(.,"Allergy advice")]/following-sibling::span[not(following-sibling::br[position()=1][not(following-sibling::span)])]
-    xpath: //div[*/*[.='Allergy advice:']/text()] #mal
+    xpath: //*[@class='product_long_description_subsection' and contains(.,"Allergy advice:")]/text() | //*[@id='product_long_description' and contains(.,"Allergy advice:")]/text()
     description: Allergy information associated with the product
   - name: recyclingInformation
     description: Recycling information associated with the product
