@@ -8,6 +8,11 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  const mainUrl = await context.evaluate(function () {
+    return window.location.href;
+  })
+
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   const policyAcceptPopup = await context.evaluate(function () {
     return !!document.evaluate('//div[contains(@class, "cmsCookieNotification__button--accept")]', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -53,6 +58,11 @@ async function implementation(
         await context.click('div#fullscreenActiveImagecontainer img:nth-child(3)');
       }
       if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
+      if (variantLength - 1 != j) {
+        await context.goto(mainUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+        await context.waitForNavigation();
+        await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+      }
     }
   }
   return await context.extract(productDetails, { transform });
