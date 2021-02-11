@@ -126,17 +126,17 @@ module.exports = {
             if (iframeWindow.document.querySelector('body') && !(iframeWindow.document.querySelector('body').innerText.includes('Play Video'))) {
               arrManuf.push(iframeWindow.document.querySelector('body').innerText.replace(/(\s*\n\s*)+/g, ' ').replace(/\n/g, ' '));
             }
-            
+
             if (iframeWindow.document.querySelectorAll('video').length) {
               [...iframeWindow.document.querySelectorAll('video')].forEach(video => {
                 arrManufVideos.push(video.src);
               });
             }
-            
+
             if (iframeWindow.document.querySelectorAll('img').length) {
               [...iframeWindow.document.querySelectorAll('img')].forEach(img => {
                 const imgSrc = img.src.replace(/(?<=.jpeg).*|(?<=.jpg).*/g, '');
-                if (arrManufImg.indexOf(imgSrc)  === -1) {
+                if (arrManufImg.indexOf(imgSrc) === -1) {
                   arrManufImg.push(imgSrc);
                 }
               });
@@ -144,12 +144,12 @@ module.exports = {
           }
         });
         moreManufContent = Array.from(new Set(arrManuf)).join(' | ');
-        console.log('moreManufContent kljkjlkl')
-        console.log(moreManufContent)
+        console.log('moreManufContent kljkjlkl');
+        console.log(moreManufContent);
         moreManufContent = moreManufContent.trim();
         if (moreManufContent.endsWith('|')) {
-          console.log('moreManufContent fdfd')
-          console.log(moreManufContent)
+          console.log('moreManufContent fdfd');
+          console.log(moreManufContent);
           moreManufContent = moreManufContent.slice(0, -1);
         }
         manufImg = Array.from(new Set(arrManufImg)).join(' | ');
@@ -311,17 +311,25 @@ module.exports = {
             if (tvPlayerVid) {
               addHiddenDiv('ii_manufVid', tvPlayerVid.getAttribute('src'));
             }
-          })
+          });
         }
       });
     } catch (err) { }
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    const variantsButtonChange = await context.evaluate(async function () {
+    let variantsButtonChange = await context.evaluate(async function () {
       return document.querySelectorAll('div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"] button').length;
     });
-    console.log('variantsButtonChange fddf')
+    const variantsSizeChange = await context.evaluate(async function () {
+      return document.querySelectorAll('div[itemtype="http://schema.org/Product"] div[name*="sizeSelect"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"] button').length;
+    });
+    const variantsButtonSizeChange = await context.evaluate(async function () {
+      return document.querySelectorAll('div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"] button, div[itemtype="http://schema.org/Product"] div[name*="sizeSelect"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"] button').length;
+    });
+    console.log('variantsButtonChange fddf');
     console.log(variantsButtonChange);
+
+    variantsButtonChange = variantsButtonChange >= 10 ? 10 : variantsButtonChange;
 
     try {
       // await context.waitForXPath('//a[contains(@class,"ProductMediaCarouselStyle")]');
@@ -329,11 +337,68 @@ module.exports = {
       console.log('everything fine !!!');
     } catch (err) { }
 
-    if (variantsButtonChange !== 0) {
+    if (variantsSizeChange !== 0) {
       for (let i = 1; i <= variantsButtonChange; i++) {
         await context.evaluate(() => {
           if (document.querySelector('div[role="dialog"] button[title="close"]')) {
             document.querySelector('div[role="dialog"] button[title="close"]').click();
+          }
+        });
+        await context.click(`div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"]:nth-child(${i}) button`);
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+        const sizeOptions = await context.evaluate(() => {
+          return document.querySelectorAll('div[itemtype="http://schema.org/Product"] div[name*="sizeSelect"] div.rclCustomSelectListWrapper ul[aria-label="options"] li button:not([disabled])').length;
+        });
+        for (let j = 0; j <= sizeOptions; j++) {
+          await context.evaluate(() => {
+            if (document.querySelector('div[role="dialog"] button[title="close"]')) {
+              document.querySelector('div[role="dialog"] button[title="close"]').click();
+            }
+          });
+          await context.click('button.rclCustomSelectBtn');
+          // await context.click(`div[itemtype="http://schema.org/Product"] div[name*="sizeSelect"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"]:nth-child(${j}) button:not([disabled])`);
+
+          await context.evaluate(async function (j) {
+            if (document.querySelectorAll('div[itemtype="http://schema.org/Product"] div[name*="sizeSelect"] div.rclCustomSelectListWrapper ul[aria-label="options"] li button:not([disabled])')[j]) {
+              document.querySelectorAll('div[itemtype="http://schema.org/Product"] div[name*="sizeSelect"] div.rclCustomSelectListWrapper ul[aria-label="options"] li button:not([disabled])')[j].click();
+            }
+          }, j);
+          await new Promise((resolve) => setTimeout(resolve, 5000));
+
+          try {
+            // await context.waitForXPath('//a[contains(@class,"ProductMediaCarouselStyle")]');
+            await context.waitForSelector('a[class^="ProductMediaCarouselStyle"] span, div[class^="ProductMediaCarouselStyle"] a', { timeout: 35000 });
+            console.log('everything fine !!!');
+            await context.evaluate(() => {
+              const firstItem = document.querySelector('a[class^="ProductMediaCarouselStyle"] span, div[class^="ProductMediaCarouselStyle"] a');
+              firstItem.click();
+            });
+          } catch (err) { }
+          await context.extract(productDetails, { transform });
+        }
+
+        const linkURL = await context.evaluate(function () {
+          const element = document.querySelector('meta[property="og:url"]');
+          if (element) {
+            return element.content;
+          } else {
+            return null;
+          }
+        });
+        console.log(linkURL);
+        if (linkURL) {
+          await context.goto(linkURL);
+        }
+      }
+    } else if (variantsButtonChange !== 0) {
+      for (let i = 1; i <= variantsButtonChange; i++) {
+        await context.evaluate(() => {
+          if (document.querySelector('div[role="dialog"] button[title="close"]')) {
+            document.querySelector('div[role="dialog"] button[title="close"]').click();
+            if (document.querySelector('div#sizeSelect')) {
+              document.querySelector('button.rclCustomSelectBtn').click();
+              document.querySelector('ul.rclCustomSelectList li[aria-selected="true"]');
+            }
           }
         });
         await context.click(`div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"]:nth-child(${i}) button`);

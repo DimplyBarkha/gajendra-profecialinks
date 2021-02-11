@@ -56,7 +56,7 @@ fields:
     xpath: //div[@id='specs']//div[contains(@class,'cell Specs_') and contains(text(),'Weight')]/parent::div[contains(@class,'grid-x Specs_')]/div[2]
   - name: color
     singleValue: false
-    xpath: //div[@id='specs']//div[contains(@class,'cell Specs_') and contains(text(),'Color')]/parent::div[contains(@class,'grid-x Specs_')]/div[2]
+    xpath: //div[@id='specs']//div[contains(@class,'cell Specs_') and contains(text(),'Color')]/parent::div[contains(@class,'grid-x Specs_')]/div[2]|//div[contains(@class, "rclCustomSelectListWrapper")]//li[contains(@class, "selected")]//button/@title
   - name: sku
     singleValue: false
     xpath: //span[@itemprop='sku']/@content
@@ -101,7 +101,9 @@ fields:
     xpath: //div[@id='features']//dl[@class='Features_5pYcls grid-x']//dt[text()='Warranty']/parent::div/dd
   - name: variantInformation
     singleValue: false
-    xpath: //ul[contains(@class,'rclCustomTiles CustomSelect-inline_')]//li[contains(@class,'tilesItem')]//button/@value
+    xpath: concat(//div[@id='specs']//div[contains(@class,'cell Specs_') and contains(text(),'Color')]/parent::div[contains(@class,'grid-x Specs_')]/div[2]|//div[contains(@class, "rclCustomSelectListWrapper")]//li[contains(@class, "selected")]//button/@title, ' ', //div[contains(@class, "rclCustomSelectWrapper")]//button[contains(@id, "sizeSelect")]//span)
+
+    # xpath: //ul[contains(@class,'rclCustomTiles CustomSelect-inline_')]//li[contains(@class,'tilesItem')]//button/@value
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id='wc-aplus']//img/@src[not(contains(., "enlarge"))]|//div[@id="ii_manufImg"]

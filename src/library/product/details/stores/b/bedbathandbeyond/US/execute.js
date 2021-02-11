@@ -44,7 +44,7 @@ module.exports = {
     store: 'bedbathandbeyond',
     domain: 'bedbathandbeyond.com',
     loadedSelector: "div[class^='ProductDetailsLayout'] h1",
-    noResultsXPath: "//h1//span[text()='Results Not Found']|//main[@role='main']//div[@class='cmsContent']",
+    noResultsXPath: "//h1//span[text()='Results Not Found']|//main[@role='main']//div[@class='cmsContent']|//img[contains(@alt, 'Beyond Plus')]",
     zipcode: '',
   },
   implementation,
