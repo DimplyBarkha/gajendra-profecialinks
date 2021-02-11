@@ -15,9 +15,11 @@ const implementation = async (inputs, parameters, context, dependencies) => {
           break;
         }
         buttonShowMore = document.querySelector('.ais-infinite-hits--showmore').children[0];
+        // @ts-ignore
         buttonShowMore.click();
         await stall(500);
         counter++;
+        // @ts-ignore
       } while (buttonShowMore.disabled === false);
     }
 
@@ -31,33 +33,38 @@ const implementation = async (inputs, parameters, context, dependencies) => {
   });
 
   await context.evaluate(async function () {
+    function addDiv (className, content, productDiv) {
+      const newDiv = document.createElement('div');
+      // @ts-ignore
+      newDiv.classList.add(className);
+      newDiv.innerHTML = content;
+      // @ts-ignore
+      productDiv.appendChild(newDiv);
+    }
+
     const allProducts = document.querySelectorAll('div.product-container');
     allProducts.forEach((product) => {
-      const div = document.createElement('div');
-      div.classList.add('aggregateRating');
       let rating;
       const aggregateRating = product.querySelector('div.ratings > div.rating-box');
-
-        if(aggregateRating.children.length > 0){
+      if (aggregateRating.children.length > 0) {
         const ratingChild = aggregateRating.children[0];
-        //@ts-ignore
+        // @ts-ignore
         const width = ratingChild.style.width;
-        //@ts-ignore
+        // @ts-ignore
         const numberFromWidth = width.match(/\d+/);
-        const ratingWithPoint = numberFromWidth / 20 ;
+        const ratingWithPoint = numberFromWidth / 20;
         const ratingAsString = ratingWithPoint.toString();
-          rating = ratingAsString.replace('.', ',');
-        }
-        else{
-          rating = '';
-        }
-        div.innerHTML = rating;
-        product.appendChild(div);
-    
+        rating = ratingAsString.replace('.', ',');
+      } else {
+        rating = '';
+      }
+      addDiv('aggregateRating', rating, product);
+
+      const ratingCountNum = product.querySelector('div.ratings > span').innerHTML;
+      const ratingCount = ratingCountNum.match(/\d+/);
+      addDiv('ratingCount', ratingCount, product);
     });
   });
-
-
   const addSearchUrl = async function (context) {
     await context.evaluate(async () => {
       const productList = document.querySelectorAll('.products-list div[class="products small-product"]');

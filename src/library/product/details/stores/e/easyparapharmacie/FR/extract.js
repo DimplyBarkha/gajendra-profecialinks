@@ -111,7 +111,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
         elementsIds.forEach((elemId) => {
           const element = document.querySelector(`div#${elemId}`);
-          if(element) {
+          if (element) {
             element.parentNode.removeChild(element);
           }
         });
