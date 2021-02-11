@@ -1,9 +1,17 @@
 robot: product/search
 parameters:
-  country: NL
-  domain: kruidvat.nl
-  store: kruidvat
-  zipcode: ""
+country: NL
+domain: kruidvat.nl
+store: kruidvat
+# zipcode: "45209"
+proxy:
+zone: NLD
+type: DATA_CENTRE
+numberRetries: 3
+priority: MEDIUM
+retryDelay: 120
+backoffPolicy: EXPONENTIAL
+retryWithResidentialProxyAfter: 3
 meta:
   branches:
     devkruidvat:
