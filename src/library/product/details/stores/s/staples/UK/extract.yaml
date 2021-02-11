@@ -12,13 +12,14 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: //div[@id="skuZoomImage"]//@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
     xpath: //div[@class="carouselWrap"]//ul[@class="carouselInner"]//@src
     # //div[@class="carouselWrap"]//ul//li[@class="itemThumb"]//@src
-    regExp: (.+)
-    regExpReplace: https:$1
+    # regExp: (.+)
+    # regExpReplace: https:$1
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -32,8 +33,9 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //div[@class="skuProductNames"]//h1//text()
   - name: listPrice
-    singleValue: true
+    singleValue: false
     description: The stated undiscounted price for the product
+    xpath: //div[@id="SkuSaveStory"]/div[@class="savingStory"]/div[@class="clear"]/span[2]
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
@@ -76,10 +78,14 @@ fields:
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
-    xpath: //table[@class="table specficsWrapper"]//tbody//tr//td//span[contains(text(),'Weight')]//following-sibling::text()
-    regexp: /(:)(\s)?(.+)/gm
-    #regexp: (:\h*)
-    regExpReplace: $3
+    # xpath: //table[@class="table specficsWrapper"]//tbody//tr//td//span[contains(text(),'Weight')]//following-sibling::text()
+    xpath: //div[@id='added_weightNet']
+    # regexp: /(:)(\s)?(.+)/gm
+    # regexp: (:\h*)
+    # regExpReplace: $3
+    # regExp: (^0-9a-zA-Z)
+    # regExpReplace: (^[^:]+\s*)
+    # regExpReplace: /[!@#$%^&:*-]/g
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -106,6 +112,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
+    xpath: //div[@id="mpc_added"]
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -147,7 +154,10 @@ fields:
   - name: color
     singleValue: false
     description: A textual description of the colour
-    xpath: //table[@class="table specficsWrapper"]//tbody//tr//td//span[contains(text(),'Colour')]//following-sibling::text()
+    xpath: //div[@id='added_color']
+    # xpath: //table[@class="table specficsWrapper"]//tbody//tr//td//span[contains(text(),'Colour')]//following-sibling::text()
+    # regExp: (^0-9a-zA-Z)
+    # regExpReplace: /[!@#$%^&:*-]/g
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -447,8 +457,9 @@ fields:
     singleValue: true
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    singleValue: true
+    # singleValue: true
     description: promotion text on product page
+    xpath: //div[@class="green clear txtBold"]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
