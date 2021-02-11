@@ -39,12 +39,18 @@ async function implementation(
     // @ts-ignore
     let URL = window.location.href;
     addElementToDocument('URL', URL);
-
+    try{
     // @ts-ignore
     var subURLS = getAllXpath('//div[@id="item-color-choice-container"]/a//img/@src', 'nodeValue');
     for (let i = 0; i < subURLS.length; i++) {
       addElementToDocument('URL', 'https://www.otto-office.com/de/' + subURLS[i].replace(/(.+ART_)(\d+)(([A-Z]+)?)(_+.+)/g, '$2$3'));
     }
+  }catch(e){
+
+    }
+
+
+    
   });
   return await context.extract(variants, { transform });
 }

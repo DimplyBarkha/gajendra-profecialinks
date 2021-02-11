@@ -67,8 +67,10 @@ fields:
     # manualSelector: script[type='application/ld+json']
     # regExp: '("ratingValue" : ")(\d.+)",'
     # regExpReplace: $2
-    xpath: //div[@class="rating-stars-copy"]
-    regExp: \d.\d
+    xpath: //div[@class="rating-stars-copy"]/text()
+    # manualSelector: script[type='application/ld+json']
+    # regExp: ("ratingValue" : ")(\d.\d)
+    # regExp: $2
   - name: url
     singleValue: true
     xpath: //html//div[@id="URL"]

@@ -73,6 +73,7 @@ module.exports = {
       catch (error) {
       }
 //specification
+try{
 var spec1 = getAllXpath('//span[contains(text(),"Eigenschaften ")]/parent::h2/following::div[1]/table/tbody/tr/td/span/text()', 'nodeValue');
 var spec2 = getAllXpath('//span[contains(text(),"Eigenschaften ")]/parent::h2/following::div[1]/table/tbody/tr/td/text()', 'nodeValue');
 if(spec1.length>=1){
@@ -96,7 +97,12 @@ if(spec1.length>=1){
     }
     addElementToDocument("final", final);
 }
+}
+catch(e){
+
+}
 //URL
+try{
 var url = getXpath('//div[@class="inner_content"]/script[@type="application/ld+json"]/text()', 'nodeValue');
 if(url.length>= 1){
   var data = JSON.parse(url);
@@ -106,6 +112,10 @@ if(url.length>= 1){
   addElementToDocument("URL", URL);
   }
   }
+}
+catch(e){
+  
+}
 //SKU
 var sku = getXpath('//figure[@id="image-preview-container"]/img/@src', 'nodeValue');
 sku = sku.replace(/(.+ART_)(\d+)(([A-Z]+)?)(_+.+)/g,'$2$3');
