@@ -3,4 +3,102 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
- 
+  - name: image
+    singleValue: true
+    xpath: //figure[@labelledby="product-title"]//img[@aria-labelledby="product-title"]//@src
+  - name: category
+    singleValue: false
+    xpath: //div[@id="breadcrumb"]//ul[@class="ng-star-inserted"]//li[position()>1 and not(contains(position(),last()))]
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@id="product-details"]//h1[@class="product-title"] | //product-price-meta//span[contains(@class,"size ng-star-inserted")]
+  - name: availabilityText
+    singleValue: true
+    xpath: //div[@class="product-controls"]//cdx-notification/@colour | //div[@class="product-controls"]//cdx-alert/@title
+  - name: price
+    singleValue: false
+    xpath: //h3[contains(@class,"heading--2 presentPrice")]/@aria-label
+  - name: listPrice
+    singleValue: true
+    xpath: //div[(contains(@class,'previousPrice ng-star-inserted'))]//span[(contains(@class,'price price--nonClub ng-star-inserted'))] | //div[(contains(@class,'previousPrice ng-star-inserted'))]//span[(contains(@class,'price price--was ng-star-inserted'))]
+  - name: promotion
+    singleValue: false
+    xpath: //div[(contains(@class,'previousPrice ng-star-inserted'))]//span[(contains(@class,'price price--save ng-star-inserted'))]
+  - name: description
+    singleValue: false
+    xpath: //p[@class="product-description"]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //cdx-accordion-item[@heading="Ingredients"]//div[@class="body"]//p
+  - name: quantity
+    singleValue: false
+    xpath: //product-price-meta//span[@id="product--volumeSize"]
+  - name: sku
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+  - name: variantId
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+  - name: servingSize
+    singleValue: false
+    xpath: //div[@aria-labelledby="Nutritional information"]//div[@class="body"]//p[contains(@class,"nutrition-servings")]
+  - name: servingSizeUom
+    singleValue: false
+    xpath: //div[@aria-labelledby="Nutritional information"]//div[@class="body"]//p[contains(@class,"nutrition-servings")]
+  - name: numberOfServingsInPackage
+    singleValue: false
+    xpath: //div[@aria-labelledby="Nutritional information"]//div[@class="body"]//p[contains(@class,"nutrition-servings")]
+  - name: caloriesPerServing
+    singleValue: true
+    xpath: //div[@class="nutrition-table"]//table//tbody//td[text()="Energy"]/parent::tr/td[2]
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //div[@class="nutrition-table"]//table//tbody//td[contains(.,'Fat')]/parent::tr/td[2]
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: //div[@class="nutrition-table"]//table//tbody//td[contains(.,'Fat')]/parent::tr/td[2]
+  - name: saturatedFatPerServing
+    singleValue: false
+    xpath: //div[@class="nutrition-table"]//table//tbody//td[contains(.,'Saturated')]/parent::tr/td[2]
+  - name: saturatedFatPerServingUom
+    singleValue: false
+    xpath: //div[@class="nutrition-table"]//table//tbody//td[contains(.,'Saturated')]/parent::tr/td[2]
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: //div[@class="nutrition-table"]//table//tbody//td[contains(.,'Sodium')]/parent::tr/td[2]
+  - name: sodiumPerServingUom
+    singleValue: false
+    xpath: //div[@class="nutrition-table"]//table//tbody//td[contains(.,'Sodium')]/parent::tr/td[2]
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //div[@class="nutrition-table"]//table//tbody//td[contains(.,'Carbohydrate')]/parent::tr/td[2]
+  - name: totalCarbPerServingUom
+    singleValue: false
+    xpath: //div[@class="nutrition-table"]//table//tbody//td[contains(.,'Carbohydrate')]/parent::tr/td[2]
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //div[@class="nutrition-table"]//table//tbody//td[contains(.,'Sugars')]/parent::tr/td[2]
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //div[@class="nutrition-table"]//table//tbody//td[contains(.,'Sugars')]/parent::tr/td[2]
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //div[@class="nutrition-table"]//table//tbody//td[contains(.,'Protein')]/parent::tr/td[2]
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: //div[@class="nutrition-table"]//table//tbody//td[contains(.,'Protein')]/parent::tr/td[2] 
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'product-thumbs ng-star-inserted')]//figure[position()>1]//img/@src
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class,'product-thumbs ng-star-inserted')]//figure[position()>1]//img/@src)
+  - name: pricePerUnit
+    singleValue: false
+    xpath: //p[(contains(@class,'priceMeta ng-star-inserted'))]//span[contains(@class,'cupPrice ng-star-inserted')]
+  - name: pricePerUnitUom
+    singleValue: false
+    xpath: //p[(contains(@class,'priceMeta ng-star-inserted'))]//span[contains(@class,'cupPrice ng-star-inserted')]
+  - name: legalDisclaimer
+    singleValue: true
+    xpath: //p[contains(@class,"product-footerMessage text-center")]//text()
