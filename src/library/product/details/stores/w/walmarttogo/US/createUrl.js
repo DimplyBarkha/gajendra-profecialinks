@@ -12,11 +12,11 @@ async function implementation (inputs, parameters, context, dependencies) {
   const storeIdObj = {
     20166: '2038',
   };
-  if (!inputs.storeId && inputs.zipcode) {
+  if (!(inputs.storeId || inputs.StoreID) && inputs.zipcode) {
     inputs.storeId = await getStoreId(inputs.zipcode); /* || storeIdObj[inputs.zipcode] && storeIdObj[inputs.zipcode.toString()]; */
   }
   if (parameters.url) {
-    const storeId = inputs.storeId || 5334;
+    const storeId = inputs.storeId || inputs.StoreID || 5334;
     const zipcode = inputs.zipcode || '';
     const url = parameters.url.replace('{id}', encodeURIComponent(id));
     return url + `&storeId=${storeId}#zipcode=${zipcode}`;
