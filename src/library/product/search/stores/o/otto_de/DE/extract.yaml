@@ -1,42 +1,43 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //section[@id="san_resultSection"]//article[contains(@class,'product')]
 fields:
   - name: thumbnail
-    singleValue: true
-    xpath: //html//div[@id='img']
-    #xpath: //img[@class='productImage']/@src
+    singleValue: false
+    # xpath: //html//div[@id='img']
+    xpath: //img[@class='productImage']/@src
   - name: name
-    singleValue: true
-    xpath: //html//div[@id='newname']
-    #xpath: //a[@class='productLink']/span/text()
+    singleValue: false
+    # xpath: //html//div[@id='newname']
+    xpath: //a[@class='productLink']/span/text()
   - name: productUrl
-    singleValue: true
-    xpath: //html//div[@id='url']
-    #xpath: //a[@class='productLink']/@href
-    #regExp: (.*)
-    #regExpReplace: https://www.otto.de$1
+    singleValue: false
+    # xpath: //html//div[@id='url']
+    xpath: //a[@class='productLink']/@href
+    regExp: (.+)
+    regExpReplace: https://www.otto.de$1
   - name: price
-    singleValue: single
-    xpath: //html//div[@id='price']
+    singleValue: false
+    # xpath: //html//div[@id='price']
+    xpath: //div[@class="price"]
   - name: manufacturer
-    singleValue: true
-    xpath: //html//div[@id='newname']
-    #xpath: //p[@class='brand']
+    singleValue: false
+    # xpath: //html//div[@id='newname']
+    xpath: //p[@class='brand']
   - name: reviewCount
-    singleValue: true
-    xpath: //html//div[@id='review']
-    #xpath: //span[@class= 'nrOfReviews']
+    singleValue: false
+    # xpath: //html//div[@id='review']
+    xpath: //span[@class= 'nrOfReviews']
   - name: rank
     singleValue: false
   - name: rankOrganic
     singleValue: false
   - name: id
-    singleValue: true
-    xpath: //html//div[@id='prodid']
-    #xpath: //article[@class='product clearfix']/@data-variationid|//article[@class='product']/@data-variationid
+    singleValue: false
+    # xpath: //html//div[@id='prodid']
+    xpath: //article[contains(@class,'product')]/@data-variationid
   - name: aggregateRating
-    singleValue: true
-    xpath: //html//div[@id='aggr']
-    #xpath: //a[@class='rating']
+    singleValue: false
+    # xpath: //html//div[@id='aggr']
+    xpath: //a[@class='rating']

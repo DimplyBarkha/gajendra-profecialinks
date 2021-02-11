@@ -30,63 +30,63 @@ module.exports = {
           }, ms);
         });
       }
-      var tempData, valueVariant, valueRating;
-      const rawData = document.querySelectorAll('script[type="application/ld+json"]');
-      for (let i = 0; i < rawData.length; i++) {
-        try {
-          // @ts-ignore
-          tempData = rawData[i].innerText;
-          tempData = JSON.parse(tempData);
-          valueRating = tempData.aggregateRating[0].ratingValue;
-          valueVariant = tempData.additionalProperty[0].value;
-          const newDiv = document.createElement('div');
-          newDiv.id = 'rating';
-          newDiv.textContent = valueRating;
-          newDiv.style.display = 'none';
-          const originalDiv = document.querySelectorAll("article[data-variationid=\"" + valueVariant + "\"]")[0];
-          // @ts-ignore
-          originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      // var tempData, valueVariant, valueRating;
+      // const rawData = document.querySelectorAll('script[type="application/ld+json"]');
+      // for (let i = 0; i < rawData.length; i++) {
+      //   try {
+      //     // @ts-ignore
+      //     tempData = rawData[i].innerText;
+      //     tempData = JSON.parse(tempData);
+      //     valueRating = tempData.aggregateRating[0].ratingValue;
+      //     valueVariant = tempData.additionalProperty[0].value;
+      //     const newDiv = document.createElement('div');
+      //     newDiv.id = 'rating';
+      //     newDiv.textContent = valueRating;
+      //     newDiv.style.display = 'none';
+      //     const originalDiv = document.querySelectorAll("article[data-variationid=\"" + valueVariant + "\"]")[0];
+      //     // @ts-ignore
+      //     originalDiv.parentNode.insertBefore(newDiv, originalDiv);
 
-        } catch (error) {
-          continue;
-        }
-      }
-      function addHiddenDiv(id, content, index) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        //const originalDiv = document.querySelectorAll('#san_resultSection > article')[index];
-        const originalDiv = document.querySelectorAll("script[type='application/ld+json']")[index];
-        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-      }
-
-
-      var aa = document.querySelectorAll("script[type='application/ld+json']");
-      if (aa != null) {
-        for (var i = 0; i < aa.length; i++) {
-          // @ts-ignore
-          var rawjson = JSON.parse(aa[i].innerText)
-          //var newname = rawjson.name
-          addHiddenDiv('newname', rawjson.name, i)
-          addHiddenDiv('price', rawjson.offers[0].price, i)
-          addHiddenDiv('img', rawjson.image, i)
-          addHiddenDiv('url', 'https://www.otto.de' + rawjson.url, i)
-          addHiddenDiv('brand', rawjson.brand, i)
-          var prodid = rawjson.url.split('/#variationId=')[1]
-          addHiddenDiv('prodid', prodid, i)
-          try {
-            addHiddenDiv('aggr', rawjson.aggregateRating[0].ratingValue, i)
-          }
-          catch (error) { }
-          try {
-            addHiddenDiv('review', rawjson.aggregateRating[0].reviewCount, i)
-          }
-          catch (error) { }
+      //   } catch (error) {
+      //     continue;
+      //   }
+      // }
+      // function addHiddenDiv(id, content, index) {
+      //   const newDiv = document.createElement('div');
+      //   newDiv.id = id;
+      //   newDiv.textContent = content;
+      //   newDiv.style.display = 'none';
+      //   //const originalDiv = document.querySelectorAll('#san_resultSection > article')[index];
+      //   const originalDiv = document.querySelectorAll("script[type='application/ld+json']")[index];
+      //   originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      // }
 
 
-        }
-      }
+      // var aa = document.querySelectorAll("script[type='application/ld+json']");
+      // if (aa != null) {
+      //   for (var i = 0; i < aa.length; i++) {
+      //     // @ts-ignore
+      //     var rawjson = JSON.parse(aa[i].innerText)
+      //     //var newname = rawjson.name
+      //     addHiddenDiv('newname', rawjson.name, i)
+      //     addHiddenDiv('price', rawjson.offers[0].price, i)
+      //     addHiddenDiv('img', rawjson.image, i)
+      //     addHiddenDiv('url', 'https://www.otto.de' + rawjson.url, i)
+      //     addHiddenDiv('brand', rawjson.brand, i)
+      //     var prodid = rawjson.url.split('/#variationId=')[1]
+      //     addHiddenDiv('prodid', prodid, i)
+      //     try {
+      //       addHiddenDiv('aggr', rawjson.aggregateRating[0].ratingValue, i)
+      //     }
+      //     catch (error) { }
+      //     try {
+      //       addHiddenDiv('review', rawjson.aggregateRating[0].reviewCount, i)
+      //     }
+      //     catch (error) { }
+
+
+      //   }
+      // }
 
       // price 
       // var price = getAllXpath("//span[@class='value']/text()", 'nodeValue');
