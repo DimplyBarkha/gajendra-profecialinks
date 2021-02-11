@@ -43,9 +43,13 @@ const transform = (data) => {
             }
             else if(/\d/.test(secondLastWord[0])){
                 let lastTowWord=stringForQuant.split(" ").slice(-2);
-                let finalQuantity=lastTowWord.toString().replace(',',' ');
+                let finalQuantity=lastTowWord.toString().replace(/(,[^,]*),/g,"$1 ").replace(/[()]/g, '');
                 row.quantity = [{ text: finalQuantity}];
-            }}
+            }
+            else{
+              row.quantity = [{ text: ''}];
+            }
+          }
             catch(e){
               console.log(e);
             }
@@ -61,6 +65,32 @@ const transform = (data) => {
         catch(e){
           console.log(e);
         }
+        }
+        if(row.ingredientsList){
+          try{
+            let textIngredient='';
+            row.ingredientsList.forEach(item => {
+              textIngredient += item.text+' '; 
+            });
+            row.ingredientsList = [{ text: textIngredient.trim()}];
+          }
+          catch(e){
+            console.log("error ",e);
+          }
+        }
+        if(row.availabilityText){
+          try{
+            let textToCheckStock=row.availabilityText[0].text;
+            if(textToCheckStock.includes('not-available')){
+              row.availabilityText = [{ text: 'Out of Stock'}];
+            }
+            else{
+              row.availabilityText = [{ text: 'In Stock'}];
+            }
+          }
+          catch(e){
+            console.log("error ", e);
+          }
         }
       }}
     
