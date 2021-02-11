@@ -97,7 +97,7 @@ fields:
     xpath: //div[@class="flixmedia flixmedia--expanded"] | //div[@id="manufacturerDescription"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="flixmedia flixmedia--expanded"]//img//@data-flixsrcset | //div[@id="manfacturerImage"]
+    xpath: //div[@id="manfacturerImage"]
     # regExp: ((.+)( 200w))
     # regExpReplace: $2
   - name: brandLink
