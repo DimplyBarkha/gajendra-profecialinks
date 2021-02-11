@@ -9,3 +9,6 @@ fields:
   - name: inTheBoxUrl
     singleValue: false
     xpath: //div[contains(@class,'inthebox')]//span[contains(@class,'image')]/img/@src
+  - name: productUrl
+    singleValue: true
+    xpath: //meta[@property="og:url"]/@content
