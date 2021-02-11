@@ -46,10 +46,8 @@ fields:
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[@class='vip__price-box-wrapper']/div[@class='vip__price-box-product']/div[@class='vip__price-box-price'] | //div[@class='campaign-banner__info__right']/span[@class='top']
-    # regExp: (\d+)(\.?)(\d+)(.+)
-    # regExp: (\d.+)
-    regExp: (\d+)(\.?)(\d+)?
-    regExpReplace: $1,$3
+    # regExp: (\d+)(\.?)(\d+)?
+    # regExpReplace: $1,$3
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
