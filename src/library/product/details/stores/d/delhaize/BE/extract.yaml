@@ -189,4 +189,7 @@ fields:
   - name: temp_allergyAdvice
     singleValue: false
     xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Allergenen")]/following::p[1]    
+  - name: imNameExtended
+    singleValue: false
+    xpath: //h1[@data-testid='product-common-header-title']
   
