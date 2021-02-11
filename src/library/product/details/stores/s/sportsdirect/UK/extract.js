@@ -8,8 +8,11 @@ module.exports = {
     domain: 'sportsdirect.com',
     zipcode: '',
   },
+  // @ts-ignore
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
+    // @ts-ignore
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
+    // @ts-ignore
     await context.evaluate(async function (context) {
       const isColors = document.querySelector('ul[id="ulColourImages"]');
       if (isColors) {
@@ -33,13 +36,32 @@ module.exports = {
         try {
           // @ts-ignore
           document.querySelector('ul#ulSizes li:not([class*="greyOut"])').click();
+
+          await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+
+          function addHiddenDiv(id, content) {
+            const newDiv = document.createElement('div');
+            newDiv.id = id;
+            newDiv.textContent = content;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+          }
+          // @ts-ignore
+          const sellerInfo = document.querySelector('p.dropshipTitle').innerText;
+          // @ts-ignore
+          if (document.querySelector('span#supplierLogo').innerText) {
+            // @ts-ignore
+            addHiddenDiv('shipping_info', sellerInfo)
+          }
+        
         } catch (error) {
-          console.log('error');
-        }
-        await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+        console.log('error');
       }
+      // @ts-ignore
+      await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+    }
     });
 
-    return await context.extract(productDetails, { transform });
-  },
+  return await context.extract(productDetails, { transform });
+},
 };
