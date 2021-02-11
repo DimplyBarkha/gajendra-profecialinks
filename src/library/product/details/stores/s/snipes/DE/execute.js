@@ -5,8 +5,8 @@ module.exports = {
     country: 'DE',
     store: 'snipes',
     domain: 'snipes.com',
-    loadedSelector: 'body',
-    noResultsXPath: null,
+    loadedSelector: 'div[class="s-pdp l-container js-product-details"]',
+    noResultsXPath: 'div[class="l-error-container"]',
     zipcode: '',
   },
 };
