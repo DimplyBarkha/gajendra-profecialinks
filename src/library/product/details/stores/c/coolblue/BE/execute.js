@@ -6,7 +6,7 @@ module.exports = {
     store: 'coolblue',
     domain: 'coolblue.be',
     loadedSelector: '#main-content',
-    noResultsXPath: '//*[contains(text(), "Je bent naar een pagina geleid die niet bestaat")]',
+    noResultsXPath: '//*[contains(text(), "Je bent naar een pagina geleid die niet bestaat")] | //body[count(//main[contains(@class, "product-page")])=0]',
     zipcode: '',
   },
 };

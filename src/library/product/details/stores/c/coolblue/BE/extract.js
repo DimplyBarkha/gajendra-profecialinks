@@ -9,8 +9,18 @@ module.exports = {
     domain: 'coolblue.be',
     zipcode: '',
   },
+  // @ts-ignore
   implementation: async ({ inputString }, { transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
+      const getXpath = (xpath) => {
+        return document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+      };
+
+      const noProductPage = getXpath('//*[contains(text(), "Je bent naar een pagina geleid die niet bestaat")] | //body[count(//main[contains(@class, "product-page")])=0]');
+
+      if (!noProductPage) {
+        return;
+      }
       const addElementToDocument = (key, value) => {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -42,10 +52,6 @@ module.exports = {
         helper([], 0);
         return r;
       }
-
-      const getXpath = (xpath) => {
-        return document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
-      };
 
       const data = {};
       // let availabilityText = document.querySelector('div[data-multi-discriminant-preview-availability-state]')
@@ -85,7 +91,9 @@ module.exports = {
       appendData(data);
       let altImages = '';
       if (document.querySelector("div[class*='media-gallery-thumbnails'] button")) {
+        // @ts-ignore
         document.querySelector("div[class*='media-gallery-thumbnails'] button").click();
+        // @ts-ignore
         const securls = [...document.querySelectorAll('.product-media-gallery-thumbnails ul li:nth-child(n+2) img')];
         const secimages = [];
         for (let i = 0; i < securls.length; i++) {
@@ -96,11 +104,13 @@ module.exports = {
           }
           secimages.push(imagesrc);
         }
+        // @ts-ignore
         const uniqueImages = [...new Set(secimages)];
         altImages = uniqueImages.join(' | ');
         console.log('HELLO SEE HERE', secimages);
         document.body.setAttribute('alt-image', altImages);
       } else {
+        // @ts-ignore
         const securls = [...document.querySelectorAll('.product-media-gallery-thumbnails ul li:nth-child(n+2) img')];
         const secimages = [];
         for (let i = 0; i < securls.length; i++) {
@@ -111,6 +121,7 @@ module.exports = {
           }
           secimages.push(imagesrc);
         }
+        // @ts-ignore
         const uniqueImages = [...new Set(secimages)];
         altImages = uniqueImages.join(' | ');
         console.log('HELLO SEE HERE', secimages);
