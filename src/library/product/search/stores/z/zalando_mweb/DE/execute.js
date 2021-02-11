@@ -13,6 +13,9 @@ module.exports = {
   implementation: async (inputs, { url, loadedSelector, noResultsXPath }, context, dependencies) => {
     const { keywords, query } = inputs;
     const destinationUrl = url.replace('{searchTerms}', encodeURIComponent(keywords)).replace('{queryParams}', query);
+
+    await context.setBlockAds(false);
+    await context.setFirstRequestTimeout(90000);
     await dependencies.goto({ ...inputs, url: destinationUrl });
 
     try {
