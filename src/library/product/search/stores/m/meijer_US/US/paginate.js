@@ -9,8 +9,8 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    loadedXpath: null,
-    noResultsXPath: null,
+    loadedXpath: '//div[@class="product-item"]',
+    noResultsXPath: '//div[@class="search-empty row "]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: {

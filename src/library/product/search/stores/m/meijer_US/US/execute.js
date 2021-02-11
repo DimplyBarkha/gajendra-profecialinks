@@ -7,7 +7,7 @@ module.exports = {
     domain: 'meijer.com',
     url: 'https://www.meijer.com/shop/en/search/?q={searchTerms}&page=0',
     loadedSelector: "div.product-item",
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="search-empty row "]',
     zipcode: '',
   },
 };
