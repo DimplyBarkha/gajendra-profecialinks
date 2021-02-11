@@ -42,6 +42,13 @@ async function implementation (
         div.setAttribute('searchurl', searchUrl);
         x += 1;
       });
+      const allProductPrice = document.querySelectorAll('div.product-price > div > div.price');
+      allProductPrice.forEach(element => {
+        // @ts-ignore
+        const properPrice = element.innerText.replace('.', ',');
+        // @ts-ignore
+        element.innerText = properPrice;
+      });
     }
   });
   return await context.extract(productDetails, { transform });
