@@ -114,7 +114,8 @@ const transform = (data) => {
         row.directions = row.directions.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
       };
       if (row.brandText && row.nameExtended) {
-        row.nameExtended[0].text = row.brandText[0].text + ' ' + row.nameExtended[0].text;
+        const text = row.brandText[0].text + ' ' + row.nameExtended[0].text;
+        row.imNameExtended = [{ text }];
       }
     }
   }
