@@ -12,6 +12,67 @@ module.exports = {
   implementation: async function implementation (inputs, parameters, context, dependencies) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    const { zipcode } = inputs;
+
+    const currentUrl = await context.evaluate(async () => {
+      return window.location.href;
+    });
+
+    async function goToStoreSelectPage () {
+      const storeSelectUrl = await context.evaluate(async () => {
+        const storeSelectData = document.querySelector('li[analytics-tag="stores"] > a');
+        if (storeSelectData) {
+          return storeSelectData.getAttribute('href');
+        };
+      });
+
+      if (storeSelectUrl) {
+        await context.goto('https://www.jumbo.com' + storeSelectUrl);
+      }
+    }
+
+    async function searchForStores () {
+      await context.evaluate(async (zipcode) => {
+        const storeSearchInput = document.querySelector('div[class="jum-store-search-bar"] > input');
+        // @ts-ignore
+        if (storeSearchInput) { storeSearchInput.value = zipcode; }
+
+        const searchButton = document.querySelector('button.jum-btn-store-search');
+        if (searchButton) {
+          searchButton.removeAttribute('disabled');
+          // @ts-ignore
+          searchButton.click();
+        }
+      }, zipcode);
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+    }
+
+    async function expandStoreElement () {
+      await context.evaluate(async () => {
+        const expandElement = document.querySelector('div.jum-store-list li:first-of-type a');
+        if (expandElement) {
+        // @ts-ignore
+          expandElement.click();
+        }
+      });
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+    }
+
+    async function selectStore () {
+      await context.evaluate(async () => {
+        const saveStoreButton = document.querySelector('div.jum-store-list li:first-of-type div.jum-store-expanded-info button[data-jum-action="savePreferredStore"]');
+        if (saveStoreButton) {
+        // @ts-ignore
+          saveStoreButton.click();
+        }
+      });
+      await context.goto(currentUrl);
+    }
+    await goToStoreSelectPage();
+    await searchForStores();
+    await expandStoreElement();
+    await selectStore();
+
     await context.evaluate(async () => {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -20,6 +81,24 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
         return newDiv;
+      }
+
+      function extractGeoData () {
+        const retailerInfo = document.querySelector('#jum-homestore-slot > div > div > div > span');
+        if (retailerInfo) {
+          const retailerId = retailerInfo.getAttribute('data-jum-homestore-sapid');
+          const retailerName = retailerInfo.textContent;
+          addHiddenDiv('retailerId', retailerId);
+          addHiddenDiv('retailerName', retailerName);
+        }
+
+        const addressExpandButton = document.querySelector('#jum_store_finder_button');
+        if (addressExpandButton) {
+        // @ts-ignore
+          addressExpandButton.click();
+          const drive = document.querySelector('div.dropdown-body > div > span:nth-child(3)');
+          addHiddenDiv('drive', drive);
+        }
       }
 
       // select each text node in description section and replace signs which are indicating that text is bullet point to double pipes
@@ -78,6 +157,7 @@ module.exports = {
         addHiddenDiv('magnesiumPerServing', magnesiumPerServing);
         addHiddenDiv('saltPerServing', saltPerServing);
       }
+      extractGeoData();
       extractNutritionInfo();
       changebulletPointsToDoublePipes('//div[@class="jum-summary-description"]/p/text()');
 
