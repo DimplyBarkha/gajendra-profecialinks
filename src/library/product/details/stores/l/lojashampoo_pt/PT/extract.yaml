@@ -13,7 +13,7 @@ fields:
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@id,"image-additional-carousel")]/div/a/img/@src
+    xpath: //html//div[@id='altImages']
     description: Other product images (not in manufacturer description)
   - name: url 
     xpath: //div[@id="breadcrumb"]/ol/li[@class="last"]/a/@href 
@@ -51,6 +51,7 @@ fields:
     defaultValue: Out of Stock
   - name: description
     singleValue: false
+    xpath: //html//div[@id='descrip']
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
@@ -106,6 +107,9 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
+    xpath: //html//div[@id='descrip']
+    regExp: (Como.+)Ingredientes
+    regExpReplace: $1
     description: Content under "directions" header
   - name: warnings
     singleValue: true
@@ -259,7 +263,11 @@ fields:
     singleValue: true
     description: null
   - name: ingredientsList
-    singleValue: true
+    singleValue: false
+    # xpath: //div[@id="tab-description"]
+    xpath: //html//div[@id='descrip']
+    regExp: (Ingredientes.+)
+    regExpReplace: $1
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
@@ -491,7 +499,7 @@ fields:
       this will need analysis
   - name: variants
     singleValue: false
-    xpath: (//div[@class="NETREVIEWS_PRODUCT_STARS"]/@data-product-id)
+    xpath: //html//div[@id='variants']
     description: null
   - name: additionalDescBulletInfo
     singleValue: false

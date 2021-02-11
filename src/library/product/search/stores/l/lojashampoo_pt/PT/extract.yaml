@@ -21,10 +21,10 @@ fields:
     description: The URL for the product thumbnail image
   - name: id
     xpath: //div[@class="NETREVIEWS_PRODUCT_STARS"]/@data-product-id
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: false
     xpath: //div[@class="NETREVIEWS_PRODUCT_STARS"]/div/text()
-    regExp: \d.\d
+    # regExp: \d.\d
     type: number  
   - name: rank 
   - name: rankOrganic
