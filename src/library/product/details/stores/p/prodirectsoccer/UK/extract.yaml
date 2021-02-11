@@ -58,29 +58,23 @@ fields:
     description: promotion text on product page
     xpath: ancestor::html//div[@class="product-title"]/following-sibling::div[1]//span[contains(@class,"item")][3]
   - name: technicalInformationPdfPresent
-    singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
     defaultValue: No
   - name: termsAndConditions
-    singleValue: true
     description: Terms and conditions information text ['Yes','No']
     defaultValue: No
   - name: privacyPolicy
-    singleValue: true
     description: Privacy Policy information text ['Yes','No']
     defaultValue: No
   - name: customerServiceAvailability
-    singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
     defaultValue: No
   - name: Image360Present
-    singleValue: true
     description: If 360 image is present in the carousel ['Yes','No']
     example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
     defaultValue: No
   - name: imageZoomFeaturePresent
-    singleValue: true
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
@@ -104,3 +98,11 @@ fields:
   - name: descriptionBullets
     xpath: count(ancestor::html//div[contains(@class, 'product-details__description')]//ul/li)
     defaultValue: 0
+  - name: ratingCount
+    xpath: (//div[@class="double-container__box"][1]//button[contains(text(),'Ratings & Reviews')]/following-sibling::div[1]//span[@class="reviews-summary__item"][contains(text(),'Review')])[1]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: aggregateRating2
+    xpath: (//div[@class="double-container__box"][1]//button[contains(text(),'Ratings & Reviews')]/following-sibling::div[1]//span[@class="reviews-summary__item"][contains(text(),'Rating')])[1]
+    regExp: Rating:\s(.+)/(.+)
+    regExpReplace: $1
