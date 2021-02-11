@@ -4,14 +4,9 @@ module.exports = {
   parameterValues: {
     country: 'UK',
     store: 'sportsdirect',
-    nextLinkSelector: null,
-    mutationSelector: null,
-    spinnerSelector: null,
+    nextLinkSelector: 'a.NextLink',
     loadedSelector: 'div[class*="productimage"] a>div>img',
     noResultsXPath: '//div[@class="nosearch-para"]',
-    resultsDivSelector: null,
-    openSearchDefinition: null,
-    zipcode: '',
     domain: 'sportsdirect.com',
   },
 };
