@@ -48,7 +48,7 @@ fields:
     xpath: //h1/a
   - name: quantity
     singleValue: false
-    xpath: //span[@data-at="sku_size_label"]
+    xpath: (//span[@data-at="sku_size_label"] | //span[@data-at="item_variation_type" and contains(text(),"Size")] | //span[@data-at="item_variation_type" and contains(text(),"SIZE")] | //div[@data-at="sku_name_label"]/span[contains(text(),"Size")] | //div[@data-at="sku_name_label"]/span[contains(text(),"SIZE")] )[position()=1]
   - name: sku
     singleValue: false
     xpath: //script[contains(text(),"defaultSkuId:")]/text()

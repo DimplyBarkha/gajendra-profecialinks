@@ -85,7 +85,12 @@ const transform = (data) => {
         });
       }
       if (row.quantity) {
-        row.quantity = [{ text: row.quantity[0].text.replace('Size', '').replace('SIZE', '') }];
+        row.quantity = [{ 
+          text: row.quantity[0].text
+            .replace('Size', '')
+            .replace('SIZE', '')
+            .replace(':', '')
+        }];
       }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
