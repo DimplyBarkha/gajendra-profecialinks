@@ -16,11 +16,11 @@ module.exports = {
         throw new Error('Not a product Page');
       }
     });
-    try{
+    try {
       await context.waitForSelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal');
       await context.waitForSelector('.pr-snippet-stars-reco-stars');
-    }catch(error){ console.log("await error..")}
-   // await context.waitForSelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal');
+    } catch (error) { console.log("await error..") }
+    // await context.waitForSelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal');
     await context.waitForSelector('.productimageblock #magic-zoom-id');
     //await context.waitForSelector('.pr-snippet-stars-reco-stars');
     await context.evaluate(async function () {
@@ -59,80 +59,80 @@ module.exports = {
       };
 
 
-      const varientInfoXpath1 = getAllXpath("//div[@class='dropdown-menu unique-dropdown-menu']/ul/li/text()",'nodeValue').join('|');
+      const varientInfoXpath1 = getAllXpath("//div[@class='dropdown-menu unique-dropdown-menu']/ul/li/text()", 'nodeValue').join('|');
       var sizeArray = varientInfoXpath1.split('|');
 
-      const varientInfoXpath2 = getAllXpath("//div[@class='swatch-blk']/ul/li/@id",'nodeValue').join('|');
+      const varientInfoXpath2 = getAllXpath("//div[@class='swatch-blk']/ul/li/@id", 'nodeValue').join('|');
       var varientInfoXpathArray = varientInfoXpath2.split('|');
       var ids = [];
-      for(let i=0; i< varientInfoXpathArray.length ; i++){
+      for (let i = 0; i < varientInfoXpathArray.length; i++) {
         ids.push(varientInfoXpathArray[i].split('_')[1]);
       }
-      if(varientInfoXpath2.length != 0 || varientInfoXpath1.length != 0){
-      if(varientInfoXpath1.length != 0 && varientInfoXpath2.length == 0){
-        var varientInfo = varientInfoXpath1;
-        addElementToDocument("variant_info_added", varientInfo);
-        return;
+      if (varientInfoXpath2.length != 0 || varientInfoXpath1.length != 0) {
+        if (varientInfoXpath1.length != 0 && varientInfoXpath2.length == 0) {
+          var varientInfo = varientInfoXpath1;
+          addElementToDocument("variant_info_added", varientInfo);
+          return;
+        }
+        if (varientInfoXpath2.length != 0 && varientInfoXpath1.length == 0) {
+          var varientInfo = "VariantIDs: " + ids.join('| ');
+          addElementToDocument("variant_info_added", varientInfo);
+          return;
+        }
+        if (varientInfoXpath2.length != 0 && varientInfoXpath1.length != 0) {
+          var varientInfo = varientInfoXpath1 + ", VariantIDs: " + ids.join('| ');
+          addElementToDocument("variant_info_added", varientInfo);
+          return;
+        }
       }
-     if(varientInfoXpath2.length != 0 && varientInfoXpath1.length == 0){
-        var varientInfo = "VariantIDs: "+ids.join('| ');
-        addElementToDocument("variant_info_added", varientInfo);
-        return;
-      }
-      if(varientInfoXpath2.length != 0 && varientInfoXpath1.length != 0){
-        var varientInfo = varientInfoXpath1 +", VariantIDs: "+ids.join('| ');
-        addElementToDocument("variant_info_added", varientInfo);
-        return;
-      }     
-    }
 
-     // await context.waitForSelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal');
-     // await context.waitForSelector('.pr-snippet-stars-reco-stars');
-    try{
-      const rating = document.querySelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal') ? document.querySelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal').innerText : 0;
-      console.log("rating: ", rating);
-      //await new Promise(resolve => setTimeout(resolve, 300000000));
-      if(rating != null){
-        document.body.setAttribute('import-rating', rating);
-      }
-      }catch(error){
+      // await context.waitForSelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal');
+      // await context.waitForSelector('.pr-snippet-stars-reco-stars');
+      try {
+        const rating = document.querySelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal') ? document.querySelector('.pr-snippet-stars-reco-inline .pr-snippet-rating-decimal').innerText : 0;
+        console.log("rating: ", rating);
+        //await new Promise(resolve => setTimeout(resolve, 300000000));
+        if (rating != null) {
+          document.body.setAttribute('import-rating', rating);
+        }
+      } catch (error) {
         console.log("rating Path error...");
       }
 
-      const varienIdPath = getXpath("//link[@rel='canonical']/@href",'nodeValue');
+      const varienIdPath = getXpath("//link[@rel='canonical']/@href", 'nodeValue');
       console.log("varienIdPath:::", varienIdPath);
       var varIdSplit = varienIdPath.split('/');
       console.log("varIdSplit:::", varIdSplit.length);
-      for(var i=0; i<varIdSplit.length ;i++){
-        console.log("varientId is::::", varIdSplit[(varIdSplit.length) -1]);
-        addElementToDocument('varientId-added', varIdSplit[(varIdSplit.length) -1]);
+      for (var i = 0; i < varIdSplit.length; i++) {
+        console.log("varientId is::::", varIdSplit[(varIdSplit.length) - 1]);
+        addElementToDocument('varientId-added', varIdSplit[(varIdSplit.length) - 1]);
       }
 
-      const listPriceXpath = getXpath("//div[@class='online-price-and-green-price']/div/div[@_ngcontent-bjs-universal-app-c147='']/div/div/div[@class='online-Price-strike']/text()",'nodeValue');
+      const listPriceXpath = getXpath("//div[@class='online-price-and-green-price']/div/div[@_ngcontent-bjs-universal-app-c147='']/div/div/div[@class='online-Price-strike']/text()", 'nodeValue');
       //console.log("listPriceXpath:: Reg $139.99 :", listPriceXpath);
-      if(listPriceXpath != null){
+      if (listPriceXpath != null) {
         var listPrice = listPriceXpath.split(' ');
         //console.log("listPrice:::", listPrice[1]);
         addElementToDocument('list-price', listPrice[1]);
       }
-      
+
 
       const ratingPath = getXpath("//div[@class='pr-snippet-stars-container']/div[@class='pr-snippet-stars pr-snippet-stars-png ']/div[@class='pr-snippet-rating-decimal']/text()", 'nodeValue');
       console.log("ratingPath::", ratingPath);
       //addElementToDocument('import-rating', ratingPath);
 
-      
+
       const ratingXPath = getXpath("//div[@class='pr-snippet']/div/div/div[@class='pr-snippet-rating-decimal']/text()", 'textContent');
       console.log("ratingXPath::", ratingXPath);
-      if(ratingXPath != null){
+      if (ratingXPath != null) {
         addElementToDocument('import-rating', ratingXPath);
-      }else{
+      } else {
         addElementToDocument('import-rating', "0");
 
       }
-      
-      const btext = getXpath("//script[@type='application/ld+json'][2]/text()",'nodeValue');
-     //nst btext = getXpath("//html/body/app-root/div/div[2]/div/app-pdp-preprocessor/div/app-pdp-layout-template/script[2]/text()",'nodeValue');
+
+      const btext = getXpath("//script[@type='application/ld+json'][2]/text()", 'nodeValue');
+      //nst btext = getXpath("//html/body/app-root/div/div[2]/div/app-pdp-preprocessor/div/app-pdp-layout-template/script[2]/text()",'nodeValue');
       console.log("btext::::", btext);
       if (btext) {
         const jsonObj = JSON.parse(btext);
@@ -244,7 +244,7 @@ module.exports = {
       // -----------------------------
       // -----------------------------
 
-      
+
       const availabilityText = document.querySelector('#addtocart-target') ? 'In stock' : 'Out of stock';
       let gtin = document.querySelector('.prod-item-model-number > span:first-child') ? document.querySelector('.prod-item-model-number > span:first-child').innerText : null;
       gtin = gtin ? gtin.split(':') : null;
@@ -265,7 +265,7 @@ module.exports = {
       document.body.setAttribute('import-seller-name', `BJ's Wholesale Club`);
       document.body.setAttribute('import-seller-availability', availabilityText);
       document.body.setAttribute('import-gtin', gtin);
-     // document.body.setAttribute('import-rating', rating);
+      // document.body.setAttribute('import-rating', rating);
       document.body.setAttribute('import-reviews', reviews);
       document.body.setAttribute('import-enhanced-content', 'false');
 
@@ -277,18 +277,18 @@ module.exports = {
         video.click();
         await new Promise(resolve => setTimeout(resolve, 100000000));
         const videoEl = document.querySelector('video');
-        if(videoEl) {
-        videos.push(videoEl.src);
+        if (videoEl) {
+          videos.push(videoEl.src);
         }
       }
 
       for (const item of videos) {
-        const divEl =  document.createElement('import-video');
+        const divEl = document.createElement('import-video');
         divEl.setAttribute('src', item);
         document.body.appendChild(divEl);
       }
 
-      const imageEls = document.evaluate("//div[@class='productimageblock'][count(*)=1]//a[@id='magic-zoom-id']/@href | //div[@class='productimageblock'][count(*)>1]//div[@id='magic-scroll-id']/div[@class='mcs-wrapper']//div[@class='mcs-item']//a[not(contains(@href, 'javascript'))]//img/@src", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null );
+      const imageEls = document.evaluate("//div[@class='productimageblock'][count(*)=1]//a[@id='magic-zoom-id']/@href | //div[@class='productimageblock'][count(*)>1]//div[@id='magic-scroll-id']/div[@class='mcs-wrapper']//div[@class='mcs-item']//a[not(contains(@href, 'javascript'))]//img/@src", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 
       for (let i = 0; i < imageEls.snapshotLength; i++) {
         let imageUrl = imageEls.snapshotItem(i).textContent;
@@ -301,11 +301,18 @@ module.exports = {
         }
       }
       const enhancedContent = document.querySelector("#desktopDescriptiontabcontent > div.text-center.pt-2 > button");
-      if(enhancedContent) {
+      if (enhancedContent) {
         enhancedContent.click()
       }
     });
-
+    //writing the code for fixing the ticket issue
+    const addOptionalWait = async (selector) => {
+      try {
+        await context.waitForSelector(selector, { timeout: 4000 });
+      } catch (e) {
+        console.log('Selector did not load at all')
+      }
+    }
     await context.extract(productDetails, { transform: transformParam });
   },
 };
