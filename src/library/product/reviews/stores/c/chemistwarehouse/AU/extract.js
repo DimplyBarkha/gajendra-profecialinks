@@ -27,6 +27,10 @@ async function implementation (
   await context.evaluate(() => {
     const btnClick = document.querySelector('div.eupopup-buttons a');
     if (btnClick) {
+<<<<<<< HEAD
+=======
+      // @ts-ignore
+>>>>>>> 1c216f02f6 (override chnages commited by shrutikaB)
       btnClick.click();
     }
   });
