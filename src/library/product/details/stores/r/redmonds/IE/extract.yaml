@@ -87,7 +87,8 @@ fields:
     #regExpReplace: https:$1
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,'box-catalog.product.video')]//div[@class='video']//iframe/@src|//div[@id='added_videos']
+    # xpath: //div[contains(@class,'box-catalog.product.video')]//div[@class='video']//iframe/@src|//div[@id='added_videos']
+    xpath: //div[contains(@class,'box-catalog.product.video')]//div[@class='video']//iframe/@src | //div[@id='added_videos'] | //div[contains(@class,"flix-videodiv")]/iframe[@id='flix-iframe0']/@src
   - name: inTheBoxText
     singleValue: false
     xpath: //div[@class='product-collateral']//div[@class='inpage_selector_InTheBox']//div[@class='flix-std-content']/div/span|//div[@id='added_intheboxtext']
