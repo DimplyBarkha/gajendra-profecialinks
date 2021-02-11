@@ -59,6 +59,18 @@ module.exports = {
       };
 
 
+      const rpcXpath = getXpath("/html/head/link[10]/@href",'nodeValue');
+      console.log("rpcXpath::::", (rpcXpath.split('/')));
+      var rpcArray = (rpcXpath.split('/'));
+      var rpcLength = (rpcXpath.split('/')).length;
+      for(var i=0; i< rpcLength; i++){
+        console.log(rpcArray[rpcLength -1]);
+        addElementToDocument("variantId_added", rpcArray[rpcLength -1]);
+      }
+      const nameXpath = getXpath("//div[@class='product-name b2c-productName']/h1/text()",'nodeValue');
+      console.log("nameXpath:::::", nameXpath.split(',')[0]);
+      addElementToDocument("name_added", nameXpath.split(',')[0]);
+
       const varientInfoXpath1 = getAllXpath("//div[@class='dropdown-menu unique-dropdown-menu']/ul/li/text()",'nodeValue').join('|');
       var sizeArray = varientInfoXpath1.split('|');
 
@@ -131,14 +143,14 @@ module.exports = {
 
       }
       
-      const btext = getXpath("//script[@type='application/ld+json'][2]/text()",'nodeValue');
+      const btext = getXpath("//script[@type='application/ld+json'][2]/text()",'textContent');
      //nst btext = getXpath("//html/body/app-root/div/div[2]/div/app-pdp-preprocessor/div/app-pdp-layout-template/script[2]/text()",'nodeValue');
       console.log("btext::::", btext);
       if (btext) {
         const jsonObj = JSON.parse(btext);
         //const jsonObjParse = JSON.parse(jsonObj);
         //console.log("sku::::", jsonObj.sku);
-        console.log("brand::::", jsonObj.brand);
+        console.log("brand::::", jsonObj.brand.name);
         //addElementToDocument('retailer_product_code_added', jsonObj.sku);
       }
 

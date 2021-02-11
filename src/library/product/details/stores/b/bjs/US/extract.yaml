@@ -84,10 +84,9 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: variantId
     singleValue: true
-    xpath: //div[@id="varientId-added"]
-    #xpath: //meta[@property='og:url']/@content
-    #regExp: \/(\d+)
-    #regExpReplace: $1
+    xpath: //div[@id="variantId_added"]
+    #xpath: //div[@id="sku-added"]
+    #type: NUMBER
     description: The store-specific product identifier
   - name: sku
     singleValue: true
@@ -166,6 +165,7 @@ fields:
     xpath: //div[@id="ccs-inline-content"][1]//img//@data-large | //iframe[@id="salsify-ec-iframe"]//@src
   - name: name
     singleValue: true
+    xpath: //div[@id="name_added"]
     description: The product name
   - name: inStorePrice
     singleValue: true
