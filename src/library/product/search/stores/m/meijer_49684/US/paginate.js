@@ -12,7 +12,7 @@ module.exports = {
     loadedSelector: null,
     loadedXpath: null,
     noResultsXPath: null,
-    stopConditionSelectorOrXpath: '//div[@class="search-empty row "]',
+    stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: {
       pageStartNb: 0,
