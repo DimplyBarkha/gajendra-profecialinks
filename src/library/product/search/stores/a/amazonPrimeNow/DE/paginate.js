@@ -10,7 +10,7 @@ module.exports = {
     openSearchDefinition: {
       template: 'https://primenow.amazon.de/search?k={searchTerms}&p_95=&merchantId=&ref_=pn_sr_nav_sr_ALL&dc&page={page}',
     },
-    noResultsXPath: '/html[not(//div[starts-with(@class,"index__keyword")]/ancestor::div[starts-with(@class,"index")]/following-sibling::div[starts-with(@class,"product_grid__root")]//ul[contains(@class,"product_grid__grid")]/li)]|//div[contains(.,"did not match any products.")]',
+    noResultsXPath: '/html[not(//div[starts-with(@class,"index__keyword")]/ancestor::div[starts-with(@class,"index")]/following-sibling::div[starts-with(@class,"product_grid__root")]//ul[contains(@class,"product_grid__grid")]/li)]|//div[contains(.,"ergab keine übereinstimmenden Produkte.")]',
     zipcode: '10115',
   },
 };
