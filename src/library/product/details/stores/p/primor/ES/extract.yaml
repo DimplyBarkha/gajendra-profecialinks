@@ -1,114 +1,112 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="variants"]
 fields:
   - name: image
-    singleValue: true
-    xpath: //span[@class="img-producto"]//img[@id="bigpic"]//@src
+    # singleValue: true
+    xpath: ancestor::html//span[@class="img-producto"]/img[@id="bigpic"]/@src
   - name: imageAlt
-    singleValue: true
-    xpath: //span[@class="img-producto"]//img[@id="bigpic"]//@alt
+    # singleValue: true
+    xpath: ancestor::html//span[@class="img-producto"]//img[@id="bigpic"]//@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="thumbs_list"]/ul/li/a[@class!="fancybox shown"]/img/@src
+    xpath: ancestor::html//div[@id="thumbs_list"]/ul/li/a[@class!="fancybox shown"]/img/@src
   - name: promotion
-    singleValue: true
-    xpath: //p[@id="reduction_percent"]/span[@id="reduction_percent_display"]/text()
+    # singleValue: true
+    xpath: ancestor::html//p[@id="reduction_percent"]/span[@id="reduction_percent_display"]/text()
   - name: category
     singleValue: false
     # xpath: //div[@class="breadcrumb clearfix"]//a[position()>1 and position()<=last()] | //div[@class="breadcrumb clearfix"]/text()
-    xpath: //div[@class="breadcrumb clearfix"]//a[position()>1 and position()<=last()] | //div[@class="breadcrumb clearfix"]/span[@class="navigation_page"]/text()
+    xpath: ancestor::html//div[@class="breadcrumb clearfix"]//a[position()>1 and position()<=last()] | //div[@class="breadcrumb clearfix"]/span[@class="navigation_page"]/text()
   - name: nameExtended
-    singleValue: true
-    xpath: //html//div[@id="product_desc"]
+    # singleValue: true
+    xpath: ancestor::html//html//div[@id="namext"]
   - name: listPrice
-    singleValue: true
-    xpath: //html//div[@id='desc2']
+    # singleValue: true
+    xpath: ancestor::html//html//div[@id='desc2']
     # xpath: //p[@id="old_price"]/span[@class="old-price"]/text()
   - name: price
-    singleValue: true
-    xpath: //html//div[@id='desc1']
+    # singleValue: true
+    xpath: ancestor::html//html//div[@id='desc1']
   - name: availabilityText
-    singleValue: true
-    xpath: //html//div[@id="avail"]
-    # regExp: (OutOfStock)
-    # regExpReplace: Out of stock
-    # defaultValue: In stock
+    # singleValue: true
+    xpath: ancestor::html//html//div[@id="avail"]
   - name: description
-    singleValue: true
+    # singleValue: true
     # xpath: //html//div[@id='id']
-    xpath: //div[@itemprop="description"]
+    xpath: ancestor::html//div[@itemprop="description"]
   - name: descriptionBullets
-    singleValue: true
-    xpath: count(//div[@itemprop="description"]/ul/li)
+    # singleValue: true
+    xpath: ancestor::htmlcount(//div[@itemprop="description"]/ul/li)
     type: NUMBER
   - name: brandText
-    singleValue: true
-    xpath: //span[@itemprop="brand"]
+    # singleValue: true
+    xpath: ancestor::html//span[@itemprop="brand"]
   - name: manufacturer
     singleValue: true
     #xpath: //span[@itemprop="brand"]
   - name: quantity
-    singleValue: true
-    #xpath: //div/p[@id="quantity_wanted_p"]/input/@value
+    # singleValue: true
+    xpath: //html//div[@id="name"]
   - name: weightNet
-    singleValue: true
+    # singleValue: true
     description: Net weight as described on the page
   - name: weightGross
-    singleValue: true
+    # singleValue: true
     description: Gross weight as described on the page
   - name: gtin
-    singleValue: true
-    xpath: //meta[@itemprop="mpn"]/@content
+    # singleValue: true
+    xpath: ancestor::html//meta[@itemprop="mpn"]/@content
   - name: sku
-    singleValue: true
+    # singleValue: true
     # xpath: //p[@class="hidden"]/input[@id="idCombination"]/@value
-    xpath: //meta[@itemprop="productID"]/@content
+    xpath: ancestor::html//meta[@itemprop="productID"]/@content
   - name: variantId
-    singleValue: true
-    xpath: //input[@id="idCombination"]/@value
+    # singleValue: true
+    # xpath: //input[@id="idCombination"]/@value
+    xpath: //html//div[@id="rpc"]
   - name: mpc
-    singleValue: true
-    xpath: //meta[@itemprop="mpn"]/@content
+    # singleValue: true
+    xpath: ancestor::html//meta[@itemprop="mpn"]/@content
   - name: packSize
-    singleValue: true
+    # singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
-    singleValue: true
+    # singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
-    singleValue: true
+    # singleValue: true
     description: Content under "directions" header
   - name: warnings
-    singleValue: true
+    # singleValue: true
     description: Content under "warnings" header
   - name: ratingCount
-    singleValue: true
-    xpath: //meta[@itemprop="ratingCount"]//@content
+    # singleValue: true
+    xpath: ancestor::html//meta[@itemprop="ratingCount"]//@content
   - name: aggregateRating
-    singleValue: true
-    xpath: //html//div[@id='rating']
+    # singleValue: true
+    xpath: ancestor::html//html//div[@id='rating']
   - name: shippingInfo
-    singleValue: true
+    # singleValue: true
     description: Shipping information for the product
   - name: shippingDimensions
-    singleValue: true
+    # singleValue: true
     description: Stated shipping dimensions
   - name: shippingWeight
-    singleValue: true
+    # singleValue: true
     description: Stated shipping weight
   - name: variantCount
-    singleValue: true
-    xpath: count(//div[@class="attribute_list"]/ul/li)
+    # singleValue: true
+    xpath: ancestor::htmlcount(//div[@class="attribute_list"]/ul/li)
     #defaultValue: 0
     type: NUMBER
   - name: color
-    singleValue: true
+    # singleValue: true
     description: A textual description of the colour
   - name: colorCode
-    singleValue: true
+    # singleValue: true
     description: A code description of the color (e.g. RGB hex)
   - name: manufacturerDescription
     singleValue: false
@@ -118,40 +116,40 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[@class="video-container"]/iframe/@src
+    xpath: ancestor::html//div[@class="video-container"]/iframe/@src
   - name: name
-    singleValue: true
-    xpath: //div[@class="titulos-ficha-mobile h-md-up"]//h3[@class="name"]
+    # singleValue: true
+    xpath: ancestor::html//div[@class="titulos-ficha-mobile h-md-up"]//h3[@class="name"]
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
   - name: videoLength
     singleValue: false
-    xpath: //div[@class="ytp-bound-time-right"]
+    xpath: ancestor::html//div[@class="ytp-bound-time-right"]
   - name: featureBullets
-    singleValue: false
-    xpath: count(//div[@class="rte"]/ul/li)
+    # singleValue: false
+    xpath: ancestor::htmlcount(//div[@class="rte"]/ul/li)
   - name: secondaryImageTotal
-    singleValue: true
-    xpath: count(//li//a[@class="fancybox"]//img//@src)
+    # singleValue: true
+    xpath: ancestor::htmlcount(//li//a[@class="fancybox"]//img//@src)
     type: NUMBER
   - name: specifications
-    singleValue: true
+    # singleValue: true
     description: The physical dimensions of the product including packaging.
   - name: warranty
-    singleValue: true
+    # singleValue: true
     description: Guarantee associated with the productit
   - name: url
-    singleValue: true
+    # singleValue: true
     # xpath: //meta[@property="og:url"]//@content
-    xpath: //div[@class="span12"]/div/form[@id="setState"]/@action
+    xpath: ancestor::html//div[@class="span12"]/div/form[@id="setState"]/@action
     regExp: (/.*)
     regExpReplace: https://www.primor.eu$1
   - name: variantInformation
-    singleValue: true
-    xpath: //div[@class="attribute_list"]/ul/li[@class="selected"]/span/text() | //span[@id="selected-product-name"]/text()
+    # singleValue: true
+    xpath: ancestor::html//div[@class="attribute_list"]/ul/li[@class="selected"]/span/text() | //span[@id="selected-product-name"]/text()
   - name: firstVariant
-    singleValue: true
+    # singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -162,13 +160,13 @@ fields:
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
   - name: variants
-    singleValue: false
+    # singleValue: false
     description: null
   - name: ingredientsList
-    singleValue: true
-    xpath: //html//div[@id="ingredient"]
+    # singleValue: true
+    xpath: ancestor::html//html//div[@id="ingredient"]
     #defaultValue: No
   - name: privacyPolicy
-    singleValue: true
+    # singleValue: true
     description: Privacy Policy information text ['Yes','No']
     # defaultValue: No

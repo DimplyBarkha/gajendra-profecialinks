@@ -47,13 +47,97 @@ async function implementation(
       if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
       else result = elem ? elem.singleNodeValue : '';
       return result && result.trim ? result.trim() : result;
-      // price
+
     };
+    function addHiddenDiv(id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.getElementsByClassName('variants')[index].appendChild(newDiv);
+    }
+    function addEmptyDiv() {
+      const newDiv = document.createElement('div');
+      newDiv.className = 'variants';
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+    // price//
     var desc1 = getXpath('//p[@class="our_price_display pull-left"]//span[@itemprop="price"]/text()', 'nodeValue');
 
     if (desc1 != null) {
       desc1 = desc1.replace(",", ".")
       addElementToDocument('desc1', desc1);
+    }
+
+    //rpc//
+    var rpc = []
+    var nam = []
+    // @ts-ignore
+    var length = combinations.length
+    for (var i = 0; i < length; i++) {
+      // @ts-ignore
+      rpc.push(combinations[i].idCombination);
+      // @ts-ignore
+      nam.push(combinations[i].idsAttributes[0]);
+    }
+    var attr = []
+    // @ts-ignore
+    for (let i = 0; i < attributesCombinations.length; i++) {
+      // @ts-ignore
+      if (attributesCombinations[i].id_attribute == nam[i]) {
+        // @ts-ignore
+        attr.push(attributesCombinations[i].attribute);
+      }
+    }
+
+    // product Description
+    var brand1 = getXpath('//span[@itemprop="brand"]/text()', 'nodeValue');
+    var brand2 = getAllXpath('//h1[@itemprop="name"]/text()', 'nodeValue');
+    var brand3 = getXpath('//span[@class="checked"]/following::span[1]/text()', 'nodeValue');
+    // var brand4 = getXpath('//span[@class="attribute-name"]/text()', 'nodeValue');
+    // var brand5 = getXpath('//span[@id="selected-product-name"]/text()', 'nodeValue');
+
+    if (brand2.length >= 1) {
+      var temp = "";
+      for (var i = 0; i < brand2.length; i++) {
+        temp = temp + " " + brand2[i]
+      }
+    }
+    var final = "";
+    if (brand1 != null) {
+      final = final + brand1;
+    }
+    if (temp != null) {
+      final = final + temp;
+    }
+    if (brand3 != null) {
+      final = final + " " + brand3;
+    }
+    var nameextended = []
+    for (i = 0; i < attr.length; i++) {
+      var temp = final + " - " + attr[i];
+      nameextended.push(temp)
+
+    }
+
+    // if (brand4 != null) {
+    //   final = final + " - " + brand4;
+    // }
+    // if (brand5 != null && brand4 == null) {
+    //   final = final + " - " + brand5;
+    // }
+
+    // addElementToDocument('product_desc', final);
+
+
+
+    for (var i = 0; i < rpc.length; i++) {
+      addEmptyDiv();
+      addHiddenDiv('rpc', rpc[i], i);
+      addHiddenDiv('name', attr[i], i);
+      addHiddenDiv('namext', nameextended[i], i);
+
     }
 
     //ingredients//
@@ -84,9 +168,9 @@ async function implementation(
     //availibility//
     var ava = getXpath('//link[@itemprop="availability"]/@href', 'nodeValue');
     if (ava != null) {
-       if (ava.includes("OutOfStock")) {
-         ava = "Out of Stock"
-       }else if (ava.includes("InStock")) {
+      if (ava.includes("OutOfStock")) {
+        ava = "Out of Stock"
+      } else if (ava.includes("InStock")) {
         ava = "In Stock"
       }
       addElementToDocument('avail', ava);
@@ -94,37 +178,6 @@ async function implementation(
 
 
 
-    // product Description
-    var brand1 = getXpath('//span[@itemprop="brand"]/text()', 'nodeValue');
-    var brand2 = getAllXpath('//h1[@itemprop="name"]/text()', 'nodeValue');
-    var brand3 = getXpath('//span[@class="checked"]/following::span[1]/text()', 'nodeValue');
-    var brand4 = getXpath('//span[@class="attribute-name"]/text()', 'nodeValue');
-    var brand5 = getXpath('//span[@id="selected-product-name"]/text()', 'nodeValue');
-
-    if (brand2.length >= 1) {
-      var temp = "";
-      for (var i=0; i<brand2.length; i++){
-        temp = temp + " "  + brand2[i]
-      }
-    }
-    var final = "";
-    if (brand1 != null){
-      final = final + brand1;
-    }
-    if (temp != null){
-      final = final + temp;
-    }
-    if (brand3 != null){
-      final = final + " " + brand3;
-    }
-    if (brand4 != null){
-      final = final + " - " + brand4;
-    }
-    if (brand5 != null && brand4==null){
-      final = final + " - " + brand5;
-    }
-
-    addElementToDocument('product_desc', final);
 
     // promotion
     var desc3 = getXpath('//p[@id="reduction_percent"]/span[@id="reduction_percent_display"]/text()', 'nodeValue');
