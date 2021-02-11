@@ -38,11 +38,25 @@ const transform = (data, context) => {
           }
         });
       }
+      if (row.id) {
+        row.id.forEach(item => {
+          item.text = item.text.replace('sku\":\"', '').trim();
+        });
+      }
       if (row.ratingCount) {
         row.ratingCount.forEach(item => {
           item.text = item.text.replace(/(\s*avaliações|avaliação\s*)+/isg, '').trim();
         });
       }
+      if ((!row.id || row.id.length === 0) && row.id1) {
+        const items = row.id1;
+        if (items.length > 0) {
+          const idTemp = items[items.length - 2];
+          row.id = [{ text: idTemp }];
+        }
+        console.log('row.id ==', row.id);
+      }
+      console.log('row.id ***==', row.id);
       if (row.id) {
         rankCounter += 1;
         if (!row.sponsored) {
