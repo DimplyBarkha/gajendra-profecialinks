@@ -100,7 +100,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
-    xpath: //div[contains(@id, 'flix-inpage')]//@srcset
+    xpath: //div[contains(@id,'flix-inpage')]//@src
     regExp: (.+)
     regExpReplace: https:$1
   - name: videos
