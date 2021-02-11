@@ -1,9 +1,8 @@
-
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'druni.es',
-    timeout: null,
+    timeout: 68000,
     country: 'ES',
     store: 'druni',
     zipcode: "''",
