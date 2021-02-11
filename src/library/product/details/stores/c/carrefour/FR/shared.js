@@ -47,12 +47,14 @@ const transform = (data) => {
                   if(item.text.includes('-')){
                     item.text = item.text.replace(/(.*)\-(.*)/,'$2');
                   }
+                  item.text = item.text.trim();
                 }
                 else if(item.text.includes(" d'")){
                   item.text = item.text.replace(/(.*)d'(.*)/,'$2')
                   if(item.text.includes('-')){
                     item.text = item.text.replace(/(.*)\-(.*)/,'$2');
                   }
+                  item.text = item.text.trim();
                 }else {
                   item.text = '';
                 }
@@ -63,8 +65,10 @@ const transform = (data) => {
               row.alternateImages.forEach(item => {
                 if((item.text.includes('https://www.carrefour.fr'))){
                   item.text = item.text;
+                  item.text = item.text.replace('540x540','1500x1500');
                 }else{
                   item.text = 'https://www.carrefour.fr'+item.text;
+                  item.text = item.text.replace('540x540','1500x1500');
                 } 
               }); 
             }
@@ -77,7 +81,7 @@ const transform = (data) => {
                 } 
               });
             }
-            if (row.nameExtended) {
+            if (row.nameExtended){
               row.nameExtended.forEach(item => {
                 if((item.text.includes('Promotion'))){
                   item.text = item.text.split('Promotion') ? item.text.split('Promotion')[1] : '';
@@ -85,12 +89,45 @@ const transform = (data) => {
                 }
               });
             }
+            if (row.totalCarbPerServing){
+              row.totalCarbPerServing.forEach(item => {
+                if((item.text.includes('/'))){
+                  item.text = item.text.split('/') ? item.text.split('/')[0] : '';
+                  item.text = item.text.trim();
+                }
+              });
+            }
+            if (row.totalFatPerServing){
+              row.totalFatPerServing.forEach(item => {
+                if((item.text.includes('/'))){
+                  item.text = item.text.split('/') ? item.text.split('/')[0] : '';
+                  item.text = item.text.trim();
+                }
+              });
+            }
+            if (row.totalSugarsPerServing){
+              row.totalSugarsPerServing.forEach(item => {
+                if((item.text.includes('/'))){
+                  item.text = item.text.split('/') ? item.text.split('/')[0] : '';
+                  item.text = item.text.trim();
+                }
+              });
+            }
+            if (row.caloriesPerServing){
+              row.caloriesPerServing.forEach(item => {
+                if((item.text.includes('kcal'))){
+                  item.text = item.text.split('kcal') ? item.text.split('kcal')[0] : '';
+                  item.text = item.text.trim();
+                }
+              });
+            }
             if (row.image) {
               row.image.forEach(item => {
                 if((item.text.includes('https://www.carrefour.fr'))){
-                  item.text = item.text;
+                  item.text = item.text.replace('540x540','1500x1500');
                 }else{
                   item.text = 'https://www.carrefour.fr'+item.text;
+                  item.text = item.text.replace('540x540','1500x1500');
                 } 
               });
             }
@@ -137,7 +174,7 @@ const transform = (data) => {
                 }
               row.brandText.forEach(item => {
                 if(item.text === 'BRAND'){
-                  item.text = Btext;
+                  item.text = Btext.toUpperCase();
                 } 
               });
             }
@@ -148,7 +185,7 @@ const transform = (data) => {
               });
               row.description = [
                 {
-                  text: text.slice(0, -2),
+                  text: text.trim().slice(0, -2),
                 },
               ];
             }
