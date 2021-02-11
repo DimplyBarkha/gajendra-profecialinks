@@ -1,10 +1,9 @@
-const { transform } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'CA',
     store: 'loblaws',
-    transform,
+    transform: null,
     domain: 'loblaws.ca',
     zipcode: '',
   },
@@ -28,6 +27,7 @@ async function implementation(
     }
     // @ts-ignore
     var a = ''
+    // @ts-ignore
     const c = document.querySelector('script[type="application/ld+json"]').innerText;
     if (c.includes('OutOfStock')) {
       a = "Out of Stock"
