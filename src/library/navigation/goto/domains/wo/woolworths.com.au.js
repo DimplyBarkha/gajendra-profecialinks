@@ -3,9 +3,9 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'woolworths.com.au',
-    timeout: 80000,
+    timeout: null,
     country: 'AU',
-    store: 'woolworths',
-    zipcode: "''",
+    store: 'woolworths_sydney',
+    zipcode: '',
   },
 };

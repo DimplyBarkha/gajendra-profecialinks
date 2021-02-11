@@ -1,11 +1,11 @@
-const { transform } = require('../AU/format')
+const {transform}=require('../AU/format')
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'AU',
-    store: 'woolworths',
+    store: 'woolworths_sydney',
     transform,
     domain: 'woolworths.com.au',
-    zipcode: "''",
+    zipcode: '',
   },
 };

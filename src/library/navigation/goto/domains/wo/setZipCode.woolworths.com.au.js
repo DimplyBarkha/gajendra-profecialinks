@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     domain: 'woolworths.com.au',
-    store: 'woolworths',
-    zipcode: "''",
+    store: 'woolworths_sydney',
+    zipcode: '',
   },
 };
