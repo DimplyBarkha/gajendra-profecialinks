@@ -65,7 +65,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    # xpath: //div[@class="e2-checkmark"]
+    xpath: //h5[contains(text(),'Contactnaam')]/following::p[1]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -148,6 +148,9 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //e2-carousel/v-root/div/div/div[1]/div/div[1]/div/iframe/@src
+    regExp: (.+)
+    regExpReplace: https:https://www.kruidvat.nl/$1
   - name: name
     singleValue: true
     description: The product name
@@ -413,12 +416,14 @@ fields:
   - name: storage
     singleValue: true
     description: Suggested storage location for product
+    xpath: //h5[contains(text(),'Bereidingsinstructies')]/following::p[1]
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
+    xpath: //h3[contains(text(),'Allergenen')]/following::h5[1]
   - name: recyclingInformation
     singleValue: true
     description: Recycling information associated with the product

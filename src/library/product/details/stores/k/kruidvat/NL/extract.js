@@ -68,14 +68,17 @@ module.exports = {
 
       // }
       // addElementToDocument('ing1', ing1);
-      var backgroundURL = getXpath('(//@data-stock)[1]').value;
+      var backgroundURL = getXpath('//span[@itemprop="availability"]').innerText;
       var price = getXpath('//span[@itemprop="price"]').innerText;
       var upc1 = ''
       var upc = ''
       var price1 = ''
       upc1 = getXpath('(//p[@class="product-information__text product-information__ean"])').innerText;
       console.log(backgroundURL, 'backgroundurl-----------')
-      if (backgroundURL.includes('inStock')) {
+      if (backgroundURL.includes('InStock')) {
+        var availabilty = "In Stock"
+      }
+      else if (backgroundURL.includes('Limi')) {
         var availabilty = "In Stock"
       }
       else {
