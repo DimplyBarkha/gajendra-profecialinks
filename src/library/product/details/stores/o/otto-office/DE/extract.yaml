@@ -17,7 +17,7 @@ fields:
     xpath: //h1[@id="oo-block-hl"]/text()
   - name: brandText
     singleValue: true
-    xpath: //button[@class="ooB-mb6 ooB-w100 ooBtn ooBtn-green ooBtn-arrow-right btn-add-to-basket"]/@data-ga_add2wk_brand
+    xpath: (//div[@class="slider-complete-div-linkcontainer"]/a/@data-gaevent_brand)[1]
   - name: category
     singleValue: false
     xpath: //ul[@typeof="BreadcrumbList"]/li[position()>1 and position()<last()]/a/span/text()
@@ -78,10 +78,6 @@ fields:
   - name: url
     singleValue: true
     xpath: //html//div[@id="URL"]
-  - name: shippingInfo
-    singleValue: true
-    description: Shipping information for the product
-    xpath: //div[@class="bullet-before-container ooB-mt12"]
   - name: variantId
     singleValue: true
     xpath: //section[@class="ooB ooB-mb48 ooG"]/@data-init_itemcode
