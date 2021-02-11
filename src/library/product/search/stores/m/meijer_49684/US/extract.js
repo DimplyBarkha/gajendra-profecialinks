@@ -18,6 +18,7 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  //await context.waitForSelector('div[class="tile-column quickview-mouseover-container"] a[class="thumb"] img');
   await context.evaluate(async function () {
     function addclass(xpathforpagination) {
       var elems = document.querySelectorAll(xpathforpagination);
