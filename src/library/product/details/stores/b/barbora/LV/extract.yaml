@@ -17,6 +17,7 @@ fields:
     xpath: //div[@class="b-products-allow-desktop-view b-products-allow-mobile-view"]//span[@class="b-product-price-current-number"]
   - name: availabilityText
     singleValue: false
+    xpath: //a[@class="b-product-out-of-stock"]
     defaultValue: "Out Of Stock"   
   - name: description
     singleValue: false
@@ -32,7 +33,7 @@ fields:
     xpath: //div[@class="b-product-info b-product--js-hook"]/@data-b-item-id
   - name: listPrice
     singleValue: false
-    xpath: //div[@class="b-products-allow-desktop-view b-products-allow-mobile-view"]//span[@class="b-product-price-current-number"]
+    xpath: //div[@class="b-products-allow-desktop-view b-products-allow-mobile-view"]//del[@class="b-product-crossed-out-price"]
   - name: termsAndConditions
     singleValue: false
     defaultValue: "Yes"

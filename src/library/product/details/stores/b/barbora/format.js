@@ -28,7 +28,11 @@ const transform = (data) => {
         let tmp_direction = '';
         if (row.availabilityText) {                    
           row.availabilityText.forEach(item => {
-            item.text = "In Stock";
+            if(item.text == "Atvainojiet, šobrīd prece nav pieejama."){
+              item.text = "Out Of Stock";
+            }else{
+              item.text = "In Stock";
+            }
           });          
         }
         if (row.image) {
