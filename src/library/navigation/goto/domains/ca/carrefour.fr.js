@@ -32,9 +32,7 @@ module.exports = {
     });
     console.log('Status :', responseStatus.status);
     console.log('URL :', responseStatus.url);
-    if(responseStatus.status === 403){
-      return context.reportBlocked(responseStatus.status, 'Blocked: Could not solve CAPTCHA, Called ReplortBlocked');
-    }
+    
     const captchaFrame = 'iframe[_src*="captcha"]:not([title]), iframe[src*="captcha"]:not([title]), div.g-recaptcha';
     try {
       await context.waitForSelector(captchaFrame);
@@ -62,10 +60,15 @@ module.exports = {
           // console.log('solved captcha, waiting for page change');
           await context.waitForNavigation({ timeout });
        
+      }else{
+        if(responseStatus.status === 403){
+          return context.reportBlocked(responseStatus.status, 'Blocked: Could not solve CAPTCHA, Called ReplortBlocked');
+        }
       }
     } catch (error) {
       console.log('captcha code failed');
     }
+    
     try {
       await new Promise((resolve) => setTimeout(resolve, 5000));
       await context.waitForSelector('button#footer_tc_privacy_button', { timeout: 10000 });
