@@ -1,71 +1,74 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //*[@id="BVRRContainer"]//ol[contains(@class, "bv-content-list bv-content-list-reviews")]/li
 fields:
   - name: helpfulCount
-    singleValue: true
     type: NUMBER
     description: Number of people who said the review was helpful
+    xpath: //button[contains(@class , 'bv-content-btn-feedback-yes')]/span/span
   - name: commentCount
-    singleValue: true
+    singleValue: false
     type: NUMBER
     description: Number of comments on the review
   - name: brandText
-    singleValue: true
+    singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: ancestor::html//div[@class="product-name"]/h1
+    regExp: ^([^ \t]+).*
+    regExpReplace: $1
   - name: name
-    singleValue: true
     description: The product name
-    xpath: //div[@class="product-name"]/h1
+    xpath: ancestor::html//div[@class="product-name"]/h1
   - name: sku
-    singleValue: true
-    xpath: //input[@id="skuId"]/@value
+    xpath: ancestor::html//input[@id="skuId"]/@value
     description: The store-specific product identifier
   - name: reviewDate
-    singleValue: true
+    singleValue: false
     type: DATETIME
     description: Date the review was made
+    xpath: //span[@class="bv-content-datetime-stamp"]
   - name: reviewRating
     type: NUMBER
-    singleValue: true
+    singleValue: false
     description: Rating normalized to be out of 5
     xpath: //div[@class="bv-content-header-meta"]/span/span/abbr/@title
     regExp: ^([0-9]+)
   - name: reviewText
-    singleValue: true
+    singleValue: false
     description: The text of the review
     xpath: //div[@class="bv-content-summary-body-text"]/p/text()
   - name: reviewTitle
-    singleValue: true
+    singleValue: false
     description: The title of the review
     xpath: //*[@id="BVRRContainer"]//ol[contains(@class, "bv-content-list bv-content-list-reviews")]/li//div[@class="bv-content-title-container"]/h3/text()
   - name: reviewerTags
     singleValue: false
     description: The tags a reviewer has
   - name: gtin
-    singleValue: true
+    singleValue: false
     description: GTIN code (includes UPC/EAN)
   - name: productUrl
-    singleValue: true
+    singleValue: false
     description: The url of the product details page
-    xpath: //div[@id="siteUrl"]/text()
+    xpath: ancestor::html//div[@id="siteUrl"]/text()
   - name: verifiedPurchase
-    singleValue: true
+    singleValue: false
     type: BOOLEAN
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
   - name: manufacturerResponse
-    singleValue: true
+    singleValue: false
     description: The response of the manufacturer (if any)
   - name: syndicatedFrom
-    singleValue: true
+    singleValue: false
     description: Stated place the review was syndicated from
+    xpath: //span[@class="bv-badge-syndicated"]
   - name: reviewUrl
-    singleValue: true
+    singleValue: false
     description: A direct link to the review
   - name: reviewedSku
-    singleValue: true
+    singleValue: false
     description: The SKU of the item that was reviewed (may be different from the
       sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
       value, transform will handle the value.
@@ -75,4 +78,4 @@ fields:
     xpath: //*[@id="BVRRContainer"]//ol[contains(@class, "bv-content-list bv-content-list-reviews")]/li//div[@class="bv-author"]/span/text()
   - name: aggregateRating
     description: The product rating
-    xpath: //dd[@class="bv-rating-ratio-number"]/span[@class="bv-rating"]/span
+    xpath: ancestor::html//dd[@class="bv-rating-ratio-number"]/span[@class="bv-rating"]/span
