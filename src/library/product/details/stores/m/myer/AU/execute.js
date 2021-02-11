@@ -19,17 +19,16 @@ async function implementation (
     url = await dependencies.createUrl({ id });
   }
   await dependencies.goto({ url, zipcode, storeId });
-  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-    try{
+  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    /*try{
       await context.waitForSelector('div.select-wrapper > button',{timeout:500});
       await new Promise((resolve, reject) => setTimeout(resolve, 1000));
       await context.click('div.select-wrapper > button.css-1c31bez');
       await new Promise((resolve, reject) => setTimeout(resolve, 8000));
     }catch(e){
   
-    }
+    }*/
     
-  
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
