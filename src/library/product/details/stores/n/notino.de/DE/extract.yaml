@@ -45,8 +45,6 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //div[@id='a']
-    regExp: (.+)
-    regExpReplace: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -85,7 +83,13 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
+<<<<<<< HEAD
     xpath: (//span[@class="styled__CodeBlock-mu8uqe-1 fuzqBd"])//span/following-sibling::text()
+=======
+    xpath: (//span[@class="styled__CodeBlock-mu8uqe-1 fuzqBd"])
+    regExp: Code(:) (.+)
+    regExpReplace: $2
+>>>>>>> 671e5f9171c84c61c862a1e244e8d95a9f95b30b
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
