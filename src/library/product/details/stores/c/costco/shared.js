@@ -257,7 +257,7 @@ const transform = (data) => {
           var demo = row.manufacturerDescription[0].text;
           var regExString = new RegExp('(?:' + 'Storage instructions:' + ')(.[\\s\\S]*)(?:' + ' For questions,' + ')');
           test = regExString.exec(demo);
-          test = test[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim();
+          test = test && test[1] ? test[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim() : '';
           row.storage = [{ text: test }];
         }
       }
@@ -267,7 +267,7 @@ const transform = (data) => {
           var demoSku = row.description[0].text;
           var regExStringSku = new RegExp('(?:' + 'Model: ' + ')(.[\\s\\S]*)(?:' + '5A' + ')');
           sku2 = regExStringSku.exec(demoSku);
-          sku2 = sku2[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim();
+          sku2 = sku2 && sku2[1] ? sku2[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim() : '';
           sku2 = sku2 + '5A';
           row.sku = [{ text: sku2 }];
           row.mpc = [{ text: sku2 }];
@@ -280,14 +280,14 @@ const transform = (data) => {
             var demo1 = row.manufacturerDescription[0].text;
             var regExString1 = new RegExp('(?:' + 'Warning:' + ')(.[\\s\\S]*)(?:' + ' Note:' + ')');
             test1 = regExString1.exec(demo1);
-            test1 = test1[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim();
+            test1 = test1 && test1[1] ? test1[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim() : '';
             row.warnings = [{ text: test1 }];
           } else if (row.manufacturerDescription[0].text.includes('Keep out of reach of children.') && row.manufacturerDescription[0].text.includes('away.')) {
             var test2 = '';
             var demo2 = row.manufacturerDescription[0].text;
             var regExString2 = new RegExp('(?:' + 'Keep out of reach of children.' + ')(.[\\s\\S]*)(?:' + 'away.' + ')');
             test2 = regExString2.exec(demo2);
-            test2 = test2[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim();
+            test2 = test2 && test2[1] ? test2[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim() : '';
             test2 = 'Keep out of reach of children. ' + test2 + ' away.';
             row.warnings = [{ text: test2 }];
           } else if (row.manufacturerDescription[0].text.includes('Keep out of reach of children.') && row.manufacturerDescription[0].text.includes('immune-compromising condition.')) {
@@ -295,7 +295,7 @@ const transform = (data) => {
             var demo3 = row.manufacturerDescription[0].text;
             var regExString3 = new RegExp('(?:' + 'Keep out of reach of children.' + ')(.[\\s\\S]*)(?:' + ' immune-compromising condition.' + ')');
             test3 = regExString3.exec(demo3);
-            test3 = test3[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim();
+            test3 = test3 && test3[1] ? test3[1].replace(/\n-/, '').replace(/\n-/g, ' ').trim() : '';
             test3 = 'Keep out of reach of children. ' + test3 + ' immune-compromising condition.';
             row.warnings = [{ text: test3 }];
           }
