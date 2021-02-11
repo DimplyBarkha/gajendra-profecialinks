@@ -215,10 +215,14 @@ fields:
       other stores) - LBB occurs when a product is bought from someone other
       than Amazon (on Amazon Website) - even though Amazon has the product "in
       Stock"
-    defaultValue: No
+    defaultValue: YES
   - name: lbbPrice
     singleValue: true
     description: null
+    xpath: //div[@class='ProductDetailsMainCard__price']/h3
+    regExp: ₹
+    regExpReplace: INR
+    defaultValue: INR
   - name: featureBullets
     singleValue: false
     description: null
