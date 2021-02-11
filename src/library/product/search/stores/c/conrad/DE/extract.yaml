@@ -8,6 +8,8 @@ fields:
     singleValue: false
   - name: id
     xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//a[@class="product__title"]/@href
+    regExp: (\d+).html
+    regExpReplace: $1
     singleValue: false
   - name: thumbnail
     xpath: //div[@class="resultsList"]//div[@class="tableLayout__wrapper tableLayout__wrapper--isListView"]//table[@class="tableLayout__table"]//tbody/tr//td[1]//div[@class="product__imageDetail"]//picture/img/@src

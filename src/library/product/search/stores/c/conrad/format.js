@@ -19,13 +19,20 @@ const transform = (data, context) => {
   const state = context.getState();
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
+  let rowArrayId = state.rowArrayId || [];
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      if (row.id) {
-        let id = row.id[0].text.trim();
-        id = id.slice(id.lastIndexOf('-') + 1).split('.')[0];
-        row.id = [{ text: id, xpath: row.id[0].xpath }];
+      if (row.id && !rowArrayId.includes(row.id[0].text)) {
+        rowArrayId.push(row.id[0].text)
+        rankCounter += 1;
+        if (!row.sponsored) {
+          orgRankCounter += 1;
+          row.rankOrganic = [{ text: orgRankCounter }];
+        }
+        row.rank = [{ text: rankCounter }];
+      } else {
+        row.id = []
       }
       if (row.productUrl) {
         const productUrl = row.productUrl.map((item) => {
@@ -47,17 +54,12 @@ const transform = (data, context) => {
         image = image.includes('?') ? image.substring(0, image.lastIndexOf('?')) : image;
         row.thumbnail = [{ text: image, xpath: row.thumbnail[0].xpath }];
       }
-      rankCounter += 1;
-      if (!row.sponsored) {
-        orgRankCounter += 1;
-        row.rankOrganic = [{ text: orgRankCounter }];
-      }
-      row.rank = [{ text: rankCounter }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
     }
   }
+  context.setState({ rowArrayId });
   context.setState({ rankCounter });
   context.setState({ orgRankCounter });
   context.setState({ productCodes });
