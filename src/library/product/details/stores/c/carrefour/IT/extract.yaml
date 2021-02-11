@@ -60,6 +60,9 @@ fields:
   - name: price
     xpath: //div[@class="product-main-info"]/div[contains(@class,"price")]/div[contains(@class,"price")]/div/span/span/span[contains(@class,"value")]
     singleValue: false  
+  - name: listPrice
+    xpath: //div[@class="product-main-info"]/div[contains(@class,"price")]/div[contains(@class,"price")]/div/span/del/span/span[contains(@class,"value")]
+    singleValue: false
   - name: brandText
     xpath: (//p[contains(@class,"product-name")])[1]
     singleValue: false
@@ -68,9 +71,9 @@ fields:
     xpath: //h1[@class="product-description"]
     #regExp: '([^/]*$)'
     #regExpReplace: '$1'
-  - name: servingSize
-    singleValue: false
-    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"er")])[1]
+    #3270name: servingSize
+    #singleValue: false
+    #xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"er")])[1]
     #regExp: '([\d]+\s*(.+))'
     #regExpReplace: '$1'
   - name: caloriesPerServing
@@ -100,12 +103,15 @@ fields:
   - name: variantId #change how it look
     xpath: //div[contains(@class,"product-detail-page")]/div/@data-pid
     singleValue: false  
+  - name: warnings
+    xpath: //div[contains(@id,"panel-usageTips")]/p[contains(text(),"Avvertenze")]/following-sibling::p
+    singleValue:  
   - name: availabilityText
     singleValue: false
-    xpath: //div[contains(@class,"prices-add-to-cart-actions")]/div[contains(@class,"add-to-cart")]/button[contains(@class,"btn-add-to-cart")]
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock    
+    xpath: //div[contains(@class,"prices-add-to-cart-actions")]/div[contains(@class,"add-to-cart")]/@class
+    #regExp: (.+)
+    #regExpReplace: In Stock
+    #defaultValue: Out of Stock    
 
 
 
