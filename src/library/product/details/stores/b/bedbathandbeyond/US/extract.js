@@ -317,27 +317,30 @@ module.exports = {
     } catch (err) { }
 
     await new Promise((resolve) => setTimeout(resolve, 2000));
-    let variantsButtonChange = await context.evaluate(async function () {
+    let variantsButtonChange = await context.evaluate(() => {
       return document.querySelectorAll('div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"] button').length;
     });
-    const variantsSizeChange = await context.evaluate(async function () {
+    const variantsSizeChange = await context.evaluate(() => {
       return document.querySelectorAll('div[itemtype="http://schema.org/Product"] div[name*="sizeSelect"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"] button').length;
     });
-    const variantsButtonSizeChange = await context.evaluate(async function () {
+    const variantsButtonSizeChange = await context.evaluate(() => {
       return document.querySelectorAll('div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"] button, div[itemtype="http://schema.org/Product"] div[name*="sizeSelect"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"] button').length;
     });
     console.log('variantsButtonChange fddf');
     console.log(variantsButtonChange);
+    console.log(variantsSizeChange);
+    console.log(variantsButtonSizeChange);
 
-    variantsButtonChange = variantsButtonChange >= 10 ? 10 : variantsButtonChange;
+    
 
-    try {
-      // await context.waitForXPath('//a[contains(@class,"ProductMediaCarouselStyle")]');
-      await context.waitForSelector('div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"]button', { timeout: 15000 });
-      console.log('everything fine !!!');
-    } catch (err) { }
+    // try {
+    //   // await context.waitForXPath('//a[contains(@class,"ProductMediaCarouselStyle")]');
+    //   await context.waitForSelector('div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"] button', { timeout: 7000 });
+    //   console.log('everything fine !!!');
+    // } catch (err) { }
 
-    if (variantsSizeChange !== 0) {
+    if (variantsButtonSizeChange !== 0 && variantsSizeChange !== 0 && variantsButtonChange !== 0) {
+      variantsButtonChange = variantsButtonChange >= 9 ? 9 : variantsButtonChange;
       for (let i = 1; i <= variantsButtonChange; i++) {
         await context.evaluate(() => {
           if (document.querySelector('div[role="dialog"] button[title="close"]')) {
@@ -349,13 +352,17 @@ module.exports = {
         const sizeOptions = await context.evaluate(() => {
           return document.querySelectorAll('div[itemtype="http://schema.org/Product"] div[name*="sizeSelect"] div.rclCustomSelectListWrapper ul[aria-label="options"] li button:not([disabled])').length;
         });
-        for (let j = 0; j <= sizeOptions; j++) {
+        for (let j = 0; j < sizeOptions; j++) {
           await context.evaluate(() => {
             if (document.querySelector('div[role="dialog"] button[title="close"]')) {
               document.querySelector('div[role="dialog"] button[title="close"]').click();
             }
           });
-          await context.click('button.rclCustomSelectBtn');
+          try {
+            await context.click('button.rclCustomSelectBtn');
+          } catch (error) {
+            console.log('Button not working');
+          }
           // await context.click(`div[itemtype="http://schema.org/Product"] div[name*="sizeSelect"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"]:nth-child(${j}) button:not([disabled])`);
 
           await context.evaluate(async function (j) {
@@ -390,18 +397,52 @@ module.exports = {
           await context.goto(linkURL);
         }
       }
+    } else if (variantsSizeChange !== 0 && variantsButtonChange === 0) {
+      for (let j = 0; j < variantsSizeChange; j++) {
+        await context.evaluate(() => {
+          if (document.querySelector('div[role="dialog"] button[title="close"]')) {
+            document.querySelector('div[role="dialog"] button[title="close"]').click();
+          }
+        });
+        try {
+          await context.click('button.rclCustomSelectBtn');
+        } catch (error) {
+          console.log('Button not working');
+        }
+        // await context.click(`div[itemtype="http://schema.org/Product"] div[name*="sizeSelect"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"]:nth-child(${j}) button:not([disabled])`);
+
+        await context.evaluate(async function (j) {
+          if (document.querySelectorAll('div[itemtype="http://schema.org/Product"] div[name*="sizeSelect"] div.rclCustomSelectListWrapper ul[aria-label="options"] li button:not([disabled])')[j]) {
+            document.querySelectorAll('div[itemtype="http://schema.org/Product"] div[name*="sizeSelect"] div.rclCustomSelectListWrapper ul[aria-label="options"] li button:not([disabled])')[j].click();
+          }
+        }, j);
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+
+        try {
+          // await context.waitForXPath('//a[contains(@class,"ProductMediaCarouselStyle")]');
+          await context.waitForSelector('a[class^="ProductMediaCarouselStyle"] span, div[class^="ProductMediaCarouselStyle"] a', { timeout: 35000 });
+          console.log('everything fine !!!');
+          await context.evaluate(() => {
+            const firstItem = document.querySelector('a[class^="ProductMediaCarouselStyle"] span, div[class^="ProductMediaCarouselStyle"] a');
+            firstItem.click();
+          });
+        } catch (err) { }
+        await context.extract(productDetails, { transform });
+
+      }
     } else if (variantsButtonChange !== 0) {
       for (let i = 1; i <= variantsButtonChange; i++) {
         await context.evaluate(() => {
           if (document.querySelector('div[role="dialog"] button[title="close"]')) {
             document.querySelector('div[role="dialog"] button[title="close"]').click();
-            if (document.querySelector('div#sizeSelect')) {
-              document.querySelector('button.rclCustomSelectBtn').click();
-              document.querySelector('ul.rclCustomSelectList li[aria-selected="true"]');
-            }
           }
         });
-        await context.click(`div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"]:nth-child(${i}) button`);
+        await context.evaluate((i) => {
+          if (document.querySelector(`div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"]:nth-child(${i}) button`)) {
+            document.querySelector(`div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"]:nth-child(${i}) button`).click();
+          }
+        }, i);
+        // await context.click(`div[itemtype="http://schema.org/Product"] div[name*="_swatches"] div.rclCustomSelectListWrapper ul[aria-label="options"] li[class^="rclCustomItem"]:nth-child(${i}) button`);
         await new Promise((resolve) => setTimeout(resolve, 5000));
 
         try {
