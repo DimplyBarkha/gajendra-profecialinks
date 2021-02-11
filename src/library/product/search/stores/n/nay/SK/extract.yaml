@@ -23,17 +23,21 @@ fields:
   - name: productUrl
     singleValue: true
     description: The URL for the product details page
-    xpath: //div[@class="spc ajax-wrap compare-item"]/a[@class="detail"]/@href
+    # xpath: //div[@id='productUrl']/@data
+    xpath: //a[@selector="productLink"]/@href
+    # xpath: //div[@class="spc ajax-wrap compare-item"]/a[@class="detail"]/@href
   - name: thumbnail
     singleValue: true
     description: The URL for the product thumbnail image
-    xpath: //span[@class="img compare-add-img"]/img/@src
+    # xpath: //div[@id='image']/@data
+    # xpath: //span[@class="img compare-add-img"]/img/@src
+    xpath: //a[@selector="productLink"]//span[@class="img compare-add-img"]/img/@src
   - name: name
     singleValue: true
     description: The product name
-    #xpath: //span[@class="name"]/text()
-    #xpath: //span[@itemprop="name"]/text()
-    xpath: //h3[@class="title"]/span[@itemprop="name"]/text()
+    # xpath: //div[@id='nameExtended']/@data
+    xpath: //a[@selector="productLink"]//h3[@class="title"]/span[@itemprop="name"]/text()
+    # xpath: //h3[@class="title"]/span[@itemprop="name"]/text()
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -53,11 +57,13 @@ fields:
   - name: reviewCount
     singleValue: true
     description: The number of reviews
-    xpath: //*[@id="lb-results"]/div/div[1]/ul/li/div/div/a/div/p/text()
+    xpath: //*[@id="lb-results"]/div/div/ul/li/div/div/a[@selector="productLink"]/div/p/text()
+    # xpath: //*[@id="lb-results"]/div/div[1]/ul/li/div/div/a/div/p/text()
   - name: price
     singleValue: true
     description: The offered price for the product
-    xpath: //div/div[@class='spc ajax-wrap compare-item']/div[@class='shop-box']/div[@class='shop-box-in']/p[@class='price']/span[@class='price-inner-wrap']/span[@class='price-group']/strong
+    # xpath: //div[@id='price']/@data
+    xpath: //a[@selector="productLink"]/following-sibling::div[@class='shop-box']/div[@class='shop-box-in']/p[@class='price']/span[@class='price-inner-wrap']/span[@class='price-group']/strong
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -73,55 +79,52 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //*[@id="lb-results"]/div/div/ul/li/div/div/div/div/p/a/span
+    # xpath: //*[@id="lb-results"]/div/div/ul/li/div/div/div/div/p/a/span
   - name: rank
     singleValue: true
     description: search/listing rank
     type: NUMBER
-    xpath: //div[@id="rank"]
   - name: rankOrganic
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER
-    xpath: //div[@id="rank"]
   - name: sponsored
     singleValue: true
     description: Is sponsored/paid
     type: BOOLEAN
-  - name: id
-    singleValue: true
-    description: Unique id (within this extractor)
-    xpath: //h3[@class="title"]/span[@itemprop="name"]/text()
-    #xpath: //span[@itemprop="name"]/text()
-    #xpath: //div[@class="item-top"]/h3/span[2]/text()
-    #xpath: //div[@id='pd_variantId']
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-    xpath: //h3[@class="title"]/span[@itemprop="name"]/text()
-    #xpath: //span[@itemprop="name"]/text()
-    #xpath: //span[@class="name"]/text()
-    #- name: aggregateRating
-    #singleValue: false
-    #description: The stated aggregate rating normalized to be out of 5
-    #type: NUMBER
+    # xpath: //div[@id='nameExtended']/@data
+    xpath: //a[@selector="productLink"]//h3[@class="title"]/span[@itemprop="name"]/text()
+  # - name: aggregateRating
+  #   singleValue: false
+  #   description: The stated aggregate rating normalized to be out of 5
+  #   type: NUMBER
     #xpath: //div[@id="aggregateRating"]
     #regExp: (\d+)(\.)(\d+)
     #regExpReplace: $1,$3
   - name: aggregateRating2
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    #type: NUMBER
-    xpath: //div[@id="aggregateRating"]
-    regExp: (\d+)(\.)(\d+)
+    # type: NUMBER
+    xpath: //a[@selector="productLink"]/@aggregateRating
+    regExp: (\d+)(\.?)(\d+)?
     regExpReplace: $1,$3
-
-    #xpath: //*[@id="lb-results"]/div/div/ul/li/div/div/a/div/p/span/span/span[2]/text()
-    #- name: aggregateRating
-    #singleValue: true
-    #description: The stated aggregate rating normalized to be out of 5
-    #type: NUMBER
-    #xpath: //div[@id="aggregateRating"]
-    #regExp: (\d.+)(\d)
-    #regExpReplace: $1.$2
+  # - name: aggregateRating
+  #   singleValue: true
+  #   description: The stated aggregate rating normalized to be out of 5
+  #   # type: NUMBER
+  #   xpath: //a[@selector="productLink"]/@aggregateRating
+  #   regExp: (\d+)(\.?)(\d+)?
+  #   regExpReplace: $1,$3
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    # xpath: //span[@name='id']
+    xpath: //a[@selector="productLink"]/@productId
+    # xpath: //a[@id]/@id
+    # xpath: //div[@id='id']
+    # xpath: //h3[@class="title"]/span[@itemprop="name"]/text()
+    # xpath: //div[@id='pd_variantId']
