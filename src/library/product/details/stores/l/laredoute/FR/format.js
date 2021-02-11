@@ -13,7 +13,7 @@ const transform = (data) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
@@ -115,16 +115,16 @@ const transform = (data) => {
         manuImages.forEach(ele => {
           let extractfirsturl = ele.text.split(',');
           var obj = {};
-          let extracturlbeforeExtn = extractfirsturl[0].split(" ");          
-          obj.text = extracturlbeforeExtn[0];     
-          if(obj.text.startsWith("//media")){
+          let extracturlbeforeExtn = extractfirsturl[0].split(" ");
+          obj.text = extracturlbeforeExtn[0];
+          if (obj.text.startsWith("//media")) {
             row.inTheBoxUrl.push(obj);
           }
-          
+
         });
-        
-        }
-      if(row.unInterruptedPDP) {
+
+      }
+      if (row.unInterruptedPDP) {
         row.unInterruptedPDP.forEach(item => {
           item.text = cleanUp(item.text);
         });
@@ -144,6 +144,13 @@ const transform = (data) => {
         row.unInterruptedPDP.forEach(item => {
           item.text = item.text.replace(/\n/gm, ' ').replace(/(?<=€)(.*)/gm, '').trim();
         });
+      }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach((element) => {
+          if (!element.text.includes('https')) {
+            element.text = `https:${element.text}`
+          }
+        })
       }
     }
   }
