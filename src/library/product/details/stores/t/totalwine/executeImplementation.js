@@ -2,10 +2,10 @@ const implementation = async function (
   inputs,
   parameters,
   context,
-  dependencies
+  dependencies,
 ) {
   let { url, id } = inputs;
-  let zipcode = inputs.zipcode || inputs.Postcode;
+  const zipcode = inputs.zipcode || inputs.Postcode;
   const storeId = inputs.StoreId;
   // const Postcode = inputs.Postcode;
   const { loadedSelector, noResultsXPath } = parameters;
@@ -38,12 +38,14 @@ const implementation = async function (
   //   zipcode = Postcode;
   //   console.log('postcode value' + zipcode)
   // }
+  const noResults = await context.evaluate(() => !!document.querySelector('title').innerText.includes('Not Found'));
+  if (noResults) return false;
   if (zipcode) {
     await dependencies.setZipCode({ url, zipcode });
   }
   try {
-    await context.waitForSelector('div[class*="productDetailContainer"] div[class*="productHeader"] h1[class*="productTitle"]', { timeout: 10000 })
-    console.log('Header loaded successfully')
+    await context.waitForSelector('div[class*="productDetailContainer"] div[class*="productHeader"] h1[class*="productTitle"]', { timeout: 10000 });
+    console.log('Header loaded successfully');
   } catch (error) {
     console.log('selector did not loaded' + error);
   }
@@ -56,7 +58,7 @@ const implementation = async function (
     const appendElement = document.querySelector('div[class*="productDetailContainer"] div[class*="productHeader"] h1[class*="productTitle"]');
     appendElement && appendElement.setAttribute('zipcodeinformation', zipcode);
     appendElement && appendElement.setAttribute('storeidinformation', storeId);
-  }, zipcode)
+  }, zipcode);
   // }
 
   // appendData();
@@ -67,7 +69,7 @@ const implementation = async function (
   //   }, { timeout: 20000 }, parameters.loadedSelector, parameters.noResultsXPath);
   // }
 
-  async function getData(variantUrl) {
+  async function getData (variantUrl) {
     console.log('URL passed - ' + variantUrl);
     const data = await context.evaluate(async function (reqUrl) {
       const response = await fetch(reqUrl, {
@@ -105,7 +107,7 @@ const implementation = async function (
       const sku = url && url.match(/\/p\/(\d+)/) && url.match(/\/p\/(\d+)/)[1];
       const storeUniqueId = zipcode === '95825' ? 1108 : url && url.match(/\/p\/(\d+)/) && url.match(/\/p\/(\d+)/)[1];
       await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-      const productDetails = await getData(`https://www.totalwine.com/product/api/product/product-detail/v1/getProduct/${sku}?shoppingMethod=INSTORE_PICKUP&state=US-CA&storeId=${currentStoreId ? currentStoreId : storeUniqueId}`);
+      const productDetails = await getData(`https://www.totalwine.com/product/api/product/product-detail/v1/getProduct/${sku}?shoppingMethod=INSTORE_PICKUP&state=US-CA&storeId=${currentStoreId || storeUniqueId}`);
       console.log('API call done');
       try {
         const variations = productDetails.skus.map(elm => elm.options.map(e => (`${e.type} - ${e.value}`)).join(', ')).join('|');

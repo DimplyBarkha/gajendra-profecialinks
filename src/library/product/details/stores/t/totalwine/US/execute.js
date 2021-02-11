@@ -7,7 +7,7 @@ module.exports = {
     store: 'totalwine',
     domain: 'totalwine.com',
     loadedSelector: 'div[class*="productResultContainer"]',
-    noResultsXPath: '//input[contains(@value,"Not Found")] | //p[contains(.,"doesn’t exist")]| //p[contains(@class,resultsTitle)]/span[contains(text(),"No results for ")]',
+    noResultsXPath: '//title[contains(text(),"Not Found")] | //input[contains(@value,"Not Found")] | //p[contains(.,"doesn’t exist")]| //p[contains(@class,resultsTitle)]/span[contains(text(),"No results for ")]',
   },
   dependencies: {
     setZipCode: 'action:navigation/goto/setZipCode',
