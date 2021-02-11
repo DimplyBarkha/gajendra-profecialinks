@@ -7,5 +7,5 @@ module.exports = {
     country: 'DE',
     store: 'notino',
     zipcode: '',
-  },
+  },  
 };
