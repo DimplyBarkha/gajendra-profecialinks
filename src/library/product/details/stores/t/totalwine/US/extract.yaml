@@ -482,7 +482,7 @@ fields:
     xpath: //div[contains(@class,"detailsTableRow")]
   #geo
   - name: onlineStore
-    xpath: //p[contains(@id, 'globalStoreName')]
+    xpath: //p[contains(@id, 'globalStoreName')] | //div[@data-at="header-changeLocation-storename-text"]
   - name: retailerId
     xpath: //div[contains(@class,"productDetailContainer")]//div[contains(@class,"productHeader")]//h1[contains(@class,"productTitle")]/@storeidinformation
   - name: drive
