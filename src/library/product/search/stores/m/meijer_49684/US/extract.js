@@ -58,25 +58,9 @@ async function implementation(
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
-        const originalDiv = document.querySelectorAll('div.product-item > div.tile-row.details-container > div.tile-column.details > a')[index];
+        const originalDiv = document.querySelectorAll('div[class="tile-row details-container"]')[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-        console.log("creating prices")
-        var len = document.querySelectorAll('div.product-item > div.tile-row.details-container > div.tile-column.details > a').length
-        var a = document.querySelectorAll('div[class="for-tile"] span[itemprop="price"],div[class="for-tile"] div[class="display-price sale-price"]')
-        for (let i = 0; i < len; i++) {
-          // @ts-ignore
-          var price = a[i].innerText.split(" ")
-          if (price[0].charAt(0) == "$") {
-            addHiddenDiv('price', price[0], i)
-            console.log(i,"price=",price[0])
-          }
-          else {
-            var r = price[0].slice(0, 0) + "$" + price[0].slice(0);
-            addHiddenDiv('price', r, i)
-            console.log(i," price= ",r)
-          }
-        }
       const URL = window.location.href;
       try {
         document.getElementById('pd_url').remove();
