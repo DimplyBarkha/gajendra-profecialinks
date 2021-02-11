@@ -32,8 +32,52 @@ const transform = (data, context) => {
   for (const { group } of data) {
     for (const row of group) {
       try {
+        var product;
+        var regEx;
+        var regexMatch;
+        var productDetails;
         console.log('CodeTrade');
         console.log(row);
+
+        if (row.ratingCount) {
+          product = row.ratingCount[0].text;
+          regEx = /\(([^)]+)\)/;
+          regexMatch = regEx.exec(product);
+
+          productDetails = JSON.parse(regexMatch[1]);
+          row.ratingCount = [
+            { text: productDetails.ratingCount },
+          ];
+        }
+
+        // if (row.nameExtended) {
+        //   product = row.brandText[0].text;
+        //   regEx = /\(([^)]+)\)/;
+        //   regexMatch = regEx.exec(product);
+
+        //   productDetails = JSON.parse(regexMatch[1]);
+        //   if (
+        //     productDetails.name.includes(productDetails.brand)
+        //   ) {
+        //     row.nameExtended = [{ text: productDetails.name }];
+        //   } else {
+        //     row.nameExtended = [
+        //       {
+        //         text: `${productDetails.brand} ${productDetails.name}`,
+        //       },
+        //     ];
+        //   }
+        // }
+        // if(row.gitn8){
+        //   product = row.gitn8[0].text;
+        //   regEx = /\(([^)]+)\)/;
+        //   regexMatch = regEx.exec(product);
+
+        //   productDetails = JSON.parse(regexMatch[1]);
+        //   row.gitn8 = [
+        //     { text: productDetails.gitn8 },
+        //   ];
+        // }
       } catch (exception) {
         console.log('Error in transform', exception);
       }
