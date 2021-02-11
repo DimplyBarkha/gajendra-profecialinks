@@ -19,11 +19,15 @@ module.exports = {
       }
       // @ts-ignore
       const manufacturer = window.qubitEcProduct[0].product.manufacturer;
+      if (manufacturer != null){
       addElementToDocument('detail-manufacturer', manufacturer);
+      }
 
       // @ts-ignore
       const category = window.qubitEcProduct[0].product.category;
+      if (category != null){
       addElementToDocument('sub-category', category);
+      }
       
 
     });
