@@ -9,13 +9,14 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   const sizeOfDiv = await context.evaluate(function () {
-    function addHiddenDiv (id, content, availability, itemNo, rpc) {
+    function addHiddenDiv (id, content, availability, itemNo, rpc, quantity) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.setAttribute('availability', availability);
       newDiv.setAttribute('itemNo', itemNo);
       newDiv.setAttribute('rpc', rpc);
+      newDiv.setAttribute('quantity', quantity);
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
@@ -39,12 +40,13 @@ async function implementation (
   if (sizeOfDiv !== 0) {
     for (let i = 0; i < sizeOfDiv; i++) {
       await context.evaluate(function (i) {
-        function addHiddenDiv (id, content, availability, rpc) {
+        function addHiddenDiv (id, content, availability, rpc, quantity) {
           const newDiv = document.createElement('div');
           newDiv.id = id;
           newDiv.textContent = content;
           newDiv.setAttribute('availability', availability);
           newDiv.setAttribute('retailerProdCode', rpc);
+          newDiv.setAttribute('quantity', quantity);
           newDiv.style.display = 'none';
           document.body.appendChild(newDiv);
         }
@@ -53,7 +55,9 @@ async function implementation (
         const content = currentDivSelector.innerText;
         const availability = currentDivSelector.getAttribute('availability');
         const rpc = currentDivSelector.getAttribute('rpc');
-        addHiddenDiv('currentDiv', content, availability, rpc);
+        const quantity = content.split(' ').slice(-1);
+        addHiddenDiv('currentDiv', content, availability, rpc, quantity);
+        addHiddenDiv(`currentDiv_${i}`, content, availability, rpc, quantity);
       }, i);
       await context.extract(productDetails, { transform });
       await context.evaluate(function () {

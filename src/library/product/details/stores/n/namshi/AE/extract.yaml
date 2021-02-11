@@ -79,10 +79,9 @@ fields:
     singleValue: false
     # xpath: //div[@id="sizeSelector"]//p[@class="outofstock__cta"]
     xpath: //div[@id='currentDiv']/@availability
-  - name: quantity
-    singleValue: false
-    xpath: //div[@id='currentDiv']/text()
-    regExp: '[a-z,A-Z,/]+$'
+ # - name: quantity
+    #singleValue: false
+    #xpath: //div[@id='currentDiv']/@quantity
   - name: unInterruptedPDP
     singleValue: false
     xpath: //div[@class="recommendations"]//h4[@class="product-name"]
@@ -92,5 +91,5 @@ fields:
   - name: promotion
     description: promotion text on product page
     xpath: //div[@class="product__details"]//p[@class="reduction_tag_wrapper"]//span[3]
-  - name: size
+  - name: quantity
     xpath: //ul[contains(@id,'product_size')]//li[1]//span[1]
