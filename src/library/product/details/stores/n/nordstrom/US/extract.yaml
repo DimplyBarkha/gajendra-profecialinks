@@ -83,7 +83,8 @@ fields:
   - name: variantCount
     xpath: count(//table/tbody/tr[@class="append_variant"]/@variant_id)
   - name: quantity
-    xpath: //table/tbody/tr[@class="append_variant"]//td[@class="variant"]
+    # xpath: //table/tbody/tr[@class="append_variant"]//td[@class="variant"]
+    xpath: //table/tbody/tr[@class="append_variant"]//td[@class="quantity"]
   - name: color
     xpath: ancestor::html//ul[@id="product-page-swatches"]//li/button/img/@alt
   - name: variantInformation

@@ -60,6 +60,7 @@ module.exports = {
             const variant = filters[type].byId[varId];
             const priceSku = [];
             priceSku.push(variant.relatedSkuIds[0]);
+
             for (const val of priceSku) {
               var data = styleDetails.price.bySkuId[val];
             }
@@ -70,6 +71,7 @@ module.exports = {
               value: variant.value,
               price: data.priceString,
               listPrice: data.originalPriceString,
+              size: variant.filterType === 'size' || variant.filterType === 'width' ? variant.displayValue : '',
             });
             const mediaIds = filters[type].byId[varId].styleMediaIds;
             if (!mediaIds) {
@@ -140,6 +142,11 @@ module.exports = {
             variant.setAttribute('class', 'variant');
             variant.textContent = varinatInformation[index].value;
             newlink.appendChild(variant);
+
+            const quantity = document.createElement('td');
+            quantity.setAttribute('class', 'quantity');
+            quantity.textContent = varinatInformation[index].size;
+            newlink.appendChild(quantity);
 
             const nameExtended = document.createElement('td');
             nameExtended.setAttribute('class', 'nameextended');
