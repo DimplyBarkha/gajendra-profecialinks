@@ -15,6 +15,9 @@ fields:
   - name: nameExtended
     singleValue: true
     xpath: //h1[@id="oo-block-hl"]/text()
+  - name: brandText
+    singleValue: true
+    xpath: //button[@class="ooB-mb6 ooB-w100 ooBtn ooBtn-green ooBtn-arrow-right btn-add-to-basket"]/@data-ga_add2wk_brand
   - name: category
     singleValue: false
     xpath: //ul[@typeof="BreadcrumbList"]/li[position()>1 and position()<last()]/a/span/text()
