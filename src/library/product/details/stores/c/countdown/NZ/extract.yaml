@@ -102,3 +102,12 @@ fields:
   - name: legalDisclaimer
     singleValue: true
     xpath: //p[contains(@class,"product-footerMessage text-center")]//text()
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //div[@aria-labelledby="Allergen warnings"]//div[@class="body"]//p
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //div[@aria-labelledby="Claims"]//div[@class="body"]//p
