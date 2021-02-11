@@ -4,16 +4,6 @@ module.exports = {
     country: 'US',
     store: 'homedepot',
     domain: 'homedepot.com',
-    zipcode: '',
+    zipcode: '30324',
   },
 };
-
-// module.exports = {
-//   implements: 'product/details',
-//   parameterValues: {
-//     country: 'US',
-//     store: 'homedepot',
-//     domain: 'homedepot.com',
-//     zipcode: '',
-//   },
-// };

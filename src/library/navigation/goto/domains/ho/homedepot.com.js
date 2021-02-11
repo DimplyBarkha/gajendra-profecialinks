@@ -9,8 +9,11 @@ module.exports = {
     store: 'homedepot',
     zipcode: '',
   },
-  implementation: async ({ url }, parameters, context, dependencies) => {
-    await context.setFirstRequestTimeout(50000);
+  implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
+    await context.setFirstRequestTimeout(90000);
+    if (zipcode) {
+      url += `#[!opt!]{"cookie_jar":[{"name":"DELIVERY_ZIP","value":"${zipcode.toString()}"},{"name":"DELIVERY_ZIP_TYPE","value":"USER"}]}[/!opt!]`;
+    }
     const lastResponseData = await context.goto(url, {
       block_ads: false,
       load_all_resources: true,

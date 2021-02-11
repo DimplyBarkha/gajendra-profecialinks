@@ -14,7 +14,6 @@ fields:
     singleValue: false
     xpath: //meta[contains(@name,"keyword")]/@content
   - name: nameExtended
-    singleValue: true
     xpath: //div[@id="extendedName"]
     #xpath: //meta[@itemprop="name"]/@content
   
@@ -40,20 +39,20 @@ fields:
   #   singleValue: false
   #   xpath: //div[@id='product_description']//div[@class="rich-content-container"]`
   - name: warnings
-    singleValue: true
-    xpath: //a[@class='prop65-warning__link u__default-link'][1]
+    xpath: //a[contains(@class,'prop65-warning')]
   - name: alternateImages
     singleValue: false
-    xpath: //div[@id="thumbnails"]//img/@src|//div[starts-with(@id,"altImage")] | //*[@class="mediagallery__imgblock--standard"]/@src
+    xpath: //@secondaryImages
+    regExp: '[^|]+'
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="product_description"]//img[@class="stretchy"]/@src|//div[@data-component="description"]//img/@src | | //*[@class="mediagallery__imgblock--standard"]/@src
+    xpath: //@manufacturerImages
+    regExp: '[^|]+'
   # - name: ratingCount
   #   singleValue: true
   #   xpath: //span[@class="product-details__review-count"]
   #   type: NUMBER
   - name: shippingDimensions
-    singleValue: true
     xpath: //div[@id="specsContainer"]//div[h4[contains(text(),"Dimensions")]]/following-sibling::div[@class="specs__table"][1]|//h4[contains(text(),"Dimensions")]/following-sibling::div
   # - name: specifications
   #   singleValue: false
@@ -71,7 +70,6 @@ fields:
   #   singleValue: true
   #   xpath: //div[starts-with(@id,"video_url")]
   - name: imageAlt
-    singleValue: true
     xpath: //img[@id="mainImage"]/@alt|//div[@class="mediagallery__mainimage"]//img/@alt
   - name: aggregateRatingText
     singleValue: false
@@ -91,11 +89,10 @@ fields:
     #xpath: //h1[contains(@class,'product-details__title')]/text()|//div[contains(@class,'main_description')]|//div[contains(@class,'product-description__main-description')]
   
   - name: descriptionBullets
-    singleValue: true
     xpath: //div[@id="descriptionBullets"]
     #xpath: count(//div[@class="grid desktop-content-wrapper__main-description"]/div[@class="bullet-list-wrapper"]/ul/li)
   - name: promotion
-    xpath: normalize-space(//div[@id="savingsText"]/p) | //*[@class="price-detailed__was-price"]/div/text()
+    xpath: //@promotion
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
@@ -105,14 +102,10 @@ fields:
     regExpReplace: $2
   
   - name: shippingInfo
-    singleValue: true
     description: Shipping information for the product
     
   - name: secondaryImageTotal
-    xpath: count(//div[contains(@class,"mediagallery__thumbnail")][position()>1]/button/img/@src) 
-    #xpath: count(//*[@id="thumbnails"]//img/@src) | count(//*[@class="mediagallery__imgblock--standard"]/@src)
   - name: packSize
-    singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
     xpath: //div[@id="packSize"]
@@ -175,7 +168,6 @@ fields:
     xpath: //*[@class="product-details__review-count"]
     regExp: (\d+)
   - name: shippingInfo
-    singleValue: true
     description: Shipping information for the product
     # xpath: /html/body/footer/div[2]/nav[1]/ul/li[5]/a/@href
     # regExp: (.+)
@@ -187,13 +179,12 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //*[@class="card__contents pip-row"]/div[3]/ul | //ul[contains(@class,'bullet-list bullet-list')]/li
+    xpath: //@manufacturerDescription
   - name: name
     singleValue: false
     description: The product name
     xpath: //h1[@class="product-title__title"]/text() | //h1[@class="product-details__title"]/text()
   - name: brandLink
-    singleValue: true
     xpath: //a[contains(@class,"bttn-outline bttn--cta")]/@href | //a[@class="product-details__brand"]/@href
     regExp: (.+)
     regExpReplace: https://www.homedepot.com$1
@@ -203,7 +194,6 @@ fields:
     # regExe: (.+)
     # regExeReplace: https://www.homedepot.com$1
   - name: customerServiceAvailability
-    singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
     regExp: (.+)
     regExpReplace: Yes
@@ -212,9 +202,7 @@ fields:
   - name: videos
     singleValue: false
     description: videos
-    xpath: //*[@itemprop="contentURL"]/@content | //script[contains(text(),"contentUrl")]/text()
-    regExp: (h[https:]+[\/\/f1.media.brightcove.com\/4\/1834613806001\/]\/([^,]+\d\.mp4\?\w+.\d+.\w.+\=\d{13})|(\d.+\w+\.jpg))
-    regExpReplace: https://$2
+    xpath: //@videos
   - name: productId
     singleValue: false
     description: product id
@@ -252,5 +240,11 @@ fields:
     description: Quantity as described on the page
     xpath: //div[@class="grid"]//div[@class="specifications__wrapper"]/div/div[contains(text(), "(oz.)")]/following-sibling::*[1] | //div[@id="specsContainer"]//div[contains(text(), "(oz.)")]/following-sibling::*[1] | //div[@class="attribute__label"]/div[starts-with(text(),"Size")]/span
     #xpath: //div/div/div[contains(text(), "(oz.)")]/following-sibling::*[1]
+  - name: Image360Present
+    xpath: //@image360
+  - name: imageZoomFeaturePresent
+    xpath: //span[contains(text(),"Hover Image to Zoom")]
+  - name: technicalInformationPdfPresent
+    xpath: //a[contains(text(),"Specification") and contains(@href,"pdf")]
 
 
