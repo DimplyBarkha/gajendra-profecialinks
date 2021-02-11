@@ -32,29 +32,26 @@ async function implementation (inputs, parameters, context, dependencies) {
       parameters.noResultsXPath,
     );
   }
-  // after the search results page and checking loadedSelector and noResultsXPath
-  // the extractor goes to the logging in page
-  await context.goto(loginUrl);
-  // the popup is visible after a moment -> delaying the removal
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-  const isPopupPresent = await context.evaluate(async () => {
-    return document.querySelector('div.truste_box_overlay') !== null;
-  });
-    // when the popup is present it returns undefined, when not - null
-  if (isPopupPresent) {
-    await context.evaluate(() => {
-      document.querySelector('div.truste_box_overlay').remove();
-      document.querySelector('div.truste_overlay').remove();
-    });
-  }
-  // checking if the extractor is on the logging in page
-  // when the user is logged in the extractor will be redirected to the homepage
+  // checking if a user is logged in
   const isUserLogged = await context.evaluate(async () => {
-    const currentUrl = window.location.href;
-    return !currentUrl.includes('idm');
+    return document.querySelector('div[aria-label="Search Results"] div[class*="grid__row"] > div span[class*="_price"]') !== null;
   });
-    // when the user is not logged in, the extractor fills out the form
+
+  // when the user is not logged in, the extractor goes to the login page and fills out the form
   if (!isUserLogged) {
+    await context.goto(loginUrl);
+    // the popup is visible after a moment -> delaying the removal
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    const isPopupPresent = await context.evaluate(async () => {
+      return document.querySelector('div.truste_box_overlay') !== null;
+    });
+    if (isPopupPresent) {
+      await context.evaluate(() => {
+        document.querySelector('div.truste_box_overlay').remove();
+        document.querySelector('div.truste_overlay').remove();
+      });
+    }
+    // filling in the form
     const isAccountNumberFilledIn = await context.evaluate(async (number) => {
       return document.querySelector('input#accountNumber').getAttribute('value') === number;
     }, credentials.accountNumber);
@@ -66,12 +63,12 @@ async function implementation (inputs, parameters, context, dependencies) {
     await context.setInputValue('input#loginUserPassword', credentials.loginUserPassword);
 
     await context.click('div#loginBtn');
+    // logging in takes a moment and reloads the page, then goes to the homepage
+    await context.waitForNavigation();
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+    // going to the search results page
+    await context.goto(url);
   }
-  // logging in takes a moment and reloads the page, then goes to the homepage
-  await context.waitForNavigation();
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-  // going to the search results page
-  await context.goto(url);
 
   return await context.evaluate(function (xp) {
     const r = document.evaluate(

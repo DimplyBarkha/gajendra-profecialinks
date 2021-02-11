@@ -5,41 +5,37 @@ recordXPath: //div[@aria-label="Search Results"]//div[contains(@class, "grid__ro
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@class="standard-type__product_image_wrapper"]/@id
-    regExp: standard_([A-Z0-9]+)
+    xpath: //div[@class="standard-type__product_image_wrapper"]/a/@href | //a[@class="standard-tile__image_wrapper"]/@href
+    regExp: product_([A-Z0-9]+)
     regExpReplace: $1
   - name: searchUrl
     singleValue: true
     xpath: //@searchurl
   - name: name
     singleValue: false
-    xpath: //a[@class="standard-type__product_title"]
+    xpath: //a[@class="standard-type__product_title"] | //div[@class="standard-tile__title"]/a
   - name: productUrl
     singleValue: false
-    xpath: //a[@class="standard-type__product_title"]/@href
-    regExp: (.+)
-    regExpReplace: https://www.staplesadvantage.com$1
+    xpath: //a[@class="standard-type__product_title"]/@href | //a[@class="standard-tile__image_wrapper"]/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
     singleValue: false
-    xpath: //img[contains(@class, "standard-type__product_image picture__img_resp")]/@data-srcset
-    regExp: (?:([^"'\s,]+)\s*(?:\s+\d+[wx])(?:,\s*)?)+
-    regExpReplace: $1
+    xpath: //img[contains(@class, "standard-type__product_image picture__img_resp")]/@data-srcset | //img[@class="standard-tile__image"]/@src
   - name: aggregateRating2
     singleValue: false
     type: STRING
-    xpath: //span[@class="rating__review_link"]/@aria-label
+    xpath: //span[@class="rating__review_link"]/@aria-label | //div[@class="standard-tile__rating_wrapper"]/@aria-label
     regExp: ^([\d\.]{1,3})
     regExpReplace: $1
   - name: reviewCount
     singleValue: false
-    xpath: //span[@class="rating__review_link"]
+    xpath: //span[@class="rating__review_link"] | //span[contains(@class, "rating__reviewLinkWrapper")]
   - name: ratingCount
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //span[@class="standard-type__price"]
+    xpath: //span[@class="standard-type__price"] | //span[@class="standard-tile__final_price"]
   - name: manufacturer
     singleValue: true
   - name: soldBy
