@@ -18,14 +18,14 @@ fields:
   - name: metaKeywords
     xpath: ancestor::*//meta[@name="keywords"]/@content
   - name: category
-    xpath: //nav[@id="breadcrumbs"]/ul/li[1]/a/@title
+    xpath: //nav[@id="breadcrumbs"]/ul/li[position() > 1][position() < last()]/a/@title
   - name: nameExtended
     xpath: //h1[@itemprop="name"]
   - name: listPrice
     xpath: //section[@class="product-view-essential"]//span[contains(@id, 'old-price')] | //section[@class="product-view-essential"]//li[contains(@class,'tier-price')]/span
     regExp: \d+,\d+
   - name: price
-    xpath: //section[@class="product-view-essential"]//span[@itemprop="price"]/@content
+    xpath: //section[@class="product-view-essential"]//span[@itemprop="price"]/*[last()]
   - name: availabilityText
     xpath: //form[@id="product_addtocart_form"]//div[@class="add-to-cart-buttons"]
   - name: description
@@ -43,6 +43,7 @@ fields:
   - name: sku
     xpath: //div[@class="product-view-header"]//meta[@itemprop="sku"]/@content
   - name: variantId
+    xpath: //h1[@itemprop="name"]/@data-product-gtm-id
   - name: mpc
   - name: packSize
   - name: legalDisclaimer
