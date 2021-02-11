@@ -64,10 +64,10 @@ async function implementation (
         element.price && element.price.value && addDataToDocument('pd_price', `${String(element.price.value)}`, rowId);
         // element.regularPrice && addDataToDocument('pd_listprice', `$${String(element.regularPrice)}`, rowId);
         addDataToDocument('pd_name', element.name, rowId);
-        addDataToDocument('pd_brand_name', element.brand.name, rowId);
+        if(element.brand) addDataToDocument('pd_brand_name', element.brand.name, rowId);
         addDataToDocument('pd_thumbnail', element.images[0].url.replace(/{stack}/g, 'fm-listing-product-2020-xs'), rowId);
-        addDataToDocument('pd_rating', element.ratingAverage, rowId);
-        addDataToDocument('pd_review', element.ratingCount, rowId);
+        if(element.ratingAverage) addDataToDocument('pd_rating', element.ratingAverage, rowId);
+        if(element.ratingCount) addDataToDocument('pd_review', element.ratingCount, rowId);
       }
     }, { response, results, keywords });
   }
