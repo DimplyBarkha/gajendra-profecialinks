@@ -124,6 +124,7 @@ addElementToDocument("sku", sku);
 var aggrating = getXpath('//div[@class="rating-stars-copy"]/text()', 'nodeValue');
 if(aggrating != null){
 aggrating = aggrating.split(" ")[0];
+aggrating = aggrating.replace(".",",")
 addElementToDocument("aggrating", aggrating);
 }
 
