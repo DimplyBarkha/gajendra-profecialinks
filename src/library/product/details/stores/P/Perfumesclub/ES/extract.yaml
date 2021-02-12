@@ -24,22 +24,24 @@ fields:
     # singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@class="titleProduct"]/a|//h1[@class="titleProduct"]/span|//h2[@class="titleProduct"]
+    xpath: concat(//h1[@class="titleProduct"]," ",//h2[@class="titleProduct"])
+  - name: name
+    xpath: concat(//h1[@class="titleProduct"]," ",//h2[@class="titleProduct"])
   - name: listPrice
     # singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //span[@class="selectAmountPrice"]
+    xpath: //span[@class="totalPrice"]
   - name: price
     # singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: (//span[@class="selectAmountPrice"])[7] |//span[@class="selectAmountPrice"]
+    xpath: //div[contains(@class,'priceC active')]/@data-precio
   - name: availabilityText
     # singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: (//div[@class="contButtons"]/button)[7]|//div[@class="contButtons"]/button
+    xpath: //div[contains(@class,'priceC active')]//button[contains(@data-tipo,'Stock')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
