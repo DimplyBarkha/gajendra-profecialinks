@@ -1,0 +1,59 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    xpath: //div[@class='pi--product--img']/picture[@id='main-img']/img[@id='mob-img']/@src
+#  - name: imageAlt
+#    singleValue: true
+#    xpath: //div[@class='product-info item-addToCart']/div/div/picture/img/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //picture[@class='pi--thumbnail-item defaultable-picture pi--thumbnail-item--current']/img/@src
+  - name: category
+    singleValue: false
+    xpath: //ul[@class='b--list']/li
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@class='pi--title']
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@class='pi-regular-price']/span[@class='pi-price']
+#  - name: price
+#    singleValue: true
+#    xpath: //span[@class='pi-price price-update pi-price-promo'] | //div[@class='pi-secondary-price']/div/span[@class='pi-price']
+  - name: price
+    singleValue: false
+    xpath: //div[@class='pi--main-price']/div
+  - name: availabilityText
+    singleValue: true
+    xpath: //button[@id='button-addToCart']
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: true
+    xpath: //button[contains(text(), 'Description du produit')]/following-sibling::div
+  - name: brandText
+    singleValue: true
+    xpath: //span[@itemprop='brand']
+  - name: weightNet
+    singleValue: true
+    xpath: //div[@class='pi--weight']
+  - name: sku
+    singleValue: true
+    xpath: //span[@itemprop='sku']
+  - name: variantId
+    singleValue: true
+    xpath: //span[@itemprop='sku']
+  - name: ingredientsList
+    singleValue: true
+    xpath: //button[contains(text(), 'Ingrédients')]/following-sibling::div
+  - name: Image360Present
+    singleValue: true
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    defaultValue: No
