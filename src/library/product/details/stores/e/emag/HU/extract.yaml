@@ -22,7 +22,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //div[@class="ph-body"]/div[@class="thumbnail-wrapper ph-card"]/a/img[@referrerpolicy="unsafe-url"]/@src
+  xpath: //div[@data-ph-dots="false"]/div/div/div[contains(@class, 'thumbnail')][not(contains(@class, 'active'))]/a/@href
 - name: metaKeywords
   singleValue: true
   description: The <meta> keywords content
@@ -52,7 +52,7 @@ fields:
   defaultValue: "In Stock"
   xpath: //span[@class="label label-unavailable"]
   regExp: '(.+)'
-  regExpReplace: "Out of Stock"
+  regExpReplace: "Out Of Stock"
 - name: description
   singleValue: false
   description: Product description supplied by website - may be concatenanted from
@@ -256,7 +256,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: false
   description:
-  xpath: count(//div[@data-ph-dots="false"]/div/div/div[contains(@class, 'thumbnail')])
+  xpath: count(//div[@data-ph-dots="false"]/div/div/div[contains(@class, 'thumbnail')][not(contains(@class, 'active'))])
 - name: news
   singleValue: true
   description: 
