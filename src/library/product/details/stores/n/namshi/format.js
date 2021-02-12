@@ -112,9 +112,7 @@ const transform = (data) => {
           row.variants = [{ text: variations.join(' | ') }];
         } else {
           delete row.variant;
-          {
-            row.promotion;
-          } row.variantCount = [{ text: 0 }];
+          row.variantCount = [{ text: 0 }];
         }
       }
       if (row.promotion) {

@@ -27,7 +27,7 @@ fields:
   - name: sku
     singleValue: false
     # xpath: //button[@class="wishlist-button"]/@data-sku
-    xpath: //div[@id='skuDiv']/text()
+    xpath: //div[@id='skuDiv']/@productName
   - name: variantId
     singleValue: false
   - name: ratingCount
@@ -48,7 +48,7 @@ fields:
   - name: nameExtended
     # xpath: concat(//h1[@class="product__name"]/text(),' ',//meta[@property="product:color"]/@content)
     # xpath: concat(//meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/text())
-    xpath: concat(//div[@id='currentDiv']/text(),' ', //meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/@size)
+    xpath: concat(//div[@id='currentDiv']/@productName,' ', //div[@id='currentDiv']/@size,' ',//meta[@property="product:color"]/@content)
     regExp: (.+\s)(.+\s)([a-z]+)$
     regExpReplace: $1$3 $2
   - name: additionalDescBulletInfo
@@ -75,7 +75,7 @@ fields:
     # regExpReplace: $1 $3
   - name: variantId
     singleValue: false
-    xpath: //div[@id='currentDiv']/@retailerProdCode
+    xpath: //div[@id='currentDiv']/@rpc
   - name: availabilityText
     singleValue: false
     # xpath: //div[@id="sizeSelector"]//p[@class="outofstock__cta"]
@@ -94,6 +94,3 @@ fields:
   - name: promotion
     description: promotion text on product page
     xpath: //div[@class="product__details"]//p[@class="reduction_tag_wrapper"]//span[3]
-  - name: quantity
-    #xpath: //ul[contains(@id,'product_size')]//li[1]//span[1]
-    xpath: //div[@class="product__details"]//p[@class="reduction_tag_wrapper"]

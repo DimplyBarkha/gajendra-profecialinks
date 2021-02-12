@@ -9,19 +9,19 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
   const sizeOfDiv = await context.evaluate(function () {
-    function addHiddenDiv (id, content, availability, itemNo, rpc, quantity) {
+    function addHiddenDiv (id, productName, availability, itemNo, rpc, size) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
-      newDiv.textContent = content;
+      newDiv.setAttribute('productName', productName);
       newDiv.setAttribute('availability', availability);
       newDiv.setAttribute('itemNo', itemNo);
       newDiv.setAttribute('rpc', rpc);
-      newDiv.setAttribute('quantity', quantity);
+      newDiv.setAttribute('size', size);
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-    let sku = document.URL.substring(document.URL.lastIndexOf('-'), document.URL.length);
-    sku = sku.replace(/(-)(.+)(.html)/g, '$2');
+    let sku = document.URL.substring(document.URL.lastIndexOf('-') + 1, document.URL.length);
+    sku = sku.split('.html')[0];
     addHiddenDiv('skuDiv', sku);
     const brandName = document.querySelector('h2.product__brandname').innerText;
     const prodName = document.querySelector('h1.product__name').innerText;
@@ -29,35 +29,27 @@ async function implementation (
     const serverObj = JSON.parse(serverData.innerText.trim());
     const rpcArray = serverObj.simples;
     for (let i = 0; i < rpcArray.length; i++) {
-      let prodFullName = brandName + ' ' + prodName;
-      prodFullName += ' ' + rpcArray[i].size;
+      const productName = brandName + ' ' + prodName;
+      const size = rpcArray[i].size;
       const rpc = rpcArray[i].sku;
-      if (rpcArray[i].quantity !== 0) addHiddenDiv('descDiv', prodFullName, 'In Stock', i, rpc);
-      else addHiddenDiv('descDiv', prodFullName, 'Out Of Stock', i, rpc);
+      const availability = rpcArray[i].quantity !== 0 ? 'In Stock' : 'Out Of Stock';
+      addHiddenDiv('descDiv', productName, availability, i, rpc, size);
     }
     return rpcArray.length;
   });
   if (sizeOfDiv !== 0) {
     for (let i = 0; i < sizeOfDiv; i++) {
       await context.evaluate(function (i) {
-        function addHiddenDiv (id, content, availability, rpc, quantity) {
+        function copyDiv (selectorToCopy, newId) {
           const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.setAttribute('availability', availability);
-          newDiv.setAttribute('retailerProdCode', rpc);
-          newDiv.setAttribute('quantity', quantity);
-          newDiv.style.display = 'none';
+          const oldDiv = document.querySelector(selectorToCopy);
+          [...oldDiv.attributes].forEach(attr => newDiv.setAttribute(attr.nodeName, attr.nodeValue));
+          newDiv.innerHTML = oldDiv.innerHTML;
+          newDiv.id = newId;
           document.body.appendChild(newDiv);
         }
-        const currentDiv = `div[itemNo="${i}"]`;
-        const currentDivSelector = document.querySelector(currentDiv);
-        const content = currentDivSelector.innerText;
-        const availability = currentDivSelector.getAttribute('availability');
-        const rpc = currentDivSelector.getAttribute('rpc');
-        const quantity = content.split(' ').slice(-1);
-        addHiddenDiv('currentDiv', content, availability, rpc, quantity);
-        addHiddenDiv(`currentDiv_${i}`, content, availability, rpc, quantity);
+        copyDiv(`div[itemNo="${i}"]`, 'currentDiv');
+        copyDiv(`div[itemNo="${i}"]`, `currentDiv_${i}`);
       }, i);
       await context.extract(productDetails, { transform });
       await context.evaluate(function () {
