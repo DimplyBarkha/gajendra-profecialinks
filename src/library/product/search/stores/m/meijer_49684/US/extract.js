@@ -69,11 +69,11 @@ async function implementation(
       addElementToDocument('pd_url', URL);
   });
   //await context.waitForSelector('div[class="tile-column quickview-mouseover-container"] a[class="thumb"] img');
-  await context.evaluate(async function () {
-    function addclass(xpathforpagination) {
-      var elems = document.querySelectorAll(xpathforpagination);
-      elems[0].classList.add('pagination');
-    }
-  });
+  // await context.evaluate(async function () {
+  //   function addclass(xpathforpagination) {
+  //     var elems = document.querySelectorAll(xpathforpagination);
+  //     elems[0].classList.add('pagination');
+  //   }
+  // });
   return await context.extract(productDetails, { transform });
 }
