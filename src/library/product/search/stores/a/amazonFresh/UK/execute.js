@@ -33,7 +33,7 @@ module.exports = {
     url: 'https://www.amazon.co.uk/s?k={searchTerms}&i=amazonfresh&ref=nb_sb_noss_2&dc',
     loadedSelector: 'div[data-asin]',
     noResultsXPath: 'count(//div[contains(@data-component-type,"s-search-result")])!=0',
-    zipcode: 'SW1P 3EU',
+    zipcode: 'NW1 8AA',
   },
   implementation,
 };

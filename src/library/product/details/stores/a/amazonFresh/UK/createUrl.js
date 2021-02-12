@@ -8,6 +8,6 @@ module.exports = {
     // url: 'https://amazon.com/dp/product/{id}/ref=sr_1_1&dchild=1&fpw=alm&s=amazonfresh?th=1',
     country: 'UK',
     store: 'amazonFresh',
-    zipcode: 'SW1P 3EU',
+    zipcode: 'NW1 8AA',
   },
 };

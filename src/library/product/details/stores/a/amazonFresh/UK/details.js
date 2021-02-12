@@ -5,6 +5,6 @@ module.exports = {
     country: 'UK',
     store: 'amazonFresh',
     domain: 'amazon.co.uk',
-    zipcode: 'SW1P 3EU',
+    zipcode: 'NW1 8AA',
   },
 };
