@@ -60,6 +60,21 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.ingredientsList) {
+        let text = '';
+        row.ingredientsList.forEach(item => {
+          if (item.text.includes('İçindekiler: ')) {
+            text = `${item.text.replace('İçindekiler: ', '')}`;
+          } else {
+            text = item.text;
+          }
+        });
+        row.ingredientsList = [
+          {
+            text: text,
+          },
+        ];
+      }
       if (row.dietaryFibrePerServingUom) {
         let text = '';
         row.dietaryFibrePerServingUom.forEach(item => {

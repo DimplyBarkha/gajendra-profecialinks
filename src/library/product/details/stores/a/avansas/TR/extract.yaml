@@ -112,7 +112,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
-    xpath: //div[@itemprop="sku"]/@content
+    xpath: //div[@class="product-code"]/@content
   - name: variantId
     singleValue: false
     xpath: //div[@itemprop="sku"]/@content
@@ -237,6 +237,9 @@ fields:
   - name: ingredientImagePresent
     singleValue: false
     description: null
+  - name: ingredientsList
+    description: null
+    xpath: //div[@class="mini-hero-v2"]//strong[contains(text() , "İçindekiler:")]/..
   - name: factImagePresent
     singleValue: false
     description: null
