@@ -31,12 +31,14 @@ fields:
     regExp: '[^:]+$'
   - name: ratingCount
     singleValue: false   
-    xpath: //div[@id='productDetails_db_sections']//span[@id="acrCustomerReviewText"]/text()
+    xpath: //div[@id='averageCustomerReviews_feature_div']//span[@id="acrCustomerReviewText"]/text()
+    regExp: >-
+      [^a-zA-Z ]+
   - name: reviewCount
     singleValue: false  
-    xpath: //div[@id='productDetails_db_sections']//span[@id="acrCustomerReviewText"]/text()
+    xpath: //div[@id='averageCustomerReviews_feature_div']//span[@id="acrCustomerReviewText"]/text()
     regExp: >-
       [^a-zA-Z ]+
   - name: aggregateRating
-    xpath: //div[@id='productDetails_db_sections']//span[@id="acrPopover"]/@title
+    xpath: //div[@id='averageCustomerReviews_feature_div']//span[@id="acrPopover"]/@title
     regExp: ^[^\s]+
