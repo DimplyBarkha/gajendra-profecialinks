@@ -43,3 +43,23 @@ fields:
     xpath: //div[@class='d-flex align-items-center']/p
   - name: aggregateRating
     xpath: count(//div[@class="reviews"]/div/div/i[contains(@class, 'text-warning')])
+  - name:  manufacturer
+    singleValue: false
+    xpath: (//script[@type='text/javascript'][contains(.,'dataLayer')])[1]
+    regExp: ('manufacturer' :) '(.+)',
+    regExpReplace: $2
+  - name: sku	
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: ("sku" :) "(\d+)"
+    regExpReplace: $2
+  - name: gtin	
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin")]
+    regExp: ("gtin" :) "(\d+)"
+    regExpReplace: $2
+  - name: name
+    singleValue: true	
+    xpath: //div[@id='header-infos-produto']/h1
+  - name: brandText
+    xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
+    regExp: ("brand" :) {(.+)("name" :) "([^]+)" (},)
+    regExpReplace: $4
