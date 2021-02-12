@@ -98,6 +98,15 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
+
+      // function addEmptyDiv() {
+      //   const newDiv = document.createElement('div');
+      //   newDiv.className = 'variants';
+      //   newDiv.style.display = 'none';
+      //   document.body.appendChild(newDiv);
+      // }
+
+      
       var dec = getAllXpath('(//div[@class="variation-alt-images clearfix"]/div/@data-variation-id | //*[@id="schema-offer"]/div[1]/div/input/@value)', 'nodeValue');
       var str = "";
       if (dec != null) {
@@ -133,11 +142,12 @@ module.exports = {
         }
       }
       catch (error){}
-      // var qty = getAllXpath('//div[@id="schema-offer"]/div[2]/div/div[1]/div/text()', 'nodeValue');
-      // for (var i = 0; i < qty.length; i++){
-      //   var aa= qty[i]
-      //   addHiddenDiv('qty', aa, i)
-      // }
+
+      var lpr = getAllXpath('//*[@id="schema-offer"]/div[3]/div[1]/div/span/text()', 'nodeValue');
+       for (var i = 0; i < lpr.length; i++){
+         var aa= lpr[i]
+         addHiddenDiv2('lpr', aa, i)
+       }
 
       // var avi = getAllXpath('//div[@id="schema-offer"]/@data-outofstock', 'nodeValue');
       // for (var i = 0; i < avi.length; i++) {

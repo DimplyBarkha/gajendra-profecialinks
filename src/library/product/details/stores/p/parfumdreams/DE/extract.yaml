@@ -30,11 +30,12 @@ fields:
     singleValue: true
     xpath: //*[@id="schema-offer"]//meta[@itemprop='price']/@content
     #xpath: (//div[@class="variation clearfix active"]//div[@class="font-headline mbs05"]/text()[1]|//div[@itemprop='offers']/div/div[contains(text(),'€')]/text())[1]
-    regExp: (\d\d?)\.(\d\d?)
+    regExp: (.*)\.(.*)
     regExpReplace: $1,$2 €
   - name: listPrice
-    singleValue: false
-    xpath: //div[@id="schema-offer"]/div[3]/div[1]/div/span
+    singleValue: true
+    xpath: //html//div[@id='lpr']
+    #xpath: //*[@id="schema-offer"]/div[3]/div[1]/div/span
   - name: image
     singleValue: true
     xpath: ancestor::html//img[@role='presentation']/@src
