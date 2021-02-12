@@ -17,7 +17,14 @@ fields:
     xpath: //h1[@id="oo-block-hl"]/text()
   - name: brandText
     singleValue: true
-    xpath: (//div[@class="slider-complete-div-linkcontainer"]/a/@data-gaevent_brand)[1]
+    # xpath: //button[@class="ooB-mb6 ooB-w100 ooBtn ooBtn-green ooBtn-arrow-right btn-add-to-basket"]/@data-ga_add2wk_brand
+    # xpath: //div[@id="hl-brand-container"]/a/@href
+    # # type: TEXT
+    # regExp: (brandid-)(\w+)
+    # regExReplace: $2
+    xpath: //div[@id="hl-brand-container"]/a/@title
+    regExp: (von)(.+)
+    regExReplace: $1
   - name: category
     singleValue: false
     xpath: //ul[@typeof="BreadcrumbList"]/li[position()>1 and position()<last()]/a/span/text()
@@ -42,8 +49,9 @@ fields:
     singleValue: true
     xpath: //html//div[@id="avl"]
   - name: description
-    singleValue: false
-    xpath: concat(//section[@id="product_description"]/h2/span[contains(text(),"Beschreibung")]/text(),' ',//section[@id="product_description"]/h2/span[contains(text(),"Beschreibung")]/parent::h2/following::div[1])
+    singleValue: true
+    # xpath: concat(//section[@id="product_description"]/h2/span[contains(text(),"Beschreibung")]/text(),' ',//section[@id="product_description"]/h2/span[contains(text(),"Beschreibung")]/parent::h2/following::div[1])
+    xpath: //html//div[@id="add_desc"]
   - name: descriptionBullets
     singleValue: true
     xpath: count(//ul[@class="ooB-mb24 bullet ooX-fs14 "]/li/text())

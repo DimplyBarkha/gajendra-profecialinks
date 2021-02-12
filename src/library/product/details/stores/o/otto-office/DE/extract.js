@@ -72,67 +72,82 @@ module.exports = {
       // @ts-ignore
       catch (error) {
       }
-//specification
-try{
-var spec1 = getAllXpath('//span[contains(text(),"Eigenschaften ")]/parent::h2/following::div[1]/table/tbody/tr/td/span/text()', 'nodeValue');
-var spec2 = getAllXpath('//span[contains(text(),"Eigenschaften ")]/parent::h2/following::div[1]/table/tbody/tr/td/text()', 'nodeValue');
-if(spec1.length>=1){
-  var arr = [];
-  for(var i=0; i<spec2.length; i++){
-    arr[i] = spec2[i].trim();
-    }
-    var wife = [];
-    for(var i=0; i<arr.length; i++){
-    if(arr[i].length >= 1){
-    wife.push(arr[i])
-    }
-    }
-    var husband = [];
-    for(var i=0; i<spec1.length; i++){
-    husband[i] = spec1[i].trim();
-    }
-    var final = ""
-    for(var i=0; i<husband.length; i++){
-    final = final+" "+husband[i]+" "+wife[i];
-    }
-    addElementToDocument("final", final);
-}
-}
-catch(e){
+      //specification
+      try {
+        var spec1 = getAllXpath('//span[contains(text(),"Eigenschaften ")]/parent::h2/following::div[1]/table/tbody/tr/td/span/text()', 'nodeValue');
+        var spec2 = getAllXpath('//span[contains(text(),"Eigenschaften ")]/parent::h2/following::div[1]/table/tbody/tr/td/text()', 'nodeValue');
+        if (spec1.length >= 1) {
+          var arr = [];
+          for (var i = 0; i < spec2.length; i++) {
+            arr[i] = spec2[i].trim();
+          }
+          var wife = [];
+          for (var i = 0; i < arr.length; i++) {
+            if (arr[i].length >= 1) {
+              wife.push(arr[i])
+            }
+          }
+          var husband = [];
+          for (var i = 0; i < spec1.length; i++) {
+            husband[i] = spec1[i].trim();
+          }
+          var final = ""
+          for (var i = 0; i < husband.length; i++) {
+            final = final + " " + husband[i] + " " + wife[i];
+          }
+          addElementToDocument("final", final);
+        }
+      }
+      catch (e) {
 
-}
-//URL
-try{
-var url = getXpath('//div[@class="inner_content"]/script[@type="application/ld+json"]/text()', 'nodeValue');
-if(url.length>= 1){
-  var data = JSON.parse(url);
-  if(typeof(data)=="object"){
-  var URL = data.offers.url;
-  URL = URL.split("?wkid")[0];
-  addElementToDocument("URL", URL);
-  }
-  }
-}
-catch(e){
+      }
+      //URL
+      try {
+        var url = getXpath('//div[@class="inner_content"]/script[@type="application/ld+json"]/text()', 'nodeValue');
+        if (url.length >= 1) {
+          var data = JSON.parse(url);
+          if (typeof (data) == "object") {
+            var URL = data.offers.url;
+            URL = URL.split("?wkid")[0];
+            addElementToDocument("URL", URL);
+          }
+        }
+      }
+      catch (e) {
 
-}
-//SKU
-var sku = getXpath('//figure[@id="image-preview-container"]/img/@src', 'nodeValue');
-sku = sku.replace(/(.+ART_)(\d+)(([A-Z]+)?)(_+.+)/g,'$2$3');
-addElementToDocument("sku", sku);
-//Aggregate rating
-var aggrating = getXpath('//div[@class="rating-stars-copy"]/text()', 'nodeValue');
-if(aggrating != null){
-aggrating = aggrating.split(" ")[0];
-aggrating = aggrating.replace(".",",")
-addElementToDocument("aggrating", aggrating);
-}
-
-
-
-
-
-
+      }
+      //SKU
+      var sku = getXpath('//figure[@id="image-preview-container"]/img/@src', 'nodeValue');
+      sku = sku.replace(/(.+ART_)(\d+)(([A-Z]+)?)(_+.+)/g, '$2$3');
+      addElementToDocument("sku", sku);
+      //Aggregate rating
+      var aggrating = getXpath('//div[@class="rating-stars-copy"]/text()', 'nodeValue');
+      if (aggrating != null) {
+        aggrating = aggrating.split(" ")[0];
+        aggrating = aggrating.replace(".", ",")
+        addElementToDocument("aggrating", aggrating);
+      }
+      //description
+      var head = getXpath('//section[@id="product_description"]/h2/span/text()', 'nodeValue');
+      var p = getAllXpath('//div[@class="ooB-mb12 ads_default_ullifix"]/p/text()', 'nodeValue');
+      var para = ""
+      if (p.length >= 1) {
+        for (var i = 0; i < p.length; i++) {
+          if (p[i].includes("Maße (")) {
+            continue;
+          } else {
+            para = para + p[i];
+          }
+        }
+      }
+      var li = getAllXpath('//div[@class="ooB-mb12 ads_default_ullifix"]//ul/li/text()', 'nodeValue');
+      if (li.length >= 1) {
+        var bullet = li.join(" || ");
+      }
+      var add_desc = head + " " + para + " || " + bullet;
+      if(add_desc.length>=1){
+        addElementToDocument("add_desc", add_desc);
+      }
 
     });
     await context.extract(productDetails);
