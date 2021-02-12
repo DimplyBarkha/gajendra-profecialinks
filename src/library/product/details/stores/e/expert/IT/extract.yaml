@@ -161,7 +161,7 @@ fields:
     regExpReplace: $1
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset | //div[@id ='inTheBoxUrl']/text()
     description: Must include image url to show the accessories/tools which come with the product
   - name: inTheBoxText
     singleValue: false

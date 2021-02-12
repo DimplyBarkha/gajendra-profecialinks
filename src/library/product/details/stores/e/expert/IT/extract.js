@@ -46,7 +46,7 @@ async function implementation (
     console.log('here is the iframe link ' + iframeLink);
     return iframeLink;
   });
-  let manufacturerDesc = []; let manufacturerImages = []; let inThe =[];
+  let manufacturerDesc = []; let manufacturerImages = [];
 
   if (iframeLink) {
     await context.goto(iframeLink ,{ timeout: 100000, waitUntil: 'load', checkBlocked: true });
@@ -99,31 +99,41 @@ async function implementation (
    manufacturerImages.push(...[...document.querySelectorAll('img')].map(elm => elm.src));
   return manufacturerImages;
   }, manufacturerImages);
-let boxText;
-   inThe = await context.evaluate(async (inThe) => {
- inThe.push(...[...document.querySelectorAll('div.eky-accessory')]);
- console.log("ijjjdhjshjhdjhsjdhjhs",inThe);
- for(let i = 0; i<inThe.length; i++){
-boxText = inThe[i].innerText;
-console.log("MY---------------MY",boxText);
- }
-  return inThe;
-  }, inThe);
 
+let theBoxStr ='';
 
- /* let bb;
-await context.evaluate(() => {
-   bb = document.querySelectorAll('div.eky-accessory');
-  console.log ('hey i got the acceee.......', bb);
-  });
-  for(let i =0; i<bb.length; i++ ){
-
+theBoxStr = await context.evaluate(async () => {
+ let theBox = ''
+  let inThe = document.querySelectorAll('div.eky-accessory');
+  a = []
+  for(let i = 0; i<inThe.length; i++){
+    theBox = inThe[i].innerText;
+    a.push(theBox)
   }
-  addHiddenDiv("inTheBox",bb) */
+    return a.join(' || ');
+});
+
+console.log("===============",theBoxStr);
+
+let theImageStr = '';
+theImageStr = await context.evaluate(async () => {
+ let theBox = ''
+  let inThe = document.querySelectorAll('div.eky-accessory img');
+  a = []
+  for(let i = 0; i<inThe.length; i++){
+    theBox = inThe[i]['src'];
+    a.push(theBox)
+  }
+    return a.join(' || ');
+});
+
+console.log("===============",theImageStr);
+
+
 
   await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
-console.log ('TTTTTTTTTT', manufacturerImages);
-  await context.evaluate(async (manufacturerDesc, manufacturerImages, inThe) => {
+
+  await context.evaluate(async (manufacturerDesc, manufacturerImages, theBoxStr, theImageStr) => {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -138,9 +148,13 @@ console.log ('TTTTTTTTTT', manufacturerImages);
       }
       addHiddenDiv('enhancedContent', enhancedContent);
     }
+
+    addHiddenDiv('inTheBox', theBoxStr);
+    addHiddenDiv('inTheBoxUrl', theImageStr);
+
+
     if (manufacturerImages.length) {
       let aplusImages = '';
-      console.log("lllllllllll")
       const iframeUrl = window.location.href;
       for (let i = 0; i < manufacturerImages.length; i++) {
         if (i !== manufacturerImages.length - 1) {
@@ -161,10 +175,10 @@ console.log ('TTTTTTTTTT', manufacturerImages);
           }
         }
       }
-      console.log("aaaaaaaaaa",aplusImages);
+
       addHiddenDiv('aplusImages', aplusImages);
     }
-  }, manufacturerDesc, manufacturerImages);
+  }, manufacturerDesc, manufacturerImages, theBoxStr, theImageStr);
 
 
   const infiniteScroll = () => context.evaluate(async () => {
