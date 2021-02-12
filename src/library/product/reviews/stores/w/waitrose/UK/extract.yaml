@@ -7,6 +7,7 @@ fields:
     singleValue: true
     type: NUMBER
     description: Number of people who said the review was helpful
+    xpath: //button[contains(@aria-label, "Yes")]//span[@class="bv-content-btn-count"]
   - name: commentCount
     singleValue: true
     type: NUMBER
@@ -18,23 +19,29 @@ fields:
   - name: name
     singleValue: true
     description: The product name
+    xpath: //h1[@id="productName"]/span[1]
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //a[@id="productUrl"]/@title
   - name: reviewDate
     singleValue: true
     type: DATETIME
     description: Date the review was made
+    xpath: //ol//div[@class="bv-content-datetime"]/meta[1]/@content
   - name: reviewRating
     type: NUMBER
     singleValue: true
     description: Rating normalized to be out of 5
+    xpath: //ol//span[@class="bv-rating-stars-container"]/abbr[1]/@title
   - name: reviewText
     singleValue: true
     description: The text of the review
+    xpath: //ol//div[@class="bv-content-summary-body-text"]/p
   - name: reviewTitle
     singleValue: true
     description: The title of the review
+    xpath: //ol//div[@class="bv-content-title-container"]/h4
   - name: reviewerTags
     singleValue: false
     description: The tags a reviewer has
@@ -44,6 +51,7 @@ fields:
   - name: productUrl
     singleValue: true
     description: The url of the product details page
+    xpath: //a[@id="productUrl"]/@title
   - name: verifiedPurchase
     singleValue: true
     type: BOOLEAN
@@ -64,6 +72,8 @@ fields:
       value, transform will handle the value.
   - name: user
     description: The user name of the reviewer
+    xpath: //ol//div[@class="bv-author-avatar-nickname"]//h3 | //ol//div[@class="bv-author-avatar-nickname"]//h2
     type: TEXT
   - name: aggregateRating
     description: The product rating
+    xpath: //span[@itemprop="ratingValue"]
