@@ -73,6 +73,7 @@ const transform = (data) => {
           text += ' ' + item.text;
           text = text.replace('', '').trim();
         });
+        // text = text.replace('DESCRIÇÃO:', '').trim();
         row.description = [{ text }];
       }
 

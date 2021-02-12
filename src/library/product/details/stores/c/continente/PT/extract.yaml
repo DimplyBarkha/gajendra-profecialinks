@@ -41,7 +41,6 @@ fields:
     xpath: //div[@class="numVotes"]
   - name: variantCount
     singleValue: false
-    defaultValue: 0
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@class="body"]//table//td//img/@src |  //div[@class="body"]//p//img/@src   |  (//div[@class="body"]//img/@src)[1]
@@ -58,12 +57,13 @@ fields:
   - name: description
     singleValue: false
     # xpath: //div[@class="productDetailSubArea"]/div[@class="body"]//div[@class='productTitle']//em |  //div[@class="productDetailSubArea"]/div[@class="body"]/p | //div[@class="productDetailSubArea"]/div[@class="body"]/div/p |//div[@class="productDetailSubArea"]/div[@class="body"]//em
-    xpath: //div[@class="productDetailSubArea"]/div[@class="body"]//text()
+    xpath: (//div[@class="productDetailSubArea"]/div[@class="body"])[1]
     # xpath:  //div[@class ='contentLeftTop']//tr//p[not(img)] | //div[@class='body']//em
   - name: ingredientsList
     singleValue: false
     # xpath: //div[@class="productDetailSubArea"]/div[@class="body"]/p/strong[contains(text(),"Ingredientes")]/parent::*/text() | //div[contains(@class,"additionalProductInformation")]//span[contains(.,'Lista de ingredientes:')]//following-sibling::span//text()
-    xpath: //div[contains(@class,"additionalProductInformation")]//span[contains(.,'Lista de ingredientes:')]//following-sibling::span//text() | //div[@class='nutricionalInformationArea']//span[@id='additionalInformation']//text()
+    # xpath: //div[contains(@class,"additionalProductInformation")]//span[contains(.,'Lista de ingredientes:')]//following-sibling::span//text() | //div[@class='nutricionalInformationArea']//span[@id='additionalInformation']//text()
+    xpath: //div[contains(@class,"additionalProductInformation")]//div[@id="ingredientStatement"]//span[contains(.,'Lista de ingredientes:')]//following-sibling::span//text()
   - name: directions
     singleValue: false
     xpath: //div[@class="productDetailSubArea"]//div[@class="title" and text()="Dicas"]/parent::*/following::div[@class="body"]/p | //div[@id='UnspecifiedPreparationTypePreparationInstructions']/text() | //div[@class="productDetailSubArea"]//div[@class='body']//div[contains(.,'Dose Diária Recomendada:')]//following-sibling::div
@@ -115,7 +115,6 @@ fields:
     xpath: //table[@class='nutrientsTable']//td[contains(.,'fibras')]//following-sibling::td[2]
   - name: pricePerUnitUom
     singleValue: false
-    defaultValue: gr
   - name: saltPerServing
     singleValue: false
     xpath: //table[@class='nutrientsTable']//td[contains(.,'sal')]//following-sibling::td[1]
