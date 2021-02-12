@@ -1,24 +1,22 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="SearchScreen_Results col-sm-9"]//div//div[@class="FamilyDetailsPanel FamilyDetailsPanel_ListView"]
+recordXPath: //div[@class="SearchScreen_Results col-sm-9"]//div//div[@class="FamilyDetailsPanel FamilyDetailsPanel_ListView"] | (//div[contains(@class,'ProductVariantScreen')])[1]
 fields:
   - name: name
     singleValue: false
-    xpath: //div[@class="FamilyDetailsPanel_Details col-md-8 col-sm-12 col-xs-12"]//div[@class="FamilyDetailsPanel_Title"]
+    xpath: //div[@class="FamilyDetailsPanel_Details col-md-8 col-sm-12 col-xs-12"]//div[@class="FamilyDetailsPanel_Title"] | //h1[@class="productBrandName"]//span[@data-e2e="productName"]
   - name: id
     singleValue: false
-    xpath: //div[@class="FamilyDetailsPanel_Image searchImage"]//a//img//@src
-    regExp: ([A-Za-z0-9]{11}|[0-9]{3}\-)
-    regExpReplace: $1
+    xpath: //div[@class="FamilyDetailsPanel_Image searchImage"]//a//img//@src | (//div[contains(@class,'image-gallery-slide')]//div//a//@href)[1]
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="SearchScreen_Results col-sm-9"]//div//div[@class="FamilyDetailsPanel FamilyDetailsPanel_ListView"]//div[@class="FamilyDetailsPanel_Details col-md-8 col-sm-12 col-xs-12"]//following-sibling::a//@href
+    xpath: //div[@class="SearchScreen_Results col-sm-9"]//div//div[@class="FamilyDetailsPanel FamilyDetailsPanel_ListView"]//div[@class="FamilyDetailsPanel_Details col-md-8 col-sm-12 col-xs-12"]//following-sibling::a//@href 
     regExp: (\/.*)
     regExpReplace: https://www.cromwell.co.uk$1
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="FamilyDetailsPanel_Image searchImage"]//a//img//@src
+    xpath: //div[@class="FamilyDetailsPanel_Image searchImage"]//a//img//@src | (//div[contains(@class,'image-gallery-slide')]//div//a//@href)[1]
   - name: price
     singleValue: false
     xpath: //div[@class="FamilyDetailsPanel_Price"]
@@ -31,4 +29,7 @@ fields:
   - name: rankOrganic
     singleValue: false
     type: NUMBER
+  - name: detailUrl
+    singleValue: false
+    xpath: substring-before(substring-after((//div[contains(@class,'ProductVariantScreen')])[1],'url":"'),'"}')
 

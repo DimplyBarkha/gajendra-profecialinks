@@ -82,6 +82,35 @@ const transform = (data, context) => {
         orgRankCounter += 1;
         row.rankOrganic = [{ text: orgRankCounter }];
       }
+      if(row.id)
+      {
+        row.id.forEach(item=>{
+          let n = item.text.lastIndexOf("/");
+          let l=item.text.lastIndexOf(".")
+          let idString=item.text.substring(n+1,l)
+          for(let i=0;i<idString.length;i++)
+          {
+            if(!(/[a-zA-Z0-9]/).test(idString[i]))
+            {
+              idString=idString.substring(0,i)
+              break;
+            }
+
+          }
+          item.text=idString.toUpperCase()
+
+        })
+      }
+
+      if (row.detailUrl&&row.detailUrl[0].text.length){
+
+        row.productUrl=[];
+        row.productUrl.push(row.detailUrl[0])
+        delete row.detailUrl
+      }   
+      if(row.detailUrl&&row.detailUrl[0].text.length===0)
+          delete row.detailUrl
+
       row.rank = [{ text: rankCounter }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);

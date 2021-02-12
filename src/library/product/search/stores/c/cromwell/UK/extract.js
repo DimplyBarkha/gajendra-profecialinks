@@ -37,7 +37,9 @@ async function implementation (
       }
     });
   };
+
   await applyScroll(context);
+  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
