@@ -96,10 +96,7 @@ fields:
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
-    xpath: //*[@class="product_details modelNo"] | //*[@class="product-info-bar"]/h2[2]
-    #regExp: (\#)(..\w.+)
-    regExp: ([\#])(.+)
-    regExpReplace: $2
+    xpath: //@modelNumber
   
   - name: shippingInfo
     description: Shipping information for the product
