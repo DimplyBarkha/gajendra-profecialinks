@@ -19,7 +19,7 @@ fields:
    xpath: //div[@class="quickview-block"]//a/@data-ean
  - name: thumbnail
    singleValue: false
-   xpath: //div[@class="tile-row details-container"]//a//img/@src
+   xpath: //div[@class="tile-column quickview-mouseover-container"]//a[@class="thumb"]//img/@src
  - name: url
    singleValue: false
  - name: aggregateRating
@@ -27,8 +27,11 @@ fields:
  - name: reviewCount
    singleValue: false
  - name: price
-   singleValue: true
-   xpath: //html//div[@id="price"]
+   singleValue: false
+   #xpath: //html//div[@id="price"]
+   selector: div[class="for-tile"] div[class*="display-price"]
+   regExp: ^(\S+\s+\n?){1}
+   #type: CURRENCY
  - name: manufacturer
    singleValue: false
  - name: soldBy
