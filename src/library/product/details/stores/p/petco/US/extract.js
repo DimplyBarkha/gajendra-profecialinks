@@ -82,6 +82,7 @@ async function implementation (
   });
 
   try {
+    await context.waitForSelector('div[class*="DescriptionContainer"]', { timeout: 30000 });
     await context.evaluate(() => {
       const desc = document.evaluate(
         '//div[contains(@class,"DescriptionContainer")]/div//p[not(contains(@class,"DetailsTab___StyledP"))]|//div[contains(@class,"DescriptionContainer")]/div//ul',
@@ -121,7 +122,7 @@ async function implementation (
   try {
     await context.waitForXPath('//div[contains(@id,"inpage_container")]//img', { timeout: 30000 });
     await context.evaluate(() => {
-      const images = [...document.querySelectorAll('div[id*="inpage_container"] img')];
+      const images = [...document.querySelectorAll('div[id*="inpage_container"] img:not([class*="flix-lingimg"])')];
       let img = '';
       images.forEach(item => {
         let src = item.getAttribute('data-srcset');
@@ -160,7 +161,7 @@ async function implementation (
       });
       const manuDesc = await context.evaluate(() => {
         const desc = document.evaluate(
-          '//div[@data-role="module"]//h1 | //div[@data-role="module"]//h3 | //div[@data-role="module"]//p | //div[@data-role="module"]//span | //table//*[@data-role="chart-product-name"] | //table//*[@data-role="chart-feature-name"] | //table//tbody//th[contains(@class,"feature-header")] | //table//*[@data-role="data-cell-content"]',
+          '//div[@data-role="module"]//h1 | //div[@data-role="module"]//h3 | //div[@data-role="module"]//p | //div[@data-role="module"]//span | //table//*[@data-role="chart-product-name"] | //table//*[@data-role="chart-feature-name"] | //table//tbody//th[contains(@class,"feature-header")] | //table//*[@data-role="data-cell-content"] | //div[contains(@class, "inpage_selector_feature")]',
           document,
           null,
           XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,

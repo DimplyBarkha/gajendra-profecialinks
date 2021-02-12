@@ -50,7 +50,7 @@ fields:
   - name: packSize
   - name: legalDisclaimer
   - name: directions
-    xpath: //@directions[not(contains(.,"null"))]
+    xpath: //button[@data-track-value="DIRECTIONS"]/..//p
   - name: warnings
   - name: aggregateRating
     xpath: ancestor::html//main//div[contains(@class,"RatingsRowstyled__StarRowContainer")]//ul[contains(@class,"StarRatingsstyled__RatingsList")]/@title
