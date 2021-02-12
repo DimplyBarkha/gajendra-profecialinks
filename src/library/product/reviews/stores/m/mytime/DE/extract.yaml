@@ -1,12 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class='product-rating__review']
 fields:
   - name: helpfulCount
     singleValue: true
     type: NUMBER
     description: Number of people who said the review was helpful
+    xpath: //@helpful
   - name: commentCount
     singleValue: true
     type: NUMBER
@@ -15,23 +16,29 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: ancestor::html//meta[@property='product:brand']/@content
   - name: name
     singleValue: true
     description: The product name
+    xpath: ancestor::html//h1/@name
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: ancestor::html//meta[@itemprop='sku']/@content
   - name: reviewDate
     singleValue: true
     type: DATETIME
     description: Date the review was made
+    xpath: //@date
   - name: reviewRating
     type: NUMBER
     singleValue: true
     description: Rating normalized to be out of 5
+    xpath: //@review_rating
   - name: reviewText
     singleValue: true
     description: The text of the review
+    xpath: //div[@class='product-rating__review']//p[@class='product-rating__review__text']
   - name: reviewTitle
     singleValue: true
     description: The title of the review
@@ -41,9 +48,11 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: ancestor::html//meta[@itemprop='gtin']/@content
   - name: productUrl
     singleValue: true
     description: The url of the product details page
+    xpath: ancestor::html//link[@rel='canonical']/@href
   - name: verifiedPurchase
     singleValue: true
     type: BOOLEAN
@@ -54,16 +63,21 @@ fields:
   - name: syndicatedFrom
     singleValue: true
     description: Stated place the review was syndicated from
+    defaultValue: 'https://www.mytime.de/'
   - name: reviewUrl
     singleValue: true
     description: A direct link to the review
   - name: reviewedSku
-    singleValue: true
+    singleValue: false
     description: The SKU of the item that was reviewed (may be different from the
       sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
       value, transform will handle the value.
+    xpath: //a[@class='product-rating__review__like']/@data-ratingid
   - name: user
     description: The user name of the reviewer
     type: TEXT
   - name: aggregateRating
     description: The product rating
+    type: NUMBER
+    singleValue: false
+    xpath: count(//div[@class="product-page__rating"]//span[contains(@class, "star--active")])
