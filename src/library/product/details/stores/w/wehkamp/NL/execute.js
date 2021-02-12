@@ -16,9 +16,11 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
 
   await dependencies.goto({ ...inputs, url: builtUrl || url });
   try {
-    await context.click("div[class='H_j8WO position-relative'] button");
+    await context.evaluate(function () {
+      document.querySelector("div[class='H_j8WO position-relative'] button") && document.querySelector("div[class='H_j8WO position-relative'] button").click();
+    });
   } catch (e) {
-    console.log(e);
+    console.log('Error:' + e.toString());
   }
 
   if (loadedSelector) {
