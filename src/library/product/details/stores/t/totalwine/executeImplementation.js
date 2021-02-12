@@ -67,7 +67,7 @@ const implementation = async function (
   //   console.log('postcode value' + zipcode)
   // }
   const noResults = await context.evaluate(() => !!document.querySelector('title').innerText.includes('Not Found'));
-  if (noResults) return false;
+  if (noResults) return context.reportBlocked(451, 'Error: Whoops!, Sorry we’re coming up dry.!');
   // dont need setZipCode as we can use queryParams.
   // if (zipcode) {
   //   await dependencies.setZipCode({ url, zipcode });
