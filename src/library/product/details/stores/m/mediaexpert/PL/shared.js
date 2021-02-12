@@ -13,13 +13,13 @@ const transform = (data) => {
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
     .trim();
   function escapeUnicode(str) {
-    return str.replace(/[^\0-~]/g, function(ch) {
-        return "\\u" + ("0000" + ch.charCodeAt().toString(16)).slice(-4);
+    return str.replace(/[^\0-~]/g, function (ch) {
+      return "\\u" + ("0000" + ch.charCodeAt().toString(16)).slice(-4);
     });
   }
   for (const { group } of data) {
@@ -105,10 +105,10 @@ const transform = (data) => {
         imageData = imageData.substring(imageData.indexOf("'/media") + 1, imageData.indexOf("',"));
         row.image = [{ text: `https://www.mediaexpert.pl${imageData}` }];
         row.imageAlt = row.productSingleImageAltText ? row.productSingleImageAltText : [];
-        if (row.alternateImages) {
-          delete row.alternateImages;
-          delete row.secondaryImageTotal;
-        }
+        // if (row.alternateImages) {
+        //   delete row.alternateImages;
+        //   delete row.secondaryImageTotal;
+        // }
       }
 
       // if (row.manufacturerDescription) {
@@ -150,6 +150,13 @@ const transform = (data) => {
         } else {
           row.videos = row.videoFromEnhancedContent;
         }
+      }
+      if (row.image && row.alternateImages) {
+        row.alternateImages.forEach((element, index) => {
+          if (element.text == row.image[0].text) {
+            row.alternateImages.splice(index, index + 1)
+          }
+        })
       }
     }
   }

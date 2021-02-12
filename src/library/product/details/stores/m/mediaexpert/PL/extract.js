@@ -23,7 +23,7 @@ module.exports = {
             break;
           }
         }
-        function stall (ms) {
+        function stall(ms) {
           return new Promise((resolve, reject) => {
             setTimeout(() => {
               resolve();
@@ -38,14 +38,14 @@ module.exports = {
         await applyScroll();
       }
     });
-    await new Promise((resolve) => setTimeout(resolve, 10000));
-    try{
+    await new Promise((resolve) => setTimeout(resolve, 10000));
+    try {
       await context.waitForXPath(`//div[@class="description-container" or @class='description_dyson-container' ]/div[contains(.,'Included') or contains(.,'contents') or contains(.,'Contents')]/following-sibling::*//img/@src`);
     }
-    catch(e){
+    catch (e) {
       console.log("No in the box url present");
     }
-    await new Promise((resolve) => setTimeout(resolve, 10000));
+    await new Promise((resolve) => setTimeout(resolve, 10000));
     const videoIframes = await context.evaluate(async function () {
       console.log(document.querySelectorAll('div#description div[style] iframe[data-component="lazyLoad"]'));
       return document.querySelectorAll('div#description div[style] iframe[data-component="lazyLoad"]');
@@ -59,7 +59,7 @@ module.exports = {
       }
     }
 
-    async function extractVideosFromEnhancedContent (selector) {
+    async function extractVideosFromEnhancedContent(selector) {
       try {
         const videos = await context.evaluateInFrame(selector,
           function () {
@@ -77,7 +77,7 @@ module.exports = {
       }
     };
 
-    async function appendVideosToDom (videoLink) {
+    async function appendVideosToDom(videoLink) {
       await context.evaluate(async function (videoLink) {
         const newDiv = document.createElement('div');
         newDiv.id = 'videoFromEnhancedContent';
@@ -87,7 +87,7 @@ module.exports = {
       }, videoLink);
     }
 
-    async function removeAddedVideoFromDom (videoSelector) {
+    async function removeAddedVideoFromDom(videoSelector) {
       await context.evaluate(function (videoSelector) {
         if (videoSelector) {
           const videoEle = document.querySelector(videoSelector);
