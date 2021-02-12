@@ -21,7 +21,8 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: //body/@alt-image
+  # xpath: //body/@alt-image
+  xpath: //ul/li[contains(@class,"product-media-gallery-thumbnails__thumbnail js-product-media-gallery__thumbnail")]/img/@src
   regExp: (\w.+.be/)(\d.+)([/][a-z]+[/]\w.+)
   regExpReplace: $1500x500$3
 - name: metaKeywords
