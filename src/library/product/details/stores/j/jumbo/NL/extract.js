@@ -12,54 +12,8 @@ module.exports = {
   implementation: async function implementation (inputs, parameters, context, dependencies) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    const { zipcode } = inputs;
 
-    const currentUrl = await context.evaluate(async () => {
-      return window.location.href;
-    });
-
-    async function goToStoreSelectPage () {
-      const storeSelectUrl = await context.evaluate(async () => {
-        const storeSelectData = document.querySelector('li[analytics-tag="stores"] > a');
-        if (storeSelectData) {
-          return storeSelectData.getAttribute('href');
-        };
-      });
-
-      if (storeSelectUrl) {
-        await context.goto('https://www.jumbo.com' + storeSelectUrl);
-      }
-    }
-
-    async function searchForStores () {
-      await context.evaluate(async (zipcode) => {
-        const storeSearchInput = document.querySelector('div[class="jum-store-search-bar"] > input');
-        // @ts-ignore
-        if (storeSearchInput) { storeSearchInput.value = zipcode; }
-
-        const searchButton = document.querySelector('button.jum-btn-store-search');
-        if (searchButton) {
-          searchButton.removeAttribute('disabled');
-          // @ts-ignore
-          searchButton.click();
-        }
-      }, zipcode);
-      await new Promise((resolve) => setTimeout(resolve, 3000));
-    }
-
-    await goToStoreSelectPage();
-    await searchForStores();
-    const retailerName = await context.evaluate(async () => {
-      const retailerElement = document.querySelector('#jum-store-list > ul > li:nth-child(1) > h3');
-      return retailerElement ? retailerElement.textContent : '';
-    });
-    const drive = await context.evaluate(async () => {
-      const driveElement = document.evaluate('//div[@id="jum-store-list"]/ul/li[1]', document, null, XPathResult.STRING_TYPE, null).stringValue.match(/[a-zA-Z]+.\d+/);
-      return driveElement || '';
-    });
-    await context.goto(currentUrl);
-
-    await context.evaluate(async (retailerName, drive) => {
+    await context.evaluate(async () => {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -175,9 +129,7 @@ module.exports = {
       }
 
       addHiddenDiv('url', window.location.href);
-      addHiddenDiv('retailerName', retailerName);
-      addHiddenDiv('drive', drive);
-    }, retailerName, drive);
+    });
     const dataRef = await context.extract(productDetails, { transform });
     function reduceInfoToOneField (field, separator = ' ') {
       if (field && field.length > 1) {
