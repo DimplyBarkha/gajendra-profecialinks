@@ -19,9 +19,9 @@ fields:
   - name: thumbnail
     singleValue: false
     # xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card')]//div[@class='product-card__image-container']//img/@src
-    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card')]//div[@class='product-card__image-container']//picture//source/@data-srcset | //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card')]//div[@class='product-card__image-container']//picture//source/@srcset
-    regExp: (.*)(,)(.*)
-    regExpReplace: $1
+    xpath: //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card')]//div[@class='product-card__image-container']//picture//source/@data-srcset | //div[contains(@class,"product-grid__card")]//div[contains(@class,'product-card')]//div[@class='product-card__image-container']//img/@src
+    # regExp: (.*)(,)(.*)
+    # regExpReplace: $1
   # - name: id
   #   singleValue: false
   #   xpath: //a[contains(@class,'js-add-to-cart-button')]/@href
