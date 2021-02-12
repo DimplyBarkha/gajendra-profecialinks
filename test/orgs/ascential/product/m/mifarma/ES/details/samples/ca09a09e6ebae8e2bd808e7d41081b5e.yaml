@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/nidina-1-premium-800-gramos-0m
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6b672d21-7fb7-4a72-bbab-4fc0a8bc9658/task=832ca826-0320-4446-b2a3-710ce82a1633/b8062d52-e799-4371-9dec-ca4d2fd091a7.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=eb6e02cc-630a-4020-ab97-03349ab425a0/task=662a3181-59c3-4952-a56b-e2733daed2a9/48121076-1146-4da4-8048-642d442160d7.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -68,7 +68,7 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
             sku:
               - text: "388462"
-                xpath: /html/body/script[69]/text()[1]
+                xpath: /html/head[1]/script[75]/text()[1]
             variantId:
               - text: "3638"
                 xpath: /html/body/div[1]/span[2]
@@ -82,7 +82,7 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[1]/a[2]/span[2]
             aggregateRating:
               - text: 4,8
-                xpath: /html/body/script[69]/text()[1]
+                xpath: /html/head[1]/script[75]/text()[1]
                 type: SRING
             manufacturerDescription:
               - text: Esta
@@ -128,4 +128,4 @@ extractions:
             Image360Present:
               - text: No
         xpath: /
-    timestamp: 1611048512447
+    timestamp: 1613112905208

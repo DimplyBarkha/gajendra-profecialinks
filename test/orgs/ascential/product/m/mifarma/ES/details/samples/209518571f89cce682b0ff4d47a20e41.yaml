@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/pasta-dentifrica-natural-lacer-natur-100ml
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6b672d21-7fb7-4a72-bbab-4fc0a8bc9658/task=dbfbe731-9110-4dbd-b715-37e30f8770fa/62ab1125-6e41-4737-9339-1d8d550a52ee.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=eb6e02cc-630a-4020-ab97-03349ab425a0/task=5e51ad85-dd45-4cc7-9d1c-da0f66e1ab9a/b2d9bf25-a759-416a-be48-28962d878a3d.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -29,7 +29,7 @@ extractions:
               - text: 8,35 €
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
             price:
-              - text: 5,75 €
+              - text: 5,10 €
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
             availabilityText:
               - text: In Stock
@@ -58,7 +58,7 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
             sku:
               - text: "189473"
-                xpath: /html/body/script[69]/text()[1]
+                xpath: /html/head[1]/script[75]/text()[1]
             variantId:
               - text: "92391"
                 xpath: /html/body/div[1]/span[2]
@@ -67,11 +67,11 @@ extractions:
                   comida.
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[4]/p[2]/text()[1]
             ratingCount:
-              - text: "12"
+              - text: "13"
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[1]/a[2]/span[2]
             aggregateRating:
               - text: 4,7
-                xpath: /html/body/script[69]/text()[1]
+                xpath: /html/head[1]/script[75]/text()[1]
                 type: SRING
             manufacturerDescription:
               - text: Su fórmula, con extractos naturales vegetales, previene la placa dental y
@@ -93,7 +93,7 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
             promotion:
               - text: Ofertas
-                xpath: /html/body/script[98]
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/script[6]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/@zoom
@@ -102,4 +102,4 @@ extractions:
             Image360Present:
               - text: No
         xpath: /
-    timestamp: 1611048512531
+    timestamp: 1613112908349

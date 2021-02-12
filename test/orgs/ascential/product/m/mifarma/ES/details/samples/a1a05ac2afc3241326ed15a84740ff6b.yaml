@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/sesderma-babyses-agua-de-colonia-250ml
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6b672d21-7fb7-4a72-bbab-4fc0a8bc9658/task=7ddb3655-a46c-4c43-a524-8dc85a2f4ae3/da03a9d2-e2a1-459c-bba7-fbb391cf66fc.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=eb6e02cc-630a-4020-ab97-03349ab425a0/task=badc8038-633c-4c28-b00c-5f40bf53a19f/faee90ee-a31d-41ab-9478-ff22d97b8c24.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -23,9 +23,15 @@ extractions:
             nameExtended:
               - text: Sesderma Babyses Agua de Colonia 250ml
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
+            listPrice:
+              - text: 9,95 €
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
             price:
-              - text: 6,50€
-                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[1]/div[3]/p[1]/span[1]/@correctprice
+              - text: 6,24 €
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/button[1]/@title
             description:
               - text: Agua de colonia de la nueva gama infantil Babyses de Sesderma formulada
                   con una fragancia con notas florales. En su agradable aroma
@@ -50,7 +56,7 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
             sku:
               - text: "182643"
-                xpath: /html/body/script[69]/text()[1]
+                xpath: /html/head[1]/script[75]/text()[1]
             variantId:
               - text: "58532"
                 xpath: /html/body/div[1]/span[2]
@@ -64,7 +70,7 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[1]/a[2]/span[2]
             aggregateRating:
               - text: 3,9
-                xpath: /html/body/script[69]/text()[1]
+                xpath: /html/head[1]/script[75]/text()[1]
                 type: SRING
             manufacturerDescription:
               - text: Agua de colonia formulada a base de notas florales de Flor de Azahar,
@@ -87,15 +93,13 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
             promotion:
               - text: Ofertas
-                xpath: /html/body/script[98]
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/script[6]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/@zoom
-            availabilityText:
-              - text: Out of Stock
             variantCount:
               - text: "0"
             Image360Present:
               - text: No
         xpath: /
-    timestamp: 1611048510972
+    timestamp: 1613112904598

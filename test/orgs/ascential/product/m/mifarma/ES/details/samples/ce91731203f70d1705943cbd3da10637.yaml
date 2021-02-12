@@ -2,7 +2,7 @@ input:
   _url: http://mifarma.es
   URL: https://www.mifarma.es/optrex-spray-actimist-2-en-1-ojos-secos
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6b672d21-7fb7-4a72-bbab-4fc0a8bc9658/task=8c1d5f91-78b8-4c1a-8865-10b5f28578df/098ec8ff-bab4-46e9-a48d-28eb5ca45c1b.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=eb6e02cc-630a-4020-ab97-03349ab425a0/task=13fb4b8b-e404-48a4-870e-c74f9af4ab78/d38b0fd5-8900-4956-95aa-e0e75fd3dd18.html
     extractionConfigId: product/details/stores/m/mifarma/ES/extract
     data:
       - group:
@@ -32,7 +32,7 @@ extractions:
               - text: 14,52 €
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[1]/span[2]/text()[1]
             price:
-              - text: 13,26 €
+              - text: 12,75 €
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[3]/div[2]/div[1]/div[1]/p[2]/span[2]/text()[1]
             availabilityText:
               - text: In Stock
@@ -64,7 +64,7 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[3]/h1[1]/text()[1]
             sku:
               - text: "173421"
-                xpath: /html/body/script[69]/text()[1]
+                xpath: /html/head[1]/script[75]/text()[1]
             variantId:
               - text: "27603"
                 xpath: /html/body/div[1]/span[2]
@@ -80,7 +80,7 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[1]/a[2]/span[2]
             aggregateRating:
               - text: 3,6
-                xpath: /html/body/script[69]/text()[1]
+                xpath: /html/head[1]/script[75]/text()[1]
                 type: SRING
             manufacturerDescription:
               - text: Actimist 2 en 1 es un spray ocular que repara la capa lipídica, evitando
@@ -107,7 +107,7 @@ extractions:
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[2]/div[1]/div[2]/div[2]/p[2]
             promotion:
               - text: Ofertas
-                xpath: /html/body/script[98]
+                xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/script[6]
             imageZoomFeaturePresent:
               - text: Yes
                 xpath: /html/body/div[4]/div[1]/div[3]/div[1]/div[1]/div[7]/div[1]/form[1]/div[2]/div[5]/@zoom
@@ -116,4 +116,4 @@ extractions:
             Image360Present:
               - text: No
         xpath: /
-    timestamp: 1611048510894
+    timestamp: 1613112904345
