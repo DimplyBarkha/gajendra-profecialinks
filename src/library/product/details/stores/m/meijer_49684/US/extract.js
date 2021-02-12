@@ -78,7 +78,10 @@ module.exports = {
       } catch (error) {
 
       }
-
+      function addclass(xpathforpagination) {
+          var elems = document.querySelectorAll(xpathforpagination);
+          elems[0].classList.add('pagination');
+        }
     });
     await context.extract(productDetails, { transform: transformParam });
   },
