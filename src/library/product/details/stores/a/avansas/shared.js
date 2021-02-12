@@ -75,6 +75,21 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.availabilityText) {
+        let text = '';
+        row.availabilityText.forEach(item => {
+          if (item.text.includes('SEPETE EKLE')) {
+            text = 'In Stock';
+          } else {
+            text = 'Out Of Stock';
+          }
+        });
+        row.availabilityText = [
+          {
+            text: text,
+          },
+        ];
+      }
       if (row.dietaryFibrePerServingUom) {
         let text = '';
         row.dietaryFibrePerServingUom.forEach(item => {

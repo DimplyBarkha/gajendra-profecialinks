@@ -75,10 +75,7 @@ fields:
     xpath: //td[contains(text(), 'Lif, g')]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class="notifications product-finish"]/text()
-    regExp: (.+)
-    regExpReplace: Out Of Stock
-    defaultValue: In Stock
+    xpath: //div[@class="product-detail-widget product-card"]//button[@id="addToCartButton"]
   - name: description
     singleValue: false
     xpath: (//ul[@class="check-list"])[1]/li/span/text()
@@ -112,7 +109,9 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: false
-    xpath: //div[@class="product-code"]/@content
+    xpath: //div[@class="product-code"]/text()
+    regExp: Ürün Kodu:\s(.*)
+    regExpReplace: $1
   - name: variantId
     singleValue: false
     xpath: //div[@itemprop="sku"]/@content
