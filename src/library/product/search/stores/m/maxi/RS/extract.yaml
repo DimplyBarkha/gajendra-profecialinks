@@ -1,21 +1,21 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[@target='toadd']//li//div[@data-testid="product-block"]
+recordXPath: //ul[@target='toadd']//li//div[@data-testid="product-block"] | //div[contains(@data-testid,"product-block")]
 fields:
   - name: id
     singleValue: false
-    xpath: //div[@data-testid="product-block-product-name"]//a/@href
+    xpath: //div[@data-testid="product-block-product-name"]//a/@href | //a[contains(@data-testid,"product-block-image-link")]/@href
     regExp: \/p\/(\d+)
     regExpReplace: $1
   - name: searchUrl
     singleValue: true
   - name: name
     singleValue: false
-    xpath: //div[@data-testid="product-block-product-name"]
+    xpath: //div[@data-testid="product-block-product-name"] | //h6[@data-testid="product-block-product-name"]
   - name: productUrl
     singleValue: false
-    xpath: //a[@data-testid="product-block-image-link"]/@product_url
+    xpath: //a[@data-testid="product-block-image-link"]/@product_url | //a[contains(@data-testid,"product-block-image-link")]/@href
   - name: gtin
     singleValue: false
   - name: thumbnail
@@ -31,7 +31,9 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@data-testid="product-block-price"]/@price
+    xpath: //div[@data-testid="product-block-price"]/@price | //div[contains(@data-testid,"product-block-price")]
+    regExp: (\d+)(\,)(\d+)(.+)
+    regExpReplace: $1.$3$4
   - name: manufacturer
     singleValue: true
     xpath: //div[@data-testid="product-block-brand-name"]/a

@@ -1,6 +1,6 @@
 const { transform } = require('../../../../shared');
 
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
@@ -28,23 +28,27 @@ async function implementation (inputs, parameters, context, dependencies) {
     const regex = /pageNumber=(\d+)/gm;
     const siteNumber = regex.exec(searchUrl);
     const productsSelector = 'ul[data-pagenumber="' + siteNumber[1] + '"]';
+    try {
+      var productsClass = document.querySelector(productsSelector);
+      productsClass.setAttribute('target', 'toadd');
 
-    var productsClass = document.querySelector(productsSelector);
-    productsClass.setAttribute('target', 'toadd');
+      const prefix = 'https://www.maxi.rs/';
+      const products = document.querySelectorAll(
+        'a[data-testid="product-block-image-link"]');
+      products.forEach((product, index) => {
+        // set product url
+        const productUrl = product.getAttribute('href');
+        product.setAttribute('product_url', prefix + productUrl);
+      });
 
-    const prefix = 'https://www.maxi.rs/';
-    const products = document.querySelectorAll(
-      'a[data-testid="product-block-image-link"]');
-    products.forEach((product, index) => {
-      // set product url
-      const productUrl = product.getAttribute('href');
-      product.setAttribute('product_url', prefix + productUrl);
-    });
-
-    const prodPrice = document.querySelectorAll('div[data-testid="product-block-price"]');
-    prodPrice.forEach(element => {
-      element.setAttribute('price', element.textContent.replace(/\./g, '').replace(/,/g, '.'));
-    });
+      const prodPrice = document.querySelectorAll('div[data-testid="product-block-price"]');
+      prodPrice.forEach(element => {
+        element.setAttribute('price', element.textContent.replace(/\./g, '').replace(/,/g, '.'));
+      });
+    }
+    catch (e) {
+      console.log("error message.");
+    }
   });
 
   return await context.extract(productDetails, { transform });
