@@ -60,7 +60,7 @@ async function implementation (
     // }
 
     let cnt = 0;
-    for (let i = 0; i < 13; i++) {
+    for (let i = 0; i < 12; i++) {
       await new Promise((resolve, reject) => setTimeout(resolve, 1000));
       const noResButton = document.querySelector('button[class*="button button_block button_xl button_default pagination__button j-more-button hidden"]');
       if (noResButton) {
