@@ -8,7 +8,7 @@ module.exports = {
     // nextLinkSelector: 'div.pagination__arrow:not(:first-of-type)>a',
     spinnerSelector: null,
     loadedSelector: 'div.j-results-list div.search-card',
-    noResultsXPath: null, //'//h1[contains(text(),"Результатов не найдено")]',
+    noResultsXPath: '//h1[contains(text(),"Результатов не найдено")]',
     openSearchDefinition: null,
     domain: 'b-apteka.ru',
     zipcode: "''",
