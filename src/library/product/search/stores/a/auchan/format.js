@@ -14,9 +14,9 @@ const transform = (data, context) => {
         if (row.endorsementText && row.endorsementText.length > 1)
           row.endorsementText = [row.endorsementText[0]];
       }
-      if (row.price && row.price[0]) {
-        row.price[0].text = row.price[0].text.replace('.', ',');
-      }
+      // if (row.price && row.price[0]) {
+      //   row.price[0].text = row.price[0].text.replace('.', ',');
+      // }
 
       if (row.aggregateRating) {
         if (row.aggregateRating && row.aggregateRating.length) {

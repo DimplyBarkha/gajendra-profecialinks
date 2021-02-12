@@ -49,6 +49,11 @@ const transform = (data) => {
           i++;
         }
       }
+      if ((!row.quantity || !row.quantity.length) && row.quantity1) {
+        console.log('quantity1',row.quantity1);
+        row.quantity = row.quantity1;
+        console.log("quantity", row.quantity);
+      }
       if (row.manufacturerImages) {
         var mI = [];
         for (var image of row.manufacturerImages) {
