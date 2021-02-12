@@ -2,7 +2,7 @@ input:
   _url: http://easyparapharmacie.com
   URL: https://www.easyparapharmacie.com/trousse-mineral-89-soin-hydratant-fortifiant-et-repulpant-1-unite-mineral-89-vichy.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=06ab8ea4-65e1-491d-a1be-069cc4063f53/task=20b2c9e3-a20b-47e0-8dbe-39fcbe5fe9e6/b4f031ee-654e-433d-97d1-5d569a57ec60.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9888090d-6672-4fa0-990f-e638d30c820b/task=b840ca10-c0a2-49a4-89df-10edde24804f/a4d49276-3c2b-46df-904b-5f4c813b6773.html
     extractionConfigId: product/details/stores/e/easyparapharmacie/FR/extract
     data:
       - group:
@@ -28,9 +28,6 @@ extractions:
             nameExtended:
               - text: COFFRET SOIN HYDRATANT FORTIFIANT ET REPULPANT MINERAL 89 VICHY
                 xpath: /html/body/div[15]
-            availabilityText:
-              - text: Plus disponible à la vente
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/p[1]
             description:
               - text: >-
                   VICHY
@@ -54,11 +51,15 @@ extractions:
               - text: VICHY
                 xpath: /html/body/div[16]
             sku:
-              - text: "3433425342283"
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
+              - text: "83558"
+                xpath: /html/head[1]/script[9]
             variantId:
-              - text: "3433425342283"
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
+              - text: "83558"
+                xpath: /html/head[1]/script[9]
+            directions:
+              - text: Minéral 89, le premier geste de toutes les peaux, à appliquer sur peau
+                  propre, avant votre soin de jour.
+                xpath: /html/body/main[1]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]
             warnings:
               - text: La composition peut être soumise à des variations, nous vous conseillons
                   de toujours vérifier la liste figurant sur le produit acheté.
@@ -78,6 +79,12 @@ extractions:
             name:
               - text: Coffret Soin Hydratant Fortifiant Et Repulpant Mineral 89 Vichy
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/span[1]
+            ingredientsList:
+              - text: "Formule INCI : Aqua / Water , Peg/Ppg/Polybutylene Glycol-8/5/3 Glycerin
+                  , Glycerin , Butylene Glycol , Methyl Gluceth-20 , Carbomer ,
+                  Sodium Hyaluronate , Phenoxyethanol , Caprylyl Glycol , Citric
+                  Acid , Biosaccharide Gum-1 (F.I.L. B199024/1)."
+                xpath: /html/body/div[21]
             productOtherInformation:
               - text: Minéral 89, le premier geste de toutes les peaux, à appliquer sur peau
                   propre, avant votre soin de jour.
@@ -91,5 +98,7 @@ extractions:
                   Sodium Hyaluronate , Phenoxyethanol , Caprylyl Glycol , Citric
                   Acid , Biosaccharide Gum-1 (F.I.L. B199024/1)."
                 xpath: /html/body/div[21]
+            availabilityText:
+              - text: Out of Stock
         xpath: /
-    timestamp: 1612791216661
+    timestamp: 1613082162042

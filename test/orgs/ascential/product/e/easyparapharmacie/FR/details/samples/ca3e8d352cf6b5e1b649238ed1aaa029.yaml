@@ -2,7 +2,7 @@ input:
   _url: http://easyparapharmacie.com
   URL: https://www.easyparapharmacie.com/nuxe-sun-eau-delicieuse-parfumante-format-voyage-30ml.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=06ab8ea4-65e1-491d-a1be-069cc4063f53/task=e0e876a4-36ca-4d76-a58e-da1d9c7129f2/fcb3c77a-5f13-4c64-804b-e9503a874422.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9888090d-6672-4fa0-990f-e638d30c820b/task=9d163098-ec16-474d-8eb5-287cdbf2f631/ebdb46a0-dd6b-47b7-9589-651e93f22575.html
     extractionConfigId: product/details/stores/e/easyparapharmacie/FR/extract
     data:
       - group:
@@ -25,8 +25,8 @@ extractions:
               - text: 15,69 €
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[2]/p[1]/span[1]/span[1]
             availabilityText:
-              - text: En stock
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[1]/p[1]
+              - text: In Stock
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[4]/div[2]/div[1]/div[1]/button[1]
             description:
               - text: >-
                   NUXE SUN
@@ -57,11 +57,26 @@ extractions:
               - text: "1"
                 xpath: /html/body/div[17]
             sku:
-              - text: "3264680015342"
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
+              - text: "64596"
+                xpath: /html/head[1]/script[9]
             variantId:
-              - text: "3264680015342"
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
+              - text: "64596"
+                xpath: /html/head[1]/script[9]
+            directions:
+              - text: >-
+                  Vaporiser le parfum Nuxe Sun Eau délicieuse parfumante à
+                  environ 30 centimètres de la peau.
+
+                  Appliquer à volonté sur toutes les parties découvertes du corps en évitant le contour des yeux.
+
+                  Renouveler l'application autant de fois que nécessaire.
+
+                  Pour un effet plus délicat, parfumez votre brosse à cheveux. 
+
+                  Lorsque vous vous coifferez, la fragrance se déposera uniformément dans votre chevelure. 
+
+                  Vous pouvez également la déposer en voile sur vos draps.
+                xpath: /html/body/main[1]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]
             warnings:
               - text: Contient au moins 85.6 % d'ingrédients d'origine naturelle.La liste des
                   ingrédients peut être soumise à des variations, nous vous
@@ -83,6 +98,12 @@ extractions:
             name:
               - text: Sun Eau Delicieuse Parfumante Format Voyage 30ml Nuxe
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/span[1]
+            ingredientsList:
+              - text: "Formule INCI : Alcohol Denat., Parfum/Fragrance, Aqua/Water, Eichhornia
+                  Crassipes Extract, Glycerin, Fagraea Berteroana Flower Extract
+                  Limonene, Benzyl Salicylate, Linalool, Citronellol, Geraniol,
+                  Benzyl Alcohol, Citral, Coumarin [N2612/A]."
+                xpath: /html/body/div[21]
             productOtherInformation:
               - text: Vaporiser le parfum Nuxe Sun Eau délicieuse parfumante à environ 30
                   centimètres de la peau.Appliquer à volonté sur toutes les
@@ -109,4 +130,4 @@ extractions:
                   Benzyl Alcohol, Citral, Coumarin [N2612/A]."
                 xpath: /html/body/div[21]
         xpath: /
-    timestamp: 1612791225888
+    timestamp: 1613082157849
