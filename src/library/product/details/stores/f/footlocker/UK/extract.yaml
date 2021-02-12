@@ -1,27 +1,27 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //*[@id="fitanalytics_sizecontainer"]/section[3]/div//button
 fields:
   - name: image
     description: URL of the main product image
-    xpath: //div[contains(@class,"slick-slide slick-current")]//img//@src
+    xpath: ancestor::html//div[contains(@class,"slick-slide slick-current")]//img//@src
   - name: imageAlt
     description: Alt text of the main product image
   - name: alternateImages
     description: Other product images (not in manufacturer description)
-    xpath: //ul[@class="slick-dots"]/li[@role="presentation"][position()>1]//img/@src
+    xpath: ancestor::html//ul[@class="slick-dots"]/li[@role="presentation"][position()>1]//img/@src
     regExp: (.+)(?=\?)
   - name: metaKeywords
     description: The <meta> keywords content
   - name: category
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="fl-breadcrumb"]//span[not(class="fl-breadcrumb--item")]/a
+    xpath: ancestor::html//div[@class="fl-breadcrumb"]//span[not(class="fl-breadcrumb--item")]/a
   - name: nameExtended
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1/span[@itemprop="name"]
+    xpath: ancestor::html//h1/span[@itemprop="name"]
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: translate(/html/body/main/div//div[@class="fl-product-details--price"]//span[@class="fl-price--old"]/span,',','.')
@@ -41,7 +41,7 @@ fields:
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //*[contains(@class,"fl-panel fl-panel")]//div[@itemprop="description"]/../div[1] | //*[contains(@class,"fl-panel fl-panel")]//div[@itemprop="description"]/../*[2]/*
+    xpath: 'ancestor::html//*[contains(@class,"fl-panel fl-panel")]//div[@itemprop="description"]/../div[1] | ancestor::html//*[contains(@class,"fl-panel fl-panel")]//div[@itemprop="description"]/../*[2]/*'
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
@@ -50,15 +50,16 @@ fields:
     description:
       Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[contains(@class,"fl-product-details--brand")]//img/@srcset
+    xpath: ancestor::html//div[contains(@class,"fl-product-details--brand")]//img/@srcset
     regExp: (.+)(brand)(-logos/)(\w+)(\+|)(\w+|)(.jpg)(.+)
     regExpReplace: $4
   - name: manufacturer
     description: Product manufacturer
   - name: quantity
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: 'span'
+    # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    # regExpReplace: $1$2$3$4
   - name: weightNet
     description: Net weight as described on the page
   - name: weightGross
@@ -67,13 +68,14 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     description: The store-specific product identifier
-    xpath: //meta[@property='og:image']/@content
+    xpath: ancestor::html//meta[@property="og:image"]/@content
     regExp: \/(\d+)\?
     regExpReplace: $1
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //body/@variant
-    regExp: ([\d]+)
+    xpath: '@data-form-field-value'
+    # xpath: //body/@variant
+    # regExp: ([\d]+)
   - name: mpc
     description: The manufacturer model code (unique) of the product
   - name: packSize
@@ -89,7 +91,7 @@ fields:
   - name: ratingCount
     description: The number of ratings
     type: NUMBER
-    xpath: //div[contains(@class,"fl-product-details--rating")]//span[contains(@class,"fl-rating--count")]
+    xpath: ancestor::html//div[contains(@class,"fl-product-details--rating")]//span[contains(@class,"fl-rating--count")]
   - name: aggregateRatingText
     description: The stated aggregate rating
   - name: aggregateRating
@@ -108,7 +110,7 @@ fields:
     type: NUMBER
   - name: color
     description: A textual description of the colour
-    xpath: //li[contains(text(),'Color')]
+    xpath: ancestor::html//li[contains(text(),"Color")]
     regExp: (:)(.+)
     regExpReplace: $2
   - name: colorCode
@@ -121,7 +123,7 @@ fields:
     description: URLs of videos on page
   - name: name
     description: The product name
-    xpath: //h1/span[@itemprop="name"]
+    xpath: ancestor::html//h1/span[@itemprop="name"]
   - name: inStorePrice
     description: Price in the selected store
   - name: asin
@@ -134,7 +136,7 @@ fields:
     description: Text of link next to Amazon choice graphic
   - name: brandLink
     description: null
-    xpath: //div[contains(@class,"details--brand")]//a/@href
+    xpath: ancestor::html//div[contains(@class,"details--brand")]//a/@href
   - name: internationalShipping
     description: Text next to bullet point
   - name: salesRank
@@ -344,7 +346,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     description: promotion text on product page
-    xpath: //*[@class='fl-price--sale-hint']
+    xpath: ancestor::html//*[@class="fl-price--sale-hint"]
   - name: alcoholContent
     description: Alcohol content information
   - name: newVersion
@@ -360,7 +362,10 @@ fields:
       new desription info
   - name: variantInformation
     description: colour / scent / flavour / other
-    xpath: (//button[contains(@class,"is-selected")]//span)[3]
+    # xpath: ancestor::html(//button[contains(@class,"is-selected")]//span)[3]
+    xpath: ancestor::html//li[contains(text(),"Color")]
+    regExp: (:)(.+)
+    regExpReplace: $2
   - name: firstVariant
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
@@ -371,10 +376,10 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: //span[contains(@class,"fl-error hide")]//@data-inventory-level-sku
+    xpath: ancestor::html//span[contains(@class,"fl-error hide")]//@data-inventory-level-sku
   - name: variants
     description: null
-    xpath: //div[@id="variantid"]/@data
+    xpath: ancestor::html//div[@id="variantid"]/@data
   - name: additionalDescBulletInfo
     description: null
   - name: prop65Warning

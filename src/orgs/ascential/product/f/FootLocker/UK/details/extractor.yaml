@@ -7,8 +7,17 @@ parameters:
 proxy:
   zone: ZUK
   type: DATA_CENTER
+policy:
+  numberRetries: 10
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     footlocker_core:
       extractor: 8c3f4d18-5cb4-4eab-a3c1-fd47b09be3f2
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    footlocker_test:
+      extractor: c01ea96d-733e-4de5-9643-1c7aa8d0ec65
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
