@@ -61,6 +61,7 @@ async function implementation(
         const originalDiv = document.querySelectorAll('div.product-item > div.tile-row.details-container > div.tile-column.details > a')[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
+      try {
         console.log("creating prices")
         var len = document.querySelectorAll('div.product-item > div.tile-row.details-container > div.tile-column.details > a').length
         var a = document.querySelectorAll('div[class="for-tile"] span[itemprop="price"],div[class="for-tile"] div[class="display-price sale-price"]')
@@ -74,9 +75,21 @@ async function implementation(
           else {
             var r = price[0].slice(0, 0) + "$" + price[0].slice(0);
             addHiddenDiv('price', r, i)
-            console.log(i," price= ",r)
+            console.log(i," price= ",price[0])
           }
         }
+      }
+      catch (e) {
+  
+      }
+      // Method to Retrieve Xpath content of a Single Node
+    //   try{
+    //   function addclass(xpathforpagination) {
+    //     var elems = document.querySelectorAll(xpathforpagination);
+    //     elems[0].classList.add('pagination');
+    //   }
+    // }
+    //   catch(e){}
       const URL = window.location.href;
       try {
         document.getElementById('pd_url').remove();
@@ -85,11 +98,5 @@ async function implementation(
       addElementToDocument('pd_url', URL);
   });
   //await context.waitForSelector('div[class="tile-column quickview-mouseover-container"] a[class="thumb"] img');
-  await context.evaluate(async function () {
-    function addclass(xpathforpagination) {
-      var elems = document.querySelectorAll(xpathforpagination);
-      elems[0].classList.add('pagination');
-    }
-  });
   return await context.extract(productDetails, { transform });
 }
