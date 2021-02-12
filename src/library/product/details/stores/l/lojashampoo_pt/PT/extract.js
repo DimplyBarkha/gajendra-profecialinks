@@ -35,9 +35,13 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
+      // Page Not Found
+      if (getXpath('//img[@id="imagerror"]/@id', 'nodeValue') != null) {
+        return;
+      }
 
       // Alternate images
-      var altImages = getAllXpath('//div[contains(@id,"image-additional-carousel")]/div/a/img/@src', 'nodeValue');
+      var altImages = getAllXpath('(//div[contains(@id,"image-additional-carousel")]/div/a/img)[position()>1]/@src', 'nodeValue');
       if (altImages.length >= 1) {
         addElementToDocument('altImages', altImages.join(' | '));
       }
@@ -54,7 +58,7 @@ module.exports = {
         addElementToDocument('variants', getXpath('(//b[contains(text(),"EAN")]/following-sibling::span)//text()', 'nodeValue'));
       }
       const getDescription = (d) => {
-        var desc = d.replaceAll(/\n+/gm, '\n').replaceAll('•' || '●', '||').replaceAll('’', '').replaceAll('-', '');
+        var desc = d.replaceAll(/\n+/gm, '\n').replaceAll('•' || '●', '||').replaceAll('’', '').replaceAll('-', '').replace('Descrição', '');
         addElementToDocument('descrip', desc);
       };
       // Description
@@ -63,8 +67,12 @@ module.exports = {
         if (description != null) {
           getDescription(description.innerText);
         }
-      } catch (error) {}
-      
+      } catch (error) { }
+      // Brand Text
+      var brand = getXpath('//div[@class="description"]/p/a/text()', 'nodeValue');
+      if (brand != null) {
+        addElementToDocument('brandText', brand.replace("'", ''));
+      }
 
     });
     await context.extract(productDetails);

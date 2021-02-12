@@ -65,9 +65,9 @@ async function implementation(
           // console.log(responseObj.product);
           var pname = responseObj.product.toLowerCase();
           if (pname.match(/(\.).\d*g|''/) != null) {
-            addElementToDocument('variants', url.concat(pname.replace(pname.match(/(\.).\d*g|''/)[1], '-').replace(/\s/gm, '-').replace(/\'|\?/gm, '-')));
+            addElementToDocument('variants', url.concat(pname.replace(pname.match(/(\.).\d*g|''/)[1], '-').replace(/\s/gm, '-').replace(/\'|\?|\-+/gm, '-')));
           } else if (pname.match(/(\.).\d*ml|''/) != null) {
-            addElementToDocument('variants', url.concat(pname.replace(pname.match(/(\.).\d*ml|''/)[1], '-').replace(/\s/gm, '-').replace(/\'|\?/gm, '-')));
+            addElementToDocument('variants', url.concat(pname.replace(pname.match(/(\.).\d*ml|''/)[1], '-').replace(/\s/gm, '-').replace(/\'|\?|\-+/gm, '-')));
           }
           else {
             addElementToDocument('variants', url.concat(pname.replace(/\s/gm, '-').replace(/\'|\?|\-+|\+/gm, '-')));

@@ -27,12 +27,15 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
+    xpath: //h1[@class="title-product"]/text()
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
     xpath: //span[@class="text-price"]
+    regExp: (\d+)\.(.+)
+    regExpReplace: $1,$2
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
@@ -43,6 +46,7 @@ fields:
       clicks add to basket this is the price they would be charged
   - name: availabilityText
     singleValue: true
+    xpath: //button[@id="button-cart"]/span[contains(text(),"COMPRA JÁ")]/text()
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
@@ -61,7 +65,7 @@ fields:
     type: NUMBER
   - name: brandText
     singleValue: true
-    xpath: //div[@class="description"]/p/a
+    xpath: //html//div[@id='brandText']
     description:
       Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
@@ -125,7 +129,7 @@ fields:
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
-    xpath: (//div[@class="NETREVIEWS_PRODUCT_STARS"]/div)[1]
+    xpath: (//div[@class="NETREVIEWS_PRODUCT_STARS"]/div)[1]//text()
     regExp: (\d)\.(\d)
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
@@ -140,6 +144,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: true
+    xpath: count(//div[contains(@id,"option_")]/@id)
     description: Number of variants listed
     type: NUMBER
   - name: color
@@ -156,9 +161,11 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
+    xpath: //div[@class="flexible-container"]/iframe/@src | //*[@id="mobilefooter"]//a[3]/@href
     description: URLs of videos on page
   - name: name
     singleValue: true
+    xpath: //h1[@class="title-product"]/text()
     description: The product name
   - name: inStorePrice
     singleValue: true
@@ -251,6 +258,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: true
+    xpath: count((//div[contains(@id,"image-additional-carousel")]/div/a/img)[position()>1]/@src)
     description: null
     type: NUMBER
   - name: news
