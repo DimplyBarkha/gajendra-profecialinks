@@ -25,7 +25,7 @@ fields:
   - name: nameExtended
     singleValue: true
     # xpath: //*[@itemprop='name']
-    xpath: (//div[contains(@id,"detailview-right-container")]/div/span)[1]
+    xpath: //*[@itemprop='name'] | (//div[contains(@id,"detailview-right-container")]//following::div)[1]
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
@@ -84,13 +84,13 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: ratingCount
     singleValue: true
-    xpath: //script[@type='application/ld+json']
+    xpath: //div[contains(@id,"detailview-right-container")]//*[contains(@class,"review-count")]
     # xpath: //dd[@class="bv-rating-ratio-count"]/a
     # manualSelector: dd.bv-rating-ratio-count a
     description: The number of ratings
   - name: aggregateRating
     singleValue: true
-    xpath: (//div[contains(@class,"pr-snippet-rating-decimal")])[1]
+    xpath: //div[contains(@id,"detailview-right-container")]//div[contains(@class,"rating-decimal")]
     # xpath: //script[@type='application/ld+json']
     # xpath: //dd[@class='bv-rating-ratio-number']
     # manualSelector: dd.bv-rating-ratio-number

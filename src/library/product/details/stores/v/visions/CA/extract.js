@@ -17,13 +17,21 @@ async function implementation (
       document.body.appendChild(newDiv);
     }
     let descContent;
+    let gotDescContent = false;
     if (document.querySelector("script[type*='application/ld+json']")) {
       // @ts-ignore
-      const desc = (document.querySelector("script[type*='application/ld+json']")) ? document.querySelector("script[type*='application/ld+json']").innerText : '';
-      const descJSON = (JSON.parse(desc)) ? JSON.parse(desc) : [];
-      descContent = (descJSON && descJSON.description) ? descJSON.description.replace(/<.*?>|\\r|\\n|\t/gm, '').replace(/&amp; /gm, '') : '';
+      try {
+        const desc = (document.querySelector("script[type*='application/ld+json']")) ? document.querySelector("script[type*='application/ld+json']").innerText : '';
+        const descJSON = (JSON.parse(desc)) ? JSON.parse(desc) : [];
+        descContent = (descJSON && descJSON.description) ? descJSON.description.replace(/<.*?>|\\r|\\n|\t/gm, '').replace(/&amp; /gm, '') : '';
+        gotDescContent = true;
+      } catch(err) {
+        console.log('we got some error while getting desc in json format', err.message);
+      }
+      
     }
     // @ts-ignore
+    console.log('gotDescContent', gotDescContent);
     const enhancedContent = (document.querySelector('div#productdetail-tabs-overview')) ? document.querySelector('div#productdetail-tabs-overview').innerHTML.replace(/<li>/gm, ' || ').replace(/<.*?>/gm, '').replace(/\n/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/, ' ').trim() : '';
     if (document.querySelector('div#productdetail-tabs-overview img')) {
       addHiddenDiv('ii_enhancedContent', enhancedContent);

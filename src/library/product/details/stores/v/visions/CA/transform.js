@@ -39,11 +39,11 @@ const transform = (data) => {
           item.text = item.text.replace(/,/, '');
         }
       }
-      // if (row.ratingCount) {
-      //   for (const item of row.ratingCount) {
-      //     item.text = item.text.replace(/([\d+]) .*/, '$1');
-      //   }
-      // }
+      if (row.ratingCount) {
+        for (const item of row.ratingCount) {
+          item.text = item.text.replace(/([\d+]) .*/, '$1');
+        }
+      }
       if (row.sku) {
         for (const item of row.sku) {
           item.text = decodeURIComponent(item.text) ? decodeURIComponent(item.text).replace(/.*&sku=(.*)/, '$1') : item.text.replace(/.*&sku=(.*)/, '$1');
@@ -64,12 +64,12 @@ const transform = (data) => {
           item.text = (descJSON && descJSON.mpn) ? descJSON.mpn.trim() : '';
         }
       }
-      if (row.ratingCount) {
-        for (const item of row.ratingCount) {
-          const descJSON = (JSON.parse(item.text)) ? JSON.parse(item.text) : [];
-          item.text = (descJSON && descJSON.aggregateRating && descJSON.aggregateRating.ratingCount) ? descJSON.aggregateRating.ratingCount.trim() : '';
-        }
-      }
+      // if (row.ratingCount) {
+      //   for (const item of row.ratingCount) {
+      //     const descJSON = (JSON.parse(item.text)) ? JSON.parse(item.text) : [];
+      //     item.text = (descJSON && descJSON.aggregateRating && descJSON.aggregateRating.ratingCount) ? descJSON.aggregateRating.ratingCount.trim() : '';
+      //   }
+      // }
       // if (row.aggregateRating) {
       //   for (const item of row.aggregateRating) {
       //     const descJSON = (JSON.parse(item.text)) ? JSON.parse(item.text) : [];
