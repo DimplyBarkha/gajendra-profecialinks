@@ -65,16 +65,16 @@ module.exports = {
       }
       try {
         var stock = "In Stock"
-        const availability = getXpath('//div[@class="rsection stock-container"]//img/@alt//text()', 'nodeValue');
-        if (availability == "Success") {
+        const availability = getXpath('//h2[@itemprop="availability"]/text()', 'nodeValue');
+        if (availability.includes("In Stock")) {
           addElementToDocument('stock', stock);
           console.log(stock)
         }
-        // else {
-        //   stock = "Out Of Stock"
-        //   console.log(stock)
-        //   addElementToDocument('availability', stock);
-        // }
+        else {
+          stock = "Out Of Stock"
+          console.log(stock)
+          addElementToDocument('availability', stock);
+        }
       } catch (error) {
 
       }try{
