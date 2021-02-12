@@ -68,10 +68,34 @@ module.exports = {
           getDescription(description.innerText);
         }
       } catch (error) { }
+
+      // Ingredients
+      try {
+        var ing = document.querySelector('div[id="tab-description"]');
+        if (ing != null) {
+          var desc = ing.innerText;
+          addElementToDocument('ingredients',desc.split('Ingredientes')[1]);
+      }} catch (error) { }
+
       // Brand Text
       var brand = getXpath('//div[@class="description"]/p/a/text()', 'nodeValue');
       if (brand != null) {
         addElementToDocument('brandText', brand.replace("'", ''));
+      }
+
+      // Product Video
+      var pctVideo = getXpath('//div[@class="flexible-container"]/iframe/@src', 'nodeValue');
+      if (pctVideo != null) {
+        addElementToDocument('prdVideo', 'https:'.concat(pctVideo));
+      } else {
+        addElementToDocument('prdVideo', getXpath('//*[@id="footer"]//a[3]/@href', 'nodeValue'));
+      }
+
+      // Directions
+      var desc = document.querySelector('div[id="tab-description"]');
+      if (description != null) {
+        var desc1 = desc.innerText;
+        addElementToDocument('directions', (desc1.split('Ingredientes')[0]).split(desc1.match(/(Como.+)/gm))[1]);
       }
 
     });

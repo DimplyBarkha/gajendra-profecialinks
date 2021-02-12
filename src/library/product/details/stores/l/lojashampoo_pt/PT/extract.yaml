@@ -111,9 +111,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
-    xpath: //html//div[@id='descrip']
-    regExp: (Como.+)Ingredientes
-    regExpReplace: $1
+    xpath: //html//div[@id='directions']
     description: Content under "directions" header
   - name: warnings
     singleValue: true
@@ -161,7 +159,9 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[@class="flexible-container"]/iframe/@src | //*[@id="mobilefooter"]//a[3]/@href
+    xpath: //html//div[@id='prdVideo']
+    # regExp: (.+)
+    # regExpReplace: $1
     description: URLs of videos on page
   - name: name
     singleValue: true
@@ -273,9 +273,9 @@ fields:
   - name: ingredientsList
     singleValue: false
     # xpath: //div[@id="tab-description"]
-    xpath: //html//div[@id='descrip']
-    regExp: (Ingredientes.+)
-    regExpReplace: $1
+    xpath: //html//div[@id='ingredients']
+    # regExp: (Ingredientes.+).?
+    # regExpReplace: $1
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
