@@ -23,6 +23,13 @@ async function implementation (
       if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
     }
   }
+
+  // const listPrice = 'div.price-del del';
+  // console.log('listPrice::,,,,,', listPrice);
+  // await context.waitForSelector(listPrice, { timeout: 50000 });
+
+  await context.waitForSelector('div.price-del del', { timeout: 70000 })
+    .catch(() => console.log('No sponsored products were found.'));
   return await context.extract(productDetails, { transform });
 }
 
@@ -35,5 +42,5 @@ module.exports = {
     domain: 'naszezoo.pl',
     zipcode: '',
   },
-  // implementation,
+  implementation,
 };

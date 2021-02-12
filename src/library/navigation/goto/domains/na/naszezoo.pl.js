@@ -3,13 +3,13 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'naszezoo.pl',
-    //timeout: 70000,
+    timeout: 70000,
     country: 'PL',
     store: 'naszezoo',
     zipcode: '',
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
-    url = `${url}#[!opt!]{"first_request_timeout":50000, "force200": true}[/!opt!]`;
+    url = `${url}`;
     await context.goto(url, {
       block_ads: false,
       load_all_resources: true,
@@ -17,5 +17,7 @@ module.exports = {
       timeout: 100000,
       waitUntil: 'load',
     });
+    await context.waitForSelector('div.price-del del', { timeout: 70000 })
+      .catch(() => console.log('No sponsored products were found.'));
   },
 };
