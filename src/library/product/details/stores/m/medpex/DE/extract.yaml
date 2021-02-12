@@ -45,7 +45,7 @@ fields:
     defaultValue: Out Of Stock
   - name: description
     singleValue: true
-    xpath:  //div[@class="content content--productDescription"]
+    xpath:  //html//div[@id='description']
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@class="content content--productDescription"]/ul/li)
@@ -83,7 +83,7 @@ fields:
     singleValue: false
   - name: directions
     singleValue: false
-    xpath: //p//strong[contains(text(),"Anwendung:")]//following::p
+    xpath: //html//div[@id='directions']
   - name: warnings
     singleValue: true
   - name: ratingCount
@@ -102,6 +102,8 @@ fields:
     singleValue: true
   - name: variantCount
     singleValue: true
+    xpath: count(//div[@class="content"]/table/tbody//td/b)
+    defaultValue: 0
   - name: color
     singleValue: true
   - name: colorCode
@@ -122,3 +124,10 @@ fields:
   - name: url
     singleValue: true
     xpath: //link[@rel="canonical"]/@href 
+  - name: additionalDescBulletInfo
+    singleValue: true
+    xpath: //html//div[@id='additionalDescBulletInfo']
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    xpath: //html//div[@id='pdf']
+    
