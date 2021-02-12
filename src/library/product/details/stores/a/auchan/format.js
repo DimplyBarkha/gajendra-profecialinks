@@ -61,6 +61,98 @@ const transform = (data) => {
         }
         row.manufacturerImages = mI;
       }
+      if (row.caloriesPerServing) {
+        row.caloriesPerServing.forEach((caloriesPerServingItem) => {
+          caloriesPerServingItem.text = caloriesPerServingItem.text.replace(/[A-Za-z]/gm, '').trim();
+        });
+      }
+      if (row.caloriesPerServingUom) {
+        row.caloriesPerServingUom.forEach((caloriesPerServingUomItem) => {
+          caloriesPerServingUomItem.text = caloriesPerServingUomItem.text.replace(/[\d.]/gm, '').trim();
+        });
+      }
+      if (row.totalFatPerServing) {
+        row.totalFatPerServing.forEach((totalFatPerServingItem) => {
+          totalFatPerServingItem.text = totalFatPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').trim();
+        });
+      }
+      if (row.totalFatPerServingUom) {
+        row.totalFatPerServingUom.forEach((totalFatPerServingUomItem) => {
+          totalFatPerServingUomItem.text = totalFatPerServingUomItem.text.replace(/[\d.]/gm, '').replace(',', '').trim();
+        });
+      }
+      if (row.saturatedFatPerServing) {
+        row.saturatedFatPerServing.forEach((saturatedFatPerServingItem) => {
+          saturatedFatPerServingItem.text = saturatedFatPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').trim();
+        });
+      }
+      if (row.saturatedFatPerServingUom) {
+        row.saturatedFatPerServingUom.forEach((saturatedFatPerServingUomItem) => {
+          saturatedFatPerServingUomItem.text = saturatedFatPerServingUomItem.text.replace(/[\d.]/gm, '').replace(',', '').trim();
+        });
+      }
+      if (row.totalCarbPerServing) {
+        row.totalCarbPerServing.forEach((totalCarbPerServingItem) => {
+          totalCarbPerServingItem.text = totalCarbPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').trim();
+        });
+      }
+      if (row.totalCarbPerServingUom) {
+        row.totalCarbPerServingUom.forEach((totalCarbPerServingUomItem) => {
+          totalCarbPerServingUomItem.text = totalCarbPerServingUomItem.text.replace(/[\d.]/gm, '').replace(',', '').trim();
+        });
+      }
+      if (row.dietaryFibrePerServing) {
+        row.dietaryFibrePerServing.forEach((dietaryFibrePerServingItem) => {
+          dietaryFibrePerServingItem.text = dietaryFibrePerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').trim();
+        });
+      }
+      if (row.dietaryFibrePerServingUom) {
+        row.dietaryFibrePerServingUom.forEach((dietaryFibrePerServingUomItem) => {
+          dietaryFibrePerServingUomItem.text = dietaryFibrePerServingUomItem.text.replace(/[\d.]/gm, '').replace(',', '').trim();
+        });
+      }
+      if (row.totalSugarsPerServing) {
+        row.totalSugarsPerServing.forEach((totalSugarsPerServingItem) => {
+          totalSugarsPerServingItem.text = totalSugarsPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').trim();
+        });
+      }
+      if (row.totalSugarsPerServingUom) {
+        row.totalSugarsPerServingUom.forEach((totalSugarsPerServingUomItem) => {
+          totalSugarsPerServingUomItem.text = totalSugarsPerServingUomItem.text.replace(/[\d.]/gm, '').replace(',', '').trim();
+        });
+      }
+      if (row.proteinPerServing) {
+        row.proteinPerServing.forEach((proteinPerServingItem) => {
+          proteinPerServingItem.text = proteinPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').trim();
+        });
+      }
+      if (row.proteinPerServingUom) {
+        row.proteinPerServingUom.forEach((proteinPerServingUomItem) => {
+          proteinPerServingUomItem.text = proteinPerServingUomItem.text.replace(/[\d.]/gm, '').replace(',', '').trim();
+        });
+      }
+      if (row.saltPerServing) {
+        row.saltPerServing.forEach((saltPerServingItem) => {
+          saltPerServingItem.text = saltPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').trim();
+        });
+      }
+      if (row.saltPerServingUom) {
+        row.saltPerServingUom.forEach((saltPerServingUomItem) => {
+          saltPerServingUomItem.text = saltPerServingUomItem.text.replace(/[\d.]/gm, '').replace(',', '').trim();
+        });
+      }
+      if (row.description) {
+        row.description.forEach((descriptionItem) => {
+          descriptionItem.text = descriptionItem.text.replace(/([.])([\s])/gm, '').trim();
+        });
+      }
+      if (row.image) {
+        row.image.forEach((imageItem) => {
+          // eslint-disable-next-line no-useless-escape
+          imageItem.text = imageItem.text.replace(/\/(?=[^\/]*$)/gm, '.jpg').trim();
+        });
+      }
+
       // if (row.image) {
       //   var pI = [];
       //   for (var item of row.image) {

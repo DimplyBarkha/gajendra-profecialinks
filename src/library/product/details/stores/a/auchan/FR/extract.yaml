@@ -38,11 +38,11 @@ fields:
   - name: description
     singleValue: false
     description: Description of product
-    xpath: //div[@id='custom-product-description']/text() | (//div[contains(@class, 'product-description__content-wrapper')])[1]
-  - name: color
-    singleValue: false
-    description: Color of product
-    xpath: //div[contains(@class, 'inpage_selector_specification')]//table//tr[td[contains(translate(string(), 'COULEUR', 'couleur'), 'couleur')]]//td[contains(@class,'flix-d-p')]
+    xpath: //span[contains(text(),"consommateur")]//following-sibling::div | (//div[contains(@class,"product-tab--text")])[1]
+  # - name: color
+  #   singleValue: false
+  #   description: Color of product
+  #   xpath: //div[contains(@class, 'inpage_selector_specification')]//table//tr[td[contains(translate(string(), 'COULEUR', 'couleur'), 'couleur')]]//td[contains(@class,'flix-d-p')]
   - name: image
     singleValue: false
     description: Image of product
@@ -63,10 +63,10 @@ fields:
     singleValue: false
     description: videos of product
     xpath: //div[contains(@class,'inpage_selector_video')]//div[@id='fullPlaylist']//input/@value | //iframe[starts-with(@src,'https://www.yout')]/@src
-  - name: shippingInfo
-    singleValue: false
-    description: Shipping Info of product
-    xpath: (//div[contains(@class, 'product-price--seller')]//span)[position()=1]
+  # - name: shippingInfo
+  #   singleValue: false
+  #   description: Shipping Info of product
+  #   xpath: (//div[contains(@class, 'product-price--seller')]//span)[position()=1]
   - name: weightNet
     singleValue: false
     description: Weight of product
@@ -97,10 +97,10 @@ fields:
     singleValue: false
     description: legal Disclaimer of product
     xpath: //div[@id='footerAlcoholDisclaimer'] | //span[contains(@class, 'product-description__feature-label') and contains(text(),'legales')]//following-sibling::*
-  - name: productUrl
-    singleValue: false
-    description: Product url
-    xpath: //meta[@property='og:url']/@content | //link[@rel='canonical']/@href
+  # - name: productUrl
+  #   singleValue: false
+  #   description: Product url
+  #   xpath: //meta[@property='og:url']/@content | //link[@rel='canonical']/@href
   - name: variants
     singleValue: false
     description: Product variants
@@ -124,7 +124,7 @@ fields:
   - name: specifications
     singleValue: false
     description: Product specifications
-    xpath: //main[contains(@class, 'product-aside--container')]//ul[contains(@class, 'product-aside--list')]/li
+    xpath: //table[contains(@class,"flix-std-specs-table")] | //div[contains(@class,"flix-caveat-block")]
   - name: nameExtended
     singleValue: false
     description: Extended Name of product
@@ -148,7 +148,7 @@ fields:
   - name: directions
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-direction']/text()
+    xpath: (//h5[contains(@class, 'product-description__feature-title') and contains(text(),'Informations pratiques')]//following-sibling::*)
   - name: servingSize
     singleValue: false
     description:
@@ -162,67 +162,71 @@ fields:
   - name: caloriesPerServing
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-caloriesPerServing']/text()
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'valeur énergétique (kJ)')]/following-sibling::td[1]
+  - name: caloriesPerServingUom
+    singleValue: false
+    description:
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'valeur énergétique (kJ)')]/following-sibling::td[1]
   - name: totalFatPerServing
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-totalFatPerServing']/text()
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'matières grasses')]/following-sibling::td[1]
   - name: totalFatPerServingUom
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-totalFatPerServingUom']/text()
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'matières grasses')]/following-sibling::td[1]
   - name: saturatedFatPerServing
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-saturatedFatPerServing']/text()
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'acides gras saturés')]/following-sibling::td[1]
   - name: saturatedFatPerServingUom
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-saturatedFatPerServingUom']/text()
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'acides gras saturés')]/following-sibling::td[1]
   - name: totalCarbPerServing
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-totalCarbPerServing']/text()
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'glucides')]/following-sibling::td[1]
   - name: totalCarbPerServingUom
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-totalCarbPerServingUom']/text()
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'glucides')]/following-sibling::td[1]
   - name: dietaryFibrePerServing
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-dietaryFibrePerServing']/text()
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'fibres alimentaires')]/following-sibling::td[1]
   - name: dietaryFibrePerServingUom
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-dietaryFibrePerServingUom']/text()
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'fibres alimentaires')]/following-sibling::td[1]
   - name: totalSugarsPerServing
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-totalSugarsPerServing']/text()
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'sucres')]/following-sibling::td[1]
   - name: totalSugarsPerServingUom
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-totalSugarsPerServingUom']/text()
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'sucres')]/following-sibling::td[1]
   - name: proteinPerServing
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-proteinPerServing']/text()
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'protéines')]/following-sibling::td[1]
   - name: proteinPerServingUom
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-proteinPerServingUom']/text()
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'protéines')]/following-sibling::td[1]
   - name: saltPerServing
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-saltPerServing']/text()
+    xpath: //table[(@id="nutritionals_1")]//td[contains(text(),'sel')]/following-sibling::td[1]
   - name: saltPerServingUom
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-saltPerServingUom']/text()
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'sel')]/following-sibling::td[1]
   - name: storage
     singleValue: false
     description:
-    xpath: (//span[contains(@class, 'product-description__feature-label') and contains(text(),'Conseil de conservation')]//following-sibling::*)
+    xpath: //h5[contains(text(),"particulières")]//following-sibling::div//span[contains(@class,"product-description__feature-value")]
   - name: allergyAdvice
     singleValue: false
     description:
@@ -278,21 +282,21 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description:
-    xpath: //div[@id='custom-product-enhanced-content']/text()
-  - name: unInterruptedPDP
-    singleValue: false
-    xpath: //div[contains(@class, "product-list--container")]//div[contains(@class, "product-item--wrapper")]//a//span[@itemprop="name"] | //div[@id="sponsored"] | //div[@class="added-pdp"]
-    regExp: '[^|]+'
-  - name: inTheBoxUrl
-    singleValue: false
-    xpath: //div[@id='flix-std-inpage']//div[contains(@class, "InTheBox")]//div[contains(@class, "box")]//img/@data-flixsrcset
-    regExp: (.+)(\s?200w)(.+)
-    regExpReplace: https:$1
-  - name: inTheBoxText
-    singleValue: false
-    xpath: //div[@id='flix-std-inpage']//div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
-    description: Must include text to show the accessories/tools which come with the product
-  - name: hasComparisonTable
-    singleValue: true
-    defaultValue: No
-    description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
+    xpath: //div[contains(@class,"inpage_selector_feature")]
+  # - name: unInterruptedPDP
+  #   singleValue: false
+  #   xpath: //div[contains(@class, "product-list--container")]//div[contains(@class, "product-item--wrapper")]//a//span[@itemprop="name"] | //div[@id="sponsored"] | //div[@class="added-pdp"]
+  #   regExp: '[^|]+'
+  # - name: inTheBoxUrl
+  #   singleValue: false
+  #   xpath: //div[@id='flix-std-inpage']//div[contains(@class, "InTheBox")]//div[contains(@class, "box")]//img/@data-flixsrcset
+  #   regExp: (.+)(\s?200w)(.+)
+  #   regExpReplace: https:$1
+  # - name: inTheBoxText
+  #   singleValue: false
+  #   xpath: //div[@id='flix-std-inpage']//div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+    # description: Must include text to show the accessories/tools which come with the product
+  # - name: hasComparisonTable
+  #   singleValue: true
+  #   defaultValue: No
+  #   description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
