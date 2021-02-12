@@ -23,7 +23,11 @@ async function implementation (
   if (!inputs.storeId && inputs.zipcode) {
     inputs.storeId = await getStoreId(inputs.zipcode); /* || storeIdObj[inputs.zipcode] && storeIdObj[inputs.zipcode.toString()]; */
   }
-  const storeId = inputs.storeId || 5334;
+
+  // to match OV storeID which is 5884 
+  const storeId = inputs.storeId || 5884;
+  
+  // const storeId = inputs.storeId || 5334;
   // Add zipCode-StoreId map. use it if want to avoid API
   const storeIdObj = {
     20166: '2038',
