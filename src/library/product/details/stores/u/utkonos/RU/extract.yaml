@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@class='product-page_images']//div[contains(@class,'gallery__images-preview-item __active')]//img//@src
+    xpath: //div[@class='product-page_images']//div[contains(@class,'gallery__images-preview-item __active')]//img/@src
   - name: sku
     singleValue: false
     xpath: //meta[@itemprop='sku']/@content
@@ -33,7 +33,7 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //div[@class='product-page_info-block']//utk-cart-counter//span[contains(@class,'ui-button-text')]
-    defaultValue: "In Stock"
+    defaultValue: "In stock"
   - name: description
     singleValue: false
     xpath: //app-product-tabs//app-product-detailed-info//div[contains(@class,'ng-star-inserted')]//div[@class='product-tab_content']//p//text()
@@ -45,7 +45,7 @@ fields:
     xpath: //app-product-page//utk-product-variants//utk-scrollbox//div[contains(@class,'product-variants_item active')]//span[1]
   - name: brandText
     singleValue: false
-    xpath: //app-product-tabs//utk-product-properties//li[last() - 1]//a[contains(@class,'product-characteristics-value-link')]
+    xpath: //app-product-tabs//utk-product-properties//li/div[span[contains(text(), "Бренд")]]//following-sibling::div//a[contains(@class,'product-characteristics-value-link')]
   - name: ratingCount
     sinngleValue: false
     xpath: //app-product-page//div[@class='product-page-rating']//meta[@itemprop='reviewCount']/@content
