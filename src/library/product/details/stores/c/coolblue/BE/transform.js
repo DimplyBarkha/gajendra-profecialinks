@@ -5,13 +5,16 @@
  */
 const cleanUp = (data, context) => {
   for (const { group } of data) {
-    for (let row of group) {
+    for (const row of group) {
       if (row.aggregateRating) {
         const ratingValue = row.aggregateRating[0].text;
         row.aggregateRating = [{ text: ratingValue.replace('.', ',') }];
       }
       if (row.description) {
         row.description = [{ text: row.description[0].text }];
+      }
+      if (!row.variantCount) {
+        row.variantCount = [{ text: row.variantCountNew[0].text }];
       }
     }
   }
@@ -34,9 +37,9 @@ const cleanUp = (data, context) => {
       Object.keys(row).forEach((header) =>
         row[header].forEach((el) => {
           el.text = clean(el.text);
-        })
-      )
-    )
+        }),
+      ),
+    ),
   );
 
   return data;

@@ -144,6 +144,11 @@ fields:
   description: Number of variants listed
   type: NUMBER
   xpath: //div[@id="added-variants-count"]
+- name: variantCountNew
+  singleValue: true
+  description: Number of variants listed
+  type: NUMBER
+  xpath: count(//div[@data-multi-discriminant-preview-property-id])
   defaultValue: 0
 - name: color
   description: A textual description of the colour
@@ -382,7 +387,7 @@ fields:
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
-  xpath: //div[@id="added-warranty"]
+  xpath: //div[@id="added-warranty"] | //*[@*="Garantie"]/*[contains(@class, 'item-spec')]
 - name: storage
   singleValue: true
   description: Suggested storage location for product
@@ -445,7 +450,7 @@ fields:
 - name: variants
   singleValue: false
   description: 
-  xpath: //div[@id="added-variants"]
+  xpath: //div[@id="added-variants"] | //div[@data-multi-discriminant-preview-property-id]//img/@alt
 - name: additionalDescBulletInfo
   singleValue: false
   description: 

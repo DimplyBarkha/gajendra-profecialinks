@@ -129,6 +129,10 @@ module.exports = {
       }
     });
     try {
+      const variantCounts = [...document.querySelectorall('div.selectable-card')];
+      if (variantCounts.length) {
+        document.body.setAttribute('var-count', '' + variantCounts.length);
+      }
       const currentUrl = await context.evaluate(() => {
         return window.location.href;
       });
