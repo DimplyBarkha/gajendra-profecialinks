@@ -4,6 +4,8 @@ fields:
     xpath: //a[@id="bylineInfo"]
     regExp: Brand\:\ (.*)
     regExpReplace: $1
+  - name: color
+    xpath: //table[@id='productDetails_techSpec_section_1']//th[contains(text(),"Color")]//following-sibling::td
   - name: pageTitle
     xpath: //meta[@name="title"]/@content
   - name: subCategory
