@@ -43,7 +43,7 @@ module.exports = {
       const modalElem = document.querySelector('div[data-react-class="ModalModule"]');
       const dataFromModal = modalElem ? modalElem.getAttribute('data-react-props') : null;
       const dataJson = dataFromModal ? JSON.parse(dataFromModal) : null;
-      const retailerSku = dataJson && dataJson.preloadedState.viewData.product.offer.retailerSku ? dataJson.preloadedState.viewData.product.offer.retailerSku : null;
+      const retailerSku = dataJson && dataJson.preloadedState && dataJson.preloadedState.viewData && dataJson.preloadedState.viewData.product && dataJson.preloadedState.viewData.product.offer && dataJson.preloadedState.viewData.product.offer.retailerSku ? dataJson.preloadedState.viewData.product.offer.retailerSku : null;
       if (retailerSku) addElementToDocument('retailer_sku_id', retailerSku);
 
       const images = document.evaluate('//div[contains(@class,"product_cards")]//meta[@itemprop="image"]/parent::div//div[@data-node-type="slides"][position()>1]//img', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
