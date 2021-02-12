@@ -21,7 +21,7 @@ async function implementation (
     }
     await infiniteScroll();
   });
-  await context.waitForSelector('ul[class*="catalog-view"]>li img', { timeout: 45000 });
+  await context.waitForSelector('ul[class*="catalog-view"]>li img', { timeout: 45000 }).catch((err) => { console.log('Selector not present', err.message); });
   const checkNoResultXpath = async (xpath) => {
     return await context.evaluate((xpath) => {
       return Boolean(document.evaluate(xpath, document) && document.evaluate(xpath, document).iterateNext());
