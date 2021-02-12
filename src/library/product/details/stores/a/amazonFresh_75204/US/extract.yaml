@@ -1,0 +1,25 @@
+extends: ../../../../sharedAmazon/shared
+fields:
+ - name: manufacturerDescription
+   singleValue: false
+   xpath: //div[@id="aplus"]/div | //div[@class="aplus"]
+   html: false
+ - name: videoLength
+   singleValue: false
+   xpath: //script[contains(text(), "ImageBlockBTF")]/text()
+   html: false
+ - name: enhancedContent_HTML
+   xpath: //div[@id="aplus"]/div | //div[@class="aplus"]
+   html: false
+ - name: ingredientImagePresentBoolean
+   singleValue: true
+   xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
+   type: BOOLEAN
+   defaultValue: false
+   html: false
+ - name: factImagePresentBoolean
+   singleValue: true
+   xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "FACT")]
+   type: BOOLEAN
+   defaultValue: false
+   
