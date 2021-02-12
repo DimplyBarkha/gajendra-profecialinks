@@ -64,6 +64,14 @@ module.exports = {
       // @ts-ignore
       finalImages = [...new Set(finalImages)];
       addHiddenDiv('ii_aplusImages', finalImages.join(' | '));
+
+      const videoIds = document.evaluate("//div[contains(@id,'inpage_container')]//input/@value", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      for (let index = 0; index < videoIds.snapshotLength; index++) {
+        const element = videoIds.snapshotItem(index);
+        let videoId = element && element.textContent.replace(/(.*){"file":"\\\/\\\/(.+)(.mp4)"(.*)/g, 'https://$2$3').replace(/\\\//g,'/');
+        addHiddenDiv('videos', videoId);
+      }
+
     });
 
     async function checkIframeContent() {
