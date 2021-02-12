@@ -5,10 +5,10 @@ regionsSelector: null
 fields:
   - name: variantId
     singleValue: false
-    xpath: //div[@class="sku_id"]
+    xpath: //div[@class="sku_id"] | //div[@id="sku_id2"]
     # regExp: (?<=skuId=).*
     # regExpReplace: $1
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //div[@class="sku_url"]
+    xpath: //div[@class="sku_url"] | //div[@id="sku_url2"]
