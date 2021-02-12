@@ -14,8 +14,8 @@ module.exports = {
     domain,
     transform,
   }, context, { productDetails }) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     await context.evaluate(async function () {
+      await new Promise((resolve, reject) => setTimeout(resolve, 8000));
       function addProp (selector, iterator, propName, value) {
         document.querySelectorAll(selector)[iterator].setAttribute(propName, value);
       }
