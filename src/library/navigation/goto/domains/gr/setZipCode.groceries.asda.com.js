@@ -1,4 +1,7 @@
 async function implementation(inputs, { country, domain, timeout }, context, dependencies) {
+
+  const url2 = `https://groceries.asda.com/search/${inputs.URL}`;
+  await context.goto(url2, { timeout: 60000, waitUntil: 'load', checkBlocked: true });
   await context.evaluate(async function () {
     if (document.querySelector('div.no-result')) {
       throw Error('We cant find any results for "Product Code", sorry about that.');
@@ -14,29 +17,32 @@ async function implementation(inputs, { country, domain, timeout }, context, dep
   console.log(`mamatha storeId${inputs.StoreID}`);
   console.log(`mamatha postcode${inputs.Postcode}`);
   const url = newUrl;
+  //const url = `${newUrl}#[!opt!]{"cookie_jar":[{"name":"STORE_ID","value":${inputs.StoreID}]}[/!opt!]`;
   console.log('MAmatha1' + url);
-  await context.waitForSelector('a[data-auto-id="btnSign"]');
-  await context.click('a[data-auto-id="btnSign"]');
-  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-  await context.setInputValue('div[class="input-box"] input.email-phone-input', 'randomstring@randomstring.com');
-  //await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-  await context.waitForSelector('div[class="input-box"] input#password');
-  await context.setInputValue('div[class="input-box"] input#password', 'Change123');
-  //await new Promise((resolve, reject) => setTimeout(resolve, 5000));
-  await context.waitForSelector('button[type="submit"]');
-  await context.click('button[type="submit"]');
-  // await context.waitForSelector('');
-  await context.evaluate(async function () {
-    if (document.querySelector('#px-captcha > div.g-recaptcha')) {
-      await context.solveCaptcha({
-        type: 'RECAPTCHA',
-        inputElement: '#px-captcha > div.g-recaptcha',
-        autoSubmit: true,
-      });
-      console.log('solved captcha, waiting for page change');
-      console.log('Captcha vanished');
-    }
-  });
+  // await context.waitForSelector('a[data-auto-id="btnSign"]');
+  // await context.click('a[data-auto-id="btnSign"]');
+  // await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  // await context.setInputValue('div[class="input-box"] input.email-phone-input', 'randomstring@randomstring.com');
+  // //await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  // await context.waitForSelector('div[class="input-box"] input#password');
+  // await context.setInputValue('div[class="input-box"] input#password', 'Change123');
+  // //await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+  // await context.waitForSelector('button[type="submit"]');
+  // await context.click('button[type="submit"]');
+  // // await context.waitForSelector('');
+  // await context.evaluate(async function () {
+  //   if (document.querySelector('#px-captcha > div.g-recaptcha')) {
+  //     await context.solveCaptcha({
+  //       type: 'RECAPTCHA',
+  //       inputElement: '#px-captcha > div.g-recaptcha',
+  //       autoSubmit: true,
+  //     });
+  //     console.log('solved captcha, waiting for page change');
+  //     console.log('Captcha vanished');
+  //   } else {
+  //     console.log("Captcha not found");
+  //   }
+  // });
   await new Promise((resolve, reject) => setTimeout(resolve, 6000));
   // await context.evaluate(async function () {
   //   if (document.querySelector('div.mini-trolley__slot-expiry-messge')) {
@@ -46,7 +52,7 @@ async function implementation(inputs, { country, domain, timeout }, context, dep
   //     document.querySelector('a[data-auto-id="linkChangeSlot"]').click();
   //   }
   // });
-  const url1 = `https://groceries.asda.com/checkout/book-slot/collect?origin=/search/${inputs.RPC}`;
+  const url1 = `https://groceries.asda.com/checkout/book-slot/collect?origin=/search/${inputs.URL}`;
   await context.goto(url1, { timeout: 60000, waitUntil: 'load', checkBlocked: true });
   await new Promise((resolve, reject) => setTimeout(resolve, 20000));
   await context.evaluate(async function () {
@@ -73,10 +79,12 @@ async function implementation(inputs, { country, domain, timeout }, context, dep
   //document.querySelector("#\\34 220")
   //await context.waitForSelector(`input[id='${storeId}']`);
   await context.click(`input[value="${inputs.StoreID}"]`);
-  await context.waitForSelector('button[data-auto-id="cncAvailableSlot"]');
-  await context.click('button[data-auto-id="cncAvailableSlot"]');
-  await context.waitForSelector('button[data-auto-id="btnChangeSlot"]');
-  await context.click('button[data-auto-id="btnChangeSlot"]');
+  // await context.waitForSelector('button[data-auto-id="cncAvailableSlot"]');
+  // await context.click('button[data-auto-id="cncAvailableSlot"]');
+  // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+  // await context.waitForSelector('button[data-auto-id="btnChangeSlot"]');
+  // await context.click('button[data-auto-id="btnChangeSlot"]');
+  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
   await context.goto(url, { timeout: 60000, waitUntil: 'load', checkBlocked: true });
 }
 module.exports = {
