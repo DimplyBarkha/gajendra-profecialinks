@@ -76,6 +76,18 @@ fields:
     singleValue: true
     xpath: //div[@id="gtin_added"]
     description: GTIN code (includes UPC/EAN)
+  - name: gtin
+    singleValue: true
+    xpath: //div[@id="gtin_added"]
+    description: GTIN code (includes UPC/EAN)
+  - name: directions
+    singleValue: true
+    xpath: //div[@class='c-product-description__accordioncontent']/div/p[2]
+    description: directions
+  - name: warnings
+    singleValue: true
+    xpath: //div[@class='c-product-description__accordioncontent']/div/p[3]
+    description: warnings       
   - name: sku
     singleValue: true
     xpath: //div[@class="l-layout l-layout__ml--8 l-layout__tt--8"]//button/@data-id
@@ -246,7 +258,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@class='c-product-description__accordion']/div[@id='description-ingredients']/div/p
+    xpath: //div[@class='c-product-description__accordion']/div[@id='description-ingredients']/div
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
   - name: servingSize
