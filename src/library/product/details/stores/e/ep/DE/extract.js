@@ -1,5 +1,5 @@
 const { transform } = require('../../../../shared');
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -8,7 +8,7 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  function stall (ms) {
+  function stall(ms) {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve();
@@ -36,6 +36,7 @@ async function implementation (
   let inBoxUrls = [];
   let inBoxText = '';
   let hasComparisionTable = '';
+  let iframeSpecs = '';
   if (iframeUrl) {
     await context.goto(iframeUrl, { timeout: 50000 });
     await stall(2000);
@@ -43,7 +44,7 @@ async function implementation (
     await context.evaluate(async () => {
       await new Promise((resolve) => setTimeout(resolve, 5000));
 
-      async function infiniteScroll () {
+      async function infiniteScroll() {
         let prevScroll = document.documentElement.scrollTop;
         while (true) {
           window.scrollBy(0, document.documentElement.clientHeight);
@@ -94,6 +95,7 @@ async function implementation (
       return document.body.innerText;
     });
 
+
     inBoxText = await context.evaluate(async () => {
       const boxContent = document.querySelectorAll('.in-the-box p');
       const boxText = [];
@@ -116,11 +118,28 @@ async function implementation (
       console.log(document.URL + ' here we check the comparison table');
       if (document.querySelector('.compare-headline')) {
         return true;
-      } else if(document.querySelector('h2.productcompare-component-title')) {
+      } else if (document.querySelector('h2.productcompare-component-title')) {
         return true;
       } else {
         return false;
       }
+    });
+    iframeSpecs = await context.evaluate(async () => {
+      const headers = [...document.querySelectorAll('.info h5, .info2 h5')]
+      const values = [...document.querySelectorAll('.info p, .info2 p')]
+      const heads = []
+      const vals = []
+      headers.forEach(item => {
+        heads.push(item.innerText)
+      })
+      values.forEach(item => {
+        vals.push(item.innerText)
+      })
+      let specs = ''
+      for (let i = 0; i < heads.length; i++) {
+        specs = specs + (specs ? ` | ${heads[i]} ${vals[i]}` : `${heads[i]} ${vals[i]}`)
+      }
+      return specs;
     });
 
     await context.goto(currentUrl, { timeout: 50000 });
@@ -128,12 +147,12 @@ async function implementation (
 
   await stall(3000);
 
-  await context.evaluate(async function (manufacturerImages, enhancedContent, videos, inBoxUrls, inBoxText, hasComparisionTable) {
+  await context.evaluate(async function (manufacturerImages, enhancedContent, videos, inBoxUrls, inBoxText, hasComparisionTable, iframeSpecs) {
     if (document.querySelector('.cookies-overlay-dialog__accept-all-btn')) {
       document.querySelector('.cookies-overlay-dialog__accept-all-btn').click();
     }
 
-    function stall (ms) {
+    function stall(ms) {
       return new Promise(resolve => {
         setTimeout(() => {
           resolve();
@@ -141,7 +160,7 @@ async function implementation (
       });
     }
 
-    function addHiddenDiv (id, content) {
+    function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -255,8 +274,9 @@ async function implementation (
         });
       }
     });
-    if (specifications.length) {
-      addHiddenDiv('specifications', specifications.join(' | '));
+    if (specifications.length || iframeSpecs.length) {
+      let spec = specifications.join(' | ') + ' | ' + iframeSpecs;
+      addHiddenDiv('specifications', spec);
     }
     if (shippingDimensions.length) {
       addHiddenDiv('shippingDimensions', shippingDimensions.join(' | '));
@@ -290,7 +310,7 @@ async function implementation (
       uipdpArr.push(brand + ' ' + productName);
     });
     addHiddenDiv('ii_uipdp', uipdpArr.join(' || '));
-  }, manufacturerImages, enhancedContent, videos, inBoxUrls, inBoxText, hasComparisionTable);
+  }, manufacturerImages, enhancedContent, videos, inBoxUrls, inBoxText, hasComparisionTable, iframeSpecs);
 
   return await context.extract(productDetails, { transform });
 }
