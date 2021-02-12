@@ -1,0 +1,52 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: nameExtended
+    singleValue: true
+    xpath: //h1[@class='page-title']
+  - name: image
+    singleValue: true
+    xpath: //div[@class="fotorama__stage__frame fotorama__active fotorama_vertical_ratio fotorama__loaded fotorama__loaded--img"]/img/@src
+  - name: sku
+    singleValue: true
+    xpath: //div[@class='product-sku'][1]
+    regExp: (\d+)
+  - name: price
+    singleValue: true
+    xpath: //h2[@data-price-type='finalPrice']/span
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@class='product-sku'][2]
+    regExp: ( .+)
+  - name: variantId
+    singleValue: true
+    xpath: //div[@class='product-sku'][1]
+    regExp: (\d+)
+  - name: description
+    singleValue: true
+    xpath: //div[@class='product-tab-content desc']
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'frame--thumb') and not(contains(@class,'active'))]/div/img/@src
+  - name: availabilityText
+    defaultValue: 'In Stock'
+    singleValue: true
+    xpath:
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class,'frame--thumb') and not(contains(@class,'active'))]/div/img/@src)
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: listPrice
+    singleValue: true
+    xpath: //h2[@data-price-type='oldPrice']
+  - name: imageAlt
+    singleValue: true
+    xpath: (//img[@class='fotorama__img']/@alt)[1]
+  - name: ingredientsList
+    singleValue: false
+    xpath: //html//div[@id='ingrediants']|//div[contains(@id,'ingredients')]
+  
