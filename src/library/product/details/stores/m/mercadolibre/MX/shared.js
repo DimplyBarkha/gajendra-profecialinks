@@ -46,21 +46,21 @@ const transform = (data) => {
           }
         }
 
-        if (gr.gtin) {
-          const start = gr.gtin[0].text.indexOf('SKU');
-          if (start > -1) {
-            const t = gr.gtin[0].text.slice(start + 4, gr.gtin[0].text.length)
-              .replace(':', '')
-              .replace(/(\n \n \n \n|\n \n \n|\n \n|\r\n|\n|\r)/gm, ' ')
-              .trim();
-            const end = t.indexOf(' ');
-            gr.gtin[0].text = t.slice(0, end).trim();
-          } else {
-            gr.gtin[0].text = '';
-          }
-          // gr.gtin[0].text = gr.gtin[0].text.match(/SKU .*|SKU: .*/)[0].replace(/SKU |SKU: /, '').trim();
-
-        }
+        // if (gr.gtin) {
+        //   const start = gr.gtin[0].text.indexOf('SKU');
+        //   if (start > -1) {
+        //     const t = gr.gtin[0].text.slice(start + 4, gr.gtin[0].text.length)
+        //       .replace(':', '')
+        //       .replace(/(\n \n \n \n|\n \n \n|\n \n|\r\n|\n|\r)/gm, ' ')
+        //       .trim();
+        //     const end = t.indexOf(' ');
+        //     gr.gtin[0].text = t.slice(0, end).trim();
+        //   } else {
+        //     gr.gtin[0].text = '';
+        //   }
+        //   // gr.gtin[0].text = gr.gtin[0].text.match(/SKU .*|SKU: .*/)[0].replace(/SKU |SKU: /, '').trim();
+        //
+        // }
         // if (gr && gr.gtin) {
         //   const text = gr.gtin[0].text;
         //   const start = text.indexOf('SKU: ');
