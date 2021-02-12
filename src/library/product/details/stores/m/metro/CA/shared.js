@@ -7,7 +7,6 @@ const transform = (data) => {
   function cleanText (str) {
     return str.replace(/(\r\n|\n|\r)/gm, '').replace(/\s+/g, ' ').trim();
   }
-
   data.forEach(el => {
     el.group.forEach(gr => {
       try {
