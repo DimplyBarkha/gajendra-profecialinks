@@ -25,7 +25,7 @@ const transform = (data, context) => {
           item.text = item.text.replace(/More Information/, '');
           item.text = item.text.replace(/Description/, '');
           item.text = item.text.replace(/•/g, '|');
-          item.text=item.text.trim()
+          item.text = item.text.trim()
         });
       }
 
@@ -34,6 +34,10 @@ const transform = (data, context) => {
         row.additionalDescBulletInfo.forEach(item => {
           item.text = item.text.replace(/•/g, '||');
         });
+      }
+
+      if (row.descriptionBullets) {
+        row.descriptionBullets = [{ text: (row.descriptionBullets[0].text.match(/•/g) || []).length, xpath: row.descriptionBullets[0].xpath }];
       }
 
       // if (row.additionalDescBulletInfo) {
@@ -57,22 +61,21 @@ const transform = (data, context) => {
       //   }
       //   row.additionalDescBulletInfo[0].text = formattedStr;
       // }
-      if(row.price){
+      if (row.price) {
         row.price.forEach(item => {
-          let price =item.text.substr(3, item.text.length-1);
-          let currency=item.text.substr(0, 3);
-          price=parseFloat(price)
-          price=price.toFixed(2)
-          if(currency==='GBP')
-            currency='£'
-            item.text=currency+price
+          let price = item.text.substr(3, item.text.length - 1);
+          let currency = item.text.substr(0, 3);
+          price = parseFloat(price)
+          price = price.toFixed(2)
+          if (currency === 'GBP')
+            currency = '£'
+          item.text = currency + price
         });
       }
-      if(row.packSize && row.packSize.length>1)
-      {
-        let firstElement=row.packSize[0].text
-        row.packSize=[];
-        row.packSize.push({text:firstElement})
+      if (row.packSize && row.packSize.length > 1) {
+        let firstElement = row.packSize[0].text
+        row.packSize = [];
+        row.packSize.push({ text: firstElement })
       }
 
       if (row.variants) {
@@ -99,7 +102,7 @@ const transform = (data, context) => {
       if (row.availabilityText) {
         let newText = 'In Stock';
         row.availabilityText.forEach(item => {
-          if (item.text === 'Discontinued'||item.text==='More coming soon.'||item.text==='Out of Stock') {
+          if (item.text === 'Discontinued' || item.text === 'More coming soon.' || item.text === 'Out of Stock') {
             newText = 'Out Of Stock';
           }
         });

@@ -47,7 +47,7 @@ fields:
     xpath: //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),'Dimensions')]//following-sibling::span//div
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[@class="ProductVariantBriefDetailsB"]//ul//li)
+    xpath: //div[@class="ProductVariantBriefDetailsB"]
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //div[@id="additional_desc_bullet_info_Text"] | //div[@class="ProductVariantBriefDetailsB"]//ul
@@ -85,4 +85,3 @@ fields:
   - name: variantInformation
     singleValue: false
     xpath: //div[@id="variant_information_Text"] | //li[@class="ProductFurtherInfo_attrTable__item"]//div[@class="ProductFurtherInfo_attrTable__item__info"]//strong[contains(text(),"Colour")]//following-sibling::span
-  
