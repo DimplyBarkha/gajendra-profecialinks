@@ -150,5 +150,12 @@ fields:
     xpath: //script[@id="product-json-ld"]
     regExp: ("@type":"Organization","name":")(.+)","chain":"
     regExpReplace: $2
+    # geo
+  - name: onlineStore
+    xpath: //a[@class='store-and-chain ksm']/div[@class='chain']
+  - name: retailerId
+    xpath: //*[contains(text(),'zipcode')] | //script[@id="__input"]
   - name: drive
-    xpath: //script[@id="__input"]
+    xpath: //*[contains(text(),'zipcode')] | //script[@id="__input"]
+  - name: driveId
+    xpath: //*[contains(text(),'zipcode')] | //script[@id="__input"]

@@ -108,11 +108,15 @@ const transform = (data) => {
       if (row.drive) {
         const driveJson = JSON.parse(row.drive[0].text);
         row.drive[0].text = driveJson.zipcode;
+        row.retailerId[0].text = driveJson.zipcode;
+        row.driveId[0].text = driveJson.zipcode;
+
       }
     }
   }
 
-  const clean = text => text.toString()
+  try{
+    const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
     .replace(/&amp;#160/g, ' ')
@@ -125,9 +129,14 @@ const transform = (data) => {
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
-  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-    el.text = clean(el.text);
-  }))));
+    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+      if(el.text){
+        el.text = clean(el.text);
+      }
+    }))));
+  }catch(e){
+    console.log(e);
+  }
 
   return data;
 };
