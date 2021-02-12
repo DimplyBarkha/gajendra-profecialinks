@@ -5,7 +5,7 @@ module.exports = {
     country: 'AU',
     store: 'myer',
     domain: 'myer.com.au',
-    zipcode: '',
+    zipcode: "''",
     mergeType: null,
   },
 };

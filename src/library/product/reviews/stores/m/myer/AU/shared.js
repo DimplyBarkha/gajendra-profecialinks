@@ -24,28 +24,28 @@ const transform = (data, context) => {
       }));
     }
   }
-  function checkIfReviewIsFromLast30Days (lastDate, reviewDate) {
-    const timestamp = new Date(lastDate).getTime() - (30 * 24 * 60 * 60 * 1000);
-    if (new Date(reviewDate).getTime() >= timestamp) {
-      return true;
-    }
-    return false;
-  }
-  data = data.filter(function (item) {
-    console.log('group length before' + item.group.length);
-    item.group = item.group.filter(function (row) {
-      if (checkIfReviewIsFromLast30Days(row.reviewDate[0].text)) {
-        return true;
-      }
-      return false;
-    });
-    console.log('group length after' + item.group.length);
-    item.rows = item.group.length;
-    if (item.group.length !== 0) {
-      return true;
-    }
-    return false;
-  });
+  // function checkIfReviewIsFromLast30Days (lastDate, reviewDate) {
+  //   const timestamp = new Date().getTime() - (30 * 24 * 60 * 60 * 1000);
+  //   if (new Date(reviewDate).getTime() >= timestamp) {
+  //     return true;
+  //   }
+  //   return false;
+  // }
+  // data = data.filter(function (item) {
+  //   console.log('group length before' + item.group.length);
+  //   item.group = item.group.filter(function (row) {
+  //     if (checkIfReviewIsFromLast30Days(row.reviewDate[0].text)) {
+  //       return true;
+  //     }
+  //     return false;
+  //   });
+  //   console.log('group length after' + item.group.length);
+  //   item.rows = item.group.length;
+  //   if (item.group.length !== 0) {
+  //     return true;
+  //   }
+  //   return false;
+  // });
   return data;
 };
 module.exports = { transform };

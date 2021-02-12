@@ -45,6 +45,6 @@ module.exports = {
         });
       });
     }
-    // await autoScroll(context);
+    await autoScroll(context);
   },
 };
