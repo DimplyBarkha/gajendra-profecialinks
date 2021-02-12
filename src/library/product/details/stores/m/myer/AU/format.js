@@ -36,16 +36,14 @@ const transform = (data) => {
       }
       if (row.availabilityText) {
         row.availabilityText.forEach(item => {
-          item.text = item.text.slice(1, -3);
-          item.text = item.text.replace("http://schema.org/", '');
-          if (item.text == 'LimitedAvailability') {
+          if (item.text == 'LimitedAvailability' || item.text=='LowStock') {
             row.availabilityText = [{ "text": 'In Stock', "xpath": row.availabilityText[0].xpath }]
           }
           if (item.text == 'InStock') {
             row.availabilityText = [{ "text": 'In Stock', "xpath": row.availabilityText[0].xpath }]
           }
-          if (item.text != 'InStock' && item.text != 'LimitedAvailability') {
-            row.availabilityText = [{ "text": 'Out of Stock', "xpath": row.availabilityText[0].xpath }]
+          if (item.text != 'InStock' && item.text != 'LimitedAvailability' && item.text != 'LowStock') {
+            row.availabilityText = [{ "text": 'Out Of Stock', "xpath": row.availabilityText[0].xpath }]
           }
         });
       }

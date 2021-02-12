@@ -35,9 +35,7 @@ fields:
     xpath: //div[@class="variants_outer"]/div[@class="variants_inner"]/div[@class="sku_price"]
   - name: availabilityText
     singleValue: false
-    xpath: ancestor::html//script[contains(text(), "availability")]/text()
-    regExp: availability":([^,]+)
-    regExpReplace: $1
+    xpath: //div[@class="variants_outer"]/div[@class="variants_inner"]/div[@class="sku_tmpStocktype"]
   - name: description
     singleValue: false
     xpath: ancestor::html//div[@id='product-details-accordian-description-accordion-id']//div[@class='description']//div[@data-automation="pep-attributes"]//ul[@data-automation="pep-attributes-list"] | //div[@id='product-details-accordian-description-accordion-id']//div[@class='description']//div[@data-automation="product-description-description"]
