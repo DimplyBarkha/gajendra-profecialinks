@@ -1,4 +1,4 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -43,7 +43,8 @@ fields:
     xpath: (//div[@class ='ImageGallery__content']//img/@src)[2] | //li/img[@itemprop="contentUrl"]/@src | //meta[@property="og:image"]/@content
   - name: imageAlt
     singleValue: false
-    xpath: (//div[@class ='ImageGallery__content']//img/@alt)[2] | //li/img[@itemprop="contentUrl"]/@alt
+    # xpath: (//div[@class ='ImageGallery__content']//img/@alt)[2] | //li/img[@itemprop="contentUrl"]/@alt
+    xpath: //div[contains(@class,"ImageGallery__nav")]//li[@id="item-1"]//img//@alt
   - name: listPrice
     singleValue: false
     xpath: //div[@id="import_list_price2"]
