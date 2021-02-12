@@ -65,28 +65,6 @@ async function implementation (
   }
   await scrollToRec('#footer');
 
-  await context.evaluate(async function () {
-    const specificationsXpath = '//div[@id=\'mainProductDescription\']//b[contains(text(),\'Spécifications\') or contains(text(),"Caractéristiques") or contains(text(),\'Informations produit\')]/following-sibling::text()|//h2[contains(text(),\'Caractéristiques détaillées\')]/following-sibling::node()|text()|//div[@id=\'mainProductDescription\']//text()[contains(.,"Dimensions")]//following-sibling::text()[not(//div[@id=\'mainProductDescription\']//b[contains(text(),\'Spécifications\') or contains(text(),"Caractéristiques") or contains(text(),\'Informations produit\')]/following-sibling::text()|//h2[contains(text(),\'Caractéristiques détaillées\')]/following-sibling::node()|text())] | //tr[contains(.,"Dimensions")]/following-sibling::tr[following::tr[contains(.,"Contenu du carton")]] | //tr[contains(.,"Dimensions")] | //div[contains(@class,"specification")]/div[@class="flix-std-container-fluid"]';
-    function _x (STR_XPATH, context) { // gets nodes using xpath
-      var xresult = document.evaluate(
-        STR_XPATH,
-        context,
-        null,
-        XPathResult.ANY_TYPE,
-        null,
-      );
-      var xnodes = [];
-      var xres;
-      while ((xres = xresult.iterateNext())) {
-        xnodes.push(xres);
-      }
-      return xnodes;
-    }
-    const specificationsText = [];
-    _x(specificationsXpath, document).forEach(q => { specificationsText.push(q.textContent); });
-    document.body.insertAdjacentHTML('afterbegin', `<div id="specifications" style="display : none">${specificationsText.join(' ')}</div>`);
-  });
-
   // sometimes enhanced content does not load, and sometimes it loads but is hidden
   const cssEnhancedContentContainer = '#pdpFlixmediaZone'
   await context.waitForSelector(cssEnhancedContentContainer, {timeout: 10000}).catch(error => console.log('Enhanced content not loaded : #pdpFlixmediaZone'));
@@ -94,6 +72,9 @@ async function implementation (
     const node = document.querySelector(css);
     node ? node.removeAttribute('style') : console.log('Selector not found: CSS => ', css);
   }, cssEnhancedContentContainer);
+
+  await context.reload();
+  await new Promise(resolve => setTimeout(resolve, 10000));
 
   await context.waitForXPath('//div[@id="pdpFlixmediaZone" and not(contains(@style,"none"))]', { timeout: 30000 })
     .catch(() => {
@@ -104,8 +85,68 @@ async function implementation (
   try {
     await context.waitForSelector('#inpage_container', { timeout: 30000 });
   } catch (er) {
-    console.log("Couldn't find the enhanced content expand button");
+    console.log("Couldn't find the enhanced content div", er.message);
   }
+
+  let expandMoreECbtnSel = 'div[class*="expandBtn--more"]';
+  let expandBtnPresent = false;
+  try {
+    await context.waitForSelector(expandMoreECbtnSel, { timeout: 30000 });
+    expandBtnPresent = true;
+  } catch (er) {
+    console.log("Couldn't find the enhanced content expand button", er.message);
+  }
+
+  console.log('expandBtnPresent', expandBtnPresent);
+  if(expandBtnPresent) {
+    try {
+      await context.click(expandMoreECbtnSel);
+      await new Promise(resolve => setTimeout(resolve, 4000));
+      await applyScroll(10000);
+    } catch(err) {
+      console.log('got some error while clicking on show more btn for EC', err.message);
+    }
+  }
+
+  let ECDivLoaded = false;
+  try {
+    await context.waitForSelector('#inpage_container', { timeout: 30000 });
+    ECDivLoaded = true;
+  } catch (er) {
+    console.log("Couldn't find the enhanced content div", er.message);
+  }
+
+  let maxTime = 120000;
+  let thisTime = 0;
+  console.log('ECDivLoaded', ECDivLoaded);
+  let ECsel = '#inpage_container';
+  if(!ECDivLoaded) {
+    while((!ECDivLoaded) && thisTime < maxTime) {
+      ECDivLoaded = await context.evaluate(async (ECsel) => {
+        console.log('looking for ECsel', ECsel);
+        let elm = document.querySelectorAll(ECsel);
+        if(elm && elm.length > 0) {
+          return true;
+        }
+        return false;
+      }, ECsel);
+      thisTime += 10000;
+      await new Promise(resolve => setTimeout(resolve, 10000));
+    }
+
+    console.log('waited for', thisTime);
+  }
+
+  ECDivLoaded = await context.evaluate(async (ECsel) => {
+    console.log('looking for ECsel', ECsel);
+    let elm = document.querySelectorAll(ECsel);
+    if(elm && elm.length > 0) {
+      return true;
+    }
+    return false;
+  }, ECsel);
+
+  console.log('finally - ECDivLoaded', ECDivLoaded);
 
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
@@ -136,6 +177,28 @@ async function implementation (
         addHiddenDiv('videos', q.getAttribute('src'));
       }
     });
+  });
+
+  await context.evaluate(async function () {
+    const specificationsXpath = '//div[@id=\'mainProductDescription\']//b[contains(text(),\'Spécifications\') or contains(text(),"Caractéristiques") or contains(text(),\'Informations produit\')]/following-sibling::text()|//h2[contains(text(),\'Caractéristiques détaillées\')]/following-sibling::node()|text()|//div[@id=\'mainProductDescription\']//text()[contains(.,"Dimensions")]//following-sibling::text()[not(//div[@id=\'mainProductDescription\']//b[contains(text(),\'Spécifications\') or contains(text(),"Caractéristiques") or contains(text(),\'Informations produit\')]/following-sibling::text()|//h2[contains(text(),\'Caractéristiques détaillées\')]/following-sibling::node()|text())] | //tr[contains(.,"Dimensions")]/following-sibling::tr[following::tr[contains(.,"Contenu du carton")]] | //tr[contains(.,"Dimensions")] | //div[contains(@class,"specification")]/div[@class="flix-std-container-fluid"]';
+    function _x (STR_XPATH, context) { // gets nodes using xpath
+      var xresult = document.evaluate(
+        STR_XPATH,
+        context,
+        null,
+        XPathResult.ANY_TYPE,
+        null,
+      );
+      var xnodes = [];
+      var xres;
+      while ((xres = xresult.iterateNext())) {
+        xnodes.push(xres);
+      }
+      return xnodes;
+    }
+    const specificationsText = [];
+    _x(specificationsXpath, document).forEach(q => { specificationsText.push(q.textContent); });
+    document.body.insertAdjacentHTML('afterbegin', `<div id="specifications" style="display : none">${specificationsText.join(' ')}</div>`);
   });
 
   return await context.extract(productDetails, { transform });
