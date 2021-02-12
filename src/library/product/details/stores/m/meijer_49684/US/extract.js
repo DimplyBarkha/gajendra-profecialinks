@@ -77,11 +77,15 @@ module.exports = {
         // }
       } catch (error) {
 
-      }
+      }try{
       function addclass(xpathforpagination) {
           var elems = document.querySelectorAll(xpathforpagination);
           elems[0].classList.add('pagination');
         }
+      }
+      catch(e){
+        
+      }
     });
     await context.extract(productDetails, { transform: transformParam });
   },
