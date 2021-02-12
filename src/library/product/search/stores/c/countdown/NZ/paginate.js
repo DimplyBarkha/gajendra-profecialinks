@@ -4,10 +4,10 @@ module.exports = {
   parameterValues: {
     country: 'NZ',
     store: 'countdown',
-    nextLinkSelector: 'a[aria-label="Next"]',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '//wnz-search[@class="ng-star-inserted"]',
+    loadedSelector: 'wnz-search.ng-star-inserted',
     noResultsXPath: '//search-no-results[@class="ng-star-inserted"]',
     openSearchDefinition: null,
     domain: 'countdown.co.nz',

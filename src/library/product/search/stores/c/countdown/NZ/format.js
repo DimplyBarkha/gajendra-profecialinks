@@ -31,7 +31,33 @@ const transform = (data, context) => {
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
         }));
-        
+        if (row.name) {
+            let info = [];
+            row.name.forEach(item => {
+              info.push(item.text);
+            });
+            row.name = [{ 'text': info.join(' ').replace('Volume size',''), 'xpath': row.name[0].xpath }];
+          }
+          if (row.productUrl) {
+            row.productUrl.forEach(item => {
+              item.text='https://shop.countdown.co.nz'+item.text;
+            });
+          }
+          if (row.price) {
+            row.price.forEach(item => {
+                item.text = item.text.replace(/(\s*)+/g, '').trim();
+                item.text = item.text.replace('each', '').trim();
+                item.text = item.text.replace('.', ',');
+            });
+          }
+          if (row.id) {
+            row.id.forEach(item => {
+                item.text = item.text.replace(/(\s*)+/g, '').trim();
+                item.text = item.text.split("?").pop();
+                item.text = item.text.replace(/&.*/, '');
+                item.text = item.text.replace('stockcode=', '').trim();
+            });
+          }
       }
     }
     context.setState({ rankCounter });

@@ -5,4 +5,16 @@ recordXPath: //product-stamp-grid
 fields:
   - name: name
     singleValue: false
-    xpath: //a[@class="product-entry"]/h2
+    xpath: //a[@class="product-entry"]/h2 | //span[contains(@class,"size ng-star-inserted")]//span[contains(@id,"volumeSize")]
+  - name: productUrl
+    singleValue: false
+    xpath: //product-stamp-grid//a[@class="product-entry"]/@href
+  - name: id
+    singleValue: false
+    xpath: //product-stamp-grid//a[@class="product-entry"]/@href
+  - name: thumbnail
+    singleValue: false
+    xpath: //product-stamp-grid//div[@class="productImage-container"]//img[contains(@aria-labelledby,"title")]/@src
+  - name: price
+    singleValue: false
+    xpath: //product-stamp-grid//product-price//h3[contains(@class,'heading--2 presentPrice')]/@aria-label
