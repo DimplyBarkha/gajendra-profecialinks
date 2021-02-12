@@ -50,13 +50,20 @@ module.exports = {
         addElementToDocument('availableText', 'Out of stock');
       } else addElementToDocument('availableText', 'In stock');
 
-      // const idPath = getXpath("//div[@class='details']//script/text()", 'nodeValue');
-      // if (idPath) {
-      //   const idObj = JSON.stringify(idPath);
-      //   var myIdArr = idObj.split(':');
-      //   var myIdValue = myIdArr[2].match(/'(.*?)'/);
-      //   addElementToDocument('variantId', myIdValue[1]);
-      // }
+      // @ts-ignore
+      const variantId = dataLayer
+                  // @ts-ignore
+                  && dataLayer[0].ecommerce
+                  // @ts-ignore
+                  && dataLayer[0].ecommerce.detail
+                  // @ts-ignore
+                  && dataLayer[0].ecommerce.detail.products[0]
+                  // @ts-ignore
+                  && dataLayer[0].ecommerce.detail.products[0].id;
+                  
+      if (variantId) {
+        addElementToDocument('variantId', variantId);
+      }
 
       const brand = getXpath("//div[@class='details']//h1//text()", 'nodeValue');
       console.log('i am in my brand ', brand);
