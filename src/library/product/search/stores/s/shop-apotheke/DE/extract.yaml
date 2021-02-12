@@ -1,17 +1,17 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul//div[@data-qa-id="result-list-entry"]
+recordXPath: //ul//li[@data-qa-id="result-list-entry"]
 fields:
   - name: id
-    xpath: //div[contains(@class, 'u-margin--bottom')]/form[@class="o-ProductPriceInfo"]/@name
-    regExp: buy-(.+)
+    xpath: //div[contains(@class, 'u-margin--bottom')]/following-sibling::ul/li/span[contains(text(),'PZN')]
+    regExp: (\d+)
     regExpReplace: $1
     # xpath: //div[contains(@class,'hidden@medium')]//form[@data-qa-id="add-to-cart-button"]//input[@name="product"]/@value
   - name: name
-    xpath: //h2[@data-qa-id="product-name"]
+    xpath: //div[contains(@class,"o-SearchProductListItem__content")]//div[contains(@class, 'u-margin--bottom')]/p
   - name: productUrl
-    xpath: //h2[@data-qa-id="product-name"]/ancestor::a/@href
+    xpath: //li[contains(@data-qa-id,"result-list-entry")]//a/@href
     regExp: (.+)
     regExpReplace: https://www.shop-apotheke.com$1
   - name: thumbnail
@@ -23,11 +23,11 @@ fields:
     regExp: ((\d+)(\.?)(\d+)?)\svon
     regExpReplace: $1
   - name: reviewCount
-    xpath: //div[contains(@class, 'm-StarRating__text-container')]/a/span[contains(@class, 'with-stars')]
+    xpath: //div[contains(@class, 'm-StarRating__text-container')]
     regExp: (\d+)
     regExpReplace: $1
   - name: price
-    xpath: //div[contains(@class, 'u-margin--bottom')]/form/div[2]/div/div/div[@data-qa-id="entry-price"]/span
-    regExp: ((\d+)(,?)(\d+)?)
-    regExpReplace: $1
+    xpath: //div[contains(@class,"u-margin--right")]//p/span[contains(@class,"a-Price")]
+    # regExp: ((\d+)(,?)(\d+)?)
+    # regExpReplace: $1
   
