@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@id="import_product_urls"]
+    regExp: (.*)\/(.*)\?(.*)
+    regExpReplace: $2
+  - name: rankOrganic
+    singleValue: false
+    xpath: //div[@id="import_product_rank"]
+  - name: rank
+    singleValue: false
+    xpath: //div[@id="import_product_rank"]
+  - name: name
+    singleValue: false
+    xpath: //div[@id="import_product_names"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id="import_product_urls"]
+    regExp: (.+)
+    regExpReplace: https://www.lidl.de/$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@id="import_product_images"]
+    regExp: (.+)
+    regExpReplace: https://www.lidl.de$1
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@id="import_product_rating"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@id="import_product_rating_count"]
+  - name: price
+    singleValue: false
+    xpath: //div[@id="import_product_price"]

@@ -1,0 +1,63 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@class='product-page_images']//div[contains(@class,'gallery__images-preview-item __active')]//img//@src
+  - name: sku
+    singleValue: false
+    xpath: //meta[@itemprop='sku']/@content
+  - name: variantId
+    singleValue: false
+    xpath: //meta[@itemprop='sku']/@content
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[@name="keywords"]/@content
+  - name: category
+    singleValue: false
+    xpath: //utk-breadcrumbs//div[contains(@class,'breadcrumbs')]//div[position() >1]/a
+  - name: nameExtended
+    singleValue: false
+    xpath: //utk-breadcrumbs//div[contains(@class,'breadcrumbs')]//div[position() >1]/span[contains(@class,'breadcrumbs_title')]
+  - name: name
+    singleValue: false
+    xpath: //div[@class='product-page_info-block']//h1
+  - name: price
+    singleValue: false
+    xpath: //div[@class='product-page_info-block']//utk-product-price//span[contains(@class,'product-sale-price')]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class='product-page_info-block']//utk-product-price//span[@class='product-old-price--strike']//text()
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@class='product-page_info-block']//utk-cart-counter//span[contains(@class,'ui-button-text')]
+    defaultValue: "In Stock"
+  - name: description
+    singleValue: false
+    xpath: //app-product-tabs//app-product-detailed-info//div[contains(@class,'ng-star-inserted')]//div[@class='product-tab_content']//p//text()
+  - name: variantCount
+    singleValue: false
+    xpath: count(//app-product-page//utk-product-variants//utk-scrollbox//div[contains(@class,'product-variants_item')]//a)
+  - name: variantInformation
+    singleValue: false
+    xpath: //app-product-page//utk-product-variants//utk-scrollbox//div[contains(@class,'product-variants_item active')]//span[1]
+  - name: brandText
+    singleValue: false
+    xpath: //app-product-tabs//utk-product-properties//li[last() - 1]//a[contains(@class,'product-characteristics-value-link')]
+  - name: ratingCount
+    sinngleValue: false
+    xpath: //app-product-page//div[@class='product-page-rating']//meta[@itemprop='reviewCount']/@content
+  - name: aggregateRating
+    singleValue: false
+    xpath: //app-product-page//div[@class='product-page-rating']//meta[@itemprop='ratingValue']/@content
+  - name: imageAlt
+    singleValue: false
+    xpath: //div[@class='product-page_images']//div[contains(@class,'gallery__images-preview-item __active')]//img//@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class='product-page_images']//div[@class='ng-star-inserted'][position()>1]//img//@src
+  - name: quantity
+    singleValue: false
+    defaultValue: 1
