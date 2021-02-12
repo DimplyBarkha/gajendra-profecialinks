@@ -5,7 +5,7 @@ module.exports = {
     store: 'homedepot',
     domain: 'homedepot.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//*[@data-testid="errorContent"]',
     zipcode: '',
   },
 };
