@@ -104,7 +104,7 @@ fields:
   - name: availabilityText
     singleValue: false
     description: Product availability Text
-    xpath: //span[contains(@class,"quantity-selector--defaultTxt")]
+    xpath: //span[contains(@class,"quantity-selector--defaultTxt")] | (//section[contains(@class,"product-addToCart")])[1]
     regExp: (.+)
     regExpReplace: In stock
     defaultValue: Out of stock
@@ -149,15 +149,15 @@ fields:
   - name: caloriesPerServing
     singleValue: false
     description:
-    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'valeur énergétique (kJ)')]/following-sibling::td[1]
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'valeur énergétique (kJ)')]/following-sibling::td[1] | //div[@id="pd_caloriesPerServing"]
   - name: caloriesPerServingUom
     singleValue: false
     description:
-    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'valeur énergétique (kJ)')]/following-sibling::td[1]
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'valeur énergétique (kJ)')]/following-sibling::td[1] 
   - name: totalFatPerServing
     singleValue: false
     description:
-    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'matières grasses')]/following-sibling::td[1]
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'matières grasses')]/following-sibling::td[1] | //div[@id="pd_totalFatPerServing"]
   - name: totalFatPerServingUom
     singleValue: false
     description:
@@ -165,7 +165,7 @@ fields:
   - name: saturatedFatPerServing
     singleValue: false
     description:
-    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'acides gras saturés')]/following-sibling::td[1]
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'acides gras saturés')]/following-sibling::td[1] | //div[@id="pd_saturatedFatPerServing"]
   - name: saturatedFatPerServingUom
     singleValue: false
     description:
@@ -173,7 +173,7 @@ fields:
   - name: totalCarbPerServing
     singleValue: false
     description:
-    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'glucides')]/following-sibling::td[1]
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'glucides')]/following-sibling::td[1] | //div[@id="pd_totalCarbPerServing"]
   - name: totalCarbPerServingUom
     singleValue: false
     description:
@@ -189,7 +189,7 @@ fields:
   - name: totalSugarsPerServing
     singleValue: false
     description:
-    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'sucres')]/following-sibling::td[1]
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'sucres')]/following-sibling::td[1] | //div[@id="pd_totalSugarsPerServing"]
   - name: totalSugarsPerServingUom
     singleValue: false
     description:
@@ -197,7 +197,7 @@ fields:
   - name: proteinPerServing
     singleValue: false
     description:
-    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'protéines')]/following-sibling::td[1]
+    xpath:  //table[(@id="nutritionals_1")]//td[contains(text(),'protéines')]/following-sibling::td[1] | //div[@id="pd_protein"]
   - name: proteinPerServingUom
     singleValue: false
     description:

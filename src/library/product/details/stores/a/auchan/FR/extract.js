@@ -878,6 +878,40 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+
+      var tableDesc = document.evaluate("//div[@id='tabDescription']//parent::*//div[contains(text(),'Pour 100g')]", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      if (tableDesc) {
+        // @ts-ignore
+        const arrValue = [...document.querySelectorAll('div[class="nutritional__table"] div[class="nutritional__column"]:first-child div')].map(el => el.innerHTML);
+        // @ts-ignore
+        const arrValue1 = [...document.querySelectorAll('div[class="nutritional__table"] div[class="nutritional__column"]:nth-child(2)  div')].map(el => el.innerHTML);
+
+        const len = arrValue.length;
+        for (let index = 0; index <= len; index++) {
+          const name = arrValue[index];
+          try {
+            if (name.includes('Protéines (en g)')) {
+              addHiddenDiv('pd_protein', arrValue1[index]);
+            }
+            if (name.includes('Matières grasses (en g)')) {
+              addHiddenDiv('pd_totalFatPerServing', arrValue1[index]);
+            }
+            if (name.includes('Glucides (en g)')) {
+              addHiddenDiv('pd_totalCarbPerServing', arrValue1[index]);
+            }
+            if (name.includes('dont sucres (en g)')) {
+              addHiddenDiv('pd_totalSugarsPerServing', arrValue1[index]);
+            }
+            if (name.includes('dont acides gras saturés (en g)')) {
+              addHiddenDiv('pd_saturatedFatPerServing', arrValue1[index]);
+            }
+            if (name.includes('Valeurs Energétiques en Kj')) {
+              addHiddenDiv('pd_caloriesPerServing', arrValue1[index]);
+            }
+          } catch (error) {
+          }
+        }
+      }
       try {
         const btnImageZoom = document.querySelector('button.product-gallery__img-btn');
         console.log('btnImageZoom', btnImageZoom);

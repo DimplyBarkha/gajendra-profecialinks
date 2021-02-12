@@ -68,7 +68,7 @@ const transform = (data) => {
       }
       if (row.caloriesPerServing) {
         row.caloriesPerServing.forEach((caloriesPerServingItem) => {
-          caloriesPerServingItem.text = caloriesPerServingItem.text.replace(/[A-Za-z]/gm, '').trim();
+          caloriesPerServingItem.text = caloriesPerServingItem.text.replace(/[A-Za-z]/gm, '').replace('<>', '').replace('</>', '').trim();
         });
       }
       if (row.caloriesPerServingUom) {
@@ -78,7 +78,7 @@ const transform = (data) => {
       }
       if (row.totalFatPerServing) {
         row.totalFatPerServing.forEach((totalFatPerServingItem) => {
-          totalFatPerServingItem.text = totalFatPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').trim();
+          totalFatPerServingItem.text = totalFatPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').replace('<>', '').replace('</>', '').trim();
         });
       }
       if (row.totalFatPerServingUom) {
@@ -88,7 +88,7 @@ const transform = (data) => {
       }
       if (row.saturatedFatPerServing) {
         row.saturatedFatPerServing.forEach((saturatedFatPerServingItem) => {
-          saturatedFatPerServingItem.text = saturatedFatPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').trim();
+          saturatedFatPerServingItem.text = saturatedFatPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').replace('<>', '').replace('</>', '').trim();
         });
       }
       if (row.saturatedFatPerServingUom) {
@@ -98,7 +98,7 @@ const transform = (data) => {
       }
       if (row.totalCarbPerServing) {
         row.totalCarbPerServing.forEach((totalCarbPerServingItem) => {
-          totalCarbPerServingItem.text = totalCarbPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').trim();
+          totalCarbPerServingItem.text = totalCarbPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').replace('<>', '').replace('</>', '').trim();
         });
       }
       if (row.totalCarbPerServingUom) {
@@ -108,7 +108,7 @@ const transform = (data) => {
       }
       if (row.dietaryFibrePerServing) {
         row.dietaryFibrePerServing.forEach((dietaryFibrePerServingItem) => {
-          dietaryFibrePerServingItem.text = dietaryFibrePerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').trim();
+          dietaryFibrePerServingItem.text = dietaryFibrePerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').replace('<>', '').replace('</>', '').trim();
         });
       }
       if (row.dietaryFibrePerServingUom) {
@@ -118,7 +118,7 @@ const transform = (data) => {
       }
       if (row.totalSugarsPerServing) {
         row.totalSugarsPerServing.forEach((totalSugarsPerServingItem) => {
-          totalSugarsPerServingItem.text = totalSugarsPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').trim();
+          totalSugarsPerServingItem.text = totalSugarsPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').replace('<>', '').replace('</>', '').trim();
         });
       }
       if (row.totalSugarsPerServingUom) {
@@ -128,7 +128,7 @@ const transform = (data) => {
       }
       if (row.proteinPerServing) {
         row.proteinPerServing.forEach((proteinPerServingItem) => {
-          proteinPerServingItem.text = proteinPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').trim();
+          proteinPerServingItem.text = proteinPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').replace('<>', '').replace('</>', '').trim();
         });
       }
       if (row.proteinPerServingUom) {
@@ -138,7 +138,7 @@ const transform = (data) => {
       }
       if (row.saltPerServing) {
         row.saltPerServing.forEach((saltPerServingItem) => {
-          saltPerServingItem.text = saltPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').trim();
+          saltPerServingItem.text = saltPerServingItem.text.replace(/[A-Za-z]/gm, '').replace(',', '.').replace('<>', '').replace('</>', '').trim();
         });
       }
       if (row.saltPerServingUom) {
