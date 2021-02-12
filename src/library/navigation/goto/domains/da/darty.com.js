@@ -112,59 +112,65 @@ module.exports = {
             }
           },
         );
-        await new Promise(resolve => setTimeout(resolve, 10000));
-        await context.waitForSelector('#produit > div.product_head');
-        await context.evaluate(async function () {
-          const captchaStatus = document.querySelector('body').getAttribute('captchastatus');
-          if (captchaStatus !== 'ok') {
-            const responseStatus = await context.goto(`${url}`, {
-              antiCaptchaOptions: {
-                provider: 'anti-captcha',
-                type: 'GEETEST',
-                autoSubmit: true,
-              },
-              firstRequestTimeout: 60000,
-              timeout: timeout,
-              waitUntil: 'load',
-              checkBlocked: false,
-            });
-            console.log('Status :', responseStatus.status);
-            console.log('URL :', responseStatus.url);
-
-            await context.waitForNavigation({ timeout: 30000 });
-            try {
-              await context.evaluateInFrame('iframe',
-                function () {
-                  // @ts-ignore
-                  const code = geetest
-                    .toString()
-                    .replace(
-                      /appendTo\("#([^"]+)"\)/,
-                      'appendTo(document.getElementById("$1"))',
-                    );
-                  return eval(`(${code})('/captcha/geetest');`);
-                },
-              );
-
-              await new Promise(resolve => setTimeout(resolve, 500));
-              await context.evaluateInFrame('iframe',
-                function () {
-                  // @ts-ignore
-                  if (document.querySelector('.captcha-handler')) {
-                    document.querySelector('.captcha-handler').click();
-                  }
-                  if (document.querySelector('.geetest_radar_tip_content')) {
-                    document.querySelector('.geetest_radar_tip_content').click();
-                  }
-                },
-              );
-              await new Promise(resolve => setTimeout(resolve, 10000));
-              await context.waitForSelector('#produit > div.product_head');
-            } catch (error) {
-              console.log('Reload and resolve captcha failed');
-            }
-          }
+        await new Promise(resolve => setTimeout(resolve, 15000));
+        try {
+          await context.waitForSelector('#produit > div.product_head');
+          return;
+        } catch(e) {
+          console.log('captcha not solved, trying again');
+        }
+        const captchaStatus = await context.evaluateInFrame('iframe', async function () {
+          return document.querySelector('body').getAttribute('captchastatus');
         });
+        console.log('captcha status was ', captchaStatus);
+        if (captchaStatus === 'ok') {
+          const responseStatus = await context.goto(`${url}`, {
+            antiCaptchaOptions: {
+              provider: 'anti-captcha',
+              type: 'GEETEST',
+              autoSubmit: true,
+            },
+            firstRequestTimeout: 60000,
+            timeout: timeout,
+            waitUntil: 'load',
+            checkBlocked: false,
+          });
+          console.log('Status :', responseStatus.status);
+          console.log('URL :', responseStatus.url);
+
+          await context.waitForNavigation({ timeout: 30000 });
+          try {
+            await context.evaluateInFrame('iframe',
+              function () {
+                // @ts-ignore
+                const code = geetest
+                  .toString()
+                  .replace(
+                    /appendTo\("#([^"]+)"\)/,
+                    'appendTo(document.getElementById("$1"))',
+                  );
+                return eval(`(${code})('/captcha/geetest');`);
+              },
+            );
+
+            await new Promise(resolve => setTimeout(resolve, 500));
+            await context.evaluateInFrame('iframe',
+              function () {
+                // @ts-ignore
+                if (document.querySelector('.captcha-handler')) {
+                  document.querySelector('.captcha-handler').click();
+                }
+                if (document.querySelector('.geetest_radar_tip_content')) {
+                  document.querySelector('.geetest_radar_tip_content').click();
+                }
+              },
+            );
+            await new Promise(resolve => setTimeout(resolve, 15000));
+            await context.waitForSelector('#produit > div.product_head');
+          } catch (error) {
+            console.log('Reload and resolve captcha failed: ', error);
+          }
+        };
       } catch (error) {
         console.log('error: FAILED TO SOLVE CAPTCHA AFTER RETRY', error);
       }
