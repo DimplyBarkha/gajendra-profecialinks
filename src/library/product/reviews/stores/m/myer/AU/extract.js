@@ -1,3 +1,4 @@
+const { transform } = require('./shared');
 async function implementation (
   inputs,
   parameters,
@@ -27,32 +28,38 @@ async function implementation (
     const productStoreCode = document.querySelector('p[data-automation="product-part-number"] > span').textContent;
     const productUrl = reviews.q1.Includes.Products[id].ProductPageUrl;
 
+    const timestamp = new Date().getTime() - (30 * 24 * 60 * 60 * 1000);
+    console.log('timeStamp ', timestamp);
     reviews.q1.Results.forEach(review => {
-      const block = document.createElement('div');
-      block.classList.add('reviewBlock');
-      document.body.appendChild(block);
+      const dateTime = +Date.parse(review.SubmissionTime);
+      if (dateTime >= timestamp) {
+        const block = document.createElement('div');
 
-      const reviewText = review.ReviewText;
-      const helpfull = review.Helpfulness ? review.Helpfulness : 0;
-      const date = Date.parse(review.SubmissionTime);
-      const reviewRating = review.Rating;
-      const reviewTitle = review.Title;
-      const user = review.UserNickname;
+        block.classList.add('reviewBlock');
 
-      addHiddenDiv('helper-reviewText', reviewText, block);
-      addHiddenDiv('helper-helpfull', helpfull, block);
-      addHiddenDiv('helper-brand', brandText, block);
-      addHiddenDiv('helper-name', productName, block);
-      addHiddenDiv('helper-sku', productStoreCode, block);
-      addHiddenDiv('helper-date', date, block);
-      addHiddenDiv('helper-rating', reviewRating, block);
-      addHiddenDiv('helper-title', reviewTitle, block);
-      addHiddenDiv('helper-url', productUrl, block);
-      addHiddenDiv('helper-user', user, block);
+        document.body.appendChild(block);
+        const reviewText = review.ReviewText;
+        const helpfull = review.Helpfulness ? review.Helpfulness : 0;
+        const reviewRating = review.Rating;
+        const reviewTitle = review.Title;
+        const date = Date.parse(review.SubmissionTime);
+        const user = review.UserNickname;
+
+        addHiddenDiv('helper-reviewText', reviewText, block);
+        addHiddenDiv('helper-helpfull', helpfull, block);
+        addHiddenDiv('helper-brand', brandText, block);
+        addHiddenDiv('helper-name', productName, block);
+        addHiddenDiv('helper-sku', productStoreCode, block);
+        addHiddenDiv('helper-date', date, block);
+        addHiddenDiv('helper-rating', reviewRating, block);
+        addHiddenDiv('helper-title', reviewTitle, block);
+        addHiddenDiv('helper-url', productUrl, block);
+        addHiddenDiv('helper-user', user, block);
+      }
     });
     console.log(reviews);
   });
-  return await context.extract(productReviews);
+  return await context.extract(productReviews, { transform });
 }
 
 module.exports = {
