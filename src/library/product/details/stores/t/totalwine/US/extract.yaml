@@ -25,12 +25,13 @@ fields:
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: concat(td[@class="name"], ' ', td[@class="packageDescription"])
-  # - name: listPrice
-  #   description: The stated undiscounted price for the product
+  - name: listPrice
+    description: The stated undiscounted price for the product
+    xpath: //td[@class="price"]//td[@class="type"][text()="LTSP"]//ancestor::tr[1]//preceding-sibling::tr//td[@class="price"]
   - name: price
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: td[@class="price"]//td[@class="price"]
+    xpath:  //td[@class="price"]//td[@class="type"][text()="EDLP"]/ancestor::tr[1]/following-sibling::tr//td[text()="LTSP"]/preceding-sibling::td[@class="price"]|//td[@class="price"]//*[count(tbody//tr)=1]//td[@class="type"][text()="EDLP"]/preceding-sibling::td[@class="price"]|//td[@class="price"]//td[@class="type"][contains(text(),"MIX")]//ancestor::tr[1]//preceding-sibling::tr//td[@class="price"]
   - name: availabilityText
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
@@ -333,8 +334,9 @@ fields:
   #   description: Price of the product split into certain units
   # - name: pricePerUnitUom
   #   description: The unit of measurement used in price_per_unit
-  # - name: promotion
-  #   description: promotion text on product page
+  - name: promotion
+    description: promotion text on product page
+    xpath: td[@class="price"]//td[@class="toolTip"]
   # - name: alcoholContent
   #   description: Alcohol content information
   # - name: newVersion
@@ -380,13 +382,13 @@ fields:
   #   defaultValue: No
   - name: termsAndConditions
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   # - name: privacyPolicy
   #   description: Privacy Policy information text ['Yes','No']
   #   defaultValue: No
   - name: customerServiceAvailability
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   # - name: materials
   #   description: Materials used to make the product
   #   example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/

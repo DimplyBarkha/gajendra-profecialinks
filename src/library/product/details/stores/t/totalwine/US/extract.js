@@ -123,13 +123,13 @@ async function implementation (
   try {
     const data = await getData();
     console.log('data', data.length)
-    const storeData = await getStoreDetails();
     await context.evaluate(addDynamicTable, data);
-    await context.evaluate(({ zipcode, storeId, storeName }) => {
-      document.body.setAttribute('storeName', storeName);
-      document.body.setAttribute('zipcode', zipcode);
-      document.body.setAttribute('storeId', storeId);
-    }, storeData);
+    // const storeData = await getStoreDetails();
+    // await context.evaluate(({ zipcode, storeId, storeName }) => {
+    //   document.body.setAttribute('storeName', storeName);
+    //   document.body.setAttribute('zipcode', zipcode);
+    //   document.body.setAttribute('storeId', storeId);
+    // }, storeData);
     // Adding pipes to bullets, ideally should not be done in extractor level.
     // await context.evaluate(() => {
     //   Array.from(document.querySelectorAll('td.description li,td.shortDescription li')).forEach(li => li.textContent = '|| ' + li.textContent);
