@@ -6,7 +6,7 @@ module.exports = {
     store: 'rohlik',
     domain: 'rohlik.cz',
     loadedSelector: 'img[loading="lazy"]',
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="Error__error"]//div[contains(.,"Návrat na úvodní stránku")]',
     zipcode: '',
   },
 };

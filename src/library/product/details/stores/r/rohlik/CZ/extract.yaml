@@ -5,6 +5,7 @@ recordXPath: null
 fields:
   - name: image
     xpath: (//div[@data-gtm-item="product-image"]//img//@src)[1]
+    regExp: (https:\/\/cdn.+)
 #   - name: imageAlt
 #     singleValue: true
 #     description: Alt text of the main product image
@@ -17,7 +18,7 @@ fields:
     description: The categories (e.g. from breadcrumbs)
     xpath: //ul[@data-test="pnlBreadcrumbs"]//li
   - name: nameExtended
-    xpath: //div[@id="productDetail"]//h2 | //span[@class="detailQuantity"]
+    xpath: //div[@id="productDetail"]//h2
 #   - name: listPrice
 #     singleValue: true
 #     description: The stated undiscounted price for the product
@@ -38,8 +39,7 @@ fields:
   - name: descriptionBullets
     xpath: count(//div[@id="productDetailDescription"]//ul//li)
   - name: brandText
-    xpath: //div[@id="productDetail"]//h2
-    regExp: (^\S*)
+    xpath: //div[@id="brand"]
   - name: manufacturer
     xpath: //p[contains(.,'Výrobce')]/following-sibling::p[1]/text()[1]
   - name: quantity
@@ -107,7 +107,7 @@ fields:
     xpath: //p[contains(.,'O výrobci')]/following-sibling::p[1]
   - name: manufacturerImages
     description: Images within the third party description
-    xpath: //div[@id="productDetailDescription"]//div[contains(@class,'Content')]//img//@src
+    xpath: //div[@id="productDetailDescription"]//div[contains(@class,'Content')]//img//@src[not(contains(.,'base64'))]
   - name: videos
     xpath: //iframe//@src[contains(.,'youtube')]
   - name: name
@@ -225,9 +225,9 @@ fields:
 #     description: Suggested number of servings of the product.
 #     type: NUMBER
   - name: caloriesPerServing
-    xpath: //td[contains(.,'Energetická hodnota')]/following-sibling::td//text()
-    regExp: (\/)(\d+)
-    regExpReplace: $2
+    xpath: //td[contains(.,'Energetická hodnota')]/following-sibling::td//text()[1]
+    regExp: (\d+)(\skJ)
+    regExpReplace: $1
 #   - name: caloriesFromFatPerServing
 #     singleValue: true
 #     description: Nutritional Information for Calories From Fat content - Usually
