@@ -61,11 +61,11 @@ fields:
     multiple places; specifically not the manufacturer description
 - name: descriptionBullets
   singleValue: true
-  xpath: count(//div[@class="std"]//li)
+  xpath: count(//div[@id="description"]//li)
   description: Number of ul > li tags in the description
 - name: brandText
   singleValue: true
-  xpath: //span[@class="brandTitle"]/a
+  xpath: //p[contains(text(), "Marchio")]/descendant::span[@class="brandTitle"]
   description: Product brand shown - this may actually NOT be just a brand name, e.g.
     "Visit the Gillette Store"
 - name: manufacturer
@@ -73,6 +73,8 @@ fields:
   description: Product manufacturer
 - name: quantity
   singleValue: true
+  xpath: //h2[contains(text(), "Formato")]/following::p[1]
+  regExp: \d+
   description: Quantity as described on the page
 - name: weightNet
   singleValue: true
@@ -112,14 +114,14 @@ fields:
   description: Content under "warnings" header
 - name: ratingCount
   singleValue: true
-  xpath: //span[@itemprop="reviewCount"]
+  xpath: //span[@itemprop="reviewCount"] | //body/@review_count
   description: The number of ratings
 - name: aggregateRatingText
   singleValue: true
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: true
-  xpath: //span[@itemprop="ratingValue"]
+  xpath: //span[@itemprop="ratingValue"] | //body/@rating
   description: The stated aggregate rating normalized to be out of 5
 - name: shippingInfo
   singleValue: true
@@ -267,6 +269,7 @@ fields:
   description: Suggested number of servings of the product.
 - name: caloriesPerServing
   singleValue: true
+  xpath: //td[text()="Valore energetico"]/following-sibling::td[1] | //p[contains(text(), "Energia")]/following::td[1]/p | //td[contains(text(), "Energia")]/following::td[1]
   description: Nutritional Information for Calories Per Serving content - Usually
     based on per 100g serving
 - name: caloriesFromFatPerServing
@@ -275,17 +278,21 @@ fields:
     on per 100g serving
 - name: totalFatPerServing
   singleValue: true
+  xpath: //p[contains(text(), "Grassi")]//following::p[1] | //td[contains(text(), "Grassi")]//following::td[1]
   description: Nutritional Information for Total Fat content - Usually based on per
     100g serving
 - name: totalFatPerServingUom
   singleValue: true
+  xpath: //p[contains(text(), "Grassi")]//following::p[1] | //td[contains(text(), "Grassi")]//following::td[1]
   description: Unit of Measure Data for Total Fat content
 - name: saturatedFatPerServing
   singleValue: true
+  xpath: //p[contains(text(), "Grassi")]//following::p[1] | //td[contains(text(), "Grassi")]//following::td[1]
   description: Nutritional Information for Saturated Fat content - Usually based on
     per 100g serving
 - name: saturatedFatPerServingUom
   singleValue: true
+  xpath: //p[contains(text(), "Grassi")]//following::p[1] | //td[contains(text(), "Grassi")]//following::td[1]
   description: Unit of Measure Data for Saturated Fat content
 - name: transFatPerServing
   singleValue: true
@@ -324,10 +331,12 @@ fields:
   description: Unit of Measure Data for Dietary Fibre content
 - name: totalSugarsPerServing
   singleValue: true
+  xpath: //td/p[contains(text(), "Carboidrati")]//following::td[1] | //td[contains(text(), "Carboidrati")]//following::td[1]
   description: Nutritional Information for Total Sugar content - Usually based on
     per 100g serving
 - name: totalSugarsPerServingUom
   singleValue: true
+  xpath: //td/p[contains(text(), "Carboidrati")]//following::td[1] | //td[contains(text(), "Carboidrati")]//following::td[1]
   description: Unit of Measure Data for Total Sugar content
 - name: proteinPerServing
   singleValue: true
@@ -392,6 +401,7 @@ fields:
   description: Guarantee associated with the product
 - name: storage
   singleValue: true
+  xpath: 
   description: Suggested storage location for product
 - name: countryOfOrigin
   singleValue: true
