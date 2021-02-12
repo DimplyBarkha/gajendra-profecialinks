@@ -14,7 +14,8 @@ fields:
     xpath: //h1[@class="b-product-info--title"]
   - name: price
     singleValue: false
-    xpath: //div[@class="b-products-allow-desktop-view b-products-allow-mobile-view"]//del[@class="b-product-crossed-out-price"] | //div[@class="b-products-allow-desktop-view b-products-allow-mobile-view"]//div[@class="b-product-prices-block" and not(del)]//div[@class="b-product-price-current"]
+    #xpath: //div[@class="b-products-allow-desktop-view b-products-allow-mobile-view"]//del[@class="b-product-crossed-out-price"] | //div[@class="b-products-allow-desktop-view b-products-allow-mobile-view"]//div[@class="b-product-prices-block" and not(del)]//div[@class="b-product-price-current"]
+    xpath: //div[@class="b-products-allow-desktop-view b-products-allow-mobile-view"]//div[@class="b-product-price-current"]/span
   - name: availabilityText
     singleValue: false
     xpath: //a[@class="b-product-out-of-stock"]
