@@ -19,10 +19,10 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
-    function addclass(xpathforpagination) {
-      var elems = document.querySelectorAll(xpathforpagination);
-      elems[0].classList.add('pagination');
-    }
+    // function addclass(xpathforpagination) {
+    //   var elems = document.querySelectorAll(xpathforpagination);
+    //   elems[0].classList.add('pagination');
+    // }
     function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
@@ -49,6 +49,14 @@ async function implementation(
       return result && result.trim ? result.trim() : result;
 
     };
+      function addHiddenDiv1(id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelector("div[class='product_info']");
+        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      }
     function addHiddenDiv(id, content, index) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -67,7 +75,7 @@ async function implementation(
 
     if (desc1 != null) {
       desc1 = desc1.replace(",", ".")
-      addElementToDocument('desc1', desc1);
+      addHiddenDiv1('desc1', desc1);
     }
 
     //rpc//
@@ -151,18 +159,18 @@ async function implementation(
         data = data + inglist2[i];
       }
       var ingredient = inglist + ' ' + data;
-      addElementToDocument('ingredient', ingredient);
+      addHiddenDiv1('ingredient', ingredient);
     }
 
     // list-price
     var desc2 = getXpath('//p[@id="old_price"]/span[@class="old-price"]/text()', 'nodeValue');
 
     if (desc2 != null) {
-      // if (desc2.includes(":")) {
-      //   desc2 = desc2.split(": ")[1]
-      // }
+      if (desc2.includes(":")) {
+        desc2 = desc2.split(": ")[1]
+      }
       desc2 = desc2.replace(",", ".")
-      addElementToDocument('desc2', desc2);
+      addHiddenDiv1('desc2', desc2);
     }
 
     //availibility//
@@ -173,7 +181,7 @@ async function implementation(
       } else if (ava.includes("InStock")) {
         ava = "In Stock"
       }
-      addElementToDocument('avail', ava);
+      addHiddenDiv1('avail', ava);
     }
 
 
@@ -184,7 +192,7 @@ async function implementation(
 
     if (desc3 != null) {
       desc3 = desc3.split("-")[1]
-      addElementToDocument('desc3', desc3);
+      addHiddenDiv1('desc3', desc3);
     }
     // Method to Retrieve Xpath content of a Multiple Nodes
     // const getAllXpath = (xpath, prop) => {
@@ -206,14 +214,14 @@ async function implementation(
     const addDescBulletInfo1 = getAllXpath("(//div[@itemprop='description']/p/strong/text())[1] | //div[@itemprop='description']/p/span/text() | //div[@itemprop='description']/p/text()", 'nodeValue');
     if (addDescBulletInfo1 != null) {
       var abc = addDescBulletInfo1.join(" || ");
-      addElementToDocument('id', abc);
+      addHiddenDiv1('id', abc);
 
     }
     var rating = getXpath('//div[@itemprop="aggregateRating"]/meta[@itemprop="ratingValue"]//@content', 'nodeValue');
     if (rating != null) {
 
       rating = rating / 2;
-      addElementToDocument('rating', rating);
+      addHiddenDiv1('rating', rating);
     }
 
 

@@ -21,24 +21,24 @@ fields:
     xpath: ancestor::html//div[@class="breadcrumb clearfix"]//a[position()>1 and position()<=last()] | //div[@class="breadcrumb clearfix"]/span[@class="navigation_page"]/text()
   - name: nameExtended
     # singleValue: true
-    xpath: ancestor::html//html//div[@id="namext"]
+    xpath: //html//div[@id="namext"]
   - name: listPrice
     # singleValue: true
-    xpath: ancestor::html//html//div[@id='desc2']
+    xpath: ancestor::html//div[@id='desc2']
     # xpath: //p[@id="old_price"]/span[@class="old-price"]/text()
   - name: price
     # singleValue: true
-    xpath: ancestor::html//html//div[@id='desc1']
+    xpath: ancestor::html//div[@id='desc1']
   - name: availabilityText
     # singleValue: true
-    xpath: ancestor::html//html//div[@id="avail"]
+    xpath: ancestor::html//div[@id="avail"]
   - name: description
     # singleValue: true
     # xpath: //html//div[@id='id']
     xpath: ancestor::html//div[@itemprop="description"]
   - name: descriptionBullets
     # singleValue: true
-    xpath: ancestor::htmlcount(//div[@itemprop="description"]/ul/li)
+    xpath: count(ancestor::html//div[@itemprop="description"]/ul/li)
     type: NUMBER
   - name: brandText
     # singleValue: true
@@ -87,7 +87,7 @@ fields:
     xpath: ancestor::html//meta[@itemprop="ratingCount"]//@content
   - name: aggregateRating
     # singleValue: true
-    xpath: ancestor::html//html//div[@id='rating']
+    xpath: ancestor::html//div[@id='rating']
   - name: shippingInfo
     # singleValue: true
     description: Shipping information for the product
@@ -99,7 +99,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     # singleValue: true
-    xpath: ancestor::htmlcount(//div[@class="attribute_list"]/ul/li)
+    xpath: count(ancestor::html//div[@class="attribute_list"]/ul/li)
     #defaultValue: 0
     type: NUMBER
   - name: color
@@ -128,10 +128,10 @@ fields:
     xpath: ancestor::html//div[@class="ytp-bound-time-right"]
   - name: featureBullets
     # singleValue: false
-    xpath: ancestor::htmlcount(//div[@class="rte"]/ul/li)
+    xpath: count(ancestor::html//div[@class="rte"]/ul/li)
   - name: secondaryImageTotal
     # singleValue: true
-    xpath: ancestor::htmlcount(//li//a[@class="fancybox"]//img//@src)
+    xpath: count(ancestor::html//li//a[@class="fancybox"]//img//@src)
     type: NUMBER
   - name: specifications
     # singleValue: true
@@ -164,7 +164,7 @@ fields:
     description: null
   - name: ingredientsList
     # singleValue: true
-    xpath: ancestor::html//html//div[@id="ingredient"]
+    xpath: ancestor::html//div[@id="ingredient"]
     #defaultValue: No
   - name: privacyPolicy
     # singleValue: true
