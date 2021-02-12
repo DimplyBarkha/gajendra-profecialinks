@@ -41,7 +41,8 @@ async function implementation (
 
     //aggrigate rating by Narasimha
     const ratings = document.querySelectorAll('.prod-rating');
-    Array.from(ratings).forEach(rating => {
+    if(ratings){
+      Array.from(ratings).forEach(rating => {
         const stars = rating.querySelectorAll('span.star');
         let ratingVal = 0;
         
@@ -51,7 +52,8 @@ async function implementation (
         });
         rating.setAttribute('rating', ratingVal);        
     })
- 
+    }
+    
     const idXpath = getAllXpath("//div[@class='each-section']/a/@id",'nodeValue').join('|');
     var idXpathValue = idXpath.split('|');
     var idpath1 = (idXpathValue[0].split('-'))[1];
@@ -77,10 +79,10 @@ async function implementation (
     var reviewValue = reviewXpath.split('|');
 
     const aggXpath = getAllXpath("//div[@class='prod-rating']/@rating",'nodeValue').join('|');
+    //console.log("aggXpath:::", aggXpath);
     var aggValue = aggXpath.split('|');
 
-    //for loop 
-    for (var i = 0; i < imageLength; i++) {
+    for(var i = 0; i < imageLength; i++) {
 
       const idObj = JSON.stringify(thumbNailTextValue[i]);
       var str = "http:";
