@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: quantity
     singleValue: false
-    xpath: //button[@id='qtySelect-button']//span[contains(@class,'CustomSelect-inline_')]    
+    # xpath: //button[@id='qtySelect-button']//span[contains(@class,'CustomSelect-inline_')]    
   - name: availabilityText
     SingleValue: false    
     defaultValue: 'In Stock'
@@ -35,7 +35,7 @@ fields:
   #   xpath: //div[@class='slick-initialized slick-slider']//ul[contains(@class,'ProductMediaCarouselStyle_')]//li[not(@class='slick-active')]//img[contains(@class,'ProductMediaCarouselStyle_')]/@src
   - name: metaKeywords
     singleValue: false
-    xpath: //title
+    # xpath: //title
   - name: category
     SingleValue: false
     xpath: //ul[contains(@class, "Breadcrumbs-inline")]//li/a/@title
