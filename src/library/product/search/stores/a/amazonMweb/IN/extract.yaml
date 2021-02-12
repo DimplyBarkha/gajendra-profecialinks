@@ -1,3 +1,7 @@
 extends: ../../amazon/shared
-
+fields:
+- name: aggregateRating2
+  xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/i | //span[contains(@aria-label,"stars")]/@aria-label
+  regExp: ^([^\s]+)
+  type: NUMBER
 
