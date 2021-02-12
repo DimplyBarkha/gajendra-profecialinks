@@ -5,10 +5,10 @@ module.exports = {
     country: 'DE',
     store: 'shop-apotheke',
     domain: 'shop-apotheke.com',
-    loadedSelector: '.rating-list-wrapper',
-    noResultsXPath: '//div[@class="text-center text-block"]/h1[contains(text(), 404)]',
+    loadedSelector: null,
+    noResultsXPath: `//h1[@class='p-error-headline']`,
     reviewUrl: 'https://www.shop-apotheke.com/produktbewertungen/{id}/.htm#user-reviews-section',
-    sortButtonSelectors: '#ratingdatasort',
+    sortButtonSelectors: null,
     zipcode: '',
   },
 };

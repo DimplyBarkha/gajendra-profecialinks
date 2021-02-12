@@ -1,61 +1,82 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="rating-list-wrapper"]/div
+recordXPath: //import-container/import-review
 fields:
   - name: helpfulCount
+    singleValue: true
     type: NUMBER
-    xpath: //div[@class="row rating-item"]//p[@class='helpfulness-sentence']
-    regExp: (\d)\svon
-    regExpReplace: $1
+    description: Number of people who said the review was helpful
+    xpath: //import-review/@import-helpful-count
   - name: commentCount
+    singleValue: true
     type: NUMBER
     description: Number of comments on the review
   - name: brandText
-    xpath: ancestor::html//script[@id="gtm-data-layer-snippet"]
-    regExp: brand"(\:)"(\w+)
-    regExpReplace: $2
+    singleValue: true
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: ancestor::html//import-info/@brand
   - name: name
-    xpath: ancestor::html//h5[@class='product-name']
+    singleValue: true
+    description: The product name
+    xpath: ancestor::html//import-info/@name
   - name: sku
+    singleValue: true
     description: The store-specific product identifier
+    xpath: ancestor::html//import-info/@sku
   - name: reviewDate
+    singleValue: true
     type: DATETIME
-    xpath: //div[@class="rating-list-wrapper"]//ul/li[2]
+    description: Date the review was made
+    xpath: //import-review/@import-date
   - name: reviewRating
     type: NUMBER
-    xpath: //div[@class="entry-rating-stars"]/@data-score
+    singleValue: true
+    description: Rating normalized to be out of 5
+    xpath: //import-review/@import-rating
   - name: reviewText
-    xpath: normalize-space(//div[@class="row rating-item"]//strong[@class='title']/following-sibling::p[1])
+    singleValue: true
+    description: The text of the review
+    xpath: //import-review
   - name: reviewTitle
-    xpath: //div[@class="row rating-item"]//strong[@class='title']
+    singleValue: true
+    description: The title of the review
+    xpath: //import-review/@import-title
   - name: reviewerTags
     singleValue: false
     description: The tags a reviewer has
   - name: gtin
+    singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: ancestor::html//script[@id='gtm-data-layer-snippet']
-    regExp: eanCode"(\:)"(\d+)"
-    regExpReplace: $2
   - name: productUrl
-    xpath: ancestor::html//div[@class='product-data']/a/@href
+    singleValue: true
+    description: The url of the product details page
+    xpath: ancestor::html//meta[@property='og:url']/@content
   - name: verifiedPurchase
+    singleValue: true
     type: BOOLEAN
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
   - name: manufacturerResponse
+    singleValue: true
     description: The response of the manufacturer (if any)
   - name: syndicatedFrom
+    singleValue: true
     description: Stated place the review was syndicated from
   - name: reviewUrl
+    singleValue: true
     description: A direct link to the review
   - name: reviewedSku
-    description: The SKU of the item that was reviewed (may be different from the
+    singleValue: true
+    description:
+      The SKU of the item that was reviewed (may be different from the
       sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
       value, transform will handle the value.
   - name: user
+    description: The user name of the reviewer
     type: TEXT
-    xpath: //div[@class="rating-list-wrapper"]//ul/li[1]
+    xpath: //import-review/@import-author
   - name: aggregateRating
-    xpath: ancestor::html//div[@class="row rating-product-details"]//span[@class='overall-rating-data-wrapper']/span
-    regExp: (\d)\svon
-    regExpReplace: $1
+    description: The product rating
+    xpath: ancestor::html//import-info/@rating
