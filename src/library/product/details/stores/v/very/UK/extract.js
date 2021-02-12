@@ -1,6 +1,6 @@
 const { transform } = require('./shared');
 
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
@@ -64,9 +64,13 @@ async function implementation (inputs, parameters, context, dependencies) {
             return variantLis;
           });
           const size = variantLi[i].size;
-          addedVariant.setAttribute('size', size);
+          const pickSize = document.querySelector('ul.ppOption--size') ? true : false;
+          if (pickSize === true) {
+            addedVariant.setAttribute('size', size);
+          }
         }
-        if (colors.length) addedVariant.setAttribute('color', colors[i]);
+        const pick = document.querySelector('ul.ppOption') ? true : false;
+        if (pick === true && colors.length) addedVariant.setAttribute('color', colors[i]);
         addedVariant.setAttribute('sku', sku);
         addedVariant.setAttribute('availability', availability2);
         addedVariant.setAttribute('price', price);
@@ -108,7 +112,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   //     document.querySelector('#description').remove();
   //   }
   await context.evaluate(async function () {
-    async function addElementToDocument (id, value, key) {
+    async function addElementToDocument(id, value, key) {
       const catElement = document.createElement('div');
       catElement.id = id;
       catElement.innerText = value;
