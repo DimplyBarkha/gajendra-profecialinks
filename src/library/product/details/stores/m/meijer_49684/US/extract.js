@@ -67,30 +67,30 @@ module.exports = {
       } catch (error) {
 
       }
-      try {
-        var stock = "In Stock"
-        const availability = getXpath('//h2[@itemprop="availability"]/text()', 'nodeValue');
-        if (availability.includes("In Stock")) {
-          addElementToDocument('stock', stock);
-          console.log(stock)
-        }
-        else {
-          stock = "Out Of Stock"
-          console.log(stock)
-          addElementToDocument('availability', stock);
-        }
-      } catch (error) {
+      // try {
+      //   var stock = "In Stock"
+      //   const availability = getXpath('//h2[@itemprop="availability"]/text()', 'nodeValue');
+      //   if (availability.includes("In Stock")) {
+      //     addElementToDocument('availability', stock);
+      //     console.log(stock)
+      //   }
+      //   else {
+      //     stock = "Out Of Stock"
+      //     console.log(stock)
+      //     addElementToDocument('availability', stock);
+      //   }
+      // } catch (error) {
 
-      }
-      try{
-      function addclass(xpathforpagination) {
-          var elems = document.querySelectorAll(xpathforpagination);
-          elems[0].classList.add('pagination');
-        }
-      }
-      catch(e){
+      // }
+      // try{
+      // function addclass(xpathforpagination) {
+      //     var elems = document.querySelectorAll(xpathforpagination);
+      //     elems[0].classList.add('pagination');
+      //   }
+      // }
+      // catch(e){
 
-      }
+      // }
     });
     await context.extract(productDetails, { transform: transformParam });
   },

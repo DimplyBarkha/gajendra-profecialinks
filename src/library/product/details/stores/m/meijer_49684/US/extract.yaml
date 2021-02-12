@@ -46,6 +46,7 @@ fields:
   - name: availabilityText
     singleValue: true
     xpath: //button[@id="addToCartButton"][contains(text(),"Add to Cart")]
+    # //html//div[@id='availability']
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out Of Stock
