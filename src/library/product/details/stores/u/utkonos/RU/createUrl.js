@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'utkonos.ru',
     prefix: null,
-    url: null,
+    url: 'https://www.utkonos.ru/item/{id}/',
     country: 'RU',
     store: 'utkonos',
     zipcode: '',
