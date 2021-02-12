@@ -16,6 +16,29 @@ async function implementation (
   } catch (err) {
     console.log('Error adding UPDP spacing');
   }
+
+  await context.evaluate(() => {
+    function addHiddenDiv (id, content) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      document.body.appendChild(newDiv);
+    }
+
+    const jsonText = document.evaluate('//script[@type="application/ld+json" and contains(text(),"sku")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+    if (jsonText) {
+      const variantsObj = JSON.parse(jsonText);
+      if (variantsObj) {
+        let allVariants = '';
+        variantsObj.offers.forEach((variant, index) => {
+          index === 0 ? allVariants += variant.sku : allVariants += ` | ${variant.sku}`;
+        });
+        addHiddenDiv('variant-skus', allVariants);
+      }
+    }
+  });
+
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

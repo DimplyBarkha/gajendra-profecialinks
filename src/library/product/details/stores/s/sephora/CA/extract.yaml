@@ -10,6 +10,11 @@ fields:
       # (.*)
     # regExpReplace: https://www.sephora.com$1
     # xpath: //ul[@class="css-1kxqg20 eanm77i0"]/li[1]//img/@src
+  - name: color
+    xpath: //div[@data-at="sku_name_label"]/span[contains(text(),"Color")] | //div[@data-at="sku_name_label"]/span[contains(text(),"COLOR")] | //span[@data-at="item_variation_type" and contains(text(),"Color")] | //span[@data-at="item_variation_type" and contains(text(),"COLOR")]
+    regExp: >-
+     \:(.*)
+    regExpReplace: $1
   - name: imageAlt
     singleValue: false
     xpath: //ul[@class="css-1kxqg20 eanm77i0"]/li[1]//img/@alt
@@ -22,6 +27,9 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //h1[contains(@data-comp,"DisplayName")]
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class,"e65zztl0")]/span
   - name: listPrice
     singleValue: false
     xpath: //h1/parent::*/p[contains(@data-comp,"Price")]//span/b[2]
@@ -40,51 +48,54 @@ fields:
     xpath: //h1/a
   - name: quantity
     singleValue: false
-    xpath: //span[@data-at="sku_size_label"]/text()[last()]
+    xpath: (//span[@data-at="sku_size_label"] | //span[@data-at="item_variation_type" and contains(text(),"Size")] | //span[@data-at="item_variation_type" and contains(text(),"SIZE")] | //div[@data-at="sku_name_label"]/span[contains(text(),"Size")] | //div[@data-at="sku_name_label"]/span[contains(text(),"SIZE")] )[position()=1]
   - name: sku
     singleValue: false
     xpath: //script[contains(text(),"defaultSkuId:")]/text()
     regExp: >-
       [0-9]+
-  - name: variantId
-    singleValue: false
-    xpath: //button[@data-at="selected_swatch" and @aria-selected="true"]//img/@src
+  # - name: variantId
+  #   singleValue: false
+  #   xpath: 
+    # xpath: //button[@data-at="selected_swatch" and @aria-selected="true"]//img/@src
   - name: directions
     singleValue: false
-    xpath: //div[@data-at="how_to_use_section"]
+    xpath: //div[@data-at="how_to_use_section"] | //button[@role="tab" and @id="tab1"]/span[contains(text(),"How to Use")]//parent::button//parent::div[@role="tablist"]//parent::div/div[@id="tabpanel1"]
   - name: ratingCount
     singleValue: false
     xpath: //span[@data-at="number_of_reviews"]
-    # xpath: //h3[text()="Summary"]/following-sibling::*/div[last()]/span
-    # regExp: ([^,]+) reviews
-    # regExpReplace: $1
   - name: aggregateRating
     singleValue: true
-    # //h3[text()="Summary"]/following-sibling::*/div[last()]/div/span
     xpath:  (//div[@data-comp="StarRating "]/@aria-label)[position()=1]
     regExp: >-
       [0-9,.]+
   - name: variantCount
     singleValue: false
     defaultValue: 0
-  - name: name
-    singleValue: false
-    xpath: //h1[contains(@class,"e65zztl0")]/span
+    xpath: count(//div[contains(@data-comp,"Swatches")]//div[@role="none"]/div[contains(@data-comp,"ProductSwatchItem")]/button | //div[contains(@data-comp,"Swatches")]//div[contains(@data-comp,"SwatchGroup")]/div/button[contains(@data-comp,"SwatchItem")])
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@id="ingredients"]/div/div
+    xpath: //div[@id="ingredients"]/div/div | //button[@role="tab" and @id="tab2"]/span[contains(text(),"Ingredients")]//parent::button//parent::div[@role="tablist"]//parent::div/div[@id="tabpanel2"]
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
   - name: variantInformation
     singleValue: false
-    xpath: //div[contains(@data-comp,"SwatchGroup")]/div/button[@aria-selected="true"]/@aria-label
+    xpath: (//button[@aria-describedby="colorSwatch"]/@data-at)[position()=1]
+    regExp: >-
+      (.*)
+    regExpReplace: 'color'
+    # xpath: //div[contains(@data-comp,"SwatchGroup")]/div/button[@aria-selected="true"]/@aria-label
   - name: firstVariant
     singleValue: false
-    xpath: //p[@data-at="item_sku"]/text()[last()]
+    xpath: //link[@id="seoCanonicalUrl"]/@href
+    regExp: >-
+      P(.*)
+    # xpath: //p[@data-at="item_sku"]/text()[last()]
   - name: variants
     singleValue: false
-    xpath: //div[contains(@data-comp,"SwatchGroup")]/div/button/img/@src
+    xpath: //div[@id="variant-skus"]
+    # xpath: //div[contains(@data-comp,"SwatchGroup")]/div/button/img/@src
   - name: videos
     singleValue: false
     xpath: //div[@id="ii_video"]
@@ -94,3 +105,22 @@ fields:
     defaultValue: No
   - name: unInterruptedPDP
     xpath: //*[contains(text(),'Similar Products')]/parent::div/following-sibling::div//span[contains(@data-at,"product_name_label")]/.. | //*[contains(text(),'Similar Products')]/parent::div/following-sibling::div//div[contains(@data-comp,"ProductDisplayName")]  | //*[contains(text(),'You May Also Like')]/parent::div/following-sibling::div//span[contains(@data-at,"product_name_label")] | //*[contains(text(),'You May Also Like')]/parent::div/following-sibling::div//div[contains(@data-comp,"ProductDisplayName")]
+  - name: privacyPolicy
+    defaultValue: 'No'
+    xpath: //*[contains(text(),"Privacy Policy")]
+    regExp: >-
+      (.*)
+    regExpReplace: 'Yes'
+  - name: termsAndConditions
+    defaultValue: 'No'
+    xpath: //*[contains(text(),"Terms of")]
+    regExp: >-
+      (.*)
+    regExpReplace: 'Yes'
+  - name: customerServiceAvailability
+    defaultValue: 'No'
+    xpath: //*[contains(text(),"Customer Service")]
+    regExp: >-
+      (.*)
+    regExpReplace: 'Yes'
+    
