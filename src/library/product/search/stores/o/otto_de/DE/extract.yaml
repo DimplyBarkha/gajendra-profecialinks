@@ -41,3 +41,8 @@ fields:
     singleValue: false
     # xpath: //html//div[@id='aggr']
     xpath: //a[@class='rating']
+  - name: sponsored
+    singleValue: false
+    description: Is sponsored/paid
+    type: BOOLEAN
+    xpath: //article[contains(@class,'sponsored')]/@data-id  
