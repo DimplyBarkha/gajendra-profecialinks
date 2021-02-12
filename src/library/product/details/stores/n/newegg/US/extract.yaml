@@ -134,7 +134,9 @@ fields:
 - name: variantId
   singleValue: false
   description: Identifier for a variant from a store where variants share the same sku
-  xpath: //span[@class="product_id"]
+  xpath: //*[contains(@class,"product-item-number")]
+  regExp: Item#:\s+(.+)
+  regExpReplace: $1
   # //div[@id="sku"]
     # //span[@class="product_id"]
 
