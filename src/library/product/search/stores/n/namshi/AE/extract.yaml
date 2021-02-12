@@ -1,0 +1,34 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id="catalog_listings"]/li
+fields:
+  - name: id
+    SingleValue: false
+    xpath: //li/@data-sku
+  - name: variantId
+    SingleValue: false
+    xpath: //li/@data-sku    
+  - name: productUrl
+    SingleValue: false
+    xpath: //li/a/@href
+  - name: price
+    SingleValue: false
+    xpath: //div[@class="details_container"]/p[@class="price"]
+  - name: thumbnail
+    SingleValue: false
+    xpath: //div[@class="image_container"]/img/@src
+  - name: brandText
+    SingleValue: false
+    xpath: //div[@class="details_container"]/p[@class="brand"]
+  - name: name
+    SingleValue: false
+    xpath: //div[@class="details_container"]/p[@class="description"]
+  - name: rankOrganic
+    SingleValue: false
+    xpath: //li/@data-index
+  - name: rank
+    SingleValue: false
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@class="details_container"]/p[@class="brand"]
