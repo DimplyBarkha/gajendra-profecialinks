@@ -34,7 +34,6 @@ module.exports = {
       function changeTextBulletPointsToDoublePipes (xpath) {
         const descriptionTextNodes = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         for (let i = 0; i < descriptionTextNodes.snapshotLength; i++) {
-          console.log(descriptionTextNodes.snapshotItem(i).textContent);
           descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*?(•|-|\d\.|✓)/gm, 'SPACEHERE||SPACEHERE');
           if ((/^\s*(•|-|\*|\d\.|✓)\s*$/).test(descriptionTextNodes.snapshotItem(i).textContent)) {
             descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*(•|-|\d\.|✓)\s*$/, 'SPACEHERE||SPACEHERE');
@@ -82,11 +81,88 @@ module.exports = {
           addElementToDocument('price', priceFromScript.match(/price: {"current":(.+?),/)[1].replace(/\./g, ',') + ' Lei');
         }
       }
+
+      /** Function used to extract all paragraph's text under given headers indicated by <strong> or <b> tag.
+     * @param {object} node Parent node of all elements we want to iterate over
+     * @param {Array} headers List of paragraph's headers that once we meet we start adding following paragraph's text
+     */
+      const addFollowingHeadersParagraphs = (key, node, headers) => {
+        if (node === null) {
+          return;
+        }
+        const parentNode = document.evaluate('self::*/ancestor::div', node, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+        const elements = document.createElement('div');
+        let foundStartTitleFlag = false;
+        elements.id = key;
+        const allElements = parentNode.childNodes;
+        for (let i = 0; i < allElements.length; i++) {
+          const element = allElements[i];
+          if (!headers || headers.some((header) => element.textContent.toLowerCase().trim().includes(header.toLowerCase()))) foundStartTitleFlag = true;
+          if (!foundStartTitleFlag) continue;
+          if (element.nodeType === 1 && (element.querySelector('Strong') || element.nodeName === 'STRONG') && !headers.some((header) => element.textContent.toLowerCase().trim().includes(header.toLowerCase()))) {
+            console.log(element);
+            break;
+          }
+          elements.appendChild(element.cloneNode(true));
+        }
+        document.body.appendChild(elements);
+      };
+
+      /** Function used to extract all paragraph's text starting with on of given phrases. We find textNode with one of given phrases in given node and then we move to its parent. Doing that we made sure that
+       * we are selecting correct element which contains textNode childrens with desired data. Function stops if appeding data to created Div if we encounter given nodeName for given times in a row
+     * @param {object} node Node in which we want to look for specific textNode
+     * @param {Array} textArray List of paragraph's texts that we whish to find in given node
+     * @param {String} nodeNameToStop Node name which we want to count in each iteration
+     * @param {Number} stopCounter Number indicating needed quantity of encounters for given nodeName in rows to stop iterating over textNodes
+     */
+      const addFollowingParagraphs = (key, node, textArray, nodeNameToStop, stopCounter) => {
+        if (node === null) {
+          return;
+        }
+        let parentNode;
+        for (let i = 0; i < textArray.length; i++) {
+          const tempNode = document.evaluate(`//text()[contains(.,"${textArray[i]}")]/..`, node, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+          if (tempNode !== null) {
+            if (tempNode.nodeName === 'B' || tempNode.nodeName === 'STRONG') {
+              parentNode = document.evaluate(`//text()[contains(.,"${textArray[i]}")]/../..`, node, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+              break;
+            } else {
+              parentNode = tempNode;
+              break;
+            }
+          }
+        }
+        if (parentNode !== undefined) {
+          let encounteredNodeInRow = 0;
+          const elements = document.createElement('div');
+          elements.id = key;
+          let reading;
+          const allElements = parentNode.childNodes;
+          for (let i = 0; i < allElements.length; i++) {
+            const element = allElements[i];
+            element.nodeName === nodeNameToStop ? encounteredNodeInRow += 1 : encounteredNodeInRow = 0;
+            if (!textArray || textArray.some((startTitleElem) => element.textContent.toLowerCase().trim().includes(startTitleElem.toLowerCase()))) reading = true;
+            if (encounteredNodeInRow === stopCounter) break;
+            if (reading) {
+              elements.appendChild(element.cloneNode(true));
+            }
+          }
+          document.body.appendChild(elements);
+        }
+      };
+
+      const headerContainingElement = document.evaluate('//strong[contains(. , "Mod de preparare:")] | //strong[contains(. , "Instructiuni folosire:")] | //strong[contains(. , "Instructiuni ingrijire:")] | //strong[contains(. , "Utilizare:")] | //strong[contains(. , "Instructiuni utilizare:")] | //strong[contains(. , "Mod de utilizare:")] | //strong[contains(. , "Instructiuni de preparare:")] | //b[contains(. , "Instructiuni folosire:")] | //b[contains(. , "Instructiuni ingrijire:")] | //b[contains(. , "Utilizare:")] | //b[contains(. , "Instructiuni utilizare:")] | //b[contains(. , "Mod de utilizare:")] | //b[contains(. , "Instructiuni de preparare:")] | //b[contains(. , "Mod de preparare:")] ', document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+      const descriptionElement = document.evaluate('//div[@id="description-body"]', document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+      const allowedHeadersArray = ['Instructiuni folosire', 'Instructiuni ingrijire', 'Utilizare', 'Instructiuni utilizare', 'Mod de utilizare', 'Instructiuni de preparare:', 'Mod de preparare:'];
+      addFollowingHeadersParagraphs('directions-from-headers', headerContainingElement, allowedHeadersArray);
+      addFollowingParagraphs('directions-from-text-nodes', descriptionElement, allowedHeadersArray, 'BR', 2);
     });
 
     const dataRef = await context.extract(productDetails, { transform });
     /* to correctly scrape additional description / bullet fields we need to go through all textNodes (avoiding textNodes from videos etc and taking into consideration that emag details page DOM is complicated)
-       this way in remote runs extractor might scrape duplicates of textNodes which we remove here omitting textNodes which indicating that there is a bullet point there */
+       this way in remote runs extractor might scrape duplicates of textNodes which we remove here omitting textNodes which indicating that there is a bullet point there because there might be multiple textNodes with just
+       bullet points signs
+       */
     if (dataRef[0].group[0].description) {
       dataRef[0].group[0].description = dataRef[0].group[0].description.filter((v, i, a) => {
         return v.text === 'SPACEHERE||SPACEHERE' ? true : a.findIndex(t => (t.text === v.text)) === i;
@@ -132,10 +208,8 @@ module.exports = {
       dataRef[0].group[0].brandLink[0].text = `http://www.emag.ro${dataRef[0].group[0].brandLink[0].text}`;
     }
     if (dataRef[0].group[0].manufacturerDescription) {
-      console.log(dataRef[0].group[0].manufacturerDescription[0].text);
       dataRef[0].group[0].manufacturerDescription[0].text = dataRef[0].group[0].manufacturerDescription[0].text.replace(/SPACEHERE\|\|SPACEHERE /g, '');
       dataRef[0].group[0].manufacturerDescription[0].text = dataRef[0].group[0].manufacturerDescription[0].text.replace(/\|\|/g, '');
-      console.log(dataRef[0].group[0].manufacturerDescription[0].text);
     }
     if (dataRef[0].group[0].price) {
       if (/oferte/.test(dataRef[0].group[0].price[0].text)) {

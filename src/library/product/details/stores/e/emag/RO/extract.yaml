@@ -71,7 +71,6 @@ fields:
 - name: manufacturer
   singleValue: true
   description: Product manufacturer
-  xpath: //div[@class="inline-block--top" and contains(.,"Vândut și livrat de:")]/following-sibling::div
 - name: quantity
   singleValue: true
   description: Quantity as described on the page
@@ -113,9 +112,9 @@ fields:
   description: Content under "legal disclaimer" header
   xpath: //div[@class="disclaimer-section"]/p[not(.//a)]
 - name: directions
-  singleValue: false
+  singleValue: true
   description: Content under "directions" header
-  xpath: //p[contains(.,"Informatii Dozaj:")]/following-sibling::p[starts-with(.,"-")] | //div[@id="description-body"]//b[.="Utilizare"]/following-sibling::text()[1]
+  xpath: //div[@id="directions-from-text-nodes"] | //div[@id="directions-from-headers"]
 - name: warnings
   singleValue: true
   description: Content under "warnings" header

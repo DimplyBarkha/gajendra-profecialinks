@@ -1,0 +1,147 @@
+input:
+  _url: http://emag.ro
+  URL: https://www.emag.ro/bors-maggi-cu-gust-de-legume-200g-8585002460196/pd/DHL4MMMBM/?X-Search-Id=559617c30ec4ae16617f&X-Product-Id=6479317&X-Search-Page=1&X-Search-Position=12&X-Section=search&X-MB=0&X-Search-Action=view
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=db2bbe8d-007c-46d5-a03f-0be554be4b75/task=05285fb5-904f-49c7-aa7f-8dc7a5113aba/37efc335-2788-43fc-9210-2597cdf327c7.html
+    extractionConfigId: product/details/stores/e/emag/RO/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.emag.ro/bors-maggi-cu-gust-de-legume-200g-8585002460196/pd/DHL4MMMBM/?X-Search-Id=559617c30ec4ae16617f&X-Product-Id=6479317&X-Search-Page=1&X-Search-Position=12&X-Section=search&X-MB=0&X-Search-Action=view
+                xpath: /html/body/div[9]
+            image:
+              - text: https://s13emagst.akamaized.net/products/29602/29601384/images/res_d65a7fda0eb1add0e62b19ca8262866c.jpg?width=450&height=450&hash=4F1EBEA04F94DE72F28197AADC1F56F7
+                xpath: /html/body/div[3]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Bors Maggi cu gust de legume, 200g
+                xpath: /html/body/div[3]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://s13emagst.akamaized.net/products/29602/29601384/images/res_476c05c9db94221e9a75439e7efaa8f7.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/a[1]/@href
+            metaKeywords:
+              - text: bors, maggi, gust, legume, 200g, emag.ro
+                xpath: /html/head[1]/meta[4]/@content
+            category:
+              - text: Bacanie
+                xpath: /html/body/div[3]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]
+              - text: Bacanie
+                xpath: /html/body/div[3]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]
+              - text: Condimente & Mixuri
+                xpath: /html/body/div[3]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]
+              - text: Condimente & Mixuri Maggi
+                xpath: /html/body/div[3]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]
+            nameExtended:
+              - text: "Pachet: 2 x Bors Maggi cu gust de legume, 200g"
+                xpath: /html/body/div[3]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            price:
+              - text: 13,38 Lei
+                xpath: /html/body/div[11]
+            description:
+              - text: "Bors Maggi cu gust de legume, 200gIn fiecare familie exista cineva care
+                  stie sa gateasca un bors nemaipomenit: bunica, mama sau
+                  matusa. Surprinde-i  si tu pe cei dragi cu gustul unic si
+                  aroma imbietoare a ciorbelor facute cu Maggi Bors cu legume si
+                  tarate de grau.Ingrediente:sare iodata, faina de grau,
+                  corector de aciditate (acid citric), zahar, amidon din
+                  cartofi, drojdie deshidratata [faina de secara, corector de
+                  aciditate (acid citric)], legume deshidratatate in proportii
+                  variabile 4,8% (morcov, ceapa, pastarnac, ardei gras rosu),
+                  ulei vegetal de floarea-soarelui, potentiatori de aroma
+                  (monoglutamat de sodiu, 5’-ribonucleotide disodice), extract
+                  de drojdie deshidratata (extract de drojdie, sare), arome
+                  (contin telina), tarate de grau 1,2%, frunze de patrunjel,
+                  frunze de telina, condiment (turmeric), colorant
+                  (riboflavine).Poate contine urme de lapte, oua, soia si
+                  peste.Conditii de pastrare:A se pastra la loc uscat si la
+                  temperatura camerei.Instructiuni de preparare:Se presara
+                  direct in ciorba in ultimele minute de fierbere. Adaugati 10g
+                  (aproximativ o lingura) la un litru de ciorba."
+                xpath: /html/body/div[3]/div[2]/div[1]/section[5]/div[1]/div[1]/div[1]/div[1]/div[1]/b[1]/text()[1]
+            brandText:
+              - text: Maggi
+                xpath: /html/body/div[3]/div[2]/div[1]/section[8]/div[1]/div[1]/div[1]/div[2]/p[1]/a[1]
+            weightNet:
+              - text: 200 g
+                xpath: /html/body/div[3]/div[2]/div[1]/section[8]/div[1]/div[1]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[4]/td[2]
+            gtin:
+              - text: "8585002460196"
+                xpath: /html/body/div[3]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]
+            sku:
+              - text: DHL4MMMBM
+                xpath: /html/body/div[3]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/input[1]/@data-id
+            variantId:
+              - text: "6479317"
+                xpath: /html/head[1]/script[5]
+            mpc:
+              - text: "8585002460196"
+                xpath: /html/body/div[3]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/div[2]/span[1]
+            legalDisclaimer:
+              - text: Pretul produsului include costul de 0 lei aferent colectarii, tratarii si
+                  eliminarii DEEE.
+                xpath: /html/body/div[3]/div[2]/div[1]/section[8]/div[1]/div[1]/div[1]/div[2]/p[2]
+            directions:
+              - text: >-
+                  Instructiuni de preparare:
+                   
+                   Se presara direct in ciorba in ultimele minute de fierbere. Adaugati 10g (aproximativ o lingura) la un litru de ciorba.
+                xpath: /html/body/div[12]
+            shippingInfo:
+              - text: |-
+                  Vândut și livrat de: 
+                   
+                   eMAG
+                xpath: /html/body/div[3]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]
+            manufacturerDescription:
+              - text: "Bors Maggi cu gust de legume, 200g In fiecare familie exista cineva care
+                  stie sa gateasca un bors nemaipomenit: bunica, mama sau
+                  matusa. Surprinde-i  si tu pe cei dragi cu gustul unic si
+                  aroma imbietoare a ciorbelor facute cu Maggi Bors cu legume si
+                  tarate de grau. Ingrediente: sare iodata, faina de grau,
+                  corector de aciditate (acid citric), zahar, amidon din
+                  cartofi, drojdie deshidratata [faina de secara, corector de
+                  aciditate (acid citric)], legume deshidratatate in proportii
+                  variabile 4,8% (morcov, ceapa, pastarnac, ardei gras rosu),
+                  ulei vegetal de floarea-soarelui, potentiatori de aroma
+                  (monoglutamat de sodiu, 5’-ribonucleotide disodice), extract
+                  de drojdie deshidratata (extract de drojdie, sare), arome
+                  (contin telina), tarate de grau 1,2%, frunze de patrunjel,
+                  frunze de telina, condiment (turmeric), colorant
+                  (riboflavine). Poate contine urme de lapte, oua, soia si
+                  peste. Conditii de pastrare: A se pastra la loc uscat si la
+                  temperatura camerei. Instructiuni de preparare: Se presara
+                  direct in ciorba in ultimele minute de fierbere. Adaugati 10g
+                  (aproximativ o lingura) la un litru de ciorba."
+                xpath: /html/body/div[3]/div[2]/div[1]/section[5]/div[1]/div[1]/div[1]/div[1]/div[1]/b[1]/text()[1]
+            manufacturerImages:
+              - text: https://s13emagst.akamaized.net/products/29602/29601385/media/res_bbe62365a2750d5d2a0888490356709a.jpg?width=350&height=159&hash=2976FA8A942E60F3F95534D995762B90
+                xpath: /html/body/div[3]/div[2]/div[1]/section[5]/div[1]/div[1]/div[1]/div[1]/div[3]/img[1]/@data-src
+            name:
+              - text: "Pachet: 2 x Bors Maggi cu gust de legume, 200g"
+                xpath: /html/body/div[3]/div[2]/div[1]/section[1]/div[1]/div[2]/div[1]/div[1]/h1[1]
+            brandLink:
+              - text: http://www.emag.ro/brands/brand/maggi
+                xpath: /html/body/div[3]/div[2]/div[1]/section[8]/div[1]/div[1]/div[1]/div[2]/p[1]/a[1]/@href
+            productOtherInformation:
+              - text: Tip produs Mix condimente || Mix condimente Legume || Alte ingrediente
+                  Sare || Greutate 200 g
+                xpath: /html/body/div[10]
+            availabilityText:
+              - text: In Stock
+            variantCount:
+              - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: Yes
+            secondaryImageTotal:
+              - text: "1"
+        xpath: /
+    timestamp: 1613161275890
