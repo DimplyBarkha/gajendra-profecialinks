@@ -7,7 +7,7 @@ module.exports = {
     domain: 'naszezoo.pl',
     url: 'https://www.naszezoo.pl/pl/searchquery/{searchTerms}',
     loadedSelector: 'div.innerbox.cf>div',
-    noResultsXPath: '//div[@class="container"]/p[contains(text(),"Nie")]',
+    // noResultsXPath: '//div[@class="container"]/p[contains(text(),"Nie")]',
     zipcode: '',
   },
 };

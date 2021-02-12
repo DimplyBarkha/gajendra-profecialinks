@@ -5,11 +5,11 @@ recordXPath: //div[@class="innerbox cf"]/div
 fields:
   - name: productUrl
     xpath: //a[@class="prod-name"]/@href
-    regExp: ^(.+)$
+    regExp: (.+)$
     regExpReplace: https://www.naszezoo.pl$1
   - name: thumbnail
     xpath: //div[@class="product-box-img"]/img/@src
-    regExp: ^(.+)$
+    regExp: (.+)$
     regExpReplace: https://www.naszezoo.pl$1   
   - name: name
     xpath: //a[@class="prod-name"]/@title
@@ -25,4 +25,3 @@ fields:
   - name: rankOrganic
   - name: sponsored
     defaultValue: false
-
