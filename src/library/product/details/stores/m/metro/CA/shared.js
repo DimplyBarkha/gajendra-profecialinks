@@ -29,6 +29,9 @@ const transform = (data) => {
             gr.price = [{ text: gr.price[0].text.slice(0, end) }];
           }
         }
+        if (gr.nameExtended) {
+          gr.nameExtended = [{ text: gr.nameExtended.map(e => e.text).join(' ') }];
+        }
       } catch (e) {
         console.log(e);
       }

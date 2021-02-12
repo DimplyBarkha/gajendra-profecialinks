@@ -15,6 +15,9 @@ fields:
     singleValue: false
     xpath: //ul[@class='b--list']/li
   - name: nameExtended
+    singleValue: false
+    xpath: //div[@class='pi--second-col']/div[contains(@class, 'pi--brand')  or contains(@class, 'pi--name') or contains(@class, 'pi--weight')]
+  - name: name
     singleValue: true
     xpath: //h1[@class='pi--title']
   - name: listPrice

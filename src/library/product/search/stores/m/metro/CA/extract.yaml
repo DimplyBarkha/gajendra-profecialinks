@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-list-name='searchResultsList']/div/div/div
+fields:
+  - name: brand
+    singleValue: true
+    xpath: //div[@data-list-name='searchResultsList']/div/div/div/@data-product-brand
+  - name: category
+    singleValue: false
+    xpath: //div[@data-list-name='searchResultsList']/div/div/div/@data-product-category
+  - name: productUrl
+    singleValue: true
+    xpath: //div[@data-list-name='searchResultsList']/div/div/div/div/div/a/@href
+  - name: thumbnail
+    singleValue: true
+    xpath: //div[@data-list-name='searchResultsList']/div/div/div/div//div/a/picture/img/@src
+  - name: name
+    singleValue: true
+    xpath: //div[@data-list-name='searchResultsList']/div/div/div/@data-product-name
+  - name: sku
+    singleValue: true
+    xpath: //div[@data-list-name='searchResultsList']/div/div/div/@data-product-code
+  - name: price
+    singleValue: true
+    xpath: //div[@class='pi--main-price']/div[@class='pi-sale-price']/span[@class='pi-price price-update'] | //div[@class='pi-sale-price']/span[@class='pi-price price-update pi-price-promo']
+  - name: listPrice
+    singleValue: true
+    xpath: //div[@class='products-tile-list__tile products-tile-list__tile--fourth products-tile-list__tile--second']/div[@class='tile-product item-addToCart tile-product--effective-date']/div[@class='tile-product__bottom-section']/div[@class='tile-product__bottom-section__pricing']/div[@class='tile-product__bottom-section__pricing__main-price']/div[@class='pi-regular-price']/span[@class='pi-price']
+  - name: id
+    singleValue: true
+    xpath: //div[@data-list-name='searchResultsList']/div/div/div/@data-product-code
+  - name: nameExtended
+    xpath: //div/a[@class='pt--image product-details-link']
+
