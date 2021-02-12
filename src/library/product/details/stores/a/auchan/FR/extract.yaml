@@ -38,7 +38,7 @@ fields:
   - name: description
     singleValue: false
     description: Description of product
-    xpath: //div[contains(@class,"product-description__content")]//h5[contains(text(),"Marketing")]//parent::div | //h4[contains(text(),"Description")]//parent::*//following-sibling::div[contains(@class,"product-description__content")]
+    xpath: //div[contains(@class,"product-description__content")]//h5[contains(text(),"Marketing")]//parent::div | //h4[contains(text(),"Description")]//parent::*//following-sibling::div[contains(@class,"product-description__content")] | //div[contains(@class,"col-xs-12 product-aside--textBlock")]/p
   - name: image
     singleValue: false
     description: Image of product
@@ -131,7 +131,7 @@ fields:
   - name: ingredientsList
     singleValue: false
     description:
-    xpath: /h5[contains(@class, 'product-description__feature-title') and contains(text(),'Ingrédients')]//following-sibling::* | //span[contains(@class, 'product-description__feature-label') and contains(text(),'Ingrédients')]//following-sibling::*
+    xpath: //h5[contains(@class, 'product-description__feature-title') and contains(text(),'Ingrédients')]//following-sibling::* | //span[contains(@class, 'product-description__feature-label') and contains(text(),'Ingrédients')]//following-sibling::*
   - name: directions
     singleValue: false
     description:
