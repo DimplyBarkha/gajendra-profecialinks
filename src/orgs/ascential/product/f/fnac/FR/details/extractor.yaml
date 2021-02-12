@@ -1,12 +1,18 @@
 robot: product/details
-proxy:
-  zone: FRA
-  type: RESIDENTIAL
+# proxy:
+#   zone: FRA
+#   type: RESIDENTIAL
 parameters:
   country: FR
   domain: fnac.com
   store: fnac
   zipcode: ""
+proxy:
+  zone: ZFR
+  type: DATA_CENTER
+policy:
+  numberRetries: 5
+  retryWithResidentialProxyAfter: 2
 meta:
   branches:
     dev: # Dyson High frequency
