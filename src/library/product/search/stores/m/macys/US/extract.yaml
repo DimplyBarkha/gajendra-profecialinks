@@ -5,13 +5,14 @@ recordXPath: null
 fields:
   - name: price
     singleValue: false
-    type: CURRENCY
     xpath: (//div[@class="cell"]//div[@class="priceInfo"]//span[contains(text(),'Sale') or contains(text(),'Now')]//following-sibling::text() | //div[@class="cell"]//div[@class="priceInfo"]//span[@class='regular']//span[not(contains(text(),'Sale'))]//following-sibling::text())
   - name: productUrl
     singleValue: false
     xpath: //div[@class="cell"]//div//div[@class="productThumbnailImage "]//a//@href
     regExp: (/.*)
     regExpReplace: https://www.macys.com$1
+  - name: searchUrl
+    xpath: ancestor::html//div[@id="pd_url"]
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="cell"]//div[@class="productThumbnailImage "]//div//img//@src
@@ -29,4 +30,5 @@ fields:
     regExp: \d+
   - name: name
     singleValue: false
-    xpath: //div[@class="cell"]//div[@class="productDetail"]//a//@title
+    xpath: //div[@class="cell"]//div[@class="productDetail"]//a/@title
+ 

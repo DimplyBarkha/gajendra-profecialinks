@@ -58,9 +58,9 @@ module.exports = {
         addHiddenDiv('aggregateRating', singleRating,k);
 
       }
-
-    });
-
+      const URL = window.location.href;
+      addElementToDocument('pd_url', URL);
+    });   
     return await context.extract(productDetails, { transform });
   },
 };
