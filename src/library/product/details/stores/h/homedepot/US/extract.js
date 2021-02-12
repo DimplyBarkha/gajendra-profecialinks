@@ -313,6 +313,8 @@ async function implementation (
     }
     const image360 = Boolean(baseData && baseData.media && baseData.media.threeSixty);
     image360 && document.body.setAttribute('image360', image360.toString());
+    const modelNumber =  baseData && baseData.identifiers &&  baseData.identifiers.modelNumber;
+    modelNumber && document.body.setAttribute('modelNumber', modelNumber);
 
     try {
       const parentId = baseData.identifiers.parentId;
