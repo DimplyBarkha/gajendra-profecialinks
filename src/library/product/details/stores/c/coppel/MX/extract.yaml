@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true 
     description: URL of the main product image
-    xpath: //*[@id="Zoomer"]/figure/img/@src
+    xpath: //*[@id="Zoomer"]/figure/img/@src | //a[@id='Zoomer']/@href
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
