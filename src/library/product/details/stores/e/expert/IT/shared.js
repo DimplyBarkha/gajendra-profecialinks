@@ -34,6 +34,12 @@ const transform = (data) => {
           if (!(item.text.includes('https:') || item.text.includes('http:'))) {
             item.text = item.text ? 'https:' + item.text : '';
           }
+          else if(item.text.includes('200w')){
+            const imgUrl = item.text.split(' 200w, ')[0];
+            if (!(item.text.includes('http'))) {
+              item.text = 'https:' + imgUrl;
+            }
+          }
         });
       }
 

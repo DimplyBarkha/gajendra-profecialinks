@@ -31,7 +31,12 @@ async function implementation (
   });
 
   await helper.ifThereClickOnIt('#btn_cookie_warning', 10000, true); // accept cookies
+  try{
+    await context.waitForSelector('iframe#eky-dyson-iframe')
 
+  }catch(error){
+    console.log("no iframe detected")
+  }
   const iframeLink = await context.evaluate(async () => {
     let iframeLink = null;
     const iframeSelector = document.querySelector('iframe#eky-dyson-iframe');
@@ -41,10 +46,10 @@ async function implementation (
     console.log('here is the iframe link ' + iframeLink);
     return iframeLink;
   });
-  let manufacturerDesc = []; let manufacturerImages = [];
+  let manufacturerDesc = []; let manufacturerImages = []; let inThe =[];
 
   if (iframeLink) {
-    await context.goto(iframeLink, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
+    await context.goto(iframeLink ,{ timeout: 100000, waitUntil: 'load', checkBlocked: true });
     await context.waitForXPath('//img');
   }
 
@@ -90,12 +95,35 @@ async function implementation (
   }, manufacturerDesc);
 
   manufacturerImages = await context.evaluate(async (manufacturerImages) => {
-    return manufacturerImages.push([...document.querySelectorAll('img')].map(elm => elm.src));
+
+   manufacturerImages.push(...[...document.querySelectorAll('img')].map(elm => elm.src));
+  return manufacturerImages;
   }, manufacturerImages);
+let boxText;
+   inThe = await context.evaluate(async (inThe) => {
+ inThe.push(...[...document.querySelectorAll('div.eky-accessory')]);
+ console.log("ijjjdhjshjhdjhsjdhjhs",inThe);
+ for(let i = 0; i<inThe.length; i++){
+boxText = inThe[i].innerText;
+console.log("MY---------------MY",boxText);
+ }
+  return inThe;
+  }, inThe);
+
+
+ /* let bb;
+await context.evaluate(() => {
+   bb = document.querySelectorAll('div.eky-accessory');
+  console.log ('hey i got the acceee.......', bb);
+  });
+  for(let i =0; i<bb.length; i++ ){
+
+  }
+  addHiddenDiv("inTheBox",bb) */
 
   await context.goto(productUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
-
-  await context.evaluate(async (manufacturerDesc, manufacturerImages) => {
+console.log ('TTTTTTTTTT', manufacturerImages);
+  await context.evaluate(async (manufacturerDesc, manufacturerImages, inThe) => {
     function addHiddenDiv (id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
@@ -103,7 +131,6 @@ async function implementation (
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
     }
-
     if (manufacturerDesc.length) {
       let enhancedContent = '';
       for (let i = 0; i < manufacturerDesc.length; i++) {
@@ -113,6 +140,7 @@ async function implementation (
     }
     if (manufacturerImages.length) {
       let aplusImages = '';
+      console.log("lllllllllll")
       const iframeUrl = window.location.href;
       for (let i = 0; i < manufacturerImages.length; i++) {
         if (i !== manufacturerImages.length - 1) {
@@ -133,9 +161,11 @@ async function implementation (
           }
         }
       }
+      console.log("aaaaaaaaaa",aplusImages);
       addHiddenDiv('aplusImages', aplusImages);
     }
   }, manufacturerDesc, manufacturerImages);
+
 
   const infiniteScroll = () => context.evaluate(async () => {
     let prevScroll = document.documentElement.scrollTop;
@@ -255,5 +285,6 @@ async function implementation (
     const imgSelelctor = document.querySelector('div.flix-comp-mainTitle');
     console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~', !!imgSelelctor);
   });
+
   return await context.extract(productDetails, { transform });
 }
