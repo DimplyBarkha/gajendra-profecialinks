@@ -1,6 +1,6 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
@@ -45,9 +45,8 @@ async function implementation(inputs, parameters, context, dependencies) {
       prodPrice.forEach(element => {
         element.setAttribute('price', element.textContent.replace(/\./g, '').replace(/,/g, '.'));
       });
-    }
-    catch (e) {
-      console.log("error message.");
+    } catch (e) {
+      console.log('error message.');
     }
   });
 
