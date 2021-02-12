@@ -6,7 +6,7 @@
  */
 const transform = (data) => {
   const cleanUp = (data, context) => {
-    const clean = text => text.toString()
+    const clean = text => text.toString().trim()
       .replace(/\r\n|\r|\n/g, ' ')
       .replace(/&amp;nbsp;/g, ' ')
       .replace(/&amp;#160/g, ' ')
@@ -111,23 +111,23 @@ const transform = (data) => {
           row.variantCount = [{ text: variations.length }];
           row.variants = [{ text: variations.join(' | ') }];
         } else {
-          delete row.variant
-{
-  row.promotion
-}          row.variantCount = [{ text: 0 }];
+          delete row.variant;
+          {
+            row.promotion;
+          } row.variantCount = [{ text: 0 }];
         }
       }
-      if(row.promotion){
+      if (row.promotion) {
         row.promotion.forEach(item => {
-         item.text = item.text
-        })
+          item.text = item.text;
+        });
       }
       if (row.color && row.quantity) {
         row.variantInformation = [{ text: row.color[0].text + ' ' + row.quantity[0].text }];
       }
 
-      if(row.name && row.brandText && row.brandText) {
-        row.name = [{text: row.brandText[0].text + " " + row.name[0].text}]
+      if (row.name && row.brandText && row.brandText) {
+        row.name = [{ text: row.brandText[0].text + ' ' + row.name[0].text }];
       }
     }
     return cleanUp(data);
