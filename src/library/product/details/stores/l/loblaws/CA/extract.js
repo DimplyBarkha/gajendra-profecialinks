@@ -28,14 +28,14 @@ async function implementation(
     // @ts-ignore
     var a = ''
     // @ts-ignore
-    const c = document.querySelectorAll('script[type="application/ld+json"]')[2].innerText;
-    if (c.includes('OutOfStock')) {
-      a = "Out of Stock"
-    }
-    else {
-      a = "In Stock"
-    }
-    addElementToDocument('a', a);
+    // const c = document.querySelectorAll('script[type="application/ld+json"]')[2].innerText;
+    // if (c.includes('OutOfStock')) {
+    //   a = "Out of Stock"
+    // }
+    // else {
+    //   a = "In Stock"
+    // }
+    // addElementToDocument('a', a);
   });
   return await context.extract(productDetails, { transform });
   // return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
