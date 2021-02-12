@@ -69,7 +69,7 @@ async function implementation (
           credentials: 'include',
         });
         const json = await response.json();
-        const variants = json.data.metadata.childItemsLookup.map(product => (window.location.origin + product.canonicalUrl));
+        const variants = (json.data.metadata && json.data.metadata.childItemsLookup.map(product => (window.location.origin + product.canonicalUrl))) || [];
         return variants;
       }
       return [];
