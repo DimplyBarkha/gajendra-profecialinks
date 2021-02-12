@@ -39,16 +39,49 @@ const transform = (data, context) => {
         console.log('CodeTrade');
         console.log(row);
 
-        if (row.ratingCount) {
-          product = row.ratingCount[0].text;
-          regEx = /\(([^)]+)\)/;
-          regexMatch = regEx.exec(product);
+        if (row.aggregateRating) {
+          product = row.aggregateRating[0].raw;
+          // regEx = /\(([^)]+)\)/;
+          // regexMatch = regEx.exec(product);
 
-          productDetails = JSON.parse(regexMatch[1]);
-          row.ratingCount = [
-            { text: productDetails.ratingCount },
+          productDetails = JSON.parse(product);
+          // console.log("productDetails coDE tRADE");
+          // console.log(productDetails);
+          row.aggregateRating = [
+            { text: productDetails.aggregateRating.ratingValue },
           ];
         }
+        if (row.ratingCount) {
+          var product = row.ratingCount[0].text;
+          // console.log(product);
+          var processProduct= JSON.parse(product)
+          console.log(processProduct.aggregateRating.ratingCount);
+          row.ratingCount = [
+            { text: processProduct.aggregateRating.ratingCount },
+          ];
+
+        //   //regEx = /\(([^)]+)\)/;
+        //   //regexMatch = regEx.exec(product);
+
+        //   productDetails = JSON.parse(product);
+        //   console.log("productDetails coDE tRADE");
+        //   console.log(productDetails);
+        //   row.ratingCount = [
+        //     { text: productDetails.ratingCount },
+        //   ];  
+        }
+        if (row.availabilityText) {
+          row.availabilityText = [
+            {
+              text:
+                row.availabilityText[0].text === 'true'
+                  ? 'In Stock'
+                  : 'Out Of Stock',
+            },
+          ];
+        }
+
+        
 
         // if (row.nameExtended) {
         //   product = row.brandText[0].text;

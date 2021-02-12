@@ -19,7 +19,7 @@ fields:
   #   singleValue: true
   #   description: The <meta> keywords content
   - name: category
-    xpath: //ol[contains(@class,'breadcrumb')]//li[position()=6]//span
+    xpath: //*[@id="jMain"]/div/nav/ol/li[contains(@class,"active")]
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
   # - name: nameExtended
@@ -32,28 +32,34 @@ fields:
     singleValue: true
     description: The stated undiscounted price for the product
   - name: price
-    xpath: //p[contains(@class,'discount-price orange-color')]
+    xpath: //*[@id="addToBasketForm"]/div/div[3]/div[1]/div[2]/p
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-  # - name: availabilityText
-  #   singleValue: true
-  #   description: Availability as described on page for the selected variant. If
-  #     there is no availability but the product can be added to cart, this field
-  #     should be "In Stock"
-  #   regExp: (.+)
-  #   regExpReplace: In Stock
-  #   defaultValue: Out of Stock
+  - name: availabilityText
+    xpath: boolean(//*[@id="addToBasketForm"]/div/div[3]/div[3]/a[1])
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
   - name: description
-    xpath: //div[contains(@class,'product-detail-content')]//div[contains(@class,'product-detail-content')] 
+    xpath: //*[@id="tab01"]/section/div[1]/p[1]
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+  - name: priceCurrency
+    singleValue: true
+    xpath: //*[@id="addToBasketForm"]/div/div[3]/div[1]/div[2]/p/span[2]
+    regExp: ^[\s\S]{0,2}
   # - name: descriptionBullets
   #   xpath: count(//div[contains(@class,'product-detail-content')]//div[contains(@class,'product-detail-content')]//ul/li)
   #   singleValue: true
   #   description: Number of ul > li tags in the description
-    type: NUMBER
+  #  type: NUMBER
+
   - name: brandText
     xpath: //div[contains(@class,'product-detail-table')]//td[last()]
     singleValue: true
@@ -69,17 +75,25 @@ fields:
     description: Quantity as described on the page
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
-  # - name: weightNet
-  #   singleValue: true
-  #   description: Net weight as described on the page
+  - name: weightNet
+    xpath: //*[@id="tab01"]/section/div[1]/p[14]/font/font
+    singleValue: true
+    description: Net weight as described on the page
   # - name: weightGross
   #   singleValue: true
   #   description: Gross weight as described on the page
-
-  - name: mpc
-    xpath: //span[contains(@id,'sku')]
+  - name: sku
     singleValue: true
-    description: The manufacturer model code (unique) of the product
+    xpath: //span[contains(@id,'sku')]
+    description: The store-specific product identifier
+  - name: gtin
+    xpath: //*[@id="barcode"]/font/font
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  # - name: mpc
+  #   xpath: //span[contains(@id,'sku')]
+  #   singleValue: true
+  #   description: The manufacturer model code (unique) of the product
   # - name: packSize
   #   singleValue: true
   #   description: The number of packs in the product offer (if stated separately on
@@ -97,14 +111,15 @@ fields:
     xpath: //script[contains(text(),'ratingCount')]
     singleValue: true
     description: The number of ratings
-    type: NUMBER
+  #   type: NUMBER
   # - name: aggregateRatingText
   #   singleValue: true
   #   description: The stated aggregate rating
-  # - name: aggregateRating
-  #   singleValue: true
-  #   description: The stated aggregate rating normalized to be out of 5
-  #   type: NUMBER
+  - name: aggregateRating
+    xpath: //script[contains(text(),'aggregateRating')]
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
   # - name: shippingInfo
   #   xpath: //*[@id="addToBasketForm"]/div/div[3]/div[4]/div[3]/div/p[1]/font/font
   #   singleValue: true
