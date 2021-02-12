@@ -102,7 +102,7 @@ fields:
     xpath: (//div[@class="double-container__box"][1]//button[contains(text(),'Ratings & Reviews')]/following-sibling::div[1]//span[@class="reviews-summary__item"][contains(text(),'Review')])[1]
     regExp: (\d+)
     regExpReplace: $1
-  - name: aggregateRating2
+  - name: aggregateRating
     xpath: (//div[@class="double-container__box"][1]//button[contains(text(),'Ratings & Reviews')]/following-sibling::div[1]//span[@class="reviews-summary__item"][contains(text(),'Rating')])[1]
     regExp: Rating:\s(.+)/(.+)
     regExpReplace: $1
