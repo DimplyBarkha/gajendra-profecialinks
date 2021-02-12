@@ -194,7 +194,11 @@ const transform = (data, context) => {
         row.lowestPriceIn30Days = [{ text: 'False' }];
       }
       if (!row.brandText && row.backupBrand) {
-        row.brandText = [{ text: row.backupBrand[0].text }];
+        let tempBrand = row.backupBrand[0].text;
+        if( tempBrand.includes('Marca')){
+          tempBrand = tempBrand.replace('Marca:', '').trim();
+        }
+        row.brandText = [{ text: tempBrand }];
       }
       if (row.lbb && row.price) {
         if (row.lbb[0].text === 'YES') {
