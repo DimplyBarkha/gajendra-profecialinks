@@ -46,7 +46,7 @@ fields:
     regExp: '[^|]+'
   - name: manufacturerImages
     singleValue: false
-    xpath: //@manufacturerImages
+    xpath: //@manufacturerImages | //div[@class="grid desktop-content-wrapper__main-description"]/div[@class="bullet-list-wrapper"]/ul/li//img/@src | //div[@class="etch-widgets"][not(ancestor::html//@manufacturerImages)]//img/@src
     regExp: '[^|]+'
   # - name: ratingCount
   #   singleValue: true
@@ -179,7 +179,7 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //@manufacturerDescription
+    xpath: //@manufacturerDescription | //div[@class="etch-widgets"][not(ancestor::html//@manufacturerDescription)]
   - name: name
     singleValue: false
     description: The product name
@@ -246,5 +246,9 @@ fields:
     xpath: //span[contains(text(),"Hover Image to Zoom")]
   - name: technicalInformationPdfPresent
     xpath: //a[contains(text(),"Specification") and contains(@href,"pdf")]
+  - name: variantCount
+    xpath: count(//a[@class="variants"])
+  - name: variants
+    xpath: //a[@class="variants"]/@id
 
 

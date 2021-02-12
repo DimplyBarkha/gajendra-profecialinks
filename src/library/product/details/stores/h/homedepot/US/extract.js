@@ -264,8 +264,8 @@ async function implementation (
       const response = await fetch('https://www.homedepot.com/product-information/model', {
         headers: {
           'content-type': 'application/json',
-          'x-api-cookies': JSON.stringify(xAPICookies),
-          'x-experience-name': 'general-merchandise',
+          // 'x-api-cookies': JSON.stringify(xAPICookies),
+          'x-experience-name': window.experienceMetadata.name,
         },
         body: JSON.stringify(body),
         method: 'POST',
@@ -275,11 +275,18 @@ async function implementation (
       const data = await response.json();
       return data.data.product;
     }
-    let baseData = window.__APOLLO_STATE__ && Object.values(window.__APOLLO_STATE__).find(elm => elm.__typename === 'BaseProduct' && elm.itemId === window.location.pathname.match(/[^\/]+$/)[0]);
+    let baseData = window.__APOLLO_STATE__ && Object.values(window.__APOLLO_STATE__).find(elm => elm.__typename === 'BaseProduct' && elm.dataSources === 'catalog');
+    // Sometimes __APOLLO_STATE__ may not have the data, we can get from API if needed, update the graphQL query if API is missing the particular property.
     baseData = baseData || await getBaseData();
     try {
+      let richContentTable;
       if (baseData.media && baseData.media.richContent) {
-        const richContentTable = addDynamicTable([JSON.parse(baseData.media.richContent.content)]);
+        richContentTable = addDynamicTable([JSON.parse(baseData.media.richContent.content)]);
+      } else {
+        const apiData = await getBaseData();
+        richContentTable = addDynamicTable([JSON.parse(apiData.media.richContent.content)]);
+      }
+      if (richContentTable) {
         const manufacturerDescription = [...richContentTable.querySelectorAll('.text')].map(elm => elm.innerText).filter(elm => elm.trim()).join(' ');
         const manufacturerImages = [...richContentTable.querySelectorAll('.imageSrc .desktop')].map(elm => elm.innerText).filter(elm => elm.trim()).join('|');
         document.body.setAttribute('manufacturerDescription', manufacturerDescription);
@@ -306,6 +313,48 @@ async function implementation (
     }
     const image360 = Boolean(baseData && baseData.media && baseData.media.threeSixty);
     image360 && document.body.setAttribute('image360', image360.toString());
+
+    try {
+      const parentId = baseData.identifiers.parentId;
+      if (parentId) {
+        const body = {
+          operationName: 'metadata',
+          variables: { parentId },
+          query:
+          'query metadata($parentId: String!) {\n  metadata(parentId: $parentId) {\n    attributes {\n      attributeValues {\n        value\n        swatchGuid\n        __typename\n      }\n      attributeName\n      isSwatch\n      __typename\n    }\n    childItemsLookup {\n      attributeCombination\n      canonicalUrl\n      isItemBackOrdered\n      itemId\n      __typename\n    }\n    sizeAndFitDetail {\n      attributeGroups {\n        attributes {\n          attributeName\n          dimensions\n          __typename\n        }\n        dimensionLabel\n        productType\n        __typename\n      }\n      __typename\n    }\n    superDuperSku {\n      attributes {\n        attributeName\n        attributeValues {\n          selected\n          superSkuUrl\n          value\n          __typename\n        }\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n}\n',
+        };
+        const response = await fetch('https://www.homedepot.com/product-information/model', {
+          headers: {
+            accept: '*/*',
+            'accept-language': 'en-US,en;q=0.9',
+            'content-type': 'application/json',
+            'sec-ch-ua':
+              '"Chromium";v="88", "Google Chrome";v="88", ";Not A Brand";v="99"',
+            'sec-ch-ua-mobile': '?0',
+            'sec-fetch-dest': 'empty',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-site': 'same-origin',
+            'x-debug': 'false',
+            'x-experience-name': window.experienceMetadata.name,
+          },
+          body: JSON.stringify(body),
+          method: 'POST',
+          mode: 'cors',
+          credentials: 'include',
+        });
+        const json = await response.json();
+        const variants = json.data.metadata.childItemsLookup.map(product => (window.location.origin + product.canonicalUrl));
+        variants.forEach(variant => {
+          const a = document.createElement('a');
+          a.setAttribute('src', variant);
+          a.setAttribute('class', 'variants');
+          a.id = variant.match(/[^\/]+$/)[0];
+          document.body.append(a);
+        });
+      }
+    } catch (error) {
+      console.log('Error adding variants');
+    }
   });
   return await context.extract(productDetails, { transform });
 }
