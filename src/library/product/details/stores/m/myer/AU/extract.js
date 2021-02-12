@@ -27,7 +27,7 @@ module.exports = {
       console.log("selector of inTheBox doesn't exist");
     }
     
-    const applyScroll = async function (context) {
+    /*const applyScroll = async function (context) {
       return await context.evaluate(async function () {
         //let allData;
         //return allData = await fetch(`https://api.searchspring.net/api/search/search.json?siteId=14dsyu&resultsFormat=native&page=1&resultsPerPage=150&q=${keywords12}`).then(r => r.json());
@@ -38,13 +38,14 @@ module.exports = {
         let inStockOutStockApiUrl=`https://api-online.myer.com.au/v2/product/productsupplemental?products=${productSKUId}&itemDetails=true`;
         return itemDetailsRs=fetch(inStockOutStockApiUrl).then(r => r.json());
       });
-    };
-    const productVariantState=await applyScroll(context);
+    };*/
+
+    //const productVariantState=await applyScroll(context);
     await new Promise((resolve, reject) => setTimeout(resolve, 1000));
     //console.log('testtest=======================',productVariantState);
 
     try{
-      await context.evaluate(function (productVariantState) {
+      await context.evaluate(async function () {
         function addHiddenDiv(className, content,) {
           const newDiv = document.createElement('div');
           newDiv.className = className;
@@ -55,29 +56,31 @@ module.exports = {
         function getStockType(productVariantsItemData,variantID){
           //console.log('productVariantsItemData+++++++++++++++++++++++++++++++++++',productVariantsItemData);
           //console.log('variantID+++++++++++++++++++++++++++++++++++',variantID);
-          for(let tmp in productVariantsItem){
+          for(let tmp in productVariantsItemData){
             //console.log('tmp:::::::::::::::::',productVariantsItem[tmp]);
-            if(productVariantsItem[tmp].id==variantID){
-              let tmpstockIndicator= productVariantsItem[tmp].stockIndicator;
+            if(productVariantsItemData[tmp].id==variantID){
+              let tmpstockIndicator= productVariantsItemData[tmp].stockIndicator;
               console.log('tmpstockIndicator:::::::::::::::::',tmpstockIndicator);
               return tmpstockIndicator;
             }
           }
         }
         //console.log('productVariantState ===================================',productVariantState);
-        let productVariantsItem=productVariantState.productList[0].items;
+        //let productVariantsItem=productVariantState.productList[0].items;
+
         //console.log('productVariantsItem ===================================',productVariantsItem);
         
         const outerDiv = addHiddenDiv('variants_outer', '');
         let tmpOBJ=JSON.parse(document.querySelector('script#__NEXT_DATA__').textContent);
 
-        /*let productSKUId=tmpOBJ.props.initialState.productDetails.product.result.id;
+        let productSKUId=tmpOBJ.props.initialState.productDetails.product.result.id;
         let inStockOutStockApiUrl=`https://api-online.myer.com.au/v2/product/productsupplemental?products=${productSKUId}&itemDetails=true`;
-        let itemDetailsRs=fetch(inStockOutStockApiUrl).then(r => r.json());
+        let itemDetailsRs=await fetch(inStockOutStockApiUrl).then(r => r.json());
         new Promise((resolve, reject) => setTimeout(resolve, 1000));
-        //let productsupplementalArr=itemDetailsRs.productList[0].item;
         console.log('productsupplementalArr::',itemDetailsRs);
-        new Promise((resolve, reject) => setTimeout(resolve, 20000));*/
+        let productVariantsItem=itemDetailsRs.productList[0].items;
+        console.log('productVariantsItem::',productVariantsItem);
+        new Promise((resolve, reject) => setTimeout(resolve, 20000));
         
 
         let rootObj=tmpOBJ.props.initialState.productDetails.attributes.variantsMap;
@@ -119,7 +122,7 @@ module.exports = {
           outerDiv.appendChild(innerDiv);
           document.body.appendChild(outerDiv);
         }        
-      },productVariantState)
+      },)
     }catch(e){
 
     }
