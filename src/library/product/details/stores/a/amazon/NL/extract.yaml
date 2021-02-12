@@ -12,10 +12,6 @@ fields:
   - name: _url
     #singleValue: true
     xpath: //link[@rel='canonical']/@href          
-  - name: asin
-    #singleValue: true
-    xpath: //div[@class="a-section"]//input[@id="ASIN"]/@value
-    description: ASIN value here  
   - name: videos
     singleValue: false
     xpath: //div[@class="airy-renderer-container"]//video[@preload="auto"]/@src
