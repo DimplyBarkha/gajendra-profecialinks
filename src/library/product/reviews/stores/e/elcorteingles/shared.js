@@ -29,9 +29,9 @@ const transform = (data, context) => {
     console.log('group length before' + item.group.length);
     item.group = item.group.filter(function (row) {
       if (!lastReviewDate) {
-        lastReviewDate = row.reviewDate ? row.reviewDate[0].text : null;
+        lastReviewDate = new Date;
       }
-      if (checkIfReviewIsFromLast30Days(lastReviewDate, row.reviewDate ? row.reviewDate[0].text : null)) {
+      if (checkIfReviewIsFromLast30Days(lastReviewDate, row.reviewDate[0].text)) {
         return true;
       }
       return false;

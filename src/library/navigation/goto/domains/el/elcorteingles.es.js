@@ -3,6 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'elcorteingles.es',
+    timeout: 100000,
     store: 'elcorteingles',
     country: 'ES',
   },

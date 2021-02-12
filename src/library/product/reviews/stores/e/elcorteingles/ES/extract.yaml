@@ -7,13 +7,17 @@ fields:
     xpath: //button[contains(@class, 'feedback-yes')]//span[contains(@class, 'count')]
   - name: name
     description: The product name
-    xpath: ancestor::html//h1[@itemprop="name"]
+    xpath: ancestor::html//h1[@itemprop="description"]|ancestor::html//h1[@itemprop="name"]
+  - name: brandText
+    xpath: ancestor::div//span[@itemprop="brand"]
   - name: sku
     singleValue: true
     xpath: ancestor::html//div[@data-product-id]/@data-product-id
   - name: reviewDate
     xpath: //meta[@itemprop="datePublished"]/@content
   - name: reviewRating
+    xpath: //span[contains(@class,"content-rating")]//abbr[1]/@title
+    regExp: (\d|\d.\d)
   - name: reviewText
     description: The text of the review
     xpath: //div[contains(@class,'summary-body-text')]
@@ -22,7 +26,7 @@ fields:
   - name: reviewerTags
     xpath: //li[contains(@class, 'badge-contributor')]/span[2]
   - name: gtin
-    xpath: //span[contains(@class, 'gtin-number')]
+    xpath: ancestor::div//span[contains(@itemprop,'gtin')]|//span[contains(@class, 'gtin-number')]
   - name: productUrl
     xpath: //link[@rel="canonical"]/@href
   - name: verifiedPurchase
@@ -31,3 +35,6 @@ fields:
     xpath: ancestor::html//div[@itemprop="ratingValue"]
   - name: reviewRatingText
     xpath: //span[contains(@class, 'rating-stars')]/span
+    regExp: (\d|\d.\d)
+  - name: productUrl
+    xpath: ancestor::html//link[@rel="canonical"]/@href
