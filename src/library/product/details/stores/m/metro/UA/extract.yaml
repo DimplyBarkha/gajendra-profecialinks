@@ -1,0 +1,80 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//img[@data-testid='smallImage'])[1]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: (//img[@data-testid='smallImage'])[1]/@alt
+  - name: availabilityText
+    singleValue: false
+    defaultValue: In Stock
+  - name: nameExtended
+    singleValue: false
+    xpath: //h1[contains(@class,'big-product-card__title')]
+  - name: listPrice
+    singleValue: false
+    xpath: //h6[contains(@class,'big-product-card__price')]/span[contains(@class,'Price__value_minor')]
+  - name: price
+    singleValue: false
+    xpath: //h6//span[contains(@class,'Price__value_title')]
+  - name: promotion
+    singleValue: false
+    xpath: (//div[@data-marker='Discount'])[position() = 1]
+  - name: alternateImages
+    singleValue: false
+    xpath: (//img[@data-testid='smallImage'])[position() > 1]/@src
+  - name: category
+    singleValue: false
+    xpath: (//ol[contains(@class,'breadcrumbs__list')]/li)[position() > 1]/a
+  - name: description
+    singleValue: false
+    xpath: //div[@data-marker-popup='Big product card']/script/text()
+  - name: sku
+    singleValue: false
+  - name: gtin
+    singleValue: false
+  - name: brandText
+    singleValue: false
+    xpath: //a[contains(@class,'BigProductCardTrademarkName')]
+  - name: variantId
+    singleValue: false
+  - name: variantCount
+    singleValue: false
+    defaultValue: 1
+  - name: weightGross
+    singleValue: false
+    xpath: //div[@data-marker='product_weight'] | //div[@data-marker='product_volume']
+  - name: name
+    singleValue: false
+    xpath: //h1[contains(@class,'big-product-card__title')]
+  - name: warranty
+    singleValue: false
+    xpath: //div[@data-marker='product_shelf_life']
+  - name: storage
+    singleValue: false
+  - name: caloriesFromFatPerServing
+    singleValue: false
+    xpath: //ul[contains(@class,'big-product-card__facts-list nutrition-facts')]
+  - name: proteinPerServing
+    singleValue: false
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //div[@data-marker='product_fat']
+  - name: totalCarbPerServing
+    singleValue: false
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //p[contains(@class,'big-product-card__disclaimer')]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
+  - name: packSize
+    singleValue: false
+    xpath: //div[@data-marker='product_pack_amount']
+  - name: storage
+    singleValue: false
+    xpath: //div[@data-marker='product_temperature_range']
