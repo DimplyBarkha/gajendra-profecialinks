@@ -49,17 +49,21 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
+      // custom code to get price with $
       try {
         const size = getXpath("//div[@class='lsection mobile-product-name h6']//text()", 'nodeValue');
+        console.log('Raghav'+size);
         var nameArr = size.split(',');
+        console.log('Sai'+nameArr);
+        console.log('Rahul'+nameArr[nameArr.length - 1]);
         addElementToDocument('size', nameArr[nameArr.length - 1])
-        const price = getXpath("//div[@class='display-price']//span[@itemprop='price']/text() | (//div[@class='display-price sale-price']/text())[1]", 'nodeValue');
-        if (price.includes('$')) {
-          addElementToDocument('price', price);
-        }
-        else {
-          addElementToDocument('price', '$' + price);
-        }
+      //   const price = getXpath("//div[@class='display-price']//span[@itemprop='price']/text() | (//div[@class='display-price sale-price']/text())[1]", 'nodeValue');
+      //   if (price.includes('$')) {
+      //     addElementToDocument('price', price);
+      //   }
+      //   else {
+      //     addElementToDocument('price', '$' + price);
+      //   }
       } catch (error) {
 
       }
