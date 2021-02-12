@@ -68,8 +68,8 @@ fields:
     xpath: ancestor::html//div[contains(@class,"rating_summary_container")]//div[@itemprop="ratingValue"]  
   - name: variantCount
     singleValue: false
-    #xpath: count(//div[@class="drawers-container"]//ul[@data-automation="drawer-body"]//li)
-    defaultValue: '1'    
+    xpath: //div[@class="variants_outer"]/div[@class="variants_inner"]/div[@class="sku_variantsCount"]
+    defaultValue: 0 
   - name: variantInformation
     singleValue: false
     xpath: ancestor::html//div[@class="drawers-container"]//ul[@data-automation="drawer-body"]//li//button[contains(@class,"css-1qfcket")]/@data-automation
@@ -78,7 +78,7 @@ fields:
     xpath: ancestor::html//div[@class="drawers-container"]//ul[@data-automation="drawer-body"]//li[1]//button[contains(@class,"css-1qfcket")]/@data-automation
   - name: variants
     singleValue: false
-    xpath: ancestor::html//div[@class="drawers-container"]//ul[@data-automation="drawer-body"]//li//button[contains(@class,"css-1qfcket")]/@data-automation
+    xpath: //div[@class="variants_outer"]/div[@class="variants_inner"]/div[@class="sku_variants"]
   - name: color
     singleValue: false
     xpath: ancestor::html//div[@data-automation="colour-select-container"]//span[@data-automation]
