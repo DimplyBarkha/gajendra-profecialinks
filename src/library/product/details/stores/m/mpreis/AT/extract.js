@@ -14,23 +14,23 @@ module.exports = {
     // await new Promise((resolve, reject) => setTimeout(resolve, 100000));
     // await context.waitForSelector('.prod-info');
     await context.evaluate(async () => {
-      let scrollTop = 0;
-      while (scrollTop <= 20000) {
-        await stall(200);
-        scrollTop += 2000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 30000) {
-          await stall(2000);
-          break;
-        }
-      }
-      function stall (ms) {
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
+      // let scrollTop = 0;
+      // while (scrollTop <= 20000) {
+      //   await stall(200);
+      //   scrollTop += 2000;
+      //   window.scroll(0, scrollTop);
+      //   if (scrollTop === 30000) {
+      //     await stall(2000);
+      //     break;
+      //   }
+      // }
+      // function stall (ms) {
+      //   return new Promise((resolve) => {
+      //     setTimeout(() => {
+      //       resolve();
+      //     }, ms);
+      //   });
+      // }
       function addElementToDocument (key, value) {
         const createdElem = document.querySelector(`#${key}`);
         if (!createdElem) {
@@ -41,6 +41,13 @@ module.exports = {
           document.body.appendChild(catElement);
         }
       }
+      // Add string for propper regExp working
+      const tables = document.querySelectorAll('table.table');
+      tables.forEach(table => {
+        table.querySelectorAll('td').forEach(tdItem => {
+          tdItem.textContent = tdItem.textContent + ' Data'
+        })
+      })
     });
     return await context.extract(productDetails, { transform });
   },

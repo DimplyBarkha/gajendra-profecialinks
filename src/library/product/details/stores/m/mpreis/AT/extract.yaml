@@ -40,77 +40,54 @@ fields:
   - name: quantity
     singleValue: true
     xpath: //th[contains(text(), 'Netto Inhalt')]/following-sibling::td
-
-    
-  #   singleValue: false
-  #   defaultValue: 1
-  # - name: sku
-  #   singleValue: false
-  #   xpath: //script[@type='application/ld+json']//text()
-  # - name: variantId
-  #   singleValue: false
-  #   xpath: //script[@type='application/ld+json']//text()
-  # - name: metaKeywords
-  #   singleValue: false
-  #   xpath: 
-  # - name: category
-  #   singleValue: false
-  #   xpath: //script[@type='application/ld+json']//text()
-  # - name: nameExtended
-  #   singleValue: false
-  #   xpath: //script[@type='application/ld+json']//text()
-  # - name: name
-  #   singleValue: false
-  #   xpath: //script[@type='application/ld+json']//text()
-  # - name: price
-  #   singleValue: false
-  #   xpath: //div[@class='c3-shop-product__cart-wrapper']//div[contains(@class,'c3-shop-product__effective-price')]/text()
-  # - name: listPrice
-  #   singleValue: false
-  #   xpath: //div[@class='c3-shop-product__cart-wrapper']//div[contains(@class,'c3-shop-product__effective-price')]//div
-  # - name: availabilityText
-  #   singleValue: false
-  #   xpath: //script[@type='application/ld+json']//text()
-  #   defaultValue: "InStock"
-  # - name: description
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'c3-detail-information__')]//div[contains(text(), 'Akkreditierungslabel')]/following-sibling::div//ul
-  # - name: variantCount
-  #   singleValue: false
-  #   xpath: 
-  #   defaultValue: 0
-  # - name: brandText
-  #   singleValue: false
-  #   xpath: //script[@type='application/ld+json']//text()
-
-  # - name: gtin
-  #   singleValue: false
-  #   xpath: //script[@type='application/ld+json']//text()
-  # - name: quantity
-  #   singleValue: false
-  #   defaultValue: 1
-  # - name: countryOfOrigin
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'c3-detail-information__')]//div[contains(text(), 'Ursprungsland des Produkts')]/following-sibling::div//text()
-  # - name: descriptionBullets
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'c3-detail-information__')]//div[contains(text(), 'Akkreditierungslabel')]/following-sibling::div
-  # - name: manufacturer
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'c3-detail-information__')]//div[contains(text(), 'Hersteller')]/following-sibling::div
-  # - name: weightGross
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'c3-detail-information__')]//div[contains(text(), 'Bruttogewicht')]/following-sibling::div
-  # - name: weightNet
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'c3-detail-information__')]//div[contains(text(), 'Nettofüllmenge')]/following-sibling::div
-  # - name: warnings
-  #   singleValue: false
-  #   xpath: //div[contains(@class,'c3-detail-information__')]//div[contains(text(), 'Gefahrstoffe')]/following-sibling::div
-  # - name: energyEfficiency
-  #   singleValue: false
-  #   xpath: (//div[contains(@class,'c3-detail-information__')]//td[contains(text(), 'Energie [kcal]')]/following-sibling::td)[1]
-  # - name: totalFatPerServing
-  #   singleValue: false
-  #   xpath: (//div[contains(@class,'c3-detail-information__')]//td[contains(text(), 'davon gesättigte Fettsäuren')]/following-sibling::td)[1]
-  
+  - name: sku
+    singleValue: true
+    xpath: //input[@name="anid"]/@value
+  - name: directions
+    singleValue: true
+    xpath: //th[contains(text(), 'Zubereitung')]/following-sibling::td
+  - name: warnings
+    singleValue: true
+    xpath: //div[contains (@class, 'alert-warning')]//p
+  - name: servingSize
+    singleValue: true
+    xpath: //th[contains(text(), 'Nährwerttabelle zubereitet genormt')]/following-sibling::td | //th[contains(text(), 'Nährwerttabelle unzubereitet genormt')]/following-sibling::td 
+  - name: caloriesPerServing
+    singleValue: true
+    xpath: //th[contains(text(), 'Nährwerttabelle zubereitet genormt')]/following-sibling::td | //th[contains(text(), 'Nährwerttabelle unzubereitet genormt')]/following-sibling::td 
+  - name: totalFatPerServing
+    singleValue: true
+    xpath: //th[contains(text(), 'Nährwerttabelle zubereitet genormt')]/following-sibling::td | //th[contains(text(), 'Nährwerttabelle unzubereitet genormt')]/following-sibling::td 
+  - name: saturatedFatPerServing
+    singleValue: true
+    xpath: //th[contains(text(), 'Nährwerttabelle zubereitet genormt')]/following-sibling::td | //th[contains(text(), 'Nährwerttabelle unzubereitet genormt')]/following-sibling::td 
+  - name: totalCarbPerServing
+    singleValue: true
+    xpath: //th[contains(text(), 'Nährwerttabelle zubereitet genormt')]/following-sibling::td | //th[contains(text(), 'Nährwerttabelle unzubereitet genormt')]/following-sibling::td 
+  - name: dietaryFibrePerServing
+    singleValue: true
+    xpath: //th[contains(text(), 'Nährwerttabelle zubereitet genormt')]/following-sibling::td | //th[contains(text(), 'Nährwerttabelle unzubereitet genormt')]/following-sibling::td 
+  - name: totalSugarsPerServing
+    singleValue: true
+    xpath: //th[contains(text(), 'Nährwerttabelle zubereitet genormt')]/following-sibling::td | //th[contains(text(), 'Nährwerttabelle unzubereitet genormt')]/following-sibling::td 
+  - name: proteinPerServing
+    singleValue: true
+    xpath: //th[contains(text(), 'Nährwerttabelle zubereitet genormt')]/following-sibling::td | //th[contains(text(), 'Nährwerttabelle unzubereitet genormt')]/following-sibling::td 
+  - name: numberOfServingsInPackage
+    singleValue: true
+    xpath: //th[contains(text(), 'Portionen pro Packung')]/following-sibling::td
+  - name: countryOfOrigin
+    singleValue: true
+    xpath: //th[contains(text(), 'Herkunftsland')]/following-sibling::td
+  - name: allergyAdvice
+    singleValue: true
+    xpath: //th[contains(text(), 'Allergene')]/following-sibling::td
+  - name: saltPerServing
+    singleValue: true
+    xpath: //th[contains(text(), 'Nährwerttabelle zubereitet genormt')]/following-sibling::td | //th[contains(text(), 'Nährwerttabelle unzubereitet genormt')]/following-sibling::td 
+  - name: pricePerUnit
+    singleValue: true
+    xpath: //div[@class='tobasketFunction']/div[@class='tm-content']
+  - name: legalDisclaimer
+    singleValue: true
+    xpath: //th[contains(text(), 'Haftungsausschluß')]/following-sibling::td
