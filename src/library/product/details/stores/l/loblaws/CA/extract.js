@@ -28,7 +28,7 @@ async function implementation(
     // @ts-ignore
     var a = ''
     // @ts-ignore
-    const c = document.querySelector('script[type="application/ld+json"]').innerText;
+    const c = document.querySelectorAll('script[type="application/ld+json"]')[2].innerText;
     if (c.includes('OutOfStock')) {
       a = "Out of Stock"
     }
