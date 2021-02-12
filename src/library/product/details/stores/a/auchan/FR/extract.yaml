@@ -38,15 +38,11 @@ fields:
   - name: description
     singleValue: false
     description: Description of product
-    xpath: //span[contains(text(),"consommateur")]//following-sibling::div | (//div[contains(@class,"product-tab--text")])[1]
-  # - name: color
-  #   singleValue: false
-  #   description: Color of product
-  #   xpath: //div[contains(@class, 'inpage_selector_specification')]//table//tr[td[contains(translate(string(), 'COULEUR', 'couleur'), 'couleur')]]//td[contains(@class,'flix-d-p')]
+    xpath: //div[contains(@class,"product-description__content")]//h5[contains(text(),"Marketing")]//parent::div | //h4[contains(text(),"Description")]//parent::*//following-sibling::div[contains(@class,"product-description__content")]
   - name: image
     singleValue: false
     description: Image of product
-    xpath: //div[contains(@class,'product-image-container')]//meta[@itemprop="image"]/@content | //div[@id='custom-product-main-image']/text()
+    xpath: //div[contains(@class,'product-image-container')]//meta[@itemprop="image"]/@content | //img[contains(@class, 'product-gallery__picture')]/@src
   - name: imageAlt
     singleValue: false
     description: Alternate text of product image
@@ -54,19 +50,15 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Alternate images of product
-    xpath: (//div[contains(@class, 'product-image-container')]//a[contains(@class,'gallery-link')]//img/@src)[position()>1]
+    xpath: (//div[contains(@class,"product-thumbnail--container")]//div[contains(@class,"js-native-scroller--wrapper")]//label//img/@src)[position()>1]
   - name: secondaryImageTotal
     singleValue: false
     description: Alternate images of product
-    xpath: count((//div[contains(@class, 'product-image-container')]//a[contains(@class,'gallery-link')]//img/@src)[position()>1])
+    xpath: count((//div[contains(@class,"product-thumbnail--container")]//div[contains(@class,"js-native-scroller--wrapper")]//label//img/@src)[position()>1])
   - name: videos
     singleValue: false
     description: videos of product
     xpath: //div[contains(@class,'inpage_selector_video')]//div[@id='fullPlaylist']//input/@value | //iframe[starts-with(@src,'https://www.yout')]/@src
-  # - name: shippingInfo
-  #   singleValue: false
-  #   description: Shipping Info of product
-  #   xpath: (//div[contains(@class, 'product-price--seller')]//span)[position()=1]
   - name: weightNet
     singleValue: false
     description: Weight of product
@@ -78,13 +70,9 @@ fields:
   - name: variantId
     singleValue: false
     description: selected variant of product
-    xpath: (//div[contains(@class, 'product-detail--reference')]//span/text())[position() = 1] | //div[@id='custom-product-id']/text()
-    regExp: (.*)\:\s*([^\s]*)
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (.+)p[r]?-(.+)
     regExpReplace: $2
-  - name: variantCount
-    singleValue: false
-    description: variant count of product
-    xpath: count(//div[@id='onlineContent']//div[contains(@class, 'ui-variant--optionList')]//img)
   - name: packSize
     singleValue: false
     description: pack size of product
@@ -92,15 +80,11 @@ fields:
   - name: quantity
     singleValue: false
     description: quantity
-    xpath: //div[contains(@class,'offer-selector__attributes')]//span[contains(@class,'product-attribute') and contains(@aria-label, 'Contenance')]
+    xpath: //div[contains(@class,'offer-selector__attributes')]//span[contains(@class,'product-attribute') and contains(@aria-label, 'Contenance')] | //span[contains(text(),"Quantité")]//following-sibling::* | //span[contains(text(),"Format")]//following-sibling::*
   - name: legalDisclaimer
     singleValue: false
     description: legal Disclaimer of product
     xpath: //div[@id='footerAlcoholDisclaimer'] | //span[contains(@class, 'product-description__feature-label') and contains(text(),'legales')]//following-sibling::*
-  # - name: productUrl
-  #   singleValue: false
-  #   description: Product url
-  #   xpath: //meta[@property='og:url']/@content | //link[@rel='canonical']/@href
   - name: variants
     singleValue: false
     description: Product variants
@@ -120,7 +104,10 @@ fields:
   - name: availabilityText
     singleValue: false
     description: Product availability Text
-    xpath: //div[@id='custom-product-info-availablityText']/text()
+    xpath: //span[contains(@class,"quantity-selector--defaultTxt")]
+    regExp: (.+)
+    regExpReplace: In stock
+    defaultValue: Out of stock
   - name: specifications
     singleValue: false
     description: Product specifications
@@ -144,7 +131,7 @@ fields:
   - name: ingredientsList
     singleValue: false
     description:
-    xpath: //h5[contains(@class, 'product-description__feature-title') and contains(text(),'Ingrédients')]//following-sibling::*
+    xpath: /h5[contains(@class, 'product-description__feature-title') and contains(text(),'Ingrédients')]//following-sibling::* | //span[contains(@class, 'product-description__feature-label') and contains(text(),'Ingrédients')]//following-sibling::*
   - name: directions
     singleValue: false
     description:
@@ -238,7 +225,7 @@ fields:
   - name: warnings
     singleValue: false
     description:
-    xpath: //span[contains(@class, 'product-description__feature-label') and contains(text(),'Conseil de conservation')]//following-sibling::*
+    xpath: //span[contains(@class, 'product-description__feature-label') and contains(text(),'Conseil de conservation')]//following-sibling::* | //h5[contains(text(),'Autres mentions légales')]//following-sibling::*
   - name: vitaminAPerServing
     singleValue: false
     description:
@@ -283,20 +270,3 @@ fields:
     singleValue: false
     description:
     xpath: //div[contains(@class,"inpage_selector_feature")]
-  # - name: unInterruptedPDP
-  #   singleValue: false
-  #   xpath: //div[contains(@class, "product-list--container")]//div[contains(@class, "product-item--wrapper")]//a//span[@itemprop="name"] | //div[@id="sponsored"] | //div[@class="added-pdp"]
-  #   regExp: '[^|]+'
-  # - name: inTheBoxUrl
-  #   singleValue: false
-  #   xpath: //div[@id='flix-std-inpage']//div[contains(@class, "InTheBox")]//div[contains(@class, "box")]//img/@data-flixsrcset
-  #   regExp: (.+)(\s?200w)(.+)
-  #   regExpReplace: https:$1
-  # - name: inTheBoxText
-  #   singleValue: false
-  #   xpath: //div[@id='flix-std-inpage']//div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
-    # description: Must include text to show the accessories/tools which come with the product
-  # - name: hasComparisonTable
-  #   singleValue: true
-  #   defaultValue: No
-  #   description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.

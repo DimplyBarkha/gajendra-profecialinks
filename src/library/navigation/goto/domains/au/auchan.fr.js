@@ -17,6 +17,6 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setBypassCSP(true);
     await context.setUseRelayProxy(false);
-    await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true });
+    await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: false });
   },
 };
