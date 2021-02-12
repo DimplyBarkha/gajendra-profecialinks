@@ -25,6 +25,22 @@ async function implementation(
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
     }
+    var getXpath = (xpath, prop) => {
+      var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+      let result;
+      if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+      else result = elem ? elem.singleNodeValue : '';
+      return result && result.trim ? result.trim() : result;
+    };
+    var name = getXpath('(//script[@type="application/ld+json"])[1]/text()', 'nodeValue');
+    if (name != null) {
+      var img = name.split('gtin13')[1]
+      if (img != null) {
+        var img = img.split(",")[0]
+        var img = img.slice(3, -1)
+        addElementToDocument('gtin', img);
+      }
+    }
     var a = ''
     // @ts-ignore
     const c = document.querySelector('script[type="application/ld+json"]').innerText;
