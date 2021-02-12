@@ -125,6 +125,10 @@ const transform = (data) => {
       if (row.color && row.quantity) {
         row.variantInformation = [{ text: row.color[0].text + ' ' + row.quantity[0].text }];
       }
+
+      if(row.name && row.brandText && row.brandText) {
+        row.name = [{text: row.brandText[0].text + " " + row.name[0].text}]
+      }
     }
     return cleanUp(data);
   };

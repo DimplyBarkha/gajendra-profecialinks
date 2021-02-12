@@ -22,7 +22,20 @@ const transform = (data) => {
               variations.push(tmpVariations);
             });
           } else {
-            delete row.variantId;
+            const tmpVariations = {};
+            tmpVariations.variantId = [];
+            tmpVariations.variantUrl = [];
+            tmpVariations.variant = [];
+            if(vData.attributes && vData.attributes.sku) {
+              tmpVariations.variantId.push({ text: vData.attributes.sku, xpath: item.xpath });
+            }
+            if(vData.link) {
+              tmpVariations.variantUrl.push({ text: 'https://en-ae.namshi.com/' + vData.link, xpath: item.xpath });
+            }
+            if(vData.attributes && vData.attributes.color) {
+              tmpVariations.variant.push({ text: vData.attributes.color, xpath: item.xpath });
+            }
+            variations.push(tmpVariations);
           }
         });
       }
