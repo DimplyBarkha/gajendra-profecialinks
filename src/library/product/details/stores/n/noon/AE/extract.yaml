@@ -135,3 +135,5 @@ fields:
   - name: inTheBoxText
     singleValue: false
     xpath: //table//tr//td[contains(text(),'Set Includes')]/following-sibling::td
+  - name: videos
+    xpath: //div[@name="TabArea"]/following-sibling::div[1]//video//source/@src
