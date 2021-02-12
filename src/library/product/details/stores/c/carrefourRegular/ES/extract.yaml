@@ -117,7 +117,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[@class='videoinformation']
+    xpath: //div[contains(@class,"flix-videocontainer")]//iframe/@src | //div[@class='videoinformation']
     description: URLs of videos on page
   - name: name
     singleValue: true
