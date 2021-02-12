@@ -1,19 +1,25 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="fp-productList"]
+recordXPath: //div[@class="fp_product"]
+fields:
+  singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="fp_product"]
 fields:
   - name: price
     singleValue: false
-    xpath: //div[@class="fp-productList_detail"][1]//b[@class="orange"]/text()
+    xpath: //div[@class="fp_article_price"]/text()
   - name: productUrl
-    xpath: //a[@class="fp-productList_detailsLink"]/@href
+    xpath: //div[@class="fp_product"]//a/@href
     regExp: (/.*)
     regExpReplace: https://www.flaschenpost.de$1
   - name: thumbnail
-    xpath: //div[@class='fp-productList_image']/img/@src
+    xpath: //a[@class="fp_product_image"]//img/@src
   - name: id
-    xpath: //div[@class="fp-productList_detail"][1]/@data-article
+    xpath: //a[@class="fp_product_image"]//img/@src
+    regExp: https://image.flaschenpost.de/articles/small/(\d+)
+    regExpReplace: $1
   - name: name
-    xpath: //div[@class='fp-productList_info']//following-sibling::h5/text()[1]
-  
+    xpath: //div[@class='fp_product_details']//following-sibling::h5/text()[1]
