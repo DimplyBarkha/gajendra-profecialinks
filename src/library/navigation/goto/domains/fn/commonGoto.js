@@ -17,7 +17,7 @@ const implementation = async (
         console.log('goto url: TEST ', url);
         const responseStatus = await context.goto(url, {
             antiCaptchaOptions: {
-                provider: 'geetest-captcha-solver',
+                provider: 'anti-captcha',
                 type: 'GEETEST',
                 autoSubmit: true,
             },
@@ -128,24 +128,19 @@ const implementation = async (
 
         if (statusCode === 403) {
             // waiting to load captcha
-            try {
-                await context.waitForSelector(captchaFrame, { timeout: 10000 });
-            } catch (error) {
-                console.log(error);
-            }
-
+            await context.waitForSelector(captchaFrame, { timeout: 10000 }).catch(error => console.log(error));
             if (await isHardBlocked(hardBlockedParam)) {
                 return await context.reportBlocked(statusCode, 'Hard Blocked');
                 // throw new Error('Hard blocked')
             };
 
             await solveCaptchIfNecessary(cssCaptcha); // if not hard blocked
-
-            try {
-                await context.waitForNavigation({ timeout: 30000 });
-            } catch (error) {
-                console.log(error);
-            }
+            await context.waitForNavigation({ timeout: 30000 }).catch(error => console.log(error))
+            // sometimes after captcha solved, it gets hard blocked
+            if (await isHardBlocked(hardBlockedParam)) {
+                return await context.reportBlocked(statusCode, 'Hard Blocked');
+                // throw new Error('Hard blocked')
+            };
         }
     };
 
