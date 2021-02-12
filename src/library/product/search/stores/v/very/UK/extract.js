@@ -1,6 +1,6 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
@@ -9,7 +9,7 @@ async function implementation(inputs, parameters, context, dependencies) {
       window.scrollBy({ top: i, left: 0, behavior: 'smooth' });
       await new Promise((resolve) => setTimeout(resolve, 1000));
     }
-    function addElementToDocument(key, value) {
+    function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
       catElement.textContent = value;
@@ -56,7 +56,6 @@ async function implementation(inputs, parameters, context, dependencies) {
   });
 
   // await context.evaluate(async () => {
-
 
   // add id
   // var ids = document.querySelectorAll('a[class="productMainImage"]');
