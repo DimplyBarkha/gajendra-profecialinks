@@ -11,6 +11,11 @@ module.exports = {
     zipcode: '',
   },
   implementation: async (inputs, { transform }, context, { productReviews }) => {
+    /**
+     * A function returning the absolute number of days between 2 dates
+     * @param {object} a first datetime object
+     * @param {object} b second datetime object
+     */
     const getDatesDiffInDays = (a, b) => {
       const _MS_PER_DAY = 1000 * 60 * 60 * 24;
       // Discard the time and time-zone information.
@@ -77,6 +82,12 @@ module.exports = {
     await context.select('select#sort', 'MOST_RECENT');
     await new Promise((resolve) => setTimeout(resolve, 500));
 
+    /**
+     * Function checking whether we should load more reviews. It returns false if
+     * there are more than 10000 reviews loaded, or the last loaded review is
+     * older than 30 days.
+     * @param {object} todayDate today datetime object
+     */
     const shouldLoadMore = async (todayDate) => {
       const totalReviews = await context.evaluate(
         async () => document.querySelectorAll('ul[data-test="review-list"] > li').length,
@@ -88,15 +99,13 @@ module.exports = {
         const dateElem = lastReview.querySelector('li[data-test="review-author-date"]');
         return dateElem ? dateElem.textContent : '';
       });
+
       const lastReviewDate = getDate(lastReviewDateStr);
       if (!lastReviewDate) return true;
+
       const datesDiffInDays = getDatesDiffInDays(todayDate, lastReviewDate);
       console.log(`The difference between dates: ${datesDiffInDays} days`);
-      if (datesDiffInDays > 30) {
-        console.log('Not loading more reviews.');
-        return false;
-      }
-      return true;
+      return !(datesDiffInDays > 30);
     };
 
     const today = new Date();
@@ -119,7 +128,7 @@ module.exports = {
 
     await context.evaluate(async () => {
       /**
-       * Function translating a given date to english.
+       * Function translating a given date to English.
        * @param {String} date date in Dutch
        */
       const translateDate = (date) => {
@@ -199,6 +208,10 @@ module.exports = {
           ? review.querySelector('li[data-test="review-author-date"]').textContent
           : '';
         const reviewDate = formatDate(getDate(dateStr));
+
+        // This conditional is to ensure we don't extract reviews without a date
+        // as the transform assumes that each review must have a date. Later we
+        // only extract reviews with a 'review_date' attribute.
         if (reviewDate) review.setAttribute('review_date', reviewDate);
 
         const ratingValue = review.querySelector('input[data-test="review-rating-value"]')
@@ -209,7 +222,6 @@ module.exports = {
       }
     });
 
-    // return await context.extract(productReviews);
     return await context.extract(productReviews, { transform });
   },
 };
