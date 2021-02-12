@@ -5,8 +5,8 @@ module.exports = {
     country: 'CA',
     store: 'metro',
     domain: 'metro.ca',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: '#main-img img',
+    noResultsXPath: '//div[contains(@class,"error-container")]',
     zipcode: '',
   },
 };

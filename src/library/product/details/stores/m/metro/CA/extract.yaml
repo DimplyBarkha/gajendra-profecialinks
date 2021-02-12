@@ -1,14 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id="container"]
 fields:
   - name: image
     singleValue: true
-    xpath: //div[@class='pi--product--img']/picture[@id='main-img']/img[@id='mob-img']/@src
-#  - name: imageAlt
-#    singleValue: true
-#    xpath: //div[@class='product-info item-addToCart']/div/div/picture/img/@alt
+    xpath: //picture[@id="main-img"]//source[@id="desk-img"]/@srcset
+  - name: imageAlt
+    xpath: //picture[@id="main-img"]/img/@alt
   - name: alternateImages
     singleValue: false
     xpath: //picture[@class='pi--thumbnail-item defaultable-picture pi--thumbnail-item--current']/img/@src
@@ -21,9 +20,6 @@ fields:
   - name: listPrice
     singleValue: true
     xpath: //div[@class='pi-regular-price']/span[@class='pi-price']
-#  - name: price
-#    singleValue: true
-#    xpath: //span[@class='pi-price price-update pi-price-promo'] | //div[@class='pi-secondary-price']/div/span[@class='pi-price']
   - name: price
     singleValue: false
     xpath: //div[@class='pi--main-price']/div
