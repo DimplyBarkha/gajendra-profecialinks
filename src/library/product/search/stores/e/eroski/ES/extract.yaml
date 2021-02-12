@@ -35,7 +35,7 @@ fields:
     singleValue: false
     xpath: //a[contains(@class,"product-image-resp")]/@href
     regExp: (.+)
-    regExpReplace: https://supermercado.eroski.es/$1
+    regExpReplace: https://supermercado.eroski.es$1
   - name: aggregateRating
     singleValue: false
     xpath: //div[@class="ratingSubtitle"]/text()[1]
