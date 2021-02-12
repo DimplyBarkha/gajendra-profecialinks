@@ -54,7 +54,7 @@ fields:
       multiple places; specifically not the manufacturer description
   - name: weightNet
     singleValue: false
-    xpath: //dt[contains(@class,'product-details__content-title') and contains(.,'Peso')]/following-sibling::dd[1] | //*[contains(text(), 'Peso')]/following-sibling::*
+    xpath: (//dt[contains(@class,'product-details__content-title') and contains(.,'Peso')]/following-sibling::dd[1] | //*[contains(text(), 'Peso')]/following-sibling::dd[1])[1]
     description: Net weight as described on the page
   - name: weightGross
     singleValue: true
@@ -117,7 +117,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //div[@class='videoinformation']
+    xpath: //div[@class='videoinformation'] |  //div[@id="videos"] 
     description: URLs of videos on page
   - name: name
     singleValue: true
