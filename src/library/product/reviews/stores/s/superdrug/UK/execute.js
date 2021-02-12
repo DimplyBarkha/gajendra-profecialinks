@@ -7,8 +7,8 @@ module.exports = {
     domain: 'superdrug.com',
     loadedSelector: 'div[class*="pdp__BVRRContainer--container"]',
     noResultsXPath: null,
-    reviewUrl: null,
-    sortButtonSelectors: 'button[aria-labelledby*="bv-dropdown-reviews-menu"]',
+    reviewUrl: 'https://www.superdrug.com/search?text={id}',
+    sortButtonSelectors: null,
     zipcode: '',
   },
 };
