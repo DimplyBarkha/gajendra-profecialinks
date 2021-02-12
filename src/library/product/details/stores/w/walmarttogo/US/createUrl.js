@@ -17,7 +17,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   }
   if (parameters.url) {
     const storeId = inputs.storeId || inputs.StoreID || 5334;
-    const zipcode = inputs.zipcode || '';
+    const zipcode = inputs.zipcode || inputs.Postcode || '';
     const url = parameters.url.replace('{id}', encodeURIComponent(id));
     return url + `&storeId=${storeId}#zipcode=${zipcode}`;
   }

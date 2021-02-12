@@ -7,7 +7,7 @@ async function implementation (
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails } = dependencies;
+  const { productDetails, goto } = dependencies;
   function addDynamicTable (jsonData) {
     function generateDynamicTable (jsonData) {
       const dataLength = jsonData.length;
@@ -90,26 +90,27 @@ async function implementation (
     document.body.innerHTML = '';
     document.body.append(container);
   }
+  const pageUrl = await context.evaluate(() => window.location.href);
+  async function getJsonData (url) {
+    await goto({ url });
+    const json = await context.evaluate(() => document.body.innerText);
+    return JSON.parse(json);
+  }
   async function getData () {
-    async function getBasicData (api) {
-      const response = await fetch(api);
-      const json = await response.json();
-      return json.basic;
-    }
-    const dataSelected = JSON.parse(document.body.innerText);
+    const text = await context.evaluate(() => document.body.innerText);
+    const dataSelected = JSON.parse(text);
     const data = [dataSelected];
     const selectedId = dataSelected.USItemId;
-    const basicApi = window.location.href.replace(/storeId=\d+/, 'storeId=5334');
+    const basicApi = pageUrl.replace(/storeId=\d+/, 'storeId=5334');
     if (!dataSelected.basic.image) {
-      dataSelected.basic = await getBasicData(basicApi);
+      dataSelected.basic = (await getJsonData(basicApi)).basic;
     }
     if (dataSelected.variantProducts) {
       const ids = Object.values(dataSelected.variantProducts).map(elm => elm.usItemId).filter(elm => elm !== selectedId);
       for (const id of ids) {
-        const response = await fetch(window.location.href.replace(/products\/[^\?]+/, `products/${id}`));
-        const json = await response.json();
+        const json = await getJsonData(pageUrl.replace(/products\/[^\?]+/, `products/${id}`));
         if (!json.basic.image) {
-          json.basic = await getBasicData(basicApi.replace(/storeId=\d+/, 'storeId=5334'));
+          json.basic = (await getJsonData(basicApi.replace(/storeId=\d+/, 'storeId=5334'))).basic;
         }
         data.push(json);
       }
@@ -117,24 +118,25 @@ async function implementation (
     return data;
   }
   async function getStoreDetails () {
-    console.log('LOCATION:', window.location.href);
-    let zipcode = window.location.href.match(/zipcode=(\d+)/) && window.location.href.match(/zipcode=(\d+)/)[1];
-    const storeId = window.location.href.match(/storeId=(\d+)/) && window.location.href.match(/storeId=(\d+)/)[1] || '5334';
-    const response = await fetch(`https://www.walmart.com/grocery/v3/api/store/${storeId}`);
-    const json = await response.json();
+    console.log('LOCATION:', pageUrl);
+    let zipcode = pageUrl.match(/zipcode=(\d+)/) && pageUrl.match(/zipcode=(\d+)/)[1];
+    const storeId = pageUrl.match(/storeId=(\d+)/) && pageUrl.match(/storeId=(\d+)/)[1] || '5334';
+    const json = await getJsonData(`https://www.walmart.com/grocery/v3/api/store/${storeId}`);
     const storeName = json.accessPointList.find(elm => elm.fulfillmentType === 'INSTORE_PICKUP').name.match(/^[^#]+/)[0].trim();
     if (!zipcode) {
       zipcode = json.address.postalCode.slice(0, 5);
     }
-    document.body.setAttribute('storeName', storeName);
-    document.body.setAttribute('zipcode', zipcode);
-    document.body.setAttribute('storeId', storeId);
     return { zipcode, storeId, storeName };
   }
   try {
-    const data = await context.evaluate(getData);
+    const data = await getData();
+    const storeData = await getStoreDetails();
     await context.evaluate(addDynamicTable, data);
-    await context.evaluate(getStoreDetails);
+    await context.evaluate(({ zipcode, storeId, storeName }) => {
+      document.body.setAttribute('storeName', storeName);
+      document.body.setAttribute('zipcode', zipcode);
+      document.body.setAttribute('storeId', storeId);
+    }, storeData);
     // Adding pipes to bullets, ideally should not be done in extractor level.
     await context.evaluate(() => {
       Array.from(document.querySelectorAll('td.description li,td.shortDescription li')).forEach(li => li.textContent = '|| ' + li.textContent);
@@ -151,6 +153,10 @@ module.exports = {
     store: 'walmarttogo',
     transform,
     domain: 'walmarttogo.api',
+  },
+  dependencies: {
+    goto: 'action:navigation/goto',
+    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
   },
   implementation,
 };
