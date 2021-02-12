@@ -25,7 +25,7 @@ module.exports = {
    
     const responseStatus = await context.goto(`${url}`, {
       antiCaptchaOptions: {
-        provider: 'geetest-captcha-solver',
+        provider: '2-captcha',
         type: 'GEETEST',
         autoSubmit: true,
       },
@@ -73,7 +73,7 @@ module.exports = {
     } catch (error) {
       const responseStatus = await context.goto(`${url}`, {
         antiCaptchaOptions: {
-          provider: 'geetest-captcha-solver',
+          provider: '2-captcha',
           type: 'GEETEST',
           autoSubmit: true,
         },
