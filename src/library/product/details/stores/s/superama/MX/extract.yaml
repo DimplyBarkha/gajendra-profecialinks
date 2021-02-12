@@ -11,11 +11,11 @@ fields:
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@class,"pdp-preview-image")][1]/div/@alt
-  # - name: alternateImages
-  #   singleValue: false
-  #   xpath: (//div[contains(@class,"pdp-preview-image")]/div/@style)[position()=1]
-  #   regExp: url\W+([^"]+)
-  #   regExpReplace: $1
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@class="pdp-preview-image"]/div/@style
+    regExp: url\W+([^"]+)
+    regExpReplace: $1
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -132,7 +132,7 @@ fields:
     description: Stated shipping weight
   - name: variantCount
     singleValue: false
-    defaultValue: 0
+    defaultValue: '0'
   - name: color
     singleValue: false
     description: A textual description of the colour
@@ -240,9 +240,9 @@ fields:
   - name: otherSellersShipping
     singleValue: false
     description: null
-  # - name: secondaryImageTotal
-  #   singleValue: false
-  #   xpath: count((//div[contains(@class,"pdp-preview-image")]/div/@style)[position()>1])
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[@class="pdp-preview-image"]/div/@style)
   - name: news
     singleValue: false
     description: null
