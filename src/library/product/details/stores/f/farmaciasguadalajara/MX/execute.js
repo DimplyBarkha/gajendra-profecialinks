@@ -6,7 +6,7 @@ module.exports = {
     store: 'farmaciasguadalajara',
     domain: 'farmaciasguadalajara.com',
     loadedSelector: 'img#productMainImage',
-    noResultsXPath: '//h3[contains(text(),"Página no encontrada")]',
+    noResultsXPath: '//h3[contains(text(),"Página no encontrada")] | //div[contains(@class,"results_description")][contains(.,"no devolvió ningún resultado")]',
     zipcode: '',
   },
 };
