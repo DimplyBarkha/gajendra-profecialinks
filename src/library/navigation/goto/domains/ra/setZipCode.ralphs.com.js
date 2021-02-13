@@ -28,6 +28,11 @@ async function implementation (
   };
 
   const findClosestStore = async () => {
+    await context.evaluate(function () {
+      const mystore = document.querySelector('div.ModalitySelector--StoreSearchResult:nth-of-type(1) div.StoreSearchResults-StartButton');
+      if (mystore) mystore.click();
+    });
+
     // const indexToClick = await context.evaluate(async function () {
       // const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
       // let smallestDistance = null;
@@ -50,23 +55,24 @@ async function implementation (
     // });
     try {
       const indexToClick = 1;
-      await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${indexToClick}) div.StoreSearchResults-StartButton`);
+      // await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${indexToClick}) div.StoreSearchResults-StartButton`);
+      // await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(1) div.StoreSearchResults-StartButton`);
     } catch (err) {}
   };
 
   const changeZip = async (wantedZip) => {
     await context.click('button.CurrentModality-button');
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
 
     await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip);
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
 
     await context.click('button.kds-SolitarySearch-button');
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-    await findButtonWithShip();
-    // await findButtonWithStoreSelect();
-    // await new Promise((resolve, reject) => setTimeout(resolve, 8000));
-    // await findClosestStore();
+    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+    // await findButtonWithShip();
+    await findButtonWithStoreSelect();
+    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+    await findClosestStore();
     await new Promise((resolve, reject) => setTimeout(resolve, 2000));
   };
 
@@ -81,11 +87,11 @@ async function implementation (
   console.log(`Want zip: ${zipcode}, got zip: ${currentZip}`);
   
   // if (currentZip !== "Citrus Plaza") {
-  //if (currentZip !== zipcode) {
-  //   console.log('Trying to change zip');
-  //   await changeZip(zipcode);
-  // }
-  await changeZip(zipcode);
+  if (currentZip !== zipcode) {
+    console.log('Trying to change zip');
+    await changeZip(zipcode);
+  }
+  // await changeZip(zipcode);
   await context.evaluate(() => {
     const overlay = document.querySelector('#kds-Modal-kh3pr23t > button');
     if (overlay) {
@@ -104,5 +110,5 @@ module.exports = {
     store: 'ralphs_92201',
     zipcode: '92201',
   },
-  implementation,
+  // implementation,
 };
