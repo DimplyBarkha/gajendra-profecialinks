@@ -21,7 +21,8 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id='productImagesWrapper']//div[contains(@class,'slick-vertical')]/div[@aria-live='polite']/div/a/@href
+    # xpath: //div[@id='productImagesWrapper']//div[contains(@class,'slick-vertical')]/div[@aria-live='polite']/div/a/@href
+    xpath: //div[@id='productImagesWrapper']//div[contains(@class,'slick-vertical')]//div[contains(@class,"slick-track")]//a[position()>1]/@href
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -110,6 +111,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: true
+    xpath: //div[@id='addeddirections']
     description: Content under "directions" header
   - name: warnings
     singleValue: true
@@ -248,6 +250,7 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
+    xpath: count(//div[@id='productImagesWrapper']//div[contains(@class,'slick-vertical')]//div[contains(@class,"slick-track")]//a[position()>1]/@href)
     singleValue: true
     description: null
     type: NUMBER

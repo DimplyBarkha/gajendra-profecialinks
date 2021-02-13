@@ -11,14 +11,14 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -82,6 +82,29 @@ module.exports = {
       if (additionalDescription !== null && additionalDescription.length > 0) {
         pipeSeparatorDouble('addedAdditionalDescription', additionalDescription);
       }
+
+      var directionResult = '';
+      const direction1 = getAllXpath("//div[@id='description']//div[@id='product-description']//p[contains(text(),'Bruk:')]/following::ul[1]/li", 'innerText');
+      const direction2 = getAllXpath("//div[@id='description']//div[@id='product-description']//p[@class='product-number']/text() | //div[@id='description']//div[@id='product-description']//p[@class='product-number']/span/text()", 'nodeValue');
+      console.log(direction1);
+      console.log('...in....');
+      console.log(direction2);
+      if (direction1 !== null && direction1 !== undefined) {
+        for (let i = 0; i < direction1.length; i++) {
+          if (direction1[i] !== null && direction1[i] !== undefined) {
+            directionResult += direction1[i];
+          }
+        }
+      }
+
+      if (direction2 !== null && direction2 !== undefined) {
+        for (let i = 0; i < direction1.length; i++) {
+          if (direction2[i] !== null && direction2[i] !== undefined) {
+            directionResult += direction2[i];
+          }
+        }
+      }
+      addElementToDocument('addeddirections', directionResult);
       // const getSize = getXpath("//meta[@property='og:url']/@content", 'nodeValue');
       // if (getSize !== '') {
       //   var getSizeArr = getSize.split('-');
