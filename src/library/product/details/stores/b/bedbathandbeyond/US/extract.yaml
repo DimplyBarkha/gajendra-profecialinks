@@ -113,3 +113,11 @@ fields:
     xpath: //div[contains(@certonaidentifier, 'recommendation_pdp_cav') or contains(@class, 'mt2 hideOnPrint') or contains(@id,'viewItem-PDP') or contains(@certonaidentifier, 'recommendation_pdp_fbw')]/div//div[contains(@class, 'CertonaProductTile') or contains(@class, 'hl-product')]//div[@id='PdpPricePanel']/following-sibling::a[1]
   - name: hasComparisonTable
     defaultValue: "No"
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    xpath: //a[contains(text(), "Click to Zoom")]
+    regExp: (.*)
+    regExpReplace: Yes
+    defaultValue: No
