@@ -12,7 +12,8 @@ fields:
     regExp: (.*?)\?(.*)
     regExpReplace: $1
   - name: name
-    xpath: //a[@class="CoveoResultLink"] | //div[@class="coveo-card-layout CoveoResult"]//a[@role="heading"]/text()
+    # xpath: //a[@class="CoveoResultLink"] | //div[@class="coveo-card-layout CoveoResult"]//a[@role="heading"]/text()
+    xpath: //a[@class="CoveoResultLink coveo-link-click"]
   - name: id
     singleValue: true
     description: The store-specific product identifier
