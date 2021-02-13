@@ -63,7 +63,7 @@ fields:
     singleValue: false
     # xpath: //div[@class="productDetailSubArea"]/div[@class="body"]/p/strong[contains(text(),"Ingredientes")]/parent::*/text() | //div[contains(@class,"additionalProductInformation")]//span[contains(.,'Lista de ingredientes:')]//following-sibling::span//text()
     # xpath: //div[contains(@class,"additionalProductInformation")]//span[contains(.,'Lista de ingredientes:')]//following-sibling::span//text() | //div[@class='nutricionalInformationArea']//span[@id='additionalInformation']//text()
-    xpath: //div[contains(@class,"additionalProductInformation")]//div[@id="ingredientStatement"]//span[contains(.,'Lista de ingredientes:')]//following-sibling::span//text()
+    xpath: //div[contains(@class,"additionalProductInformation")]//div[@id="ingredientStatement"]//span[contains(.,'Lista de ingredientes:')]//following-sibling::span//text() | //div[@class="productDetailSubArea"]/div[@class="body"]/p/strong[contains(text(),"Ingredientes")]//following-sibling::text()[1]
   - name: directions
     singleValue: false
     xpath: //div[@class="productDetailSubArea"]//div[@class="title" and text()="Dicas"]/parent::*/following::div[@class="body"]/p | //div[@id='UnspecifiedPreparationTypePreparationInstructions']/text() | //div[@class="productDetailSubArea"]//div[@class='body']//div[contains(.,'Dose Diária Recomendada:')]//following-sibling::div
