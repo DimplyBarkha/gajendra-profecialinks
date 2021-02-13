@@ -5,7 +5,7 @@ module.exports = {
     store: 'homedepot',
     domain: 'homedepot.com',
     loadedSelector: null,
-    noResultsXPath: '//*[@data-testid="errorContent"]',
+    noResultsXPath: '//p[text()="The product you are trying to view is not currently available"]|//*[@data-testid="errorContent"]',
     zipcode: '',
   },
 };
