@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'courts.state.co.us',
-    timeout: null,
+    timeout: 1000000,
     country: 'US',
     store: 'ColoradoDockets',
     zipcode: "''",

@@ -1,10 +1,10 @@
-
+const { transform } = require('./format');
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
     country: 'US',
     store: 'ColoradoDockets',
-    transform: null,
+    transform,
     domain: 'courts.state.co.us',
     zipcode: "''",
   },

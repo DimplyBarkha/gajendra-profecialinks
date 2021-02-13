@@ -84,6 +84,7 @@ export interface IGoToOptions extends IWaitOptions {
 }
 export declare type ScreenshotType = 'jpeg' | 'png' | 'pdf';
 export interface IContext {
+    ready(arg0: string);
     /**
      * Function that starts capturing Network Requests happening in the background while the browser is loading the page.
      * This function is required to be called if you want to use searchForRequest function.
