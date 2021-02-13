@@ -39,11 +39,12 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    xpath: (//span[@class="price-new"])[1]
-    regExp: (\d+)\.(.+)
-    regExpReplace: $1,$2
+    xpath: //html//div[@id='oprice']
+    # regExp: (\d+)\.(.+)
+    # regExpReplace: $1,$2
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    # type: CURRENCY  
   - name: availabilityText
     singleValue: true
     xpath: //button[@id="button-cart"]/span[contains(text(),"COMPRA JÁ")]/text()
@@ -118,8 +119,8 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
-    xpath: //div[contains(@class,"netreviews_global_rating")]/p[contains(@class,"netreviews_subtitle")]
-    regExp: (\d+)
+    xpath: //html//div[@id='ratingCount']/text()
+    # regExp: (\d+)
     description: The number of ratings
     type: NUMBER
   - name: aggregateRatingText

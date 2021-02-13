@@ -74,8 +74,9 @@ module.exports = {
         var ing = document.querySelector('div[id="tab-description"]');
         if (ing != null) {
           var desc = ing.innerText;
-          addElementToDocument('ingredients',desc.split('Ingredientes')[1]);
-      }} catch (error) { }
+          addElementToDocument('ingredients', desc.split('Ingredientes')[1]);
+        }
+      } catch (error) { }
 
       // Brand Text
       var brand = getXpath('//div[@class="description"]/p/a/text()', 'nodeValue');
@@ -96,6 +97,17 @@ module.exports = {
       if (description != null) {
         var desc1 = desc.innerText;
         addElementToDocument('directions', (desc1.split('Ingredientes')[0]).split(desc1.match(/(Como.+)/gm))[1]);
+      }
+
+      // Price
+      var price = getXpath('(//span[@class="price-new"])[1]/text()', 'nodeValue');
+      if (price != null) {
+        addElementToDocument('oprice', price.replace('.', ','));
+      }
+      //Rating Count
+      var ratingCount = getXpath('//div[contains(@class,"netreviews_global_rating")]/p[contains(@class,"netreviews_subtitle")]/text()', 'nodeValue');
+      if (ratingCount != null) {
+        addElementToDocument('ratingCount', ratingCount.match(/(\d+)/gm).join());
       }
 
     });
