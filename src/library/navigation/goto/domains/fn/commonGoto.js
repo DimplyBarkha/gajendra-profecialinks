@@ -17,7 +17,8 @@ const implementation = async (
         console.log('goto url: TEST ', url);
         const responseStatus = await context.goto(url, {
             antiCaptchaOptions: {
-                provider: 'anti-captcha',
+                provider: '2-captcha',
+                // provider: 'anti-captcha',
                 type: 'GEETEST',
                 autoSubmit: true,
             },
@@ -79,6 +80,7 @@ const implementation = async (
             console.log('isCaptchaFramePresent:', true);
             try {
                 await new Promise(resolve => setTimeout(resolve, 3000));
+
                 await context.evaluateInFrame('iframe', (cssCaptchaHandler) => {
                     const handler = document.querySelector(cssCaptchaHandler);
                     if (handler) {
