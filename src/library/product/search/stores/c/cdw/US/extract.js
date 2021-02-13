@@ -37,5 +37,5 @@ module.exports = {
     domain: 'cdw.com',
     zipcode: '',
   },
-  implementation, 
+  implementation,
 };
