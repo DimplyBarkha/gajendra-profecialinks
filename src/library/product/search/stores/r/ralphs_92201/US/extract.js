@@ -8,7 +8,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
 
   await context.evaluate(async function () {
     const overlay = document.getElementsByClassName('ReactModal__Overlay ReactModal__Overlay--after-open ModalitySelectorDynamicTooltip--Overlay page-popovers')[0];

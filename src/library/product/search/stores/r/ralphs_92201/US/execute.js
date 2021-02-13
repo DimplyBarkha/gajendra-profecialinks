@@ -6,7 +6,7 @@ module.exports = {
     store: 'ralphs_92201',
     domain: 'ralphs.com',
     url: 'https://www.ralphs.com/search?query={searchTerms}&searchType=default_search&fulfillment=all',
-    loadedSelector: '.PaginateItems',
+    loadedSelector: 'div.PaginateItems div.kds-Card',
     noResultsXPath: '//p[@class="no-query-results heading-l font-medium mt-0"]',
     zipcode: '',
   },
