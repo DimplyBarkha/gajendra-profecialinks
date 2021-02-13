@@ -351,27 +351,26 @@ module.exports = {
 
     addHiddenInfo("ii_description", description);
 
-    let loaderXpath =
-      '//div[contains(@class,"entd-recos")]//div[contains(@class,"shop-spinner")]/*';
-    let loaderIsPresent = true;
-    let thisTime = 0;
-    const maxTime = 120000;
-    while (loaderIsPresent && thisTime < maxTime) {
-      try {
-        await context.waitForXPath(loaderXpath);
-        console.log("loaderXpath is still there", loaderXpath);
-        await new Promise((resolve) => setTimeout(resolve, 30000));
-      } catch (err) {
-        loaderIsPresent = false;
-        console.log(
-          "got some error while waiting for the loader xpath",
-          err.message
-        );
-      }
-      thisTime += 30000;
-    }
-    console.log("loaderIsPresent", loaderIsPresent);
-    console.log("waited for", thisTime);
+    // let loaderXpath = '//div[contains(@class,"entd-recos")]//div[contains(@class,"shop-spinner")]/*';
+    // let loaderIsPresent = true;
+    // let thisTime = 0;
+    // const maxTime = 120000;
+    // while (loaderIsPresent && thisTime < maxTime) {
+    //   try {
+    //     await context.waitForXPath(loaderXpath);
+    //     console.log("loaderXpath is still there", loaderXpath);
+    //     await new Promise((resolve) => setTimeout(resolve, 30000));
+    //   } catch (err) {
+    //     loaderIsPresent = false;
+    //     console.log(
+    //       "got some error while waiting for the loader xpath",
+    //       err.message
+    //     );
+    //   }
+    //   thisTime += 30000;
+    // }
+    // console.log("loaderIsPresent", loaderIsPresent);
+    // console.log("waited for", thisTime);
 
     // manually extracting additional description bullet info
     // *[class*="bewerten-produkt-detail-tabs"] div>div[class="bewerten-textformat"]>ul>li
@@ -395,6 +394,7 @@ module.exports = {
         );
       }
     }
+    let gotAdditionalDescBulletInfo = false;
     const additionalDescBulletInfo = await context.evaluate(async function () {
       const bulletInfoParts = document.querySelectorAll(
         '*[class*="bewerten-produkt-detail-tabs"] div>div[class="bewerten-textformat"]>ul>li'
@@ -407,7 +407,12 @@ module.exports = {
       return additionalDescBulletInfo;
     });
 
-    addHiddenInfo("ii_additionalDescBulletInfo", additionalDescBulletInfo);
+    if(additionalDescBulletInfo) {
+      gotAdditionalDescBulletInfo = true;
+      addHiddenInfo("ii_additionalDescBulletInfo", additionalDescBulletInfo);
+    }
+
+    
 
     addHiddenInfo("ii_shippingInfo", shippingInfo);
     // manually extracting json stored data
@@ -442,6 +447,76 @@ module.exports = {
 
     console.log("212121dataRef");
     console.log(dataRef);
+
+    let descInfoElmSel = '//*[@data-module="bewerten/components/vueData/vueData"]';
+    let textValFromElm = '';
+    console.log('gotAdditionalDescBulletInfo', gotAdditionalDescBulletInfo);
+    if(!gotAdditionalDescBulletInfo) {
+      textValFromElm = await context.evaluate(async (descInfoElmSel) => {
+        console.log('need to check descInfoElmSel', descInfoElmSel);
+        // let elements = document.querySelectorAll(descInfoElmSel);
+        let elements = document.evaluate(descInfoElmSel, document, null, 7, null);
+        let elm = {};
+        let val = '';
+        if(elements && elements.snapshotLength > 0) {
+          elm = elements.snapshotItem(0);
+          val = elm.getAttribute('data-bewerten-json-pd-content');
+          if(val) {
+            val = val.trim();
+          }
+        }
+        console.log('val', val);
+        return val;
+      }, descInfoElmSel);
+    }
+    let jsonVal = {};
+    if(textValFromElm) {
+      try {
+        jsonVal = JSON.parse(textValFromElm);
+      } catch(err) {
+        console.log('got some error while parsing string to json', err.message);
+      }
+    }
+
+    if(Object.keys(jsonVal).length > 0) {
+      //jsonVal.blueprint.beschreibung.details
+      let descInfo = await context.evaluate(async (jsonVal) => {
+        let info = '';
+        if(jsonVal.hasOwnProperty("blueprint") && jsonVal.blueprint.hasOwnProperty('beschreibung') && jsonVal.blueprint.beschreibung.hasOwnProperty('details')) {
+          let parser = new DOMParser();
+          let text = jsonVal.blueprint.beschreibung.details;
+          let doc = '';
+          if(text) {
+            text = text.trim();
+            doc = parser.parseFromString(jsonVal.blueprint.beschreibung.details.trim(), "text/html");
+          } else {
+            console.log('could not get the document string');
+          }
+          if(doc) {
+            let descBulletsElms = document.evaluate('.//*[contains(text(),"Lieferumfang")]//following-sibling::ul//li', doc, null, 7, null);
+            let descBulletsInfoArr = [];
+            for(let i = 0; i < descBulletsElms.snapshotLength; i++) {
+              descBulletsInfoArr.push(descBulletsElms.snapshotItem(i).textContent);
+            }
+            console.log(descBulletsInfoArr.join(' || '));
+            info = descBulletsInfoArr.join(' || '); 
+          } else {
+            console.log('could not get the document');
+          }
+        } else {
+          console.log('not sure where to check the info')
+        }
+        return info;
+      }, jsonVal);
+
+      if(descInfo) {
+        addHiddenInfo("ii_additionalDescBulletInfo", descInfo);
+        gotAdditionalDescBulletInfo = true;
+      }
+      
+    }
+
+    console.log('gotAdditionalDescBulletInfo', gotAdditionalDescBulletInfo);
     // if (dataRef[0].data[0].group[0].alternateImages.length + 1 === jsonData.artikel[jsonData.artikelKey].ansichten.length) {
 
     //     if (!('image' in dataRef[0].data[0].group[0])) {
