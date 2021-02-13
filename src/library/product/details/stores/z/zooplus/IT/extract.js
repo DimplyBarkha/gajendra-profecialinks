@@ -23,8 +23,8 @@ module.exports = {
         var loadedUrlHash = window.location.hash;
         var rpc = (loadedUrlHash !== '') ? loadedUrlHash.split('=') : '';
         var productId = rpc.length > 0 ? (rpc[1].includes('.') ? rpc[1].split('.')[0] : rpc[1]) : '';
-        const aid = document.querySelector('div#search_result div#exo-results ul#exo-result-list li h3.producttitle a[aid]').getAttribute('aid');
-        const productUrl = document.querySelector('div#search_result div#exo-results ul#exo-result-list li h3.producttitle a[aid]').getAttribute('href');
+        const aid = document.querySelector('div#search_result div#exo-results ul#exo-result-list li h3.producttitle a[aid]') ? document.querySelector('div#search_result div#exo-results ul#exo-result-list li h3.producttitle a[aid]').getAttribute('aid') : '';
+        const productUrl = document.querySelector('div#search_result div#exo-results ul#exo-result-list li h3.producttitle a[aid]') ? document.querySelector('div#search_result div#exo-results ul#exo-result-list li h3.producttitle a[aid]').getAttribute('href') : '';
         var prodDetails = {
           productID: productId,
           anchorID: aid,
