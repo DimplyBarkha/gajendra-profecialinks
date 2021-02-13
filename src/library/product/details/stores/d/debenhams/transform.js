@@ -31,13 +31,16 @@ const transform = (data) => {
             }
             if (row.image) {
                 row.image.forEach(element => {
-                    element.text = `https:${element.text}`
+                    element.text = `https:${element.text}`.replace("w=1500", "w=640").replace("h=1500", "h=640").replace('fmt=webp', 'fmt=jpg')
                 });
             }
             if (row.variantInformation) {
                 row.variantInformation.forEach(x => {
                     x.text = x.text.split(",").join(" / ");
                 });
+            }
+            if (row.ingredientsList) {
+                row.ingredientsList[0].text = row.ingredientsList[0].text.split(":")[1].trim();
             }
             if (row.nameExtended) {
                 let variant = "";
