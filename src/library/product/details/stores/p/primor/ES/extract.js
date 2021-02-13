@@ -74,7 +74,7 @@ async function implementation(
     var desc1 = getXpath('//p[@class="our_price_display pull-left"]//span[@itemprop="price"]/text()', 'nodeValue');
 
     if (desc1 != null) {
-      desc1 = desc1.replace(",", ".")
+      // desc1 = desc1.replace(",", ".")
       addHiddenDiv1('desc1', desc1);
     }
 
@@ -169,7 +169,7 @@ async function implementation(
       if (desc2.includes(":")) {
         desc2 = desc2.split(": ")[1]
       }
-      desc2 = desc2.replace(",", ".")
+      // desc2 = desc2.replace(",", ".")
       addHiddenDiv1('desc2', desc2);
     }
 
@@ -221,7 +221,16 @@ async function implementation(
     if (rating != null) {
 
       rating = rating / 2;
-      addHiddenDiv1('rating', rating);
+      var review = String(rating);
+      if(review.includes(".")){
+        review = review.replace(".",",");
+        addHiddenDiv1('rating', review);
+      }
+      else{
+        addHiddenDiv1('rating', rating);
+
+      }
+      
     }
 
 
