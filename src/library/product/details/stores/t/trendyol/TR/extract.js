@@ -33,18 +33,39 @@ module.exports = {
         console.log('Error While itrerating over the variants',error);
       }
     }
-   try{
-    let node = await context.evaluate(async function () {
-      return document.querySelectorAll(`button[id='confirmed']`);
-    });
-   
-    if(JSON.stringify(node) !== '{}'){
-      await context.click(`button[id='confirmed']`);
+    let btnSel = "button[id='confirmed']";
+    let hasBtn = false;
+    try {
+      await context.waitForSelector(btnSel);
+      console.log('got the btn');
+      hasBtn = true;
+    } catch(err) {
+      console.log('got some error while waiting for the btn', err.message);
+      try {
+        await context.waitForSelector(btnSel);
+        console.log('got the btn');
+        hasBtn = true;
+      } catch(error) {
+        console.log('got some error while waiting for the btn, again', error.message);
+      }
+    }
+
+    if(hasBtn) {
+      await context.click(btnSel);
       await new Promise(resolve => setTimeout(resolve, 90000));
     }
+  //  try{
+  //   let node = await context.evaluate(async function () {
+  //     return document.querySelectorAll(`button[id='confirmed']`);
+  //   });
+   
+  //   if(JSON.stringify(node) !== '{}'){
+  //     await context.click(`button[id='confirmed']`);
+  //     await new Promise(resolve => setTimeout(resolve, 90000));
+  //   }
     
-   }catch(exception){
-      console.log("Exception ",exception);
-   }
+  //  }catch(exception){
+  //     console.log("Exception ",exception);
+  //  }
   },
 };
