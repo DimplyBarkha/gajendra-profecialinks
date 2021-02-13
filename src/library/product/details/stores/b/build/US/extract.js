@@ -27,17 +27,19 @@ module.exports = {
     });
 
     if (variantLength > 0) {
-      for (let j = 0; j < variantLength; j++) {
-        if (variantLength > 1) {
-          await context.evaluate(async (j) => {
-            return document
-              .querySelectorAll(
-                'div#purchase-box div#finish-swatches ul.finish-list li'
-              )
-              [j].click();
-          }, j);
-        }
+      let j = 0;
+      // for (let j = 0; j < variantLength; j++) {
+        // if (variantLength > 1) {
+          // await context.evaluate(async (j) => {
+          //   return document
+          //     .querySelectorAll(
+          //       'div#purchase-box div#finish-swatches ul.finish-list li'
+          //     )
+          //     [j].click();
+          // }, j);
+        // }
         await context.evaluate(async (j) => {
+          j = parseInt(document.querySelector('.list .b--theme-grey-dark') ? document.querySelector('.list .b--theme-grey-dark').getAttribute('data-iterator') : 0)
           function addHiddenDiv(id, content) {
             const newDiv = document.createElement('div');
             newDiv.id = id;
@@ -85,6 +87,15 @@ module.exports = {
               const str = [];
               for (var item of liList) {
                 str.push(item.innerText.trim());
+              }
+              elem = data.children[0];
+              var sibs = [elem];
+              while (elem = elem.nextSibling) {
+                  if (elem.nodeName != "P") break;
+                  sibs.push(elem);
+              }
+              if (sibs.length > 2 && sibs[0].innerText != "") {
+                str.unshift(sibs[0].innerText.trim());
               }
               addHiddenDiv("custom-attr-product-description", str.join(" || "));
               addHiddenDiv(
@@ -263,10 +274,10 @@ module.exports = {
         }, j);
 
         // await preparePage(j, variantLength);
-        if (j !== variantLength - 1) {
-          await context.extract(data, { transform }, { type: "APPEND" });
-        }
-      }
+        // if (j !== variantLength - 1) {
+        //   await context.extract(data, { transform }, { type: "APPEND" });
+        // }
+      // }
     }
     return await context.extract(data, { transform });
   },
