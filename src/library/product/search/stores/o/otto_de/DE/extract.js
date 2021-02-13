@@ -14,22 +14,48 @@ module.exports = {
     const { productDetails } = dependencies;
     await context.evaluate(async () => {
       let scrollTop = 0;
-      while (scrollTop !== 20000) {
-        await stall(500);
-        scrollTop += 1000;
-        window.scroll(0, scrollTop);
-        if (scrollTop === 20000) {
-          await stall(5000);
-          break;
+      // function addHiddenDiv(id, content, index) {
+      //   const newDiv = document.createElement('div');
+      //   newDiv.id = id;
+      //   newDiv.textContent = content;
+      //   newDiv.style.display = 'none';
+      //   //const originalDiv = document.querySelectorAll('#san_resultSection > article')[index];
+      //   const originalDiv = document.querySelectorAll("script[type='application/ld+json']")[index];
+      //   originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      // }
+      try{
+        while (scrollTop !== 20000) {
+          await stall(1000);
+          var aa = document.querySelectorAll("span[class='name']");
+          var az = document.querySelectorAll("li[id='san_pagingBottomNext'] button");
+          if (aa != null) {
+            for (var i = 0; i < aa.length; i++) {
+              console.log('h',i)
+            }
+          }
+          scrollTop += 500;
+          //name
+          window.scroll(0, scrollTop);
+          
+          if (az==null){
+            break;
+          }
+          if (scrollTop === 20000) {
+            await stall(2000);
+            break;
+          }
+  
+        }
+        function stall(ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
         }
       }
-      function stall(ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
+      catch(error) {}
+      
       // var tempData, valueVariant, valueRating;
       // const rawData = document.querySelectorAll('script[type="application/ld+json"]');
       // for (let i = 0; i < rawData.length; i++) {

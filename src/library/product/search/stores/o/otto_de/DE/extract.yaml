@@ -10,7 +10,7 @@ fields:
   - name: name
     singleValue: false
     # xpath: //html//div[@id='newname']
-    xpath: //a[@class='productLink']/span/text()
+    xpath: //*[@id="san_resultSection"]/article/div[3]/div[1]/a[1]/span
   - name: productUrl
     singleValue: false
     # xpath: //html//div[@id='url']
@@ -20,7 +20,9 @@ fields:
   - name: price
     singleValue: false
     # xpath: //html//div[@id='price']
-    xpath: //div[@class="price"]
+    xpath: //article//div[@class='price']//span[contains(@class,"reduced")]|//article//div[@class='price']//span[contains(@class,"retail")]
+    regExp: €(.+)
+    regExpReplace: € $1
   - name: manufacturer
     singleValue: false
     # xpath: //html//div[@id='newname']
