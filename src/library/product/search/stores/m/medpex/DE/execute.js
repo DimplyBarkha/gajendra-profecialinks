@@ -22,7 +22,7 @@ async function implementation (
  
     .replace('{searchTerms}', (((keywords.replace(/\ü/g, '%FC')).replace(/\ö/g,'%F6')).replace(/\ä/g,'%E4')).replace(/\ß/g,'%DF'))
     .replace('{queryParams}', query);
-    console.log("hai deepak ",keywords)
+    //console.log("hai deepak ",keywords)
   await dependencies.goto({ ...inputs, url: destinationUrl });
 
   if (loadedSelector) {
