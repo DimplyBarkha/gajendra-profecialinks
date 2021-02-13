@@ -91,9 +91,8 @@ module.exports = {
       await context.click('#didomi-popup > div > div > div > a');
     }
     const cssPageNum = '.styled__ProductWrapper-h5dvb4-1.NvJDv';
-    if (cssPageNum){
-      await context.waitForSelector(cssPageNum, { timeout: 10000 });
-    }
+    await context.waitForSelector(cssPageNum, { timeout: 10000 });
+
     
   },
 };
