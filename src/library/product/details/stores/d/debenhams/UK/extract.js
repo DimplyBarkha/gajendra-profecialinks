@@ -96,7 +96,7 @@ module.exports = {
                         const addToBagButton = document.evaluate("boolean(//button[contains(@class, 'dbh-add-to-bag')]/@disabled)", document, null, XPathResult.ANY_TYPE);
                         if (addToBagButton) {
                             const isDisabled = addToBagButton.booleanValue;
-                            addHiddenDiv("custom-attr-product-availability", isDisabled == false ? "Out of Stock" : "In Stock");
+                            addHiddenDiv("custom-attr-product-availability", isDisabled ? "Out of Stock" : "In Stock");
                         }
 
                         let productDescriptionEl = document.querySelectorAll("div.description-text-container div.product-item-number ~ div");
@@ -106,7 +106,7 @@ module.exports = {
                         if (productDescriptionEl) {
                             let str = "";
                             productDescriptionEl.forEach(x => {
-                                str = str.concat(x.innerText);
+                                str = str.concat(` ${x.innerText}`);
                             });
                             str && addHiddenDiv("custom-attr-product-description", str);
                         }

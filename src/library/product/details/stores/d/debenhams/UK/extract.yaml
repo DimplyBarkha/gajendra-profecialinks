@@ -28,17 +28,17 @@ fields:
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//*[contains(@class, 'dbh-product-price')]
+    xpath: //span[contains(@class, 'dbh-product-price')]
     regExp: .*£(.*)
     regExpReplace: £$1
   - name: promotion
     singleValue: false
-    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//*[contains(@class, 'dbh-product-saving')]
+    xpath: //span[contains(@class, 'dbh-product-saving')]
     regExp: \((.*)\)
     regExpReplace: $1
   - name: listPrice
     singleValue: false
-    xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__content')]//*[contains(@class, 'dbh-product-original')]
+    xpath: //span[contains(@class, 'dbh-product-original')]
     regExp: .*£(.*)
     regExpReplace: £$1
   - name: ratingCount
@@ -58,7 +58,7 @@ fields:
     xpath: //ul[@id='single-custom-attr-product-variants-field']//li/text()
   - name: variantInformation
     singleValue: false
-    xpath: //div[@id='custom-attr-product-variant-color']/text()
+    xpath: //div[@id='custom-attr-product-variant-color']/text() 
   - name: firstVariant
     singleValue: false
     xpath: //div[@id='single-custom-attr-product-first_variant']/text()

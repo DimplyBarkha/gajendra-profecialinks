@@ -7,6 +7,7 @@ const transform = (data) => {
     const clean = (text) =>
         text
         .toString()
+        .trim()
         .replace(/\r\n|\r|\n/g, " ")
         .replace(/&amp;nbsp;/g, " ")
         .replace(/&amp;#160/g, " ")
@@ -38,8 +39,12 @@ const transform = (data) => {
                     x.text = x.text.split(",").join(" / ");
                 });
             }
-            if (row.brandText) {
-                row.brandText = row.brandText.toString().trim()
+            if (row.nameExtended) {
+                let variant = "";
+                if (row.variantInformation && row.variantInformation.length > 0) {
+                    variant = ` ${row.variantInformation[0].text}`;
+                }
+                row.nameExtended[0].text = row.nameExtended[0].text + variant;
             }
             Object.keys(row).forEach(header => row[header].forEach(el => {
                 el.text = clean(el.text);
