@@ -1,13 +1,18 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id='ProductList']//div[@data-testing='ProductList_products']//div[contains(@class, 'css-7lqm78')]
 fields:
-  - name: paginationUrl
-    singleValue: false
-    description: desired url to pass in chain
-    xpath: //text()
-  - name: resultsCount
-    singleValue: false
-    description: total number of results
-    xpath: ancestor::html//div[@id="my-results-count"]
+  - name: manufacturer
+    description: The manufacturer of the search
+  - name: name
+    description: The title of the product
+    xpath: //div[contains(@class, 'productName')]
+  - name: productUrl
+    description: The url of the product
+    xpath: //div[contains(@class, 'productName')]/a[1]/@href
+  - name: reviewCount
+    description: The reviewCount of the product
+    xpath: //div[contains(@class, 'bv_numReviews_component_container')]//meta[@itemprop='reviewCount']/@content
+  - name: sku
+    description: The sku of the product
