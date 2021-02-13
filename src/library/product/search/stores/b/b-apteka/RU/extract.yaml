@@ -5,7 +5,8 @@ recordXPath: //div[contains(@class,"page-search-results")]//div[contains(@class,
 fields:
   - name: id
     singleValue: false
-    xpath:  //div[contains(@class,"search-card j-search-card")]/@data-card-id | //a[@itemprop="url"]/@href | //a[@class="header-card-search__link"]/@href
+    # xpath: //div[contains(@class,"search-card j-search-card")]/@data-card-id | //a[@itemprop="url"]/@href | //a[@class="header-card-search__link"]/@href
+    xpath: //a[@itemprop="url"]/@href
     regExp: \d{5,}
   - name: productUrl
     singleValue: false
