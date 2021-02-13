@@ -37,7 +37,7 @@ fields:
   # - name: gtin
   #   singleValue: false
   #   xpath: ///div[@class="upc"]
-  - name: availability
+  - name: availabilityText
     singleValue: false
     xpath: //div[@class="product_availability"] | //button[contains(.,"check availability")]/text()
     regExp: (.+)
