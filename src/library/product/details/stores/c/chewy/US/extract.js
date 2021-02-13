@@ -16,10 +16,21 @@ async function implementation (
     await context.waitForXPath('//article//a');
     await context.waitForSelector('article> a');
     console.log('everything fine !!!');
-    await context.evaluate(() => {
-      const firstItem = document.querySelector('article> a');
-      firstItem.click();
-    });
+    async function firstItemLink () {
+      return await context.evaluate(function () {
+        const firstItem = document.querySelector('article> a').href;
+        return firstItem;
+      });
+    }
+    const url = await firstItemLink();
+    if (url !== null) {
+      await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+    }
+
+    // await context.evaluate(() => {
+    //   const firstItem = document.querySelector('article> a');
+    //   firstItem.click();
+    // });
   }
 
   await new Promise((resolve, reject) => setTimeout(resolve, 10000));
@@ -52,7 +63,7 @@ async function implementation (
         return document.querySelectorAll('div.buybox-wrapper label.cw-form-button-toggle__label')[j].click();
       }, j);
       console.log('Inside variants', j);
-      if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
+      // if (j !== variantLength - 1) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
     }
   }
   return await context.extract(productDetails, { transform });

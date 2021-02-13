@@ -129,13 +129,15 @@ fields:
     singleValue: false
     # xpath: //div[contains(@class,"cw-row__item chewy-plus__split-row__content")] | //div[@class="cw-row__item chewy-plus__content"] | //div[contains(@class,"pdp-ext-content")]//text() |  //div[contains(@class,"cw-row__item chewy-plus__split-row__content")]//div | //div[@class="row margin-bottom-0"]//tbody/tr
     #xpath: //div[@class="pdp-ext-section"]//div[@class="pdp-ext-content"]| //div[contains(@class,"cw-row__item chewy-plus__split-row__content")]//div
-    xpath: //div[contains(@class,'chewy-plus')]//div[contains(@class,'container')]/section | //div[contains(@class,'chewy-plus')]//section[contains(@class,'chewy-plus__about')]
+    xpath: //div[@id="pdp-cms-includes"]
+    # //div[contains(@class,'chewy-plus')]//div[contains(@class,'container')]/section | //div[contains(@class,'chewy-plus')]//section[contains(@class,'chewy-plus__about')]
   - name: manufacturerDescription1
     singleValue: false
-    xpath: //article[contains(@data-feature-name,'enhanced-content')]//div[contains(@class,'container')] | //article[contains(@data-feature-name,'enhanced-content')]//div[@class="content"]/div[@class="main"] | //article[contains(@data-feature-name,'enhanced-content')]//div[@class="about"]
+    # xpath: //article[contains(@data-feature-name,'enhanced-content')]//div[contains(@class,'container')] | //article[contains(@data-feature-name,'enhanced-content')]//div[@class="content"]/div[@class="main"] | //article[contains(@data-feature-name,'enhanced-content')]//div[@class="about"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@class="cms-include"]//img/@src
+    xpath: //div[@id="pdp-cms-includes"]//div[contains(@class, "cw-row")]/img/@src
+      # //div[@class="cms-include"]//img/@src
     # regExp: (.+)
     # regExpReplace: https:$1
   - name: videos
@@ -321,7 +323,8 @@ fields:
     description: The country from which the product originates
   - name: promotion
     singleValue: false
-    xpath: concat(//li[@class='you-save']/p/text(), //p[@class='price']/text())
+    xpath: //li[@class='you-save']
+    # concat(//li[@class='you-save']/p/text(), //p[@class='price']/text())
   - name: alcoholContent
     singleValue: false
     description: Alcohol content information
@@ -385,6 +388,9 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="ugc ugc-head"]/span
   # - name: ratingCount
   #   singleValue: false
     # xpath: //a[@href="#ugc-section"]/text()
