@@ -124,6 +124,12 @@ const transform = (data) => {
         });
       }
 
+      if (row.caloriesPerServing) {
+        row.caloriesPerServing.forEach(item => {
+          item.text = item.text.substring(0, item.text.indexOf('kcal'));
+          item.text = item.text.replace(/[^0-9]/g, '');
+        });
+      }
       // if (row.description) {
       //   let text = '';
       //   row.description.forEach(item => {

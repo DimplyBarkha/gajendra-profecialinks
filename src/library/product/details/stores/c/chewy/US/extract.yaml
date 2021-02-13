@@ -19,6 +19,10 @@ fields:
   - name: metaKeywords
     singleValue: false
     description: The <meta> keywords content
+  # - name: productUrl
+  #   singleValue: false
+  #   description: The URL for the product details page
+  #   xpath: //body/li[@class='ii_url']
   - name: category
     singleValue: false
     #xpath: //span[@class="js-pdp-facet-selection"]/text()
@@ -70,7 +74,7 @@ fields:
     singleValue: false
     description: Gross weight as described on the page
   - name: gtin
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="sfw-attribute-buttons"]/@dataattributes  
     regExp: gtin"\W"([0-9]+)
     regExpReplace: $1    
@@ -87,7 +91,7 @@ fields:
     singleValue: false
     description: The manufacturer model code (unique) of the product
   - name: eangtin
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="sfw-attribute-buttons"]/@dataattributes  
     regExp: gtin"\W"([0-9]+)
     regExpReplace: $1
@@ -120,7 +124,7 @@ fields:
     singleValue: false
     xpath: count(//div[@role="radiogroup"]/div)
   - name: color
-    singleValue: true
+    singleValue: false
     xpath: //label[contains(text(),"Color")]/following-sibling::span | //label[contains(text(),"Color")]/../span 
   - name: firstVariant
     singleValue: false
@@ -136,7 +140,7 @@ fields:
     # xpath: //article[contains(@data-feature-name,'enhanced-content')]//div[contains(@class,'container')] | //article[contains(@data-feature-name,'enhanced-content')]//div[@class="content"]/div[@class="main"] | //article[contains(@data-feature-name,'enhanced-content')]//div[@class="about"]
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="pdp-cms-includes"]//div[contains(@class, "cw-row")]/img/@src
+    xpath: //div[@id="pdp-cms-includes"]//div[contains(@class, "cw-row")]/img/@src | //div[@class="cms-include "]//img/@src | //div[@class="cms-include"]//img/@src
       # //div[@class="cms-include"]//img/@src
     # regExp: (.+)
     # regExpReplace: https:$1
@@ -191,8 +195,9 @@ fields:
   - name: caloriesPerServing
     singleValue: false
     xpath: //span[contains(text(),"Caloric Content")]/following-sibling::p[1]
-    regExp: ^(.*)? kcal\/kg
-    regExpReplace: $1
+    # regExp: ^(.*)? kcal\/kg
+    # regExp: /^(.*)? kcal\/
+    # regExpReplace: $1
   - name: caloriesFromFatPerServing
     singleValue: false
   - name: totalFatPerServing
