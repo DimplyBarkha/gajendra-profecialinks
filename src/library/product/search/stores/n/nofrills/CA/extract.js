@@ -43,5 +43,4 @@ module.exports = {
     domain: 'nofrills.ca',
     zipcode: '',
   },
-  implementation,
 };

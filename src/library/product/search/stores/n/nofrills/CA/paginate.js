@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'CA',
     store: 'nofrills',
-    nextLinkSelector: "div[class='product-grid__results__footer'] div[class='load-more-button'] button",
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
