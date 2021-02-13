@@ -41,9 +41,7 @@ module.exports = {
           addHiddenDiv("ii_" + outputName, result.label);
         }
       }
-      
-      const cssPageNum = '.styled__ProductWrapper-h5dvb4-1.NvJDv';
-      await context.waitForSelector(cssPageNum, { timeout: 10000 });
+
 
       var energy = document.getElementsByClassName(
         "NutritionalTable__TableCell-sc-49ty6u-8 gUJdBI"
