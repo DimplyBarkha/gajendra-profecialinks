@@ -414,13 +414,17 @@ fields:
   singleValue: true
   description: List of additives in the product
 - name: pricePerUnit
-  singleValue: true
   description: Price of the product split into certain units
-  xpath: //div[@id='pricePerUnit']
+  # xpath: //div[@id='pricePerUnit'] | //div[contains(@data-bx,"pdp-details-price")]/following-sibling::div[last()]
+  xpath: //div[contains(@data-bx,"pdp-details-price")]/following-sibling::div[last()]
+  regExp: \W+(\d+\.+\d+)+\/
+  regExpReplace: $1
 - name: pricePerUnitUom
-  singleValue: true
   description: The unit of measurement used in price_per_unit
-  xpath: //div[@id='pricePerUnitUom']
+  # xpath: //div[@id='pricePerUnitUom'] | //div[contains(@data-bx,"pdp-details-price")]/following-sibling::div[last()]
+  xpath: //div[contains(@data-bx,"pdp-details-price")]/following-sibling::div[last()]
+  regExp: \d+\/+(\w+)
+  regExpReplace: $1
 - name: promotion
   singleValue: true
   description: promotion text on product page
