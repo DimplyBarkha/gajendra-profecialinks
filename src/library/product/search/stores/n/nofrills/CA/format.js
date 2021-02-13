@@ -33,7 +33,7 @@ const transform = (data, context) => {
       }));
         if (row.price) {
           row.price.forEach(item => {
-            item.text = item.text.replace(/(\s*\.\s*)+/g, ',');
+            //item.text = item.text.replace(/(\s*\.\s*)+/g, ',');
           });
         }
       }
