@@ -86,9 +86,14 @@ module.exports = {
         await context.waitForNavigation(timeout);
       }
     }
-    var hasAcceptLink = await context.evaluate((selector) => !!document.querySelector(selector), '#didomi-notice-agree-button > span');
+    var hasAcceptLink = await context.evaluate((selector) => !!document.querySelector(selector), '#didomi-popup > div > div > div > a');
     if (hasAcceptLink) {
-      await context.click('#didomi-notice-agree-button > span');
+      await context.click('#didomi-popup > div > div > div > a');
     }
+    const cssPageNum = '.styled__ProductWrapper-h5dvb4-1.NvJDv';
+    if (cssPageNum){
+      await context.waitForSelector(cssPageNum, { timeout: 10000 });
+    }
+    
   },
 };

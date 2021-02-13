@@ -1,9 +1,10 @@
+const { cleanUp } = require("../../../../shared");
 module.exports = {
   implements: "product/details/extract",
   parameterValues: {
     country: "FR",
     store: "intermarche",
-    transform: null,
+    transform: cleanUp,
     domain: "intermarche.com",
     zipcode: "",
   },
@@ -14,15 +15,6 @@ module.exports = {
     dependencies
   ) => {
     await context.evaluate(() => {
-      if (document.querySelector("#didomi-notice-agree-button") != null) {
-        async () => {
-          const button = await document.querySelector(
-            "#didomi-notice-agree-button"
-          );
-          button.click();
-        };
-      }
-
       function findLabel(productObj, label) {
         const value = productObj[label];
         if (Array.isArray(value)) {
@@ -49,6 +41,10 @@ module.exports = {
           addHiddenDiv("ii_" + outputName, result.label);
         }
       }
+      
+      const cssPageNum = '.styled__ProductWrapper-h5dvb4-1.NvJDv';
+      await context.waitForSelector(cssPageNum, { timeout: 10000 });
+
       var energy = document.getElementsByClassName(
         "NutritionalTable__TableCell-sc-49ty6u-8 gUJdBI"
       );
