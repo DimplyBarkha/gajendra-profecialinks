@@ -39,7 +39,7 @@ fields:
   #   xpath: ///div[@class="upc"]
   - name: availability
     singleValue: false
-    xpath: //button[contains(.,"check availability")]/text()
+    xpath: //div[@class="product_availability"] | //button[contains(.,"check availability")]/text()
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: In Stock    

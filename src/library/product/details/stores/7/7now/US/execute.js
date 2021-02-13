@@ -152,10 +152,10 @@ async function implementation (
         category.innerText = item.category;
         allData.appendChild(category);
 
-        // const availabilityMessage = document.createElement('div');
-        // availabilityMessage.setAttribute('class', 'product_availability');
-        // availabilityMessage.innerText = item.availabilityMessage;
-        // allData.appendChild(availabilityMessage);
+        const availabilityMessage = document.createElement('div');
+        availabilityMessage.setAttribute('class', 'product_availability');
+        availabilityMessage.innerText = item.availabilityMessage;
+        allData.appendChild(availabilityMessage);
         document.body.appendChild(allData);
       }
     });
