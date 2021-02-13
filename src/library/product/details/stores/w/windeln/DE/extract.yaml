@@ -22,7 +22,7 @@ fields:
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)
-  xpath: '//div[@style="display: block;"]/descendant::div[@class="thumbnail left slick-slide slick-active"]/img/@src | //div[@style=""]/descendant::div[@class="thumbnail left slick-slide slick-active"]/img/@src'
+  xpath: '//div[contains(@id, "productImage")][contains(@style, "display: block;")]/descendant::div[contains(@class, "thumbnail ")][not(@data-slick-index="0")]/img[not(contains(@src, "youtube"))]/@src'
 - name: metaKeywords
   singleValue: false
   description: The <meta> keywords content
@@ -75,6 +75,8 @@ fields:
   singleValue: false
   description: Quantity as described on the page
   xpath: //div[contains(@class, 'selected-row')]/descendant::div[@itemprop="name"]
+  regExp: '([^,]*$)'
+  regExpReplace: $1
 - name: weightNet
   singleValue: falses
   description: Net weight as described on the page
@@ -162,7 +164,7 @@ fields:
 - name: videos
   singleValue: false
   description: URLs of videos on page
-  xpath: //div[@class="media-wrapper video-wrapper"]/@videoUrl | //p[@class="video-container"]/iframe/@src
+  xpath: //div[@class="media-wrapper video-wrapper"]/@videoUrl | //p[@class="video-container"]/iframe/@src | //div[contains(@class, 'thumbnail')]/img[contains(@src, "youtube")]/@src
 - name: name
   singleValue: false
   description: The product name
@@ -259,7 +261,7 @@ fields:
 - name: secondaryImageTotal
   singleValue: false
   description:
-  xpath: 'count(//div[@style="display: block;"]/descendant::div[@class="thumbnail left slick-slide slick-active"] | //div[@style=""]/descendant::div[@class="thumbnail left slick-slide slick-active"])'
+  xpath: 'count(//div[contains(@id, "productImage")][contains(@style, "display: block;")]/descendant::div[contains(@class, "thumbnail ")][not(@data-slick-index="0")]/img[not(contains(@src, "youtube"))]/@src)'
 - name: news
   singleValue: true
   description: 
@@ -488,11 +490,16 @@ fields:
   xpath: //div[@class='bullet-points-list']/ul/li[contains(., 'Extras')]
   regExp: '[^:]*$'
 - name: pricePerUnit
-  singleValue: true 
+  singleValue: false
   description: Price of the product split into certain units
-- name: pricePerUnitUom
-  singleValue: true
+  xpath: //div[@class="price-pro-unit"]
+  regExp: '([0-9,]+)'
+- name: pricePerUnitUom 
+  singleValue: false
   description: The unit of measurement used in price_per_unit
+  xpath: //div[@class="price-pro-unit"]
+  regExp: 'pro (.*)'
+  regExpReplace: $1
 - name: promotion
   singleValue: true
   description: promotion text on product page
