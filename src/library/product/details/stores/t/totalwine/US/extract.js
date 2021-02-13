@@ -113,29 +113,29 @@ async function implementation (
   }
   async function getStoreDetails () {
     console.log('LOCATION:', pageUrl);
-    let zipcode = pageUrl.match(/zipcode=(\d+)/) && pageUrl.match(/zipcode=(\d+)/)[1];
-    const storeId = pageUrl.match(/storeId=(\d+)/) && pageUrl.match(/storeId=(\d+)/)[1] || '1127';
-    const json = await getJsonData(`https://www.totalwine.com/product/api/store/storelocator/v1/store/${storeId}`);
-    const storeName = json.name;
-    zipcode = json.zip;
+    const zipcode = (pageUrl.match(/zipcode=(\d+)/) && pageUrl.match(/zipcode=(\d+)/)[1]) || '';
+    const storeId = (pageUrl.match(/storeId=(\d+)/) && pageUrl.match(/storeId=(\d+)/)[1]) || '';
+    const storeName = decodeURIComponent((pageUrl.match(/storeName=([^\s]+)/) && pageUrl.match(/storeName=([^\s]+)/)[1]) || '');
+    // const json = await getJsonData(`https://www.totalwine.com/product/api/store/storelocator/v1/store/${storeId}`);
+    // const storeName = json.name;
+    // zipcode = json.zip;
     return { zipcode, storeId, storeName };
   }
   try {
     const data = await getData();
-    console.log('data', data.length)
     await context.evaluate(addDynamicTable, data);
-    // const storeData = await getStoreDetails();
-    // await context.evaluate(({ zipcode, storeId, storeName }) => {
-    //   document.body.setAttribute('storeName', storeName);
-    //   document.body.setAttribute('zipcode', zipcode);
-    //   document.body.setAttribute('storeId', storeId);
-    // }, storeData);
-    // Adding pipes to bullets, ideally should not be done in extractor level.
-    // await context.evaluate(() => {
-    //   Array.from(document.querySelectorAll('td.description li,td.shortDescription li')).forEach(li => li.textContent = '|| ' + li.textContent);
-    // });
+    const storeData = await getStoreDetails();
+    await context.evaluate(({ zipcode, storeId, storeName }) => {
+      document.body.setAttribute('storeName', storeName);
+      document.body.setAttribute('zipcode', zipcode);
+      document.body.setAttribute('storeId', storeId);
+    }, storeData);
   } catch (error) {
     console.log('Error adding details. Error: ', error);
+  }
+  const blocked = await context.evaluate("document.title.includes('Access to this page has been denied')");
+  if (blocked) {
+    return context.reportBlocked(451, 'Blocked!');
   }
   return await context.extract(productDetails, { transform });
 }

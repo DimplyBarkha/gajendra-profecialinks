@@ -402,3 +402,14 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     xpath: //td[@class="zoomImageUrl"]/text()
     defaultValue: No
+
+  
+  #geo
+  - name: onlineStore
+    xpath: ancestor::html//@storeName
+  - name: retailerId
+    xpath: ancestor::html//@storeId
+  - name: drive
+    xpath: ancestor::html//@zipcode
+  - name: driveId
+    xpath: ancestor::html//@zipcode

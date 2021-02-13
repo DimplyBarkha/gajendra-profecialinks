@@ -33,37 +33,16 @@ async function implementation (inputs, parameters, context, dependencies) {
     storeId = rpcUrl.match(/s=(.+)&{0,1}/) ? rpcUrl.match(/s=(.+)&{0,1}/)[1] : null;
     productId = rpcUrl.match(/p\/(.+)\?/) ? rpcUrl.match(/p\/(.+)\?/)[1] : null;
   }
-
+  storeId = storeId || '1127';
   async function getJsonData (url) {
-    // await context.setJavaScriptEnabled(true);
-    // await context.setLoadAllResources(true);
-    // await context.goto(url, { first_request_timeout: 35000, timeout: 35000, waitUntil: 'load', anti_fingerprint: true });
-    // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-
-    try {
-      await context.setJavaScriptEnabled(true);
-      await context.setBlockAds(false);
-      const response = await context.goto(url, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
-      console.log('Response ' + JSON.stringify(response));
-      if (response.message && response.message.includes('code 403')) {
-        console.log('Response failed');
-        return context.reportBlocked(451, 'Blocked!');
-      }
-    } catch (err) {
-      console.log('Error response' + JSON.stringify(err));
-      if (err.message && err.message.includes('code 403')) {
-        console.log('403 Response');
-        return context.reportBlocked(451, 'Blocked!');
-      }
-      throw err;
-    }
+    await goto({ url });
     const json = await context.evaluate(() => document.body.innerText);
     return JSON.parse(json);
   }
   const json = await getJsonData(`https://www.totalwine.com/product/api/store/storelocator/v1/store/${storeId}`);
   const stateIsoCode = json.stateIsoCode;
-  const storeName = json.storeName;
-  const zipcode = json.zip || inputs.zipcode || inputs.Postcode;
+  const storeName = json.name;
+  const zipcode = json.zip || inputs.zipcode || inputs.Postcode || '95129';
 
   if (!(inputs.storeId || inputs.StoreID) && inputs.zipcode) {
     // API Would require initial goto so avoiding it.
@@ -72,7 +51,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   }
   if (parameters.url) {
     const url = parameters.url.replace('{id}', encodeURIComponent(productId));
-    return url + `&storeId=${storeId}&zipcode=${zipcode}&state=${stateIsoCode}`;
+    return url + `&storeId=${storeId}&zipcode=${zipcode}&state=${stateIsoCode}&storeName=${storeName}`;
   }
 }
 module.exports = {
@@ -84,6 +63,9 @@ module.exports = {
     country: 'US',
     store: 'totalwine',
     zipcode: '',
+  },
+  dependencies: {
+    goto: 'action:navigation/goto',
   },
   implementation,
 };
