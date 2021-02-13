@@ -5,15 +5,15 @@ recordXPath: //main
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@class="slide"][position()=1]//img[contains(@class, "js-responsive-image")]/@src | //div[@class="magnifyWrapper" and not(parent::div[@class="slide"])]//img[contains(@class, "js-responsive-image")]/@src
+    xpath: //div[@class="slide"][position()=1]//img[contains(@class, "js-responsive-image")]/@src | //div[@class="magnifyWrapper" and not(parent::div[@class="slide"])]//img[contains(@class, "js-responsive-image")]/@src | //img[contains(@class, "mo1vzo-6")]/@src
     regExp: (\/.*)
     regExpReplace: https:$1
   - name: imageAlt
     singleValue: false
-    xpath: //div[@class="slide"][position()=1]//img[contains(@class, "js-responsive-image")]/@alt | //div[@class="magnifyWrapper" and not(parent::div[@class="slide"])]//img[contains(@class, "js-responsive-image")]/@alt
+    xpath: //div[@class="slide"][position()=1]//img[contains(@class, "js-responsive-image")]/@alt | //div[@class="magnifyWrapper" and not(parent::div[@class="slide"])]//img[contains(@class, "js-responsive-image")]/@alt | //img[contains(@class, "mo1vzo-6")]/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="slide"][position()>1]//img[contains(@class, "js-responsive-image")]/@src
+    xpath: //div[@class="slide"][position()>1]//img[contains(@class, "js-responsive-image")]/@src | //img[contains(@class, "mo1vzo-6")]/@src
     regExp: (\/.*)
     regExpReplace: https:$1
   - name: secondaryImageTotal
