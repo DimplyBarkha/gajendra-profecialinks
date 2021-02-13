@@ -105,11 +105,13 @@ module.exports = {
         addElementToDocument('oprice', price.replace('.', ','));
       }
       //Rating Count
-      var ratingCount = getXpath('//div[contains(@class,"netreviews_global_rating")]/p[contains(@class,"netreviews_subtitle")]/text()', 'nodeValue');
-      if (ratingCount != null) {
-        addElementToDocument('ratingCount', ratingCount.match(/(\d+)/gm).join());
+      try{
+       document.querySelector('div[id="tabs"] li.last a').click()
+       var ratingCount = getXpath('//*[@id="netreviews_rating_section"]//p[@class="netreviews_subtitle"]//text()', 'nodeValue');
+      if (ratingCount != null) {  
+        addElementToDocument('ratingC', ratingCount.match(/(\d+)/gm).join());
       }
-
+      }catch(error){}
     });
     await context.extract(productDetails);
   },
