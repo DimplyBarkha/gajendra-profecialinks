@@ -7,6 +7,7 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
     return await context.evaluate(() => {
       console.log('context.evaluate');
       const selectors = {
+        hasSignInRequest: 'form[name=signIn]',
         isCaptchaPage: 'img[src*="/captcha/"]',
         is400Page: 'a[href*="404_logo"]',
         is500Page: 'img[src*="500-title"], a[href*="503_logo"], a img[src*="503.png"], a[href*="ref=cs_503_link"]',
@@ -205,7 +206,7 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
 
   // find product&seller in cart
   const productSellerFound = async (sellerId, id) => {
-    await context.waitForSelector(`div[data-asin=${id}]`)
+    await context.waitForSelector(`div[data-asin]`)
     return await context.evaluate(async (sellerId, id) => {
       const el = document.querySelector(`div[data-asin=${id}] a[href*=${sellerId}]>img`);
       if (el) {
@@ -263,19 +264,19 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
 
 
   let pageCheck = 0;
-  while (!page.isCartPage && pageCheck < 5) {
-    if (page.hasToCartFromModal) {
+  while (!page.isCartPage && pageCheck < 6) {
+    if (page.hasToCartFromModal && ( pageCheck===0 || pageCheck===2 || pageCheck===4)) {
       await context.click('#nav-cart');
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 3000));
     } else if (page.isCartTransitionPage) {
       await context.click('#hlb-view-cart-announce');
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 3000));
     } else if (!page.hasToCartFromModal && !page.hasAdOnModal && page.hasItemsInCart) {
       await context.click('#nav-cart');
-      await new Promise(resolve => setTimeout(resolve, 2000));
-    } else if (page.hasToCartFromModal && page.hasAddOnSlideOutBtn && pageCheck > 0) {
+      await new Promise(resolve => setTimeout(resolve, 3000));
+    } else if (page.hasToCartFromModal && page.hasAddOnSlideOutBtn && (pageCheck===1 || pageCheck===3 || pageCheck===5)) {
       await context.click('#attach-view-cart-button-form input')
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      await new Promise(resolve => setTimeout(resolve, 3000));
     }
     pageCheck++;
     await context.waitForNavigation();
@@ -325,6 +326,8 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
         await new Promise(resolve => setTimeout(resolve, 2000));
       }
     }
+  }else if(!page.isCartPage && page.hasSignInRequest) {
+    throw Error('Sign in page');
   }else{
     throw Error('Not on cart page');
   }
