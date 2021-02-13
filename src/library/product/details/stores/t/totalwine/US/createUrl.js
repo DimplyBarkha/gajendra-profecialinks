@@ -28,10 +28,26 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   const storeId = inputs.storeId || inputs.StoreID || '1127';
   async function getJsonData (url) {
-    await context.setJavaScriptEnabled(true);
-    await context.setLoadAllResources(true);
-    await context.goto(url, { first_request_timeout: 35000, timeout: 35000, waitUntil: 'load', anti_fingerprint: true });
-    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    // await context.setJavaScriptEnabled(true);
+    // await context.setLoadAllResources(true);
+    // await context.goto(url, { first_request_timeout: 35000, timeout: 35000, waitUntil: 'load', anti_fingerprint: true });
+    // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+
+    try {
+      const response = await context.goto(url, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
+      console.log('Response ' + JSON.stringify(response));
+      if (response.message && response.message.includes('code 403')) {
+        console.log('Response failed');
+        return context.reportBlocked(451, 'Blocked!');
+      }
+    } catch (err) {
+      console.log('Error response' + JSON.stringify(err));
+      if (err.message && err.message.includes('code 403')) {
+        console.log('403 Response');
+        return context.reportBlocked(451, 'Blocked!');
+      }
+      throw err;
+    }
     const json = await context.evaluate(() => document.body.innerText);
     return JSON.parse(json);
   }

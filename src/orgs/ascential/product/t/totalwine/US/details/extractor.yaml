@@ -8,12 +8,18 @@ parameters:
 proxy:
   zone: ZUS
   type: DATA_CENTER
+policy:
+  numberRetries: 4
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
 meta:
   branches:
     staging:
       extractor: e4aa6cba-f497-4d2b-911c-c3b0ed2d122b
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
     test:
-      extractor: 4ead96bf-1ca6-4c72-bae9-154f4556b5fd
+      extractor: 08d4539b-33b2-4320-bbfa-e30abba2387b
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
 
