@@ -7,7 +7,7 @@ module.exports = {
     store: 'lojashampoo_pt',
     nextLinkSelector: null,
     nextPageUrlSelector: null,
-    nextLinkXpath: '//ul[@class="pagination"]/li[position()=last()-1]/a',
+    nextLinkXpath: '//ul[@class="pagination"]/li[position()=last()-1]/a[text()=">"]',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div[class="search"]',
