@@ -12,6 +12,8 @@ fields:
   - name: image
     singleValue: false
     xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__image')]//div[contains(@class, 't-product-details__carousel-container')]//img/@src
+    regex: (.*)&qlt=\d+
+    regExpReplace: $1
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@class, 't-product-details__main-wrapper')]//div[contains(@class, 't-product-details__image')]//div[contains(@class, 't-product-details__carousel-container')]//img/@alt
@@ -109,3 +111,13 @@ fields:
     xpath: //span[contains(@class, 'u-text-size-small')]
     regExp: .*£(\d*.\d+|\d+).*per.*
     regExpReplace: £$1
+  - name: ingredientsList
+    singleValue: false
+    xpath: //li[contains(text(),"ingredients:")]
+    regex: (:\s+)(.*)
+    regExpReplace: $2
+  - name: price_currency
+    singleValue: false
+    xpath: //span[contains(@class, 'u-text-size-small')]
+    regExp: (\()(\S)(\d+.*)
+    regExpReplace: $2
