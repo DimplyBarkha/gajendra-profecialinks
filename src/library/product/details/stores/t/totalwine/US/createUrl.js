@@ -28,7 +28,10 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   const storeId = inputs.storeId || inputs.StoreID || '1127';
   async function getJsonData (url) {
-    await context.goto(url + '#[!opt!]{"cookie_jar":[{"name":"twm-userStoreInformation","value":"ispStore~402:ifcStore~null@ifcStoreState~US-MD@method~INSTORE_PICKUP"}]}[/!opt!]', { first_request_timeout: 35000, timeout: 35000, waitUntil: 'load', anti_fingerprint: true, checkBlocked: false });
+    await context.setJavaScriptEnabled(true);
+    await context.setLoadAllResources(true);
+    await context.goto(url, { first_request_timeout: 35000, timeout: 35000, waitUntil: 'load', anti_fingerprint: true });
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
     const json = await context.evaluate(() => document.body.innerText);
     return JSON.parse(json);
   }
@@ -36,7 +39,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   const stateIsoCode = json.stateIsoCode;
   //  || 'US-CA';
   const storeName = json.storeName;
-  const zipcode = json.zipcode;
+  const zipcode = json.zip || inputs.zipcode || inputs.Postcode;
 
   if (!(inputs.storeId || inputs.StoreID) && inputs.zipcode) {
     // API Would require initial goto so avoiding it.
@@ -45,7 +48,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   }
   if (parameters.url) {
     const storeId = inputs.storeId || inputs.StoreID || '1127';
-    const zipcode = inputs.zipcode || inputs.Postcode || '95129';
+    // const zipcode = inputs.zipcode || inputs.Postcode || '95129';
     const url = parameters.url.replace('{id}', encodeURIComponent(id));
     return url + `&storeId=${storeId}&zipcode=${zipcode}&state=${stateIsoCode}`;
   }

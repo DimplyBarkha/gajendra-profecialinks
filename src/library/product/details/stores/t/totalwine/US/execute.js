@@ -32,6 +32,8 @@ module.exports = {
     country: 'US',
     store: 'totalwine',
     domain: 'totalwine.com',
+    // loadedSelector: 'td#added-table td.name',
+    // noResultsXPath: '//td[@class="error"]',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',
