@@ -11,6 +11,8 @@ module.exports = {
   },
   implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
     try {
+      await context.setJavaScriptEnabled(true);
+      await context.setBlockAds(false);
       const response = await context.goto(url, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
       console.log('Response ' + JSON.stringify(response));
       if (response.message && response.message.includes('code 403')) {

@@ -25,8 +25,15 @@ async function implementation (inputs, parameters, context, dependencies) {
   }
   await context.stop();
 
+  let storeId = inputs.storeId || inputs.StoreID;
+  let productId = id;
 
-  const storeId = inputs.storeId || inputs.StoreID || '1127';
+  if (inputs.id && inputs.RPC && inputs.RPC.includes('http')) {
+    const rpcUrl = inputs.RPC;
+    storeId = rpcUrl.match(/s=(.+)&{0,1}/) ? rpcUrl.match(/s=(.+)&{0,1}/)[1] : null;
+    productId = rpcUrl.match(/p\/(.+)\?/) ? rpcUrl.match(/p\/(.+)\?/)[1] : null;
+  }
+
   async function getJsonData (url) {
     // await context.setJavaScriptEnabled(true);
     // await context.setLoadAllResources(true);
@@ -34,6 +41,8 @@ async function implementation (inputs, parameters, context, dependencies) {
     // await new Promise((resolve, reject) => setTimeout(resolve, 10000));
 
     try {
+      await context.setJavaScriptEnabled(true);
+      await context.setBlockAds(false);
       const response = await context.goto(url, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
       console.log('Response ' + JSON.stringify(response));
       if (response.message && response.message.includes('code 403')) {
@@ -53,7 +62,6 @@ async function implementation (inputs, parameters, context, dependencies) {
   }
   const json = await getJsonData(`https://www.totalwine.com/product/api/store/storelocator/v1/store/${storeId}`);
   const stateIsoCode = json.stateIsoCode;
-  //  || 'US-CA';
   const storeName = json.storeName;
   const zipcode = json.zip || inputs.zipcode || inputs.Postcode;
 
@@ -63,9 +71,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   }
   if (parameters.url) {
-    const storeId = inputs.storeId || inputs.StoreID || '1127';
-    // const zipcode = inputs.zipcode || inputs.Postcode || '95129';
-    const url = parameters.url.replace('{id}', encodeURIComponent(id));
+    const url = parameters.url.replace('{id}', encodeURIComponent(productId));
     return url + `&storeId=${storeId}&zipcode=${zipcode}&state=${stateIsoCode}`;
   }
 }
