@@ -75,7 +75,7 @@ fields:
     xpath: //td[contains(text(), 'Lif, g')]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class="product-detail-widget product-card"]//button[@id="addToCartButton"]
+    xpath: //div[@class="product-detail-widget product-card"]//button[@id="addToCartButton"] | //div[@class="tags --1 b2b-avansas-product-icon"]/span[contains(text(),"Stokta Yok")]
   - name: description
     singleValue: false
     xpath: (//ul[@class="check-list"])[1]/li/span/text()
