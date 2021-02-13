@@ -88,11 +88,12 @@ fields:
     regExpReplace: $1   
   - name: descriptionBullets
     singleValue: false
-    xpath: count(//div[contains(@class, 'features-list all-features')]/div/h4)
+    # xpath: count(//div[contains(@class, 'features-list all-features')]/div/h4)
   - name: additionalDescBulletInfo
     singleValue: false
-    manualSelector: div.overview-accordion-content-wrapper li 
+    # manualSelector: div.overview-accordion-content-wrapper li 
     # xpath: count(//div[@class="features-list all-features"]/div)
+    xpath: //div[contains(@class, 'long-description-container body-copy')]//li | //div[@class='feature-body-container']//li
   - name: promotion
     singleValue: false
     xpath: //div[@class='pricing-price__savings'] | //div[@class='special-offer']//li
