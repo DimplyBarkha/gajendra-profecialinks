@@ -6,6 +6,6 @@ fields:
   - name: variantUrl
     singleValue: false
     xpath: //div[@id="productVariantDisplay"]/div/a/@href
-    regExp: (homme/.*)
-    regExpReplace: https://www.marionnaud.fr/$1
+    regExp: (/.*)
+    regExpReplace: https://www.marionnaud.fr$1
     description: variant Url

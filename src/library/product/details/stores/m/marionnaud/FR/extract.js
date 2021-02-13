@@ -66,7 +66,7 @@ async function implementation(
     try {
       const Price1 = getAllXpath("//div[@class='price-list']//div[@class='finalPrice']/text()[1]", 'nodeValue');
       const Price2 = getAllXpath("//div[@class='price-list']//div[@class='finalPrice']/sup/text()", 'nodeValue');
-      const Price3 = Price2[0].replace("€", ".");
+      const Price3 = Price2[0].replace("€", ",");
       let finalprice = Price1[0] + Price3 + '€';
       addHiddenDiv('price', finalprice);
 
