@@ -5,7 +5,7 @@ module.exports = {
     country: 'CA',
     store: 'ButteCounty',
     domain: 'cabutteodyprod.tylerhost.net',
-    loadedSelector: null,
+    loadedSelector: 'form#frmHS',
     noResultsXPath: null,
     zipcode: "''",
   },
