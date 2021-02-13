@@ -5,6 +5,6 @@ module.exports = {
     country: 'UA',
     store: 'metro',
     domain: 'metro.zakaz.ua',
-    zipcode: "''",
+    zipcode: '',
   },
 };

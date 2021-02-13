@@ -4,9 +4,9 @@ module.exports = {
   parameterValues: {
     domain: 'metro.zakaz.ua',
     prefix: null,
-    url: null,
+    url: 'https://metro.zakaz.ua/ru/products/{id}/',
     country: 'UA',
     store: 'metro',
-    zipcode: "''",
+    zipcode: '',
   },
 };

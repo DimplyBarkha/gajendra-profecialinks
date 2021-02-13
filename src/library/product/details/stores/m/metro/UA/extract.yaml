@@ -6,12 +6,19 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
+    xpath: //div[@class='jsx-4119626346 ZoomableImageSwitcher']/img/@src
+#  - name: _input
+#    singleValue: true
+#    description: scrape_code
+#    xpath: //div[contains(@data-marker-popup, 'Big product card')]/@data-productkey
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
+    xpath: //div[@class='jsx-4119626346 ZoomableImageSwitcher']/img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
+    xpath: //div[@class='jsx-1831001417 swiper-slide swiper-slide-visible swiper-slide-next']/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -22,25 +29,27 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //h1[@class='jsx-3554221871 big-product-card__title']
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
+    xpath: //span[@class='jsx-3642073353 Price__value_caption Price__value_minor'] | //span[@class='jsx-3642073353 Price__value_title']
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
+    xpath: //span[@class='jsx-3642073353 Price__currency_title Price__currency_discount'] | //span[@class='jsx-3642073353 Price__currency_title']
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    defaultValue: In Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
+    xpath: //span/span[1]/div[@class='jsx-3554221871']
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -49,9 +58,11 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //a[@class='jsx-3555213589 BigProductCardTrademarkName']
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
+    xpath: //*[contains(text(), 'Производитель')]/following::*[1]
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -63,9 +74,14 @@ fields:
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
+    xpath: //*[contains(text(), 'Вес')]/following::*[1]
+#  - name: gtin
+#    singleValue: true
+#    description: GTIN code (includes UPC/EAN)
+#    xpath: //div[contains(@data-marker-popup, 'Big product card')]/@data-productkey
+#  - name: eangtin
+#    singleValue: true
+#    xpath: //div[contains(@data-marker-popup, 'Big product card')]/@data-productkey
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -248,6 +264,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
+    xpath: //*[contains(text(), 'Калорийность')]/following::*[1]
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
@@ -257,17 +274,22 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Fat content - Usually based on
       per 100g serving
-    type: NUMBER
+    xpath: //*[contains(text(), 'Жиры')]/following::*[1]
+    regExp: ([^а-я]+)
+    regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
+    xpath: //*[contains(text(), 'Жиры')]/following::*[1]
+    regExp: ([^0-9]+)
+    regExpReplace: $1
   - name: saturatedFatPerServing
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
     type: NUMBER
   - name: saturatedFatPerServingUom
-    singleValue: true
+    singleValue: false
     description: Unit of Measure Data for Saturated Fat content
   - name: transFatPerServing
     singleValue: true
@@ -297,12 +319,17 @@ fields:
     singleValue: true
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
-    type: NUMBER
+    xpath: //*[contains(text(), 'Углеводы')]/following::*[1]
+    regExp: ([^а-я]+)
+    regExpReplace: $1
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
+    xpath: //*[contains(text(), 'Углеводы')]/following::*[1]
+    regExp: ([^0-9]+)
+    regExpReplace: $1
   - name: dietaryFibrePerServing
-    singleValue: true
+    singleValue: false
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
     type: NUMBER
@@ -321,10 +348,15 @@ fields:
     singleValue: true
     description: Nutritional Information for Protein content - Usually based on per
       100g serving
-    type: NUMBER
+    xpath: //*[contains(text(), 'Белки')]/following::*[1]
+    regExp: ([^а-я]+)
+    regExpReplace: $1
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
+    xpath: //*[contains(text(), 'Белки')]/following::*[1]
+    regExp: ([^0-9]+)
+    regExpReplace: $1
   - name: vitaminAPerServing
     singleValue: true
     description: Nutritional Information for Vitamin A content - Usually based on

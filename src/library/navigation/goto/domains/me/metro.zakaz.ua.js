@@ -7,6 +7,6 @@ module.exports = {
     jsonToTable: null,
     country: 'UA',
     store: 'metro',
-    zipcode: "''",
+    zipcode: '',
   },
 };

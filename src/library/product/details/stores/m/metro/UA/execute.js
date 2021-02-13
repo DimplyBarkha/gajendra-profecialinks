@@ -7,6 +7,6 @@ module.exports = {
     domain: 'metro.zakaz.ua',
     loadedSelector: null,
     noResultsXPath: null,
-    zipcode: "''",
+    zipcode: '',
   },
 };
