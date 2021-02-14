@@ -120,11 +120,21 @@ async function implementation(
       }
     }, node);
   }
-  await scrollToRec('footer, div.footer-component');
-  await scrollToRec('section#Opinions');
-  await scrollToRec('section#BrandWord');
+  const hasManufContent = await context.evaluate(async () => {
+    return !!document.querySelector('section#BrandWord');
+  });
+  if (hasManufContent) {
+    await scrollToRec('footer, div.footer-component');
+    await scrollToRec('section#Opinions');
+    await scrollToRec('section#BrandWord');
+    try {
+      await context.waitForSelector('div#flix-inpage', { timeout: 35000 });
+      await context.waitForSelector('div[id^="flixinpage_"]', { timeout: 35000 });
+    } catch (error) {
+      throw new Error('Not loading enhanced content');
+    }
+  }
   await context.evaluate(async function (video) {
-
     function addHiddenDiv(id, content) {
       const newDiv = document.createElement('div');
       newDiv.id = id;

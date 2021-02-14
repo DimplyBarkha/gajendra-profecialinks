@@ -24,7 +24,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[@class="f-breadcrumb"]/li[position() > 1]
+    xpath: //ul[@class="f-breadcrumb"]/li[position() > 1][position()<last()]
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -81,7 +81,7 @@ fields:
     xpath: //dt[contains(text(), "Capacité de stockage")]//following-sibling::*
   - name: color
     singleValue: false
-    xpath: //span[@class="f-variantBox-selectedValue js-variantBox-valueHover"]|//dt[contains(@class,"characteristicsStrate__term") and contains(text(),"Couleur")]/following-sibling::*
+    xpath: //span[@class="f-variantBox-selectedValue js-variantBox-valueHover"]|//dt[contains(@class,"characteristicsStrate__term") and contains(text(),"Couleur") or contains(text(), "Coloris")]/following-sibling::*
   - name: legalDisclaimer
     singleValue: false
     xpath: //div[@class="characteristicsStrate__item  characteristicsStrate__item--long "]//dt[contains(text(), "Mention Légale")]//following-sibling::*
@@ -93,7 +93,7 @@ fields:
     xpath: //div[contains(@class, "f-productPage")]/@data-ean13
   - name: specifications
     singleValue: false  
-    xpath: //div[contains(@class, "productStrate characteristicsStrate")]
+    xpath: //div[contains(@class, "productStrate characteristicsStrate")]//div[contains(@class, "characteristicsStrate__lists")]
   - name: shippingDimensions
     singleValue: false  
     xpath: //dt[contains(text(), "Dimensions")]//following-sibling::*
@@ -101,10 +101,10 @@ fields:
     singleValue: false
   - name: promotion
     singleValue: false
-    xpath: //div[@class='f-productOffer-commercialOperation']
+    xpath: //div[@class='f-productOffer-commercialOperation'][not(contains(., "Prix standard"))]
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[@class='inpage_selector_info flix-temp-abcd']//div[@class='flix-std-info']|//div[@class="flix-conta1ner"]/ancestor::div[contains(@id, "flixinpage_")]
+    xpath: //div[@class='inpage_selector_info flix-temp-abcd']//div[@class='flix-std-info']|//div[@class="flix-conta1ner"]/ancestor::div[contains(@id, "flixinpage_")]|//div[@id="flix-std-inpage"]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id='flix-std-inpage']//img/@srcset|//div[@class="flix-conta1ner"]/ancestor::div[contains(@id, "flixinpage_")]//img/@src
@@ -113,7 +113,7 @@ fields:
     xpath: //div[@class='characteristicsStrate__lists']//dl//dt[contains(text(),'Avertissement de sécurité')]/parent::dl/dd    
   - name: productOtherInformation
     singleValue: false
-    xpath: //div[@class='characteristicsStrate__lists']//dl[@class='characteristicsStrate__item']
+    # xpath: //div[@class='characteristicsStrate__lists']//dl[@class='characteristicsStrate__item']
   - name: videos
     singleValue: false  
     xpath: //div[@id='videos']|//div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/@src|//div[contains(@class, "flix-videodiv")]//iframe/@src
@@ -124,12 +124,19 @@ fields:
   #   singleValue: false  
     # xpath: //div[contains(@class, "f-productVisuals-main")]//div[contains(@class, "VideoPlayer")]//video[contains(@id, "video")]/@src
     # xpath: //div[@id='videos']
+  - name: energyEfficiency
+    singleValue: true 
+    xpath: //dt[contains(text(), "Classe énergétique")]/following-sibling::dd[contains(., "A")]
+    regExp: ().+)
+    regExpReplace: 'Yes'
+    defaultValue: No
   - name: variantId
     singleValue: false  
     xpath: //div[contains(@class, "f-productPage")]/@data-prid
   - name: description
     singleValue: false  
-    xpath: //div[contains(@class, "productStrate__header")][contains(., "Description")]//following-sibling::div[contains(@class, "summaryStrate__raw")] | //div[contains(@class, "characteristicsStrate__item") and contains(@class, "item--long")] | //div[contains(@class, "characteristicsStrate__list")]//dl[contains(@class, "characteristicsStrate__item")]|//ul[contains(@class, "f-productVariousData-contents")]
+    xpath: //div[contains(@class, "productStrate__header")][contains(., "Description")]//following-sibling::div[contains(@class, "summaryStrate__raw")]|//span[contains(@class, "f-productVariousData-tabTitle")]/ancestor::ul/following-sibling::ul//table[contains(@class, "f-productDetails-table")]|//span[contains(@class, "f-productVariousData-tabTitle")][contains(., "Résumé")]/ancestor::ul/following-sibling::ul//div[contains(@class, "f-productSummary")]
+    # xpath: //div[contains(@class, "productStrate__header")][contains(., "Description")]//following-sibling::div[contains(@class, "summaryStrate__raw")] | //div[contains(@class, "characteristicsStrate__item") and contains(@class, "item--long")] | //div[contains(@class, "characteristicsStrate__list")]//dl[contains(@class, "characteristicsStrate__item")]|//ul[contains(@class, "f-productVariousData-contents")]
   - name: unInterruptedPDP
     xpath: //div[contains(@class,"miniFA__top")]//img/@alt
   - name: hasComparisonTable
