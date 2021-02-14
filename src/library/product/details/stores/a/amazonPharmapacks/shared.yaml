@@ -167,7 +167,8 @@ fields:
   - name: addonItem
     xpath: //form[@id="addToCart"]//div[contains(@class, "addOnItem")]
   - name: fastTrack
-    xpath: (//div[@id="fast-track-message"]//div[@id="delivery-message"])[1]
+    # xpath: (//div[@id="fast-track-message"]//div[@id="delivery-message"])[1]
+    xpath: //div[@id="fast-track-message"]//div[@id="upsellMirId"]
   - name: product/food
     xpath:
   - name: ingredientsList
