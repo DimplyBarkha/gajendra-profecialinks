@@ -5,7 +5,7 @@ module.exports = {
     store: 'ah',
     domain: 'ah.be',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//*[contains(text(),"helaas, we konden dit product niet vinden")]',
     zipcode: '',
   },
 };
