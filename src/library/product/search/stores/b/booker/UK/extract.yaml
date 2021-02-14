@@ -34,7 +34,9 @@ fields:
     singleValue: false
   - name: price
     singleValue: false
-    xpath: //div[@class="price"]/p
+    xpath: //div[@class="price"]/p | //p[contains(@class,"price-marked")]
+    regExp: (\d+\.+\d+)
+    regExpReplace: $1
   - name: manufacturer
     singleValue: true
   - name: soldBy
