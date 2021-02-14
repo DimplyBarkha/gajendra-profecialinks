@@ -4,6 +4,9 @@ parameters:
   store: totalwine
   country: US
   domain: totalwine.com
+proxy:
+  zone: IND
+  type: DATA_CENTER
 meta:
   branches:
     DS_totalwine_US_search:
@@ -14,4 +17,7 @@ meta:
       legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
     dev:
       extractor: a36c9a46-982d-481a-8159-0c953711f9a7
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    techops_test:
+      extractor: b439e900-c655-4ad7-9ef0-3521aa097631
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
