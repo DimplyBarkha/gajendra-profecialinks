@@ -97,7 +97,7 @@ fields:
   - name: colorCode
     xpath :
   - name: manufacturerDescription
-    # Do not update/add xpath here. Handle in extract.js
+    # Do not update/add xpath here. Handle in extract.js //div[contains(@class,"inpage_selector_feature")]//div[contains(@class,"flix-std-")]
     xpath : //div[@id="manufacdesc"] | //div[contains(@class,'inpage_selector')][not(contains(@class,'video'))][not(//div[@id="manufacdesc"])]
   - name: manufacturerImages
     xpath : //div[@id='manufacturerImages'] | //div[contains(@class,'inpage_selector')][not(contains(@class,'video'))]//img/@data-flixsrcset

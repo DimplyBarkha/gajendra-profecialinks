@@ -14,6 +14,69 @@ module.exports = {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
 
+    async function autoScroll (page) {
+      await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+          var totalHeight = 0;
+          var distance = 100;
+          var timer = setInterval(() => {
+            var scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 100);
+        });
+      });
+    }
+    await autoScroll(context);
+
+    let ECDivLoaded = false;
+    let ECxpath = '//div[contains(@class,"inpage_selector_feature")]//div[contains(@class,"flix-std-")]';
+    try {
+      await context.waitForXPath(ECxpath);
+      ECDivLoaded = true;
+    } catch(err) {
+      console.log('we got some error while looking for EC', err.message);
+      try {
+        await context.waitForXPath(ECxpath);
+        ECDivLoaded = true;
+      } catch(error) {
+        console.log('we got some error while looking for EC', error.message)
+      }
+    }
+
+    console.log('ECDivLoaded', ECDivLoaded);
+
+    if(!ECDivLoaded) {
+      await context.reload();
+      try {
+        await context.waitForSelector(sectionsDiv, { timeout: 90000 });
+      } catch(err) {
+        console.log('got some error while reloading', err.message);
+      }
+      let maxTime = 120000;
+      let thisTime = 0;
+      while((!ECDivLoaded) && thisTime < maxTime) {
+        ECDivLoaded = await context.evaluate(async (ECxpath) => {
+          console.log('checking for ECxpath', ECxpath);
+          let elm = document.evaluate(ECxpath, document, null, 7, null);
+          if(elm && elm.snapshotLength > 0) {
+            return true;
+          }
+          return false;
+        }, ECxpath);
+        thisTime += 10000;
+        await new Promise(resolve => setTimeout(resolve, 10000));
+      }
+      console.log('waited for', thisTime);
+    }
+
+    console.log('ECDivLoaded after waiting -', ECDivLoaded);
+
     await context.evaluate(async function () {
       // function to append the elements to DOM
       function addElementToDocument (key, value) {
@@ -56,7 +119,9 @@ module.exports = {
             const xpath = `//script[contains(.,'${scriptSelector}')]`;
             const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
             let jsonStr = element.textContent;
-            jsonStr = jsonStr.trim();
+            if(jsonStr) {
+              jsonStr = jsonStr.trim();
+            }
             return JSON.parse(jsonStr);
           } catch (error) {
             console.log(error.message);
@@ -67,9 +132,14 @@ module.exports = {
       function getPathDirections (xpathToExecute) {
         var result = [];
         var nodesSnapshot = document.evaluate(xpathToExecute, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
-          result.push(JSON.parse(nodesSnapshot.snapshotItem(i).textContent));
+        try {
+          for (var i = 0; i < nodesSnapshot.snapshotLength; i++) {
+            result.push(JSON.parse(nodesSnapshot.snapshotItem(i).textContent));
+          }
+        } catch(err) {
+          console.log('got some error while parsing sting to json', err.message);
         }
+        
         return result;
       }
 
