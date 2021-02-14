@@ -68,6 +68,9 @@ fields:
     xpath: (//div[contains(@id, 'detail-bullets')]//text()[contains(., 'Size')]/following-sibling::*[1] | //div[contains(@id, 'detail-bullets')]//*[contains(text(), 'Size')]/* | //label[contains(text(), 'Size')]/following-sibling::*[1])[1]
     regExp: ([0-9]{1,})? ?[Pp]{1}ack ?([of]{2})? ?([0-9]{1,})?
     regExpReplace: $1$3
+    # xpath: //*[@id=\"imgTagWrapperId\"]//img[contains(@src,\"PIbundle\")]/@src
+    # regExp: PIbundle-([^,]+)
+    # regExpReplace: $1
   - name: legalDisclaimer
     singleValue: false
     xpath: //span[contains(text(), "Legal Disclaimer")][contains(@class,"a-text-bold")]/../p[text()]/text()|//h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
@@ -76,12 +79,14 @@ fields:
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/*[contains(text(), 'Directions')]/../p[text()]/text() | //b[contains(.,'Directions')]/following-sibling::br/../text()[4]
   - name: warnings
     singleValue: false
-    xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text())[1]
+    # xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text())[1]
+    xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text() | //div[contains(@id, "important-information")]/div[contains(@class, "a-section content") and contains(., "Warning")])[1] | (//div[@id='importantInformation_feature_div']//div[contains(.,'Safety Information')]/p)
   - name: ratingCount
     singleValue: false
     xpath: //div[@id="centerCol"]//div[@id="averageCustomerReviews"]//span[@id="acrCustomerReviewText"]/text()
     regExp: (.*[0-9]{1,}) ratings
     regExpReplace: $1
+    # xpath: //*[@id="acrCustomerReviewText"]/text()
   - name: aggregateRatingText
   - name: aggregateRating
     singleValue: false
@@ -96,20 +101,25 @@ fields:
     xpath: (//th[contains(text(), 'Product Dimensions')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(), 'Product Dimensions')]/following-sibling::text()[1])[1]
   - name: shippingWeight
     singleValue: false
-    xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1]
-    regExp: ([^()]+)
-    regExpReplace: $1
+    # xpath: (//*[contains(text(), 'Shipping Weight')]/following-sibling::*[1]/text()[1] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/*[contains(text(), 'Shipping Weight')]/following-sibling::text()[1])[1]
+    # regExp: ([^()]+)
+    # regExpReplace: $1
+    xpath: //*[contains(normalize-space(text()),"Package Dimensions") or contains(normalize-space(text()),"Parcel Dimensions") or contains(normalize-space(text()),"Shipping Dimensions")]/following-sibling::*[1][contains(.,';')] | //*[normalize-space(text())="Package Weight" or normalize-space(text())="Shipping Weight"]/following-sibling::*[1]
+    regExp: "[^;]+$"
   - name: variantCount
     xpath: count(//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)
   - name: color
     xpath: //div[contains(@id,"variation_color_name")]//span[contains(@class, "selection")]
   - name: colorCode
   - name: manufacturerDescription
-    xpath: //h3[contains(.,"From the Manufacturer")]/following-sibling::p[1]|//h3[contains(.,"From the Manufacturer")]/parent::div//div[@class="aplus"]/p[1]
+    # xpath: //h3[contains(.,"From the Manufacturer")]/following-sibling::p[1]|//h3[contains(.,"From the Manufacturer")]/parent::div//div[@class="aplus"]/p[1]
+    xpath: //div[@id="aplus"]/div | //div[@class="aplus"]
+    html: true
   - name: manufacturerImages
     xpath: //div[@cel_widget_id="aplus"]//img/@src
   - name: videos
     xpath: //div[@data-vendor-name="Manufacturer Video"]/@data-video-url
+    # xpath: //script[contains(text(), \"ImageBlockBTF\")]/text()
   - name: name
     xpath: //h1[@id="title"]
   - name: inStorePrice
@@ -152,9 +162,11 @@ fields:
     defaultValue: 'NO'
   - name: pasin
     xpath: (//div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li)[1]/@data-defaultasin
+    # xpath: //div[@id='added-pasin']
   - name: videoLength
     singleValue: false
     xpath: (//div[@aria-label="Video Player"]//span[@class="vjs-duration-display"])[1]
+    # xpath: //script[contains(text(), "ImageBlockBTF")]/text()
   - name: heroQuickPromoHeadline
   - name: heroQuickPromoImageUrl
   - name: heroQuickPromoUrl
@@ -171,21 +183,29 @@ fields:
     regExpReplace: 'YES'
     defaultValue: 'NO'
   - name: largeImageCount
+    xpath: //script[contains(text(), "ImageBlockATF")]/text()
   - name: variantAsins
     singleValue: false
     xpath:  //div[contains(@id,"variation")]//ul[contains(@class, "swatch")]/li[@data-dp-url]/@data-dp-url
     regExp: p\/([A-Z0-9]{9,})\/
     regExpReplace: $1
+    # xpath: //div[@id="my-variants"]/ul/li
   - name: specifications
     xpath: //table[contains(@id, "productDetails")]/tbody/tr[text()]
   - name: primeFlag
     singleValue: false
-    xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
-    regExp: (.+)
-    regExpReplace: 'Yes'
+    # xpath: (//div[contains(@id,"price")]//tr[contains(@id, "priceblock") and not(contains(@id, "upsell")) and //i[contains(@class, "a-icon-prime")]])[1]
+    # regExp: (.+)
+    # regExpReplace: 'Yes'
+    xpath: //body/@prime-flag
+    type: BOOLEAN
+    defaultValue: false
   - name: lbb
+    xpath: //body/@is-llb
+    defaultValue: NO
   - name: lbbPrice
   - name: featureBullets
+    xpath: //div[@id="feature-bullets"]//ul/li[not(@id)]
   - name: otherSellersName
   - name: otherSellersPrime
   - name: otherSellersShipping
@@ -201,12 +221,23 @@ fields:
     singleValue: false
     xpath: (//div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p)|//b[contains(.,'Ingredients')]/following-sibling::br/../text()[2]
   - name: servingSize
-  - name: servingSizeUomSS
+    xpath: //*[contains(text(),"Serving Size")]/following-sibling::*[1]
+    regExp: "^[^\\s]+"
+  - name: servingSizeUom
+    xpath: //*[contains(text(),"Serving Size")]/following-sibling::*[1]
+    regExp: "[^\\s]+$"
   - name: numberOfServingsInPackage
+    xpath: //div[contains(@id, "package_quantity")]//span[contains(@class, "selection")] | //*[contains(text(), "Number of Items")]/following-sibling::td[1]
   - name: caloriesPerServing
   - name: caloriesFromFatPerServing
   - name: totalFatPerServing
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
+    regExp: Crude Fat\\s+([^%]+)
+    regExpReplace: $1
   - name: totalFatPerServingUom
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
+    regExp: Crude Fat\\s+([^%]+)
+    regExpReplace: "%"
   - name: saturatedFatPerServing
   - name: saturatedFatPerServingUom
   - name: transFatPerServing
@@ -218,17 +249,35 @@ fields:
   - name: totalCarbPerServing
   - name: totalCarbPerServingUom
   - name: dietaryFibrePerServing
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
+    regExp: Crude Fiber\\s+([^%]+)
+    regExpReplace: $1
   - name: dietaryFibrePerServingUom
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
+    regExp: Crude Fiber\\s+([^%]+)
+    regExpReplace: "%"
   - name: totalSugarsPerServing
   - name: totalSugarsPerServingUom
   - name: proteinPerServing
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
+    regExp: Crude Protein\\s+([^%]+)
+    regExpReplace: $1
   - name: proteinPerServingUom
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
+    regExp: Crude Protein\\s+([^%]+)
+    regExpReplace: "%"
   - name: vitaminAPerServing
   - name: vitaminAPerServingUom
   - name: vitaminCPerServing
   - name: vitaminCPerServingUom
   - name: calciumPerServing
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
+    regExp: Calcium\s+([^%]+)
+    regExpReplace: $1
   - name: calciumPerServingUom
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
+    regExp: Calcium\s+([^%]+)%
+    regExpReplace: "%"
   - name: ironPerServing
   - name: ironPerServingUom
   - name: dietarySymbols
@@ -241,35 +290,60 @@ fields:
     xpath: //div[@class='a-column a-span6 a-span-last']//div[contains(.,'Warranty')]/div
   - name: storage
   - name: countryOfOrigin
+    xpath: //li[contains(.,"Origin:")] | //*[normalize-space(text())="Country of origin"]/following-sibling::*[1] | //*[contains(text(),"Country of Origin")]/following-sibling::*[1]
+    regExp: "[^:]+$"
   - name: allergyAdvice
-    xpath: //div[@id='important-information']//div[contains(.,'Allergy Advice')]/p
+    # xpath: //div[@id='important-information']//div[contains(.,'Allergy Advice')]/p
+    xpath: //*[normalize-space(.)="Sensitive Ingredient Information"]/following-sibling::*[1] | //span[starts-with(normalize-space(text()),"Allergen Information")] | //div[@id='important-information']//span[contains(text(),  "Safety Information")]/following-sibling::p[contains(text(),  "May Contain")]/text()
   - name: recyclingInformation
   - name: productOtherInformation
     xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img)]
   - name: packaging
     xpath: //div[@id="twisterContainer"]//div[contains(.,"Product Packaging:")]/span[1]
   - name: additives
-  - name: pricePerUnit2
+  - name: pricePerUnit
+    xpath: //span[contains(@id, 'priceblock_dealprice')]/following-sibling::span/text() | //span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
   - name: pricePerUnitUom
+    xpath: //span[contains(@id, 'priceblock_dealprice')]/following-sibling::span/text() | //span[contains(@id, 'priceblock_ourprice')]/following-sibling::span/text()
   - name: promotion
     xpath: normalize-space(//tr[contains(@id, 'primeNowDetailPagePrice_savings_price')])
   - name: alcoholContent
+    xpath: //*[contains(text(),"Alcohol Content")]/following-sibling::*[1]
+    regExp": ^[^\\s]+
   - name: newVersion
   - name: newAsin
   - name: newDescription
   - name: variants
+    xpath: //div[@id="my-variants"]/ul/li
   - name: firstVariant
+    xpath: //script[contains(@type,"a-state") and contains(text(), "parentAsin")]
+    regExp: parentAsin\"\:\"([A-Za-z0-9]{10,})
+    regExpReplace": $1
   - name: variantInformation
+    xpath: //script[contains(text(),"twister-js-init-dpx-data")]
+    regExp: selected_variations\"\s*:([^}]+})
+    regExpReplace: $1
   - name: additionalDescBulletInfo
+    xpath: //*[@id='feature-bullets']//ul/li[not(@id)] | //div[@id="productDescription"]/ul/li
   - name: prop65Warning
   - name: ageSuitability
+    xpath: (//th[contains(text(),  "ecommended age")]/following-sibling::td/text())[1]
   - name: energyEfficiency
+    xpath: //*[contains(text(),"Energy Efficiency")]/following-sibling::*[1]
   - name: technicalInformationPdfPresent
-    xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
+    # xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf')]
+    xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf') or contains(., 'PDF')]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
   - name: t_&_cs
   - name: termsAndConditions
+    type: BOOLEAN
+    defaultValue: false
   - name: privacyPolicy
+    defaultValue: No
   - name: customerServiceAvailability
+    defaultValue: No
   - name: productUrl
     xpath: //link[@rel='canonical']/@href
   - name: materials
@@ -278,3 +352,4 @@ fields:
     xpath: //div[@id="ppd"]//script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "360")]
   - name: imageZoomFeaturePresent
     xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+    
