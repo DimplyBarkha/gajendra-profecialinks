@@ -25,7 +25,7 @@ module.exports = {
 
     await infiniteScroll();
 
-    await context.waitForSelector('#flix-std-inpage', { timeout: 30000 })
+    await context.waitForSelector('#flix-std-inpage', { timeout: 60000 })
       .then(() => {
         console.log('Enhanced content loaded');
       })
