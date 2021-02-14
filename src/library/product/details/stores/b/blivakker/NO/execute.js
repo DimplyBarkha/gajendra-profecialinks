@@ -8,7 +8,7 @@ module.exports = {
     domain: 'blivakker.no',
     transform: transform,
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@class,"main-content")]/h1[contains(text(),"ga dessverre ingen treff")]',
     zipcode: '',
   },
 };
