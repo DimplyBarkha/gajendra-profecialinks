@@ -91,27 +91,27 @@ const transform = (data, context) => {
           row.variants = [{ text: artNo }];
         }
 
-        if (row.firstVariant) {
-          let artNo = '';
-          let i = 0;
-          row.firstVariant.forEach(item => {
-            if (item.text.indexOf(':') !== -1) {
-              var temp = item.text.split(':');
-              if (row.variants.length === 1) {
-                artNo += temp[1].trim();
-              } else {
-                if (row.variants.length === i) {
-                  artNo += temp[1].trim();
-                } else {
-                  artNo += temp[1].trim() + ' | ';
-                }
-              }
-              i = i + 1;
-            }
-          });
+        // if (row.firstVariant) {
+        //   let artNo = '';
+        //   let i = 0;
+        //   row.firstVariant.forEach(item => {
+        //     if (item.text.indexOf(':') !== -1) {
+        //       var temp = item.text.split(':');
+        //       if (row.variants.length === 1) {
+        //         artNo += temp[1].trim();
+        //       } else {
+        //         if (row.variants.length === i) {
+        //           artNo += temp[1].trim();
+        //         } else {
+        //           artNo += temp[1].trim() + ' | ';
+        //         }
+        //       }
+        //       i = i + 1;
+        //     }
+        //   });
 
-          row.firstVariant = [{ text: artNo }];
-        }
+        //   row.firstVariant = [{ text: artNo }];
+        // }
 
         let newText1 = '';
         if (row.additionalDescBulletInfo) {

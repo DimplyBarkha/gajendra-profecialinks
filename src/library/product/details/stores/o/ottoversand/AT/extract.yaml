@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[contains(@class,'SlideContent-sc-1cdoji bLNceb')]/img/@src
+    xpath: //div[contains(@class,'SlideContent-sc-1cdoji bLNceb')]/img/@src | //div[@data-testid="gallery-slider"]//div[@data-index="0"]//img/@src
   - name: priceCurrency
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -17,7 +17,7 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //div[contains(@class,'SlideContent-sc-1cdoji bLNceb')]/img/@alt
+    xpath: //div[contains(@class,'SlideContent-sc-1cdoji bLNceb')]/img/@alt | //div[@data-testid="gallery-slider"]//div[@data-index="0"]//img/@alt
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -114,8 +114,8 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //span[contains(@class,'OrderNumber-sc-16ohlta ihUzmb')]
-    regExp: \d+
+    xpath: //span[contains(@class,'OrderNumber-sc-16ohlta ihUzmb')] | //span[@data-testid="product-headline-order-number"]
+    regExp: (\d+)$
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
@@ -166,7 +166,7 @@ fields:
     singleValue: true
     description: A textual description of the colour
     # xpath: //div[contains(@class,'TextElement-sc-19laj2z gXOLpv')]
-    xpath: //div[contains(@class,'TextElement-sc-19laj2z gXOLpv')] | //div[contains(@class,'ProductSelectionContainer-sc-1m3eevz rfSgt')]//div[contains(text(),"Farbe")]/strong
+    xpath: //div[contains(@class,'TextElement-sc-19laj2z gXOLpv')] | //div[contains(@class,'ProductSelectionContainer-sc-1m3eevz rfSgt')]//div[contains(text(),"Farbe")]/strong | //div[@data-testid="product-selection-select"]/div
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -475,7 +475,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
-    xpath: //div[contains(@class,"StyledPayback-sc-wfkxog jA-DdQj")]
+    xpath: //div[contains(@class,"StyledPayback-sc-wfkxog jA-DdQj")] | //div[@data-testid="payback"]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -497,7 +497,8 @@ fields:
     xpath: //div[@data-testid="product-selection-select"]
   - name: firstVariant
     singleValue: false
-    xpath: //div[contains(text(),"Größe")]//following::div[contains(@class,'TileContainer-sc-1so4cwz')]/text()|//span[contains(@class,'OrderNumber-sc-16ohlta ihUzmb')]/text()
+    xpath: //div[contains(text(),"Größe")]//following::div[contains(@class,'TileContainer-sc-1so4cwz')]/text()|//span[contains(@class,'OrderNumber-sc-16ohlta ihUzmb')]/text() | //span[@data-testid="product-headline-order-number"]
+    regExp: (\d+)$
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -510,14 +511,11 @@ fields:
   - name: variants
     singleValue: false
     description: null
-    # type: NUMBER
-    # xpath: //div[contains(@class,'TilesContainer-sc-gvw13e fPnUeK')]/div[contains(@class,'TileContainer-sc-1so4cwz hnwqWq')]
-    # xpath: //div[contains(text(),"Größe")]//following::div[contains(@class,'TileContainer-sc-1so4cwz')]/text()
     xpath: //span[contains(@class,'OrderNumber-sc-16ohlta ihUzmb')]/text() | //div[contains(text(),"Größe")]//following::div[contains(@class,'TileContainer-sc-1so4cwz')]/text()
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
-    xpath: //div[contains(@class,'Description-sc-bljq7d hvxUel')]//ul//li
+    xpath: //div[@id="product-description-column"]//ul[@data-testid="sellingpoints"]/li
   - name: prop65Warning
     singleValue: true
     description: null
