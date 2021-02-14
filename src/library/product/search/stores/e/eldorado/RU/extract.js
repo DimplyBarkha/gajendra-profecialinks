@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation,
 };
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -20,13 +20,13 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
-    function addclass(xpathforpagination) {
+    function addclass (xpathforpagination) {
       var elems = document.querySelectorAll(xpathforpagination);
       elems[0].classList.add('pagination');
     }
 
-    //for rank
-    function addHiddenDiv(id, content, index) {
+    // for rank
+    function addHiddenDiv (id, content, index) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -35,7 +35,7 @@ async function implementation(
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
     // for rating
-    function addHiddenDiv1(id, content, index) {
+    function addHiddenDiv1 (id, content, index) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -45,28 +45,26 @@ async function implementation(
     }
     let rankOrganic;
     let count;
-    let url = window.location.href;
-    let checkPageNumber = url.split('offset=')[1];
+    const url = window.location.href;
+    const checkPageNumber = url.split('offset=')[1];
     // console.log('checkPageNumber----------',checkPageNumber)
 
     // if (checkPageNumber != null) {
     //   checkPageNumber = checkPageNumber.split("-")[0];
     // }
-    
+
     try {
       if (checkPageNumber.endsWith('&utf')) {
         // console.log('rankorgani',rankOrganic)
         rankOrganic = checkPageNumber.replace('&utf', '');
-        rankOrganic = Number(rankOrganic) / 36
-        console.log('rankorgani',rankOrganic)
+        rankOrganic = Number(rankOrganic) / 36;
+        console.log('rankorgani', rankOrganic);
       }
+    } catch (err) {
     }
-    catch (err) {
-    }
-
 
     var dup = Number(rankOrganic);
-    dup = dup - 1; 
+    dup = dup - 1;
 
     if (!rankOrganic) {
       rankOrganic = 1;
@@ -77,8 +75,8 @@ async function implementation(
     for (let i = 0; i < urlProduct.length; i++) {
       addHiddenDiv('rankOrganic', rankOrganic++, i);
     }
-    var parent = document.querySelector(".tevqf5-0 cbJQML");
-    var nodesSameClass = parent.querySelectorAll(".tevqf5-2 fBryir");
+    var parent = document.querySelector('.tevqf5-0 cbJQML');
+    var nodesSameClass = parent.querySelectorAll('.tevqf5-2 fBryir');
     console.log(nodesSameClass.length);
 
     var children = document.querySelectorAll('.tevqf5-0 cbJQML .tevqf5-2 fBryir');
@@ -89,7 +87,6 @@ async function implementation(
     //   count= count + 1;
     //   addHiddenDiv1('rating', count);
     // }
-
 
     // Method to Retrieve Xpath content of a Single Node
     // var getXpath = (xpath, prop) => {
@@ -138,8 +135,7 @@ async function implementation(
     // var backgroundURL = getAllXpath('//span[@class="product__name__productitemno"]/text()', 'nodeValue');
     // sliceURL(backgroundURL);
   });
-  //rank end
-
+  // rank end
 
   return await context.extract(productDetails, { transform });
-}  
+}

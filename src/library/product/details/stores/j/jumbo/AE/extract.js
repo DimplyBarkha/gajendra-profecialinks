@@ -44,7 +44,7 @@ module.exports = {
         addElementToDocument('added_video', video);
 
         const specs = [];
-        const specsList = document.evaluate(`//table[contains(@class,'flix-std-specs-table')]//td/div/span/text() | //div[@id="feature_groups"]//table//td/text()`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        const specsList = document.evaluate('//table[contains(@class,\'flix-std-specs-table\')]//td/div/span/text() | //div[@id="feature_groups"]//table//td/text()', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         for (let index = 0; index < specsList.snapshotLength; index++) {
           const element = specsList.snapshotItem(index);
           const spec = element.nodeValue;
@@ -60,8 +60,8 @@ module.exports = {
           const content = element.nodeValue;
           enhancedContent.push(content);
         }
-        //const specData = specs.join('||');
-        addElementToDocument('econtent', enhancedContent.join(" "));
+        // const specData = specs.join('||');
+        addElementToDocument('econtent', enhancedContent.join(' '));
 
         function addElementToDocument (key, value) {
           const catElement = document.createElement('div');

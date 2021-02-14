@@ -9,8 +9,8 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
-    async function addUrl() {
-      function addElementToDocument(doc, key, value) {
+    async function addUrl () {
+      function addElementToDocument (doc, key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -26,7 +26,7 @@ module.exports = {
       });
     }
     await context.evaluate(addUrl);
-    await new Promise(resolve => setTimeout(resolve, 5000))
+    await new Promise(resolve => setTimeout(resolve, 5000));
     return await context.extract(productDetails, { transform });
   },
 };

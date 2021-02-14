@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation,
 };
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -20,13 +20,13 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
-    function addclass(xpathforpagination) {
+    function addclass (xpathforpagination) {
       var elems = document.querySelectorAll(xpathforpagination);
       elems[0].classList.add('pagination');
     }
 
-    //for rank
-    function addHiddenDiv(id, content, index) {
+    // for rank
+    function addHiddenDiv (id, content, index) {
       const newDiv = document.createElement('div');
       newDiv.id = id;
       newDiv.textContent = content;
@@ -42,7 +42,7 @@ async function implementation(
     // // if (checkPageNumber != null) {
     // //   checkPageNumber = checkPageNumber.split("-")[0];
     // // }
-    
+
     // try {
     //   if (checkPageNumber.endsWith('&utf')) {
     //     // console.log('rankorgani',rankOrganic)
@@ -54,9 +54,8 @@ async function implementation(
     // catch (err) {
     // }
 
-
     // var dup = Number(rankOrganic);
-    // dup = dup - 1; 
+    // dup = dup - 1;
 
     if (!rankOrganic) {
       rankOrganic = 1;
@@ -66,10 +65,9 @@ async function implementation(
     // }
     const urlProduct = document.querySelectorAll('div[class="_1LP36"]');
     for (let i = 0; i < urlProduct.length; i++) {
-      console.log(i,'i=======================')
+      console.log(i, 'i=======================');
       addHiddenDiv('rankOrganic', rankOrganic++, i);
     }
-
 
     // Method to Retrieve Xpath content of a Single Node
     // var getXpath = (xpath, prop) => {
@@ -118,8 +116,7 @@ async function implementation(
     // var backgroundURL = getAllXpath('//span[@class="product__name__productitemno"]/text()', 'nodeValue');
     // sliceURL(backgroundURL);
   });
-  //rank end
-
+  // rank end
 
   return await context.extract(productDetails, { transform });
-}  
+}

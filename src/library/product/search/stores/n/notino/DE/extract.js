@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation,
 };
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -19,12 +19,12 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
-    function addclass(xpathforpagination) {
+    function addclass (xpathforpagination) {
       var elems = document.querySelectorAll(xpathforpagination);
       elems[0].classList.add('pagination');
     }
     // for rank
-    function addElementToDocument(key, value) {
+    function addElementToDocument (key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
       catElement.textContent = value;
@@ -37,7 +37,7 @@ async function implementation(
       const result = [];
       for (let index = 0; index < nodeSet.snapshotLength; index++) {
         const element = nodeSet.snapshotItem(index);
-      if (element) result.push(prop ? element[prop] : element.nodeValue);
+        if (element) result.push(prop ? element[prop] : element.nodeValue);
       }
       return result;
     };
@@ -53,7 +53,7 @@ async function implementation(
     };
     var backgroundURL = getAllXpath('//span[@class="name"]//strong', 'nodeValue');
     sliceURL(backgroundURL);
-    });
-    //rank end
-    return await context.extract(productDetails, { transform });
-}  
+  });
+  // rank end
+  return await context.extract(productDetails, { transform });
+}

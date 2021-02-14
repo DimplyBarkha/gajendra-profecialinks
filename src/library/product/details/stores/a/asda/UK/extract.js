@@ -25,7 +25,7 @@ module.exports = {
 
     await context.waitForSelector(cssProduct, { timeout: 10000 });
     const productAvailable = await helper.checkSelector(cssProduct, 'CSS');
-    console.log(`product available: ${productAvailable}`)
+    console.log(`product available: ${productAvailable}`);
     if (productAvailable) {
       console.log('clicking product link');
       await helper.ifThereClickOnIt(cssProduct);

@@ -16,7 +16,7 @@ const transform = (data, context) => {
     .replace(/^ +| +$|() + /g, ' ')
     // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
+    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
   const state = context.getState();
   let orgRankCounter = state.orgRankCounter || 0;
