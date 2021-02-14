@@ -47,7 +47,7 @@ fields:
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
     xpath: //div[@id='availabilityText']
-    DefaultValue: Out Of Stock
+    # DefaultValue: Out Of Stock
   - name: description
     singleValue: true
     description: Product description supplied by website - may be concatenanted from
@@ -61,7 +61,8 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@id='brandText']
+    # xpath: //div[@id='brandText']
+    xpath: //span[@class="productBrandName"]/text()
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
@@ -89,8 +90,9 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //span[@class="product-code"]
-    regExp: \d+
+    # xpath: //span[@class="product-code"]
+    xpath: //span[@class="size-box selected "]/@id
+    # regExp: \d+
   - name: variantInformation
     singleValue: false
     xpath: //select[@class="variant-select form-control select-to-style select-hidden"]/option

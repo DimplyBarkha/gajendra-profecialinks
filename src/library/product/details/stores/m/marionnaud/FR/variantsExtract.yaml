@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: variantUrl
     singleValue: false
-    xpath: //div[@id="productVariantDisplay"]/div/a/@href
+    xpath: //div[@id="productVariantDisplay"]/div/a/@href | //div[@id="buttonClickshow"]/ul/li/a/@href
     regExp: (/.*)
     regExpReplace: https://www.marionnaud.fr$1
     description: variant Url

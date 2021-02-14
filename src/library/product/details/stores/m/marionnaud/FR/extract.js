@@ -85,14 +85,29 @@ async function implementation(
     }
 
     // @ts-ignore
-    const brandText = window.dataLayer[0].ecommerce.detail.products[0].brand;
-    addHiddenDiv('brandText', brandText);
+    // const brandText = window.dataLayer[0].ecommerce.detail.products[0].brand;
+    // addHiddenDiv('brandText', brandText);
     // @ts-ignore
-    let listPrice = window.dataLayer[0].ecommerce.detail.products[0].price
-    listPrice = listPrice + '€'
-    addHiddenDiv('listPrice', listPrice);
+    // let listPrice = window.dataLayer[0].ecommerce.detail.products[0].price
+    // listPrice = listPrice + '€'
+    // addHiddenDiv('listPrice', listPrice);
+
+    var lp1 = getXpath('//div[@class="markdownPrice priceformat"]/text()', 'nodeValue');
+    var lp2 = getXpath('//div[@class="markdownPrice priceformat"]/sup/text()', 'nodeValue');
+    var listPrice = "";
+    if(lp1 != null){
+      if(lp2 != null){
+        lp2 = lp2.replace('€',',');
+        listPrice = lp1+lp2+"€";
+        addHiddenDiv('listPrice', listPrice);
+      }
+    }
+
+
+
     // @ts-ignore
-    let availabilityText = window.dataLayer[0].ecommerce.detail.products[0].stock;
+    let availabilityText = getXpath('//span[@class="size-box selected "]/parent::a/@data-stock', 'nodeValue');
+    // window.dataLayer[0].ecommerce.detail.products[0].stock;
     if (availabilityText == 'lowStock') {
       availabilityText = 'In Stock'
     }
@@ -102,10 +117,13 @@ async function implementation(
     if (availabilityText == 'outOfStock') {
       availabilityText = 'Out Of Stock'
     }
-    addHiddenDiv('availabilityText', availabilityText)
+    if(availabilityText != null){
+      addHiddenDiv('availabilityText', availabilityText)
+    }
+    
     // @ts-ignore
-    const variantId = window.dataLayer[0].ecommerce.detail.products[0].variant;
-    addHiddenDiv('variantId', variantId)
+    // const variantId = window.dataLayer[0].ecommerce.detail.products[0].variant;
+    // addHiddenDiv('variantId', variantId)
     // gtin
     try{
       const productInfo = document.getElementById('auditedOpinionsInfo').getAttribute('data-auditedopinionurl');
