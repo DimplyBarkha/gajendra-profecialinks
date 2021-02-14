@@ -16,6 +16,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   const newInput = { ...inputs, storeId, zipcode, url, id };
 
   const resultsReturned = await execute(newInput);
+  console.log('resultsReturned', resultsReturned);
   if (!resultsReturned) {
     console.log('No results were returned');
     return;
