@@ -14,36 +14,6 @@ async function implementation (
   console.log('params', parameters);
   const url = parameters.url.replace('{searchTerms}', encodeURIComponent(inputs.keywords));
   await dependencies.goto({ url, zipcode: inputs.zipcode });
-  await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-    try{
-      await context.waitForSelector('select#County_ID',{timeout:500});
-      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-      // @ts-ignore
-      await context.ready('select#County_ID').val(('#County_ID option').eq(55).val());
-      await new Promise((resolve, reject) => setTimeout(resolve, 8000));
-    }catch(e){
-  
-    }
-    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-    try{
-      await context.waitForSelector('select#datesearchtype',{timeout:500});
-      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-      await context.click('select#datesearchtype');
-      await new Promise((resolve, reject) => setTimeout(resolve, 8000));
-    }catch(e){
-  
-    }
-    
-    await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-    try{
-      await context.waitForSelector('input#submitform',{timeout:500});
-      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
-      await context.evaluate(('input#submitform') , document.querySelector('input#submitform').click(), 'input#submitform'); 
-      await new Promise((resolve, reject) => setTimeout(resolve, 8000));
-    }catch(e){
-  
-    }
-  
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
