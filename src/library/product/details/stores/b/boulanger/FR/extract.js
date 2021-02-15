@@ -16,23 +16,52 @@ module.exports = {
     } catch (error) {
       console.log('Modal not loading');
     }
-    const buttonExists = await context.evaluate(async function () {
-      return document.querySelector('button#btnAll-on');
-    });
-    if (buttonExists) {
-      await context.click('button#btnAll-on');
+    try {
+      await context.click('body');
+      await context.evaluate(function () {
+        if (document.querySelector('body')) {
+          document.querySelector('body').click();
+        }
+      });
+    } catch (error) {
+      console.log('Attempting to click outside of modal');
     }
+
     async function scrollToRec (node) {
       await context.evaluate(async (node) => {
         const element = document.querySelector(node) || null;
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
           await new Promise((resolve) => {
-            setTimeout(resolve, 5000);
+            setTimeout(resolve, 3500);
           });
         }
       }, node);
     }
+    await scrollToRec('div#footer');
+    const popUpAccept = await context.evaluate(function () {
+      return document.querySelector('div#privacy-cat-modal');
+    });
+    try {
+      await context.waitForSelector('div#privacy-cat-modal', { timeout: 10000 });
+      if (popUpAccept) {
+        await context.click('button#btnAll-on');
+        await context.evaluate(function () {
+          if (document.querySelector('button#btnAll-on')) {
+            document.querySelector('button#btnAll-on').click();
+          }
+        });
+      }
+    } catch (e) {
+      console.log('No pop-up');
+    }
+    const buttonExists = await context.evaluate(async function () {
+      return document.querySelector('button#btnAll-on');
+    });
+    if (buttonExists) {
+      await context.click('button#btnAll-on');
+    }
+    await scrollToRec('div#footer');
     await scrollToRec('div#footer');
     await scrollToRec('div#BVRRDisplayContentID');
     await context.evaluate(async function () {
