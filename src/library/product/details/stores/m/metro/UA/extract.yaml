@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class, 'jsx-1831001417 swiper-slide swiper-slide-visible swiper-slide')]//img/@src
+    xpath: //div[contains(@class, 'jsx-1831001417 swiper-slide swiper-slide-visible')][position() > 1]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -78,6 +78,7 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: substring(//div[contains(@data-marker-popup, 'Big product card')][not(contains(@data-productkey, 'metro'))]/@data-productkey,2)
   - name: eangtin
     singleValue: true
     xpath: substring(//div[contains(@data-marker-popup, 'Big product card')][not(contains(@data-productkey, 'metro'))]/@data-productkey,2)
@@ -169,7 +170,7 @@ fields:
     description: null
     xpath: //a[contains(@class,'BigProductCardTrademarkName')]//@href
     regExp: (.+)
-    regExpReplace: https://metro.zakaz.ua/ru/$1
+    regExpReplace: https://metro.zakaz.ua$1
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
@@ -283,13 +284,11 @@ fields:
       per 100g serving
     xpath: //*[contains(text(), 'Жиры')]/following::*[1]
     regExp: ([^а-я]+)
-#    regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
     xpath: //*[contains(text(), 'Жиры')]/following::*[1]
     regExp: ([а-яА-Я]+)
-    regExpReplace:
   - name: saturatedFatPerServing
     singleValue: true
     description: Nutritional Information for Saturated Fat content - Usually based
