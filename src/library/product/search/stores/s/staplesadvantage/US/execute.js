@@ -52,6 +52,13 @@ async function implementation (inputs, parameters, context, dependencies) {
       });
     }
     // filling in the form
+    await context.evaluate(async () => {
+      const linkToOldForm = document.querySelector('span > a.SBALogin__twoFieldClickhere');
+      if (linkToOldForm) {
+        // @ts-ignore
+        linkToOldForm.click();
+      }
+    });
     const isAccountNumberFilledIn = await context.evaluate(async (number) => {
       return document.querySelector('input#accountNumber').getAttribute('value') === number;
     }, credentials.accountNumber);
