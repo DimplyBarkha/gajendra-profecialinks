@@ -22,6 +22,7 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
+    type: CURRENCY
     xpath: //div[@class='pd__cost__total undefined']/text()|//div[@class='pd__cost__total--promo undefined']
   - name: price
     singleValue: false
@@ -72,8 +73,8 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    type: NUMBER
-    xpath: //html//div[@id="aggregateRating"]
+    # type: NUMBER
+    xpath: //html//div[@id="aggregateRating1"]
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
