@@ -37,13 +37,21 @@ fields:
   - name: price
     singleValue: true
     #xpath: //div[@class="display-price"]//span/text()| //div[@class="display-price sale-price"]/text()
+<<<<<<< HEAD
     #xpath: //html//div[@id="price"]
+=======
+    xpath: //div[contains(@class, "display-price")]
+    regExp: \$.+\d
+      # (.+\d)
+      # //html//div[@id="price"]
+>>>>>>> b845e79c1139d191b9879758f7c0b12695242b75
     # xpath: //div[@class="display-price"]
     selector: div[class*="display-price"]
     type: CURRENCY
   - name: availabilityText
     singleValue: true
     xpath: //button[@id="addToCartButton"][contains(text(),"Add to Cart")]
+    # //html//div[@id='availability']
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out Of Stock
@@ -67,9 +75,11 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //div[@id="size"]
-    # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    # regExpReplace: $1$2$3$4
+    xpath: //div[@class='lsection mobile-product-name h6']
+    # //html//div[@id='size']
+    regExp: ((\d+\.)?\d+\s?(Ct|oz|Fluid oz|ml|L|lb|Oz|OZ|Ounce|lt|PK|pk|PACK|Count|cans|Ounce|-Count|-pack))
+    # (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    # regExpReplace: $1 
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page

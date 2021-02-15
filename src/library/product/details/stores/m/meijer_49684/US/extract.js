@@ -49,44 +49,48 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
+      // custom code to get price with $
       try {
         const size = getXpath("//div[@class='lsection mobile-product-name h6']//text()", 'nodeValue');
+        console.log('Raghav'+size);
         var nameArr = size.split(',');
+        console.log('Sai'+nameArr);
+        console.log('Rahul'+nameArr[nameArr.length - 1]);
         addElementToDocument('size', nameArr[nameArr.length - 1])
-        const price = getXpath("//div[@class='display-price']//span[@itemprop='price']/text() | (//div[@class='display-price sale-price']/text())[1]", 'nodeValue');
-        if (price.includes('$')) {
-          addElementToDocument('price', price);
-        }
-        else {
-          addElementToDocument('price', '$' + price);
-        }
+      //   const price = getXpath("//div[@class='display-price']//span[@itemprop='price']/text() | (//div[@class='display-price sale-price']/text())[1]", 'nodeValue');
+      //   if (price.includes('$')) {
+      //     addElementToDocument('price', price);
+      //   }
+      //   else {
+      //     addElementToDocument('price', '$' + price);
+      //   }
       } catch (error) {
 
       }
-      try {
-        var stock = "In Stock"
-        const availability = getXpath('//h2[@itemprop="availability"]/text()', 'nodeValue');
-        if (availability.includes("In Stock")) {
-          addElementToDocument('stock', stock);
-          console.log(stock)
-        }
-        else {
-          stock = "Out Of Stock"
-          console.log(stock)
-          addElementToDocument('availability', stock);
-        }
-      } catch (error) {
+      // try {
+      //   var stock = "In Stock"
+      //   const availability = getXpath('//h2[@itemprop="availability"]/text()', 'nodeValue');
+      //   if (availability.includes("In Stock")) {
+      //     addElementToDocument('availability', stock);
+      //     console.log(stock)
+      //   }
+      //   else {
+      //     stock = "Out Of Stock"
+      //     console.log(stock)
+      //     addElementToDocument('availability', stock);
+      //   }
+      // } catch (error) {
 
-      }
-      try{
-      function addclass(xpathforpagination) {
-          var elems = document.querySelectorAll(xpathforpagination);
-          elems[0].classList.add('pagination');
-        }
-      }
-      catch(e){
+      // }
+      // try{
+      // function addclass(xpathforpagination) {
+      //     var elems = document.querySelectorAll(xpathforpagination);
+      //     elems[0].classList.add('pagination');
+      //   }
+      // }
+      // catch(e){
 
-      }
+      // }
     });
     await context.extract(productDetails, { transform: transformParam });
   },
