@@ -22,7 +22,7 @@ const implementation = async (inputs, { loadedSelector, noResultsXPath }, contex
     if (productPageSelector) {
       await context.click('div.product-list div.product-name-priceMarked>p:first-child.product-name');
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      await context.waitForSelector('main#product_detail');
+      await context.waitForSelector('div.modalComponents+main#product_detail');
     }
   }
   return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, noResultsXPath);
@@ -34,7 +34,7 @@ module.exports = {
     country: 'UK',
     store: 'booker',
     domain: 'booker.co.uk',
-    loadedSelector: 'main.container-fluid, div.mainSubcategories',
+    loadedSelector: 'main.container-fluid, div.mainSubcategories, div#navbarMenuItems',
     // noResultsXPath: '//div[@id="filters"]//h2[contains(text(), "0 Results")] | //div[@id="TempRegLeft"] | //div[@id="OHPLeft"] | //div[@class="YourBookerLeft"] | //h1[contains(text(),"The website is undergoing essential maintenance")] | //h1[contains(text(),"Sorry, this page does not exist")]',
     noResultsXPath: '//p[contains(text(),"search returned no results")] | //h1[contains(text(),"The website is undergoing essential maintenance")] | //h1[contains(text(),"Sorry, this page does not exist")] | //div[contains(@class,"product-list rowUnGrouped")][not(//div[contains(@class,"product-model")])]',
     zipcode: '',

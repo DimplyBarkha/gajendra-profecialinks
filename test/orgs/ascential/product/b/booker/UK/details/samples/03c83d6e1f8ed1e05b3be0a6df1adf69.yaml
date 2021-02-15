@@ -2,7 +2,7 @@ input:
   id: "250074"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9fce36d7-b7fe-47e8-b782-82868d92dc6b/task=7b5acd37-b887-4d3f-98c2-41d9730cb92c/3390026e-33a6-4c2a-af9b-466277c984e6.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=dd368a34-d952-4172-9e63-d1a6010dae7c/task=95bce679-21d6-4b9c-aac2-3a2f54fb7fbb/fe2af523-363c-45a7-accb-77d60091fe8d.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -81,55 +81,58 @@ extractions:
                 xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/p[2]
             productUrl:
               - text: https://www.booker.co.uk/products/product%20detail?Code=250074&returnUrl=http%3a%2f%2fwww.booker.co.uk%2fproducts%2fproduct-list%3fkeywords%3d250074
-                xpath: /html/body/div[2]
+                xpath: /html/body/div[3]
             metaKeywords:
               - text: booker wholesale,wholesale uk,wholesaler,foodservice,food wholesaler
-                xpath: /html/body/div[3]
+                xpath: /html/body/div[4]
             availabilityText:
               - text: Out of Stock
-                xpath: /html/body/div[4]
+                xpath: /html/body/div[5]
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/div[5]
+                xpath: /html/body/div[6]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[7]
             caloriesPerServing:
               - text: 1208kJ/284kcal
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[9]
             totalFatPerServing:
               - text: "0"
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[10]
             totalFatPerServingUom:
               - text: g
-                xpath: /html/body/div[9]
+                xpath: /html/body/div[10]
             saturatedFatPerServing:
               - text: "0"
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[11]
             saturatedFatPerServingUom:
               - text: g
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[11]
             totalCarbPerServing:
               - text: "69"
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             totalCarbPerServingUom:
               - text: g
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             totalSugarsPerServing:
               - text: "69"
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[15]
             totalSugarsPerServingUom:
               - text: g
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[15]
             proteinPerServing:
               - text: <0.5
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[16]
             proteinPerServingUom:
               - text: g
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[16]
             saltPerServing:
               - text: "0.01"
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[18]
             saltPerServingUom:
               - text: g
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[18]
             variantCount:
               - text: "0"
             technicalInformationPdfPresent:
@@ -141,4 +144,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
         xpath: /html/body
-    timestamp: 1612871434565
+    timestamp: 1613383041942
