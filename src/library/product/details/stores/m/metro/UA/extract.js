@@ -12,8 +12,12 @@ module.exports = {
   implementation: async (inputs, parameters, context, dependencies) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
-
-    await context.click('.jsx-3209444046');
+    await context.evaluate(() => {
+      const btn = document.querySelector('.jsx-3209444046');
+      if (btn) {
+        btn.click();
+      }
+    });
 
     return await context.extract(productDetails, { transform });
   },
