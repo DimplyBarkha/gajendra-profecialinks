@@ -1,14 +1,21 @@
-
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'DE',
     store: 'snipes',
-    transform: null,
+    transform: cleanUp,
     domain: 'snipes.com',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async (
+    inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -16,6 +23,19 @@ module.exports = {
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
+      }
+      function addHiddenDiv (id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.getElementsByClassName('variants')[index].appendChild(newDiv);
+      }
+      function addEmptyDiv () {
+        const newDiv = document.createElement('div');
+        newDiv.className = 'variants';
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
       }
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -47,10 +67,12 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      var description = getXpath('//div[@class="js-target"]/a/text()', 'nodeValue');
-      var description1 = getXpath("(//div[@class='b-pdp-carousel-item']/picture/img/@alt)[1]", 'nodeValue');
-      description = description + ' ' + description1;
-      addElementToDocument('description', description);
+      // var description = getXpath('//div[@class="js-target"]/a/text()', 'nodeValue');
+      // var description1 = getXpath("(//div[@class='b-pdp-carousel-item']/picture/img/@alt)[1]", 'nodeValue');
+      // description = description + ' ' + description1;
+      // addElementToDocument('description', description);
+
+      // availability
       var aval = getXpath('//span[@class="b-availability-label-message js-availability-label-message"]/text()[1]', 'nodeValue');
       if (aval != null) {
         if (aval.includes('Dieser Artikel ist online leider nicht mehr verfügbar.')) {
@@ -79,7 +101,28 @@ module.exports = {
         var AltImg = alternateimage.join(' | ');
         addElementToDocument('AltImg', AltImg);
       }
+      var qq = getAllXpath('//div[@class="b-swatch-value-wrapper"]/a/span/span/text()', 'nodeValue');
+      if (qq != null) {
+        for (var i = 0; i < qq.length; i++) {
+          addEmptyDiv();
+          addHiddenDiv('qty', qq[i], i);
+          // console.log('amol'+qq[i]);
+        }
+      }
+      // var availability = document.querySelectorAll('div[class="b-swatch-value-wrapper"] a span[class*="js-pdp-attribute-tile"]')
+      var availability = getAllXpath('//div[@class="b-swatch-value-wrapper"]/a/span/@class', 'nodeValue');
+      if (availability.length >= 1) {
+        var avail = [];
+        for (var j = 0; j < availability.length; j++) {
+          if (availability[j].includes('orderable')) {
+            avail[j] = 'In stock';
+          } else {
+            avail[j] = 'Out Of Stock';
+          }
+          addHiddenDiv('availability1', avail[j], j);
+        }
+      }
     });
-    await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
