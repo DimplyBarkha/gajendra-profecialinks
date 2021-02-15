@@ -1,8 +1,8 @@
 input:
+  id: 134188002
   _url: http://americanas.com.br
-  URL: https://www.americanas.com.br/produto/134188002/lavadora-de-roupas-consul-9kg-branca-cwb09
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5066c298-d765-4d57-b4fd-c76d94d60310/task=10b6f14b-6900-471e-a85e-7baf468127de/136dafd8-4f24-4f68-beb9-ebaa912c9cd4.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a70326a4-9cf6-4e74-a2f3-20950ae0c5be/task=988fff75-243b-49ca-b7cc-7d55960f8077/947060cd-0b5d-42b0-9322-12011446c603.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
@@ -15,10 +15,7 @@ extractions:
               - text: https://images-americanas.b2w.io/produtos/01/00/img/134188/0/134188011_3GG.jpg
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/picture[1]/img[1]/@src
             ratingCount:
-              - text: "480"
-                xpath: /html/body/div[1]/div[1]/script[1]
-            aggregateRating:
-              - text: 4,0
+              - text: "482"
                 xpath: /html/body/div[1]/div[1]/script[1]
             category:
               - text: Eletrodomésticos
@@ -29,7 +26,7 @@ extractions:
               - text: Lavadora de Roupas Consul 9Kg Branca CWB09 110V
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
             price:
-              - text: R$ 1.398,99
+              - text: R$ 1.299,99
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
             name:
               - text: Lavadora de Roupas Consul 9Kg Branca CWB09 110V
@@ -45,30 +42,29 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[7]/div[1]
             brandText:
               - text: Consul
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[36]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[36]/td[2]
             manufacturer:
               - text: Consul
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[35]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[35]/td[2]
             quantity:
               - text: "29.4"
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[7]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[7]/td[2]
             gtin:
               - text: "7891129267657"
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[2]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[2]/td[2]
             variantId:
               - text: "134188002"
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[1]/td[2]
             mpc:
               - text: CWB09ABANA
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[30]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[30]/td[2]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[3]
-            videos:
-              - text: http://www.youtube.com/embed/window.__APOLLO_STATE__ =
-                  {"ROOT_QUERY":{"__typename":"Query
+            aggregateRating:
+              - text: 4,0
                 xpath: /html/body/div[4]
             descriptionBullets:
               - text: "0"
         xpath: /html
-    timestamp: 1612785231669
+    timestamp: 1613392197436

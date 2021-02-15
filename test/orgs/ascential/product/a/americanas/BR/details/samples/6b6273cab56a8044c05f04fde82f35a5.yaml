@@ -1,16 +1,13 @@
 input:
+  id: 134444782
   _url: http://americanas.com.br
-  URL: https://www.americanas.com.br/produto/134444782/smart-tv-led-32-lg-hd-thinq-ai-conversor-digital-integrado-3-hdmi-2-usb-wi-fi-preta
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5066c298-d765-4d57-b4fd-c76d94d60310/task=4e873066-6ffc-4c04-af45-303007c537bc/6e84cd12-a0f1-4bf8-b5be-3f0b68ca368d.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a70326a4-9cf6-4e74-a2f3-20950ae0c5be/task=120192fe-0b6b-4e25-92ab-00fc316d94a1/52841690-4232-4fcb-ac3a-d0a6c9aa3acc.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
           - ratingCount:
-              - text: "653"
-                xpath: /html/body/div[1]/div[1]/script[1]
-            aggregateRating:
-              - text: 4,3
+              - text: "655"
                 xpath: /html/body/div[1]/div[1]/script[1]
             category:
               - text: TV e Home Theater
@@ -37,7 +34,7 @@ extractions:
               - text: R$ 1.399,99
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/span[1]
             price:
-              - text: R$ 1.329,99
+              - text: R$ 1.259,99
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
             sku:
               - text: "134444791"
@@ -47,7 +44,7 @@ extractions:
                   Wi-Fi - Preta
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
             coupon:
-              - text: 5%
+              - text: 10%
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
             description:
               - text: >-
@@ -60,24 +57,23 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/div[1]
             brandText:
               - text: LG
-                xpath: /html/body/div[1]/div[1]/div[7]/table[1]/tbody[1]/tr[3]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[3]/td[2]
             quantity:
               - text: 5kg
-                xpath: /html/body/div[1]/div[1]/div[7]/table[1]/tbody[1]/tr[30]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[30]/td[2]
             gtin:
               - text: "7893299911507"
-                xpath: /html/body/div[1]/div[1]/div[7]/table[1]/tbody[1]/tr[2]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[2]/td[2]
             variantId:
               - text: "134444782"
-                xpath: /html/body/div[1]/div[1]/div[7]/table[1]/tbody[1]/tr[1]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[3]
-            videos:
-              - text: http://www.youtube.com/embed/window.__APOLLO_STATE__ =
-                  {"ROOT_QUERY":{"__typename":"Query
+            aggregateRating:
+              - text: 4,4
                 xpath: /html/body/div[4]
             descriptionBullets:
               - text: "0"
         xpath: /html
-    timestamp: 1612785237611
+    timestamp: 1613392186160

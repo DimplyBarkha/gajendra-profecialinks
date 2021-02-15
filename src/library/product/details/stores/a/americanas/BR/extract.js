@@ -24,10 +24,18 @@ module.exports = {
       const availabilityText = document.querySelector('a#buy-button') ? 'In Stock' : 'Out Of Stock';
       addElementToDom('availabilityText', availabilityText);
 
-      const xp = '//script[contains(.,"video") and contains(.,"window.__APOLLO_STATE__")]';
-      const jsonObj = document.evaluate(xp, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      const videoId = jsonObj ? jsonObj.textContent.replace(/^.*video":"(?=)/g, '').replace(/",(?<=",).*/g, '').replace(/^.*\\u002F/g, '') : '';
-      addElementToDom('video', `http://www.youtube.com/embed/${videoId}`);
+      const videoXp = '//script[contains(.,"video") and contains(.,"window.__APOLLO_STATE__")]';
+      const jsonObj = document.evaluate(videoXp, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const videoId = jsonObj && jsonObj.textContent.match(/"video":"[^,]+,/g) ? jsonObj.textContent.match(/"video":"[^,]+,/g)[0].replace(/"video":.*\\u002F/g, '').replace(/",/g, '') : '';
+      if (videoId) addElementToDom('video', `http://www.youtube.com/embed/${videoId}`);
+
+      const ratingXp = '//script[@type="application/ld+json"][contains(.,"ratingCount")]';
+      const jsonRatingObj = document.evaluate(ratingXp, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      const ratingValue = jsonRatingObj && jsonRatingObj.textContent.match(/(?<=ratingValue":")(\d*)\.?(\d{0,1})\d*(?=")/g) ? jsonRatingObj.textContent.match(/(?<=ratingValue":")(\d*)\.?(\d{0,3})\d*(?=")/g)[0] : '';
+      if (ratingValue) {
+        const roundedRatingValue = parseFloat(ratingValue).toFixed(1).toString().replace('.', ',');
+        addElementToDom('ratingValue', roundedRatingValue);
+      }
 
       const specifications = document.querySelectorAll("table[class^='src__SpecsCell'] td");
       const specificationsArr = [];

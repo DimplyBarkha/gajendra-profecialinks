@@ -1,16 +1,13 @@
 input:
+  id: 1708933455
   _url: http://americanas.com.br
-  URL: https://www.americanas.com.br/produto/1708933455/smart-tv-led-lg-24-monitor-wi-fi-webos-3-5-dtv-machine-ready
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5066c298-d765-4d57-b4fd-c76d94d60310/task=f57a52ed-f746-42d2-8667-d20f863dbc37/2b330ffb-65a0-4f83-97bc-b2f502d3adf3.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a70326a4-9cf6-4e74-a2f3-20950ae0c5be/task=61e80e6b-9c50-4d47-abec-8ed6dabdfa20/af3c0378-21dd-4261-890f-10b763ad5d92.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
           - ratingCount:
               - text: "192"
-                xpath: /html/body/div[1]/div[1]/script[1]
-            aggregateRating:
-              - text: 4,2
                 xpath: /html/body/div[1]/div[1]/script[1]
             category:
               - text: TV e Home Theater
@@ -33,10 +30,10 @@ extractions:
               - text: Smart TV LED LG 24" Monitor Wi-Fi Webos 3.5 DTV Machine Ready
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
             listPrice:
-              - text: R$ 999,00
+              - text: R$ 1.029,90
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/span[1]
             price:
-              - text: R$ 899,10
+              - text: R$ 926,91
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
             sku:
               - text: "1708933463"
@@ -60,30 +57,29 @@ extractions:
                   ter uma verdadeira experiência digital. O Wi-Fi Integrado
                   permite que você simplesmente conecte sua rede de preferência
                   e pronto. Já começa a navegar por qualquer site ou aplicativo.
-                xpath: /html/body/div[1]/div[1]/div[8]/div[1]
-            variantId:
-              - text: "1708933455"
-                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[1]/td[2]
-            gtin:
-              - text: "7893299911453"
-                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[2]/td[2]
-            quantity:
-              - text: 3,3
-                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[6]/td[2]
-            mpc:
-              - text: 24TL520S
-                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[7]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[7]/div[1]
             manufacturer:
               - text: LG ELETRONICS
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[11]/td[2]
+            quantity:
+              - text: 3,3
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[6]/td[2]
+            gtin:
+              - text: "7893299911453"
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[2]/td[2]
+            variantId:
+              - text: "1708933455"
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[1]/td[2]
+            mpc:
+              - text: 24TL520S
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[7]/td[2]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[3]
-            videos:
-              - text: http://www.youtube.com/embed/window.__APOLLO_STATE__ =
-                  {"ROOT_QUERY":{"__typename":"Query
+            aggregateRating:
+              - text: 4,3
                 xpath: /html/body/div[4]
             descriptionBullets:
               - text: "0"
         xpath: /html
-    timestamp: 1612785215327
+    timestamp: 1613392176509

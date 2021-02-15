@@ -123,9 +123,7 @@ fields:
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //script[@type="application/ld+json"][contains(.,'ratingCount')]
-    regExp: (?<=ratingValue":")(\d*)\.?(\d{0,1})\d*(?=")
-    regExpReplace: $1,$2
+    xpath: //div[@id='ratingValue']
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product

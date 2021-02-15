@@ -1,8 +1,8 @@
 input:
+  id: 100044574
   _url: http://americanas.com.br
-  URL: https://www.americanas.com.br/produto/100044574/tv-led-28-usb-hdmi-rj45-philco-bivolt-ph28n91dsgwa
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5066c298-d765-4d57-b4fd-c76d94d60310/task=15846441-0409-4766-b902-59f52389174a/5999cc33-49f2-4c5b-bf42-f403d94b49a2.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a70326a4-9cf6-4e74-a2f3-20950ae0c5be/task=436231fe-a6b5-42c1-a1ab-dab491e346fa/7d519020-33a0-4231-9230-04674eb88a10.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
@@ -18,9 +18,6 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/picture[1]/img[1]/@src
             ratingCount:
               - text: "1"
-                xpath: /html/body/div[1]/div[1]/script[1]
-            aggregateRating:
-              - text: 2,
                 xpath: /html/body/div[1]/div[1]/script[1]
             category:
               - text: TV e Home Theater
@@ -65,24 +62,23 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[7]/div[1]
             brandText:
               - text: Philco
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[3]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[3]/td[2]
             manufacturer:
               - text: Philco
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[6]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[6]/td[2]
             gtin:
               - text: "7899466423958"
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[2]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[2]/td[2]
             variantId:
               - text: "100044574"
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[1]/td[2]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[3]
-            videos:
-              - text: http://www.youtube.com/embed/window.__APOLLO_STATE__ =
-                  {"ROOT_QUERY":{"__typename":"Query
+            aggregateRating:
+              - text: 2,0
                 xpath: /html/body/div[4]
             descriptionBullets:
               - text: "0"
         xpath: /html
-    timestamp: 1612785207931
+    timestamp: 1613392158786
