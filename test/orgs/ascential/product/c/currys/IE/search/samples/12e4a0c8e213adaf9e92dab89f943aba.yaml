@@ -1,0 +1,237 @@
+input:
+  keywords: Dyson purifiers
+  _url: http://currys.ie
+extractions:
+  - html: https://workbench.import.io/html/run=58bd5bdd-5e5d-43f5-8355-2e2aa1593072/task=68d2825b-d181-4810-893b-5edc1320db78/eac8b8d2-0f3d-4acd-ae55-e377236cd9c0.html
+    extractionConfigId: product/search/stores/c/currys/IE/extract
+    data:
+      - group:
+          - id:
+              - text: "10159393"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[1]/div[2]/div[1]/@data-productid
+            name:
+              - text: VAX ACAMV101 Portable Air Purifier
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[1]/div[1]/header[1]/a[1]
+            productUrl:
+              - text: https://www.currys.ie/ieen/home-appliances/heating-and-cooling/air-treatment/air-purifiers/vax-acamv101-portable-air-purifier-10159393-pdt.html
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[1]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/3/9/10159393/g_10159393.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[1]/div[1]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: €349.99
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[1]/div[2]/div[1]/div[1]/strong[1]
+            manufacturer:
+              - text: VAX
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[1]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10215370"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[2]/div[2]/div[1]/div[2]/a[1]/div[1]/div[1]/@data-productid
+              - text: "10215370"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[2]/div[3]/div[1]/@data-productid
+            name:
+              - text: DYSON V7 Animal Extra Cordless Vacuum Cleaner - Purple
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[2]/div[2]/header[1]/a[1]
+            productUrl:
+              - text: https://www.currys.ie/ieen/home-appliances/floorcare/vacuum-cleaners/dyson-v7-animal-extra-cordless-vacuum-cleaner-purple-10215370-pdt.html
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[2]/div[2]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/0/7/10215370/g_10215370.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[2]/div[2]/div[1]/div[1]/a[1]/div[1]/img[1]/@src
+            price:
+              - text: €249.00
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[2]/div[3]/div[1]/div[1]/strong[1]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[2]/div[2]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10178464"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[3]/div[2]/div[1]/@data-productid
+            name:
+              - text: DYSON Pure Cool Desk Smart Air Purifier
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[3]/div[1]/header[1]/a[1]
+            productUrl:
+              - text: https://www.currys.ie/ieen/home-appliances/heating-and-cooling/air-treatment/air-purifiers/dyson-pure-cool-desk-smart-air-purifier-10178464-pdt.html
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[3]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/4/6/10178464/g_10178464.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[3]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            price:
+              - text: €449.99
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[3]/div[2]/div[1]/div[1]/strong[1]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[3]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10178465"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[4]/div[2]/div[1]/@data-productid
+            name:
+              - text: DYSON Pure Cool Tower Smart Air Purifier
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[4]/div[1]/header[1]/a[1]
+            productUrl:
+              - text: https://www.currys.ie/ieen/home-appliances/heating-and-cooling/air-treatment/air-purifiers/dyson-pure-cool-tower-smart-air-purifier-10178465-pdt.html
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[4]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/5/6/10178465/g_10178465.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[4]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            price:
+              - text: €549.99
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[4]/div[2]/div[1]/div[1]/strong[1]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[4]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10191359"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[5]/div[2]/div[1]/@data-productid
+            name:
+              - text: DYSON Pure Cool Me Air Purifier
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[5]/div[1]/header[1]/a[1]
+            productUrl:
+              - text: https://www.currys.ie/ieen/home-appliances/heating-and-cooling/air-treatment/air-purifiers/dyson-pure-cool-me-air-purifier-10191359-pdt.html
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[5]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/9/5/10191359/g_10191359.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[5]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            price:
+              - text: €349.00
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[5]/div[2]/div[1]/div[1]/strong[1]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[5]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10189257"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[6]/div[2]/div[1]/@data-productid
+            name:
+              - text: DYSON Pure Hot+Cool Advanced Air Purifier
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[6]/div[1]/header[1]/a[1]
+            productUrl:
+              - text: https://www.currys.ie/ieen/home-appliances/heating-and-cooling/air-treatment/air-purifiers/dyson-pure-hot-cool-advanced-air-purifier-10189257-pdt.html
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[6]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/7/5/10189257/g_10189257.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[6]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "7"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[6]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/span[1]/@class
+            price:
+              - text: €599.00
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[6]/div[2]/div[1]/div[1]/strong[1]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[6]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10206683"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[7]/div[2]/div[1]/@data-productid
+            name:
+              - text: DYSON Pure Humidify + Cool Smart Air Purifier
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[7]/div[1]/header[1]/a[1]
+            productUrl:
+              - text: https://www.currys.ie/ieen/home-appliances/heating-and-cooling/air-treatment/air-purifiers/dyson-pure-humidify-cool-smart-air-purifier-10206683-pdt.html
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[7]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/3/8/10206683/g_10206683.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[7]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            price:
+              - text: €699.99
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[7]/div[2]/div[1]/div[1]/strong[1]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[7]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10177211"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[8]/div[2]/div[1]/@data-productid
+            name:
+              - text: DIMPLEX Xpelair XPAP6 Air Purifier
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[8]/div[1]/header[1]/a[1]
+            productUrl:
+              - text: https://www.currys.ie/ieen/home-appliances/heating-and-cooling/air-treatment/air-purifiers/dimplex-xpelair-xpap6-air-purifier-10177211-pdt.html
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[8]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/1/1/10177211/g_10177211.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[8]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "10"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[8]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/span[1]/@class
+            price:
+              - text: €249.99
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[8]/div[2]/div[1]/div[1]/strong[1]
+            manufacturer:
+              - text: DIMPLEX
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[8]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10177976"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[9]/div[2]/div[1]/@data-productid
+            name:
+              - text: PHILIPS Series 3000i AC3259/60 Air Purifier
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[9]/div[1]/header[1]/a[1]
+            productUrl:
+              - text: https://www.currys.ie/ieen/home-appliances/heating-and-cooling/air-treatment/air-purifiers/philips-series-3000i-ac3259-60-air-purifier-10177976-pdt.html
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[9]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/6/7/10177976/g_10177976.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[9]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            price:
+              - text: €399.99
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[9]/div[2]/div[1]/div[1]/strong[1]
+            manufacturer:
+              - text: PHILIPS
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[9]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10176546"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[10]/div[2]/div[1]/@data-productid
+            name:
+              - text: HOMEDICS TotalClean AP-25A-GB Air Purifier
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[10]/div[1]/header[1]/a[1]
+            productUrl:
+              - text: https://www.currys.ie/ieen/home-appliances/heating-and-cooling/air-treatment/air-purifiers/homedics-totalclean-ap-25a-gb-air-purifier-10176546-pdt.html
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[10]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/6/4/10176546/g_10176546.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[10]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            aggregateRating2:
+              - text: "10"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[10]/div[1]/div[1]/div[2]/a[1]/div[1]/div[1]/span[1]/@class
+            price:
+              - text: €149.99
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[10]/div[2]/div[1]/div[1]/strong[1]
+            manufacturer:
+              - text: HOMEDICS
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[10]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10176754"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[11]/div[2]/div[1]/@data-productid
+            name:
+              - text: HOMEDICS TotalClean PetPlus AT-PET02A-GB Air Purifier
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[11]/div[1]/header[1]/a[1]
+            productUrl:
+              - text: https://www.currys.ie/ieen/home-appliances/heating-and-cooling/air-treatment/air-purifiers/homedics-totalclean-petplus-at-pet02a-gb-air-purifier-10176754-pdt.html
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[11]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/4/5/10176754/g_10176754.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[11]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            price:
+              - text: €249.99
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[11]/div[2]/div[1]/div[1]/strong[1]
+            manufacturer:
+              - text: HOMEDICS
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[11]/div[1]/header[1]/a[1]/span[1]
+          - id:
+              - text: "10170923"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[12]/div[2]/div[1]/@data-productid
+            name:
+              - text: MEACO MeacoClean CA-HEPA Portable Air Purifier
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[12]/div[1]/header[1]/a[1]
+            productUrl:
+              - text: https://www.currys.ie/ieen/home-appliances/heating-and-cooling/air-treatment/air-purifiers/meaco-meacoclean-ca-hepa-portable-air-purifier-10170923-pdt.html
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[12]/div[1]/header[1]/a[1]/@href
+            thumbnail:
+              - text: https://brain-images-ssl.cdn.dixons.com/3/2/10170923/g_10170923.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[12]/div[1]/div[1]/div[1]/a[1]/div[1]/picture[1]/@data-iesrc
+            price:
+              - text: €159.99
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[12]/div[2]/div[1]/div[1]/strong[1]
+            manufacturer:
+              - text: MEACO
+                xpath: /html/body/div[2]/div[1]/div[3]/div[3]/section[1]/form[1]/div[1]/div[2]/article[12]/div[1]/header[1]/a[1]/span[1]
+        xpath: /html
+    timestamp: 1606743605966

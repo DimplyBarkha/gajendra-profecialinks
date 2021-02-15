@@ -1,0 +1,176 @@
+input:
+  _url: http://currys.ie
+  URL: https://www.currys.ie/ieen/home-appliances/health-beauty/hair-stylers/dyson-airwrap-complete-hair-styler-nickel-fuchsia-10187264-pdt.html
+extractions:
+  - html: https://workbench.import.io/html/run=cd1cdf9b-4443-4e30-b41f-9bda55ecba46/task=226373fa-b75e-4bc1-afd6-7fbe3cf152ef/3e7c72c0-b6a1-4365-8d88-0cd0a2d3cb06.html
+    extractionConfigId: product/details/stores/c/currys/IE/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.currys.ie/ieen/home-appliances/health-beauty/hair-stylers/dyson-airwrap-complete-hair-styler-nickel-fuchsia-10187264-pdt.html
+                xpath: /html/body/div[12]
+            image:
+              - text: https://brain-images-ssl.cdn.dixons.com/4/6/10187264/u_10187264.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: DYSON Airwrap Complete Hair Styler - Nickel & Fuchsia
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            alternateImages:
+              - text: https://brain-images-ssl.cdn.dixons.com/4/6/10187264/l_10187264_016.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/4/6/10187264/l_10187264_009.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/a[1]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/4/6/10187264/l_10187264_011.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/a[1]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/4/6/10187264/l_10187264_012.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/a[1]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/4/6/10187264/l_10187264_013.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[6]/a[1]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/4/6/10187264/l_10187264_014.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[7]/a[1]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/4/6/10187264/l_10187264_015.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[8]/a[1]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/4/6/10187264/l_10187264_010.jpg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[9]/a[1]/img[1]/@src
+            metaKeywords:
+              - text: DYSON Airwrap Complete Hair Styler - Nickel & Fuchsia,buy DYSON Airwrap
+                  Complete Hair Styler - Nickel & Fuchsia,cheap DYSON Airwrap
+                  Complete Hair Styler - Nickel & Fuchsia,low price DYSON
+                  Airwrap Complete Hair Styler - Nickel & Fuchsia,DYSON Airwrap
+                  Complete Hair Styler - Nickel & Fuchsia deals
+                xpath: /html/head[1]/meta[7]/@content
+            category:
+              - text: Home
+                xpath: /html/body/div[2]/div[1]/div[3]/div[1]/a[1]/span[1]
+              - text: Home Appliances
+                xpath: /html/body/div[2]/div[1]/div[3]/div[1]/a[2]/span[1]
+              - text: Health & beauty
+                xpath: /html/body/div[2]/div[1]/div[3]/div[1]/a[3]/span[1]
+              - text: Hair stylers
+                xpath: /html/body/div[2]/div[1]/div[3]/div[1]/a[4]/span[1]
+            nameExtended:
+              - text: DYSON Airwrap Complete Hair Styler - Nickel & Fuchsia
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[1]/h1[1]
+            listPrice:
+              - text: €499.00
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[3]/div[1]/div[1]/div[1]/div[1]/text()[1]
+            price:
+              - text: €489.00
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[3]/div[1]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: In stock
+                xpath: /html/body/div[7]
+            description:
+              - text: Wave / curl / smooth / dry
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Style & dry at the same time
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Uses air to style & wrap hair
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: 6 styling accessories included
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            manufacturer:
+              - text: DYSON
+                xpath: /html/body/div[8]
+            weightNet:
+              - text: 1.53 kg
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[6]/div[2]/div[2]/div[1]/div[1]/table[3]/tbody[5]/tr[1]/td[1]
+            sku:
+              - text: "253153"
+                xpath: /html/body/div[10]
+            mpc:
+              - text: "10187264"
+                xpath: /html/body/div[2]/script[10]/@data-flix-mpn
+            ratingCount:
+              - text: "820"
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[1]/div[1]/a[1]
+                type: NUMBER
+                raw: "820"
+                locale: en_GB
+                value: 820
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[11]
+                type: NUMBER
+                raw: "4.5"
+                locale: en_GB
+                value: 4.5
+            color:
+              - text: Nickel & fuchsia
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[6]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[4]/tr[1]/td[1]
+            manufacturerDescription:
+              - text: >-
+                  Top features:
+
+                  - Perfect style with no extreme heat thanks to intelligent heat control 
+
+                  - Style and dry simultaneously for less time getting ready 
+
+                  - Curl, wave, smooth and dry your hair with the six attachments 
+
+                  Perfect style with no extreme heat
+
+                  Say goodbye to dry, heat damaged hair with the Dyson Airwrap Hair Styler.
+
+                  Featuring an intelligent sensor that measures the air temperature over 40 times a second, the heat is carefully maintained to prevent the effects of extreme heat for compromise-free drying and styling. 
+
+                  Style and dry simultaneously
+
+                  It can take forever to blow dry and then style your hair when you just want to get going. Designed to style your hair from damp, the Dyson Airwrap combines powerful airflow with carefully controlled heat to dry and style your hair in one step - you can get your hair ready in half the time. 
+
+                  Curl, wave, smooth and dry
+
+                  Whatever look you're going for, the Airwrap Complete has an attachment for every style and every hair type. Once you've taken your freshly washed hair from wet to damp with the pre-styling dryer, choose one of the Airwrap barrels or brushes to complete your look.
+
+                  Want to go glam? Create the perfect look for a wedding or night at the races with the Airwrap barrels. Use the smaller 30 mm barrels for tighter, voluminous curls or waves, or the 40 mm barrels for a looser look. 
+
+                  For a more relaxed look that'll take you from day to night, try the firm smoothing brush to create a straighter style while minimising frizz and flyaways, the soft smoothing brush for creating a smooth, professional-looking blow-dry finish that's gentle on your scalp, or the round volumising brush for a full-bodied look.
+
+                  The Coanda effect mimics a stylist's blow-dry technique by attracting hair to the barrel then wrapping it for you using nothing but air - it's never been easier to get that salon-perfect style without wasting hours in front of the mirror.
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[6]/div[2]/div[1]/div[1]/div[1]/div[1]
+            videos:
+              - text: https://flv.isitetv.com/media/video/2544/video_url_227199_2544.m4v,https://flv.isitetv.com/media/video/2544/video_url_234277_2544.m4v,https://flv.isitetv.com/media/video/2544/video_url_234279_2544.m4v,https://flv.isitetv.com/media/video/2544/video_url_234281_2544.m4v,https://flv.isitetv.com/media/video/1499/video_url_187617_1499.m4v,https://flv.isitetv.com/media/video/1499/video_url_187621_1499.m4v,https://flv.isitetv.com/media/video/1499/video_url_226431_1499.m4v,https://flv.isitetv.com/media/video/1499/video_url_226423_1499.m4v,https://flv.isitetv.com/media/video/1499/video_url_226423_1499.m4v
+                xpath: /html/body/div[13]
+            name:
+              - text: DYSON Airwrap Complete Hair Styler - Nickel & Fuchsia
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[1]/h1[1]
+            featureBullets:
+              - text: Wave / curl / smooth / dry
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Style & dry at the same time
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Uses air to style & wrap hair
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: 6 styling accessories included
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            specifications:
+              - text: 166 x 384 x 186 mm (H x W x D)
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[6]/div[2]/div[2]/div[1]/div[1]/table[3]/tbody[4]/tr[1]/td[1]
+            warranty:
+              - text: 2 years
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[6]/div[2]/div[2]/div[1]/div[1]/table[3]/tbody[6]/tr[1]/td[1]
+            productOtherInformation:
+              - text: Removable filter cage
+                xpath: /html/body/div[2]/div[1]/div[3]/div[2]/section[1]/div[2]/div[6]/div[2]/div[2]/div[1]/div[1]/table[2]/tbody[7]/tr[1]/td[1]
+            descriptionBullets:
+              - text: "4"
+                type: NUMBER
+                raw: "4"
+                locale: en_GB
+                value: 4
+            variantCount:
+              - text: "0"
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            secondaryImageTotal:
+              - text: "8"
+                type: NUMBER
+                raw: "8"
+                locale: en_GB
+                value: 8
+            imageZoomFeaturePresent:
+              - text: "true"
+        xpath: /
+    timestamp: 1606821510330
