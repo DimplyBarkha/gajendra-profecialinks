@@ -15,7 +15,7 @@ module.exports = {
     dependencies,
   ) => {
     const variantCount = await context.evaluate(async function () {
-      return document.querySelectorAll('div.size-list label').length;
+      return document.querySelectorAll('div.size-list label:not(.active)').length;
     });
     const { transform } = parameters;
     const { productDetails } = dependencies;
