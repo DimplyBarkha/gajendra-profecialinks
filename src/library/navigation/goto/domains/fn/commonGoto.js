@@ -144,6 +144,11 @@ const implementation = async (
             }
             await context.waitForNavigation({ timeout: 30000 }).catch(error => console.log(error))
             // sometimes after captcha solved, it gets hard blocked
+
+            if (await checkExistance('div[class~="f-productVisuals-mainIconZoom"], div.productPageTop')) {
+                return;
+            }
+
             if (await isHardBlocked(hardBlockedParam)) {
                 return await context.reportBlocked(statusCode, 'Hard Blocked');
                 // throw new Error('Hard blocked')

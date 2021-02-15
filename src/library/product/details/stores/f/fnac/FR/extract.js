@@ -146,7 +146,6 @@ async function implementation(
     addHiddenDiv('videos', video);
   }, video);
   return await context.extract(productDetails, { transform });
-
 }
 
 module.exports = {
