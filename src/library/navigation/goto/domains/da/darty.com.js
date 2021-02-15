@@ -105,7 +105,7 @@ module.exports = {
         await context.waitForSelector('#produit > div.product_head', { timeout: 60000 });
       } catch (error) {
         await printCaptchaStatus();
-        console.log('error: ', error);
+        console.log('error: ', error.message);
         return gotoPage(retries - 1);
       }
     }
