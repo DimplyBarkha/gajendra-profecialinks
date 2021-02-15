@@ -102,7 +102,7 @@ module.exports = {
         } else {
           console.log('no captcha encountered');
         }
-        await context.waitForSelector('#produit > div.product_head', { timeout: 60000 });
+        await context.waitForSelector('#produit > div.product_head', { timeout: 100000 });
       } catch (error) {
         await printCaptchaStatus();
         console.log('error: ', error.message);
