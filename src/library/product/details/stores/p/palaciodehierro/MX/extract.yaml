@@ -1,3 +1,5 @@
+# @format
+
 singleRecord: true
 regionsSelector: null
 recordSelector: null
@@ -12,9 +14,10 @@ fields:
     xpath: //div[contains(@class,'product_images')]//picture//img[1]/@alt
     description: Alt text of the main product image
   - name: alternateImages
-    singleValue: false
     xpath: //div[contains(@class,'product_images')]//img/@src
     description: Other product images (not in manufacturer description)
+  - name: firstImage
+    xpath: //div[contains(@class,'product_images')]/div/div/div[position() = last()]//img/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name='keywords']/@content
@@ -30,7 +33,8 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //h2[contains(@class,'b-product_main_info-brand')] | //h1[contains(@class,'b-product_main_info')]
-    description: The product name, prefixing "${brand} - " if not included in "name"
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: false
@@ -51,7 +55,8 @@ fields:
   - name: description
     singleValue: false
     xpath: //div[contains(@id,'ii_description')]
-    description: Product description supplied by website - may be concatenanted from
+    description:
+      Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: false
@@ -60,7 +65,8 @@ fields:
   - name: brandText
     singleValue: false
     xpath: //meta[@itemprop='brand']/@content
-    description: Product brand shown - this may actually NOT be just a brand name,
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: sku
     singleValue: false
