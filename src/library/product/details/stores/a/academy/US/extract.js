@@ -18,8 +18,6 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-<<<<<<< HEAD
-=======
       function stall (ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -28,7 +26,6 @@ module.exports = {
         });
       }
 
->>>>>>> 0c8bc30c7c70a1c79ea4fc39b11de2a659b1cbd7
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -58,39 +55,30 @@ module.exports = {
       // const category = getAllXpath("//div[@data-auid='breadcrumb']//ol//text()", 'nodeValue');
       // console.log('category   ' + category);
       // addElementToDocument('added_category', category);
-<<<<<<< HEAD
-      const description1 = getAllXpath("//div[@class='product-details-content']//div[@class='']", 'innerText').join('||');
-      const description2 = getAllXpath("//div[@class='product-details-content']//div[@class='active']", 'innerText').join('||');
-      console.log('description1:   ' + description1);
-      console.log('description2:  ' + description2);
-      let finalDesc;
-      if (description2 !== null && description2 !== '') {
-        finalDesc = description1 + '||' + description2;
-      } else {
-        finalDesc = description1;
-      }
-      console.log('finalDesc:   ' + finalDesc);
-      addElementToDocument('added_description', finalDesc);
-      // const description = getAllXpath("//div[@class='product-details-content']//div[@class='']", 'innerText').join('||');
-      // console.log('description*************************   ' + description);
-=======
+      const description = getAllXpath("//div[@class='product-details-content']//div[@class='']", 'innerText');
+      console.log('description' + description);
+      addElementToDocument('added_description', description);
 
-      // const description = getAllXpath("//div[@class='product-details-content']//div[@class=''] | //div[@class='product-details-content']//div[@class='active']", 'innerText');
-      // console.log('description   ' + description);
->>>>>>> 0c8bc30c7c70a1c79ea4fc39b11de2a659b1cbd7
-      // addElementToDocument('added_description', description);
-
-      const addtionalDescBullets = getAllXpath("//div[@class='product-details-content']//div[@class='']//li", 'innerText');
-      if (addtionalDescBullets) {
-        var additionalDescBulletText = addtionalDescBullets.join('|| ');
-        addElementToDocument('addedAdditionaDescBullets', additionalDescBulletText);
-      }
-      const addtionalDesc = getAllXpath("//div[@class='product-details-content']//div[@class='css-nx0jru']//text()", 'nodeValue');
-      var finalText = (additionalDescBulletText !== '') ? (addtionalDesc + ' | ' + additionalDescBulletText) : addtionalDesc;
-      addElementToDocument('added_description', finalText);
+      // const addtionalDescBullets = getAllXpath("//div[@class='product-details-content']//div[@class='']//li", 'innerText');
+      // if (addtionalDescBullets) {
+      //   var additionalDescBulletText = addtionalDescBullets.join('|| ');
+      //   addElementToDocument('addedAdditionaDescBullets', additionalDescBulletText);
+      // }
+      // const addtionalDesc = getAllXpath("//div[@class='product-details-content']//div[@class='css-nx0jru']//text()", 'nodeValue');
+      // var finalText = (additionalDescBulletText !== '') ? (addtionalDesc + ' | ' + additionalDescBulletText) : addtionalDesc;
+      // addElementToDocument('added_description', finalText);
       // const alternateImages = getAllXpath("//div[@id='offer-bg']//div[@id='offerImges']/div[position()>1]/img/@src", 'nodeValue').join(' | ');
       // console.log('alternateImages   ' + alternateImages);
       // addElementToDocument('added_alternateImages', alternateImages);
+
+      const featureBullets = getAllXpath("//div[@class='product-details-content']//div[@class='']//li", 'innerText');
+      if (featureBullets) {
+        var additionalDescBulletText = featureBullets.join('|| ');
+        addElementToDocument('addedAdditionaDescBullets', additionalDescBulletText);
+      }
+      const addtionalDesc = getAllXpath("//div[@aria-label='Product_Detail_Content']//div[@data-auid='feature-benefits']//li", 'nodeValue');
+      var finalText = (additionalDescBulletText !== '') ? (addtionalDesc + ' | ' + additionalDescBulletText) : addtionalDesc;
+      addElementToDocument('added_featureBullets', finalText);
 
       // const variantId = getXpath("//meta[@property='og:url']", 'content');
       // const variantIdValue = variantId.split("/")[4]
@@ -116,7 +104,7 @@ module.exports = {
       const specifications = getAllXpath("//div[@data-auid='specifications']//div[@role='list']", 'innerText');
       addElementToDocument('added_specifications', specifications);
 
-      let netWeight = getXpath("//div[@role='list']//li[@data-auid='specifications_listing']//text()[contains(.,'weight')]", 'nodeValue');
+      let netWeight = getXpath("//div[@role='list']//li[@data-auid='specifications_listing'][contains(.,'weight')]//text()", 'nodeValue');
       if (netWeight != null && netWeight.includes(':')) {
         netWeight = netWeight.split(':')[1];
       } else if (netWeight != null && netWeight.includes('-')) {
@@ -131,6 +119,38 @@ module.exports = {
         netSize = netSize.split(':')[1];
       }
       addElementToDocument('added_netSize', netSize);
+      let packSize = getXpath("//div[@role='list']//li[@data-auid='specifications_listing']//text()[contains(.,'Pack size')]", 'nodeValue');
+      if (packSize != null) {
+        packSize = packSize.split(':')[1];
+      }
+      addElementToDocument('added_packSize', packSize);
+      // } else if (packSize != null && packSize.includes('-')) {
+      //   packSize = packSize.split('-')[1];
+      // } else if (packSize != null && packSize.includes('packSize')) {
+      //   packSize = packSize.replace('packSize', '');
+      // }
+      let warranty = getXpath("//div[@role='list']//li[@data-auid='specifications_listing'][contains(.,'Manufacturer warranty')]//text()", 'nodeValue');
+      if (warranty != null && warranty.includes(':')) {
+        warranty = warranty.split(':')[1];
+      } else if (warranty != null && warranty.includes('-')) {
+        warranty = warranty.split('-')[1];
+      } else if (warranty != null && warranty.includes('warranty')) {
+        warranty = warranty.replace('warranty', '');
+      }
+      addElementToDocument('added_warranty', warranty);
+
+      let availabilityText = getXpath("//div[@data-auid='PDP_DeliveryInfo_ShipToHome']//div[@class='css-1flyvhq']//span[2]", 'innerText');
+      console.log('Availabity Text', availabilityText);
+      if (availabilityText !== null && availabilityText === 'SHIPPING AVAILABLE') {
+        availabilityText = 'In store only';
+        console.log('Availabity Text if shipping available', availabilityText);
+      } else {
+        availabilityText = 'In Stock';
+        console.log('Availabity Text if shipping not available', availabilityText);
+      }
+      addElementToDocument('added_availabilityText', availabilityText);
+
+      // addElementToDocument('added_packSize', packSize);
 
       let technicalDoc = getXpath("//div[@role='list']//a//@href", 'nodeValue');
       if (technicalDoc != null && technicalDoc.includes('https')) {

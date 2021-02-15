@@ -1,75 +1,45 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-<<<<<<< HEAD
-#recordXpath: null
-recordXpath: //section[@id="productCardListing"]//div[@class="col-12 col-md-4 d-flex css-fuf08e"]
-  # //div[@class="col-12 col-md-4 d-flex css-fuf08e"]
-=======
 recordXpath: //div[@class="horizontal product-card c-product__has-quickview css-zcw7sa"]
 #recordXpath: //section[@id="productCardListing"]//div[contains(@class,'css-fuf08e')]
 #recordXpath: //div[@class="col-12 col-md-4 d-flex css-fuf08e"]
->>>>>>> 0c8bc30c7c70a1c79ea4fc39b11de2a659b1cbd7
 #recordXPath: //div[@class="horizontal product-card c-product__has-quickview css-zcw7sa"]
 fields:
-  - name: price
-    singleValue: false
-    xpath: //span[@class="c-price__sub css-1f28zyy e1xaasfo1"] | //span[@class='c-price__sub css-elzo42 e1xaasfo1']
-    #xpaht: //section[@class='mt-half']//span[@class="c-price__sub css-1f28zyy e1xaasfo1"]
-    regExp: (.+)\b(\d+)(\d{2})\b
-    regExpReplace: $1$2.$3
   - name: id
     singleValue: false 
-    xpath: //a[@class="css-wde41b mb-quarter mb-md-4"]/@href
-    regExp: (.*)(=)(.*)
+    xpath: //div[@class='col-12 col-md-4 d-flex css-fuf08e']/a/@data-auid
+      # //div[@class='col-12 col-md-4 d-flex css-fuf08e']/a/@href 
+      # //a[@class="css-wde41b mb-quarter mb-md-4"]/@href
+    # regExp: (.*)(=)(.*)
+    regExp: (.*)(_)(.*)
     regExpReplace: $3
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id='added-searchurl']
   - name: name
     singleValue: false
-<<<<<<< HEAD
     xpath: //div[@class='col-7 col-md-12 pt-2 pb-2 pb-md-4']/p[@class='c-product__description mb-0'] 
-    # xpath: //div[@class='c-product__title mb-0 mb-md-half']/text()
-=======
-    #xpath: //div[@class='c-product__title mb-0 mb-md-half']/text()
-    xpath: //p[contains(@class,'c-product__description')]/text()
->>>>>>> 0c8bc30c7c70a1c79ea4fc39b11de2a659b1cbd7
+  - name: thumbnail
+    singleValue: true
+    xpath: //div[@class='horizontal product-card c-product__has-quickview css-zcw7sa']//picture//img[@class='css-1lt8ar8 w-100 pt-3 pb-1 pb-md-0 pt-md-1 px-1 px-md-2 h-lazyloadimg']//@src
+      # //div[@class='horizontal product-card c-product__has-quickview css-zcw7sa']//picture//@src
+  - name: aggregateRating
+    singleValue: true
+    xpath: //div[@class='c-product__ratings-reviews my-quarter d-flex align-items-center flex-wrap']//div/@aria-label
+    regExp: (\d)
+  - name: reviewCount
+    singleValue: true
+    xpath: //div[@class='bv_numReviews_component_container']/div[@class='bv_text']
+    # regExp: (\d*)
+    # regExpReplace: $1
   - name: productUrl
     singleValue: false
     xpath: //section[@id='productCardListing']//a/@href
     regExp: (.+)
     regExpReplace: https://www.academy.com$1
-  - name: thumbnail
+  - name: price
     singleValue: false
-<<<<<<< HEAD
-    xpath: //div[@class='horizontal product-card c-product__has-quickview css-zcw7sa']//picture//img//@src[1] | //img[@class="css-1lt8ar8 w-100 pt-3 pb-1 pb-md-0 pt-md-1 px-1 px-md-2 h-lazyloadimg"]/@src
-  - name: searchUrl
-    singleValue: true
-    xpath: ancestor::html //div[@id='added-searchurl']    
-  - name: reviewCount
-    singleValue: true
-    xpath: //div[@class='bv_numReviews_component_container']/div[@class='bv_text']
-    regExp: (\d*)
-    regExpReplace: $1
-  - name: aggregateRating
-    singleValue: true
-    xpath: //div[@class='c-product__ratings-reviews my-quarter d-flex align-items-center flex-wrap']//div/@aria-label
-    regExp: (\d)
-    #regExpReplace: $1
-
-=======
-    #xpath: //div[@class='horizontal product-card c-product__has-quickview css-zcw7sa']//picture//img//@src
-    xpath: //div[@class='horizontal product-card c-product__has-quickview css-zcw7sa']/div[1]/picture/img/@data-src
-  # - name: reviewCount
-  #   singleValue: true
-  #   xpath: //div[@class='bv_numReviews_component_container']/div[@class='bv_text']
-  #   regExp: (\d*)
-  #   regExpReplace: $1
-  # - name: aggregateRating2
-  #   singleValue: false
-  #   xpath: //div[@class="css-d0lwgj"]/@aria-label
-  #   regExp: (\S)(.+)
-  #   regExpReplace: $1
->>>>>>> 0c8bc30c7c70a1c79ea4fc39b11de2a659b1cbd7
-
+    xpath: //section[@class='mt-half']//span[@class="c-price__sub css-1f28zyy e1xaasfo1"]
+    regExp: (.+)\b(\d+)(\d{2})\b
+    regExpReplace: $1$2.$3

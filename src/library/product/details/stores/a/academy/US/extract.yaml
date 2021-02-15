@@ -19,13 +19,7 @@ fields:
     xpath: //main[@class='css-1ef219']//picture//img//@alt
   - name: alternateImages
     singleValue: false
-<<<<<<< HEAD
     xpath: //div[@class='swiper-wrapper']/button[position()>1]/img/@src
-=======
-    #xpath: //div[@class='swiper-wrapper']/button[position()>1]/img/@src
-    xpath: //div[contains(@class,'swiper-slide')][position() >1]//picture//img/@src
-    description: Other product images (not in manufacturer description)
->>>>>>> 0c8bc30c7c70a1c79ea4fc39b11de2a659b1cbd7
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name='keywords']/@content
@@ -42,26 +36,29 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
   - name: listPrice
     singleValue: true
-    xpath: //div[@data-auid='PDP_ProductPrice']
+    xpath: //div[@data-auid='PDP_ProductPrice']//span[@data-auid='wasPrice']//span[2]
+    # //div[@data-auid='PDP_ProductPrice']
     # xpath: //span[@data-auid='regPrice']
     regExp: (.+)\b(\d+)(\d{2})\b
     regExpReplace: $1$2.$3
     description: The stated undiscounted price for the product
   - name: availabilityText
-    #xpath: //div[@data-auid='PDP_PickupInfo_BOPIS']//span[@class='ok css-bjzkj7']//text()
-    xpath: //div[@id="renderShipItAtc"]//div[@class='css-18vvx1w']//text()
-    regExp: (.+?)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    # xpath: //div[@class="bv-control-bar"]//div[@class="bv-control-bar-count"]//span 
+    xpath: //div[@id='added_availabilityText']
+    # regExp: (.+)
+    # regExpReplace: In Store
+    defaultValue: Out Of Stock
   - name: description
     singleValue: false
     xpath: //div[@id='added_description']
+    # xpath: //div[@aria-label='Product_Detail_Content']//div[@class='css-nx0jru']//text()
     # xpath: //div[@class='product-details-content']//div[@class=''] | //div[@class='product-details-content']//div[@class='active']
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[contains(@class,'product-details-content')]//div[@class='']//li)
+    xpath: count(//div[@data-auid='feature-benefits']//div[@role='list']/li)
+      # count(//div[contains(@class,'product-details-content')]//div[@class='']//li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
@@ -72,7 +69,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: //div[@class='flex-wrap flex-fill']//text()
+    # xpath: //div[@class='flex-wrap flex-fill']//text()
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -83,6 +80,8 @@ fields:
     # regExpReplace: $2
   - name: weightNet
     singleValue: true
+    # xpath: //div[@role='list']//li[@data-auid='specifications_listing'][contains(.,'Product weight (lb.)')]//text()
+    # //div[@role='list']//li[@data-auid='specifications_listing']//text()[contains(.,'weight')]
     xpath: //div[@id='added_netWeight']
     description: Net weight as described on the page
   - name: weightGross
@@ -104,6 +103,8 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
+    xpath: //div[@id='added_packSize']
+      # //div[@role='list']//li[@data-auid='specifications_listing']//text()[contains(.,'Pack size')]
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
   - name: legalDisclaimer
@@ -117,15 +118,6 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
-<<<<<<< HEAD
-    # xpath: //div[@class='bv-control-bar-count']//span[@role='status']
-    # xpath: //div[@id='added_ratingcount']
-    xpath: //div[@data-auid='Rating Stars']//text()
-    description: The number of ratings
-    type: NUMBER
-    # regExp: ([0-9]{1,}) ratings
-    # regExpReplace: $1
-=======
     #xpath: //div[@class='bv-content-reference-data bv-content-author-name']
     #xpath: //div[@data-auid='Rating Stars']//text()
     xpath: //div[@id="added_ratingCount1"]/text()
@@ -134,20 +126,14 @@ fields:
       # //div[@class='bv-header']//div[@class='bv-control-bar-count']//span//text()
     description: The number of ratings
     #type: NUMBER
->>>>>>> 0c8bc30c7c70a1c79ea4fc39b11de2a659b1cbd7
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
     singleValue: true
-<<<<<<< HEAD
     xpath: //div[@data-auid='Rating Stars']//text()
       # //div[@class='bv-secondary-rating-summary-stars bv-table-row']//span[@class='bv-off-screen']
       # //span[@class='bv-secondary-rating-summary-rating bv-table-cell']
-=======
-    #xpath: //span[@class='bv-secondary-rating-summary-rating bv-table-cell']
-    xpath: //div[@data-auid='Rating Stars']//text()
->>>>>>> 0c8bc30c7c70a1c79ea4fc39b11de2a659b1cbd7
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
@@ -162,7 +148,8 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    xpath: //div[@id='added_variantCount']
+    xpath: count(//section[@class='large css-248wcr']//div[@name='attributes']//div[@class='position-relative css-13vytku']//div[@class='sr-only']//text())
+    # //div[@id='added_variantCount']
     defaultValue: 0
     type: NUMBER
   - name: color
@@ -181,7 +168,8 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //button[@aria-label='play video']//img
+    xpath: //button[@aria-label='play video'] //div[@class='d-flex justify-content-center align-items-center h-100 w-100 position-absolute play-image']//img//@src
+      # //button[@aria-label='play video']//img
     description: URLs of videos on page
   - name: name
     singleValue: true
@@ -265,8 +253,9 @@ fields:
     singleValue: true
     description: null
   - name: featureBullets
-    singleValue: false
-    xpath: //div[@data-auid='feature-benefits']//div[@role='list']//text()
+    singleValue: true
+    # xpath: //div[@aria-label='Product_Detail_Content']//div[@data-auid='feature-benefits']//li
+    xpath: //div[@id='added_featureBullets']
     description: null
   - name: otherSellersName
     singleValue: false
@@ -443,10 +432,12 @@ fields:
   - name: specifications
     singleValue: true
     xpath: //div[@id='added_specifications']
-    #xpath: //div[@data-auid='specifications']//div[@role='list']
+    # xpath: //div[@data-auid='specifications']//div[@role='list']//li
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
+    xpath: //div[@id='added_warranty']
+    # xpath: //div[@role='list']//li[@data-auid='specifications_listing'][contains(.,'Manufacturer warranty')]//text()
     description: Guarantee associated with the product
   - name: storage
     singleValue: true
@@ -477,6 +468,7 @@ fields:
     description: The unit of measurement used in price_per_unit
   - name: promotion
     singleValue: true
+    xpath: //div[@data-auid='PDP_ProductPrice']//div//span[@data-auid='saveMsg']
     description: promotion text on product page
   - name: alcoholContent
     singleValue: true
@@ -495,7 +487,9 @@ fields:
       new desription info
   - name: variantInformation
     singleValue: true
-    xpath: //div[@class='css-1mna6f9']//div[@class='position-relative css-13vytku']//div[@class='sr-only']//text()
+    xpath: //section[@class='large css-248wcr']//text()
+      # //section[@class='large css-248wcr']//div[@data-auid='PDP_Size_Attribute']
+    # //div[@class='css-1mna6f9']//div[@class='position-relative css-13vytku']//div[@class='sr-only']//text()
     description: colour / scent / flavour / other
   - name: firstVariant
     singleValue: true
@@ -515,7 +509,8 @@ fields:
     description: null
   - name: additionalDescBulletInfo
     singleValue: false
-    xpath: count(//div[@class='css-zoj4i']//text())
+    xpath: //div[@id='addedAdditionaDescBullets']
+    # xpath: count(//div[@class='css-zoj4i']//text())
     description: null
   - name: prop65Warning
     singleValue: true
