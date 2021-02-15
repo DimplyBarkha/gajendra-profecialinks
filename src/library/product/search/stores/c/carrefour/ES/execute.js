@@ -5,6 +5,6 @@ module.exports = {
     country: 'ES',
     store: 'carrefour',
     domain: 'carrefour.es',
-    url: 'https://www.carrefour.es/supermercado/c?Ntt={searchTerms}',
+    url: 'https://www.carrefour.es/?q={searchTerms}',
   },
 };
