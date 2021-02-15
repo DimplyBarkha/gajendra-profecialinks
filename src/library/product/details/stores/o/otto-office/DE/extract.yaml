@@ -22,9 +22,9 @@ fields:
     # # type: TEXT
     # regExp: (brandid-)(\w+)
     # regExReplace: $2
-    xpath: //div[@id="hl-brand-container"]/a/@title
-    regExp: (von)(.+)
-    regExReplace: $1
+    xpath: //html//div[@id="brand"]
+    # regExp: (von)(.+)
+    # regExReplace: $1
   - name: category
     singleValue: false
     xpath: //ul[@typeof="BreadcrumbList"]/li[position()>1 and position()<last()]/a/span/text()
@@ -54,9 +54,10 @@ fields:
     xpath: //html//div[@id="add_desc"]
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//ul[@class="ooB-mb24 bullet ooX-fs14 "]/li/text())
+    xpath: count(//ul[@class="bullet"]/li/text())
   - name: additionalDescBulletInfo
     singleValue: true
+    # xpath: //ul[@class="bullet"]/li/text()
     xpath: //html//div[@id="str"]
   - name: specifications
     singleValue: true
@@ -89,8 +90,30 @@ fields:
   - name: variantId
     singleValue: true
     xpath: //section[@class="ooB ooB-mb48 ooG"]/@data-init_itemcode
-
-
+  - name: variantCount
+    singleValue: true
+    xpath: //html//div[@id="count"]
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: Yes
+  - name: materials
+    singleValue: true
+    xpath: //span[contains(text(), 'Material')]/following::td[1]/text()
+  - name: color
+    singleValue: true
+    xpath: //span[contains(text(), 'Farbe')]/following::td[1]/text()
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@id="item-color-choice-container"]/a
+  - name: firstVariant
+    singleValue: true
+    xpath: //html//div[@id="first_variant"]
+  - name: variants
+    singleValue: true
+    xpath: //html//div[@id="varinats"]
 
 
 
