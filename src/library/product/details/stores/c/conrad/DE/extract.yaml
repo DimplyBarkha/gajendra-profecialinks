@@ -39,7 +39,7 @@ fields:
     xpath: //div[@id="product-app"]//div[@class="productDetails__wrapper"]//section[@id="detailSection"]//meta[@itemprop="mpn"]/@content
     singleValue: false
   - name: availabilityText
-    xpath: //div[@id="addToCartPriceAvailability"]//button[not(contains(@disabled, "disabled"))]
+    xpath: //div[@id="availabilitySection"]//div[contains(@class,"currentOfferAvailability__status")]
     singleValue: false
     defaultValue: Out Of Stock
   - name: category

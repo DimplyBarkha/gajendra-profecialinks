@@ -7,7 +7,7 @@ const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
       if (row.availabilityText) {
-        row.availabilityText[0].text = (row.availabilityText[0].text.toLocaleLowerCase() === 'in den einkaufswagen') ? 'In Stock' : 'Out Of Stock';
+        row.availabilityText[0].text = (row.availabilityText[0].text.toLocaleLowerCase() === 'derzeit nicht verfügbar') ? 'Out Of Stock' : 'In Stock';
       }
       if (row.category) {
         const categoryArray = row.category.map((item) => {
