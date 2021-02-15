@@ -75,10 +75,9 @@ fields:
     singleValue: true
     description: Gross weight as described on the page
     xpath: //*[contains(text(), 'Вес')]/following::*[1]
-#  - name: gtin
-#    singleValue: true
-#    description: GTIN code (includes UPC/EAN)
-#    xpath: //div[contains(@data-marker-popup, 'Big product card')]/@data-productkey
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
   - name: eangtin
     singleValue: true
     xpath: substring(//div[contains(@data-marker-popup, 'Big product card')][not(contains(@data-productkey, 'metro'))]/@data-productkey,2)
