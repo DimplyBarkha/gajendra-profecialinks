@@ -10,7 +10,7 @@ fields:
 - name: imageAlt
   singleValue: true
   description: Alt text of the main product image
-  xpath: //div[contains(@class,'tvsn-productmedia')]//div[contains(@class,'tvsn-productmedia-viewer')]//div//img/@alt
+  xpath: //body/@imagealt | //div[contains(@class,'tvsn-productmedia')]//div[contains(@class,'tvsn-productmedia-viewer')]//div//img/@alt 
 - name: alternateImages
   singleValue: false
   description: Other product images (not in manufacturer description)

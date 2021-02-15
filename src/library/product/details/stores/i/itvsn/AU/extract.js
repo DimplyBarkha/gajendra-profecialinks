@@ -17,15 +17,19 @@ module.exports = {
   ) {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    let bigImageSel = 'div[class="tvsn-productmedia-viewer"] img';
     try{
-      
-      await context.waitForSelector('div[class="tvsn-productmedia-viewer"] img')
-      await context.evaluate(()=>{
+      await context.waitForSelector(bigImageSel)
+      await context.evaluate(async (bigImageSel)=>{
         let thumbnail = '';
         //@ts-ignore
-        thumbnail = document.querySelector('div[class="tvsn-productmedia-viewer"] img').getAttribute('src');
+        console.log('need to check for bigImageSel', bigImageSel);
+        thumbnail = document.querySelector(bigImageSel).getAttribute('src');
+        let imageAlt = document.querySelector(bigImageSel).getAttribute('alt');
+        console.log('imageAlt', imageAlt);
         document.querySelector('body').setAttribute('thumbnail', thumbnail);
-      })
+        document.querySelector('body').setAttribute('imagealt', imageAlt);
+      }, bigImageSel);
     }catch(err){
       console.log('No thumbnail present', err.message)
     }
