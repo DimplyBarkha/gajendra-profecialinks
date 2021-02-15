@@ -22,7 +22,11 @@ const transform = (data, context) => {
     const joinArray = (array, delim = ' | ') => array.join(delim).trim().replace(/\| \|/g, '|');
 
     const doubleRegexSearch = (regex1, regex2, item) => {
-        const matchArray = sg(item).toString().match(regex1);
+        try{
+            const matchArray = sg(item).toString().match(regex1);
+        } catch(e) {
+            console.log('cannot be coverted to string');
+        }
         if (!matchArray) return '';
         return joinArray(matchArray.map(mtch => mtch.match(regex2) ? mtch.match(regex2)[0] : ''));
     };
@@ -34,9 +38,14 @@ const transform = (data, context) => {
 
     const regexTestNReplace = (regex, item, { extraRegex, matchRegex } = {}) => {
         if (regex.test(item)) {
-            if (extraRegex) return item.toString().replace(regex, '').replace(extraRegex, '');
-            if (matchRegex) return matchRegex(matchRegex, item.toString().replace(regex, ''));
-            return item.toString().replace(regex, '');
+            try{
+                if (extraRegex) return item.toString().replace(regex, '').replace(extraRegex, '');
+                if (matchRegex) return matchRegex(matchRegex, item.toString().replace(regex, ''));
+                return item.toString().replace(regex, '');
+            } catch(e) {
+                console.log('cannot be coverted to string');
+            }
+            
         }
         return item;
     };
@@ -57,7 +66,11 @@ const transform = (data, context) => {
                 shippingWeight: item => sg(item).replace(/\s\(/g, '').trim(),
                 grossWeight: item => sg(item).replace(/\s\(/g, '').trim(),
                 largeImageCount: item => {
+                    try{
                     const array = sg(item).toString().split('SL1500');
+                    } catch(e) {
+                        console.log('cannot be coverted to string');
+                    }
                     return array.length === 0 ? 0 : array.length;
                 },
                 // alternateImages: array => joinArray(array.map(item => item.text)),
@@ -138,7 +151,12 @@ const transform = (data, context) => {
                 const description = [];
                 row.manufacturerDescription.forEach(item => {
                     const regexIgnoreText = /^(Read more)/;
-                    item.text = (item.text).toString().replace(regexIgnoreText, '');
+                    try{
+                        item.text = (item.text).toString().replace(regexIgnoreText, '');
+                    } catch(e) {
+                        console.log('cannot be coverted to string');
+                    }
+                    
                     if (!regexIgnoreText.test(item.text)) {
                         description.push(item.text);
                     }
