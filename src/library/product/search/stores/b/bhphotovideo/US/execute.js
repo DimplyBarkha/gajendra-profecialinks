@@ -8,9 +8,9 @@ async function implementation (
   const destinationUrl = url.replace('{searchTerms}', encodeURIComponent(keywords));
   await dependencies.goto({ url: destinationUrl, zipcode });
   const categoryMenu = await context.evaluate(async () => {
-    return document.querySelector('div[data-id="shop-by-type"]');
+    return document.querySelector('div[data-id="shop-by-type"], div[data-selenium="categoryGroupBlock"]');
   });
-  if(categoryMenu) {
+  if (categoryMenu) {
     const url1 = 'https://www.bhphotovideo.com/c/search?Ntt="{searchTerms}"&N=0&InitialSearch=yes&sts=ma';
     const destinationUrl1 = url1.replace('{searchTerms}', encodeURIComponent(keywords));
     await dependencies.goto({ url: destinationUrl1, zipcode });
