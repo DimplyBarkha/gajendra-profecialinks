@@ -199,8 +199,8 @@ fields:
   - name: unInterruptedPDP
     xpath: //import-updp
   - name: inTheBoxText
-    xpath: //h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//li/h3 | //import-custom-description//h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//li/h3 | //import-custom-description//h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//h3 | //div[@data-section-caption="Included Tools"]//h3
+    xpath: //h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//li/h3 | //import-custom-description//h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//li/h3 | //import-custom-description//h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//h3 | (//div[@data-section-caption="Included Tools"]//ul)[1]//h3
   - name: inTheBoxUrl
-    xpath: //h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//li//img/@src | //import-custom-description//h2[contains(., 'In the Box')]/following-sibling::div[1]//img/@src | //h2[contains(.,"In the box") or contains(.,"In the box")]/following-sibling::div//div[contains(@class,"syndigo-featureset-feature")]//img/@src | //div[@data-section-caption="Included Tools"]//img/@src
+    xpath: //h2[contains(., 'In the Box') or contains(.,"In the box")]/following-sibling::div[1]//li//img/@src | //import-custom-description//h2[contains(., 'In the Box')]/following-sibling::div[1]//img/@src | //h2[contains(.,"In the box") or contains(.,"In the box")]/following-sibling::div//div[contains(@class,"syndigo-featureset-feature")]//img/@src | (//div[@data-section-caption="Included Tools"]//ul)[1]//img/@src
   - name: image1
     xpath: //img[@id="productImage"]/@src
