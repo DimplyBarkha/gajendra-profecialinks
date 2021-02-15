@@ -18,7 +18,14 @@ module.exports = {
     const { productDetails } = dependencies;
     // @ts-ignore
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
-
+    try {
+      await this.context.waitForSelector('div.ui-tabs_tab-content', { timeout: 5000 });
+    } catch (error) {
+    }
+    try {
+      await this.context.waitForSelector('div.ui-tabs_tab-content div', { timeout: 5000 });
+    } catch (error) {
+    }
     await context.evaluate(async function () {
       function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
@@ -56,7 +63,7 @@ module.exports = {
           } catch (error) {
           }
           content = firstContent + fourthContent;
-         // console.log("content ::" + content);
+          // console.log("content ::" + content);
           addHiddenDiv('addDescid', content);
         }
       } catch (error) {
