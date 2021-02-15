@@ -35,7 +35,13 @@ const transform = (data, context) => {
             item.text = matches[1] + '.' + matches[2];
           } else if (matches1) {
             item.text = matches1[1];
+            // item.text = item.text.replace('.', ',');
           }
+        });
+      }
+      if (row.aggregateRating2) {
+        row.aggregateRating2.forEach(item => {
+          item.text = item.text.replace('.', ',');
         });
       }
       if (row.id) {
