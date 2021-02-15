@@ -48,7 +48,7 @@ fields:
   - name: nameExtended
     # xpath: concat(//h1[@class="product__name"]/text(),' ',//meta[@property="product:color"]/@content)
     # xpath: concat(//meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/text())
-    xpath: concat(//div[@id='currentDiv']/@productName,' ', //div[@id='currentDiv']/@size,' ',//meta[@property="product:color"]/@content)
+    xpath: concat(//div[@id='currentDiv']/@productName,' ',//meta[@property="product:color"]/@content,' ',//div[@id='currentDiv']/@size)
     regExp: (.+\s)(.+\s)([a-z]+)$
     regExpReplace: $1$3 $2
   - name: additionalDescBulletInfo
