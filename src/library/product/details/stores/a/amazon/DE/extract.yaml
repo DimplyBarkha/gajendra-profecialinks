@@ -163,8 +163,11 @@ fields:
     xpath: //*[contains(text(),"Energieeffizienzklasse")]/following-sibling::*[1]
 
   - name: imageZoomFeaturePresent
-    #singleValue: true
+    defaultValue: No
     xpath: //span[@id="canvasCaption" and contains(text(),  "Maus über")] | //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+    regExp: (.+)
+    regExpReplace: Yes
+
   ## Did not find Examples.
   # - name: lowestPriceIn30DaysBoolean
   #   singleValue: true
