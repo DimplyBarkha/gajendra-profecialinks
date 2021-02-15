@@ -69,11 +69,20 @@ async function implementation (
     console.log('products url not presents!!');
   }
 
-  let productUrl = await context.evaluate(() => {
-    const link = document.querySelector("section[id*='product-list'] a[class*='product-image-link']") ? document.querySelector("section[id*='product-list'] a[class*='product-image-link']").getAttribute('href') : '';
-    console.log('url-------->', link);
-    return link;
-  });
+  let productUrl = await context.evaluate((id) => {
+    const productXpath = `//h3[contains(@class,'product-title') and @data-partnumber="${id}"]//ancestor::section[contains(@id,'product-list')]//div[@tile='tile' and @data-ng-switch-when="product"]//a[contains(@class,'product-image-link')]`;
+    let link = document.evaluate(productXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+    console.log('url element : ', link);
+    if (link) {
+      // @ts-ignore
+      return link.href;
+    } else {
+      // @ts-ignore
+      link = document.querySelector("section[id*='product-list'] a[class*='product-image-link']") ? document.querySelector("section[id*='product-list'] a[class*='product-image-link']").getAttribute('href') : '';
+      console.log('url--->', link);
+      return link;
+    }
+  }, id);
 
   console.log('productUrl:::', productUrl);
   if (productUrl) {
