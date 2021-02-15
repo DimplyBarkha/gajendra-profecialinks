@@ -1,5 +1,5 @@
 async function goto (gotoInput, parameterValues, context, dependencies) {
-  const zipcode = gotoInput.zipcode;
+  const zipcode = gotoInput.zipcode || parameterValues.zipcode;
 
   // strategies can  be  turned on and off
   const fillRateStrategies = {

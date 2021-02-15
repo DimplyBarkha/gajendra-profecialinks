@@ -1,6 +1,7 @@
 async function implementation (inputs, parameterValues, context, { customGoto }) {
   inputs.context = context;
-  await customGoto(inputs);
+
+  await customGoto(inputs,parameterValues);
 };
 
 module.exports = {
