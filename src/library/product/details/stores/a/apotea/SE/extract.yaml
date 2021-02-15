@@ -3,7 +3,7 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-- name: ProductImage
+- name: image
   singleValue: false
   xpath: //div[contains(@id,"product-image")]/div/a/img/@src
 - name: url
@@ -12,27 +12,34 @@ fields:
 - name: category
   singleValue: false
   xpath: //div[contains(@class,"product-facts")]/div[3]/div[2]
-- name: productDescription
+- name: nameExtended
   singleValue: false
   xpath: //div[contains(@id,"product-info")]/h1[contains(@id,"product-name")]
-- name: onlinePrice
+- name: price
   singleValue: false
   xpath: //div[contains(@id,"price-info")]/span
-- name: availability
+- name: onlinePriceCurrency
   singleValue: false
+  xpath: string(//div[contains(@id,"price-info")]/span)  
+- name: promotion
+  singleValue: false
+  xpath: //div[contains(@class, "promotion-badge")]/img/@src
+- name: availabilityText
+  singleValue: true
   xpath: //div[contains(@id,"stock-info")]/span/span
-- name: additionalDescription
+  defaultValue: Out of Stock
+- name: description
   singleValue: false
   xpath: //div[contains(@id,"tab-product-description-details")]
 - name: ingredientsList
   singleValue: false
   xpath: //div[contains(@id,"tab-product-contents-details")]
-- name: brand
+- name: brandText
   singleValue: false
   xpath: //div[contains(@class,"product-facts")]/div[2]/div[2]
-- name: size
+- name: quantity
   singleValue: false
-  xpath: //div[contains(@class,"product-facts")]/div[4]/div[2]
+  xpath: //div[@class="product-facts"]//div[contains(text(), "Förpackningsstorlek")]/following-sibling::div/text()
 - name: gtin
   singleValue: false
   xpath: //div[@class="product-facts"]//div[contains(text(), "EAN")]/following-sibling::div/text()
@@ -41,18 +48,21 @@ fields:
 - name: sku
   singleValue: false
   xpath: //div[contains(@id,"product-subscription")]/@data-sku
-- name: directionsInformation
+- name: directions
   singleValue: false
   xpath: //div[contains(@id,"tab-product-dosage-details")]
-- name: secondaryImage
+- name: alternateImages
   singleValue: false
-  xpath: //div[contains(@id,"product_thumbnails")]/div/img/@src
+  xpath: //div[contains(@id,"product_thumbnails")]/div[2]/img/@src
+- name: secondaryImageTotal
+  singleValue: false
+  xpath: count(//div[contains(@id, "product_thumbnails")]/div) - 1
 - name: pricePerUnit
   singleValue: false
   xpath: //div[contains(@id,"price-info")]/div[contains(@class,"unit-price")]
   regExp: '([\d]+\s*(.+))'
   regExpReplace: '$1'
-- name: imageAltText
+- name: imageAlt
   singleValue: false
   xpath: //div[contains(@id,"product-image")]/div/a/img/@alt
 - name: listPrice
@@ -60,5 +70,79 @@ fields:
   xpath: //div[contains(@id,"price-info")]/div[1]
   regExp: '([\d]+\s*(.+))'
   regExpReplace: '$1'
+- name: proteinPerServing
+  singleValue: false
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "protein")]/following-sibling::td/text()
+- name: calciumPerServing
+  singleValue: false
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "kalcium")]/following-sibling::td/text()
+- name: caloriesPerServing
+  singleValue: false
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "energi")]/following-sibling::td/text()
+- name: dietaryFibrePerServing
+  singleValue: false
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "fiber")]/following-sibling::td/text()
+- name: totalFatPerServing
+  singleValue: true
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "fett")]/following-sibling::td/text()
+- name: totalCarbPerServing
+  singleValue: false
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "kolhydrat")]/following-sibling::td/text()
+- name: totalSugarsPerServing
+  singleValue: false
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "varav sockerarter")]/following-sibling::td/text()
+- name: saturatedFatPerServing
+  singleValue: false
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "varav mättat fett")]/following-sibling::td/text()
+- name: vitaminAPerServing
+  singleValue: false
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "vitamin A")]/following-sibling::td/text()
+  # regExpReplace: /[a-zA-Z]/g
+- name: ironPerServing
+  singleValue: false
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "järn")]/following-sibling::td/text()
+- name: calciumPerServingUom
+  singleValue: true
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "kalcium")]/following-sibling::td/text()
+- name: magnesiumPerServing
+  singleValue: true
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "magnesium")]/following-sibling::td/text()  
+- name: magnesiumPerServingUom
+  singleValue: true
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "magnesium")]/following-sibling::td/text()
+- name: dietaryFibrePerServingUom
+  singleValue: true
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "fiber")]/following-sibling::td/text()
+- name: totalFatPerServingUom
+  singleValue: true
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "fett")]/following-sibling::td/text()
+- name: pricePerUnitUom
+  singleValue: true
+  xpath: //div[contains(@id,"price-info")]/div[contains(@class,"unit-price")]
+- name: ironPerServingUom
+  singleValue: true
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "järn")]/following-sibling::td/text()
+- name: saturatedFatPerServingUom
+  singleValue: true
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "varav mättat fett")]/following-sibling::td/text()
+- name: vitaminAPerServingUom
+  singleValue: true
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "vitamin A")]/following-sibling::td/text()
+- name: totalSugarsPerServingUom
+  singleValue: true
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "varav sockerarter")]/following-sibling::td/text()
+- name: totalCarbPerServingUom
+  singleValue: true
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "kolhydrat")]/following-sibling::td/text()
+- name: proteinPerServingUom
+  singleValue: true
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "protein")]/following-sibling::td/text()
+- name: vitaminCPerServing
+  singleValue: true
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "vitamin C")]/following-sibling::td/text()
+- name: vitaminCPerServingUom
+  singleValue: true
+  xpath: //table[contains(@class, "product-nutrients")]/tbody/tr/td[contains(text(), "vitamin C")]/following-sibling::td/text()
 
+  
 
