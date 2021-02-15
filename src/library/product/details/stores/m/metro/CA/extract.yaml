@@ -4,13 +4,12 @@ recordSelector: null
 recordXPath: //div[@id="container"]
 fields:
   - name: image
-    singleValue: true
     xpath: //picture[@id="main-img"]//source[@id="desk-img"]/@srcset
   - name: imageAlt
     xpath: //picture[@id="main-img"]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //picture[@class='pi--thumbnail-item defaultable-picture pi--thumbnail-item--current']/img/@src
+    xpath: //div[@class="pi--thumbnail-list carousel-slick-is_disabled"]//picture[not(contains(@class,"current"))]/img/@src
   - name: category
     singleValue: false
     xpath: //ul[@class='b--list']/li
@@ -18,41 +17,32 @@ fields:
     singleValue: false
     xpath: //div[@class='pi--second-col']/div[contains(@class, 'pi--brand')  or contains(@class, 'pi--name') or contains(@class, 'pi--weight')]
   - name: name
-    singleValue: true
     xpath: //h1[@class='pi--title']
   - name: listPrice
-    singleValue: true
     xpath: //div[@class='pi-regular-price']/span[@class='pi-price']
   - name: price
     singleValue: false
-    xpath: //div[@class='pi--main-price']/div
+    xpath: //div[@class='pi--main-price']//@data-main-price
   - name: availabilityText
-    singleValue: true
-    xpath: //button[@id='button-addToCart']
+    xpath: //button[@id="button-addToCart"]/@disabled
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
-    singleValue: true
-    xpath: //button[contains(text(), 'Description du produit')]/following-sibling::div
+    xpath: //button[contains(text(), 'Description du produit')]/following-sibling::div | //button[contains(text(),'Product Description')]/following-sibling::div
   - name: brandText
-    singleValue: true
-    xpath: //span[@itemprop='brand']
+    xpath: //div[@class="pi--brand"]
   - name: weightNet
-    singleValue: true
     xpath: //div[@class='pi--weight']
   - name: sku
-    singleValue: true
-    xpath: //span[@itemprop='sku']
-  - name: variantId
-    singleValue: true
-    xpath: //span[@itemprop='sku']
+    xpath: //div[contains(@class,"product-info")]/@data-product-code
   - name: ingredientsList
-    singleValue: true
-    xpath: //button[contains(text(), 'Ingrédients')]/following-sibling::div
+    xpath: //button[contains(text(), 'Ingrédients')]/following-sibling::div | //button[contains(text(),'Ingredients')]/following-sibling::div
+  - name: secondaryImageTotal
+    xpath: count(//div[@class="pi--thumbnail-list carousel-slick-is_disabled"]//picture[not(contains(@class,"current"))]/img/@src)
   - name: Image360Present
-    singleValue: true
     defaultValue: No
   - name: imageZoomFeaturePresent
-    singleValue: true
     defaultValue: No
+  - name: variantId
+    xpath: //div[contains(@class,"product-info")]/@data-product-code

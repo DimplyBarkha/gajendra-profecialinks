@@ -16,7 +16,7 @@ const transform = (data) => {
             e.text = cleanText(e.text);
           });
         }
-        if (gr.listPrice) gr.listPrice[0].text = gr.listPrice[0].text.replace('$', '').trim();
+        //if (gr.listPrice) gr.listPrice[0].text = gr.listPrice[0].text.replace('$', '').trim();
         if (gr.price) {
           try {
             const obj = gr.price.find(e => e.text.includes('ou'));
