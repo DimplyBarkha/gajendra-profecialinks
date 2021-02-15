@@ -15,7 +15,11 @@ async function implementation (
   if (cookiesAcceptPopup) {
     await context.click('div#cookie-message button.accept-all-cookies');
   }
-
+  await context.evaluate(function () {
+    if(document.querySelector('.accept-all-cookies')){
+      document.querySelector('.accept-all-cookies').click();
+    }
+  });
   return await context.extract(productDetails, { transform });
 }
 

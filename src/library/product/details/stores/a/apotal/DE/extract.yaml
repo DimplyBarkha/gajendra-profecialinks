@@ -51,7 +51,7 @@ fields:
     xpath: //div[@class="boxProductDetail"]//div[contains(@class,"similarProducts")]//div[@class="boxProductSimilar"]//dl[@class="productInfos"]//dd
     singleValue: false
   - name: description
-    xpath: //div[@class="boxProductDetail"]//div[@id="productDesc"]//div[@itemprop="description"]//dd[@class="productLongDescription"]
+    xpath: concat(//div[@class="boxProductDetail"]//div[@id="productDesc"]//div[@itemprop="description"]//dd[@class="productLongDescription"],"||",substring-after(//div[@class='abdainfo'], "Gegenanzeigen"))
     singleValue: false
   - name: manufacturerImages
     xpath: //div[@class="boxProductDetail"]//div[@id="productDesc"]//div[@class="description"]//img/@src

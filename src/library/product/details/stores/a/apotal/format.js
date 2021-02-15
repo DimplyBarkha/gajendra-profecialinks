@@ -113,6 +113,40 @@ const transform = (data) => {
           row.ingredientsList = [{ text: ingredients, xpath: row.ingredientsList5[0].xpath }];
         }
       }
+      if (row.promotion) {
+        const promotion_data = row.promotion[0].text.trim();
+        if (promotion_data) {
+          row.promotion = [{ text: promotion_data.replace(' € ','').replace(',','.'), xpath: row.promotion[0].xpath }];
+        }
+      }
+      if (row.directions) {
+        const directions_data = row.directions[0].text.trim();
+        if (directions_data) {
+          row.directions = [{ text: directions_data, xpath: row.directions[0].xpath }];
+        }
+      }
+      if (row.gtin) {
+        const gtin_data = row.gtin[0].text.trim();
+        if (gtin_data) {
+          row.gtin = [{ text: gtin_data.replace(/^0+/, ''), xpath: row.gtin[0].xpath }];
+        }
+      }
+
+
+      if (row.warnings) {
+        const warnings_data = row.warnings[0].text.trim();
+        if (warnings_data) {
+          row.warnings = [{ text: warnings_data, xpath: row.warnings[0].xpath }];
+        }
+      }
+      
+      if (row.storage) {
+        const storage_data = row.storage[0].text.trim();
+        if (storage_data) {
+          row.storage = [{ text: storage_data, xpath: row.storage[0].xpath }];
+        }
+      }
+      
     }
   }
 

@@ -36,12 +36,16 @@ const transform = (data, context) => {
         console.log('aggregateRating ->', aggregateRating);
         row.aggregateRating = [{ text: aggregateRating, xpath: row.aggregateRating[0].xpath }];
       }
-      rankCounter += 1;
-      if (!row.sponsored) {
-        orgRankCounter += 1;
-        row.rankOrganic = [{ text: orgRankCounter }];
+     
+      if(row.id){
+        rankCounter += 1;
+        if (!row.sponsored) {
+          orgRankCounter += 1;
+          row.rankOrganic = [{ text: orgRankCounter }];
+          row.rank = [{ text: rankCounter }];
+        }
       }
-      row.rank = [{ text: rankCounter }];
+      
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
