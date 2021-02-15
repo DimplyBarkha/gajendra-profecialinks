@@ -46,9 +46,8 @@ fields:
     singleValue: true
     description: The url of the product details page
   - name: verifiedPurchase
-    singleValue: true
-    type: BOOLEAN
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+    xpath: //div[contains(text(),'Товар куплен на OZON')]
   - name: manufacturerResponse
     singleValue: true
     description: The response of the manufacturer (if any)
@@ -68,5 +67,3 @@ fields:
     type: TEXT
   - name: aggregateRating
     description: The product rating
-  - name: verifiedPurchaseText
-    xpath: boolean(//div[contains(text(),'Товар куплен на OZON')])
