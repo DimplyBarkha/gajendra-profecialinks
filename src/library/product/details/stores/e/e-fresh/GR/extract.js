@@ -39,7 +39,7 @@ module.exports = {
       addElementToDocument('brand', brand);
       const gtin = JSONObject ? JSONObject.mpn : '';
       addElementToDocument('gtin', gtin);
-      const aggregateRating = JSONObject && JSONObject.aggregateRating ? JSONObject.aggregateRating.ratingValue : '';
+      const aggregateRating = JSONObject && JSONObject.aggregateRating && JSONObject.aggregateRating.ratingValue ? JSONObject.aggregateRating.ratingValue.replace('.', ',').trim() : '';
       addElementToDocument('aggregateRating', aggregateRating);
       const ratingCount = JSONObject && JSONObject.aggregateRating ? JSONObject.aggregateRating.ratingCount : '';
       addElementToDocument('ratingCount', ratingCount);
