@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@class='product-page_images']//div[contains(@class,'gallery__images-preview-item __active')]//img/@src
+    xpath: //div[contains(@class,'product-page_images')]//div[contains(@class,'gallery__images-preview-item __active')]//img/@src
   - name: sku
     singleValue: false
     xpath: //meta[@itemprop='sku']/@content
@@ -61,3 +61,30 @@ fields:
   - name: quantity
     singleValue: false
     defaultValue: 1
+  - name: calciumPerServing
+    singleValue: false
+    xpath: //app-product-detailed-info//div[@class="product-tab_left-side"][p[contains(text(), "О товаре")]]//following-sibling::div/p
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //app-product-detailed-info//div[@class="product-tab_left-side"][p[contains(text(), "О товаре")]]//following-sibling::div/p
+  - name: dietaryFibrePerServing
+    singleValue: false
+    xpath: //app-product-detailed-info//div[@class="product-tab_left-side"][p[contains(text(), "О товаре")]]//following-sibling::div/p
+  - name: directions
+    singleValue: false
+    xpath: //app-product-detailed-info//div[@class="product-tab_left-side"][p[contains(text(), "О товаре")]]//following-sibling::div/p
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //app-product-detailed-info//div[@class="product-tab_left-side"][p[contains(text(), "О товаре")]]//following-sibling::div/p
+  - name: ingredientsList
+    singleValue: false
+    xpath: //app-product-detailed-info//div[@class="product-tab_left-side"][p[contains(text(), "О товаре")]]//following-sibling::div/p
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //app-product-detailed-info//div[@class="product-tab_left-side"][p[contains(text(), "О товаре")]]//following-sibling::div/p
+  - name: totalCarbPerServing
+    singleValue: false
+    xpath: //app-product-detailed-info//div[@class="product-tab_left-side"][p[contains(text(), "О товаре")]]//following-sibling::div/p
+  - name: sodiumPerServing
+    singleValue: false
+    xpath: //app-product-detailed-info//div[@class="product-tab_left-side"][p[contains(text(), "О товаре")]]//following-sibling::div/p

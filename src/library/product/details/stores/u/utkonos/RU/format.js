@@ -31,15 +31,90 @@ const transform = (data) => {
                 });
                 row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];
             }
-            if (row.availabilityText) {                    
+            if (row.availabilityText) {
                 row.availabilityText.forEach(item => {
                   if(item.text == "В корзину"){
-                    item.text = "Out of stock";
-                  }else{
                     item.text = "In stock";
+                  }else{
+                    item.text = "Out of stock";
                   }
                 });          
-              }
+            }
+            if (row.aggregateRating) {                    
+              row.aggregateRating.forEach(item => {
+                item.text = item.text + ".o";
+              });          
+            }
+            if (row.calciumPerServing) {                    
+              row.calciumPerServing.forEach(item => {
+                item.text = item.text.substr(item.text.indexOf(" кальций"));
+                item.text = item.text.substr(0, item.text.indexOf(","));
+                item.text = item.text.replace(' кальций ', '').trim();
+                item.text = item.text.replace(/[^\d-]/g, "");
+              });
+            }
+            if (row.caloriesPerServing) {                    
+              row.caloriesPerServing.forEach(item => {
+                item.text = item.text.substr(item.text.indexOf("Энергетическая ценность"));
+                item.text = item.text.substr(0, item.text.indexOf("."));
+                //item.text = item.text.substr(0, item.text.indexOf(","));
+                item.text = item.text.replace('Энергетическая ценность', '').trim();
+                item.text = item.text.replace(/[^\d-]/g, "");
+              });
+            }
+            if (row.dietaryFibrePerServing) {                    
+              row.dietaryFibrePerServing.forEach(item => {
+                item.text = item.text.substr(item.text.indexOf(" клетчатка"));
+                item.text = item.text.substr(0, item.text.indexOf(","));
+                item.text = item.text.replace(' клетчатка ', '').trim();
+                //item.text = item.text.replace(/[^\d-]/g, "");
+              });
+            }
+            if (row.directions) {                    
+              row.directions.forEach(item => {
+                item.text = item.text.substr(item.text.indexOf(" Информация о приготовлении"));
+                //item.text = item.text.substr(0, item.text.indexOf(","));
+                item.text = item.text.replace('  Информация о приготовлении:', '').trim();
+              });
+            }
+            if (row.proteinPerServing) {                    
+              row.proteinPerServing.forEach(item => {
+                item.text = item.text.substr(item.text.indexOf(" бел"));
+                item.text = item.text.substr(0, item.text.indexOf(","));
+                item.text = item.text.replace(/[^\d-]/g, "");
+              });
+            }
+            if (row.ingredientsList) {                    
+              row.ingredientsList.forEach(item => {
+                item.text = item.text.substr(item.text.indexOf("Состав"));
+                item.text = item.text.substr(0, item.text.indexOf("."));
+                item.text = item.text.replace("Состав:", "");
+              });
+            }
+            if (row.totalFatPerServing) {                    
+              row.totalFatPerServing.forEach(item => {
+                item.text = item.text.substr(item.text.indexOf("жиры"));
+                item.text = item.text.substr(0, item.text.indexOf(","));
+                item.text = item.text.replace('жиры', '').trim();
+                item.text = item.text.replace(/[^\d,]/g, "");
+              });
+            }
+            if (row.totalCarbPerServing) {                    
+              row.totalCarbPerServing.forEach(item => {
+                item.text = item.text.substr(item.text.indexOf("углеводы"));
+                item.text = item.text.replace('углеводы', '').trim();
+                item.text = item.text.substr(0, item.text.indexOf("г"));
+                item.text = item.text.replace(/[^\d,]/g, "");
+              });
+            }
+            if (row.sodiumPerServing) {                    
+              row.sodiumPerServing.forEach(item => {
+                item.text = item.text.substr(item.text.indexOf("натрий"));
+                //item.text = item.text.replace('натрий', '').trim();
+                item.text = item.text.substr(0, item.text.indexOf("."));
+                item.text = item.text.replace(/[^\d,]/g, "");
+              });
+            }
         }
     }
     return cleanUp(data);
