@@ -260,7 +260,7 @@ fields:
   - name: ingredientsList
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //span[contains(text(), 'SESTAVINE')]//following::p//span | //div[contains(@id,'product-detail-description')]//ul//li//strong[contains(text(),'')]/following-sibling::text()
+    xpath: //span[contains(text(), 'SESTAVINE')]//following::p//span | //div[contains(@id,'product-detail-description')]//ul//li//strong[contains(text(),'Sestavine')]/following-sibling::text()
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
