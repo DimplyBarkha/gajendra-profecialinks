@@ -101,7 +101,7 @@ fields:
   description: Identifier for a variant from a store where variants share the same
     sku
   type: STRING
-  xpath: //form[@id="AddToCartForm"]//input[@name="sku"]/@value
+  xpath: //th[text()="Herstellernummer"]/following-sibling::td[1]
 - name: mpc
   singleValue: true
   type: STRING
