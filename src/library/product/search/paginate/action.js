@@ -20,7 +20,7 @@
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -36,11 +36,11 @@ async function implementation (
       try {
         const isThere = document.querySelector(sel);
         return !!isThere;
-      } catch (error) {}
+      } catch (error) { }
       try {
         const isThere = document.evaluate(sel, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
         return !!isThere;
-      } catch (error) {}
+      } catch (error) { }
       return false;
     }, { timeout: 10000 }, stopConditionSelectorOrXpath);
     // @ts-ignore

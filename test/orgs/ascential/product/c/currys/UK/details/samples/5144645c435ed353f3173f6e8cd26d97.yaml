@@ -1,0 +1,154 @@
+input:
+  _url: http://currys.co.uk
+  URL: https://www.currys.co.uk/gbuk/computing-accessories/computer-accessories/laptop-bags-and-cases/wenger-legacy-17-laptop-case-black-10211295-pdt.html
+extractions:
+  - html: https://workbench.import.io/html/run=cbff68bb-fda5-4fdb-92d1-9dccb7602cd7/task=c6c899ff-8fad-4add-9fbc-8911b7d0ef61/0f122ffd-918c-420e-86db-6d32cab99938.html
+    extractionConfigId: product/details/stores/c/currys/UK/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.currys.co.uk/gbuk/computing-accessories/computer-accessories/laptop-bags-and-cases/wenger-legacy-17-laptop-case-black-10211295-pdt.html
+                xpath: /html/head[1]/link[4]/@href
+            image:
+              - text: https://brain-images-ssl.cdn.dixons.com/5/9/10211295/u_10211295.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/div[2]/img[1]/@src
+            imageAlt:
+              - text: WENGER Legacy 17" Laptop Case - Black
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://brain-images-ssl.cdn.dixons.com/5/9/10211295/l_10211295_001.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/a[1]/div[2]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/5/9/10211295/l_10211295_005.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]/a[1]/div[2]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/5/9/10211295/l_10211295_004.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[4]/a[1]/div[2]/img[1]/@src
+              - text: https://brain-images-ssl.cdn.dixons.com/5/9/10211295/l_10211295_003.jpg
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[5]/a[1]/div[2]/img[1]/@src
+            metaKeywords:
+              - text: WENGER Legacy 17" Laptop Case - Black,buy WENGER Legacy 17" Laptop Case -
+                  Black,cheap WENGER Legacy 17" Laptop Case - Black,low price
+                  WENGER Legacy 17" Laptop Case - Black,WENGER Legacy 17" Laptop
+                  Case - Black deals
+                xpath: /html/head[1]/meta[7]/@content
+            category:
+              - text: Computing Accessories
+                xpath: /html/body/div[2]/div[2]/div[3]/div[1]/a[2]/span[1]
+              - text: Computer accessories
+                xpath: /html/body/div[2]/div[2]/div[3]/div[1]/a[3]/span[1]
+              - text: Laptop bags and cases
+                xpath: /html/body/div[2]/div[2]/div[3]/div[1]/a[4]/span[1]
+            nameExtended:
+              - text: WENGER Legacy 17" Laptop Case - Black
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[1]/h1[1]
+            price:
+              - text: £35.49
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[3]/div[2]/div[1]/div[1]/span[1]
+            availabilityText:
+              - text: Out of stock
+                xpath: /html/body/div[12]
+            description:
+              - text: >-
+                  The Wenger Legacy 17" Laptop Case fits devices up to 17" and
+                  is fully padded, so your laptop will be safe from knocks and
+                  scratches.
+
+                  Pop all your other essentials in the extra compartments. There are dedicated pockets for your phone, documents, pens and more.
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[8]/div[2]/div[1]/div[1]/div[1]/div[1]
+            brandText:
+              - text: WENGER
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[1]/h1[1]/span[1]
+            weightNet:
+              - text: 870 g
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[8]/div[2]/div[2]/div[1]/div[1]/table[3]/tbody[4]/tr[1]/td[1]
+            sku:
+              - text: "303000"
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[1]/p[1]
+            variantId:
+              - text: "10211295"
+                xpath: /html/body/div[2]/script[3]
+            ratingCount:
+              - text: "9"
+                xpath: /html/body/div[2]/script[3]
+            aggregateRating:
+              - text: "9"
+                xpath: /html/body/div[2]/script[3]
+            color:
+              - text: Black
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[8]/div[2]/div[2]/div[1]/div[1]/table[3]/tbody[1]/tr[1]/td[1]
+            name:
+              - text: WENGER Legacy 17" Laptop Case - Black
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[1]/h1[1]
+            specifications:
+              - text: |-
+                  Type
+                   
+                  Case
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[8]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[1]/tr[1]
+              - text: |-
+                  Usage
+                   
+                  17" laptops
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[8]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[2]/tr[1]
+              - text: |-
+                  Material
+                   
+                  Nylon & polyester
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[8]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[3]/tr[1]
+              - text: |-
+                  Closure
+                   
+                  Dual zip
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[8]/div[2]/div[2]/div[1]/div[1]/table[2]/tbody[1]/tr[1]
+              - text: |-
+                  Other features
+                   
+                  - Other compartments: mobile phone, documents, pens, organiser
+                   - Hand strap
+                   - Shoulder strap
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[8]/div[2]/div[2]/div[1]/div[1]/table[2]/tbody[2]/tr[1]
+              - text: |-
+                  Colour
+                   
+                  Black
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[8]/div[2]/div[2]/div[1]/div[1]/table[3]/tbody[1]/tr[1]
+              - text: |-
+                  Box contents
+                   
+                  Wenger Legacy 17" Laptop Case
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[8]/div[2]/div[2]/div[1]/div[1]/table[3]/tbody[2]/tr[1]
+              - text: |-
+                  Dimensions
+                   
+                  340 x 440 x 80 mm (H x W x D)
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[8]/div[2]/div[2]/div[1]/div[1]/table[3]/tbody[3]/tr[1]
+              - text: |-
+                  Weight
+                   
+                  870 g
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[8]/div[2]/div[2]/div[1]/div[1]/table[3]/tbody[4]/tr[1]
+              - text: |-
+                  Manufacturer’s guarantee
+                   
+                  3 years
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[8]/div[2]/div[2]/div[1]/div[1]/table[3]/tbody[5]/tr[1]
+            warranty:
+              - text: 3 years
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[8]/div[2]/div[2]/div[1]/div[1]/table[3]/tbody[5]/tr[1]/td[1]
+            additionalDescBulletInfo:
+              - text: Polyester & nylon
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[1]
+              - text: Shoulder strap
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[2]
+              - text: Storage pockets
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[3]
+              - text: 870 g
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[3]/div[1]/div[1]/div[1]/ul[1]/li[4]
+            materials:
+              - text: Nylon & polyester
+                xpath: /html/body/div[2]/div[2]/div[3]/div[2]/section[1]/div[2]/div[8]/div[2]/div[2]/div[1]/div[1]/table[1]/tbody[3]/tr[1]/td[1]
+            descriptionBullets:
+              - text: "4"
+            variantCount:
+              - text: "0"
+        xpath: /html
+    timestamp: 1606993318296

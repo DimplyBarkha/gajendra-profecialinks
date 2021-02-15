@@ -1,8 +1,7 @@
-
 /**
  *
- * @param { { url: any, id: any } } inputs
- * @param { { country: any, transform: any, store: any } } parameters
+ * @param { { url?: string,  id?: string} } inputs
+ * @param { Record<string, any> } parameters
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
  */
@@ -13,21 +12,19 @@ async function implementation (
   dependencies,
 ) {
   const { transform } = parameters;
-  const { productDetails } = dependencies;
-  return await context.extract(productDetails, { transform });
+  const { mediaTracker } = dependencies;
+  return await context.extract(mediaTracker, { transform });
 }
 
 module.exports = {
   parameters: [
     {
       name: 'country',
-      description: '',
-      optional: false,
+      description: '2 letter ISO code for the country',
     },
     {
       name: 'store',
-      description: '',
-      optional: false,
+      description: 'store name',
     },
     {
       name: 'transform',
@@ -38,20 +35,20 @@ module.exports = {
   inputs: [
     {
       name: 'url',
-      description: '',
+      description: 'url of product',
       type: 'string',
       optional: true,
     },
     {
       name: 'id',
-      description: '',
+      description: 'unique identifier for product',
       type: 'string',
       optional: true,
     },
   ],
   dependencies: {
-    productDetails: 'extraction:product/details/stores/${store[0:1]}/${store}/${country}/extract',
+    mediaTracker: 'extraction:tracker/media/stores/${store[0:1]}/${store}/${country}/extract',
   },
-  path: '../stores/${store[0:1]}/${store}/${country}/geoExtract',
+  path: './stores/${store[0:1]}/${store}/${country}/extract',
   implementation,
 };

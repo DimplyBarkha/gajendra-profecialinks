@@ -3,10 +3,11 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: variantId
-    singleValue: false
-    xpath: //script[@id='app.settings']
-  - name: variantUrl
-    singleValue: false    
-  - name: variant
-    singleValue: false
+- name: variantId
+  singleValue: false
+  xpath: //div[@id='product_variant']
+- name: variantUrl
+  xpath: //div[@id='product_variant']
+  regExp: (\d+)
+  regExpReplace: https://www.currys.co.uk/gbuk/x/-$1-pdt.html
+  singleValue: false    
