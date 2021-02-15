@@ -85,13 +85,13 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     # xpath: //input[@name="code"]/@value
-    xpath: (//div[@class="size-box-wrapper"]/a/span)[1]/@id
+    xpath: (//div[@class="size-box-wrapper"]/a/span)[1]/@id | //div[@id="buttonClickshow"]/ul/li[1]/a/@id
     regExp: \d+
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
     # xpath: //span[@class="product-code"]
-    xpath: //span[@class="size-box selected "]/@id
+    xpath: //span[@class="size-box selected "]/@id | //span[@class="color-box selected"]/@id
     # regExp: \d+
   - name: variantInformation
     singleValue: false
@@ -147,6 +147,7 @@ fields:
   - name: color
     singleValue: true
     description: A textual description of the colour
+    xpath: //option[@selected="selected"]/text()
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
