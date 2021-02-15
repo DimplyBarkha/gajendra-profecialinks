@@ -6,12 +6,12 @@ fields:
   - name: helpfulCount
     singleValue: true
     type: NUMBER
-    xpath: //button[contains(@class, "bv-content-btn-feedback-yes")]//span[@class="bv-content-btn-count"]
+    xpath: ancestor::html/body/@added_help
     description: Number of people who said the review was helpful
   - name: commentCount
     singleValue: true
     type: NUMBER
-    xpath: //span[@class="bv-rating-ratio-count"]/@aria-label
+    xpath: ancestor::html/body/@added_comment
     regExp: \d+
     description: Number of comments on the review
   - name: brandText
@@ -20,28 +20,26 @@ fields:
       e.g. "Visit the Gillette Store"
   - name: name
     singleValue: true
-    xpath: //h1[@class="pdp__productName"]
+    xpath: ancestor::html/body/@added_name
     description: The product name
   - name: sku
     singleValue: true
-    xpath: //p[@itemprop="sku"]
+    xpath: ancestor::html/body/@added_sku
     regExp: \d+
     description: The store-specific product identifier
   - name: reviewDate
     singleValue: true
-    xpath: //meta[@itemprop="datePublished"]/@content
+    xpath: '@review_date'
     type: DATETIME
     description: Date the review was made
   - name: reviewRating
     type: NUMBER
     singleValue: true
-    xpath: //span[@class="bv-rating-stars-container"]//span[@class="bv-off-screen"]
-    regExp: (\d) out
-    regExpReplace: 1$
+    xpath: '@review_rating'
     description: Rating normalized to be out of 5
   - name: reviewText
     singleValue: true
-    xpath: //div[@class="bv-content-summary-body-text"]/p
+    xpath: '@added_text'
     description: The text of the review
   - name: reviewTitle
     singleValue: true
@@ -55,6 +53,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: productUrl
     singleValue: true
+    xpath: ancestor::html/body/@product_url
     description: The url of the product details page
   - name: verifiedPurchase
     singleValue: true
@@ -71,11 +70,18 @@ fields:
     description: A direct link to the review
   - name: reviewedSku
     singleValue: true
+    xpath: '@added_reviewedSku'
+    regExp: \d+
     description: The SKU of the item that was reviewed (may be different from the
       sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
       value, transform will handle the value.
   - name: user
     description: The user name of the reviewer
     type: TEXT
+    xpath: '@user'
   - name: aggregateRating
     description: The product rating
+    type: STRING
+    xpath: ancestor::html/body/@aggregate_rating
+    regExp: \d\.\d
+   

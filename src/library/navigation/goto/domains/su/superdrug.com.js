@@ -12,7 +12,7 @@ module.exports = {
     });
 
     if (productPage) {
-      await context.waitForSelector('span[itemprop="reviewCount"]');
+      await context.waitForSelector('span[itemprop="reviewCount"], button[id="first-to-write"]');
     }
   },
 };
