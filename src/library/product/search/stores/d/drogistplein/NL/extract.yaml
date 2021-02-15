@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"col-xs-12 col-sm-6 col-lg-4 col-xl-3 product-view-container")]
+recordXPath: //div[contains(@class,"product-view-container")]
 fields:
   - name: productUrl
     SingleValue: false
@@ -33,7 +33,8 @@ fields:
     defaultValue: 0
   - name: ratingCount
     SingleValue: false
-    defaultValue: 0
+    xpath: //div[contains(@class,'clear product-grid-view')]//div[contains(@class,'col-md-12 product-view-rating')]//small
+    # defaultValue: 0
   - name: aggregateRating
     SingleValue: false
-    defaultValue: 0
+    # defaultValue: 0
