@@ -20,7 +20,8 @@ fields:
     xpath: //body//div[@class="jss259"]//button[contains(@class,"MuiButton-containedPrimary") and  contains(@class,"MuiButton-fullWidth")]/parent::*//div[contains(@class,"MuiTypography-colorError") or contains(@class,"MuiTypography-h3")]
   - name: id
     singleValue: false
-    xpath: //body//script[@id="__NEXT_DATA__"]/text()
-    regExp: id\W+(\d{5,})
+    xpath: //@my-prodId
+    # xpath: //body//script[@id="__NEXT_DATA__"]/text()
+    # regExp: id\W+(\d{5,})
     # regExpReplace: $1
 
