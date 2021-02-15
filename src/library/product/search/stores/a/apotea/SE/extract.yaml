@@ -1,5 +1,31 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //div[@class="products5"]/ul/li[not(self::li[@class="separator"])]
+fields:
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class , "price-tag")]//div
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class, 'name')]/a
+  - name: productUrl
+    description: The URL for the product details page
+    xpath: //div[contains(@class, 'name')]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.apotea.se/$1
+  - name: thumbnail
+    description: The URL for the product thumbnail image
+    xpath: //div[contains(@class, 'img')]/a/img/@src
+  - name: sku
+    description: The store-specific product identifier
+    xpath: //@sku-id
+  - name: rank
+    description: search/listing rank
+    type: NUMBER
+  - name: rankOrganic
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: id
+    description: Unique id (within this extractor)
+    xpath: //@sku-id
