@@ -1,4 +1,4 @@
-const {transform}=require('./format');
+const { transform } = require('./format');
 async function implementation (
   inputs,
   parameters,
@@ -14,7 +14,7 @@ async function implementation (
       scrollTop += 1000;
       window.scroll(0, scrollTop);
       if (scrollTop === 20000) {
-        await stall(8000);
+        await stall(10000);
         break;
       }
     }
@@ -25,6 +25,45 @@ async function implementation (
         }, ms);
       });
     }
+  });
+
+  await context.evaluate(async function () {
+    let impressions = [];
+
+    const jsonSelector = document.querySelector('script[id="__NEXT_DATA__"]');
+    if (jsonSelector) {
+      const data = jsonSelector.innerText;
+      if (data) {
+        const jsonData = JSON.parse(data);
+        const props = jsonData.props;
+        let initialState;
+
+        if (props) {
+          initialState = props.initialState;
+          if (initialState) {
+            impressions = initialState.gtm.ecommerceForContentView.impressions;
+            // if (impressions) {
+            //   impressions.forEach((item, index) => {
+            //     const prodId = item.id;
+
+            //   });
+            // }
+          }
+        }
+
+        const items = document.querySelectorAll('div.MuiBox-root div.jss259');
+        if (items && impressions) {
+          items.forEach((item, index) => {
+            const button = item.querySelector('button.MuiButtonBase-root');
+            const product = impressions[index];
+            if (product) {
+              button.setAttribute('my-prodId', product.id);
+            }
+          });
+        }
+      }
+    }
+    return `data ::: ${impressions}`;
   });
   return await context.extract(productDetails, { transform });
 }
