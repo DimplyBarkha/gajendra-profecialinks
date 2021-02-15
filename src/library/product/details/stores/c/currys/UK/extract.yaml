@@ -29,7 +29,8 @@ fields:
     regExp: (£|€)\d+(\.\d{2})?
     description: The stated undiscounted price for the product
   - name: price
-    xpath: //div[@id="product-actions"]/div[@class="amounts"]//span[span][contains(@class,"ProductPriceBlock__Price")]
+    singleValue: true
+    xpath: //div[@id="product-actions"]/div[@class="amounts"]//span[span][contains(@class,"ProductPriceBlock__Price")] | (//div[contains(@class,"prd-amounts")]//strong[@class="current"])[1]
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
   - name: availabilityText
@@ -104,7 +105,8 @@ fields:
     xpath: //th[contains(text(), "Boxed weight")]/following-sibling::td
     description: Stated shipping weight
   - name: variantCount
-    xpath: count(//div[@class="no-tablet"]//ul[@class="dc-product-swatches-list"]/li[position()>1])
+    singleValue: true
+    xpath: count(//div[@class="no-tablet"]//ul[@class="dc-product-swatches-list"]/li)
     description: Number of variants listed
     type: NUMBER
   - name: color
@@ -132,7 +134,7 @@ fields:
     description: Images within the third party description
   - name: videos
     singleValue: false
-    xpath: //td[@class="videoUrl"] | (//iframe[contains(@src,'isitetv') and not(contains(@src,'html'))]/@src)[1]
+    xpath: //div[@id="video"]//iframe/@src | //*[@id="flix-iframe0"]/@src | //body/@video-src | //div[@id="manufacvideos"]
     description: URLs of videos on page
   - name: name
     xpath: //h1[contains(@class, "page-title")]
@@ -424,18 +426,16 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: inTheBoxUrl
-    singleValue: false
-    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
-    regExp: ^([^\s]+)
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset | //div[@id="intheboxURL"]
     # regExp: (.+800w,\s)(.+.jpg)(.+)
     # regExpReplace: $2
   - name: inTheBoxText
-    singleValue: false
-    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]| //th[contains(text(), "Box contents")]/following-sibling::td/text()
+    xpath: //div[@id="intheboxText"]
+    # xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")] | //div[@id="intheboxText"] 
     description: Must include text to show the accessories/tools which come with the product
   - name: hasComparisonTable
     singleValue: true
-    xpath: //div[@id="comparasionText"]
+    xpath: //div[contains(., "Compare with similar")][contains(@class,'flix-comp-h2')]
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No

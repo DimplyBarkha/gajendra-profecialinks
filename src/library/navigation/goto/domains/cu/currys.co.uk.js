@@ -2,14 +2,18 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'currys.co.uk',
-    timeout: 30000,
+    timeout: 50000,
     country: 'UK',
     store: 'currys',
     zipcode: '',
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
     await context.setBlockAds(false);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
+    await context.setAntiFingerprint(false);
+
     url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
     const lastResponseData = await context.goto(url, { waitUntil: 'networkidle0', block_ads: false, js_enabled: true });
 
@@ -41,5 +45,21 @@ module.exports = {
       });
     }
     await autoScroll(context);
+  },
+  implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
+    console.log('IN GOTO');
+    const timeout = parameters.timeout ? parameters.timeout : 60000;
+    await context.setBlockAds(false);
+    await context.setLoadAllResources(true);
+    await context.setLoadImages(true);
+    await context.setFirstRequestTimeout(60000);
+    await context.setUseRelayProxy(false);
+    await context.setJavaScriptEnabled(true);
+    await context.setBypassCSP(true);
+    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    console.log(zipcode);
+    if (zipcode) {
+      await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
+    }
   },
 };
