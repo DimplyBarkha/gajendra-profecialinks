@@ -5,7 +5,7 @@ module.exports = {
     store: 'fnac',
     domain: 'fnac.com',
     loadedSelector: 'div[class~="f-productVisuals-mainIconZoom"]',
-    noResultsXPath: '//p[contains(@class,"firstline")]',
+    noResultsXPath: '//p[contains(@class,"firstline")]|//body[contains(@class, "home-page")]//div[contains(@class, "Main")]',
     zipcode: '',
   },
 };

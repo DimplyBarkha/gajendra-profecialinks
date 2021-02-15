@@ -68,7 +68,7 @@ const implementation = async (
             captchaStatus = await captchStatus(cssCaptchaHandler);
         }
 
-        if (captchaStatus == 'fail') {
+        if (captchaStatus === 'fail') {
             throw new Error('Captcha solver failed');
         }
         return true;
@@ -136,7 +136,12 @@ const implementation = async (
                 // throw new Error('Hard blocked')
             };
 
-            await solveCaptchIfNecessary(cssCaptcha); // if not hard blocked
+            try {
+                await solveCaptchIfNecessary(cssCaptcha); // if not hard blocked
+            } catch (error) {
+                await context.reload();
+                await solveCaptchIfNecessary(cssCaptcha);
+            }
             await context.waitForNavigation({ timeout: 30000 }).catch(error => console.log(error))
             // sometimes after captcha solved, it gets hard blocked
             if (await isHardBlocked(hardBlockedParam)) {
