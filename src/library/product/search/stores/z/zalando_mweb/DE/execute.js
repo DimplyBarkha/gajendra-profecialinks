@@ -4,8 +4,8 @@ module.exports = {
     country: 'DE',
     store: 'zalando_mweb',
     domain: 'zalando.de',
-    // url: 'https://m.zalando.de/herren/?q={searchTerms}',
-    url: 'https://m.zalando.de/alle/?q={searchTerms}',
+    url: 'https://m.zalando.de/herren/?q={searchTerms}',
+    // url: 'https://m.zalando.de/alle/?q={searchTerms}',
     loadedSelector: 'script[id="z-nvg-cognac-props"]',
     noResultsXPath: '//span[contains(text(), "Versuche es mit einem anderen Suchbegriff oder prüfe die Schreibweise")]',
     zipcode: '',
@@ -59,14 +59,14 @@ module.exports = {
       console.log('Finished changing language');
     }
 
-    // This part was added in case we wanted to extract women products as well.
-    const currentUrl = await context.evaluate(async () => window.location.href);
-    console.log(`Current URL: ${currentUrl}`);
-    const newUrl = currentUrl.match(/(.+m.zalando.de\/).+?(\/.+)/)
-      ? `${currentUrl.match(/(.+m.zalando.de\/).+?(\/.+)/)[1]}alle${currentUrl.match(/(.+m.zalando.de\/).+?(\/.+)/)[2]}`
-      : currentUrl;
-    console.log(`New URL: ${newUrl}`);
-    await dependencies.goto({ ...inputs, url: newUrl });
+    // // This part was added in case we wanted to extract women products as well.
+    // const currentUrl = await context.evaluate(async () => window.location.href);
+    // console.log(`Current URL: ${currentUrl}`);
+    // const newUrl = currentUrl.match(/(.+m.zalando.de\/).+?(\/.+)/)
+    //   ? `${currentUrl.match(/(.+m.zalando.de\/).+?(\/.+)/)[1]}alle${currentUrl.match(/(.+m.zalando.de\/).+?(\/.+)/)[2]}`
+    //   : currentUrl;
+    // console.log(`New URL: ${newUrl}`);
+    // await dependencies.goto({ ...inputs, url: newUrl });
 
     if (loadedSelector) {
       await context.waitForFunction(

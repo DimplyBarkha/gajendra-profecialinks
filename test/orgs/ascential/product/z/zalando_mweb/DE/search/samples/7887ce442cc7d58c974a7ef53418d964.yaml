@@ -2,234 +2,255 @@ input:
   keywords: Adidas Golf
   _url: http://zalando.de
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=c9caa05e-51f9-4176-aaf1-73f62fa00797/task=5ac7c48a-7ba7-496a-952d-2e726e3186ea/ce3feb4b-8f85-40b6-a17c-106daa027637.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=39605211-9038-4065-a77f-d94637b76ed1/task=2c0437c2-6fff-4acb-8ba1-0905237fea32/5e572ce7-e96a-4052-a396-c48c138a721c.html
     extractionConfigId: product/search/stores/z/zalando_mweb/DE/extract
     data:
       - group:
           - id:
-              - text: ta441a02a-k11
+              - text: ta441a02c-a11
                 xpath: /html/body/ol[1]/li[1]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[1]/@search_url
             name:
-              - text: RESPONSE BOUNCE 2 SL - Golfschuh - tech indigo/footwear white/yellow tint
+              - text: ADICROSS RETRO - Golfschuh - footwear white/gold metallic/crystal white
                 xpath: /html/body/ol[1]/li[1]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-response-bounce-2-sl-golfschuh-tech-indigofootwear-whiteyellow-tint-ta441a02a-k11.html
+              - text: https://m.zalando.de/adidas-golf-adicross-retro-golfschuh-footwear-whitegold-metalliccrystal-white-ta441a02c-a11.html
                 xpath: /html/body/ol[1]/li[1]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/19d3d333835d33bbaaf9b9a273491378/87b7b5ed8173473d9cf5fb47ad77be8c.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/291aaa95a92a3d5db0143b18bbfcb1d2/759b20be81034fe3849d6dce5fc5d01d.jpg
                 xpath: /html/body/ol[1]/li[1]/@thumbnail
             price:
-              - text: 80,95 €
+              - text: 109,95 €
                 xpath: /html/body/ol[1]/li[1]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[1]/@manufacturer
+            sponsored:
+              - text: "true"
+                xpath: /html/body/ol[1]/li[1]/@sponsored
+                type: BOOLEAN
+                raw: "true"
+                locale: de_DE
+                value: true
           - id:
-              - text: ta442l00u-q11
+              - text: ta442a04e-a11
                 xpath: /html/body/ol[1]/li[2]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[2]/@search_url
             name:
-              - text: PERFORMANCE AEROREADY SPORTS GOLF KAPPE - Cap - black
+              - text: ADICROSS RETRO - Golfschuh - footwear white/silver metallic/tech indigo
                 xpath: /html/body/ol[1]/li[2]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-performance-aeroready-sports-golf-kappe-cap-black-ta442l00u-q11.html
+              - text: https://m.zalando.de/adidas-golf-adicross-retro-golfschuh-footwear-whitesilver-metallictech-indigo-ta442a04e-a11.html
                 xpath: /html/body/ol[1]/li[2]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/9a29499e26a13e01b33b485654bcfe60/e0273b7073234aabb3cca9b3ca374012.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/b20059e4f0b43154a90684779b5a59e1/178cf8814df94144a459046b3583b9ab.jpg
                 xpath: /html/body/ol[1]/li[2]/@thumbnail
             price:
-              - text: 17,45 €
+              - text: 109,95 €
                 xpath: /html/body/ol[1]/li[2]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[2]/@manufacturer
+            sponsored:
+              - text: "true"
+                xpath: /html/body/ol[1]/li[2]/@sponsored
+                type: BOOLEAN
+                raw: "true"
+                locale: de_DE
+                value: true
           - id:
-              - text: ta442a03u-a11
+              - text: ta442g01r-b11
                 xpath: /html/body/ol[1]/li[3]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[3]/@search_url
             name:
-              - text: TRAXION - Golfschuh - footwear white/core black/grey six
+              - text: CROSS - Sweatshirt - alumina
                 xpath: /html/body/ol[1]/li[3]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-cp-traxion-golfschuh-footwear-whitecore-blackgrey-six-ta442a03u-a11.html
+              - text: https://m.zalando.de/adidas-golf-cross-sweatshirt-alumina-ta442g01r-b11.html
                 xpath: /html/body/ol[1]/li[3]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/76c9e2a7250d33bd8dda3accaec65e55/9e25f8667f0145d0b5c356277fe7a9f4.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/b8ba287d7a9032498456004755efab05/6bcbf817966f42208dbae312c05fc569.jpg
                 xpath: /html/body/ol[1]/li[3]/@thumbnail
             price:
-              - text: 89,95 €
+              - text: 74,95 €
                 xpath: /html/body/ol[1]/li[3]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[3]/@manufacturer
+            sponsored:
+              - text: "true"
+                xpath: /html/body/ol[1]/li[3]/@sponsored
+                type: BOOLEAN
+                raw: "true"
+                locale: de_DE
+                value: true
           - id:
-              - text: ta441a02c-a11
+              - text: ta442g013-n11
                 xpath: /html/body/ol[1]/li[4]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[4]/@search_url
             name:
-              - text: ADICROSS RETRO - Golfschuh - footwear white/gold metallic/crystal white
+              - text: Langarmshirt - legend earth
                 xpath: /html/body/ol[1]/li[4]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-adicross-retro-golfschuh-footwear-whitegold-metalliccrystal-white-ta441a02c-a11.html
+              - text: https://m.zalando.de/adidas-golf-langarmshirt-legend-earth-ta442g013-n11.html
                 xpath: /html/body/ol[1]/li[4]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/291aaa95a92a3d5db0143b18bbfcb1d2/759b20be81034fe3849d6dce5fc5d01d.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/5385268dd4d337a8b0c33a4ac66eb3f8/dbbfbe1c3752402eae4c1ab685158ee4.jpg
                 xpath: /html/body/ol[1]/li[4]/@thumbnail
             price:
-              - text: 109,95 €
+              - text: 34,95 €
                 xpath: /html/body/ol[1]/li[4]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[4]/@manufacturer
           - id:
-              - text: ta441d01e-a11
+              - text: ta442d02v-a11
                 xpath: /html/body/ol[1]/li[5]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[5]/@search_url
             name:
-              - text: PERFORMANCE - Poloshirt - white
+              - text: PERFORMANCE SPORTS GOLF SHORT SLEEVE - Poloshirt - white
                 xpath: /html/body/ol[1]/li[5]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-performance-sports-short-sleeve-poloshirt-white-ta441d01e-a11.html
+              - text: https://m.zalando.de/adidas-golf-poloshirt-white-ta442d02v-a11.html
                 xpath: /html/body/ol[1]/li[5]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/63eb216a583532bcb72e1d966bfbacab/a76e9b47872e44cd9bb724c5208562cb.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/20fc995ea41238f18051c4bb784f467a/6e8d40d6ff46422fb5405e3c2b66c150.jpg
                 xpath: /html/body/ol[1]/li[5]/@thumbnail
             price:
-              - text: 32,65 €
+              - text: 27,95 €
                 xpath: /html/body/ol[1]/li[5]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[5]/@manufacturer
           - id:
-              - text: ta441l002-k11
+              - text: ta442e02d-k11
                 xpath: /html/body/ol[1]/li[6]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[6]/@search_url
             name:
-              - text: 3 STRIPE DRESS - Sportkleid - legacy blue
+              - text: ULTIMATE SPORTS GOLF PANTS - Stoffhose - collegiate navy
                 xpath: /html/body/ol[1]/li[6]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-3-stripe-dress-sportkleid-legacy-blue-ta441l002-k11.html
+              - text: https://m.zalando.de/adidas-golf-tape-stoffhose-collegiate-navy-ta442e02d-k11.html
                 xpath: /html/body/ol[1]/li[6]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/cd9a2560dc483fe5977f76f9294d4b57/85247672e22d4b49abd87ed293d2625a.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/33a59483e35f3ee082ba3ce1d7252a3f/dbc96da36f5944159189095453b4951b.jpg
                 xpath: /html/body/ol[1]/li[6]/@thumbnail
             price:
-              - text: 89,95 €
+              - text: 74,95 €
                 xpath: /html/body/ol[1]/li[6]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[6]/@manufacturer
           - id:
-              - text: ta442e02d-k11
+              - text: ta442g01b-k11
                 xpath: /html/body/ol[1]/li[7]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[7]/@search_url
             name:
-              - text: ULTIMATE SPORTS GOLF PANTS - Stoffhose - collegiate navy
+              - text: CORE - Sweatshirt - collegiate navy
                 xpath: /html/body/ol[1]/li[7]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-tape-stoffhose-collegiate-navy-ta442e02d-k11.html
+              - text: https://m.zalando.de/adidas-golf-core-sweatshirt-collegiate-navy-ta442g01b-k11.html
                 xpath: /html/body/ol[1]/li[7]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/33a59483e35f3ee082ba3ce1d7252a3f/dbc96da36f5944159189095453b4951b.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/c8c8eb3f56ec3c58abb42690843ab36c/dc53b24af6974568a6ab317fd9898048.jpg
                 xpath: /html/body/ol[1]/li[7]/@thumbnail
             price:
-              - text: 74,95 €
+              - text: 42,45 €
                 xpath: /html/body/ol[1]/li[7]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[7]/@manufacturer
           - id:
-              - text: ta442a04e-a11
+              - text: ta441d015-k12
                 xpath: /html/body/ol[1]/li[8]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[8]/@search_url
             name:
-              - text: ADICROSS RETRO - Golfschuh - footwear white/silver metallic/tech indigo
+              - text: ULT 365 - Funktionsshirt - tech indigo
                 xpath: /html/body/ol[1]/li[8]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-adicross-retro-golfschuh-footwear-whitesilver-metallictech-indigo-ta442a04e-a11.html
+              - text: https://m.zalando.de/adidas-golf-poloshirt-tech-indigo-ta441d015-k12.html
                 xpath: /html/body/ol[1]/li[8]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/b20059e4f0b43154a90684779b5a59e1/178cf8814df94144a459046b3583b9ab.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/c38cbdd1bb8d3c749677213dd40944ed/64e1d4a5993f4c75ad585300dad52591.jpg
                 xpath: /html/body/ol[1]/li[8]/@thumbnail
             price:
-              - text: 109,95 €
+              - text: 37,65 €
                 xpath: /html/body/ol[1]/li[8]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[8]/@manufacturer
           - id:
-              - text: ta442d02v-k11
+              - text: ta442a04k-a12
                 xpath: /html/body/ol[1]/li[9]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[9]/@search_url
             name:
-              - text: PERFORMANCE SPORTS GOLF SHORT SLEEVE - Poloshirt - navy
+              - text: CHAOS BOOST TRAXION GOLF SNEAKERS SHOES - Golfschuh - white/grey
                 xpath: /html/body/ol[1]/li[9]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-poloshirt-navy-ta442d02v-k11.html
+              - text: https://m.zalando.de/adidas-golf-chaos-boost-traxion-golf-sneakers-shoes-golfschuh-whitegrey-ta442a04k-a12.html
                 xpath: /html/body/ol[1]/li[9]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/0ac9c0cfc29534b5b82663a4030dcc20/a8fec363e20e4937b86534cb44cddba5.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/30fb1b07538a40dba64a99d82f552067/d0d509c040134fcbb86dcfa78bba5a5a.jpg
                 xpath: /html/body/ol[1]/li[9]/@thumbnail
             price:
-              - text: 33,95 €
+              - text: 169,95 €
                 xpath: /html/body/ol[1]/li[9]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[9]/@manufacturer
           - id:
-              - text: ta441g00f-q11
+              - text: ta442a04f-a11
                 xpath: /html/body/ol[1]/li[10]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[10]/@search_url
             name:
-              - text: Trainingsjacke - black
+              - text: CROSSKNIT CROWS NEST - Golfschuh - footwear white/glory green/orbit grey
                 xpath: /html/body/ol[1]/li[10]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-trainingsjacke-black-ta441g00f-q11.html
+              - text: https://m.zalando.de/adidas-golf-crossknit-crows-nest-golfschuh-footwear-whiteglory-greenorbit-grey-ta442a04f-a11.html
                 xpath: /html/body/ol[1]/li[10]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/017675e7135b37d3a65eb067042b6f17/80f1166ac6884e4885d4484360c6b1b4.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/340c483f46343ceb8e7c493d31891d2a/484dad3469d5446f94419a7a00ee74ef.jpg
                 xpath: /html/body/ol[1]/li[10]/@thumbnail
             price:
-              - text: 52,45 €
+              - text: 64,95 €
                 xpath: /html/body/ol[1]/li[10]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[10]/@manufacturer
           - id:
-              - text: ta442f01a-k11
+              - text: ta442e02b-c11
                 xpath: /html/body/ol[1]/li[11]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[11]/@search_url
             name:
-              - text: CORE WIND - Trainingsjacke - collegiate navy
+              - text: ULTIMATE PANT - Stoffhose - grey three
                 xpath: /html/body/ol[1]/li[11]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-core-wind-trainingsjacke-collegiate-navy-ta442f01a-k11.html
+              - text: https://m.zalando.de/adidas-golf-ultimate-tapered-pant-stoffhose-grey-three-ta442e02b-c11.html
                 xpath: /html/body/ol[1]/li[11]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/543a9541ae6d33cbbd2a8932581385f3/832f66984ce6442983ad2de94ff5cb02.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/0fdfb92f0a613517936c2272951d1a3f/9dfb1fa8216441e6a0152ff5863b2c50.jpg
                 xpath: /html/body/ol[1]/li[11]/@thumbnail
             price:
               - text: 74,95 €
@@ -238,103 +259,103 @@ extractions:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[11]/@manufacturer
           - id:
-              - text: ta442f012-k11
+              - text: ta441l002-k11
                 xpath: /html/body/ol[1]/li[12]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[12]/@search_url
             name:
-              - text: JACKET - Softshelljacke - collegiate navy
+              - text: 3 STRIPE DRESS - Sportkleid - legacy blue
                 xpath: /html/body/ol[1]/li[12]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-jacket-softshelljacke-ta442f012-k11.html
+              - text: https://m.zalando.de/adidas-golf-3-stripe-dress-sportkleid-legacy-blue-ta441l002-k11.html
                 xpath: /html/body/ol[1]/li[12]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/a69c63c297403989b7bc88e72bae8e18/a0dc4d7926834be6a72439feb481267f.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/cd9a2560dc483fe5977f76f9294d4b57/85247672e22d4b49abd87ed293d2625a.jpg
                 xpath: /html/body/ol[1]/li[12]/@thumbnail
             price:
-              - text: 87,95 €
+              - text: 89,95 €
                 xpath: /html/body/ol[1]/li[12]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[12]/@manufacturer
           - id:
-              - text: ta441a02c-a12
+              - text: ta442l00p-q11
                 xpath: /html/body/ol[1]/li[13]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[13]/@search_url
             name:
-              - text: ADICROSS RETRO - Golfschuh - footwear white/glory pink
+              - text: STATEMENT BEANIE - Mütze - black
                 xpath: /html/body/ol[1]/li[13]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-adicross-retro-golfschuh-ta441a02c-a12.html
+              - text: https://m.zalando.de/adidas-golf-statement-beanie-muetze-black-ta442l00p-q11.html
                 xpath: /html/body/ol[1]/li[13]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/da7b77ee31c237f59abb2851f5fcb2b7/4374f50e076942f39c19ad546ccbc2fb.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/06e77bbd461b3f04861072bca7b64b1b/b735eb017aa04076a20965692b282bfe.jpg
                 xpath: /html/body/ol[1]/li[13]/@thumbnail
             price:
-              - text: 109,95 €
+              - text: 25,15 €
                 xpath: /html/body/ol[1]/li[13]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[13]/@manufacturer
           - id:
-              - text: ta442l00q-q11
+              - text: ta442a04e-q11
                 xpath: /html/body/ol[1]/li[14]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[14]/@search_url
             name:
-              - text: PERFORMANCE SPORTS GOLF KAPPE - Cap - black
+              - text: ADICROSS RETRO - Golfschuh - core black/gold metallic/clear brown
                 xpath: /html/body/ol[1]/li[14]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-performance-sports-golf-kappe-cap-black-ta442l00q-q11.html
+              - text: https://m.zalando.de/adidas-golf-adicross-retro-golfschuh-ta442a04e-q11.html
                 xpath: /html/body/ol[1]/li[14]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/f0c1660e53d23ae989411b1b4c649b18/ca57a08733b2412d9dd7029c26b1e99c.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/ba1fb3c21459394cb91e880b0f92a254/2e8f77f383db4279a40c8534e66b3f79.jpg
                 xpath: /html/body/ol[1]/li[14]/@thumbnail
             price:
-              - text: 26,15 €
+              - text: 109,95 €
                 xpath: /html/body/ol[1]/li[14]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[14]/@manufacturer
           - id:
-              - text: ta441d01f-a11
+              - text: ta441a02c-a12
                 xpath: /html/body/ol[1]/li[15]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[15]/@search_url
             name:
-              - text: PERFORMANCE SPORTS GOLF SHORT SLEEVE - T-Shirt print - white
+              - text: ADICROSS RETRO - Golfschuh - footwear white/glory pink
                 xpath: /html/body/ol[1]/li[15]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-performance-sports-short-sleeve-poloshirt-white-ta441d01f-a11.html
+              - text: https://m.zalando.de/adidas-golf-adicross-retro-golfschuh-ta441a02c-a12.html
                 xpath: /html/body/ol[1]/li[15]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/9fe74378ee04374b97088feb06206042/e876bb5959ed4b99b4201e8df2006951.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/da7b77ee31c237f59abb2851f5fcb2b7/4374f50e076942f39c19ad546ccbc2fb.jpg
                 xpath: /html/body/ol[1]/li[15]/@thumbnail
             price:
-              - text: 47,95 €
+              - text: 109,95 €
                 xpath: /html/body/ol[1]/li[15]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[15]/@manufacturer
           - id:
-              - text: ta442e02b-c11
+              - text: ta442e02b-k11
                 xpath: /html/body/ol[1]/li[16]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[16]/@search_url
             name:
-              - text: ULTIMATE PANT - Stoffhose - grey three
+              - text: ULTIMATE PANT - Stoffhose - crew navy
                 xpath: /html/body/ol[1]/li[16]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-ultimate-tapered-pant-stoffhose-grey-three-ta442e02b-c11.html
+              - text: https://m.zalando.de/adidas-golf-ultimate-pant-stoffhose-crew-navy-ta442e02b-k11.html
                 xpath: /html/body/ol[1]/li[16]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/0fdfb92f0a613517936c2272951d1a3f/9dfb1fa8216441e6a0152ff5863b2c50.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/9809d5cbd49036d69d744013e0b83d29/18ead4325ca6429aa7f1627113a5f3ca.jpg
                 xpath: /html/body/ol[1]/li[16]/@thumbnail
             price:
               - text: 74,95 €
@@ -342,35 +363,49 @@ extractions:
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[16]/@manufacturer
+            sponsored:
+              - text: "true"
+                xpath: /html/body/ol[1]/li[16]/@sponsored
+                type: BOOLEAN
+                raw: "true"
+                locale: de_DE
+                value: true
           - id:
-              - text: ta442l00n-q11
+              - text: ta442g01r-m11
                 xpath: /html/body/ol[1]/li[17]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[17]/@search_url
             name:
-              - text: Cap - black
+              - text: CROSS - Sweatshirt - natural green
                 xpath: /html/body/ol[1]/li[17]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-cap-black-ta442l00n-q11.html
+              - text: https://m.zalando.de/adidas-golf-cross-sweatshirt-natural-green-ta442g01r-m11.html
                 xpath: /html/body/ol[1]/li[17]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/2a0aa6663ce83d1e8a80f1953d1b6ddb/7a349d2d8d8b4e0c82d8b9aa93c3c169.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/93e17a3bcbfc34f5bc82d5eeceacc536/2d4a4b02cc2b48a4864f28a1e1ea02f8.jpg
                 xpath: /html/body/ol[1]/li[17]/@thumbnail
             price:
-              - text: 17,95 €
+              - text: 74,95 €
                 xpath: /html/body/ol[1]/li[17]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[17]/@manufacturer
+            sponsored:
+              - text: "true"
+                xpath: /html/body/ol[1]/li[17]/@sponsored
+                type: BOOLEAN
+                raw: "true"
+                locale: de_DE
+                value: true
           - id:
               - text: ta442a04k-q11
                 xpath: /html/body/ol[1]/li[18]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[18]/@search_url
             name:
-              - text: CODECHAOS - Golfschuh - black
+              - text: CHAOS BOOST TRAXION GOLF SNEAKERS SHOES - Golfschuh - black
                 xpath: /html/body/ol[1]/li[18]/@name
             productUrl:
               - text: https://m.zalando.de/adidas-golf-codechaos-golfschuh-black-ta442a04k-q11.html
@@ -384,193 +419,199 @@ extractions:
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[18]/@manufacturer
+            sponsored:
+              - text: "true"
+                xpath: /html/body/ol[1]/li[18]/@sponsored
+                type: BOOLEAN
+                raw: "true"
+                locale: de_DE
+                value: true
           - id:
-              - text: ta442a04e-q11
+              - text: ta442l00q-q11
                 xpath: /html/body/ol[1]/li[19]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[19]/@search_url
             name:
-              - text: ADICROSS RETRO - Golfschuh - core black/gold metallic/clear brown
+              - text: PERFORMANCE SPORTS GOLF KAPPE - Cap - black
                 xpath: /html/body/ol[1]/li[19]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-adicross-retro-golfschuh-ta442a04e-q11.html
+              - text: https://m.zalando.de/adidas-golf-performance-sports-golf-kappe-cap-black-ta442l00q-q11.html
                 xpath: /html/body/ol[1]/li[19]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/ba1fb3c21459394cb91e880b0f92a254/2e8f77f383db4279a40c8534e66b3f79.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/f0c1660e53d23ae989411b1b4c649b18/ca57a08733b2412d9dd7029c26b1e99c.jpg
                 xpath: /html/body/ol[1]/li[19]/@thumbnail
             price:
-              - text: 109,95 €
+              - text: 31,45 €
                 xpath: /html/body/ol[1]/li[19]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[19]/@manufacturer
           - id:
-              - text: ta442d032-q11
+              - text: ta442d02z-j11
                 xpath: /html/body/ol[1]/li[20]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[20]/@search_url
             name:
-              - text: ADICROSS SHORT SLEEVE - Poloshirt - black
+              - text: ULTIMATE 365 SHORT SLEEVE - Poloshirt - power pink/black
                 xpath: /html/body/ol[1]/li[20]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-adicross-short-sleeve-poloshirt-black-ta442d032-q11.html
+              - text: https://m.zalando.de/adidas-golf-ultimate-365-poloshirt-power-pinkblack-ta442d02z-j11.html
                 xpath: /html/body/ol[1]/li[20]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/550eaef1655e35c887714f909f124fe1/2c0f0c13a7584526854b84b4264ceb79.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/cf8626ecbf0e3422a2b8c7a1787f2746/2392d9eecb974aa8a0f707ee4f3ce352.jpg
                 xpath: /html/body/ol[1]/li[20]/@thumbnail
             price:
-              - text: 59,95 €
+              - text: 51,95 €
                 xpath: /html/body/ol[1]/li[20]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[20]/@manufacturer
           - id:
-              - text: ta442l00i-q11
+              - text: ta442a04e-a12
                 xpath: /html/body/ol[1]/li[21]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[21]/@search_url
             name:
-              - text: TOUR HAT - Cap - black/white
+              - text: ADICROSS RETRO - Golfschuh - footwear white/green
                 xpath: /html/body/ol[1]/li[21]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-tour-hat-cap-blackwhite-ta442l00i-q11.html
+              - text: https://m.zalando.de/adidas-golf-adicross-retro-golfschuh-footwear-whitegreen-ta442a04e-a12.html
                 xpath: /html/body/ol[1]/li[21]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/c77edf62147f3d08b3e6dd8614833d57/04f1d7123baf4f8cb5467968b5b06592.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/4be27c437c6c3f89875f3430d0854025/d4ebc97ddf4242a9b85104ca49746a7f.jpg
                 xpath: /html/body/ol[1]/li[21]/@thumbnail
             price:
-              - text: 23,85 €
+              - text: 109,95 €
                 xpath: /html/body/ol[1]/li[21]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[21]/@manufacturer
           - id:
-              - text: ta442d02z-j11
+              - text: ta442d034-a11
                 xpath: /html/body/ol[1]/li[22]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[22]/@search_url
             name:
-              - text: ULTIMATE 365 SHORT SLEEVE - Poloshirt - power pink/black
+              - text: ADICROSS - Poloshirt - white
                 xpath: /html/body/ol[1]/li[22]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-ultimate-365-poloshirt-power-pinkblack-ta442d02z-j11.html
+              - text: https://m.zalando.de/adidas-golf-adicross-poloshirt-white-ta442d034-a11.html
                 xpath: /html/body/ol[1]/li[22]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/cf8626ecbf0e3422a2b8c7a1787f2746/2392d9eecb974aa8a0f707ee4f3ce352.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/c0212659480f3da797a4edc7646b2b5a/cee7e8d65fca4ffeaaed24a5ffb391b5.jpg
                 xpath: /html/body/ol[1]/li[22]/@thumbnail
             price:
-              - text: 51,95 €
+              - text: 48,95 €
                 xpath: /html/body/ol[1]/li[22]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[22]/@manufacturer
           - id:
-              - text: ta442g01g-q11
+              - text: ta442d02r-q11
                 xpath: /html/body/ol[1]/li[23]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[23]/@search_url
             name:
-              - text: HYBRID ZIP - Trainingsjacke - black
+              - text: SPORT - Poloshirt - black
                 xpath: /html/body/ol[1]/li[23]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-hybrid-zip-trainingsjacke-black-ta442g01g-q11.html
+              - text: https://m.zalando.de/adidas-golf-sport-poloshirt-black-ta442d02r-q11.html
                 xpath: /html/body/ol[1]/li[23]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/957b754299703621842ea5fad4ed80de/db098a94813745c181646b27009c6d92.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/7f326871ca64376988a9914ad9e04453/7ff9cc4894d147d3838b57dc351ac21b.jpg
                 xpath: /html/body/ol[1]/li[23]/@thumbnail
             price:
-              - text: 79,95 €
+              - text: 58,45 €
                 xpath: /html/body/ol[1]/li[23]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[23]/@manufacturer
           - id:
-              - text: ta442f01e-c11
+              - text: ta442a04m-q11
                 xpath: /html/body/ol[1]/li[24]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[24]/@search_url
             name:
-              - text: ADICROSS ELEMENT JACKET - Regenjacke / wasserabweisende Jacke - grey
-                  three/amber tint
+              - text: TOUR360 BOOST SPORTS GOLF SNEAKERS SHOES - Golfschuh - core black/iron
+                  metallic
                 xpath: /html/body/ol[1]/li[24]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-adicross-element-jacket-regenjacke-wasserabweisende-jacke-grey-threeamber-tint-ta442f01e-c11.html
+              - text: https://m.zalando.de/adidas-golf-tour360-boost-sports-golf-sneakers-shoes-golfschuh-core-blackiron-metallic-ta442a04m-q11.html
                 xpath: /html/body/ol[1]/li[24]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/40ee5d26e864341eb8045814c74d37aa/a1549cad261946af9caa62892aa01240.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/ee9eb3ef8eff3eabb1aa881870c6798b/b2c2adc17834457087842eadab564035.jpg
                 xpath: /html/body/ol[1]/li[24]/@thumbnail
             price:
-              - text: 118,95 €
+              - text: 179,95 €
                 xpath: /html/body/ol[1]/li[24]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[24]/@manufacturer
           - id:
-              - text: ta442a04e-a12
+              - text: ta442l00k-q11
                 xpath: /html/body/ol[1]/li[25]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[25]/@search_url
             name:
-              - text: ADICROSS RETRO - Golfschuh - footwear white/green
+              - text: TOUR BELT - Gürtel - black
                 xpath: /html/body/ol[1]/li[25]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-adicross-retro-golfschuh-footwear-whitegreen-ta442a04e-a12.html
+              - text: https://m.zalando.de/adidas-golf-tour-belt-guertel-black-ta442l00k-q11.html
                 xpath: /html/body/ol[1]/li[25]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/4be27c437c6c3f89875f3430d0854025/d4ebc97ddf4242a9b85104ca49746a7f.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/e98c01d073eb383d9717e01206ca7f63/d05888078c564154af70a59f7adc9c12.jpg
                 xpath: /html/body/ol[1]/li[25]/@thumbnail
             price:
-              - text: 109,95 €
+              - text: 49,95 €
                 xpath: /html/body/ol[1]/li[25]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[25]/@manufacturer
           - id:
-              - text: ta442d02r-a11
+              - text: ta441d01d-k11
                 xpath: /html/body/ol[1]/li[26]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[26]/@search_url
             name:
-              - text: SPORT - Poloshirt - white
+              - text: PRIMEBLUE - Poloshirt - easy blue
                 xpath: /html/body/ol[1]/li[26]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-sport-poloshirt-ta442d02r-a11.html
+              - text: https://m.zalando.de/adidas-golf-primeblue-poloshirt-easy-blue-ta441d01d-k11.html
                 xpath: /html/body/ol[1]/li[26]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/cb0c2f70051530acb2f2b1517fcaf237/398e0ade1b71477fa0abce77b29e07ca.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/b530a2156c0a31ce85545e544b5324a5/02917db9bb4e4166b68e1899b6e751e5.jpg
                 xpath: /html/body/ol[1]/li[26]/@thumbnail
             price:
-              - text: 76,45 €
+              - text: 48,95 €
                 xpath: /html/body/ol[1]/li[26]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[26]/@manufacturer
           - id:
-              - text: ta442a04m-q11
+              - text: ta442l00n-q11
                 xpath: /html/body/ol[1]/li[27]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[27]/@search_url
             name:
-              - text: TOUR360 BOOST SPORTS GOLF SNEAKERS SHOES - Golfschuh - core black/iron
-                  metallic
+              - text: Cap - black
                 xpath: /html/body/ol[1]/li[27]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-tour360-boost-sports-golf-sneakers-shoes-golfschuh-core-blackiron-metallic-ta442a04m-q11.html
+              - text: https://m.zalando.de/adidas-golf-cap-black-ta442l00n-q11.html
                 xpath: /html/body/ol[1]/li[27]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/ee9eb3ef8eff3eabb1aa881870c6798b/b2c2adc17834457087842eadab564035.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/2a0aa6663ce83d1e8a80f1953d1b6ddb/7a349d2d8d8b4e0c82d8b9aa93c3c169.jpg
                 xpath: /html/body/ol[1]/li[27]/@thumbnail
             price:
-              - text: 179,95 €
+              - text: 17,95 €
                 xpath: /html/body/ol[1]/li[27]/@price
             manufacturer:
               - text: adidas Golf
@@ -579,7 +620,7 @@ extractions:
               - text: ta442a04n-q11
                 xpath: /html/body/ol[1]/li[28]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[28]/@search_url
             name:
               - text: TOUR360 XT-SL - Golfschuh - core black/grey five/scarlet
@@ -597,272 +638,292 @@ extractions:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[28]/@manufacturer
           - id:
-              - text: ta442l00k-q11
+              - text: ta441d01e-k11
                 xpath: /html/body/ol[1]/li[29]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[29]/@search_url
             name:
-              - text: TOUR BELT - Gürtel - black
+              - text: PERFORMANCE - Poloshirt - collegiate navy
                 xpath: /html/body/ol[1]/li[29]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-tour-belt-guertel-black-ta442l00k-q11.html
+              - text: https://m.zalando.de/adidas-golf-performance-sports-short-sleeve-poloshirt-collegiate-navy-ta441d01e-k11.html
                 xpath: /html/body/ol[1]/li[29]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/e98c01d073eb383d9717e01206ca7f63/d05888078c564154af70a59f7adc9c12.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/02b09d9a54f23dbd9cb37c5930362546/de777f4fec0142d48d6e8d51cdeea532.jpg
                 xpath: /html/body/ol[1]/li[29]/@thumbnail
             price:
-              - text: 49,95 €
+              - text: 34,95 €
                 xpath: /html/body/ol[1]/li[29]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[29]/@manufacturer
           - id:
-              - text: ta442d02y-a11
+              - text: ta441g00f-a11
                 xpath: /html/body/ol[1]/li[30]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[30]/@search_url
             name:
-              - text: PERFORMANCE SPORTS GOLF SHORT SLEEVE - Poloshirt - white/collegiate navy
-                  melange
+              - text: Trainingsjacke - white
                 xpath: /html/body/ol[1]/li[30]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-colorblock-novelty-poloshirt-whitecollegiate-navy-melange-ta442d02y-a11.html
+              - text: https://m.zalando.de/adidas-golf-sweatjacke-white-ta441g00f-a11.html
                 xpath: /html/body/ol[1]/li[30]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/639fc3356bed3c2c90e90b6f7038baac/5d9942fce6274a98a75b8593a072110a.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/be8a09c1bdbe3469a067a02fe90de7bc/bbfe7cfba0b744398c755dca28e351a9.jpg
                 xpath: /html/body/ol[1]/li[30]/@thumbnail
             price:
-              - text: 42,45 €
+              - text: 55,95 €
                 xpath: /html/body/ol[1]/li[30]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[30]/@manufacturer
           - id:
-              - text: ta441e00v-a11
+              - text: ta442a045-c11
                 xpath: /html/body/ol[1]/li[31]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[31]/@search_url
             name:
-              - text: PANT - Stoffhose - white
+              - text: CODECHAOS - Golfschuh - grey three/footwear white/core black
                 xpath: /html/body/ol[1]/li[31]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-pant-stoffhose-ta441e00v-a11.html
+              - text: https://m.zalando.de/adidas-golf-codechaos-golfschuh-ta442a045-c11.html
                 xpath: /html/body/ol[1]/li[31]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/f1640257a74939e0aedf50b0d8696a52/12a6f20301404883a6a5db1a7898b202.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/4ffb77e51c4437299a4e759057849acc/f6a44dc7cec74723bb85c81247a10630.jpg
                 xpath: /html/body/ol[1]/li[31]/@thumbnail
             price:
-              - text: 59,95 €
+              - text: 169,95 €
                 xpath: /html/body/ol[1]/li[31]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[31]/@manufacturer
           - id:
-              - text: ta441g00f-a11
+              - text: ta442l00v-q11
                 xpath: /html/body/ol[1]/li[32]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[32]/@search_url
             name:
-              - text: Trainingsjacke - white
+              - text: GOLF PERFORM - Cap - black
                 xpath: /html/body/ol[1]/li[32]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-sweatjacke-white-ta441g00f-a11.html
+              - text: https://m.zalando.de/adidas-golf-golf-perform-cap-black-ta442l00v-q11.html
                 xpath: /html/body/ol[1]/li[32]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/be8a09c1bdbe3469a067a02fe90de7bc/bbfe7cfba0b744398c755dca28e351a9.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/147d118a0dce3c609b66a166b986fe7b/a8d81f7ac10c4c448ff0fb9dc911acea.jpg
                 xpath: /html/body/ol[1]/li[32]/@thumbnail
             price:
-              - text: 45,45 €
+              - text: 17,95 €
                 xpath: /html/body/ol[1]/li[32]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[32]/@manufacturer
           - id:
-              - text: ta441d01e-k11
+              - text: ta441m00b-a12
                 xpath: /html/body/ol[1]/li[33]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[33]/@search_url
             name:
-              - text: PERFORMANCE - Poloshirt - collegiate navy
+              - text: STAR - Sportrock - white
                 xpath: /html/body/ol[1]/li[33]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-performance-sports-short-sleeve-poloshirt-collegiate-navy-ta441d01e-k11.html
+              - text: https://m.zalando.de/adidas-golf-ultimate-adistar-skort-sportrock-white-ta441m00b-a12.html
                 xpath: /html/body/ol[1]/li[33]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/02b09d9a54f23dbd9cb37c5930362546/de777f4fec0142d48d6e8d51cdeea532.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/7eac2f63390b34fe916ba27258e7fd3a/35f74ddd32d143efada7299b9bfb2853.jpg
                 xpath: /html/body/ol[1]/li[33]/@thumbnail
             price:
-              - text: 29,95 €
+              - text: 69,95 €
                 xpath: /html/body/ol[1]/li[33]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[33]/@manufacturer
           - id:
-              - text: ta441g00f-k11
+              - text: ta441n008-a11
                 xpath: /html/body/ol[1]/li[34]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[34]/@search_url
             name:
-              - text: Trainingsjacke - tech indigo
+              - text: Cap - white
                 xpath: /html/body/ol[1]/li[34]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-sweatjacke-tech-indigo-ta441g00f-k11.html
+              - text: https://m.zalando.de/adidas-golf-cap-white-ta441n008-a11.html
                 xpath: /html/body/ol[1]/li[34]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/db70544eeef03b31a94f3bfee5c229a7/74d946b89cf6442e9c2d28f16f9fd0e1.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/2eb527ed4819324aa6f0c7142e15b97a/e24a8bbba95b4f48a4f3d6006c340200.jpg
                 xpath: /html/body/ol[1]/li[34]/@thumbnail
             price:
-              - text: 52,45 €
+              - text: 17,95 €
                 xpath: /html/body/ol[1]/li[34]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[34]/@manufacturer
+            sponsored:
+              - text: "true"
+                xpath: /html/body/ol[1]/li[34]/@sponsored
+                type: BOOLEAN
+                raw: "true"
+                locale: de_DE
+                value: true
           - id:
-              - text: ta441m00b-a12
+              - text: ta441d01q-a11
                 xpath: /html/body/ol[1]/li[35]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[35]/@search_url
             name:
-              - text: STAR - Sportrock - white
+              - text: TOURNAMENT - Poloshirt - white
                 xpath: /html/body/ol[1]/li[35]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-ultimate-adistar-skort-sportrock-white-ta441m00b-a12.html
+              - text: https://m.zalando.de/adidas-golf-poloshirt-white-ta441d01q-a11.html
                 xpath: /html/body/ol[1]/li[35]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/7eac2f63390b34fe916ba27258e7fd3a/35f74ddd32d143efada7299b9bfb2853.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/62cdd922153e3f9db7b779566513d161/c95022da87b042649ecb3e33c21e2bad.jpg
                 xpath: /html/body/ol[1]/li[35]/@thumbnail
             price:
-              - text: 69,95 €
+              - text: 39,95 €
                 xpath: /html/body/ol[1]/li[35]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[35]/@manufacturer
+            sponsored:
+              - text: "true"
+                xpath: /html/body/ol[1]/li[35]/@sponsored
+                type: BOOLEAN
+                raw: "true"
+                locale: de_DE
+                value: true
           - id:
-              - text: ta441d01b-k11
+              - text: ta441d01q-k11
                 xpath: /html/body/ol[1]/li[36]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[36]/@search_url
             name:
-              - text: Poloshirt - tech indigo
+              - text: TOURNAMENT - Poloshirt - collegiate navy
                 xpath: /html/body/ol[1]/li[36]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-poloshirt-tech-indigo-ta441d01b-k11.html
+              - text: https://m.zalando.de/adidas-golf-tournament-poloshirt-collegiate-navy-ta441d01q-k11.html
                 xpath: /html/body/ol[1]/li[36]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/c47c9a2a18f83ff887e31be3f54a3789/515bd1e394e34a9f961ee22f87fe7284.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/6e9bcdbfba0347efbf74110c91ca4bf8/606b8ce568ac43b9aac5fe8d17ff3b04.jpg
                 xpath: /html/body/ol[1]/li[36]/@thumbnail
             price:
-              - text: 37,45 €
+              - text: 39,95 €
                 xpath: /html/body/ol[1]/li[36]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[36]/@manufacturer
+            sponsored:
+              - text: "true"
+                xpath: /html/body/ol[1]/li[36]/@sponsored
+                type: BOOLEAN
+                raw: "true"
+                locale: de_DE
+                value: true
           - id:
-              - text: ta441d01h-k11
+              - text: ta442l00v-a11
                 xpath: /html/body/ol[1]/li[37]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[37]/@search_url
             name:
-              - text: ULTIMATE 365 GOLF SLEEVELESS - Funktionsshirt - legacy blue
+              - text: GOLF PERFORM - Cap - white
                 xpath: /html/body/ol[1]/li[37]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-ultimate-365-golf-sleeveless-top-legacy-blue-ta441d01h-k11.html
+              - text: https://m.zalando.de/adidas-golf-golf-perform-cap-white-ta442l00v-a11.html
                 xpath: /html/body/ol[1]/li[37]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/74f650fb375a3b5c84d20dd679523fdb/46ae08d7a696495c8857481826d11b92.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/a2f1cf81508346ed8c662031b31ab680/59198b6d9b4444b8ae874667d009e14f.jpg
                 xpath: /html/body/ol[1]/li[37]/@thumbnail
             price:
-              - text: 42,65 €
+              - text: 17,95 €
                 xpath: /html/body/ol[1]/li[37]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[37]/@manufacturer
           - id:
-              - text: ta441n008-a11
+              - text: ta441d01i-c11
                 xpath: /html/body/ol[1]/li[38]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[38]/@search_url
             name:
-              - text: Cap - white
+              - text: PERFORMANCE - Poloshirt - glory grey
                 xpath: /html/body/ol[1]/li[38]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-cap-white-ta441n008-a11.html
+              - text: https://m.zalando.de/adidas-golf-performance-sports-golf-sleeveless-poloshirt-glory-grey-ta441d01i-c11.html
                 xpath: /html/body/ol[1]/li[38]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/2eb527ed4819324aa6f0c7142e15b97a/e24a8bbba95b4f48a4f3d6006c340200.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/670ecbc4a8ec39e0bec59522f68a4672/4357dbc9e3584be78cc857023b8a6e24.jpg
                 xpath: /html/body/ol[1]/li[38]/@thumbnail
             price:
-              - text: 17,95 €
+              - text: 35,95 €
                 xpath: /html/body/ol[1]/li[38]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[38]/@manufacturer
           - id:
-              - text: ta442l00v-q11
+              - text: ta441d01e-a11
                 xpath: /html/body/ol[1]/li[39]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[39]/@search_url
             name:
-              - text: GOLF PERFORM - Cap - black
+              - text: PERFORMANCE - Poloshirt - white
                 xpath: /html/body/ol[1]/li[39]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-golf-perform-cap-black-ta442l00v-q11.html
+              - text: https://m.zalando.de/adidas-golf-performance-sports-short-sleeve-poloshirt-white-ta441d01e-a11.html
                 xpath: /html/body/ol[1]/li[39]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/147d118a0dce3c609b66a166b986fe7b/a8d81f7ac10c4c448ff0fb9dc911acea.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/63eb216a583532bcb72e1d966bfbacab/a76e9b47872e44cd9bb724c5208562cb.jpg
                 xpath: /html/body/ol[1]/li[39]/@thumbnail
             price:
-              - text: 17,95 €
+              - text: 39,95 €
                 xpath: /html/body/ol[1]/li[39]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[39]/@manufacturer
           - id:
-              - text: ta442d02r-q11
+              - text: ta442l00n-a11
                 xpath: /html/body/ol[1]/li[40]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[40]/@search_url
             name:
-              - text: SPORT - Poloshirt - black
+              - text: Cap - white
                 xpath: /html/body/ol[1]/li[40]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-sport-poloshirt-black-ta442d02r-q11.html
+              - text: https://m.zalando.de/adidas-golf-cap-white-ta442l00n-a11.html
                 xpath: /html/body/ol[1]/li[40]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/7f326871ca64376988a9914ad9e04453/7ff9cc4894d147d3838b57dc351ac21b.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/3c687971a45c3ab68af12e5eb3e59b14/6b60aa468f484ee29187ae8a02be52ea.jpg
                 xpath: /html/body/ol[1]/li[40]/@thumbnail
             price:
-              - text: 44,95 €
+              - text: 17,95 €
                 xpath: /html/body/ol[1]/li[40]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[40]/@manufacturer
           - id:
-              - text: ta442l00v-a11
+              - text: ta442l00v-k11
                 xpath: /html/body/ol[1]/li[41]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[41]/@search_url
             name:
-              - text: GOLF PERFORM - Cap - white
+              - text: GOLF PERFORM - Cap - light blue
                 xpath: /html/body/ol[1]/li[41]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-golf-perform-cap-white-ta442l00v-a11.html
+              - text: https://m.zalando.de/adidas-golf-cap-light-blue-ta442l00v-k11.html
                 xpath: /html/body/ol[1]/li[41]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/a2f1cf81508346ed8c662031b31ab680/59198b6d9b4444b8ae874667d009e14f.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/3942f675c50734a78ff62e9c53fc6b1b/30a1e3ec1a114a198227ddebdca1cab0.jpg
                 xpath: /html/body/ol[1]/li[41]/@thumbnail
             price:
               - text: 17,95 €
@@ -871,566 +932,567 @@ extractions:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[41]/@manufacturer
           - id:
-              - text: ta441d01d-k11
+              - text: ta441d01b-k11
                 xpath: /html/body/ol[1]/li[42]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[42]/@search_url
             name:
-              - text: PRIMEBLUE - Poloshirt - easy blue
+              - text: Poloshirt - tech indigo
                 xpath: /html/body/ol[1]/li[42]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-primeblue-poloshirt-easy-blue-ta441d01d-k11.html
+              - text: https://m.zalando.de/adidas-golf-poloshirt-tech-indigo-ta441d01b-k11.html
                 xpath: /html/body/ol[1]/li[42]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/b530a2156c0a31ce85545e544b5324a5/02917db9bb4e4166b68e1899b6e751e5.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/c47c9a2a18f83ff887e31be3f54a3789/515bd1e394e34a9f961ee22f87fe7284.jpg
                 xpath: /html/body/ol[1]/li[42]/@thumbnail
             price:
-              - text: 38,45 €
+              - text: 37,45 €
                 xpath: /html/body/ol[1]/li[42]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[42]/@manufacturer
           - id:
-              - text: ta441d01i-c11
+              - text: ad542l05g-q11
                 xpath: /html/body/ol[1]/li[43]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[43]/@search_url
             name:
-              - text: PERFORMANCE - Poloshirt - glory grey
+              - text: TOUR PERFORMANCE GOLF VISOR - Cap - black
                 xpath: /html/body/ol[1]/li[43]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-performance-sports-golf-sleeveless-poloshirt-glory-grey-ta441d01i-c11.html
+              - text: https://m.zalando.de/adidas-performance-tour-visor-cap-black-ad542l05g-q11.html
                 xpath: /html/body/ol[1]/li[43]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/670ecbc4a8ec39e0bec59522f68a4672/4357dbc9e3584be78cc857023b8a6e24.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/c5a25fa5c9353720b43a0182a04ec578/06bd3b1131ab4590a750cbda220f436f.jpg
                 xpath: /html/body/ol[1]/li[43]/@thumbnail
             price:
-              - text: 32,95 €
+              - text: 19,95 €
                 xpath: /html/body/ol[1]/li[43]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[43]/@manufacturer
           - id:
-              - text: ta442g012-c11
+              - text: ta442d03f-m11
                 xpath: /html/body/ol[1]/li[44]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[44]/@search_url
             name:
-              - text: Strickpullover - black heather
+              - text: CROSS - T-Shirt print - natural green
                 xpath: /html/body/ol[1]/li[44]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-strickpullover-black-heather-ta442g012-c11.html
+              - text: https://m.zalando.de/adidas-golf-cross-t-shirt-print-natural-green-ta442d03f-m11.html
                 xpath: /html/body/ol[1]/li[44]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/0cd39e97cd8935e5b4931dabc3448335/baf53b5f4274417b9b5ed374b42a2158.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/d33dc95de4363fa5823177ffdd0396ef/1228cfa0331a4a26973d55dfefccf7a3.jpg
                 xpath: /html/body/ol[1]/li[44]/@thumbnail
             price:
-              - text: 49,95 €
+              - text: 34,95 €
                 xpath: /html/body/ol[1]/li[44]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[44]/@manufacturer
           - id:
-              - text: ta441g00k-c11
+              - text: ta441d01g-a11
                 xpath: /html/body/ol[1]/li[45]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[45]/@search_url
             name:
-              - text: GO TO A HALF ZIP - Fleecepullover - glory grey
+              - text: PERFORMANCE SPORTS GOLF SHORT SLEEVE - Poloshirt - white
                 xpath: /html/body/ol[1]/li[45]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-go-to-a-half-zip-fleecepullover-glory-grey-ta441g00k-c11.html
+              - text: https://m.zalando.de/adidas-golf-performance-sports-golf-short-sleeve-poloshirt-white-ta441d01g-a11.html
                 xpath: /html/body/ol[1]/li[45]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/38c4e87990d63af48ec7079d27aa7b59/e55876ee3bf24bb7bcaa14f5c30f779c.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/1573359d1c3437549794ed3d85e358f9/d278f380078a4d44ade079dd4f4d510b.jpg
                 xpath: /html/body/ol[1]/li[45]/@thumbnail
             price:
-              - text: 79,95 €
+              - text: 27,45 €
                 xpath: /html/body/ol[1]/li[45]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[45]/@manufacturer
           - id:
-              - text: ta441e014-q11
+              - text: ta442d03f-a11
                 xpath: /html/body/ol[1]/li[46]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[46]/@search_url
             name:
-              - text: COLDREADY LEGGINS - Tights - black
+              - text: CROSS - T-Shirt print - white
                 xpath: /html/body/ol[1]/li[46]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-coldready-leggins-stoffhose-black-ta441e014-q11.html
+              - text: https://m.zalando.de/adidas-golf-cross-t-shirt-print-white-ta442d03f-a11.html
                 xpath: /html/body/ol[1]/li[46]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/b691948d8a8a39b7bb43cade29cda6fd/1d7280945d75437fa4fc5db7209c794f.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/8b08909dd9de3f55b8092afb08f18531/c58ae1c867a5402da3ef62085dafc23f.jpg
                 xpath: /html/body/ol[1]/li[46]/@thumbnail
             price:
-              - text: 62,95 €
+              - text: 34,95 €
                 xpath: /html/body/ol[1]/li[46]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[46]/@manufacturer
           - id:
-              - text: ta442d030-j11
+              - text: ta442d03f-q11
                 xpath: /html/body/ol[1]/li[47]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[47]/@search_url
             name:
-              - text: ULTIMATE SPORTS GOLF SHORT SLEEVE - Funktionsshirt - power pink/black/grey
-                  two
+              - text: CROSS - T-Shirt print - black
                 xpath: /html/body/ol[1]/li[47]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-poloshirt-power-pinkblackgrey-two-ta442d030-j11.html
+              - text: https://m.zalando.de/adidas-golf-cross-t-shirt-print-black-ta442d03f-q11.html
                 xpath: /html/body/ol[1]/li[47]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/11f7f2be51ef3a82856d465796dd5fdb/d1cd0fd3c7b5414fa3bef54003b23fd0.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/538a1bb34eb93993b7d24fcc6c8c1507/2ddf6b3fa7cd4c4f96ade60bcf3e7e65.jpg
                 xpath: /html/body/ol[1]/li[47]/@thumbnail
             price:
-              - text: 64,95 €
+              - text: 34,95 €
                 xpath: /html/body/ol[1]/li[47]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[47]/@manufacturer
           - id:
-              - text: ta441a028-a11
+              - text: ta442l00n-k11
                 xpath: /html/body/ol[1]/li[48]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[48]/@search_url
             name:
-              - text: RESPONSE BOUNCE 2 - Golfschuh - footwear white/silver metallic/grey two
+              - text: Cap - team navy blue
                 xpath: /html/body/ol[1]/li[48]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-response-bounce-2-golfschuh-footwear-whitesilver-metallicgrey-two-ta441a028-a11.html
+              - text: https://m.zalando.de/adidas-golf-cap-team-navy-blue-ta442l00n-k11.html
                 xpath: /html/body/ol[1]/li[48]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/6a38fee6455f36a583c064f9857bc109/38355d656e8a4552a32ea491b5c36cad.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/d18ee663df3137269b2baea001211be7/1377eaa3c51346d88b9aa90f7d86598c.jpg
                 xpath: /html/body/ol[1]/li[48]/@thumbnail
             price:
-              - text: 109,95 €
+              - text: 12,95 €
                 xpath: /html/body/ol[1]/li[48]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[48]/@manufacturer
           - id:
-              - text: ta442d034-q11
+              - text: ta441e014-q11
                 xpath: /html/body/ol[1]/li[49]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[49]/@search_url
             name:
-              - text: ADICROSS - Poloshirt - black melange
+              - text: COLDREADY LEGGINS - Tights - black
                 xpath: /html/body/ol[1]/li[49]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-adicross-poloshirt-black-melange-ta442d034-q11.html
+              - text: https://m.zalando.de/adidas-golf-coldready-leggins-stoffhose-black-ta441e014-q11.html
                 xpath: /html/body/ol[1]/li[49]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/6c73aecce05e381a9f1a391c9add0968/ed86435baaee4b9b863ae2afc89bea26.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/b691948d8a8a39b7bb43cade29cda6fd/1d7280945d75437fa4fc5db7209c794f.jpg
                 xpath: /html/body/ol[1]/li[49]/@thumbnail
             price:
-              - text: 51,95 €
+              - text: 62,95 €
                 xpath: /html/body/ol[1]/li[49]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[49]/@manufacturer
           - id:
-              - text: ta442e027-k11
+              - text: ta441e00v-a11
                 xpath: /html/body/ol[1]/li[50]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[50]/@search_url
             name:
-              - text: Stoffhose - collegiate navy
+              - text: PANT - Stoffhose - white
                 xpath: /html/body/ol[1]/li[50]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-stoffhose-collegiate-navy-ta442e027-k11.html
+              - text: https://m.zalando.de/adidas-golf-pant-stoffhose-ta441e00v-a11.html
                 xpath: /html/body/ol[1]/li[50]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/4b8e7f2d04593363924a2c8d480e4ab9/8b29c9bbf7014cfab61347f7a850f9b1.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/f1640257a74939e0aedf50b0d8696a52/12a6f20301404883a6a5db1a7898b202.jpg
                 xpath: /html/body/ol[1]/li[50]/@thumbnail
             price:
-              - text: 67,95 €
+              - text: 67,45 €
                 xpath: /html/body/ol[1]/li[50]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[50]/@manufacturer
           - id:
-              - text: ta441e00s-i11
+              - text: ta441a028-a11
                 xpath: /html/body/ol[1]/li[51]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[51]/@search_url
             name:
-              - text: PULLON ANKLE PANT - Stoffhose - tech indigo
+              - text: RESPONSE BOUNCE 2 - Golfschuh - footwear white/silver metallic/grey two
                 xpath: /html/body/ol[1]/li[51]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-pullon-ankle-pant-stoffhose-ta441e00s-i11.html
+              - text: https://m.zalando.de/adidas-golf-response-bounce-2-golfschuh-footwear-whitesilver-metallicgrey-two-ta441a028-a11.html
                 xpath: /html/body/ol[1]/li[51]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/20b85721cb7337bdbca0c0c2c3f5dfff/3c93d8bbecd346f09fd167274e4e10ea.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/6a38fee6455f36a583c064f9857bc109/38355d656e8a4552a32ea491b5c36cad.jpg
                 xpath: /html/body/ol[1]/li[51]/@thumbnail
             price:
-              - text: 69,95 €
+              - text: 109,95 €
                 xpath: /html/body/ol[1]/li[51]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[51]/@manufacturer
           - id:
-              - text: ta441a02a-a11
+              - text: ta442e02b-a11
                 xpath: /html/body/ol[1]/li[52]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[52]/@search_url
             name:
-              - text: RESPONSE BOUNCE 2 SL - Golfschuh - footwear white/purple tint/grey two
+              - text: ULTIMATE PANT - Stoffhose - white
                 xpath: /html/body/ol[1]/li[52]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-response-bounce-2-sl-golfschuh-ta441a02a-a11.html
+              - text: https://m.zalando.de/adidas-golf-tape-stoffhose-white-ta442e02b-a11.html
                 xpath: /html/body/ol[1]/li[52]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/cad05d9401063178816402907bf64548/76d2c183a3634fa280cd4780f2ae61ee.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/205e7c8fce313e2dbcc7490959c04cf2/5ed68077cf3f4a15b2b77d0ed1ffa599.jpg
                 xpath: /html/body/ol[1]/li[52]/@thumbnail
             price:
-              - text: 76,45 €
+              - text: 74,95 €
                 xpath: /html/body/ol[1]/li[52]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[52]/@manufacturer
           - id:
-              - text: ta442d02z-q11
+              - text: ta442a03u-a11
                 xpath: /html/body/ol[1]/li[53]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[53]/@search_url
             name:
-              - text: ULTIMATE 365 SHORT SLEEVE - Poloshirt - black
+              - text: TRAXION - Golfschuh - footwear white/core black/grey six
                 xpath: /html/body/ol[1]/li[53]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-ultimate-365-poloshirt-black-ta442d02z-q11.html
+              - text: https://m.zalando.de/adidas-golf-cp-traxion-golfschuh-footwear-whitecore-blackgrey-six-ta442a03u-a11.html
                 xpath: /html/body/ol[1]/li[53]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/64d3d34436be3b799e0a2c0c069af496/47c84ba4f49048ab87d8bdc5ec9d07ef.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/76c9e2a7250d33bd8dda3accaec65e55/9e25f8667f0145d0b5c356277fe7a9f4.jpg
                 xpath: /html/body/ol[1]/li[53]/@thumbnail
             price:
-              - text: 64,95 €
+              - text: 89,95 €
                 xpath: /html/body/ol[1]/li[53]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[53]/@manufacturer
           - id:
-              - text: ta442d034-a11
+              - text: ta442d030-j11
                 xpath: /html/body/ol[1]/li[54]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[54]/@search_url
             name:
-              - text: ADICROSS - Poloshirt - white
+              - text: ULTIMATE SPORTS GOLF SHORT SLEEVE - Funktionsshirt - power pink/black/grey
+                  two
                 xpath: /html/body/ol[1]/li[54]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-adicross-poloshirt-white-ta442d034-a11.html
+              - text: https://m.zalando.de/adidas-golf-poloshirt-power-pinkblackgrey-two-ta442d030-j11.html
                 xpath: /html/body/ol[1]/li[54]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/c0212659480f3da797a4edc7646b2b5a/cee7e8d65fca4ffeaaed24a5ffb391b5.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/11f7f2be51ef3a82856d465796dd5fdb/d1cd0fd3c7b5414fa3bef54003b23fd0.jpg
                 xpath: /html/body/ol[1]/li[54]/@thumbnail
             price:
-              - text: 48,95 €
+              - text: 64,95 €
                 xpath: /html/body/ol[1]/li[54]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[54]/@manufacturer
           - id:
-              - text: ta442g014-h11
+              - text: ta441m00f-c11
                 xpath: /html/body/ol[1]/li[55]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[55]/@search_url
             name:
-              - text: STRIPE COLLECTION DOBBY CREW - Sweatshirt - signal coral
+              - text: ULTIMATE SPORTS GOLF SKIRT - Sportrock - glory grey/pink tint
                 xpath: /html/body/ol[1]/li[55]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-stripe-collection-dobby-crew-sweatshirt-dark-blue-ta442g014-h11.html
+              - text: https://m.zalando.de/adidas-golf-ultimate-sports-golf-skirt-sportrock-glory-greypink-tint-ta441m00f-c11.html
                 xpath: /html/body/ol[1]/li[55]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/e0175728854130959b1d72e6d1fc4973/3dcc8f769e8a455fbd7ae917a3c6edfa.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/f9980f8f7c9d3aad862089ff8a19455f/dce992bcdf7840548af4b5e0f8887971.jpg
                 xpath: /html/body/ol[1]/li[55]/@thumbnail
             price:
-              - text: 67,95 €
+              - text: 74,95 €
                 xpath: /html/body/ol[1]/li[55]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[55]/@manufacturer
           - id:
-              - text: ta442g01m-a11
+              - text: ta441g00f-q11
                 xpath: /html/body/ol[1]/li[56]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[56]/@search_url
             name:
-              - text: ADICROSS HOODIE - Kapuzenpullover - white
+              - text: Trainingsjacke - black
                 xpath: /html/body/ol[1]/li[56]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-strickpullover-white-ta442g01m-a11.html
+              - text: https://m.zalando.de/adidas-golf-trainingsjacke-black-ta441g00f-q11.html
                 xpath: /html/body/ol[1]/li[56]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/d31c24cdc7973bc0bc8384bf69bc38ca/bcdbbd2d97364b73b550281b17867ee4.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/017675e7135b37d3a65eb067042b6f17/80f1166ac6884e4885d4484360c6b1b4.jpg
                 xpath: /html/body/ol[1]/li[56]/@thumbnail
             price:
-              - text: 74,95 €
+              - text: 62,95 €
                 xpath: /html/body/ol[1]/li[56]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[56]/@manufacturer
           - id:
-              - text: ta442e02d-q11
+              - text: ta442g01g-q11
                 xpath: /html/body/ol[1]/li[57]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[57]/@search_url
             name:
-              - text: ULTIMATE SPORTS GOLF PANTS - Stoffhose - black
+              - text: HYBRID ZIP - Trainingsjacke - black
                 xpath: /html/body/ol[1]/li[57]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-ultimate-sports-golf-pants-stoffhose-black-ta442e02d-q11.html
+              - text: https://m.zalando.de/adidas-golf-hybrid-zip-trainingsjacke-black-ta442g01g-q11.html
                 xpath: /html/body/ol[1]/li[57]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/9b81148ca3b23ec3aa4b34880958e6c7/d870433e5b8e46ba8d2e25f6561ef1d0.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/957b754299703621842ea5fad4ed80de/db098a94813745c181646b27009c6d92.jpg
                 xpath: /html/body/ol[1]/li[57]/@thumbnail
             price:
-              - text: 74,95 €
+              - text: 79,95 €
                 xpath: /html/body/ol[1]/li[57]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[57]/@manufacturer
           - id:
-              - text: ta442e02e-q11
+              - text: ta442g014-h11
                 xpath: /html/body/ol[1]/li[58]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[58]/@search_url
             name:
-              - text: FALLWEIGHT PANT - Stoffhose - black
+              - text: STRIPE COLLECTION DOBBY CREW - Sweatshirt - signal coral
                 xpath: /html/body/ol[1]/li[58]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-fallweight-pant-stoffhose-black-ta442e02e-q11.html
+              - text: https://m.zalando.de/adidas-golf-stripe-collection-dobby-crew-sweatshirt-dark-blue-ta442g014-h11.html
                 xpath: /html/body/ol[1]/li[58]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/eb4710b5f48d3290a57ab5e080ca75c0/beb29a971e1947ad9d8cbf54b7febb1a.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/e0175728854130959b1d72e6d1fc4973/3dcc8f769e8a455fbd7ae917a3c6edfa.jpg
                 xpath: /html/body/ol[1]/li[58]/@thumbnail
             price:
-              - text: 84,95 €
+              - text: 67,95 €
                 xpath: /html/body/ol[1]/li[58]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[58]/@manufacturer
           - id:
-              - text: ta441m00f-c11
+              - text: ta442e027-k11
                 xpath: /html/body/ol[1]/li[59]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[59]/@search_url
             name:
-              - text: ULTIMATE SPORTS GOLF SKIRT - Sportrock - glory grey/pink tint
+              - text: Stoffhose - collegiate navy
                 xpath: /html/body/ol[1]/li[59]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-ultimate-sports-golf-skirt-sportrock-glory-greypink-tint-ta441m00f-c11.html
+              - text: https://m.zalando.de/adidas-golf-stoffhose-collegiate-navy-ta442e027-k11.html
                 xpath: /html/body/ol[1]/li[59]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/f9980f8f7c9d3aad862089ff8a19455f/dce992bcdf7840548af4b5e0f8887971.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/4b8e7f2d04593363924a2c8d480e4ab9/8b29c9bbf7014cfab61347f7a850f9b1.jpg
                 xpath: /html/body/ol[1]/li[59]/@thumbnail
             price:
-              - text: 74,95 €
+              - text: 67,95 €
                 xpath: /html/body/ol[1]/li[59]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[59]/@manufacturer
           - id:
-              - text: ta442d02a-p11
+              - text: ta442d032-q11
                 xpath: /html/body/ol[1]/li[60]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[60]/@search_url
             name:
-              - text: Funktionsshirt - coral
+              - text: ADICROSS SHORT SLEEVE - Poloshirt - black
                 xpath: /html/body/ol[1]/li[60]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-poloshirt-coral-ta442d02a-p11.html
+              - text: https://m.zalando.de/adidas-golf-adicross-short-sleeve-poloshirt-black-ta442d032-q11.html
                 xpath: /html/body/ol[1]/li[60]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/f56391ef5a9e377f8b9385d8af87bef6/14082ba5adf7442e8bc4fc5e475de93e.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/550eaef1655e35c887714f909f124fe1/2c0f0c13a7584526854b84b4264ceb79.jpg
                 xpath: /html/body/ol[1]/li[60]/@thumbnail
             price:
-              - text: 59,45 €
+              - text: 48,95 €
                 xpath: /html/body/ol[1]/li[60]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[60]/@manufacturer
           - id:
-              - text: ta442e02b-n11
+              - text: ta442e02e-q11
                 xpath: /html/body/ol[1]/li[61]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[61]/@search_url
             name:
-              - text: ULTIMATE PANT - Stoffhose - raw gold
+              - text: FALLWEIGHT PANT - Stoffhose - black
                 xpath: /html/body/ol[1]/li[61]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-tape-stoffhose-ta442e02b-n11.html
+              - text: https://m.zalando.de/adidas-golf-fallweight-pant-stoffhose-black-ta442e02e-q11.html
                 xpath: /html/body/ol[1]/li[61]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/5d05179388be3301b913572b481ee5ee/ca69e9b83626481480961a92a43ca931.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/eb4710b5f48d3290a57ab5e080ca75c0/beb29a971e1947ad9d8cbf54b7febb1a.jpg
                 xpath: /html/body/ol[1]/li[61]/@thumbnail
             price:
-              - text: 74,95 €
+              - text: 99,95 €
                 xpath: /html/body/ol[1]/li[61]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[61]/@manufacturer
           - id:
-              - text: ta442e02a-q11
+              - text: ta441d01f-a11
                 xpath: /html/body/ol[1]/li[62]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[62]/@search_url
             name:
-              - text: PANT - Stoffhose - black
+              - text: PERFORMANCE SPORTS GOLF SHORT SLEEVE - T-Shirt print - white
                 xpath: /html/body/ol[1]/li[62]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-pant-stoffhose-black-ta442e02a-q11.html
+              - text: https://m.zalando.de/adidas-golf-performance-sports-short-sleeve-poloshirt-white-ta441d01f-a11.html
                 xpath: /html/body/ol[1]/li[62]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/7d89a379174839c5a4fdd3b4f5d81ad1/ac91093bc5164d0c8a0f517753997843.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/9fe74378ee04374b97088feb06206042/e876bb5959ed4b99b4201e8df2006951.jpg
                 xpath: /html/body/ol[1]/li[62]/@thumbnail
             price:
-              - text: 74,95 €
+              - text: 47,95 €
                 xpath: /html/body/ol[1]/li[62]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[62]/@manufacturer
           - id:
-              - text: ta441m00g-j11
+              - text: ta442d02z-m11
                 xpath: /html/body/ol[1]/li[63]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[63]/@search_url
             name:
-              - text: PERFORMANCE SPORTS GOLF REGULAR SKIRT - Sportrock - pink tint
+              - text: ULTIMATE 365 SHORT SLEEVE - Poloshirt - tech emerald/legend earth
                 xpath: /html/body/ol[1]/li[63]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-performance-sports-golf-regular-skirt-sportrock-pink-tint-ta441m00g-j11.html
+              - text: https://m.zalando.de/adidas-golf-ultimate-365-poloshirt-tech-emeraldlegend-earth-ta442d02z-m11.html
                 xpath: /html/body/ol[1]/li[63]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/4c145fe47c663f14b8f9b3a75b1e8e38/fa3dd51252f240c4b99b5cb67f551137.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/2b278c56b88236f6a29970763f21a942/dd6820e73d844813a2d23299df90e32b.jpg
                 xpath: /html/body/ol[1]/li[63]/@thumbnail
             price:
-              - text: 74,95 €
+              - text: 64,95 €
                 xpath: /html/body/ol[1]/li[63]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[63]/@manufacturer
           - id:
-              - text: ta442d02x-q11
+              - text: ta442d02s-g11
                 xpath: /html/body/ol[1]/li[64]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[64]/@search_url
             name:
-              - text: Poloshirt - black/power pink/tech emerald
+              - text: Poloshirt - red
                 xpath: /html/body/ol[1]/li[64]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-poloshirt-blackpower-pinktech-emerald-ta442d02x-q11.html
+              - text: https://m.zalando.de/adidas-golf-poloshirt-red-ta442d02s-g11.html
                 xpath: /html/body/ol[1]/li[64]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/a09e55adfd7c3f0ea4965e26e00b3b6c/b0a694502ef64735a48dc95f5e498337.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/eb80510321e13a0aa4fc59b3d250c017/6ac29c48577743c7a51765688747382a.jpg
                 xpath: /html/body/ol[1]/li[64]/@thumbnail
             price:
-              - text: 48,95 €
+              - text: 55,45 €
                 xpath: /html/body/ol[1]/li[64]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[64]/@manufacturer
           - id:
-              - text: ta442g01l-q11
+              - text: ta442d02o-g11
                 xpath: /html/body/ol[1]/li[65]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[65]/@search_url
             name:
-              - text: ADICROSS HOODED - Kapuzenpullover - black
+              - text: Poloshirt - real coral/grey
                 xpath: /html/body/ol[1]/li[65]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-adicross-hooded-kapuzenpullover-black-ta442g01l-q11.html
+              - text: https://m.zalando.de/adidas-golf-poloshirt-real-coralgrey-ta442d02o-g11.html
                 xpath: /html/body/ol[1]/li[65]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/01f519a7b6a9320c8c35d9e435dd7ae0/b001825eaa9b4ef082cf630a899680dd.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/49d731e4ec823e9eb9d2cc4314a0ba41/743c80342d864ae0a416964125804d67.jpg
                 xpath: /html/body/ol[1]/li[65]/@thumbnail
             price:
-              - text: 82,95 €
+              - text: 55,45 €
                 xpath: /html/body/ol[1]/li[65]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[65]/@manufacturer
           - id:
-              - text: ta442f01c-c11
+              - text: ta442d02o-a11
                 xpath: /html/body/ol[1]/li[66]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[66]/@search_url
             name:
-              - text: HYBRID - Trainingsjacke - grey
+              - text: Poloshirt - white/collegiate navy
                 xpath: /html/body/ol[1]/li[66]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-hybrid-trainingsjacke-grey-ta442f01c-c11.html
+              - text: https://m.zalando.de/adidas-golf-poloshirt-whitecollegiate-navy-ta442d02o-a11.html
                 xpath: /html/body/ol[1]/li[66]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/f23fc5486b4531dead828d836fc95831/34c958ec60e5464bb1111291258c9c9f.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/385a172799043838b855eb9d1f398501/35f8e1bbed6b4f67b50759834fbea2bf.jpg
                 xpath: /html/body/ol[1]/li[66]/@thumbnail
             price:
-              - text: 129,95 €
+              - text: 55,45 €
                 xpath: /html/body/ol[1]/li[66]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[66]/@manufacturer
           - id:
-              - text: ta442g01j-k11
+              - text: ta442d030-k11
                 xpath: /html/body/ol[1]/li[67]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[67]/@search_url
             name:
-              - text: PERFORMANCE COLD.RDY SPORTS GOLF VEST - Weste - collegiate navy melange
+              - text: ULTIMATE SPORTS GOLF SHORT SLEEVE - Funktionsshirt - collegiate navy/grey
+                  three/white
                 xpath: /html/body/ol[1]/li[67]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-performance-coldrdy-sports-golf-vest-weste-collegiate-navy-melange-ta442g01j-k11.html
+              - text: https://m.zalando.de/adidas-golf-ultimate-sports-golf-short-sleeve-poloshirt-collegiate-navygrey-threewhite-ta442d030-k11.html
                 xpath: /html/body/ol[1]/li[67]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/db2a50f1337435169ac5b5ca40a2b41d/004512f9d2c84993a91e5e9950a6118b.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/29fb105d1c7e33f1a73b66e075d0e034/6be4c7c7f537440b902e43e82e01cbb3.jpg
                 xpath: /html/body/ol[1]/li[67]/@thumbnail
             price:
-              - text: 74,95 €
+              - text: 55,45 €
                 xpath: /html/body/ol[1]/li[67]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[67]/@manufacturer
           - id:
-              - text: ta442e02b-a11
+              - text: ta442g01j-k11
                 xpath: /html/body/ol[1]/li[68]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[68]/@search_url
             name:
-              - text: ULTIMATE PANT - Stoffhose - white
+              - text: PERFORMANCE COLD.RDY SPORTS GOLF VEST - Weste - collegiate navy melange
                 xpath: /html/body/ol[1]/li[68]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-tape-stoffhose-white-ta442e02b-a11.html
+              - text: https://m.zalando.de/adidas-golf-performance-coldrdy-sports-golf-vest-weste-collegiate-navy-melange-ta442g01j-k11.html
                 xpath: /html/body/ol[1]/li[68]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/205e7c8fce313e2dbcc7490959c04cf2/5ed68077cf3f4a15b2b77d0ed1ffa599.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/db2a50f1337435169ac5b5ca40a2b41d/004512f9d2c84993a91e5e9950a6118b.jpg
                 xpath: /html/body/ol[1]/li[68]/@thumbnail
             price:
               - text: 74,95 €
@@ -1439,61 +1501,61 @@ extractions:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[68]/@manufacturer
           - id:
-              - text: ta441d01c-a11
+              - text: ta441a022-a11
                 xpath: /html/body/ol[1]/li[69]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[69]/@search_url
             name:
-              - text: A.RDY - Funktionsshirt - white
+              - text: ADIPURE SC - Golfschuh - footwear white/collegiate navy/true pink
                 xpath: /html/body/ol[1]/li[69]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-poloshirt-white-ta441d01c-a11.html
+              - text: https://m.zalando.de/adidas-golf-adipure-sc-golfschuh-footwear-whitecollegiate-navytrue-pink-ta441a022-a11.html
                 xpath: /html/body/ol[1]/li[69]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/3c74ac15634b3df7a8566eebc9c32537/0713f164482f4bfbbd1085f731e74f64.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/9bbfd705475f3ac896a15aaaa7f318d4/2c98d2a2e66549bebbfdaa8bbdc54c39.jpg
                 xpath: /html/body/ol[1]/li[69]/@thumbnail
             price:
-              - text: 67,95 €
+              - text: 101,95 €
                 xpath: /html/body/ol[1]/li[69]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[69]/@manufacturer
           - id:
-              - text: ta442g01e-q11
+              - text: ta442e02d-q11
                 xpath: /html/body/ol[1]/li[70]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[70]/@search_url
             name:
-              - text: WARMTH 1/4 ZIP - Sweatshirt - black melange
+              - text: ULTIMATE SPORTS GOLF PANTS - Stoffhose - black
                 xpath: /html/body/ol[1]/li[70]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-warmth-14-zip-sweatshirt-black-melange-ta442g01e-q11.html
+              - text: https://m.zalando.de/adidas-golf-ultimate-sports-golf-pants-stoffhose-black-ta442e02d-q11.html
                 xpath: /html/body/ol[1]/li[70]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/a8681902d12d31d3ac01664c386acd64/e3076e37480d4f459fac0eaca70254a5.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/9b81148ca3b23ec3aa4b34880958e6c7/d870433e5b8e46ba8d2e25f6561ef1d0.jpg
                 xpath: /html/body/ol[1]/li[70]/@thumbnail
             price:
-              - text: 69,95 €
+              - text: 74,95 €
                 xpath: /html/body/ol[1]/li[70]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[70]/@manufacturer
           - id:
-              - text: ta442d02z-m11
+              - text: ta442d02z-q11
                 xpath: /html/body/ol[1]/li[71]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[71]/@search_url
             name:
-              - text: ULTIMATE 365 SHORT SLEEVE - Poloshirt - tech emerald/legend earth
+              - text: ULTIMATE 365 SHORT SLEEVE - Poloshirt - black
                 xpath: /html/body/ol[1]/li[71]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-ultimate-365-poloshirt-tech-emeraldlegend-earth-ta442d02z-m11.html
+              - text: https://m.zalando.de/adidas-golf-ultimate-365-poloshirt-black-ta442d02z-q11.html
                 xpath: /html/body/ol[1]/li[71]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/2b278c56b88236f6a29970763f21a942/dd6820e73d844813a2d23299df90e32b.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/64d3d34436be3b799e0a2c0c069af496/47c84ba4f49048ab87d8bdc5ec9d07ef.jpg
                 xpath: /html/body/ol[1]/li[71]/@thumbnail
             price:
               - text: 64,95 €
@@ -1502,61 +1564,62 @@ extractions:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[71]/@manufacturer
           - id:
-              - text: ta441a022-a11
+              - text: ta441m00g-j11
                 xpath: /html/body/ol[1]/li[72]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[72]/@search_url
             name:
-              - text: ADIPURE SC - Golfschuh - footwear white/collegiate navy/true pink
+              - text: PERFORMANCE SPORTS GOLF REGULAR SKIRT - Sportrock - pink tint
                 xpath: /html/body/ol[1]/li[72]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-adipure-sc-golfschuh-footwear-whitecollegiate-navytrue-pink-ta441a022-a11.html
+              - text: https://m.zalando.de/adidas-golf-performance-sports-golf-regular-skirt-sportrock-pink-tint-ta441m00g-j11.html
                 xpath: /html/body/ol[1]/li[72]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/9bbfd705475f3ac896a15aaaa7f318d4/2c98d2a2e66549bebbfdaa8bbdc54c39.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/4c145fe47c663f14b8f9b3a75b1e8e38/fa3dd51252f240c4b99b5cb67f551137.jpg
                 xpath: /html/body/ol[1]/li[72]/@thumbnail
             price:
-              - text: 101,95 €
+              - text: 74,95 €
                 xpath: /html/body/ol[1]/li[72]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[72]/@manufacturer
           - id:
-              - text: ta442e02g-q11
+              - text: ta442g01l-q11
                 xpath: /html/body/ol[1]/li[73]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[73]/@search_url
             name:
-              - text: ADICROSS WARP JOGGER - Stoffhose - black
+              - text: ADICROSS HOODED - Kapuzenpullover - black
                 xpath: /html/body/ol[1]/li[73]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-adicross-warp-jogger-stoffhose-black-ta442e02g-q11.html
+              - text: https://m.zalando.de/adidas-golf-adicross-hooded-kapuzenpullover-black-ta442g01l-q11.html
                 xpath: /html/body/ol[1]/li[73]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/3dee53992f423279a959d585bb29c6da/fabe7d65ecbd456a8fe28b3016169351.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/01f519a7b6a9320c8c35d9e435dd7ae0/b001825eaa9b4ef082cf630a899680dd.jpg
                 xpath: /html/body/ol[1]/li[73]/@thumbnail
             price:
-              - text: 99,95 €
+              - text: 82,95 €
                 xpath: /html/body/ol[1]/li[73]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[73]/@manufacturer
           - id:
-              - text: ta442d02o-a11
+              - text: ta442d030-a11
                 xpath: /html/body/ol[1]/li[74]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[74]/@search_url
             name:
-              - text: Poloshirt - white/collegiate navy
+              - text: ULTIMATE SPORTS GOLF SHORT SLEEVE - Funktionsshirt - white/grey three/grey
+                  two
                 xpath: /html/body/ol[1]/li[74]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-poloshirt-whitecollegiate-navy-ta442d02o-a11.html
+              - text: https://m.zalando.de/adidas-golf-poloshirt-whitegrey-threegrey-two-ta442d030-a11.html
                 xpath: /html/body/ol[1]/li[74]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/385a172799043838b855eb9d1f398501/35f8e1bbed6b4f67b50759834fbea2bf.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/da59c662a6ec3952b36ad9365ee850be/09f99a27997c48659ceb0af9a1cf4217.jpg
                 xpath: /html/body/ol[1]/li[74]/@thumbnail
             price:
               - text: 55,45 €
@@ -1565,750 +1628,854 @@ extractions:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[74]/@manufacturer
           - id:
-              - text: ad542f0hg-q11
+              - text: ta442e02b-n11
                 xpath: /html/body/ol[1]/li[75]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[75]/@search_url
             name:
-              - text: CLIMAPROOF - Outdoorjacke - black
+              - text: ULTIMATE PANT - Stoffhose - raw gold
                 xpath: /html/body/ol[1]/li[75]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-climaproof-windbreaker-black-ad542f0hg-q11.html
+              - text: https://m.zalando.de/adidas-golf-tape-stoffhose-ta442e02b-n11.html
                 xpath: /html/body/ol[1]/li[75]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/36ab8b8cf3d3360b8f664aeb48ed17bf/d1622e29212e43ffbea7da98823a88bc.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/5d05179388be3301b913572b481ee5ee/ca69e9b83626481480961a92a43ca931.jpg
                 xpath: /html/body/ol[1]/li[75]/@thumbnail
             price:
-              - text: 118,95 €
+              - text: 74,95 €
                 xpath: /html/body/ol[1]/li[75]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[75]/@manufacturer
           - id:
-              - text: ta442d030-k11
+              - text: ta441g00f-c11
                 xpath: /html/body/ol[1]/li[76]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[76]/@search_url
             name:
-              - text: ULTIMATE SPORTS GOLF SHORT SLEEVE - Funktionsshirt - collegiate navy/grey
-                  three/white
+              - text: Trainingsjacke - glory grey
                 xpath: /html/body/ol[1]/li[76]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-ultimate-sports-golf-short-sleeve-poloshirt-collegiate-navygrey-threewhite-ta442d030-k11.html
+              - text: https://m.zalando.de/adidas-golf-trainingsjacke-glory-grey-ta441g00f-c11.html
                 xpath: /html/body/ol[1]/li[76]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/29fb105d1c7e33f1a73b66e075d0e034/6be4c7c7f537440b902e43e82e01cbb3.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/13d553091c1e37718c80ca295790492b/915fa70000cf4b71a433cc4d5bd81627.jpg
                 xpath: /html/body/ol[1]/li[76]/@thumbnail
             price:
-              - text: 55,45 €
+              - text: 69,95 €
                 xpath: /html/body/ol[1]/li[76]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[76]/@manufacturer
           - id:
-              - text: ta442d030-a11
+              - text: ta442e02a-q11
                 xpath: /html/body/ol[1]/li[77]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[77]/@search_url
             name:
-              - text: ULTIMATE SPORTS GOLF SHORT SLEEVE - Funktionsshirt - white/grey three/grey
-                  two
+              - text: PANT - Stoffhose - black
                 xpath: /html/body/ol[1]/li[77]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-poloshirt-whitegrey-threegrey-two-ta442d030-a11.html
+              - text: https://m.zalando.de/adidas-golf-pant-stoffhose-black-ta442e02a-q11.html
                 xpath: /html/body/ol[1]/li[77]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/da59c662a6ec3952b36ad9365ee850be/09f99a27997c48659ceb0af9a1cf4217.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/7d89a379174839c5a4fdd3b4f5d81ad1/ac91093bc5164d0c8a0f517753997843.jpg
                 xpath: /html/body/ol[1]/li[77]/@thumbnail
             price:
-              - text: 64,95 €
+              - text: 74,95 €
                 xpath: /html/body/ol[1]/li[77]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[77]/@manufacturer
           - id:
-              - text: ta442e02h-c11
+              - text: ta442f01c-c11
                 xpath: /html/body/ol[1]/li[78]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[78]/@search_url
             name:
-              - text: BEYOND 18 - Stoffhose - grey
+              - text: HYBRID - Trainingsjacke - grey
                 xpath: /html/body/ol[1]/li[78]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-beyond-18-stoffhose-grey-ta442e02h-c11.html
+              - text: https://m.zalando.de/adidas-golf-hybrid-trainingsjacke-grey-ta442f01c-c11.html
                 xpath: /html/body/ol[1]/li[78]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/25e43edafb8435bcb6584d68f583afd9/b2aba18365004791b77ff3f39c2d24c0.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/f23fc5486b4531dead828d836fc95831/34c958ec60e5464bb1111291258c9c9f.jpg
                 xpath: /html/body/ol[1]/li[78]/@thumbnail
             price:
-              - text: 79,95 €
+              - text: 103,95 €
                 xpath: /html/body/ol[1]/li[78]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[78]/@manufacturer
           - id:
-              - text: ta442a045-c11
+              - text: ta441a02a-a11
                 xpath: /html/body/ol[1]/li[79]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[79]/@search_url
             name:
-              - text: CODECHAOS - Golfschuh - grey three/footwear white/core black
+              - text: RESPONSE BOUNCE 2 SL - Golfschuh - footwear white/purple tint/grey two
                 xpath: /html/body/ol[1]/li[79]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-codechaos-golfschuh-ta442a045-c11.html
+              - text: https://m.zalando.de/adidas-golf-response-bounce-2-sl-golfschuh-ta441a02a-a11.html
                 xpath: /html/body/ol[1]/li[79]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/4ffb77e51c4437299a4e759057849acc/f6a44dc7cec74723bb85c81247a10630.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/cad05d9401063178816402907bf64548/76d2c183a3634fa280cd4780f2ae61ee.jpg
                 xpath: /html/body/ol[1]/li[79]/@thumbnail
             price:
-              - text: 169,95 €
+              - text: 76,45 €
                 xpath: /html/body/ol[1]/li[79]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[79]/@manufacturer
           - id:
-              - text: ta441e00s-a11
+              - text: ta442f01e-c11
                 xpath: /html/body/ol[1]/li[80]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[80]/@search_url
             name:
-              - text: PULLON ANKLE PANT - Stoffhose - white
+              - text: ADICROSS ELEMENT JACKET - Regenjacke / wasserabweisende Jacke - grey
+                  three/amber tint
                 xpath: /html/body/ol[1]/li[80]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-pullon-ankle-pant-stoffhose-ta441e00s-a11.html
+              - text: https://m.zalando.de/adidas-golf-adicross-element-jacket-regenjacke-wasserabweisende-jacke-grey-threeamber-tint-ta442f01e-c11.html
                 xpath: /html/body/ol[1]/li[80]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/657085d471983ad5bd64a59f9e0ed177/6edd8627cf2b40b689acecb3ad9e0689.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/40ee5d26e864341eb8045814c74d37aa/a1549cad261946af9caa62892aa01240.jpg
                 xpath: /html/body/ol[1]/li[80]/@thumbnail
             price:
-              - text: 69,95 €
+              - text: 127,95 €
                 xpath: /html/body/ol[1]/li[80]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[80]/@manufacturer
           - id:
-              - text: ta442a047-q11
+              - text: ad542f0hg-q11
                 xpath: /html/body/ol[1]/li[81]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[81]/@search_url
             name:
-              - text: CODECHAOS SPORT - Golfschuh - core black/dark grey heather/solid
-                  grey/glory blue
+              - text: CLIMAPROOF - Outdoorjacke - black
                 xpath: /html/body/ol[1]/li[81]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-codechaos-sport-golfschuh-ta442a047-q11.html
+              - text: https://m.zalando.de/adidas-golf-climaproof-windbreaker-black-ad542f0hg-q11.html
                 xpath: /html/body/ol[1]/li[81]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/2ea35236021a3c6d91cda21814714e32/c03dc8caef5f47af9e8127d15a988810.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/36ab8b8cf3d3360b8f664aeb48ed17bf/d1622e29212e43ffbea7da98823a88bc.jpg
                 xpath: /html/body/ol[1]/li[81]/@thumbnail
             price:
-              - text: 127,95 €
+              - text: 143,95 €
                 xpath: /html/body/ol[1]/li[81]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[81]/@manufacturer
           - id:
-              - text: ta442e02f-k11
+              - text: ta442e02h-c11
                 xpath: /html/body/ol[1]/li[82]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[82]/@search_url
             name:
-              - text: ULTIMATE 365 SHORT - kurze Sporthose - collegiate navy
+              - text: BEYOND 18 - Stoffhose - grey
                 xpath: /html/body/ol[1]/li[82]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-ultimate-365-short-kurze-sporthose-collegiate-navy-ta442e02f-k11.html
+              - text: https://m.zalando.de/adidas-golf-beyond-18-stoffhose-grey-ta442e02h-c11.html
                 xpath: /html/body/ol[1]/li[82]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/f83bb987750538099ac323f9fb474ffe/3ac57e4b5a11441594cd858224a6c81d.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/25e43edafb8435bcb6584d68f583afd9/b2aba18365004791b77ff3f39c2d24c0.jpg
                 xpath: /html/body/ol[1]/li[82]/@thumbnail
             price:
-              - text: 64,95 €
+              - text: 79,95 €
                 xpath: /html/body/ol[1]/li[82]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[82]/@manufacturer
           - id:
-              - text: ta441e010-k11
+              - text: ta441e00s-a11
                 xpath: /html/body/ol[1]/li[83]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[83]/@search_url
             name:
-              - text: SHORT - kurze Sporthose - tech indigo
+              - text: PULLON ANKLE PANT - Stoffhose - white
                 xpath: /html/body/ol[1]/li[83]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-short-kurze-sporthose-ta441e010-k11.html
+              - text: https://m.zalando.de/adidas-golf-pullon-ankle-pant-stoffhose-ta441e00s-a11.html
                 xpath: /html/body/ol[1]/li[83]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/2db9180207c0343a8910f07972492032/fc107d4862294e2ead48592fe6660eaa.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/657085d471983ad5bd64a59f9e0ed177/6edd8627cf2b40b689acecb3ad9e0689.jpg
                 xpath: /html/body/ol[1]/li[83]/@thumbnail
             price:
-              - text: 63,95 €
+              - text: 69,95 €
                 xpath: /html/body/ol[1]/li[83]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[83]/@manufacturer
           - id:
-              - text: ta441a02d-a11
+              - text: ta441e010-k11
                 xpath: /html/body/ol[1]/li[84]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/
+              - text: https://m.zalando.de/taylormade-adidas-golf/
                 xpath: /html/body/ol[1]/li[84]/@search_url
             name:
-              - text: TOUR360 XT-SL - Golfschuh - footwear white/silver metallic/team light blue
+              - text: SHORT - kurze Sporthose - tech indigo
                 xpath: /html/body/ol[1]/li[84]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-tour360-xt-sl-golfschuh-footwear-whitesilver-metallicteam-light-blue-ta441a02d-a11.html
+              - text: https://m.zalando.de/adidas-golf-short-kurze-sporthose-ta441e010-k11.html
                 xpath: /html/body/ol[1]/li[84]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/5a8e4928ba123f4aaaf2bee78e662319/fec9366cf08e47508f5eadf70c5675e5.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/2db9180207c0343a8910f07972492032/fc107d4862294e2ead48592fe6660eaa.jpg
                 xpath: /html/body/ol[1]/li[84]/@thumbnail
             price:
-              - text: 179,95 €
+              - text: 63,95 €
                 xpath: /html/body/ol[1]/li[84]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[84]/@manufacturer
         xpath: /html
-    timestamp: 1612786698589
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=c9caa05e-51f9-4176-aaf1-73f62fa00797/task=5ac7c48a-7ba7-496a-952d-2e726e3186ea/8a149974-5bc9-4e6f-8ca9-33bf7df06a64.html
+    timestamp: 1613372938756
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=39605211-9038-4065-a77f-d94637b76ed1/task=2c0437c2-6fff-4acb-8ba1-0905237fea32/93f0b91b-0882-4452-b929-6f6a5c25149b.html
     extractionConfigId: product/search/stores/z/zalando_mweb/DE/extract
     data:
       - group:
           - id:
-              - text: ta442a04l-c11
+              - text: ta441a02d-a11
                 xpath: /html/body/ol[1]/li[1]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[1]/@search_url
             name:
-              - text: CODECHAOS SPORT - Golfschuh - grey two/grey three/solar red
+              - text: TOUR360 XT-SL - Golfschuh - footwear white/silver metallic/team light blue
                 xpath: /html/body/ol[1]/li[1]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-codechaos-sport-golfschuh-grey-twogrey-threesolar-red-ta442a04l-c11.html
+              - text: https://m.zalando.de/adidas-golf-tour360-xt-sl-golfschuh-footwear-whitesilver-metallicteam-light-blue-ta441a02d-a11.html
                 xpath: /html/body/ol[1]/li[1]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/363e1713517a37efb2612e875e9f888d/0c008571a44d459399f1cebe1779b9e8.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/5a8e4928ba123f4aaaf2bee78e662319/fec9366cf08e47508f5eadf70c5675e5.jpg
                 xpath: /html/body/ol[1]/li[1]/@thumbnail
             price:
-              - text: 149,95 €
+              - text: 179,95 €
                 xpath: /html/body/ol[1]/li[1]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[1]/@manufacturer
           - id:
-              - text: ta442g01h-k11
+              - text: ta441a02b-a11
                 xpath: /html/body/ol[1]/li[2]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[2]/@search_url
             name:
-              - text: PERFORMANCE SPORTS GOLF - Strickpullover - royal blue
+              - text: CROSSKNIT - Golfschuh - footwear white/tech purple/purple tint
                 xpath: /html/body/ol[1]/li[2]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-performance-sports-golf-strickpullover-royal-blue-ta442g01h-k11.html
+              - text: https://m.zalando.de/adidas-golf-crossknit-golfschuh-footwear-whitetech-purplepurple-tint-ta441a02b-a11.html
                 xpath: /html/body/ol[1]/li[2]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/70c700a6400e3579a4e9e2f57472609d/7b0b380d163f4e9f8155d6b2b3913680.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/59cbbaf770eb3c87afd467e5c74593e2/029f7b75d0a14da6a8a4fea6e9370923.jpg
                 xpath: /html/body/ol[1]/li[2]/@thumbnail
             price:
-              - text: 129,95 €
+              - text: 111,95 €
                 xpath: /html/body/ol[1]/li[2]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[2]/@manufacturer
           - id:
-              - text: ta442a04f-a11
+              - text: ta442a047-q11
                 xpath: /html/body/ol[1]/li[3]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[3]/@search_url
             name:
-              - text: CROSSKNIT CROWS NEST - Golfschuh - footwear white/glory green/orbit grey
+              - text: CODECHAOS SPORT - Golfschuh - core black/dark grey heather/solid
+                  grey/glory blue
                 xpath: /html/body/ol[1]/li[3]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-crossknit-crows-nest-golfschuh-footwear-whiteglory-greenorbit-grey-ta442a04f-a11.html
+              - text: https://m.zalando.de/adidas-golf-codechaos-sport-golfschuh-ta442a047-q11.html
                 xpath: /html/body/ol[1]/li[3]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/340c483f46343ceb8e7c493d31891d2a/484dad3469d5446f94419a7a00ee74ef.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/2ea35236021a3c6d91cda21814714e32/c03dc8caef5f47af9e8127d15a988810.jpg
                 xpath: /html/body/ol[1]/li[3]/@thumbnail
             price:
-              - text: 64,95 €
+              - text: 127,95 €
                 xpath: /html/body/ol[1]/li[3]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[3]/@manufacturer
           - id:
-              - text: ta441a02b-a11
+              - text: ta441d00u-a11
                 xpath: /html/body/ol[1]/li[4]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[4]/@search_url
             name:
-              - text: CROSSKNIT - Golfschuh - footwear white/tech purple/purple tint
+              - text: MICRODOT SLEEVELESS - Poloshirt - white
                 xpath: /html/body/ol[1]/li[4]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-crossknit-golfschuh-footwear-whitetech-purplepurple-tint-ta441a02b-a11.html
+              - text: https://m.zalando.de/adidas-golf-microdot-sleeveless-polo-poloshirt-ta441d00u-a11.html
                 xpath: /html/body/ol[1]/li[4]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/59cbbaf770eb3c87afd467e5c74593e2/029f7b75d0a14da6a8a4fea6e9370923.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/7cf2d6f84c77341084eb979602476386/0b1db2b89e324bd5ad8a100943d91ec4.jpg
                 xpath: /html/body/ol[1]/li[4]/@thumbnail
             price:
-              - text: 135,95 €
+              - text: 39,95 €
                 xpath: /html/body/ol[1]/li[4]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[4]/@manufacturer
           - id:
-              - text: ta441d013-a11
+              - text: ta442d02y-a11
                 xpath: /html/body/ol[1]/li[5]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[5]/@search_url
             name:
-              - text: MICRODOT SHORT SLEEVE - Poloshirt - white
+              - text: PERFORMANCE SPORTS GOLF SHORT SLEEVE - Poloshirt - white/collegiate navy
+                  melange
                 xpath: /html/body/ol[1]/li[5]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-microdot-short-sleeve-poloshirt-white-ta441d013-a11.html
+              - text: https://m.zalando.de/adidas-golf-colorblock-novelty-poloshirt-whitecollegiate-navy-melange-ta442d02y-a11.html
                 xpath: /html/body/ol[1]/li[5]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/ebb7d65d88743e9da589ff67d3004387/50af166b3dc24c1cb4c389bc34effd22.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/639fc3356bed3c2c90e90b6f7038baac/5d9942fce6274a98a75b8593a072110a.jpg
                 xpath: /html/body/ol[1]/li[5]/@thumbnail
             price:
-              - text: 42,45 €
+              - text: 39,95 €
                 xpath: /html/body/ol[1]/li[5]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[5]/@manufacturer
           - id:
-              - text: ta442e02a-k11
+              - text: ta442d02v-q11
                 xpath: /html/body/ol[1]/li[6]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[6]/@search_url
             name:
-              - text: PANT - Stoffhose - collegiate navy
+              - text: PERFORMANCE SPORTS GOLF SHORT SLEEVE - Poloshirt - black
                 xpath: /html/body/ol[1]/li[6]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-pant-stoffhose-ta442e02a-k11.html
+              - text: https://m.zalando.de/adidas-golf-poloshirt-black-ta442d02v-q11.html
                 xpath: /html/body/ol[1]/li[6]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/7843965786cc361fb5ea7f9eb92a21d5/1cbda7fb15a64f0e8da0d37bff945d74.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/87d6181ac09a3fcc958438076a013543/28e77892a909408daf83a3437d309df0.jpg
                 xpath: /html/body/ol[1]/li[6]/@thumbnail
             price:
-              - text: 55,95 €
+              - text: 35,95 €
                 xpath: /html/body/ol[1]/li[6]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[6]/@manufacturer
           - id:
-              - text: ta442d02y-m11
+              - text: ta442d02v-k11
                 xpath: /html/body/ol[1]/li[7]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[7]/@search_url
             name:
-              - text: PERFORMANCE SPORTS GOLF SHORT SLEEVE - Poloshirt - tech emerald/black
-                  melange
+              - text: PERFORMANCE SPORTS GOLF SHORT SLEEVE - Poloshirt - navy
                 xpath: /html/body/ol[1]/li[7]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-performance-sports-golf-short-sleeve-poloshirt-tech-emeraldblack-melange-ta442d02y-m11.html
+              - text: https://m.zalando.de/adidas-golf-poloshirt-navy-ta442d02v-k11.html
                 xpath: /html/body/ol[1]/li[7]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/12b48482e40133e08e5ab2d68ec228d4/56648a4a873c4eca967cdb8efba224f2.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/0ac9c0cfc29534b5b82663a4030dcc20/a8fec363e20e4937b86534cb44cddba5.jpg
                 xpath: /html/body/ol[1]/li[7]/@thumbnail
             price:
-              - text: 39,95 €
+              - text: 27,95 €
                 xpath: /html/body/ol[1]/li[7]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[7]/@manufacturer
           - id:
-              - text: ta442e02f-q11
+              - text: ta442d033-q11
                 xpath: /html/body/ol[1]/li[8]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[8]/@search_url
             name:
-              - text: ULTIMATE 365 SHORT - kurze Sporthose - black
+              - text: ADICROSS LONG SLEEVE - Poloshirt - black
                 xpath: /html/body/ol[1]/li[8]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-ultimate-365-short-kurze-sporthose-black-ta442e02f-q11.html
+              - text: https://m.zalando.de/adidas-golf-adicross-long-sleeve-poloshirt-black-ta442d033-q11.html
                 xpath: /html/body/ol[1]/li[8]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/1aacb8df173c33b78b96d475e3b233e5/eb2872d8ea284ffa99bb86383b12a2e2.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/563c41d706d03e8aa32bacabd41dc197/48878df65e384bb4a8e28307f3f5e892.jpg
                 xpath: /html/body/ol[1]/li[8]/@thumbnail
             price:
-              - text: 48,95 €
+              - text: 39,95 €
                 xpath: /html/body/ol[1]/li[8]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[8]/@manufacturer
           - id:
-              - text: ta441d01g-a11
+              - text: ta441g00f-k11
                 xpath: /html/body/ol[1]/li[9]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[9]/@search_url
             name:
-              - text: PERFORMANCE SPORTS GOLF SHORT SLEEVE - Poloshirt - white
+              - text: Trainingsjacke - tech indigo
                 xpath: /html/body/ol[1]/li[9]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-performance-sports-golf-short-sleeve-poloshirt-white-ta441d01g-a11.html
+              - text: https://m.zalando.de/adidas-golf-sweatjacke-tech-indigo-ta441g00f-k11.html
                 xpath: /html/body/ol[1]/li[9]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/1573359d1c3437549794ed3d85e358f9/d278f380078a4d44ade079dd4f4d510b.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/db70544eeef03b31a94f3bfee5c229a7/74d946b89cf6442e9c2d28f16f9fd0e1.jpg
                 xpath: /html/body/ol[1]/li[9]/@thumbnail
             price:
-              - text: 30,45 €
+              - text: 52,45 €
                 xpath: /html/body/ol[1]/li[9]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[9]/@manufacturer
           - id:
-              - text: ta442d02v-a11
+              - text: ta441d01h-k11
                 xpath: /html/body/ol[1]/li[10]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[10]/@search_url
             name:
-              - text: PERFORMANCE SPORTS GOLF SHORT SLEEVE - Poloshirt - white
+              - text: ULTIMATE 365 GOLF SLEEVELESS - Funktionsshirt - legacy blue
                 xpath: /html/body/ol[1]/li[10]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-poloshirt-white-ta442d02v-a11.html
+              - text: https://m.zalando.de/adidas-golf-ultimate-365-golf-sleeveless-top-legacy-blue-ta441d01h-k11.html
                 xpath: /html/body/ol[1]/li[10]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/20fc995ea41238f18051c4bb784f467a/6e8d40d6ff46422fb5405e3c2b66c150.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/74f650fb375a3b5c84d20dd679523fdb/46ae08d7a696495c8857481826d11b92.jpg
                 xpath: /html/body/ol[1]/li[10]/@thumbnail
             price:
-              - text: 39,95 €
+              - text: 37,65 €
                 xpath: /html/body/ol[1]/li[10]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[10]/@manufacturer
           - id:
-              - text: ta441d00u-g11
+              - text: ta441e00s-i11
                 xpath: /html/body/ol[1]/li[11]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[11]/@search_url
             name:
-              - text: MICRODOT SLEEVELESS - Poloshirt - flash red
+              - text: PULLON ANKLE PANT - Stoffhose - tech indigo
                 xpath: /html/body/ol[1]/li[11]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-microdot-sleeveless-poloshirt-ta441d00u-g11.html
+              - text: https://m.zalando.de/adidas-golf-pullon-ankle-pant-stoffhose-ta441e00s-i11.html
                 xpath: /html/body/ol[1]/li[11]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/6ba67431850831109dcbf59bbf8b5b73/9b521ff18f5344e39c4c7f7f60cae23f.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/20b85721cb7337bdbca0c0c2c3f5dfff/3c93d8bbecd346f09fd167274e4e10ea.jpg
                 xpath: /html/body/ol[1]/li[11]/@thumbnail
             price:
-              - text: 33,95 €
+              - text: 48,95 €
                 xpath: /html/body/ol[1]/li[11]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[11]/@manufacturer
           - id:
-              - text: ta442d02i-a11
+              - text: ta442d034-q11
                 xpath: /html/body/ol[1]/li[12]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[12]/@search_url
             name:
-              - text: STRIPE BASIC - Poloshirt - white/black
+              - text: ADICROSS - Poloshirt - black melange
                 xpath: /html/body/ol[1]/li[12]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-basic-poloshirt-whiteblack-ta442d02i-a11.html
+              - text: https://m.zalando.de/adidas-golf-adicross-poloshirt-black-melange-ta442d034-q11.html
                 xpath: /html/body/ol[1]/li[12]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/b3143e7ff4f331b9ab7ad08708c5e18a/2db759eec0d64fc5a12ddbce41c6f103.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/6c73aecce05e381a9f1a391c9add0968/ed86435baaee4b9b863ae2afc89bea26.jpg
                 xpath: /html/body/ol[1]/li[12]/@thumbnail
             price:
-              - text: 42,65 €
+              - text: 42,45 €
                 xpath: /html/body/ol[1]/li[12]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[12]/@manufacturer
           - id:
-              - text: ta442g01b-k11
+              - text: ta442e02a-k11
                 xpath: /html/body/ol[1]/li[13]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[13]/@search_url
             name:
-              - text: CORE - Sweatshirt - collegiate navy
+              - text: PANT - Stoffhose - collegiate navy
                 xpath: /html/body/ol[1]/li[13]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-core-sweatshirt-collegiate-navy-ta442g01b-k11.html
+              - text: https://m.zalando.de/adidas-golf-pant-stoffhose-ta442e02a-k11.html
                 xpath: /html/body/ol[1]/li[13]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/c8c8eb3f56ec3c58abb42690843ab36c/dc53b24af6974568a6ab317fd9898048.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/7843965786cc361fb5ea7f9eb92a21d5/1cbda7fb15a64f0e8da0d37bff945d74.jpg
                 xpath: /html/body/ol[1]/li[13]/@thumbnail
             price:
-              - text: 55,45 €
+              - text: 59,95 €
                 xpath: /html/body/ol[1]/li[13]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[13]/@manufacturer
           - id:
-              - text: ta441d014-a11
+              - text: ta442e02f-q11
                 xpath: /html/body/ol[1]/li[14]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[14]/@search_url
             name:
-              - text: Funktionsshirt - white
+              - text: ULTIMATE 365 SHORT - kurze Sporthose - black
                 xpath: /html/body/ol[1]/li[14]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-poloshirt-white-ta441d014-a11.html
+              - text: https://m.zalando.de/adidas-golf-ultimate-365-short-kurze-sporthose-black-ta442e02f-q11.html
                 xpath: /html/body/ol[1]/li[14]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/094a7d0b8fa0371aabd5a9a85150f852/a5f138a7ef3c4a17a127026ee10011ba.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/1aacb8df173c33b78b96d475e3b233e5/eb2872d8ea284ffa99bb86383b12a2e2.jpg
                 xpath: /html/body/ol[1]/li[14]/@thumbnail
             price:
-              - text: 33,95 €
+              - text: 38,95 €
                 xpath: /html/body/ol[1]/li[14]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[14]/@manufacturer
           - id:
-              - text: ta442e027-q11
+              - text: ta441g00j-a11
                 xpath: /html/body/ol[1]/li[15]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[15]/@search_url
             name:
-              - text: Stoffhose - black
+              - text: Sweatshirt - white
                 xpath: /html/body/ol[1]/li[15]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-stoffhose-black-ta442e027-q11.html
+              - text: https://m.zalando.de/adidas-golf-graphic-sweatshirt-white-ta441g00j-a11.html
                 xpath: /html/body/ol[1]/li[15]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/3cbf836fefd034268b20f84dc0e310fb/d4ad302b960b4b9e94eea43e8e0f03cd.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/4c6be72cc4863a8a89b8fef7e6c08376/54c40cb7a5484f8d8affb1199ecb62ab.jpg
                 xpath: /html/body/ol[1]/li[15]/@thumbnail
             price:
-              - text: 59,95 €
+              - text: 55,45 €
                 xpath: /html/body/ol[1]/li[15]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[15]/@manufacturer
           - id:
-              - text: ta441d015-k11
+              - text: ta441d013-a11
                 xpath: /html/body/ol[1]/li[16]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[16]/@search_url
             name:
-              - text: ULT 365 - Funktionsshirt - sky tint
+              - text: MICRODOT SHORT SLEEVE - Poloshirt - white
                 xpath: /html/body/ol[1]/li[16]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-ult-365-poloshirt-sky-tint-ta441d015-k11.html
+              - text: https://m.zalando.de/adidas-golf-microdot-short-sleeve-poloshirt-white-ta441d013-a11.html
                 xpath: /html/body/ol[1]/li[16]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/ae96f1bd7d6834959ff0786d69d981d6/5108bce3a03d4919a925beadb498d9df.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/ebb7d65d88743e9da589ff67d3004387/50af166b3dc24c1cb4c389bc34effd22.jpg
                 xpath: /html/body/ol[1]/li[16]/@thumbnail
             price:
-              - text: 42,65 €
+              - text: 42,45 €
                 xpath: /html/body/ol[1]/li[16]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[16]/@manufacturer
           - id:
-              - text: ta442e00t-k11
+              - text: ta442d02i-a11
                 xpath: /html/body/ol[1]/li[17]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[17]/@search_url
             name:
-              - text: ULTIMATE SHORT - kurze Sporthose - collegiate navy
+              - text: STRIPE BASIC - Poloshirt - white/black
                 xpath: /html/body/ol[1]/li[17]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-ultimate-short-kurze-sporthose-collegiate-navy-ta442e00t-k11.html
+              - text: https://m.zalando.de/adidas-golf-basic-poloshirt-whiteblack-ta442d02i-a11.html
                 xpath: /html/body/ol[1]/li[17]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/11934af761f03321835afd9da2e21009/03501bfca11b44828b377292fdf86fc6.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/b3143e7ff4f331b9ab7ad08708c5e18a/2db759eec0d64fc5a12ddbce41c6f103.jpg
                 xpath: /html/body/ol[1]/li[17]/@thumbnail
             price:
-              - text: 54,95 €
+              - text: 42,65 €
                 xpath: /html/body/ol[1]/li[17]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[17]/@manufacturer
           - id:
-              - text: ta442e026-k11
+              - text: ta442e00t-k11
                 xpath: /html/body/ol[1]/li[18]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[18]/@search_url
             name:
-              - text: PARLEY GOLF SHORT - kurze Sporthose - light grey
+              - text: ULTIMATE SHORT - kurze Sporthose - collegiate navy
                 xpath: /html/body/ol[1]/li[18]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-parley-golf-short-kurze-sporthose-light-grey-ta442e026-k11.html
+              - text: https://m.zalando.de/adidas-golf-ultimate-short-kurze-sporthose-collegiate-navy-ta442e00t-k11.html
                 xpath: /html/body/ol[1]/li[18]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/712db34b7c2c3a1284194295f17a6553/43703b00306c4a2985a482d32b683d50.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/11934af761f03321835afd9da2e21009/03501bfca11b44828b377292fdf86fc6.jpg
                 xpath: /html/body/ol[1]/li[18]/@thumbnail
             price:
-              - text: 51,95 €
+              - text: 54,95 €
                 xpath: /html/body/ol[1]/li[18]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[18]/@manufacturer
           - id:
-              - text: ta441a024-c11
+              - text: ta441m00b-g11
                 xpath: /html/body/ol[1]/li[19]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[19]/@search_url
             name:
-              - text: CLIMACOOL CAGE - Golfschuh - grey one/silver metallic/true pink
+              - text: STAR - Sportrock - flash red
                 xpath: /html/body/ol[1]/li[19]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-climacool-cage-golfschuh-ta441a024-c11.html
+              - text: https://m.zalando.de/adidas-golf-ultimate-adistar-skort-sportrock-ta441m00b-g11.html
                 xpath: /html/body/ol[1]/li[19]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/7088a3716788345dbd310e4b16bf526c/61d7340edd554dcca448d7e91ddb182c.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/c3217def42283b23a8477f6db88a47e1/d571897e542142a5838c36a3b8e781a9.jpg
                 xpath: /html/body/ol[1]/li[19]/@thumbnail
             price:
-              - text: 44,95 €
+              - text: 63,95 €
                 xpath: /html/body/ol[1]/li[19]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[19]/@manufacturer
           - id:
-              - text: ta442g018-k11
+              - text: ta442e025-a11
                 xpath: /html/body/ol[1]/li[20]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[20]/@search_url
             name:
-              - text: Trainingsjacke - collegiate navy
+              - text: BOSSHOR - kurze Sporthose - white
                 xpath: /html/body/ol[1]/li[20]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-trainingsjacke-collegiate-navy-ta442g018-k11.html
+              - text: https://m.zalando.de/adidas-golf-bosshor-kurze-sporthose-white-ta442e025-a11.html
                 xpath: /html/body/ol[1]/li[20]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/f03b631a74683e2998b8385f3e28e4db/e25628b187354fca89984aa76efd7ff1.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/374859dc995135dcbe61de94ba256407/b69906ea8e174032a5afcd9eb546f3f7.jpg
                 xpath: /html/body/ol[1]/li[20]/@thumbnail
             price:
-              - text: 34,95 €
+              - text: 59,45 €
                 xpath: /html/body/ol[1]/li[20]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[20]/@manufacturer
           - id:
-              - text: ta442d02v-q11
+              - text: ta442e026-k11
                 xpath: /html/body/ol[1]/li[21]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[21]/@search_url
             name:
-              - text: PERFORMANCE SPORTS GOLF SHORT SLEEVE - Poloshirt - black
+              - text: PARLEY GOLF SHORT - kurze Sporthose - light grey
                 xpath: /html/body/ol[1]/li[21]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-poloshirt-black-ta442d02v-q11.html
+              - text: https://m.zalando.de/adidas-golf-parley-golf-short-kurze-sporthose-light-grey-ta442e026-k11.html
                 xpath: /html/body/ol[1]/li[21]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/87d6181ac09a3fcc958438076a013543/28e77892a909408daf83a3437d309df0.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/712db34b7c2c3a1284194295f17a6553/43703b00306c4a2985a482d32b683d50.jpg
                 xpath: /html/body/ol[1]/li[21]/@thumbnail
             price:
-              - text: 31,95 €
+              - text: 39,95 €
                 xpath: /html/body/ol[1]/li[21]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[21]/@manufacturer
           - id:
-              - text: ta441d00u-a11
+              - text: ta441a024-c11
                 xpath: /html/body/ol[1]/li[22]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[22]/@search_url
             name:
-              - text: MICRODOT SLEEVELESS - Poloshirt - white
+              - text: CLIMACOOL CAGE - Golfschuh - grey one/silver metallic/true pink
                 xpath: /html/body/ol[1]/li[22]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-microdot-sleeveless-polo-poloshirt-ta441d00u-a11.html
+              - text: https://m.zalando.de/adidas-golf-climacool-cage-golfschuh-ta441a024-c11.html
                 xpath: /html/body/ol[1]/li[22]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/7cf2d6f84c77341084eb979602476386/0b1db2b89e324bd5ad8a100943d91ec4.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/7088a3716788345dbd310e4b16bf526c/61d7340edd554dcca448d7e91ddb182c.jpg
                 xpath: /html/body/ol[1]/li[22]/@thumbnail
             price:
-              - text: 31,95 €
+              - text: 44,95 €
                 xpath: /html/body/ol[1]/li[22]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[22]/@manufacturer
           - id:
-              - text: ta441d019-k11
+              - text: ta442g012-c11
                 xpath: /html/body/ol[1]/li[23]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[23]/@search_url
             name:
-              - text: T-Shirt print - tech indigo
+              - text: Strickpullover - black heather
                 xpath: /html/body/ol[1]/li[23]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-t-shirt-print-tech-indigo-ta441d019-k11.html
+              - text: https://m.zalando.de/adidas-golf-strickpullover-black-heather-ta442g012-c11.html
                 xpath: /html/body/ol[1]/li[23]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/e5c7c0acb6383922b77aa9e0b09c1c28/372be1b550e84c5e9be7ac1aeae6b3bc.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/0cd39e97cd8935e5b4931dabc3448335/baf53b5f4274417b9b5ed374b42a2158.jpg
                 xpath: /html/body/ol[1]/li[23]/@thumbnail
             price:
-              - text: 29,95 €
+              - text: 49,95 €
                 xpath: /html/body/ol[1]/li[23]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[23]/@manufacturer
           - id:
-              - text: ta442d031-k11
+              - text: ta441g00h-a11
                 xpath: /html/body/ol[1]/li[24]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[24]/@search_url
             name:
-              - text: PERFORMANCE SPORTS GOLF SHORT SLEEVE GRAPHIC TEE - T-Shirt print -
-                  collegiate navy
+              - text: CREW - Trainingsjacke - white
                 xpath: /html/body/ol[1]/li[24]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-performance-sports-golf-short-sleeve-graphic-tee-t-shirt-print-collegiate-navy-ta442d031-k11.html
+              - text: https://m.zalando.de/adidas-golf-crew-trainingsjacke-white-ta441g00h-a11.html
                 xpath: /html/body/ol[1]/li[24]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/fafd32bb6bc431c2a31df422b66d2f82/a7e63928a4224db186dabd96fe9b7cc6.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/ca6396694454340aa1040c23f158b91f/1a193edfafbc4ea59cea174b226459fb.jpg
                 xpath: /html/body/ol[1]/li[24]/@thumbnail
             price:
-              - text: 34,95 €
+              - text: 49,45 €
                 xpath: /html/body/ol[1]/li[24]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[24]/@manufacturer
           - id:
-              - text: ta441g00h-a11
+              - text: ta442f019-q11
                 xpath: /html/body/ol[1]/li[25]/@sku
             searchUrl:
-              - text: https://m.zalando.de/alle/taylormade-adidas-golf/?p=2
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
                 xpath: /html/body/ol[1]/li[25]/@search_url
             name:
-              - text: CREW - Trainingsjacke - white
+              - text: PERFORMANCE SPORTS GOLF - Trainingsjacke - black
                 xpath: /html/body/ol[1]/li[25]/@name
             productUrl:
-              - text: https://m.zalando.de/adidas-golf-crew-trainingsjacke-white-ta441g00h-a11.html
+              - text: https://m.zalando.de/adidas-golf-performance-sports-jacket-trainingsjacke-black-ta442f019-q11.html
                 xpath: /html/body/ol[1]/li[25]/@product_url
             thumbnail:
-              - text: https://img01.ztat.net/article/spp-media-p1/ca6396694454340aa1040c23f158b91f/1a193edfafbc4ea59cea174b226459fb.jpg
+              - text: https://img01.ztat.net/article/spp-media-p1/0486e4bb7f5f320596ae6d9eb351c55c/1caae652a2dc4aff8de2d4cbf8d96180.jpg
                 xpath: /html/body/ol[1]/li[25]/@thumbnail
             price:
-              - text: 49,45 €
+              - text: 59,95 €
                 xpath: /html/body/ol[1]/li[25]/@price
             manufacturer:
               - text: adidas Golf
                 xpath: /html/body/ol[1]/li[25]/@manufacturer
+          - id:
+              - text: ta441d019-k11
+                xpath: /html/body/ol[1]/li[26]/@sku
+            searchUrl:
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
+                xpath: /html/body/ol[1]/li[26]/@search_url
+            name:
+              - text: T-Shirt print - tech indigo
+                xpath: /html/body/ol[1]/li[26]/@name
+            productUrl:
+              - text: https://m.zalando.de/adidas-golf-t-shirt-print-tech-indigo-ta441d019-k11.html
+                xpath: /html/body/ol[1]/li[26]/@product_url
+            thumbnail:
+              - text: https://img01.ztat.net/article/spp-media-p1/e5c7c0acb6383922b77aa9e0b09c1c28/372be1b550e84c5e9be7ac1aeae6b3bc.jpg
+                xpath: /html/body/ol[1]/li[26]/@thumbnail
+            price:
+              - text: 29,95 €
+                xpath: /html/body/ol[1]/li[26]/@price
+            manufacturer:
+              - text: adidas Golf
+                xpath: /html/body/ol[1]/li[26]/@manufacturer
+          - id:
+              - text: ta442g018-k11
+                xpath: /html/body/ol[1]/li[27]/@sku
+            searchUrl:
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
+                xpath: /html/body/ol[1]/li[27]/@search_url
+            name:
+              - text: Trainingsjacke - collegiate navy
+                xpath: /html/body/ol[1]/li[27]/@name
+            productUrl:
+              - text: https://m.zalando.de/adidas-golf-trainingsjacke-collegiate-navy-ta442g018-k11.html
+                xpath: /html/body/ol[1]/li[27]/@product_url
+            thumbnail:
+              - text: https://img01.ztat.net/article/spp-media-p1/f03b631a74683e2998b8385f3e28e4db/e25628b187354fca89984aa76efd7ff1.jpg
+                xpath: /html/body/ol[1]/li[27]/@thumbnail
+            price:
+              - text: 34,95 €
+                xpath: /html/body/ol[1]/li[27]/@price
+            manufacturer:
+              - text: adidas Golf
+                xpath: /html/body/ol[1]/li[27]/@manufacturer
+          - id:
+              - text: ta442d031-k11
+                xpath: /html/body/ol[1]/li[28]/@sku
+            searchUrl:
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
+                xpath: /html/body/ol[1]/li[28]/@search_url
+            name:
+              - text: PERFORMANCE SPORTS GOLF SHORT SLEEVE GRAPHIC TEE - T-Shirt print -
+                  collegiate navy
+                xpath: /html/body/ol[1]/li[28]/@name
+            productUrl:
+              - text: https://m.zalando.de/adidas-golf-performance-sports-golf-short-sleeve-graphic-tee-t-shirt-print-collegiate-navy-ta442d031-k11.html
+                xpath: /html/body/ol[1]/li[28]/@product_url
+            thumbnail:
+              - text: https://img01.ztat.net/article/spp-media-p1/fafd32bb6bc431c2a31df422b66d2f82/a7e63928a4224db186dabd96fe9b7cc6.jpg
+                xpath: /html/body/ol[1]/li[28]/@thumbnail
+            price:
+              - text: 29,85 €
+                xpath: /html/body/ol[1]/li[28]/@price
+            manufacturer:
+              - text: adidas Golf
+                xpath: /html/body/ol[1]/li[28]/@manufacturer
+          - id:
+              - text: ta442g012-k11
+                xpath: /html/body/ol[1]/li[29]/@sku
+            searchUrl:
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
+                xpath: /html/body/ol[1]/li[29]/@search_url
+            name:
+              - text: Strickpullover - collegiate navy
+                xpath: /html/body/ol[1]/li[29]/@name
+            productUrl:
+              - text: https://m.zalando.de/adidas-golf-strickpullover-collegiate-navy-ta442g012-k11.html
+                xpath: /html/body/ol[1]/li[29]/@product_url
+            thumbnail:
+              - text: https://img01.ztat.net/article/spp-media-p1/1d91631e9da1346d8ba1994cf5156281/25fc8569b1444960be419ac9c64c3623.jpg
+                xpath: /html/body/ol[1]/li[29]/@thumbnail
+            price:
+              - text: 49,95 €
+                xpath: /html/body/ol[1]/li[29]/@price
+            manufacturer:
+              - text: adidas Golf
+                xpath: /html/body/ol[1]/li[29]/@manufacturer
+          - id:
+              - text: ta442f01a-k11
+                xpath: /html/body/ol[1]/li[30]/@sku
+            searchUrl:
+              - text: https://m.zalando.de/taylormade-adidas-golf/?p=2
+                xpath: /html/body/ol[1]/li[30]/@search_url
+            name:
+              - text: CORE WIND - Trainingsjacke - collegiate navy
+                xpath: /html/body/ol[1]/li[30]/@name
+            productUrl:
+              - text: https://m.zalando.de/adidas-golf-core-wind-trainingsjacke-collegiate-navy-ta442f01a-k11.html
+                xpath: /html/body/ol[1]/li[30]/@product_url
+            thumbnail:
+              - text: https://img01.ztat.net/article/spp-media-p1/543a9541ae6d33cbbd2a8932581385f3/832f66984ce6442983ad2de94ff5cb02.jpg
+                xpath: /html/body/ol[1]/li[30]/@thumbnail
+            price:
+              - text: 74,95 €
+                xpath: /html/body/ol[1]/li[30]/@price
+            manufacturer:
+              - text: adidas Golf
+                xpath: /html/body/ol[1]/li[30]/@manufacturer
         xpath: /html
-    timestamp: 1612786698589
+    timestamp: 1613372938756
