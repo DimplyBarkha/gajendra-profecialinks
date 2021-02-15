@@ -6,6 +6,14 @@ parameters:
   zipcode: ""
 proxy:
   zone: ZFR
+  type: DATA_CENTER
+#   type: RESIDENTIAL
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 1
 meta:
   branches:
     dev:

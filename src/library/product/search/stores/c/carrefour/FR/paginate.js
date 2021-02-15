@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'FR',
     store: 'carrefour',
-    nextLinkSelector: 'div[class="pagination__button-wrap"] button',
+    // nextLinkSelector: 'div[class="pagination__button-wrap"] button',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'section[class="side-template__section"]',
