@@ -157,7 +157,7 @@ module.exports = {
       }
       addHiddenDiv('sku', sku);
 
-      const textArray = document.querySelectorAll('div#overview-content h3,div#overview-content p, div#wc-power-page h2, div.wc-reset h3, div.wc-reset p, span.wc-markup-rich-text, div.a_plus_info ul li ');
+      const textArray = document.querySelectorAll('div#overview-content h3,div#overview-content p, div[data-section-caption="Overview"] h2, div[data-section-caption="Overview"] li, div[data-section-caption*="Features"] h2, div[data-section-caption*="Features"] li ');
       let manufacturerDesc = [];
       textArray.forEach(txt => {
         // @ts-ignore
