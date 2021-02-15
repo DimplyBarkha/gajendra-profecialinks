@@ -2,7 +2,7 @@ input:
   _url: http://eapteka.ru
   URL: https://www.eapteka.ru/goods/id291213/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5a9d305f-4c5e-4dc0-9a48-1ec4e3fec362/task=b8946b10-15ca-46f1-9c74-6968208cfe25/f9a58d54-a9f3-4cef-beac-b05ec1bfa9b8.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b05bc7dd-c330-4301-b6f5-767cc03cdb10/task=3437917e-5b8a-4ba1-853a-70f842d93a2a/b56cc987-161c-4391-91c2-70de826a4b0d.html
     extractionConfigId: product/details/stores/e/eapteka/RU/extract
     data:
       - group:
@@ -10,7 +10,7 @@ extractions:
               - text: https://www.eapteka.ru/goods/id291213/
                 xpath: /html/head[1]/link[15]/@href
             image:
-              - text: https://cdn.eapteka.ru/upload/offer_photo/291/213/resized/450_450_1.jpeg?_cvc=1612185894
+              - text: https://cdn.eapteka.ru/upload/offer_photo/291/213/resized/450_450_1.jpeg?_cvc=1613145863
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: Bella Салфетки для интимной гигиены карманные, 10 шт.
@@ -49,10 +49,10 @@ extractions:
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/h1[1]
             price:
               - text: 29 руб.
-                xpath: /html/body/div[10]/@price
+                xpath: /html/body/div[11]/@price
             availabilityText:
               - text: Out Of Stock
-                xpath: /html/body/div[10]/@availability_text
+                xpath: /html/body/div[11]/@availability_text
             description:
               - text: >-
                   Салфетки для интимной гигиены превосходно освежают,
@@ -61,7 +61,7 @@ extractions:
                   pH физиологически свойственным коже в интимных местах.
                   	 Не содержат спирта.
                   	 Благодаря упаковке флип-топ, салфетки очень удобны в использовании.
-                xpath: /html/body/div[10]/@description
+                xpath: /html/body/div[11]/@description
             brandText:
               - text: Белла
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/p[2]/a[1]
@@ -109,4 +109,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1612437430051
+    timestamp: 1613383812366

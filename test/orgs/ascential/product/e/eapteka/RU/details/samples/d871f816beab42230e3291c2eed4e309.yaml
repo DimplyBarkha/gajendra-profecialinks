@@ -2,7 +2,7 @@ input:
   _url: http://eapteka.ru
   URL: https://www.eapteka.ru/goods/id227720/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5a9d305f-4c5e-4dc0-9a48-1ec4e3fec362/task=b1a41a5d-9cf1-4ae5-a4cc-61b9abe28894/6dfa9be1-9eb6-41e0-9739-9d868847c32b.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b05bc7dd-c330-4301-b6f5-767cc03cdb10/task=eda81178-e5d3-4200-8f5a-4cd38d85e2aa/984dc9bb-50e5-4a81-9f3c-89ff9ebc98ab.html
     extractionConfigId: product/details/stores/e/eapteka/RU/extract
     data:
       - group:
@@ -10,7 +10,7 @@ extractions:
               - text: https://www.eapteka.ru/goods/id227720/
                 xpath: /html/head[1]/link[15]/@href
             image:
-              - text: https://cdn.eapteka.ru/upload/offer_photo/227/720/resized/450_450_1.jpg?_cvc=1612185894
+              - text: https://cdn.eapteka.ru/upload/offer_photo/227/720/resized/450_450_1.jpg?_cvc=1613145863
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: Фурасол, пакетики 100 мг/1 г, 15 шт.
@@ -45,7 +45,7 @@ extractions:
               - text: Фурасол, пакетики 100 мг/1 г, 15 шт.
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/h1[1]
             price:
-              - text: 564 руб.
+              - text: 563 руб.
                 xpath: /html/body/div[10]/@price
             availabilityText:
               - text: In Stock
@@ -107,7 +107,7 @@ extractions:
                   	 Приготовленный раствор не хранить.
                 xpath: /html/body/div[10]/@warnings
             ratingCount:
-              - text: "5"
+              - text: "7"
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
             aggregateRatingText:
               - text: "5"
@@ -263,7 +263,7 @@ extractions:
                    раствор для местного применения
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[17]
             manufacturerImages:
-              - text: https://cdn.eapteka.ru/upload/offer_certificate/227/720/1.jpg?_cvc=1612185894
+              - text: https://cdn.eapteka.ru/upload/offer_certificate/227/720/1.jpg?_cvc=1613145863
                 xpath: /html/body/ul[1]/li[1]
             name:
               - text: Фурасол, пакетики 100 мг/1 г, 15 шт.
@@ -302,4 +302,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1612437467430
+    timestamp: 1613383753077
