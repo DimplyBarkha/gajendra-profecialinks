@@ -1,4 +1,4 @@
-const { implementation } = require('./commonGoto');
+const { implementation } = require('./testGotoWithRetries');
 module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
