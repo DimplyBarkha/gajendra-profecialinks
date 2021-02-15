@@ -117,6 +117,14 @@ const transform = (data) => {
         const text = row.brandText[0].text + ' ' + row.nameExtended[0].text;
         row.imNameExtended = [{ text }];
       }
+      if (!row.variantInformation && row.variantInformation1 && row.variantInformation1.length) {
+        const text = row.variantInformation1[0].text;
+        row.variantInformation = [{ text }];
+      }
+      if (!row.image && row.image1 && row.image1.length) {
+        const text = row.image1[0].text;
+        row.image = [{ text }];
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {

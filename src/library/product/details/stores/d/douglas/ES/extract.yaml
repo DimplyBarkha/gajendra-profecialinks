@@ -14,7 +14,10 @@ fields:
     singleValue: false
     description: URL of the main product image
     #xpath: //div[contains(@class,'slick-current')]//img[@itemprop='image' and contains(@class,"rd__img sd__img loading")]/@src
-    xpath: (//img[@itemprop="image" and @class="rd__img sd__img loading"]/@src)[1] | (//img[@itemprop="image" and @class="rd__img sd__img loaded"]/@src)[1]
+    xpath: (//img[@itemprop="image" and @class="rd__img sd__img loading"]/@src)[1]
+  - name: image1
+    singleValue: false
+    xpath: (//img[@itemprop="image" and @class="rd__img sd__img"]/@src)[1]
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
@@ -117,6 +120,8 @@ fields:
     regExpReplace: $1
   - name: variantInformation
     xpath: //div[@id="my-color"][last()] |//div[@id="my-variantInf"][last()] 
+  - name: variantInformation1
+    xpath: //h2[contains(@class,"rd__headline--80") and @title] | //div[contains(@class,"rd__headline--80") and @title]
   - name: ratingCount
     singleValue: false
     xpath: //div[@class="bv_numReviews_text"]
