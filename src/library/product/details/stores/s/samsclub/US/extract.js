@@ -8,13 +8,6 @@ module.exports = {
     domain: 'samsclub.com',
   },
   implementation
-  // implementation: async ({ url }, { country, domain }, context, dependencies) => {
-  //   await context.evaluate(() => {
-  //     const imgAlt = document.querySelector('button[class="sc-image-viewer-img-button"] img') ? document.querySelector('button[class="sc-image-viewer-img-button"] img').alt : null;
-  //     document.body.setAttribute('imagealt', imgAlt);
-  //   });
-  //   await context.extract(dependencies.productDetails);
-  // },
 };
 async function implementation(
   inputs,
@@ -31,6 +24,23 @@ async function implementation(
     }
     await new Promise((resolve, reject) => setTimeout(resolve, 30000));
   });
+
+  const itemUrl = await context.evaluate(function () {
+    const itemCheck = '//div[@class="sc-infinite-loader undefined"]//ul//li//a';
+    var checkElement = document.evaluate(itemCheck, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    if (checkElement.snapshotLength > 0) {
+      const url = checkElement.snapshotItem(0).href;
+      console.log("url",url)
+      return url;
+    } else {
+      return null;
+    }
+  });
+  if (itemUrl) {
+    await context.goto(itemUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
+    await context.click('div.sc-modal-content button.sc-modal-close-button');
+    await new Promise((resolve, reject) => setTimeout(resolve, 40000));
+  }
   await context.evaluate(async function () {
     await new Promise((resolve, reject) => setTimeout(resolve, 40000));
     let getManufatureImageArray = [];
