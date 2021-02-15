@@ -30,9 +30,6 @@ fields:
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="product-detail__availability"]//p//text()
-  - name: ingredientsList
-    singleValue: false
-    xpath: //div[@id="description_COMPOSITION"]//div[@class="product-detail-description-content__item-content"]//text()
   - name: brandText
     singleValue: false
     xpath: //table[@class="product-detail__spec"]//tr[contains(td, "Бренд:")]
@@ -41,25 +38,22 @@ fields:
     xpath: //table[@class="product-detail__spec"]//tr[contains(td, "Производитель:")]
   - name: sku
     singleValue: false
-    xpath: //div[@class="product-detail card"]//div[@class="product-detail__info"]//input[@name="uuid"]/@value
+    xpath: //div[@itemtype="http://schema.org/Product"]/@id
   - name: variantId
     singleValue: false
-    xpath: //div[@class="product-detail card"]//div[@class="product-detail__info"]//input[@name="uuid"]/@value
-  - name: directions
-    singleValue: false
-    xpath: //div[@id="description_CONTRAINDICATIONS"]//div[@class="product-detail-description-content__item-content"]//text()
+    xpath: //div[@itemtype="http://schema.org/Product"]/@id
   - name: description
     singleValue: false
-    xpath: //table[@class="product-detail__spec"] | //div[@id="description_COMPOSITION"]//div[@class="product-detail-description-content__item-content"]//text()
+    xpath: //table[@class="product-detail__spec"] | //div[@id="description_COMPOSITION"]//div[@class="product-detail-description-content__item-content"]
   - name: ingredientsList
     singleValue: false
-    xpath: //div[@id="description_COMPOSITION"]//div[@class="product-detail-description-content__item-content"]//text()
+    xpath: //div[@id="description_COMPOSITION"]//div[@class="product-detail-description-content__item-content"]
   - name: directions
     singleValue: false
-    xpath: //div[@id="description_CONTRAINDICATIONS"]//text() | //div[@id="description_DOSAGE"]//text() | //div[@id="description_INDICATIONS"]//text()
+    xpath: //div[@id="description_CONTRAINDICATIONS" or @id="description_INDICATIONS"]//div[@class="product-detail-description-content__item-content"]
   - name: warnings
     singleValue: false
-    xpath: //div[@id="description_INTERACTION"]//text() | //div[@id="description_OVERDOSE"]//text() | //div[@id="description_PHARMACOLOGY"]//text() | //div[@id="description_PREGNANCY"]//text() | //div[@id="description_SELL"]//text() | //div[@id="description_SIDEEFFECT"]//text() | //div[@id="description_SPECIALS"]//text() | //div[@id="description_STORAGE"]//text() | //div[@id="description_USEMETHODANDDOSES"]//text()
+    xpath: //div[@id="description_INTERACTION"] | //div[@id="description_OVERDOSE"] | //div[@id="description_PHARMACOLOGY"] | //div[@id="description_PREGNANCY"] | //div[@id="description_SELL"] | //div[@id="description_SIDEEFFECT"] | //div[@id="description_SPECIALS"] | //div[@id="description_STORAGE"] | //div[@id="description_USEMETHODANDDOSES"]
   - name: numberOfServingsInPackage
     singleValue: false
     xpath: //table[@class="product-detail__spec"]//tr[contains(td, "Количество в упаковке:")]
@@ -69,3 +63,6 @@ fields:
   - name: otherSellersName
     singleValue: false
     xpath: //table[@class="product-detail__spec"]//tr[contains(td, "Производитель:")]
+  - name: secondaryImageTotal
+    singleValue: true
+    defaultValue: "0"
