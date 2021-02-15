@@ -64,7 +64,8 @@ fields:
     regExpReplace: $1
   - name: quantity
     singleValue: false
-    xpath: //div[@id="my-variantId"][last()] | //label[contains(text(),"Size")]/following-sibling::span
+    xpath: //section[@class="ga-eec__container hidden"]//div[@class="ga-eec__variant"]
+    # xpath: //div[@id="my-variantId"][last()] | //label[contains(text(),"Size")]/following-sibling::span
     # xpath: (//div[@class="cw-form-button-toggle__wrapper"]//label[@aria-checked="true"]/span[position()=2])[last()]
     # xpath: //label[contains(text(),"Size")]/following-sibling::span/text()
   - name: weightNet

@@ -116,12 +116,17 @@ const transform = (data) => {
       }
 
       if (row.manufacturerImages) {
-        // let video = [];
+        const imgToRemove = 'https:/assets/img/1x1.gif';
         row.manufacturerImages.forEach(item => {
           if (item.text.indexOf('https:') === -1) {
-            item.text = `https${item.text}`;
+            item.text = `https:${item.text}`;
           }
         });
+        const images = row.manufacturerImages;
+        const firstImg = images[0];
+        if (firstImg.text === imgToRemove) {
+          row.manufacturerImages = images.slice(1);
+        }
       }
 
       if (row.caloriesPerServing) {
