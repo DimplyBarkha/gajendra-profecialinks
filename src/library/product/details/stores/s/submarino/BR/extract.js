@@ -14,8 +14,11 @@ module.exports = {
     domain,
     transform,
   }, context, { productDetails }) => {
+    await context.click('a[class*=\'product-v2\']');
+    await context.waitForSelector('div[class*=\'product-breadcrumb\']');
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     await context.evaluate(async () => {
-      await new Promise(resolve => setTimeout(resolve, 5000));
+      //await new Promise(resolve => setTimeout(resolve, 3000));
 
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -24,6 +27,10 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+
+      // const product = document.querySelector('a[class*=\'product-v2\']');
+      // if (product) {
+      //   product.click();
 
       const variantTypes = document.querySelectorAll('div[type] > div[type]');
 
@@ -81,6 +88,7 @@ module.exports = {
       } catch (e) {
         console.log('error: ', e);
       }
+      //}
     });
     return await context.extract(productDetails, { transform });
   },

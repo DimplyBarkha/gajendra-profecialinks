@@ -6,7 +6,7 @@ module.exports = {
     store: 'submarino',
     domain: 'submarino.com.br',
     loadedSelector: 'html body',
-    noResultsXPath: '//div[contains(@data-component, "productgrid")]',
+    noResultsXPath: '//div[contains(@class, "EmptyPage__Container")]',
     zipcode: '',
   },
 };
