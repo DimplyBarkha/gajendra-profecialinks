@@ -48,6 +48,7 @@ module.exports = {
           tdItem.textContent = tdItem.textContent + ' Data'
         })
       })
+
     });
     return await context.extract(productDetails, { transform });
   },
