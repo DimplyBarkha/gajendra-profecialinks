@@ -26,9 +26,6 @@ const transform = (data, context) => {
   }
   function checkIfReviewIsFromLast30Days (currentDate, reviewDate) {
     const timestamp = new Date(currentDate).getTime() - (30 * 24 * 60 * 60 * 1000);
-    console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-    console.log(timestamp);
-    console.log(new Date(reviewDate).getTime());
     return new Date(reviewDate).getTime() >= timestamp;
   }
 
