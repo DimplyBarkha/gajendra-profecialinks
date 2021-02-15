@@ -15,7 +15,8 @@ module.exports = {
     try {
       await context.waitForSelector('h1.product-header__name', { timeout: 10000 });
     } catch (err) {
-      throw new Error('Product not found.');
+      console.log('Product not found.');
+    //   throw new Error('Product not found.');
     }
 
     await context.evaluate(async function () {
