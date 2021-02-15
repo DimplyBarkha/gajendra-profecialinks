@@ -1,0 +1,67 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-test="review-item"]
+fields:
+  - name: aggregateRating
+    type: STRING
+    xpath: ancestor::html//span[@data-test="reviews-flag"]//span[@itemprop="ratingValue"]
+  - name: name
+    type: STRING
+    xpath: ancestor::html//span[@data-test="product-title"]
+  - name: commentCount
+    type: STRING
+  - name: reviewDate
+    type: STRING
+    xpath: //time/@datetime
+  - name: user
+    type: STRING
+  - name: brand
+    type: STRING
+    xpath: ancestor::html//title/text()
+    regExp: (?<=\Buy\s)(\w+)
+    regExpReplace: $1
+  - name: productRange
+    type: STRING
+  - name: productFamily
+    type: STRING
+    xpath: ancestor::html//meta[@property="og:type"]/@content
+  - name: colour
+    type: STRING
+    xpath:
+  - name: flavour
+    type: STRING
+  - name: sku
+    type: STRING
+    xpath: ancestor::html//span[@itemprop="sku"]/@content
+  - name: reviewText
+    type: STRING
+    xpath: //p[@itemprop="reviewBody"]
+  - name: reviewTitle
+    type: STRING
+    description: Review Title
+    xpath: //p[@class="ReviewItemstyle__Title-sc-8dsnp1-0 gWdVXs"]
+  - name: mediaURL
+    type: STRING
+    xpath: ancestor::html//meta[@property="og:image"]/@content
+    regExp: //(.*)
+    regExpReplace: $1
+  - name: location
+    type: STRING
+    defaultValue: UK
+  - name: helpful
+    type: STRING
+    xpath: //button[@data-test="helpful-button"]
+    regExp: ([0-9\.])
+    regExpReplace: $1
+  - name: verifiedPurchase
+    type: STRING
+  - name: rating
+    type: STRING
+    xpath: //span[contains(@class,"ReviewItemstyle__RatingMessage-sc-8dsnp1-2")]/text()
+  - name: pageTitle
+    type: STRING
+    xpath: ancestor::html//meta[@property="og:title"]/@content
+  - name: sourceUrl
+    type: STRING
+    xpath: ancestor::html//meta[@property="og:url"]/@content
