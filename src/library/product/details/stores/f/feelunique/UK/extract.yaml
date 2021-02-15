@@ -4,9 +4,11 @@ recordSelector: null
 recordXPath: //html//div[@class='variants']
 fields:
   - name: image
-    singleValue: true
+    singleValue: false
     description: URL of the main product image
-    xpath: (ancestor::html//div[@class="productpage-image galleryimages-main"]/img/@src)[1]|(//div[@class="productpage-image productpage-image--fill galleryimages-main"]/img/@src)[1]
+    # xpath: (ancestor::html//div[@class="productpage-image galleryimages-main"]/img/@src)[1]|(ancestor::html//div[@class="productpage-image productpage-image--fill galleryimages-main"]/img/@src)[1]
+    # xpath: ancestor::(html//div[@class="productpage-image galleryimages-main"]/img/@src)[1]
+    xpath: //div[@class='variants']/div[@id="IMAGE"]
   - name:  productUrl
     singleValue: true
     description: URL of the main product image
@@ -16,9 +18,10 @@ fields:
     description: URL of the main product image
     xpath: ancestor::html//meta[@property="og:url"]/@content
   - name: imageAlt
-    singleValue: true
+    singleValue: false
     description: Alt text of the main product image
-    xpath: (ancestor::html//div[@class="productpage-image galleryimages-main"]/img/@alt)[1]
+    # xpath: (ancestor::html//div[@class="productpage-image galleryimages-main"]/img/@alt)[1]
+    xpath: //div[@class='variants']/div[@id="IMAGEALT"]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)

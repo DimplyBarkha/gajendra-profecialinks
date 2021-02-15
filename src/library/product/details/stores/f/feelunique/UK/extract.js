@@ -64,6 +64,8 @@ async function implementation(
       }
 
       try {
+      const image = getAllXpath('(//div[@class="productpage-image galleryimages-main"]/img/@src)[1]|(//div[@class="productpage-image productpage-image--fill galleryimages-main"]/img/@src)[1]', 'nodeValue')
+      const imagealt = getAllXpath('(//div[@class="productpage-image galleryimages-main"]/img/@alt)[1]|(//div[@class="productpage-image productpage-image--fill galleryimages-main"]/img/@alt)[1]', 'nodeValue')
       const sku = getAllXpath('//input[@name="productSku"]/@value', 'nodeValue')
       const variant_sku = getAllXpath('//div[@class="sub-products h-push-v"]/div[@class="option-item option-item-swatch"]/label/@data-sub-sku', 'nodeValue')
       if (variant_sku.length >= 1){
@@ -83,7 +85,8 @@ async function implementation(
         try {
           addEmptyDiv();
           addHiddenDiv("SKU_ID", sku[0]+"-"+variant_sku[increment], increment)
-       
+          addHiddenDiv("IMAGE", image[0], increment)
+          addHiddenDiv("IMAGEALT", imagealt[0], increment)
           addHiddenDiv('PRICE', variant_price[increment], increment);
           addHiddenDiv('AVAILABILITY', variant_availability[increment], increment);
         } catch (error) {
@@ -98,6 +101,8 @@ async function implementation(
         const price = getAllXpath('//p[@class="price-info"]//span[@class="Price"]/text()', 'nodeValue')[0].replace(/\s/g, '')
         try {
           addEmptyDiv();
+          addHiddenDiv("IMAGE", image[0], 0)
+          addHiddenDiv("IMAGEALT", imagealt[0], 0)
           addHiddenDiv("SKU_ID", sku[0], 0)
           addHiddenDiv('PRICE', price, 0);
           addHiddenDiv('AVAILABILITY', availability[0], 0);
