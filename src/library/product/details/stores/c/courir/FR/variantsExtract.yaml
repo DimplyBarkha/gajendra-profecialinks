@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@itemprop="model"]//a | //link[@rel="canonical"] | //div[contains(@class,"product-variations")]//ul[contains(@class,"swatches")]//li//a
+recordXPath: //div[@itemprop="model"]//a | //link[@rel="canonical"] | //div[contains(@class,"product-variations")]//ul[contains(@class,"swatches")]//li//a | //ul[contains(@id,'search-result-items')]/li
 fields:
   - name: variantId
     xpath: //@href
