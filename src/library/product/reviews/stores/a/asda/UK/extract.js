@@ -27,29 +27,41 @@ module.exports = {
       }
     });
 
-    function nextPage () {
-      document.querySelector('div.pdp-description-reviews__review-pagination-cntr button[data-auto-id="btnright"]').click();
+    async function getElementByXpath (path) {
+      await context.evaluate(() => {
+        return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      }, path);
     }
 
-    const currentPage = await context.evaluate(() => {
-      return parseInt(document.querySelector('select.co-dropdown__select.co-pagination__select').lastElementChild.textContent);
-    });
+    getElementByXpath('//button[@data-auto-id="btnright"]');
 
-    const lastPage = await context.evaluate(() => {
-      return parseInt(document.querySelector(
-        'button.asda-link.asda-link--primary.asda-link--button.co-pagination__last-page').textContent);
-    });
+    // async function nextPage () {
+    //   await context.evaluate(() => {
+    //     document.querySelector('div.pdp-description-reviews__review-pagination-cntr button[data-auto-id="btnright"]').click();
+    //   });
+    // }
 
-    if (currentPage === lastPage) {
-      return await context.extract(productReviews, 'MERGE_ROWS');
-    } else {
-      await context.extract(productReviews, 'MERGE_ROWS');
+    // const currentPage = await context.evaluate(() => {
+    //   document.querySelector('select.co-dropdown__select.co-pagination__select').click();
+    //   return parseInt(document.querySelector('select.co-dropdown__select.co-pagination__select').lastElementChild.textContent);
+    // });
 
-      // waiting for extraction
+    // const lastPage = await context.evaluate(() => {
+    //   return parseInt(document.querySelector(
+    //     'button.asda-link.asda-link--primary.asda-link--button.co-pagination__last-page').textContent);
+    // });
 
-      await new Promise((resolve) => setTimeout(resolve, 3000));
+    // if (currentPage === lastPage) {
+    //   return await context.extract(productReviews, 'MERGE_ROWS');
+    // } else {
+    //   await context.extract(productReviews, 'MERGE_ROWS');
 
-      nextPage();
-    }
+    //   // waiting for extraction
+
+    //   await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    //   nextPage();
+    // }
+    return await context.extract(productReviews, 'MERGE_ROWS');
   },
 };
