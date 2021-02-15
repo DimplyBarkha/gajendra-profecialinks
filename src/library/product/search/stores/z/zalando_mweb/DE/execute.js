@@ -68,6 +68,16 @@ module.exports = {
     // console.log(`New URL: ${newUrl}`);
     // await dependencies.goto({ ...inputs, url: newUrl });
 
+    const currentUrl = await context.evaluate(async () => window.location.href);
+    if (
+      currentUrl.includes('taylormade-adidas-golf') &&
+      (currentUrl.includes('damen') || currentUrl.includes('herren'))
+    ) {
+      await context.setBlockAds(false);
+      await context.setFirstRequestTimeout(90000);
+      await dependencies.goto({ ...inputs, url: 'https://m.zalando.de/taylormade-adidas-golf/' });
+    }
+
     if (loadedSelector) {
       await context.waitForFunction(
         function (sel, xp) {
