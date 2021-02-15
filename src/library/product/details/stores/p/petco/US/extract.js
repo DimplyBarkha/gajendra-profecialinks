@@ -9,6 +9,117 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
+  try {
+    await context.waitForXPath('//div[contains(@id,"inpage_container")]//img', { timeout: 60000 });
+    await context.evaluate(() => {
+      const images = [...document.querySelectorAll('div[id*="inpage_container"] img:not([class*="flix-lingimg"])')];
+      let img = '';
+      images.forEach(item => {
+        let src = item.getAttribute('data-srcset');
+        if (!src) {
+          src = item.getAttribute('src');
+        }
+        const temp = src.includes('https:') ? src : 'https:' + src;
+        img = img + (img ? ' | ' : '') + temp;
+      });
+      document.body.setAttribute('manu-images', img);
+    });
+  } catch (e) {
+    try {
+      console.log("************CATCH BLOCK**************")
+      const iframeSrc = 'iframe[id*="ec-iframe"]';
+      await context.waitForSelector(iframeSrc, { timeout: 30000 });
+      const linkObj = await context.evaluate((src) => {
+        const currentLink = window.location.href;
+        const iframeSrc = document.querySelector(src).getAttribute('src');
+        const linkObj = {
+          iframe: iframeSrc,
+          current: currentLink,
+        };
+        return linkObj;
+      }, iframeSrc);
+      await context.goto(linkObj.iframe);
+      await context.waitForSelector('div[data-role="module"] img', { timeout: 30000 });
+      const manuImages = await context.evaluate(() => {
+        const allImages = [...document.querySelectorAll('div[data-role="module"] img')];
+        const img = [];
+        allImages.forEach(item => {
+          img.push(item.getAttribute('src'));
+        });
+        const images = [...new Set(img)];
+        const temp = images.join(' | ');
+        return temp;
+      });
+      const manuDesc = await context.evaluate(() => {
+        const desc = document.evaluate(
+          '//div[@data-role="module"]//h1 | //div[@data-role="module"]//h3 | //div[@data-role="module"]//p | //div[@data-role="module"]//span | //table//*[@data-role="chart-product-name"] | //table//*[@data-role="chart-feature-name"] | //table//tbody//th[contains(@class,"feature-header")] | //table//*[@data-role="data-cell-content"] | //div[contains(@class, "inpage_selector_feature")]|//h2[@data-role="header"]|//div[@id="flix-container"]',
+          document,
+          null,
+          XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+          null,
+        );
+        let text = '';
+        for (let i = 0; i < desc.snapshotLength; i++) {
+          const item = desc.snapshotItem(i);
+          text = text + (text ? ' ' : '') + item.innerText;
+        }
+        return text;
+      });
+      await context.goto(linkObj.current);
+      await context.evaluate((linkObj) => {
+        document.body.setAttribute('product-url', linkObj.current);
+      }, linkObj);
+      const manuObj = {
+        description: manuDesc,
+        images: manuImages,
+      };
+      await context.evaluate((obj) => {
+        document.body.setAttribute('manu-images', obj.images);
+        document.body.setAttribute('manu-desc', obj.description);
+      }, manuObj);
+    } catch (e) {
+      console.log(e.message);
+    }
+  }
+
+  try {
+    await context.waitForSelector('div[class*="DescriptionContainer"]', { timeout: 60000 });
+    await context.evaluate(() => {
+      const desc = document.evaluate(
+        '//div[contains(@class,"DescriptionContainer")]/div//p[not(contains(@class,"DetailsTab___StyledP"))]|//div[contains(@class,"DescriptionContainer")]/div//ul',
+        document,
+        null,
+        XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+        null,
+      );
+      let text = '';
+      let t = '';
+      let z = '';
+      for (let i = 0; i < desc.snapshotLength; i++) {
+        const item = desc.snapshotItem(i);
+        if (item.nodeName === 'STYLE') {
+          item.remove();
+        } else if (item.querySelector('button')) {
+          item.querySelector('button').remove();
+          z = item.innerText;
+        } else if (item.nodeName === 'UL') {
+          const lis = [...item.querySelectorAll('li')];
+          lis.forEach(li => {
+            t = t + (t ? ' || ' : '') + li.innerText;
+          });
+          z = ' || ' + t;
+        } else {
+          z = item.innerText;
+        }
+        text = text + (text ? ' ' : '') + z;
+      }
+      text = text.replace(/undefined/gs, '');
+      document.body.setAttribute('additional-description', text);
+    });
+  } catch (e) {
+    console.log(e.message);
+  }
+
   await context.evaluate(async function () {
     const jsonString = JSON.parse(document.querySelector('script#__NEXT_DATA__').textContent).props.pageProps.initialState.product.composedItemView;
     const optionalWait = async (sel) => {
@@ -81,115 +192,6 @@ async function implementation (
     }
   });
 
-  try {
-    await context.waitForSelector('div[class*="DescriptionContainer"]', { timeout: 30000 });
-    await context.evaluate(() => {
-      const desc = document.evaluate(
-        '//div[contains(@class,"DescriptionContainer")]/div//p[not(contains(@class,"DetailsTab___StyledP"))]|//div[contains(@class,"DescriptionContainer")]/div//ul',
-        document,
-        null,
-        XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
-        null,
-      );
-      let text = '';
-      let t = '';
-      let z = '';
-      for (let i = 0; i < desc.snapshotLength; i++) {
-        const item = desc.snapshotItem(i);
-        if (item.nodeName === 'STYLE') {
-          item.remove();
-        } else if (item.querySelector('button')) {
-          item.querySelector('button').remove();
-          z = item.innerText;
-        } else if (item.nodeName === 'UL') {
-          const lis = [...item.querySelectorAll('li')];
-          lis.forEach(li => {
-            t = t + (t ? ' || ' : '') + li.innerText;
-          });
-          z = ' || ' + t;
-        } else {
-          z = item.innerText;
-        }
-        text = text + (text ? ' ' : '') + z;
-      }
-      text = text.replace(/undefined/gs, '');
-      document.body.setAttribute('additional-description', text);
-    });
-  } catch (e) {
-    console.log(e.message);
-  }
-
-  try {
-    await context.waitForXPath('//div[contains(@id,"inpage_container")]//img', { timeout: 30000 });
-    await context.evaluate(() => {
-      const images = [...document.querySelectorAll('div[id*="inpage_container"] img:not([class*="flix-lingimg"])')];
-      let img = '';
-      images.forEach(item => {
-        let src = item.getAttribute('data-srcset');
-        if (!src) {
-          src = item.getAttribute('src');
-        }
-        const temp = src.includes('https:') ? src : 'https:' + src;
-        img = img + (img ? ' | ' : '') + temp;
-      });
-      document.body.setAttribute('manu-images', img);
-    });
-  } catch (e) {
-    try {
-      const iframeSrc = 'iframe[id*="ec-iframe"]';
-      await context.waitForSelector(iframeSrc, { timeout: 30000 });
-      const linkObj = await context.evaluate((src) => {
-        const currentLink = window.location.href;
-        const iframeSrc = document.querySelector(src).getAttribute('src');
-        const linkObj = {
-          iframe: iframeSrc,
-          current: currentLink,
-        };
-        return linkObj;
-      }, iframeSrc);
-      await context.goto(linkObj.iframe);
-      await context.waitForSelector('div[data-role="module"] img', { timeout: 30000 });
-      const manuImages = await context.evaluate(() => {
-        const allImages = [...document.querySelectorAll('div[data-role="module"] img')];
-        const img = [];
-        allImages.forEach(item => {
-          img.push(item.getAttribute('src'));
-        });
-        const images = [...new Set(img)];
-        const temp = images.join(' | ');
-        return temp;
-      });
-      const manuDesc = await context.evaluate(() => {
-        const desc = document.evaluate(
-          '//div[@data-role="module"]//h1 | //div[@data-role="module"]//h3 | //div[@data-role="module"]//p | //div[@data-role="module"]//span | //table//*[@data-role="chart-product-name"] | //table//*[@data-role="chart-feature-name"] | //table//tbody//th[contains(@class,"feature-header")] | //table//*[@data-role="data-cell-content"] | //div[contains(@class, "inpage_selector_feature")]',
-          document,
-          null,
-          XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
-          null,
-        );
-        let text = '';
-        for (let i = 0; i < desc.snapshotLength; i++) {
-          const item = desc.snapshotItem(i);
-          text = text + (text ? ' ' : '') + item.innerText;
-        }
-        return text;
-      });
-      await context.goto(linkObj.current);
-      await context.evaluate((linkObj) => {
-        document.body.setAttribute('product-url', linkObj.current);
-      }, linkObj);
-      const manuObj = {
-        description: manuDesc,
-        images: manuImages,
-      };
-      await context.evaluate((obj) => {
-        document.body.setAttribute('manu-images', obj.images);
-        document.body.setAttribute('manu-desc', obj.description);
-      }, manuObj);
-    } catch (e) {
-      console.log(e.message);
-    }
-  }
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
