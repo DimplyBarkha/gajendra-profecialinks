@@ -44,7 +44,7 @@ module.exports = {
 
     try {
       await context.evaluate(async () => {
-        async function infiniteScroll () {
+        async function infiniteScroll() {
           let prevScroll = document.documentElement.scrollTop;
           while (true) {
             window.scrollBy(0, document.documentElement.clientHeight);
@@ -194,7 +194,7 @@ module.exports = {
 
     const productID = await sharedhelpers.getEleByXpath('(//span[contains(@class, "DetailsHeader__")]//span)[1]');
 
-    async function graphQLCallObj (productID) {
+    async function graphQLCallObj(productID) {
       const upc = await context.evaluate(async function (productID) {
         const productIDText = productID.replace('| Art.-Nr. ', '').replace(' | ', '').trim();
         const graphQLCall = `GraphqlProduct:${productIDText}`;
@@ -368,6 +368,20 @@ module.exports = {
     } catch (e) {
       console.log(e.message);
     }
+    await context.evaluate(async () => {
+      const temp1 = document.evaluate('//div[contains(@class,"ProductFeatures")]//table//td[contains(.,"Hersteller Artikelnummer")]/following-sibling::td', document, null, XPathResult.STRING_TYPE, null).stringValue
+      const temp2 = document.evaluate('//div[contains(@class,"ProductFeatures")]//table//td[contains(.,"Modellname")]/following-sibling::td', document, null, XPathResult.STRING_TYPE, null).stringValue
+      let mpc = ''
+      if (temp1 && temp2) {
+        mpc = temp1
+      } else if (temp1 && !temp2) {
+        mpc = temp1
+      } else if (!temp1 && temp2) {
+        mpc = temp2
+      }
+      document.body.setAttribute('mpc', mpc)
+    });
+
 
     await context.extract(productDetails, { transform });
   },
