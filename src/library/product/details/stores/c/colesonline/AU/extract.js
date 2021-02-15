@@ -65,7 +65,7 @@ async function implementation (
     if (script) {
       const avail = script.offers && script.offers.availability ? script.offers.availability : '';
       avail.includes('InStock') && addHiddenDiv('ii_avail', 'In Stock');
-      !avail.includes('InStock') && addHiddenDiv('ii_avail', 'Out of Stock');
+      !avail.includes('InStock') && addHiddenDiv('ii_avail', 'Out of stock');
       const sku = script.sku ? script.sku : '';
       addHiddenDiv('ii_sku', sku);
       const variantId = findXpath("//li[contains(.,'Code:')]//span[contains(@class,'accessibility')]");
@@ -81,9 +81,9 @@ async function implementation (
     addHiddenDiv('ii_servingSize', servingSize.replace(/([\d]+(?:.[\d]+)?)(?:\s*)([a-zA-Z]*)\s{0,1}/, '$1 ').trim());
     energyCalculation(servingSize, null, 'servingSizeUom');
     let name = findXpathArr("//h1[@class='product-title']//span[@class='product-brand'] | //h1[@class='product-title']//span[@class='product-name']");
-    const size = document.querySelector("span[data-ng-if='::productDisplayVM.product.showOnlineSizeDesc']") ? document.querySelector("span[data-ng-if='::productDisplayVM.product.showOnlineSizeDesc']").innerText : '';
+    // @ts-ignore
     name = name.join(' ');
-    addHiddenDiv('ii_name', name + ' ' + size.trim());
+    addHiddenDiv('ii_name', name);
     let specifications = findXpath("//div[contains(@class,'product-specific')]");
     specifications = specifications.replace(/\n|\t|\s{2,}/gm, ' ').trim().indexOf('Details') === 0 ? specifications.replace(/Details/, '') : specifications;
     addHiddenDiv('ii_specifications', specifications);
