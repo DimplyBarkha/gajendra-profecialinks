@@ -9,7 +9,7 @@ module.exports = {
     timeout: 90000,
   },
   implementation: async ({ url }, { country, domain, timeout }, context, dependencies) => {
-    // await context.setBlockAds(false);
+    await context.setBlockAds(false);
     // await context.setLoadAllResources(true);
     // await context.setLoadImages(true);
     // await context.setJavaScriptEnabled(true);
@@ -123,6 +123,7 @@ module.exports = {
         console.log('solved captcha, waiting for page change');
         context.waitForNavigation({ timeout });
         // await context.reload(); // This is optional based on the website behavior.
+        // eslint-disable-next-line promise/param-names
         await new Promise(r => setTimeout(r, 500));
 
         try {

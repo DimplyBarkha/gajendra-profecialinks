@@ -15,6 +15,31 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    await context.evaluate(() => {
+      const clickElement = document.querySelector('button#onetrust-pc-btn-handler');
+      if (clickElement) {
+        clickElement.click();
+      }
+    });
+    async function autoScroll (page) {
+      await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+          var totalHeight = 0;
+          var distance = 100;
+          var timer = setInterval(() => {
+            var scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 100);
+        });
+      });
+    }
+    await autoScroll(context);
     const checkIfReviewIsFromLast30Days = (lastDate, reviewDate) => {
       const timestamp = new Date(lastDate).getTime() - (30 * 24 * 60 * 60 * 1000);
       return (new Date(reviewDate).getTime() > timestamp);
