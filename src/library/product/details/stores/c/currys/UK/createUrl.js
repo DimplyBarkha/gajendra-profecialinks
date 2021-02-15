@@ -7,6 +7,6 @@ module.exports = {
     url: 'https://www.currys.co.uk/gbuk/x/-{id}-pdt.html',
     country: 'UK',
     store: 'currys',
-    zipcode: "''",
+    zipcode: '',
   },
 };
