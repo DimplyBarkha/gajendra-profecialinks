@@ -55,7 +55,7 @@ fields:
     defaultValue: 0
   - name: specifications
     singleValue: false
-    xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//p[contains(text(),'Specifications')]//following-sibling::ul
+    xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//p[contains(text(),'Specifications')]//following-sibling::ul|//div[@id='addedSpec']/text()
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //tg-col[@id='tm-marketplace-listing-body-item-description']//li
