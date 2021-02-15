@@ -10,7 +10,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'div.ng-trigger-staggerFadeInOut div.product-grid--tile',
     loadedXpath: null,
-    noResultsXPath: '//span[contains(text(),"Unfortunately, we could")]',
+    noResultsXPath: '//span[contains(text(),"Unfortunately, we could")] | //h1[contains(text()," There are no products matching your filters. ")]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: {

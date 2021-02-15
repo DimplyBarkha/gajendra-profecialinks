@@ -18,7 +18,7 @@ async function implementation (
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }, { timeout: 100000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
   console.log('Checking no results', parameters.noResultsXPath);
   return await context.evaluate(function (xp) {
@@ -38,7 +38,7 @@ module.exports = {
     domain: 'woolworths.com.au',
     url: 'https://www.woolworths.com.au/Shop/Search?searchTerm={searchTerms}',
     loadedSelector: 'div.ng-trigger-staggerFadeInOut div.product-grid--tile',
-    noResultsXPath: '//span[contains(text(),"Unfortunately, we could")]',
+    noResultsXPath: '//span[contains(text(),"Unfortunately, we could")] | //h1[contains(text()," There are no products matching your filters. ")]',
     zipcode: "''",
   },
   implementation,
