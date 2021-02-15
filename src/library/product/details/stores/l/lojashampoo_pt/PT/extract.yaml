@@ -9,25 +9,25 @@ fields:
     description: URL of the main product image
   - name: imageAlt
     singleValue: true
-    xpath: //div/a/img[@itemprop="image"]/@alt
+    xpath: //html//div[@id='imgAlt']
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
     xpath: //html//div[@id='altImages']
     description: Other product images (not in manufacturer description)
   - name: url 
-    xpath: //div[@id="breadcrumb"]/ol/li[@class="last"]/a/@href 
+    xpath: //html//div[@id='pgurl'] | //html//div[@id='nopageurl']
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name="keywords"]/@content
     description: The <meta> keywords content
   - name: category
     singleValue: false
-    xpath: (//div[@id="breadcrumb"]/ol/li)[position()>1]
+    xpath: //html//div[@id='category']
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
-    xpath: //h1[@class="title-product"]/text()
+    xpath: //html//div[@id='name']
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
@@ -47,13 +47,13 @@ fields:
     # type: CURRENCY  
   - name: availabilityText
     singleValue: true
-    xpath: //button[@id="button-cart"]/span[contains(text(),"COMPRA JÁ")]/text()
+    xpath: //html//div[@id='availability']
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: description
     singleValue: false
     xpath: //html//div[@id='descrip']
@@ -75,10 +75,11 @@ fields:
     description: Product manufacturer
   - name: quantity
     singleValue: true
-    xpath: //h1[@class="title-product"]
+    xpath: //html//div[@id='quantity']
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    # regExpReplace: $1$2$3$4
+    # regExp: ((\d+\.)?\d+\s?(ml|g|gr|Cápsulas)$)
+    # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    # regExpReplace: $1
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -102,8 +103,9 @@ fields:
     description: The manufacturer model code (unique) of the product
   - name: packSize
     singleValue: true
-    regExp: (\d+)x\d+\s?(ml|g|gr|Cápsulas)$
-    regExpReplace: $1
+    xpath: //html//div[@id='packsize']
+    # regExp: ((\d+)x(\d+\.)?\d+\s?(ml|g|gr|Cápsulas))$
+    # regExpReplace: $2
     description:
       The number of packs in the product offer (if stated separately on
       the site to quantity)
@@ -166,7 +168,7 @@ fields:
     description: URLs of videos on page
   - name: name
     singleValue: true
-    xpath: //h1[@class="title-product"]/text()
+    xpath: //html//div[@id='name']
     description: The product name
   - name: inStorePrice
     singleValue: true

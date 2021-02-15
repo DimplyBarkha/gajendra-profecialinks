@@ -76,8 +76,8 @@ async function implementation(
         };
       }
 
-    }else if(noPage != null){
-        // No page code
+    } else if (noPage != null) {
+      // No page code
     } else {
       addElementToDocument('variants', window.location.href);
     }
