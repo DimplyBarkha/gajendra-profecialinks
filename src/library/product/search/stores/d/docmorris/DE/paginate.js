@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: 'span[class="gicon-bracketright-green"]',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div[class="rating__wrap"] > div',
+    loadedSelector: 'div[class^="productlist__description pt1"]',
     noResultsXPath: null,
     openSearchDefinition: null,
     domain: 'docmorris.de',
