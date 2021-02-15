@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: false
     description: URL of the main product image
-    xpath: //div[@class="slick-track"]//div[contains(@class, "productVisuals") and contains(@class, "slick-current")]/@data-src-zoom
+    xpath: //div[@class="slick-track"]//div[contains(@class, "productVisuals") and contains(@class, "slick-current")]/@data-src-zoom|//div[@class="f-productVisuals-thumbnailsWrapper"]//div[contains(@class, "productVisuals") ]//div[@data-index="0"]/@data-src-zoom
   - name: imageAlt
     singleValue: false
     description: Alt text of the main product image
