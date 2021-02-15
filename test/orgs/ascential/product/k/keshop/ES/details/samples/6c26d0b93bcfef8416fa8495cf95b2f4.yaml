@@ -2,7 +2,7 @@ input:
   _url: http://keshop.com
   URL: https://www.keshop.com/es/moroccanoil-rizos/crema-intensa-para-rizos-300-ml.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a2b0cb73-a461-4c06-8ef4-8806712d0638/task=1cc4a520-e327-401d-a97b-f34dce53a3a3/65963682-78a5-49b2-ba01-0750e5e02ad5.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d5aa6b58-404f-49a7-bdbf-7e6287025e11/task=cedbce2f-2a84-429e-a058-678d3a3526e9/02b33942-248e-40e8-b4da-ac0e91a4a74c.html
     extractionConfigId: product/details/stores/k/keshop/ES/extract
     data:
       - group:
@@ -21,9 +21,6 @@ extractions:
             price:
               - text: 24,15 €
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[1]/span[1]
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/div[1]/div[2]/p[3]/span[1]
             description:
               - text: ¡Rizos suaves y definidos todo el día! La crema intensa para rizos es
                   perfecta para hidratar, controlar y dar brillo a cualquier
@@ -60,6 +57,9 @@ extractions:
             variantId:
               - text: "1544"
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/p[1]/input[2]/@value
+            mpc:
+              - text: KSES1544
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/p[1]/input[2]/@value
             directions:
               - text: Aplicar una pulsación de producto en la palma de las manos. Distribuir en
                   el cabello húmedo y seco de medios a puntas. Secar o dejar
@@ -75,9 +75,15 @@ extractions:
             manufacturerImages:
               - text: //www.keshop.com/es/modules/jscomposer/uploads/Expertos/Cristina-Garc-a80.jpg
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: https://www.keshop.com/es/3061-medium_default/champu-activador-de-rizos-250-ml.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/a[1]/div[1]/div[2]/img[1]/@src
+              - text: https://www.keshop.com/es/3062-medium_default/acondicionador-activador-de-rizos-250-ml.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/a[1]/div[1]/div[2]/img[1]/@src
+              - text: https://www.keshop.com/es/3359-medium_default/crema-intensa-para-rizos-300-ml.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
             videos:
               - text: https://www.youtube.com/embed/8Q_MMvb8KL4
-                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[1]/div[1]/div[1]/div[1]/iframe[1]/@src
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[7]/div[1]/div[1]/iframe[1]/@src
             name:
               - text: Crema Intensa para Rizos - 300 ml
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[3]
@@ -111,6 +117,8 @@ extractions:
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]
               - text: Facilita el desenredado.
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]
+            availabilityText:
+              - text: Out of Stock
             technicalInformationPdfPresent:
               - text: No
             Image360Present:
@@ -126,10 +134,10 @@ extractions:
             ratingCount:
               - text: "26"
             manufacturerDescription:
-              - text: ”Puedes aplicar una pequeña cantidad de crema en tu cabello seco, en
-                  cualquier momento del día, si necesitas refrescar y controlar
-                  tus rizos.”
+              - text: Cristina Garcia, estilista en Javier Equip S.L.”Puedes aplicar una pequeña
+                  cantidad de crema en tu cabello seco, en cualquier momento del
+                  día, si necesitas refrescar y controlar tus rizos.”
             promotion:
               - text: 30% de descuento
         xpath: /
-    timestamp: 1612278673078
+    timestamp: 1613389619703

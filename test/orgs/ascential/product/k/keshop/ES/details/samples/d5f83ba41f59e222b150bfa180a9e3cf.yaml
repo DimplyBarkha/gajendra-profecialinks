@@ -2,7 +2,7 @@ input:
   _url: http://keshop.com
   URL: https://www.keshop.com/es/moroccanoil-color-complete/color-depositing-mask-aquamarine-30-ml.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a2b0cb73-a461-4c06-8ef4-8806712d0638/task=4b982c9b-8f7c-4e9e-ba22-16239e69684f/85dd57ca-df30-4dcf-82b0-95192c03b08a.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d5aa6b58-404f-49a7-bdbf-7e6287025e11/task=4aa522de-5b68-4fde-98ff-53f61c458783/9868488f-cf93-479a-aef8-b60e42d53f91.html
     extractionConfigId: product/details/stores/k/keshop/ES/extract
     data:
       - group:
@@ -21,9 +21,6 @@ extractions:
             price:
               - text: 5,85 €
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[1]/span[1]
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/form[1]/div[1]/div[2]/p[3]/span[1]
             description:
               - text: ¡Cuida y añade color a tu cabello! Moroccanoil crea sus nuevas mascarillas
                   para cuidar, tratar y añadir color al cabello. Se trata de
@@ -63,6 +60,9 @@ extractions:
             variantId:
               - text: "2507"
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/form[1]/p[1]/input[2]/@value
+            mpc:
+              - text: KSES2507
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/form[1]/p[1]/input[2]/@value
             directions:
               - text: Después de lavar el cabello, retirar el exceso de humedad con una toalla.
                   Aplicar una generosa cantidad de esta mascarilla sobre el
@@ -72,6 +72,10 @@ extractions:
             manufacturerImages:
               - text: //www.keshop.com/es/modules/jscomposer/uploads/Expertos/Javier-Mar-n80.jpg
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: //www.keshop.com/es/modules/jscomposer/uploads/bLUE.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
+              - text: //www.keshop.com/es/modules/jscomposer/uploads/BLUE2.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
             name:
               - text: Color Depositing Mask Aquamarine - 30 ml
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[3]
@@ -121,6 +125,8 @@ extractions:
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]
               - text: Cabello suave y sedoso.
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[7]
+            availabilityText:
+              - text: Out of Stock
             technicalInformationPdfPresent:
               - text: No
             Image360Present:
@@ -143,4 +149,4 @@ extractions:
             promotion:
               - text: 25% de descuento
         xpath: /
-    timestamp: 1612278675330
+    timestamp: 1613389622521

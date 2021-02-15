@@ -2,7 +2,7 @@ input:
   _url: http://keshop.com
   URL: https://www.keshop.com/es/schwarzkopf-bc-sun-protect/bc-sun-protect-crema-acondicionadora-100ml.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=a2b0cb73-a461-4c06-8ef4-8806712d0638/task=419a9b04-f447-4c8e-b4da-bf81e59f723b/79bbc273-eaea-49b2-9a62-ca072174c202.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=d5aa6b58-404f-49a7-bdbf-7e6287025e11/task=da71a520-0c98-47eb-82cc-686373279666/da646588-8553-41b2-8538-cf3b1b4004b6.html
     extractionConfigId: product/details/stores/k/keshop/ES/extract
     data:
       - group:
@@ -21,9 +21,6 @@ extractions:
             price:
               - text: 7,85 €
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/p[1]/span[1]
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/div[1]/div[2]/p[3]/span[1]
             description:
               - text: Tu cabello también necesita un cuidado aftersun. La Crema Acondicionadora
                   de BC Sun Protect actúa como aftersun sobre los cabellos
@@ -62,6 +59,9 @@ extractions:
             variantId:
               - text: "2305"
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/p[1]/input[2]/@value
+            mpc:
+              - text: KSES2305
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[4]/form[1]/p[1]/input[2]/@value
             directions:
               - text: Aplicar una pequeña cantidad de crema sobre el cabello húmedo, secado con
                   toalla. No aclarar.
@@ -76,16 +76,14 @@ extractions:
             manufacturerImages:
               - text: //www.keshop.com/es/modules/jscomposer/uploads/Expertos/Cristina-Garc-a80.jpg
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: //www.keshop.com/es/modules/jscomposer/uploads/rutinas-cast/prep-sun-ru01-cast.jpg
-                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: //www.keshop.com/es/modules/jscomposer/uploads/rutinas-cast/hair-sun-ru02-cast.jpg
-                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-              - text: //www.keshop.com/es/modules/jscomposer/uploads/rutinas-cast/2in1-sun-ru03-cast.jpg
-                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[4]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
-              - text: //www.keshop.com/es/modules/jscomposer/uploads/rutinas-cast/condi-sun-ru04-cast.jpg
-                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[5]/div[1]/div[1]/div[1]/img[1]/@src
-              - text: //www.keshop.com/es/modules/jscomposer/uploads/rutinas-movil/prep-hair-2in1-condi-sun-ru.jpg
-                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+              - text: https://www.keshop.com/es/4711-medium_default/bc-sun-protect-spray-de-preparacion-y-proteccion-100-ml.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[2]/div[1]/div[1]/a[1]/div[1]/div[2]/img[1]/@src
+              - text: https://www.keshop.com/es/4240-medium_default/bc-sun-protect-champu-200ml.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[3]/div[1]/div[1]/a[1]/div[1]/div[2]/img[1]/@src
+              - text: https://www.keshop.com/es/4242-medium_default/bc-sun-protect-tratamiento-2-en-1-150ml.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[4]/div[1]/div[1]/a[1]/div[1]/div[2]/img[1]/@src
+              - text: https://www.keshop.com/es/4241-medium_default/bc-sun-protect-crema-acondicionadora-100ml.jpg
+                xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[4]/div[5]/div[1]/div[1]/div[1]/div[2]/img[1]/@src
             name:
               - text: Crema Acondicionadora Sun Protect - 100 ml
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/h1[1]/span[3]
@@ -128,6 +126,8 @@ extractions:
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[5]
               - text: Cabello más suave y manejable.
                 xpath: /html/body/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[6]
+            availabilityText:
+              - text: Out of Stock
             technicalInformationPdfPresent:
               - text: No
             Image360Present:
@@ -149,4 +149,4 @@ extractions:
             promotion:
               - text: 50% de descuento
         xpath: /
-    timestamp: 1612278671305
+    timestamp: 1613389618147
