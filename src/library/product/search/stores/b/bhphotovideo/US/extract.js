@@ -54,7 +54,7 @@ async function implementation (
       element.id = obj.sku;
       element.image = obj.image;
       element.url = obj.url;
-      element.rating = obj.aggregateRating ? obj.aggregateRating.ratingValue : '';
+      element.rating = obj.aggregateRating ? obj.aggregateRating.ratingValue.toString() : '';
       info.push(element);
     };
     return info;

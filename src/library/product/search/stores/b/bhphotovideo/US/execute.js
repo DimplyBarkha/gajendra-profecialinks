@@ -7,8 +7,11 @@ async function implementation (
   keywords = keywords.replace('/ /g', '+');
   const destinationUrl = url.replace('{searchTerms}', encodeURIComponent(keywords));
   await dependencies.goto({ url: destinationUrl, zipcode });
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const categoryMenu = await context.evaluate(async () => {
-    return document.querySelector('div[data-id="shop-by-type"], div[data-selenium="categoryGroupBlock"]');
+    if (document.querySelector('div[data-id="shop-by-type"], div[data-selenium="categoryGroupBlock"], main[class="main_2ptI9tdT0Li9Do3CQ0DcKn"]')) {
+      return 'YES';
+    }
   });
   if (categoryMenu) {
     const url1 = 'https://www.bhphotovideo.com/c/search?Ntt="{searchTerms}"&N=0&InitialSearch=yes&sts=ma';
@@ -38,7 +41,7 @@ module.exports = {
     domain: 'bhphotovideo.com',
     url: 'https://www.bhphotovideo.com/c/search?Ntt={searchTerms}&N=0&InitialSearch=yes&sts=ma',
     loadedSelector: 'div[data-selenium="miniProductPage"]',
-    noResultsXPath: '//h1[@class="title_2Tkgx8jFMHLoxqcKbZDI7v"] | //section[@class="body-404"]',
+    noResultsXPath: '//h1[@class="title_2Tkgx8jFMHLoxqcKbZDI7v"] | //section[@class="body-404"] | //div[contains(text(), "We did not find any matches for ")]',
     zipcode: '',
   },
   implementation,
