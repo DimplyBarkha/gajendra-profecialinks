@@ -5,7 +5,7 @@ module.exports = {
     country: 'US',
     store: 'meijer_US',
     domain: 'meijer.com',
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },
