@@ -24,8 +24,9 @@ module.exports = {
       function fetchPage (pageNum, code, authToken) {
         const keyword = document.querySelector('#product-search-header-textbox').getAttribute('value');
         console.log(`Fetch page ${pageNum} for ${keyword}`);
+
         return fetch(
-          `https://api.shipt.com/search/v3/search/?bucket_number=46&white_label_key=shipt&segway_version=${code}`,
+          `https://api.shipt.com/search/v3/search/?bucket_number=29&white_label_key=shipt&segway_version=${code}`,
           {
             headers: {
               accept: '*/*',
@@ -40,7 +41,7 @@ module.exports = {
             referrer: 'https://shop.shipt.com/',
             referrerPolicy: 'strict-origin-when-cross-origin',
             body:
-              `{"user_id":15563062,"store_id":8,"metro_id":50,"store_location_id":1772,"query":"${keyword}","zip":"78414","facets":["on_sale","active_deals","brand_name","categories","h1categories","h2categories"],"page":${pageNum},"include_visual_facets":true,"featured":true,"section_id":1}`,
+              `{"user_id":15735722,"store_id":1,"metro_id":2,"store_location_id":19,"query":"${keyword}","zip":"37205","facets":["on_sale","active_deals","brand_name","categories","h1categories","h2categories"],"page":${pageNum},"include_visual_facets":true,"featured":true,"section_id":1}`,
             method: 'POST',
             mode: 'cors',
             credentials: 'include',
@@ -72,14 +73,6 @@ module.exports = {
         : '';
 
       const firstPage = await fetchPage(1, code, authToken);
-      // @ts-ignore
-      // const totalHits = firstPage.total_hits;
-      // console.log(`Total results: ${totalHits}`);
-      // @ts-ignore
-      // const hitsPerPage = firstPage.hits_per_page;
-      // console.log(`Results per page: ${hitsPerPage}`);
-      // const totalPages = Math.ceil(totalHits / hitsPerPage);
-      // console.log(`Total pages: ${totalPages}`);
 
       let productCount = 0;
       for (let i = 0; i < 7; i++) {
