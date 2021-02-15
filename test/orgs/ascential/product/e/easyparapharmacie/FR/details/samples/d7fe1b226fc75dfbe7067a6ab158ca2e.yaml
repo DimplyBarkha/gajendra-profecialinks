@@ -2,7 +2,7 @@ input:
   _url: http://easyparapharmacie.com
   URL: https://www.easyparapharmacie.com/trousse-mineral-89-soin-hydratant-fortifiant-et-repulpant-1-unite-mineral-89-vichy.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9888090d-6672-4fa0-990f-e638d30c820b/task=b840ca10-c0a2-49a4-89df-10edde24804f/a4d49276-3c2b-46df-904b-5f4c813b6773.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=98a38233-b6a9-4951-8277-8c33c89048b5/task=dee129cb-86b3-4154-b700-83cd7adf9afd/87c5f340-4175-4522-9c46-8dfec0e0ecaa.html
     extractionConfigId: product/details/stores/e/easyparapharmacie/FR/extract
     data:
       - group:
@@ -22,9 +22,6 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[3]/div[1]/a[1]/img[1]/@src
               - text: https://cdn.easyparapharmacie.com/media/catalog/product/cache/1/image/494x494/0dc2d03fe217f8c83829496872af24a0/v/i/vichy-soin-visage-aqualia-thermal-trousse-noel-hydratation-creme-legere-mini-creme-nuit-002-3433425349947-extra_2.jpg
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[4]/div[1]/a[1]/img[1]/@src
-            category:
-              - text: Coffret Soin Hydratant Fortifiant Et Repulpant Mineral 89 Vichy
-                xpath: /html/body/main[1]/div[1]/div[1]/ul[1]/li[2]
             nameExtended:
               - text: COFFRET SOIN HYDRATANT FORTIFIANT ET REPULPANT MINERAL 89 VICHY
                 xpath: /html/body/div[15]
@@ -50,6 +47,9 @@ extractions:
             manufacturer:
               - text: VICHY
                 xpath: /html/body/div[16]
+            gtin:
+              - text: "3433425342283"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/@data-ean
             sku:
               - text: "83558"
                 xpath: /html/head[1]/script[9]
@@ -83,7 +83,13 @@ extractions:
               - text: "Formule INCI : Aqua / Water , Peg/Ppg/Polybutylene Glycol-8/5/3 Glycerin
                   , Glycerin , Butylene Glycol , Methyl Gluceth-20 , Carbomer ,
                   Sodium Hyaluronate , Phenoxyethanol , Caprylyl Glycol , Citric
-                  Acid , Biosaccharide Gum-1 (F.I.L. B199024/1)."
+                  Acid , Biosaccharide Gum-1 (F.I.L. B199024/1).,Les listes
+                  d’ingrédients entrant dans la composition des produits de
+                  notre marque sont régulièrement mises à jour. Avant d’utiliser
+                  un produit de notre marque, vous êtes invités à lire la liste
+                  d’ingrédients figurant sur son emballage afin de vous assurer
+                  que les ingrédients sont adaptés à votre utilisation
+                  personnelle"
                 xpath: /html/body/div[21]
             productOtherInformation:
               - text: Minéral 89, le premier geste de toutes les peaux, à appliquer sur peau
@@ -96,9 +102,15 @@ extractions:
               - text: "Formule INCI : Aqua / Water , Peg/Ppg/Polybutylene Glycol-8/5/3 Glycerin
                   , Glycerin , Butylene Glycol , Methyl Gluceth-20 , Carbomer ,
                   Sodium Hyaluronate , Phenoxyethanol , Caprylyl Glycol , Citric
-                  Acid , Biosaccharide Gum-1 (F.I.L. B199024/1)."
+                  Acid , Biosaccharide Gum-1 (F.I.L. B199024/1).,Les listes
+                  d’ingrédients entrant dans la composition des produits de
+                  notre marque sont régulièrement mises à jour. Avant d’utiliser
+                  un produit de notre marque, vous êtes invités à lire la liste
+                  d’ingrédients figurant sur son emballage afin de vous assurer
+                  que les ingrédients sont adaptés à votre utilisation
+                  personnelle"
                 xpath: /html/body/div[21]
             availabilityText:
               - text: Out of Stock
         xpath: /
-    timestamp: 1613082162042
+    timestamp: 1613396861469

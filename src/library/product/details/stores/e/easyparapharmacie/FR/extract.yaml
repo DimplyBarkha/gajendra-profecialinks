@@ -30,7 +30,6 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="breadcrumbs"]//li[position()>1]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -78,12 +77,15 @@ fields:
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //span[@class="quantity-size float-quantity"]
+    regExp: \d+g
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: //div[@class="product-shop"]/@data-ean
   - name: sku
     singleValue: true
     description: The store-specific product identifier
@@ -259,7 +261,7 @@ fields:
     singleValue: true
     description:
   - name: ingredientsList
-    singleValue: true
+    singleValue: false
     description: List of Ingredients from site - can be string of data if no discernible
       start/end point
     xpath: //div[@id="productComposition"]

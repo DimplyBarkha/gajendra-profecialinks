@@ -2,7 +2,7 @@ input:
   _url: http://easyparapharmacie.com
   URL: https://www.easyparapharmacie.com/estipharm-masque-de-relaxation.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9888090d-6672-4fa0-990f-e638d30c820b/task=0afb8c9f-89e2-473b-a7f9-477781f6f66e/e5d099df-a2d2-4902-9cb7-03bf9b512b90.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=98a38233-b6a9-4951-8277-8c33c89048b5/task=42cabcfd-a2f1-45ae-af5c-064cfb48da8d/f5b194b1-17c4-4f14-ba3e-0edf9bed6f7b.html
     extractionConfigId: product/details/stores/e/easyparapharmacie/FR/extract
     data:
       - group:
@@ -15,9 +15,6 @@ extractions:
             imageAlt:
               - text: Masque De Relaxation Estipharm
                 xpath: /html/head[1]/meta[19]/@content
-            category:
-              - text: Masque De Relaxation Estipharm
-                xpath: /html/body/main[1]/div[1]/div[1]/ul[1]/li[2]
             nameExtended:
               - text: MASQUE DE RELAXATION ESTIPHARM
                 xpath: /html/body/div[15]
@@ -50,6 +47,9 @@ extractions:
             quantity:
               - text: "1"
                 xpath: /html/body/div[17]
+            gtin:
+              - text: "3401544363847"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/@data-ean
             sku:
               - text: "48521"
                 xpath: /html/head[1]/script[10]
@@ -92,4 +92,4 @@ extractions:
               - text: "Composition : Satin + velours"
                 xpath: /html/body/div[21]
         xpath: /
-    timestamp: 1613082157425
+    timestamp: 1613396862801

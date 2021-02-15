@@ -2,7 +2,7 @@ input:
   _url: http://easyparapharmacie.com
   URL: https://www.easyparapharmacie.com/nuxe-sun-eau-delicieuse-parfumante-format-voyage-30ml.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9888090d-6672-4fa0-990f-e638d30c820b/task=9d163098-ec16-474d-8eb5-287cdbf2f631/ebdb46a0-dd6b-47b7-9589-651e93f22575.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=98a38233-b6a9-4951-8277-8c33c89048b5/task=9308880f-915c-4b29-a063-420d898e3bfb/22fb410f-6749-44aa-a06f-e0430b122b57.html
     extractionConfigId: product/details/stores/e/easyparapharmacie/FR/extract
     data:
       - group:
@@ -15,9 +15,6 @@ extractions:
             imageAlt:
               - text: Sun Eau Delicieuse Parfumante Format Voyage 30ml Nuxe
                 xpath: /html/head[1]/meta[19]/@content
-            category:
-              - text: Sun Eau Delicieuse Parfumante Format Voyage 30ml Nuxe
-                xpath: /html/body/main[1]/div[1]/div[1]/ul[1]/li[2]
             nameExtended:
               - text: SUN EAU DELICIEUSE PARFUMANTE FORMAT VOYAGE 30ML NUXE
                 xpath: /html/body/div[15]
@@ -56,6 +53,9 @@ extractions:
             quantity:
               - text: "1"
                 xpath: /html/body/div[17]
+            gtin:
+              - text: "3264680015342"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/@data-ean
             sku:
               - text: "64596"
                 xpath: /html/head[1]/script[9]
@@ -130,4 +130,4 @@ extractions:
                   Benzyl Alcohol, Citral, Coumarin [N2612/A]."
                 xpath: /html/body/div[21]
         xpath: /
-    timestamp: 1613082157849
+    timestamp: 1613396859479

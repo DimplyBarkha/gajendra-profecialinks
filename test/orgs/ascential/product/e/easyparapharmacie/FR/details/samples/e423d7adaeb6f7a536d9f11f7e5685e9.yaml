@@ -2,7 +2,7 @@ input:
   _url: http://easyparapharmacie.com
   URL: https://www.easyparapharmacie.com/quies-optik-masque-occultant.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9888090d-6672-4fa0-990f-e638d30c820b/task=fde72db9-06b6-4fa1-bade-00bfee4cfc0a/cd022e83-f9ec-4fbb-ab59-02daf3ee791e.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=98a38233-b6a9-4951-8277-8c33c89048b5/task=78e920bf-414a-4b8f-9c3b-c4d63c20ab91/60e6ffee-3f08-4b86-8b9a-b10f10bfcc98.html
     extractionConfigId: product/details/stores/e/easyparapharmacie/FR/extract
     data:
       - group:
@@ -15,9 +15,6 @@ extractions:
             imageAlt:
               - text: Optik Masque Occultant Quies
                 xpath: /html/head[1]/meta[19]/@content
-            category:
-              - text: Optik Masque Occultant Quies
-                xpath: /html/body/main[1]/div[1]/div[1]/ul[1]/li[2]
             nameExtended:
               - text: OPTIK MASQUE OCCULTANT QUIES
                 xpath: /html/body/div[15]
@@ -56,6 +53,9 @@ extractions:
             quantity:
               - text: "1"
                 xpath: /html/body/div[17]
+            gtin:
+              - text: "3435170200016"
+                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/@data-ean
             sku:
               - text: "28975"
                 xpath: /html/head[1]/script[10]
@@ -89,7 +89,8 @@ extractions:
               - text: Optik Masque Occultant Quies
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/span[1]
             ingredientsList:
-              - text: "Composition : Fibres naturelles de coton et satin."
+              - text: "Composition : Fibres naturelles de coton et satin.,Ne pas laver à
+                  l'eau.Brossage à sec uniquement."
                 xpath: /html/body/div[21]
             productOtherInformation:
               - text: "- Régler l'élastique de façon à passer le masque autour de la tête.-
@@ -99,7 +100,8 @@ extractions:
               - text: "6026704"
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
             materials:
-              - text: "Composition : Fibres naturelles de coton et satin."
+              - text: "Composition : Fibres naturelles de coton et satin.,Ne pas laver à
+                  l'eau.Brossage à sec uniquement."
                 xpath: /html/body/div[21]
         xpath: /
-    timestamp: 1613082158686
+    timestamp: 1613396864514

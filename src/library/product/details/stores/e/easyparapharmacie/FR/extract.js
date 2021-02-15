@@ -36,8 +36,17 @@ async function implementation (inputs, parameters, context, dependencies) {
           ? document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)").innerText
           : '';
         const quantityRegex = /\d*x\d*.*$/g;
+        const arrayOfSpans = Array.from(document.querySelectorAll('div[itemprop="description"] span'));
+        function isUnderline (element) {
+          return element.style['text-decoration'] === 'underline';
+        }
+        const namesWithUnderline = arrayOfSpans.filter(isUnderline);
         if (quantity && quantityRegex.test(quantity)) {
           quantity = quantity.match(quantityRegex)[0].split('x')[0];
+          // @ts-ignore
+        } else if (namesWithUnderline.length !== 0) {
+          quantity = namesWithUnderline.length;
+          console.log(namesWithUnderline.length);
         } else {
           quantity = '1';
         }
@@ -78,13 +87,20 @@ async function implementation (inputs, parameters, context, dependencies) {
         });
         addElementToDom(productOtherInfoTableText.join('\n'), 'productOtherInfo');
 
-        const productComposition = document.querySelector('.descr .product-tabs:nth-of-type(3) div hr')
-          ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:not(last-of-type)')
-            ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:not(last-of-type)').innerText
-            : ''
-          : document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)')
-            ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)').innerText
-            : '';
+        let productComposition = [];
+        const compositionWithHr = document.querySelector('.descr .product-tabs:nth-of-type(3) div hr');
+        const compositionWithoutHr = document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)');
+        if (compositionWithHr) {
+          const ingredientsLists = document.querySelectorAll('.descr .product-tabs:nth-of-type(3) div p:not(:last-of-type)');
+          // @ts-ignore
+          ingredientsLists.forEach((ingredientList) => {
+            productComposition.push(ingredientList.innerText);
+          });
+        } else if (compositionWithoutHr) {
+          productComposition = document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)').innerText;
+        } else {
+          productComposition = [];
+        }
         addElementToDom(productComposition, 'productComposition');
 
         const aggregateRating = document.querySelector(".product-shop .rates #ratings-summary div[itemprop='ratingValue']")
@@ -141,8 +157,17 @@ async function implementation (inputs, parameters, context, dependencies) {
         ? document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)").innerText
         : '';
       const quantityRegex = /\d*x\d*.*$/g;
+      const arrayOfSpans = Array.from(document.querySelectorAll('div[itemprop="description"] span'));
+      function isUnderline (element) {
+        return element.style['text-decoration'] === 'underline';
+      }
+      const namesWithUnderline = arrayOfSpans.filter(isUnderline);
       if (quantity && quantityRegex.test(quantity)) {
         quantity = quantity.match(quantityRegex)[0].split('x')[0];
+        // @ts-ignore
+      } else if (namesWithUnderline.length !== 0) {
+        quantity = namesWithUnderline.length;
+        console.log(namesWithUnderline.length);
       } else {
         quantity = '1';
       }
@@ -167,13 +192,20 @@ async function implementation (inputs, parameters, context, dependencies) {
       });
       addElementToDom(productOtherInfoTableText.join('\n'), 'productOtherInfo');
 
-      const productComposition = document.querySelector('.descr .product-tabs:nth-of-type(3) div hr')
-        ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:not(last-of-type)')
-          ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:not(last-of-type)').innerText
-          : ''
-        : document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)')
-          ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)').innerText
-          : '';
+      let productComposition = [];
+      const compositionWithHr = document.querySelector('.descr .product-tabs:nth-of-type(3) div hr');
+      const compositionWithoutHr = document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)');
+      if (compositionWithHr) {
+        const ingredientsLists = document.querySelectorAll('.descr .product-tabs:nth-of-type(3) div p:not(:last-of-type)');
+        // @ts-ignore
+        ingredientsLists.forEach((ingredientList) => {
+          productComposition.push(ingredientList.innerText);
+        });
+      } else if (compositionWithoutHr) {
+        productComposition = document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)').innerText;
+      } else {
+        productComposition = [];
+      }
       addElementToDom(productComposition, 'productComposition');
 
       const aggregateRating = document.querySelector(".product-shop .rates #ratings-summary div[itemprop='ratingValue']")
