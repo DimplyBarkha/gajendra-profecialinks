@@ -4,7 +4,8 @@
  * @param {ImportIO.Group[]} data
  * @returns {ImportIO.Group[]}
  */
-const transform = (data) => {
+const transform = (data, inputs) => {
+  // console.log(inputs, '<=========');
   for (const { group } of data) {
     for (const row of group) {
       // let text = '';
@@ -110,7 +111,6 @@ const transform = (data) => {
         row.drive[0].text = driveJson.zipcode;
         row.retailerId[0].text = driveJson.zipcode;
         row.driveId[0].text = driveJson.zipcode;
-
       }
     }
   }

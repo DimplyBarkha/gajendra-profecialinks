@@ -9,13 +9,15 @@ module.exports = {
   },
   implementation: async (inputs, parameters, context, dependencies) => {
     const { timeout = 60000, waitUntil = 'load', checkBlocked = true } = {};
+    await context.setJavaScriptEnabled(true);
+    await context.setCssEnabled(true);
     // const mainUrl = 'https://www.k-ruoka.fi/';
     await context.goto(inputs.url, { timeout, waitUntil, checkBlocked });
     const { zipcode } = inputs;
     let locationStreetAddress = '';
     let disabledContinueButton = false;
-
-    console.log(zipcode, 'ZIP CODE');
+    await context.setJavaScriptEnabled(true);
+    await context.setCssEnabled(true);
 
     async function hasDisabledContinuedButton () {
       const hasIt = await context.evaluate(async function () {
@@ -40,7 +42,10 @@ module.exports = {
       await context.waitForSelector('.store-selector__search input');
       await context.setInputValue('.store-selector__search input', zipcode);
       await context.click('.store-list a');
-
+      await context.setInputValue('input[type="search"][value]', zipcode);
+      // await context.evaluate(async function () {
+      //   document.body.setAttribute('k-zip', zipcode);
+      // });
       // await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]');
       // await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]:first-child input');
       // await context.evaluate(async function () {

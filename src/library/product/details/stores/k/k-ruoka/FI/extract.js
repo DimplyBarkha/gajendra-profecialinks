@@ -15,6 +15,8 @@ module.exports = {
     context,
     dependencies,
   ) => {
+    await context.setJavaScriptEnabled(true);
+    await context.setCssEnabled(true);
     await context.evaluate(async function () {
       var NutritionInfo = document.querySelector('div.shopping-list-product-details-container section.collapsible-container.product-nutritional-detail a');
       var table = document.querySelector('div.nutritional-contents');
