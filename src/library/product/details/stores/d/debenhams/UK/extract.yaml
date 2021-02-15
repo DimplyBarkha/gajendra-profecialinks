@@ -113,9 +113,7 @@ fields:
     regExpReplace: £$1
   - name: ingredientsList
     singleValue: false
-    xpath: //li[contains(text(),"ingredients:")]
-    regex: (:\s+)(.*)
-    regExpReplace: $2
+    xpath: //div[@id='custom-attr-product-ingredients']/text()
   - name: price_currency
     singleValue: false
     xpath: //span[contains(@class, 'u-text-size-small')]

@@ -36,6 +36,7 @@ module.exports = {
             // categoryEl.style.display = "none";
             // document.body.appendChild(categoryEl);
         });
+        //let nonColorVariant;
         var variantLength = await context.evaluate(async() => {
             const variants = [];
             document.querySelectorAll("div.dbh-product-color-selector div.pw-swatch__item button").forEach(x => {
@@ -43,6 +44,7 @@ module.exports = {
                     variants.push(x);
                 }
             });
+            //nonColorVariant = document.evaluate("//script[contains(text(),'sizeVariants')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.innerText.replace(/(.*),"sizeVariants":/g, '').match(/(.*),"colors/)[1];
             return variants.length || 1;
         });
         // variantLength = 0;
@@ -82,6 +84,10 @@ module.exports = {
                             addHiddenDiv("custom-attr-product-brand-text", brandText.textContent.split("-")[0].trim());
                         }
 
+                        let imageText = document.querySelector("div.t-product-details__main-wrapper div.t-product-details__image div.t-product-details__carousel-container img").src;
+                        if (imageText) {
+                            addHiddenDiv("custom-attr-product-brand-image", imageText.replace("w=1500", "w=640").replace("h=1500", "h=640").replace('fmt=webp', 'fmt=jpg').replace('&qlt=50', '').replace('&qlt=60', ''));
+                        }
                         // const breadcrumbs = document.querySelectorAll("div.t-breadcrumb div.t-breadcrumb__wrap");
                         // const categoryEl = document.createElement("ul");
                         // breadcrumbs.forEach(x => {
@@ -137,6 +143,11 @@ module.exports = {
                         const materials = descriptionLiItems.find(x => x.startsWith("Material:") || /.*Material|material:.*/.test(x.toLowerCase()));
                         const guarantee = descriptionLiItems.find(x => x.startsWith("Guarantee:"));
                         const warranty = descriptionLiItems.find(x => x.includes("warranty"));
+                        const ingredients = descriptionLiItems.find(x => x.includes("ingredients:"));
+                        if (ingredients) {
+                            const ingredient = volume.replace("Key ingredients:", "").trim();
+                            addHiddenDiv("custom-attr-product-ingredients", ingredient);
+                        }
                         if (volume) {
                             const size = volume.replace("Volume:", "").trim();
                             addHiddenDiv("custom-attr-product-size", size);
