@@ -66,14 +66,24 @@ async function implementation(
       try {
       const sku = getAllXpath('//input[@name="productSku"]/@value', 'nodeValue')
       const variant_sku = getAllXpath('//div[@class="sub-products h-push-v"]/div[@class="option-item option-item-swatch"]/label/@data-sub-sku', 'nodeValue')
-      if (variant_sku.length > 1){
-      const variant_price = getAllXpath('//div[@class="sub-products h-push-v"]/div[@class="option-item option-item-swatch"]/label/@data-subprice', 'nodeValue')
+      if (variant_sku.length >= 1){
+        var variant_price = ""
+        if (variant_sku.length == 1){
+           // @ts-ignore
+           variant_price = [getAllXpath('//p[@class="price-info"]//span[@class="Price"]/text()', 'nodeValue')[0].replace(/\s/g, '')]
+        }
+        else
+        {
+           // @ts-ignore
+           variant_price = getAllXpath('//div[@class="sub-products h-push-v"]/div[@class="option-item option-item-swatch"]/label/@data-subprice', 'nodeValue')  
+        }
       const variant_availability = getAllXpath('//div[@class="sub-products h-push-v"]/div[@class="option-item option-item-swatch"]/label/@data-is-in-stock', 'nodeValue')
 
       for (let increment = 0; increment < variant_sku.length; increment++) {
         try {
           addEmptyDiv();
           addHiddenDiv("SKU_ID", sku[0]+"-"+variant_sku[increment], increment)
+       
           addHiddenDiv('PRICE', variant_price[increment], increment);
           addHiddenDiv('AVAILABILITY', variant_availability[increment], increment);
         } catch (error) {
