@@ -518,9 +518,9 @@ fields:
     singleValue: true
     xpath: //html/head/link[@rel='canonical']/@href
   - name: retailerId
-    xpath: //div[contains(text(),'Collect from')]/following::ul[1]
+    xpath: //div[@id="retailername"]
   - name: online_store
-    xpath: //div[contains(text(),'Collect from')]/following::ul[1]
+    xpath: //div[@id="retailername"]
 # Salsify Attributes 
   - name: shownImages
     xpath: //div[@class="oralb__row"]//img/@src
