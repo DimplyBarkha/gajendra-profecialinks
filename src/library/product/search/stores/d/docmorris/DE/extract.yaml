@@ -10,11 +10,12 @@ fields:
     description: The URL for the product details page
   - name: thumbnail
     xpath: //div[contains(@class,"image-wrap")]/img/@data-src | //img[@data-initial-size="large"]/@src
-    regExp: (https://www.docmorris.de)?(.+)
-    regExpReplace: https://www.docmorris.de$2
+    regExp: (https://www.docmorris.de)?(.*?)produkte/(.*?)/(.*)
+    regExpReplace: https://www.docmorris.de$2produkte/$4
     description: The URL for the product thumbnail image
   - name: name
-    xpath: //h2[contains(@class,"productlist__name mb1 dotdot")] | //h1[@itemprop="name"]
+    # xpath: //h2[contains(@class,"productlist__name mb1 dotdot")] | //h1[@itemprop="name"]
+    xpath: //div[contains(@class,"image-wrap")]/img/@title | //img[@data-initial-size="large"]/@title
     description: The product name
   - name: id
     xpath: //a[contains(@class,"productlist__tile")]/@href | //h1[@itemprop="name"]/@url
