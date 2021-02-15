@@ -8,7 +8,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.evaluate(async() => {
+  await context.evaluate(async () => {
   //   var showProducts = document.querySelector('div.is-legal div.promo-footer a.button');
   //   if(showProducts){
   //     // @ts-ignore
@@ -65,6 +65,13 @@ async function implementation (
       newDiv.textContent = content;
       newDiv.style.display = 'none';
       document.body.appendChild(newDiv);
+    }
+    const featured = document.querySelectorAll('span.sponsored-badge');
+    if (featured) {
+      featured.forEach(element => {
+        const featuredProd = element.className;
+        console.log('Featured Product', featuredProd);
+      });
     }
     // function addChildDiv (id, content, index) {
     //   const newDiv = document.createElement('div');

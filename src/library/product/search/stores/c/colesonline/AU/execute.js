@@ -88,9 +88,10 @@ async function implementation (
     await context.waitForSelector("button[id*='changeLocationBar']", { timeout: 30000 });
     await context.click("button[id*='changeLocationBar']");
     await context.waitForSelector("input[id*='localisation-search']", { timeout: 30000 });
-    await context.setInputValue("input[id*='localisation-search']", 'Sydney 2000');
+    await context.setInputValue("input[id*='localisation-search']", 'Burwood East');
     await context.waitForSelector("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)", { timeout: 30000 });
     await context.clickAndWaitForNavigation("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)", {}, { timeout: 60000 });
+    await context.waitForXPath('//span[contains(@class,"localised-suburb") and contains(text(),"Burwood East")]', { timeout: 60000 });
     await context.waitForSelector("input[id*='localisation-search']", { timeout: 60000 });
     await new Promise((resolve) => setTimeout(resolve, 2000));
   }
@@ -107,7 +108,7 @@ async function implementation (
     waitUntil: 'load',
     checkBlocked: false,
   });
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 4000));
   if (parameters.loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());

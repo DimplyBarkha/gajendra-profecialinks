@@ -1,9 +1,14 @@
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
 robot: product/details
 parameters:
   country: AU
   domain: shop.coles.com.au
   store: colesonline_burwoodEast
   zipcode: ""
+policy:
+  numberRetries: 1
 meta:
   branches:
     dev:
