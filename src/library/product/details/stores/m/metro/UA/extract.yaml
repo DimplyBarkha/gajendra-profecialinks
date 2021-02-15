@@ -93,7 +93,7 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
-    xpath: //div[@data-testid='bigProductCardAmount']
+    xpath: (//div[contains(@data-marker,'Bundle')])[position() = 1]
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
