@@ -119,10 +119,10 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
-    xpath: //html//div[@id='ratingC']
+    xpath: //html//div[@id='ratings']/text()
     # regExp: (\d+)
     description: The number of ratings
-    type: NUMBER
+    # type: NUMBER
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating

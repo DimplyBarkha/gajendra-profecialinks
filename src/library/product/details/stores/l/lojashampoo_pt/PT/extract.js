@@ -105,13 +105,22 @@ module.exports = {
         addElementToDocument('oprice', price.replace('.', ','));
       }
       //Rating Count
-      try{
-       document.querySelector('div[id="tabs"] li.last a').click()
-       var ratingCount = getXpath('//*[@id="netreviews_rating_section"]//p[@class="netreviews_subtitle"]//text()', 'nodeValue');
-      if (ratingCount != null) {  
-        addElementToDocument('ratingC', ratingCount.match(/(\d+)/gm).join());
-      }
-      }catch(error){}
+      try {
+        var sku = getXpath('(//div[@class="NETREVIEWS_PRODUCT_STARS"]/@data-product-id)[1]', 'nodeValue');
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://cl.avis-verifies.com/pt/cache/a/e/a/aea5d810-72dc-eaa4-5d4d-d752dc9b21fe/AWS/PRODUCT_API/REVIEWS/'+sku+".json");
+        xhr.responseType = 'json';
+        xhr.send();
+        xhr.onload = function () {
+          let responseObj = xhr.response;
+          for (var i = 0; i < responseObj.length; i++) {
+
+          }
+          addElementToDocument('ratings',responseObj.length);
+          console.log(responseObj.length);
+        };
+      } catch (error) { }
+
     });
     await context.extract(productDetails);
   },
