@@ -167,6 +167,17 @@ fields:
     xpath: //span[@id="canvasCaption" and contains(text(),  "Maus über")] | //span[@id="canvasCaption" and contains(text(),  "Roll over")]
     regExp: (.+)
     regExpReplace: Yes
+  - name: customerServiceAvailability
+    defaultValue: No
+    xpath: //*[contains(text(),"Kundenservice")]
+    regExp: (.+)
+    regExpReplace: Yes
+  - name: termsAndConditions
+    defaultValue: No
+    xpath: //*[contains(text(),"Unsere AGB")]
+    regExp: (.+)
+    regExpReplace: Yes
+
 
   ## Did not find Examples.
   # - name: lowestPriceIn30DaysBoolean
