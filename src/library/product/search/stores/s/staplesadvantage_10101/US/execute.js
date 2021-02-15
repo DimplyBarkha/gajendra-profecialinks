@@ -29,7 +29,7 @@ async function implementation (inputs, parameters, context, dependencies) {
               .iterateNext(),
         );
       },
-      { timeout: 10000 },
+      { timeout: 30000 },
       parameters.loadedSelector,
       parameters.noResultsXPath,
     );
@@ -57,25 +57,97 @@ async function implementation (inputs, parameters, context, dependencies) {
     const currentUrl = window.location.href;
     return !currentUrl.includes('idm');
   });
+
+  let goToOldLoginVersionBtnPresent = false;
+  let goToOldLoginVersionBtnXpath = '//span[contains(text(),"We have simplified your sign-in experience by asking for less information! If you would rather sign in using the old experience")]//*[contains(text(),"click here")]';
+  try {
+    await context.waitForXPath(goToOldLoginVersionBtnXpath);
+    goToOldLoginVersionBtnPresent = true;
+  } catch(err) {
+    console.log('got some error while waiting for this go to older version btn', err.message);
+    try {
+      await context.waitForXPath(goToOldLoginVersionBtnXpath);
+      goToOldLoginVersionBtnPresent = true;
+    } catch(err) {
+      console.log('got some error while waiting for this go to older version btn, again', err.message);
+    }
+  }
+
+  console.log('goToOldLoginVersionBtnPresent', goToOldLoginVersionBtnPresent);
+  if(goToOldLoginVersionBtnPresent) {
+    await context.evaluate(async (goToOldLoginVersionBtnXpath) => {
+      console.log('neeed to click this', goToOldLoginVersionBtnXpath);
+      let elm = document.evaluate(goToOldLoginVersionBtnXpath, document, null, 7, null);
+      if(elm && elm.snapshotLength > 0) {
+        let thisBtn = elm.snapshotItem(0);
+        if(thisBtn) {
+          thisBtn.click();
+          console.log('btn clicked');
+          await new Promise(resolve => setTimeout(resolve, 5000));
+        }
+      }
+    }, goToOldLoginVersionBtnXpath);
+  }
     // when the user is not logged in, the extractor fills out the form
+    console.log('isUserLogged', isUserLogged);
   if (!isUserLogged) {
     const isAccountNumberFilledIn = await context.evaluate(async (number) => {
-      return document.querySelector('input#accountNumber').getAttribute('value') === number;
+      let inpAccNumIsNum = false;
+      let elm = document.querySelector('input#accountNumber');
+      if(elm) {
+        if(elm.getAttribute('value') === number) {
+          inpAccNumIsNum = true;
+        }
+      }
+      return inpAccNumIsNum;
     }, credentials.accountNumber);
-    if (!isAccountNumberFilledIn) await context.setInputValue('input#accountNumber', credentials.accountNumber);
+    console.log('isAccountNumberFilledIn',isAccountNumberFilledIn);
+    if (!isAccountNumberFilledIn) {
+      try {
+        await context.setInputValue('input#accountNumber', credentials.accountNumber);
+      } catch(err) {
+        console.log('got some error for acc num', err.message);
+      }
+    } 
     const isLoginUserIdFilledIn = await context.evaluate(async (login) => {
-      return document.querySelector('input#loginUserId').getAttribute('value') === login;
+      let userIdHasValue = false;
+      let elm = document.querySelector('input#loginUserId');
+      if(elm) {
+        if(elm.getAttribute('value') === login) {
+          userIdHasValue = true;
+        }
+      }
+      return userIdHasValue;
+      // return document.querySelector('input#loginUserId').getAttribute('value') === login;
     }, credentials.loginUserId);
-    if (!isLoginUserIdFilledIn) await context.setInputValue('input#loginUserId', credentials.loginUserId);
-    await context.setInputValue('input#loginUserPassword', credentials.loginUserPassword);
+    console.log('isLoginUserIdFilledIn', isLoginUserIdFilledIn);
+    if (!isLoginUserIdFilledIn) {
+      try {
+        await context.setInputValue('input#loginUserId', credentials.loginUserId);
+      } catch(err) {
+        console.log('got some error for login user id', err.message)
+      }
+      
+    }
 
-    await context.click('div#loginBtn');
+    try {
+      await context.setInputValue('input#loginUserPassword', credentials.loginUserPassword);
+    } catch(err) {
+      console.log('got some error while checking for pswd', err.message);
+    }
+    
+    try {
+      await context.click('div#loginBtn');
+    } catch(err) {
+      console.log('got some error while checking with login btn', err.message);
+    }
+    
   }
   // logging in takes a moment and reloads the page, then goes to the homepage
   await context.waitForNavigation();
   await new Promise((resolve) => setTimeout(resolve, 3000));
   // going to the search results page
-  await context.goto(url);
+  await context.goto(url, { timeout: 50000 });
 
   return await context.evaluate(function (xp) {
     const r = document.evaluate(
