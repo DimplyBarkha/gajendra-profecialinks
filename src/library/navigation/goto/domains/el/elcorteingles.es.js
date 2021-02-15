@@ -22,7 +22,9 @@ module.exports = {
     }
 
     if (lastResponseData.status === 403) {
-      return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
+      // return 
+      await context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
+      throw Error('Bad response code: ' + lastResponseData.status);
     }
   },
 };
