@@ -82,11 +82,11 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: directions
     singleValue: true
-    xpath: //div[@class='c-product-description__accordioncontent']/div/p[2]
+    xpath: //div[@class='c-product-description__accordioncontent'][1]/div/p/b[contains(text(),"Hoe te gebruiken?")]/following-sibling::text()
     description: directions
   - name: warnings
     singleValue: true
-    xpath: //div[@class='c-product-description__accordioncontent']/div/p[3]
+    xpath: //div[@class='c-product-description__accordioncontent'][1]/div/p/b[contains(text(),"Waarschuwingen")]/following-sibling::text()
     description: warnings       
   - name: sku
     singleValue: true
