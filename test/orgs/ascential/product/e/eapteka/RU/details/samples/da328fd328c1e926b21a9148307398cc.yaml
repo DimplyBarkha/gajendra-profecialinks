@@ -2,7 +2,7 @@ input:
   _url: http://eapteka.ru
   URL: https://www.eapteka.ru/goods/id337571/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b05bc7dd-c330-4301-b6f5-767cc03cdb10/task=2e46904d-5301-4806-bc0b-b35e36a4a1ce/17171a61-8392-42e0-b411-ed051c1ad786.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=253e5100-09be-4f32-b254-ad53e1422ce9/task=56ca8386-2e07-41d2-9457-7649891f5750/67d7e8d9-25a2-4a22-9f64-9edb896e2dac.html
     extractionConfigId: product/details/stores/e/eapteka/RU/extract
     data:
       - group:
@@ -10,7 +10,7 @@ extractions:
               - text: https://www.eapteka.ru/goods/id337571/
                 xpath: /html/head[1]/link[15]/@href
             image:
-              - text: https://cdn.eapteka.ru/upload/offer_photo/337/571/resized/450_450_1.jpeg?_cvc=1613145863
+              - text: https://cdn.eapteka.ru/upload/offer_photo/337/571/resized/450_450_1.jpeg?_cvc=1613392413
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: Kotex Прокладки Ultra Activ Super, 7 шт
@@ -46,10 +46,10 @@ extractions:
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/h1[1]
             price:
               - text: 150 руб.
-                xpath: /html/body/div[10]/@price
+                xpath: /html/body/div[11]/@price
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[10]/@availability_text
+                xpath: /html/body/div[11]/@availability_text
             description:
               - text: >-
                   Новые ультратонкие прокладки Kotex Active Super, созданы
@@ -58,7 +58,7 @@ extractions:
                   обеспечивает коже комфорт и уверенность в движении.
                    Благодаря уникальной технологии FlexFit прокладка гибкая, поэтому может повторять движения тела даже во время активных занятий.
                   Дышащие задняя и передняя поверхности: более 100 000 дышащих микропор созданы, чтобы обеспечить комфорт коже.
-                xpath: /html/body/div[10]/@description
+                xpath: /html/body/div[11]/@description
             brandText:
               - text: Котекс
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/p[2]/a[1]
@@ -103,4 +103,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1613383800444
+    timestamp: 1613398185871

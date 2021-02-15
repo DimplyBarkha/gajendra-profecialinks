@@ -5,13 +5,13 @@ parameters:
   store: eapteka
   zipcode: ""
 proxy:
-  zone: ZUS
+  zone: ZUK
   type: DATA_CENTER
 policy:
-  numberRetries: 3
+  numberRetries: 5
   priority: MEDIUM
-  retryDelay: 60
-  backoffPolicy: EXPONENTIAL
+  retryDelay: 120
+  backoffPolicy: LINEAR
   retryWithResidentialProxyAfter: 99
 meta:
   branches:

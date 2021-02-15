@@ -2,7 +2,7 @@ input:
   _url: http://eapteka.ru
   URL: https://www.eapteka.ru/goods/id227720/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b05bc7dd-c330-4301-b6f5-767cc03cdb10/task=eda81178-e5d3-4200-8f5a-4cd38d85e2aa/984dc9bb-50e5-4a81-9f3c-89ff9ebc98ab.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=253e5100-09be-4f32-b254-ad53e1422ce9/task=ebb61532-55f8-44f8-b3e1-2b2408b2ac4b/b45c4cc1-9f96-4fe6-9486-b819c94fcdb8.html
     extractionConfigId: product/details/stores/e/eapteka/RU/extract
     data:
       - group:
@@ -10,7 +10,7 @@ extractions:
               - text: https://www.eapteka.ru/goods/id227720/
                 xpath: /html/head[1]/link[15]/@href
             image:
-              - text: https://cdn.eapteka.ru/upload/offer_photo/227/720/resized/450_450_1.jpg?_cvc=1613145863
+              - text: https://cdn.eapteka.ru/upload/offer_photo/227/720/resized/450_450_1.jpg?_cvc=1613392413
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             imageAlt:
               - text: Фурасол, пакетики 100 мг/1 г, 15 шт.
@@ -46,10 +46,10 @@ extractions:
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/h1[1]
             price:
               - text: 563 руб.
-                xpath: /html/body/div[10]/@price
+                xpath: /html/body/div[11]/@price
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[10]/@availability_text
+                xpath: /html/body/div[11]/@availability_text
             description:
               - text: >-
                   Фурасол - противомикробное средство, производное нитрофурана.
@@ -64,7 +64,7 @@ extractions:
                    
                    
                   	 В качестве местного средства при комплексном лечении следующих состояний и заболеваний: инфекционно-воспалительные заболевания полости рта, ротоглотки; инфицированные раны.
-                xpath: /html/body/div[10]/@description
+                xpath: /html/body/div[11]/@description
             manufacturer:
               - text: Олайнфарм, Латвия
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/p[1]/a[1]
@@ -105,16 +105,16 @@ extractions:
                    
                   	 Раствор готовят непосредственно перед применением.
                   	 Приготовленный раствор не хранить.
-                xpath: /html/body/div[10]/@warnings
+                xpath: /html/body/div[11]/@warnings
             ratingCount:
               - text: "7"
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]
             aggregateRatingText:
               - text: "5"
-                xpath: /html/body/div[10]/@aggregate_rating
+                xpath: /html/body/div[11]/@aggregate_rating
             aggregateRating:
               - text: "5"
-                xpath: /html/body/div[10]/@aggregate_rating
+                xpath: /html/body/div[11]/@aggregate_rating
                 type: NUMBER
                 raw: "5"
                 locale: ru
@@ -263,7 +263,7 @@ extractions:
                    раствор для местного применения
                 xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[4]/div[1]/div[1]/div[1]/div[17]
             manufacturerImages:
-              - text: https://cdn.eapteka.ru/upload/offer_certificate/227/720/1.jpg?_cvc=1613145863
+              - text: https://cdn.eapteka.ru/upload/offer_certificate/227/720/1.jpg?_cvc=1613392413
                 xpath: /html/body/ul[1]/li[1]
             name:
               - text: Фурасол, пакетики 100 мг/1 г, 15 шт.
@@ -302,4 +302,4 @@ extractions:
             secondaryImageTotal:
               - text: "0"
         xpath: /
-    timestamp: 1613383753077
+    timestamp: 1613398220286
