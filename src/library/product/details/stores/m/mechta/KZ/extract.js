@@ -17,15 +17,14 @@ async function implementation(inputs, parameters, context, dependencies) {
       scrollTop += 1000;
       window.scroll(0, scrollTop);
       if (scrollTop === 20000) {
-        await stall(80000);
+        await stall(60000);
         break;
       }
-     
     }
     const link = document.querySelector(
       'div[class*="q-tab relative-position self-stretch flex flex-center text-center q-tab--inactive q-tab--no-caps q-focusable q-hoverable cursor-pointer"]'
     );
-    console.log("link:: ", link);
+    // console.log("link:: ", link);
     if (link != null) {
       link.click();
     }
