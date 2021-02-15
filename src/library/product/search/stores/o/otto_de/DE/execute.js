@@ -5,7 +5,7 @@ module.exports = {
     country: 'DE',
     store: 'otto_de',
     domain: 'otto.de',
-    url: 'https://www.otto.de/suche/{searchTerms}/?l=gq&o=0',
+    url: 'https://www.otto.de/suche/{searchTerms}',
     loadedSelector: 'div[id="san_searchResult"]',
     //loadedSelector: 'div[class="content contentWithSidebar"]',
     noResultsXPath: null,
