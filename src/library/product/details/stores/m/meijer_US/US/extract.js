@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
-    store: 'meijer',
+    store: 'meijer_US',
     transform: cleanUp,
     domain: 'meijer.com',
     zipcode: '',
