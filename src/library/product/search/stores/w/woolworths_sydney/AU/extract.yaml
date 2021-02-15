@@ -35,4 +35,4 @@ fields:
     singleValue: false
   - name: sponsored
     singleValue: false
-    xpath: //div[contains(@class,'product-grid--tile')]//section[@class="shelfProductTile tile has-header"]//div[@class="shelfProductTileOffer"]/p[starts-with(text(),"Save $")]
+    xpath: //div[contains(@class,'product-grid--tile')]//section[@class="shelfProductTile tile has-header"]//div[@class="shelfProductTileOffer"]/p[starts-with(text(),"Save $")] | //div[contains(@class,'product-grid--tile')]//section[@class="shelfProductTile tile"]/div[@class="shelfProductTile-content"]/div[contains(@class,"shelfProductTile-sponsored")]
