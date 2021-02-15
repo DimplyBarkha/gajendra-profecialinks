@@ -1,3 +1,5 @@
+# @format
+
 singleRecord: false
 regionsSelector: null
 recordSelector: null
@@ -63,7 +65,7 @@ fields:
     # //div[contains(@class,'js-storefinderproductdetail')]//input[@name='storeProductId']/@value
   - name: variantCount
     singleValue: false
-    defaultValue: "0"
+    defaultValue: '0'
     type: NUMBER
   - name: specifications
     singleValue: false
@@ -93,7 +95,7 @@ fields:
     xpath: //table[contains(@class,'specification')]//tr//td[text()='Gewicht']//following-sibling::td
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,'productDetailyoutube')]//a[@class='youtube']/@href | //div[@id='ii_videos']
+    xpath: //div[contains(@class,'productDetailyoutube')]//a[@class='youtube']/@href | //div[@id='ii_videos'] | //div[contains(@class,"videoinformation")]/@videolink
   - name: shippingDimensions
     singleValue: false
     xpath: //table[contains(@class,'specification')]//tr//td[text()='Dimensionen B x H x T']//following-sibling::td
