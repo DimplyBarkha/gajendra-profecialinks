@@ -1,3 +1,12 @@
+proxy:
+  zone: GBR
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: LINEAR
+  retryWithResidentialProxyAfter: 1
 robot: product/details
 parameters:
   country: UK
