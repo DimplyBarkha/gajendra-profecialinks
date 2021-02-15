@@ -25,7 +25,7 @@ const transform = (data) => {
           row.description.forEach(item => {
             nDesc[0] = item;
             if (idx > 0) {
-              newDesc = newDesc + '||';
+              newDesc = newDesc + '';
             }
             newDesc = newDesc + item.text;
             idx++;

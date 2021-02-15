@@ -10,7 +10,7 @@ fields:
     regExpReplace: https://www.naszezoo.pl$1
   - name: imageAlt
     singleValue: false
-    xpath: //li[@class="productdetailsminigalleryimgsize"]/a/@title
+    xpath: //li[@class="productdetailsminigalleryimgsize"][position()=1]/a/@href | //div[@class="mainimg"]/a/img/@alt
   - name: alternateImages
     singleValue: false
     # xpath: //a[@class="gallery current"]/@href
@@ -230,7 +230,7 @@ fields:
     description: null
   - name: ingredientsList
     singleValue: false
-    xpath: //strong[contains(text(),"Skład")]/..//../following-sibling::p[1]/text()
+    xpath: //strong[contains(text(),"Skład")]/..//../following-sibling::p[1]/text() | //strong[contains(.,"Skład")]/../following-sibling::p
   - name: servingSize
     singleValue: false
     description: The size of serving Nutritional information is based on.
@@ -411,7 +411,7 @@ fields:
     singleValue: false
   - name: variantInformation
     singleValue: false
-    xpath: m[@class="color"] | (//td[@class="basket"]//label[@class="label"])[1]/text()
+    # xpath: m[@class="color"] | (//td[@class="basket"]//label[@class="label"])[1]/text()
   - name: firstVariant
     singleValue: false
     xpath: td select option[value]
@@ -465,4 +465,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
