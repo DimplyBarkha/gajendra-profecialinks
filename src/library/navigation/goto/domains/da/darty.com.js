@@ -103,8 +103,8 @@ module.exports = {
           console.log('no captcha encountered');
         }
         await context.waitForSelector('#produit > div.product_head', { timeout: 60000 });
-        await printCaptchaStatus();
       } catch (error) {
+        await printCaptchaStatus();
         console.log('error: ', error);
         return gotoPage(retries - 1);
       }
