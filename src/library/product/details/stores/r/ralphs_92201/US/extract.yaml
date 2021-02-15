@@ -43,7 +43,8 @@ fields:
     singleValue: false
   - name: image
     singleValue: false
-    xpath: //head/meta[@name='og:image']/@content   
+    xpath: //div[contains(@class, "ProductImages")]/div//img/@src
+      # //head/meta[@name='og:image']/@content   
   - name: alternateImages
     singleValue: false
     # xpath: //div[contains(@aria-label,'Perspective')]/div/div//div/img/@data-src
@@ -51,9 +52,10 @@ fields:
     xpath: //div[contains(@id, "my-sec-img-")]
   - name: imageAlt
     singleValue: false
-    xpath: //img[@class='ProductImages-image']/@alt 
-    regExp: >-
-      .+?(?= Perspective)
+    xpath: //div[contains(@class, "ProductImages")]/div//img/@alt
+      # //img[@class='ProductImages-image']/@alt 
+    # regExp: >-
+    #   .+?(?= Perspective)
   - name: name
     singleValue: false
     xpath: //h1[@class='ProductDetails-header']

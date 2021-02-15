@@ -118,21 +118,31 @@ module.exports = {
       const pickupPrice = document.getElementsByClassName('flex flex-col items-end')[0];
   
       if (pickupPrice !== undefined) {
-        const pickupPriceText = pickupPrice.textContent;
-  
-        if (pickupPriceText.includes('discount')) {
-          const firstDIndex = pickupPriceText.indexOf('d');
-          price.textContent = pickupPriceText.slice(0, firstDIndex);
-  
-          const mIndex = pickupPriceText.indexOf('m');
-          listPrice.textContent = pickupPriceText.slice(mIndex + 1);
-        } else {
-          price.textContent = pickupPriceText;
-          // listPrice.textContent = pickupPriceText;
+        const priceSelect = pickupPrice.querySelector('data.kds-Price--alternate');
+        if (priceSelect) {
+          const onlinePrice = priceSelect.getAttribute('value');
+          const priceText = `$${onlinePrice}`;
+          price.textContent = priceText;
         }
-      } else {
-        price.textContent = 'Product Unavailable';
-        listPrice.textContent = 'Product Unavailable';
+        const listPriceSel = pickupPrice.querySelector('s.kds-Price-original');
+        if (listPriceSel) {
+          listPrice.textContent = listPriceSel.textContent;
+        }
+      //   const pickupPriceText = pickupPrice.textContent;
+  
+      //   if (pickupPriceText.includes('discount')) {
+      //     const firstDIndex = pickupPriceText.indexOf('d');
+      //     price.textContent = pickupPriceText.slice(0, firstDIndex);
+  
+      //     const mIndex = pickupPriceText.indexOf('m');
+      //     listPrice.textContent = pickupPriceText.slice(mIndex + 1);
+      //   } else {
+      //     price.textContent = pickupPriceText;
+      //     // listPrice.textContent = pickupPriceText;
+      //   }
+      // } else {
+      //   price.textContent = 'Product Unavailable';
+      //   listPrice.textContent = 'Product Unavailable';
       }
       document.body.append(price);
       document.body.append(listPrice);

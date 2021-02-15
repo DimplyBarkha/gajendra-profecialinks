@@ -15,7 +15,7 @@ async function implementation (
 
   const findButtonWithStoreSelect = async () => {
     await context.evaluate(function () {
-      const mystore = document.querySelector('button[aria-label*="Change Store"]');
+      const mystore = document.querySelector('button[data-testid="ModalityOption-Button-PICKUP"]'); //Change Store
       if (mystore) mystore.click();
     });
   };
@@ -29,7 +29,7 @@ async function implementation (
 
   const findClosestStore = async () => {
     await context.evaluate(function () {
-      const mystore = document.querySelector('div.ModalitySelector--StoreSearchResult:nth-of-type(1) div.StoreSearchResults-StartButton');
+      const mystore = document.querySelector('div.ModalitySelector--StoreSearchResult:nth-of-type(1) div.StoreSearchResults-StartButton button');
       if (mystore) mystore.click();
     });
 
@@ -86,8 +86,8 @@ async function implementation (
   const currentZip = await getCurrentZip();
   console.log(`Want zip: ${zipcode}, got zip: ${currentZip}`);
   
-  // if (currentZip !== "Citrus Plaza") {
-  if (currentZip !== zipcode) {
+  if (currentZip !== "Citrus Plaza") {
+  // if (currentZip !== zipcode) {
     console.log('Trying to change zip');
     await changeZip(zipcode);
   }
