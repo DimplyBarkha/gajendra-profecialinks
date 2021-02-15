@@ -11,39 +11,21 @@ module.exports = {
   // For navigating from home page to search page because search page is redirecting to home page.
   implementation: async (inputs, parameterValues, context, dependencies) => {
     const url = `${inputs.url}`;
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
     await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
-    // Functionality deployed for search extractor
     const LogoutBtn = await context.evaluate(async () => {
       return document.querySelector('a.logout-btn');
     });
-    // if (!LogoutBtn) {
-    //   await context.waitForSelector('input#CustomerNumber');
-    //   await context.setInputValue('input#CustomerNumber', '703636209');
-    //   await context.click('input#CustomerNumber+button');
-    //   await context.waitForSelector('form[action="/login"]');
-    //   await context.setInputValue('input#Email', 'russell.kirkham@unilever.com');
-    //   await context.setInputValue('input#Password', 'george');
-    //   await context.click('button.login-btn');
-    //   await context.waitForSelector('div#navbarMenuItems');
-    //   await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
-    // }
-    // Functionality deployed for core extractor
-    const branchLocator = await context.evaluate(async () => {
-      return document.querySelector('header#shopping-header-desktop a[href*=branch]');
-    });
-    if (!branchLocator && !LogoutBtn) {
-      await context.waitForSelector('input#postcode');
-      await context.setInputValue('input#postcode', 'SY23 3JQ');
-      await context.click('div#logo-and-login+nav div#postcode-input button.btn-branch-search');
-      await context.waitForSelector('main#booker_branch_locator');
-      await context.click('a.distance.view-branch');
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      await context.goto('https://www.booker.co.uk/products/categories', { timeout: 50000, waitUntil: 'load', checkBlocked: true });
-      // await context.waitForSelector('main#booker_branch_locator');
-      // await context.click('a[href*=categories]');
-      // await new Promise((resolve) => setTimeout(resolve, 1000));
+    if (!LogoutBtn) {
+      await context.waitForSelector('div#logo-and-login input#CustomerNumber');
+      await context.setInputValue('div#logo-and-login input#CustomerNumber', '726881789');
+      await context.click('div#logo-and-login input#CustomerNumber+button');
+      await context.waitForSelector('form[action="/login"]');
+      await context.setInputValue('input#Email', 'chris.wood@uk.nestle.com');
+      await context.setInputValue('input#Password', 'B1ffB1ff');
+      await context.click('button.login-btn');
       await context.waitForSelector('div#navbarMenuItems');
-      await context.goto(url, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+      await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
     }
   },
 };

@@ -2,7 +2,7 @@ input:
   id: "237197"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9fce36d7-b7fe-47e8-b782-82868d92dc6b/task=a8bed0a9-a513-4a3f-a9cc-109395fd4096/7e4bb3ff-74d8-46bc-b5d7-4f20046f9813.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=7ae58cde-0e54-4999-98b7-45f67dd1f9a3/task=45421dbd-de0c-4739-b97d-06acdb396018/c19dfc85-c9e6-4c82-af7d-02d81cc2217a.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -12,6 +12,9 @@ extractions:
             nameExtended:
               - text: Aptamil 2 Follow On Baby Milk Formula 6-12 Months 800g
                 xpath: /html/body/main[1]/div[2]/div[2]/h4[1]
+            price:
+              - text: £10.75
+                xpath: /html/body/main[1]/div[2]/div[2]/div[2]/div[1]/div[2]/p[1]
             description:
               - text: Follow On Milk, with a 28% fermented dairy-based blend
                 xpath: /html/body/main[1]/div[2]/div[2]/div[5]/p[1]
@@ -131,70 +134,73 @@ extractions:
                 xpath: /html/body/main[1]/div[3]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/p[2]
             productUrl:
               - text: https://www.booker.co.uk/products/product%20detail?Code=237197&returnUrl=http%3a%2f%2fwww.booker.co.uk%2fproducts%2fproduct-list%3fkeywords%3d237197
-                xpath: /html/body/div[2]
+                xpath: /html/body/div[3]
             metaKeywords:
               - text: booker wholesale,wholesale uk,wholesaler,foodservice,food wholesaler
-                xpath: /html/body/div[3]
+                xpath: /html/body/div[4]
             availabilityText:
               - text: Out of Stock
-                xpath: /html/body/div[4]
+                xpath: /html/body/div[5]
             termsAndConditions:
               - text: Yes
-                xpath: /html/body/div[5]
+                xpath: /html/body/div[6]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[7]
             allergyAdvice:
               - text: Contains Fish, Contains Milk, Contains Soya
-                xpath: /html/body/div[7]
+                xpath: /html/body/div[8]
             caloriesPerServing:
               - text: 285kJ
-                xpath: /html/body/div[8]
+                xpath: /html/body/div[9]
             saturatedFatPerServing:
               - text: "1.4"
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[11]
             saturatedFatPerServingUom:
               - text: g
-                xpath: /html/body/div[10]
+                xpath: /html/body/div[11]
             sodiumPerServing:
               - text: "23.0"
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[12]
             sodiumPerServingUom:
               - text: mg
-                xpath: /html/body/div[11]
+                xpath: /html/body/div[12]
             totalCarbPerServing:
               - text: "0.2"
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             totalCarbPerServingUom:
               - text: g
-                xpath: /html/body/div[12]
+                xpath: /html/body/div[13]
             dietaryFibrePerServing:
               - text: "0.6"
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[14]
             dietaryFibrePerServingUom:
               - text: g
-                xpath: /html/body/div[13]
+                xpath: /html/body/div[14]
             totalSugarsPerServing:
               - text: "8.1"
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[15]
             totalSugarsPerServingUom:
               - text: g
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[15]
             proteinPerServing:
               - text: "1.4"
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[16]
             proteinPerServingUom:
               - text: g
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[16]
             calciumPerServing:
               - text: "73"
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[17]
             calciumPerServingUom:
               - text: mg
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[17]
             magnesiumPerServing:
               - text: "7.1"
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[19]
             magnesiumPerServingUom:
               - text: mg
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[19]
             variantCount:
               - text: "0"
             technicalInformationPdfPresent:
@@ -206,4 +212,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
         xpath: /html/body
-    timestamp: 1612871407554
+    timestamp: 1613381243373

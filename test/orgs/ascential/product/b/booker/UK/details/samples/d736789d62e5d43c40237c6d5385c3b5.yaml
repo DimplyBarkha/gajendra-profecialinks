@@ -2,7 +2,7 @@ input:
   id: "256795"
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9fce36d7-b7fe-47e8-b782-82868d92dc6b/task=e0de0a9b-fb88-42b9-8cd1-fc0a155aaef5/0a88a9ba-6de7-4245-8c3f-955c29f5d8c9.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=7ae58cde-0e54-4999-98b7-45f67dd1f9a3/task=b305b3d9-048d-47aa-944a-3a900868d2c1/984c4bee-93c8-48ab-915c-7e4e772507fe.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -102,6 +102,9 @@ extractions:
             termsAndConditions:
               - text: Yes
                 xpath: /html/body/div[6]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[7]
             caloriesPerServing:
               - text: 1489kJ
                 xpath: /html/body/div[9]
@@ -152,4 +155,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
         xpath: /html/body
-    timestamp: 1612871426387
+    timestamp: 1613381207937

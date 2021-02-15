@@ -2,7 +2,7 @@ input:
   id: 123$32&
   _url: http://booker.co.uk
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9fce36d7-b7fe-47e8-b782-82868d92dc6b/task=2b7f985d-1725-4d05-b1dc-5605d07071e9/d42749f3-262a-4d57-a563-f7f346ee9803.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=7ae58cde-0e54-4999-98b7-45f67dd1f9a3/task=67ae9118-20a0-4f24-989b-36675e7ef18e/60c9476f-8962-4ff1-8b53-e2c5a13f03dd.html
     extractionConfigId: product/details/stores/b/booker/UK/extract
     data:
       - group:
@@ -81,6 +81,9 @@ extractions:
             termsAndConditions:
               - text: Yes
                 xpath: /html/body/div[6]
+            privacyPolicy:
+              - text: Yes
+                xpath: /html/body/div[7]
             variantCount:
               - text: "0"
             technicalInformationPdfPresent:
@@ -92,4 +95,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: Yes
         xpath: /html/body
-    timestamp: 1612871438771
+    timestamp: 1613381205638
