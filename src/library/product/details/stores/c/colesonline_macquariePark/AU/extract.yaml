@@ -36,7 +36,7 @@ fields:
       should be "In Stock"
   - name: description
     singleValue: false
-    xpath: //meta[contains(@name,'description')]/@content
+    xpath: //body[.//div[contains(@class,"long-desc-container")]]//meta[contains(@name,'description')]/@content
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets

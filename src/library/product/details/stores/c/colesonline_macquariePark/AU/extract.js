@@ -76,7 +76,7 @@ async function implementation (
     if (script) {
       const avail = script.offers && script.offers.availability ? script.offers.availability : '';
       avail.includes('InStock') && addHiddenDiv('ii_avail', 'In Stock');
-      !avail.includes('InStock') && addHiddenDiv('ii_avail', 'Out of Stock');
+      !avail.includes('InStock') && addHiddenDiv('ii_avail', 'Out of stock');
       const sku = script.sku ? script.sku : '';
       addHiddenDiv('ii_sku', sku);
       const variantId = findXpath("//li[contains(.,'Code:')]//span[contains(@class,'accessibility')]");
