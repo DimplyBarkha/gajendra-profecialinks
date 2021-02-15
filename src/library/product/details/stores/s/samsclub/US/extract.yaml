@@ -40,7 +40,7 @@ fields:
     xpath: //div[@class="main-wrapper"]//div[@class="sc-pc-large-desktop-layout"]/meta[@itemprop="brand"]/@content | //meta[@itemprop="brand"]/@content
   - name: sku
     # xpath: substring-after(//span[contains(@class, 'item-number')][last()],'# ') | //meta[@itemprop="mpn"]/@content
-    xpath: //meta[@itemprop="mpn"]/@content
+    xpath: //meta[@itemprop="sku"]/@content
   - name: variantId
     xpath: //div[@class="sc-product-header"]//div[@class="sc-product-header-item-number"]
     regExp: (\d+)
@@ -67,7 +67,7 @@ fields:
   - name: secondaryImageTotal
     xpath: count(//div[@class="slider-frame"]//ul[@class="slider-list"]/li[position()>1]//img/@src)
   - name: specifications
-    xpath: //div[@id="policies-link"]//div[@class="sc-manufacturing-element"]/h4[text()='Specifications']/following-sibling::div[1]/ul/li | //h4[text()='Specifications']/following-sibling::div[1]//p
+    xpath: //div[@id="policies-link"]//div[@class="sc-manufacturing-element"]/h4[contains(.,'Specifications')]/following-sibling::div[1]//li | //h4[contains(.,'Specifications')]/following-sibling::div[1]//p
   - name: warranty
     xpath: //div[@id="policies-link"]//div[@class="sc-manufacturing-element"]/h4[text()='Warranty']/following-sibling::div
   - name: countryOfOrigin
@@ -96,3 +96,11 @@ fields:
     regExpReplace: $2
   - name: productUrl
     xpath: //link[@rel="canonical"]/@href | //meta[@property="og:url"]/@content
+  - name: quantity
+    xpath: //div[contains(@class,"sc-manufacturing-element")]//li[contains(.,"Size:")][not(contains(.," Size"))]
+    regExp: (:)(.+)
+    regExpReplace: $2
+  - name: weightNet
+    xpath: //li[contains(.,"Net weight:")]
+    regExp: (:)(.+)
+    regExpReplace: $2
