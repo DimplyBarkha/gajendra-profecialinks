@@ -5,8 +5,8 @@ module.exports = {
     country: 'UK',
     store: 'asos',
     domain: 'asos.com',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: '.gallery-aside-wrapper img',
+    noResultsXPath: '//script[contains(@src,"homepage")] | //p[@class="title-message"][contains(.,"can\'t find that page")]',
     zipcode: '',
   },
 };

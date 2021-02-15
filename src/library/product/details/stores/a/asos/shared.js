@@ -16,6 +16,17 @@ const cleanUp = (data, context) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   for (const { group } of data) {
     for (const row of group) {
+      if (row.image) {
+        let text = row.image[0].text;
+        text = text.split('?')[0];
+        row.image = [{ text }];
+      }
+      if (row.alternateImages) {
+        row.alternateImages.forEach(item => {
+          item.text = item.text.split('?')[0];
+        });
+      }
+
       if (row.image && row.defaultImage) {
         if (row.image[0].text === 'undefined') {
           row.image[0].text = row.defaultImage[0].text;
@@ -36,13 +47,9 @@ const cleanUp = (data, context) => {
           } else {
             text += ` ${element.text}`;
           }
+          text = text.replace('SHOW MORE SHOW LESS', '');
         });
         row.description = [{ text: text.trim() }];
-      }
-      if (row.variants) {
-        let text = '';
-        text = row.variants.map((element) => element.text.trim()).join(' | ');
-        row.variants = [{ text }];
       }
       if (row.quantity) {
         if (row.quantity[0].text.includes('Not available')) {
