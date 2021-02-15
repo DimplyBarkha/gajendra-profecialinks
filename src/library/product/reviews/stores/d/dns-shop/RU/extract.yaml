@@ -17,7 +17,7 @@ fields:
     xpath: ancestor::html//div[contains(@class, 'brand-logo')]//img/@alt
   - name: name
     description: The product name
-    xpath: ancestor::html//h1[contains(@class, "page-title price-item-title")]
+    xpath: ancestor::html//h1[contains(@class, "page-title")]
   - name: sku
     description: The store-specific product identifier
     xpath: ancestor::html//span[contains(@data-product-param, 'code')]
