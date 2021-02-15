@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'waitrose',
     domain: 'waitrose.com',
-    loadedSelector: 'div.bv-control-bar',
+    loadedSelector: 'section[class="productDetailContainer___1TUHx"]',
     noResultsXPath: '//a[contains(@class,"bv-write-review-label")]',
     reviewUrl: null,
     sortButtonSelectors: null,
