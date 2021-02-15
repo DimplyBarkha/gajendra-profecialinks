@@ -114,7 +114,7 @@ fields:
 - name: directions
   singleValue: true
   description: Content under "directions" header
-  xpath: //div[@id="directions-from-text-nodes"] | //div[@id="directions-from-headers"]
+  xpath: //table[@class="table table-striped product-page-specifications"]//td[.="Utilizare"]/following-sibling::td | //div[@id="directions-from-text-nodes"] | //div[@id="directions-from-headers"]
 - name: warnings
   singleValue: true
   description: Content under "warnings" header
@@ -161,7 +161,7 @@ fields:
   description: Images within the third party description
   xpath: //div[@id="description-body"]//img//@data-src
 - name: videos
-  singleValue: true
+  singleValue: false
   description: URLs of videos on page
   xpath: //div[@id="description-body"]//video/source/@src | //*[@data-ph-id="video"][not(//div[@id="description-body"]//video/source/@src)]/a/@data-videos
 - name: name
@@ -405,6 +405,7 @@ fields:
 - name: specifications
   singleValue: true
   description: The physical dimensions of the product including packaging.
+  xpath: //div[@id="specifications"]
 - name: warranty
   singleValue: true
   description: Guarantee associated with the product
@@ -423,7 +424,6 @@ fields:
 - name: productOtherInformation
   singleValue: false
   description: Any other product information
-  xpath: //div[@id="other-info"]
 - name: packaging
   singleValue: true
   description: Packaging information
@@ -520,4 +520,4 @@ fields:
   singleValue: true
   description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
   example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-  defaultValue: Yes
+  defaultValue: No

@@ -32,53 +32,34 @@ module.exports = {
       }
       // select each text node in description section and replace signs which are indicating that text is bullet point to double pipes
       function changeTextBulletPointsToDoublePipes (xpath) {
+        let indexOfLastBullet;
         const descriptionTextNodes = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         for (let i = 0; i < descriptionTextNodes.snapshotLength; i++) {
           descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*?(•|-|\d\.|✓)/gm, 'SPACEHERE||SPACEHERE');
           if ((/^\s*(•|-|\*|\d\.|✓)\s*$/).test(descriptionTextNodes.snapshotItem(i).textContent)) {
             descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*(•|-|\d\.|✓)\s*$/, 'SPACEHERE||SPACEHERE');
           }
+          if (descriptionTextNodes.snapshotItem(i).textContent.includes('||')) {
+            indexOfLastBullet = i;
+          }
+        }
+        if (/^(SPACEHERE\|\|SPACEHERE)\s$/.test(descriptionTextNodes.snapshotItem(indexOfLastBullet).textContent)) {
+          descriptionTextNodes.snapshotItem(descriptionTextNodes.snapshotLength - 1).textContent += ' |';
+        } else {
+          descriptionTextNodes.snapshotItem(indexOfLastBullet).textContent += ' |';
         }
       }
       // appending double pipes to each li tag in description SPACEHERE placeholder must be appended because spaces at the start of each textNode are beeing omitted durring extraction
       function changeLiBulletsPointsToDoublePipes (selector) {
         const bulletTextElements = document.querySelectorAll(selector);
         if (bulletTextElements) {
-          bulletTextElements.forEach(el => {
-            el.textContent = ` || ${el.textContent}`;
+          bulletTextElements.forEach((el, index, array) => {
+            el.textContent = `SPACEHERE|| ${el.textContent}`;
+            if (index === array.length - 1) {
+              el.textContent += ' |';
+            }
             addElementToDocument('bullet', el.textContent);
           });
-        }
-      }
-      changeTextBulletPointsToDoublePipes('//div[@id="description-body"]//*[not(contains(@class,"plyr"))]/text()[not(.="0")] | //div[@id="description-body"]/text()');
-      changeLiBulletsPointsToDoublePipes('div#description-body li');
-      addElementToDocument('url', window.location.href);
-
-      const otherInfo = document.evaluate('//p[contains(.,"Caracteristici generale")]/following-sibling::div[@class="table-responsive"]//tbody/tr', document, null, XPathResult.ANY_TYPE, null);
-      const nodes = [];
-      let node;
-      node = otherInfo.iterateNext();
-      while (node) {
-        nodes.push(node);
-        node = otherInfo.iterateNext();
-      }
-      if (nodes.length > 0) {
-        let text = '';
-        nodes.forEach(info => {
-          text += `${info.textContent.trim()} || `;
-        });
-        text = text.slice(0, -3);
-        addElementToDocument('other-info', text);
-      }
-
-      const price = document.querySelector('div.product-highlights-wrapper p.product-new-price');
-      if (price) {
-        price.querySelector('sup').textContent = `,${price.querySelector('sup').textContent}`;
-        addElementToDocument('price', price.textContent.replace(/\./g, '').match(/\d.+/)[0]);
-      } else {
-        const priceFromScript = document.evaluate('//script[contains(.,"offer_id")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
-        if (priceFromScript && /price: {"current":(.+?),/.test(priceFromScript)) {
-          addElementToDocument('price', priceFromScript.match(/price: {"current":(.+?),/)[1].replace(/\./g, ',') + ' Lei');
         }
       }
 
@@ -109,12 +90,12 @@ module.exports = {
       };
 
       /** Function used to extract all paragraph's text starting with on of given phrases. We find textNode with one of given phrases in given node and then we move to its parent. Doing that we made sure that
-       * we are selecting correct element which contains textNode childrens with desired data. Function stops if appeding data to created Div if we encounter given nodeName for given times in a row
-     * @param {object} node Node in which we want to look for specific textNode
-     * @param {Array} textArray List of paragraph's texts that we whish to find in given node
-     * @param {String} nodeNameToStop Node name which we want to count in each iteration
-     * @param {Number} stopCounter Number indicating needed quantity of encounters for given nodeName in rows to stop iterating over textNodes
-     */
+     * we are selecting correct element which contains textNode childrens with desired data. Function stops appeding data to created Div if we encounter given nodeName for given times in a row
+   * @param {object} node Node in which we want to look for specific textNode
+   * @param {Array} textArray List of paragraph's texts that we whish to find in given node
+   * @param {String} nodeNameToStop Node name which we want to count in each iteration
+   * @param {Number} stopCounter Number indicating needed quantity of encounters for given nodeName in rows to stop iterating over textNodes
+   */
       const addFollowingParagraphs = (key, node, textArray, nodeNameToStop, stopCounter) => {
         if (node === null) {
           return;
@@ -156,6 +137,38 @@ module.exports = {
       const allowedHeadersArray = ['Instructiuni folosire', 'Instructiuni ingrijire', 'Utilizare', 'Instructiuni utilizare', 'Mod de utilizare', 'Instructiuni de preparare:', 'Mod de preparare:'];
       addFollowingHeadersParagraphs('directions-from-headers', headerContainingElement, allowedHeadersArray);
       addFollowingParagraphs('directions-from-text-nodes', descriptionElement, allowedHeadersArray, 'BR', 2);
+
+      changeTextBulletPointsToDoublePipes('//div[@id="description-body"]//*[not(contains(@class,"plyr"))]/text()[not(.="0")] | //div[@id="description-body"]/text()');
+      changeLiBulletsPointsToDoublePipes('div#description-body li');
+      addElementToDocument('url', window.location.href);
+
+      const otherInfo = document.evaluate('//p[contains(.,"Caracteristici generale")]/following-sibling::div[@class="table-responsive"]//tbody/tr', document, null, XPathResult.ANY_TYPE, null);
+      const nodes = [];
+      let node;
+      node = otherInfo.iterateNext();
+      while (node) {
+        nodes.push(node);
+        node = otherInfo.iterateNext();
+      }
+      if (nodes.length > 0) {
+        let text = '';
+        nodes.forEach(info => {
+          text += `${info.textContent.trim()} || `;
+        });
+        text = text.slice(0, -3);
+        addElementToDocument('specifications', text);
+      }
+
+      const price = document.querySelector('div.product-highlights-wrapper p.product-new-price');
+      if (price) {
+        price.querySelector('sup').textContent = `,${price.querySelector('sup').textContent}`;
+        addElementToDocument('price', price.textContent.replace(/\./g, '').match(/\d.+/)[0]);
+      } else {
+        const priceFromScript = document.evaluate('//script[contains(.,"offer_id")]', document, null, XPathResult.STRING_TYPE, null).stringValue;
+        if (priceFromScript && /price: {"current":(.+?),/.test(priceFromScript)) {
+          addElementToDocument('price', priceFromScript.match(/price: {"current":(.+?),/)[1].replace(/\./g, ',') + ' Lei');
+        }
+      }
     });
 
     const dataRef = await context.extract(productDetails, { transform });
@@ -189,6 +202,11 @@ module.exports = {
       dataRef[0].group[0].descriptionBullets = [{
         text: dataRef[0].group[0].description[0].text.match(/\|\|/gm).length,
       }];
+      if (/(\|\|.+)\|/.test(dataRef[0].group[0].description[0].text)) {
+        dataRef[0].group[0].additionalDescBulletInfo = [{
+          text: dataRef[0].group[0].description[0].text.match(/(\|\|.+)\|/)[1],
+        }];
+      }
     }
 
     if (dataRef[0].group[0].aggregateRating) {
@@ -210,6 +228,9 @@ module.exports = {
     if (dataRef[0].group[0].manufacturerDescription) {
       dataRef[0].group[0].manufacturerDescription[0].text = dataRef[0].group[0].manufacturerDescription[0].text.replace(/SPACEHERE\|\|SPACEHERE /g, '');
       dataRef[0].group[0].manufacturerDescription[0].text = dataRef[0].group[0].manufacturerDescription[0].text.replace(/\|\|/g, '');
+    }
+    if (dataRef[0].group[0].manufacturerImages) {
+      dataRef[0].group[0].manufacturerImages = dataRef[0].group[0].manufacturerImages.filter((v, i, a) => a.findIndex(t => (t.text === v.text)) === i);
     }
     if (dataRef[0].group[0].price) {
       if (/oferte/.test(dataRef[0].group[0].price[0].text)) {
