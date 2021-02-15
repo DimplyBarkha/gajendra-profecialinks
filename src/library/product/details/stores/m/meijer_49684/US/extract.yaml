@@ -36,16 +36,16 @@ fields:
     description: The stated undiscounted price for the product
   - name: price
     singleValue: true
-    #xpath: //div[@class="display-price"]//span/text()| //div[@class="display-price sale-price"]/text()
-<<<<<<< HEAD
-    #xpath: //html//div[@id="price"]
-=======
-    xpath: //div[contains(@class, "display-price")]
-    regExp: \$.+\d
-      # (.+\d)
-      # //html//div[@id="price"]
->>>>>>> b845e79c1139d191b9879758f7c0b12695242b75
-    # xpath: //div[@class="display-price"]
+#     #xpath: //div[@class="display-price"]//span/text()| //div[@class="display-price sale-price"]/text()
+# <<<<<<< HEAD
+#     #xpath: //html//div[@id="price"]
+# =======
+#     xpath: //div[contains(@class, "display-price")]
+#     regExp: \$.+\d
+#       # (.+\d)
+#       # //html//div[@id="price"]
+# >>>>>>> b845e79c1139d191b9879758f7c0b12695242b75
+#     # xpath: //div[@class="display-price"]
     selector: div[class*="display-price"]
     type: CURRENCY
   - name: availabilityText
