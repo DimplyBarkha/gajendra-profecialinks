@@ -111,7 +111,10 @@ fields:
     xpath: (//td[contains(.,"Цвет")]/following::td[1]//text())[1]
   - name: weightNet
     singleValue: false
-    xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Вес без упаковки (нетто), кг:']//parent::div//following-sibling::div
+    xpath: normalize-space(//td[contains(.,"Вес без упаковки (нетто)")]/following-sibling::td//text() | //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Вес без упаковки (нетто), кг:']//parent::div//following-sibling::div)
+  - name: weightGross
+    singleValue: false 
+    xpath: normalize-space(//td[contains(.,"Вес в упаковке (брутто)")]/following-sibling::td//text())
   - name: videos
     singleValue: false
     # xpath: //div[@class="ytp-title-text"]/a/@href
@@ -119,10 +122,13 @@ fields:
     xpath: //div[@class="q-video"]//iframe[contains(@src,'youtube')]/@src
   - name: shippingDimensions
     singleValue: false
-    xpath: //td[contains(.,"Габариты устройства (ВхШхГ), см")]/following::td[1]
+    xpath: //td[contains(.,"Габариты устройства (ВхШхГ)")]/following::td[1]
   - name: energyEfficiency
     singleValue: false
     xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Класс энергопотребления:']//parent::div//following-sibling::div
   - name: materials
     singleValue: false
     xpath: //div[contains(@class,'aa_dt_p')]//span[normalize-space()='Материал:']//parent::div//following-sibling::div
+  - name: color
+    singleValue: false
+    xpath: normalize-space(//table[@class="full-width"]//td[contains(.,"Цвет")]/following-sibling::td//text())
