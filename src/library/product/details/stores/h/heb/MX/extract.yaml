@@ -49,4 +49,7 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //html//div[@id='ingrediants']|//div[contains(@id,'ingredients')]
+  - name: promotion
+    singleValue: false
+    xpath: (//div[@class='product-discount-wrapper'])/span[1]
   
