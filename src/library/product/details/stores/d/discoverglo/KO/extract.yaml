@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: brandText
     defaultValue: Glo
-  - name: colour
+  - name: color
     xpath: //ul[@class="colorset"]/li/button/@data_color
   - name: flavour
   - name: image
@@ -22,3 +22,5 @@ fields:
   - name: pageOffset
   - name: sku
     xpath: //ul[@class="colorset"]/li[1]/button/@data_sku
+  - name: name
+    xpath: //article[@class='main-info']/h2
