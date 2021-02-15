@@ -1,7 +1,8 @@
-const implementation = async ({ id },
-    parameters,
-    context,
-    dependencies,
+const implementation = async (
+  { id },
+  parameters,
+  context,
+  dependencies,
 ) => {
   const optionalWaitForSelector = async (selector, timeout = 35000) => {
     try {
@@ -123,38 +124,13 @@ const implementation = async ({ id },
       return intheboxText;
     });
 
-                for (let i = 0; i < dataLength; i++) {
-                    const bRow = document.createElement('tr');
-                    for (let j = 0; j < col.length; j++) {
-                        const td = document.createElement('td');
-                        table.style.padding = '5px';
-                        table.style.margin = '5px auto';
-                        td.setAttribute('class', col[j]);
-                        if (
-                            jsonData[i][col[j]] &&
-                            (jsonData[i][col[j]] !== 'null' ||
-                                jsonData[i][col[j]] !== 'undefined')
-                        ) {
-                            if (typeof jsonData[i][col[j]] === 'object') {
-                                if (Array.isArray(jsonData[i][col[j]])) {
-                                    const table = generateDynamicTable(jsonData[i][col[j]]);
-                                    table && td.append(table);
-                                } else {
-                                    const table = generateDynamicTable([jsonData[i][col[j]]]);
-                                    table && td.append(table);
-                                }
-                            } else {
-                                td.innerHTML = jsonData[i][col[j]];
-                            }
-                        }
-                        bRow.appendChild(td);
-                        bRow.style.padding = '5px';
-                    }
-                    tBody.appendChild(bRow);
-                }
-                table.appendChild(tBody);
-                return table;
-            }
+    const desc = await context.evaluate(() => {
+      const src = document.querySelectorAll('h1,h2,h3,h4,p,div.eky-accessory>div');
+      const value = [];
+      retrieve(src);
+      function retrieve (src) {
+        for (let i = 0; i < src.length; i++) {
+          value.push(src[i].innerText);
         }
       }
       return value;
@@ -234,63 +210,33 @@ const implementation = async ({ id },
       console.log('error productDigitalData: ', error);
     }
 
-        const table = generateDynamicTable(jsonData);
-        const container = document.createElement('div');
-        container.setAttribute('id', 'added-table');
-        container.setAttribute('style', 'height: 1000px;width: 100%;overflow:auto;float: left;position: relative;margin-left: -5px;');
-        container.innerHTML = '';
-        container.appendChild(table);
-        document.querySelector(appendSelector).append(container);
-    }
+    const addElement = (id, content) => {
+      const packagingElem = document.createElement('div');
 
+      packagingElem.id = id;
+      packagingElem.innerText = content;
 
-    async function getApiData() {
-        const productId = window.location.pathname.match(/([^-]+)-pdt.html/)[1];
-        const domain = window.location.hostname.replace(/www./, '');
-        const API = `https://api.${domain}/store/api/products/${productId}`;
-        const res = await fetch(API);
-        const json = await res.json();
-        return json;
-    }
-    const apiData = await context.evaluate(getApiData);
-    await context.evaluate(addDynamicTable, apiData.payload, '#footer');
-    const optionalWaitForSelector = async (selector, timeout = 35000) => {
-        try {
-            await context.waitForSelector(selector, { timeout });
-            console.log(`${selector} loaded.`);
-            return true;
-        } catch (err) {
-            console.log(`${selector} never loaded.`);
-            return false;
-        }
+      document.body.appendChild(packagingElem);
     };
 
-    await optionalWaitForSelector('#flix-comp');
-    await optionalWaitForSelector('.shopList .product');
+    const makeApiCall = async (url, options) => {
+      try {
+        console.log(`Making API call to => ${url}`);
+        if (!options) {
+          options = {
+            mode: 'no-cors',
+            credentials: 'same-origin',
+            headers: { 'Content-Type': 'application/json' },
+          };
 
-    const readMore = await optionalWaitForSelector('div[data-open-label="Read more"] ~ .long-text-ctl a');
-
-    if (readMore) {
-        await context.click('div[data-open-label="Read more"] ~ .long-text-ctl a');
-        const readMore = await context.evaluate(() => {
-            return document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a') && document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a').innerText === 'Read more';
-        });
-        if (readMore) {
-            await context.evaluate(async () => {
-                document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a').click();
-                const delay = t => new Promise(resolve => setTimeout(resolve, t));
-                console.log('clicked on read more waiting for 10 sec ');
-                await delay(10000);
-            });
+          return await (await fetch(url, options)).json();
         }
-    }
 
-    const checkExistance = async (selector) => {
-        return await context.evaluate(async (currentSelector) => {
-            return await Boolean(document.querySelector(currentSelector));
-        }, selector);
+        return await (await fetch(url, options)).text();
+      } catch (err) {
+        console.log('Error while making API call.', err);
+      }
     };
-    const delay = t => new Promise(resolve => setTimeout(resolve, t));
 
     const buildDescription = () => {
       const article = document.querySelector('#product-info article');
@@ -305,13 +251,9 @@ const implementation = async ({ id },
         });
       }
 
-            function retrieve(src) {
-                for (let i = 0; i < src.length; i++) {
-                    value.push(src[i].currentSrc);
-                }
-            }
-            return value;
-        });
+      text += article ? ` ${article.textContent.trim()}` : '';
+      return text.trim();
+    };
 
     const getSpecification = () => {
       const tbodys = document.querySelectorAll('div#tab2 tbody');
@@ -334,127 +276,59 @@ const implementation = async ({ id },
         });
       } else { console.log('!!!!!!!!!Tbody: Empty!!!!!!!'); }
 
-            function retrieve(src) {
-                for (let i = 0; i < src.length; i++) {
-                    value.push(src[i].currentSrc);
-                }
-            }
-            return value;
-        });
+      return content;
+    };
+    addElement('specification', getSpecification());
 
-        const desc = await context.evaluate(() => {
-            const src = document.querySelectorAll('h1,h2,h3,h4,p,div.eky-accessory>div');
-            const value = [];
-            retrieve(src);
+    const isSelectorPresent = (sel) => {
+      return Boolean(document.querySelector(sel));
+    };
 
-            function retrieve(src) {
-                for (let i = 0; i < src.length; i++) {
-                    value.push(src[i].innerText);
-                }
-            }
-            return value;
-        });
-        await context.goto(currentUrl, { timeout: 50000, waitUntil: 'load', checkBlocked: true });
+    const zipInput = isSelectorPresent('div[data-anonid="locationinput"] input[type="search"]');
+    const delivery = isSelectorPresent('#delivery.available');
+    const outOfStock = isSelectorPresent('.prd-channels .nostock');
+    let availability = 'In Stock';
 
-        const apiData = await context.evaluate(getApiData);
-        await context.evaluate(addDynamicTable, apiData.payload, '#footer');
-        await context.evaluate((video) => {
-            video = video.join(' | ');
-            document.querySelector('body').setAttribute('video-src', video);
-        }, video);
-        await context.evaluate((images) => {
-            images = images.join(' | ');
-            console.log(images);
-            const len = images.length;
-            if (images[len - 2] === '|') {
-                console.log('removing | ');
-                images = images.slice(0, len - 3);
-            }
-            console.log(images);
-            document.querySelector('body').setAttribute('img-src', images);
-        }, images);
-        await context.evaluate((desc) => {
-            desc = desc.join(' | ');
-            document.querySelector('body').setAttribute('desc', desc);
-        }, desc);
+    if (zipInput) {
+      let countryRoute = 'https://www.currys.co.uk/gb/uk';
+      let long = '-0.106932';
+      let lat = '51.508413';
+
+      if (country === 'IE') {
+        countryRoute = 'https://www.currys.ie/ie/en';
+        long = '-6.26495';
+        lat = '53.33537';
+      }
+
+      const uri = `${countryRoute}/mcd_postcode_check/sProductId/${basicDetails.sku}/sPostCode/${zip}/latitude/${lat}/longitude/${long}/ajax.html`;
+      const res = await makeApiCall(uri);
+      console.log(res);
+      if (res.status === 'success' && res.data && res.data.postCodeCheck && res.data.postCodeCheck.state !== 'DELIVERABLE') {
+        availability = 'Out Of Stock';
+      }
+    } else if (outOfStock) {
+      availability = 'Out Of Stock';
+    } else if (!delivery) {
+      availability = 'Out Of Stock';
     }
-    await delay(10000);
-    try {
-        await context.evaluate(async () => {
-            async function infiniteScroll() {
-                let prevScroll = document.documentElement.scrollTop;
-                while (true) {
-                    window.scrollBy(0, document.documentElement.clientHeight);
-                    await new Promise(resolve => setTimeout(resolve, 2000));
-                    const currentScroll = document.documentElement.scrollTop;
-                    if (currentScroll === prevScroll) {
-                        break;
-                    }
-                    prevScroll = currentScroll;
-                }
-            }
-            await infiniteScroll();
-        });
-        await context.waitForSelector(`div[id="inpage_container"],div[id="inpage_responsive"] div[class*='inpage_selector']`, { timeout: 45000 });
-    } catch (error) {
-        console.log('Not loading manufacturer description');
-    }
+    addElement('availability', availability);
 
-    await context.evaluate(async function (zip, country) {
-        /* const clean = text => text.toString()
-    .replace(/\r\n|\r|\n/g, ' ')
-    .replace(/&amp;nbsp;/g, ' ')
-    .replace(/&amp;#160/g, ' ')
-    .replace(/\u00A0/g, ' ')
-    .replace(/\s{2,}/g, ' ')
-//     .replace(/"\s{1,}/g, '"')
-//     .replace(/\s{1,}"/g, '"')
-    .replace(/^ +| +$|( )+/g, ' ')
-    // eslint-disable-next-line no-control-regex
-    .replace(/[\x00-\x1F]/g, '')
-    .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-    function decode(str) {
-      return str.replace(/&#(\d+);/g, function(match, dec) {
-          return String.fromCharCode(dec);
-        })
-    }
-    async function getBasicDetails() {
-      const res = await fetch(window.location.href);
-      const html = await res.text();
-      const doc = new DOMParser().parseFromString(html, 'text/html');
-      return doc.evaluate(`//*[contains(text(),'"@type": "Product"')]`, doc).iterateNext().textContent
-    }
-    async function getproductDigitalData() {
-      const res = await fetch(window.location.href);
-      const html = await res.text();
-      const doc = new DOMParser().parseFromString(html, 'text/html');
-      return doc.querySelector('[id="app.digitalData"]').textContent;
-    }
-    // eslint-disable-next-line
-    const basicDetails = JSON.parse(clean(decode(await getBasicDetails())));
-    const productDigitalData = JSON.parse(clean(decode(await getproductDigitalData()))).product[0];*/
+    const actualRating = basicDetails && basicDetails.aggregateRating && basicDetails.aggregateRating.ratingValue && Number(basicDetails.aggregateRating.ratingValue);
+    const updatedRating = actualRating ? (actualRating * 5) / 10 : '';
+    addElement('rating', updatedRating);
 
-        const addElement = (id, content) => {
-            const packagingElem = document.createElement('div');
+    const productId = productDigitalData.productID || '';
+    addElement('productId', productId);
 
-            packagingElem.id = id;
-            packagingElem.innerText = content;
+    const manufacturer = productDigitalData.manufacturer || '';
+    addElement('manufacturer', manufacturer);
 
-            document.body.appendChild(packagingElem);
-        };
+    const brand = (basicDetails.brand && basicDetails.brand.name) || '';
+    addElement('brand', brand);
 
-        const makeApiCall = async (url, options) => {
-            try {
-                console.log(`Making API call to => ${url}`);
-                if (!options) {
-                    options = {
-                        mode: 'no-cors',
-                        credentials: 'same-origin',
-                        headers: { 'Content-Type': 'application/json' },
-                    };
-
-                    return await (await fetch(url, options)).json();
-                }
+    const description = buildDescription();
+    addElement('description', description);
+  }, parameters.zipcode, parameters.country);
 
   try {
     await context.waitForSelector(cookieBtnSel);
