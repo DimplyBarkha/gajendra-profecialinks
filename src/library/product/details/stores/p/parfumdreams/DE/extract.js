@@ -82,6 +82,23 @@ module.exports = {
         const originalDiv = document.querySelectorAll("div[class*='font-headline ']")[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
+      // function addHiddenDiv3(id, content, index) {
+      //   const newDiv = document.createElement('div');
+      //   newDiv.id = id;
+      //   newDiv.textContent = content;
+      //   newDiv.style.display = 'none';
+      //   const originalDiv = document.querySelectorAll("div[class*='font-headline ']")[index];
+      //   originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+      // }
+      function addHiddenDiv4(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll("form[id='formVariatonPost'] div[id='schema-offer']")[index]
+        //const originalDiv = document.querySelectorAll("//form[@id='formVariatonPost']/div[@id='schema-offer']")[index];
+        originalDiv.appendChild(newDiv);
+      }
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const result = [];
@@ -106,7 +123,7 @@ module.exports = {
       //   document.body.appendChild(newDiv);
       // }
 
-      
+
       var dec = getAllXpath('(//div[@class="variation-alt-images clearfix"]/div/@data-variation-id | //*[@id="schema-offer"]/div[1]/div/input/@value)', 'nodeValue');
       var str = "";
       if (dec != null) {
@@ -132,7 +149,7 @@ module.exports = {
         }
         //addElementToDocument('name', name);
       }
-      try{
+      try {
         var perunit = getXpath('(//*[@id="schema-offer"]/div[2]/p[1]/text())[1]', 'nodeValue');
         if (perunit != null) {
           var priceper = perunit.split("/")[0].split('GP: ')[1];
@@ -141,13 +158,25 @@ module.exports = {
           addElementToDocument('perunit', peruni2);
         }
       }
-      catch (error){}
+      catch (error) { }
+      // try {
+      //   var lpr = getAllXpath('//*[@id="schema-offer"]/div[3]/div[1]/div/span/text()', 'nodeValue');
+      //   for (var i = 0; i < lpr.length; i++) {
+      //     var aa = lpr[i]
+      //     addHiddenDiv3('lpr', aa, i)
+      //   }
+      // }
+      // catch (error) {
+        //var lpr = getAllXpath('//*[@id="schema-offer"]/div[3]/div[1]/div', 'nodeValue');
+        
+        var lpr = document.querySelectorAll('div[id="schema-offer"] div:nth-of-type(3) div div');
+        for (var i = 0; i < lpr.length; i++) {
+          // @ts-ignore
+          var aa = lpr[i].innerText;
+          addHiddenDiv4('lpr', aa, i)
+        }
+      // }
 
-      var lpr = getAllXpath('//*[@id="schema-offer"]/div[3]/div[1]/div/span/text()', 'nodeValue');
-       for (var i = 0; i < lpr.length; i++){
-         var aa= lpr[i]
-         addHiddenDiv2('lpr', aa, i)
-       }
 
       // var avi = getAllXpath('//div[@id="schema-offer"]/@data-outofstock', 'nodeValue');
       // for (var i = 0; i < avi.length; i++) {
@@ -160,7 +189,7 @@ module.exports = {
       //     }
       //   }
       // }
-      
+
       try {
         // @ts-ignore
         var d2 = document.querySelector('div[class="footer-content"]> div:nth-child(1)').innerText
@@ -202,19 +231,19 @@ module.exports = {
 
       }
       catch (error) { }
-      try{
+      try {
         var currurl = window.location.href
-      addElementToDocument('currurl', currurl);
-      var gtin = currurl.split('index_')[1].split('.aspx')[0]
-    
-      addElementToDocument('gtin', gtin);
+        addElementToDocument('currurl', currurl);
+        var gtin = currurl.split('index_')[1].split('.aspx')[0]
+
+        addElementToDocument('gtin', gtin);
       }
-      catch (error){}
+      catch (error) { }
 
       var imgcount = getAllXpath('//div[@class="carousel more-pictures"]/div[@class="swiper-wrapper"]/div[position()>1]/div/img/@src|//div[@class="slick-track"]/div[position()>1]/div/@data-image-m', 'nodeValue');
       addElementToDocument('imgcount', imgcount.length);
-      
-      
+
+
     });
 
 
