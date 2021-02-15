@@ -27,7 +27,19 @@ const transform = (data, context) => {
         orgRankCounter += 1;
         row.rankOrganic = [{ text: orgRankCounter }];
       }
-      row.productUrl = [{ text: 'https://www.metro.ca/epicerie-en-ligne' + row.productUrl[0].text }];
+      if (row.price) {
+        try {
+          const obj = row.price.find(e => e.text.includes('ou'));
+          const start = obj.text.indexOf('ou');
+          const end = obj.text.indexOf('$');
+          const price = obj.text.slice(start + 2, end).trim();
+          row.price = [{ text: price }];
+        } catch (e) {
+          const end = row.price[0].text.indexOf(' ');
+          row.price = [{ text: end > 1 ? row.price[0].text.slice(0, end) : '' }];
+        }
+      }
+      if (row.productUrl) row.productUrl = [{ text: 'https://www.metro.ca' + row.productUrl[0].text }];
       row.rank = [{ text: rankCounter }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);

@@ -22,8 +22,8 @@ fields:
     singleValue: true
     xpath: //div[@data-list-name='searchResultsList']/div/div/div/@data-product-code
   - name: price
-    singleValue: true
-    xpath: //div[@class='pi--main-price']/div[@class='pi-sale-price']/span[@class='pi-price price-update'] | //div[@class='pi-sale-price']/span[@class='pi-price price-update pi-price-promo']
+    singleValue: false
+    xpath: //div[@class='pi--main-price']/div[@class='pi-sale-price']/span[@class='pi-price price-update'] | //div[@class='tile-product__bottom-section__pricing__main-price']/div[@class='pi--main-price']/div[@class='pi-secondary-price']/div | //div[@class='tile-product__bottom-section__pricing__main-price']/div[@class='pi--main-price']/div[@class='pi-sale-price']/span[@class='pi-price price-update pi-price-promo']
   - name: listPrice
     singleValue: true
     xpath: //div[@class='products-tile-list__tile products-tile-list__tile--fourth products-tile-list__tile--second']/div[@class='tile-product item-addToCart tile-product--effective-date']/div[@class='tile-product__bottom-section']/div[@class='tile-product__bottom-section__pricing']/div[@class='tile-product__bottom-section__pricing__main-price']/div[@class='pi-regular-price']/span[@class='pi-price']
