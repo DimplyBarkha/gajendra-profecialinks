@@ -22,13 +22,14 @@ fields:
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
-    type: CURRENCY
+    # type: CURRENCY
     xpath: //div[@class='pd__cost__total undefined']/text()|//div[@class='pd__cost__total--promo undefined']
   - name: price
     singleValue: false
+    type: CURRENCY
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='pd__cost__total undefined']/text()  
+    xpath: //html//div[@id='price']  
   - name: availabilityText
     singleValue: true
     xpath: //html//div[@id='availabilityText']

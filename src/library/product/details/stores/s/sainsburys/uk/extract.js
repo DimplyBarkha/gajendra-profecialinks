@@ -43,6 +43,12 @@ module.exports = {
         addHiddenDiv('availabilityText', availabilityText);
         const url = jsondata.url;
         const price= jsondata.offers.price; 
+        if (price.includes('p')){
+          addHiddenDiv('price','0.'+ price);
+        }
+        else{
+          addHiddenDiv('price', price);
+        }
         const aggregateRating = jsondata.review.reviewRating.ratingValue;
         const brand = jsondata.brand.name;
         addHiddenDiv('url', url,);
