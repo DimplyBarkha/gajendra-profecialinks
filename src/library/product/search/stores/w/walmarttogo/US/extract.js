@@ -82,7 +82,7 @@ async function implementation (
       }
     }
     const table = generateDynamicTable(jsonData);
-    console.log("table", jsonData);
+    // console.log("table", jsonData);
     const container = document.createElement('div');
     container.setAttribute('id', 'added-table');
     container.setAttribute('style', 'overflow:auto');
@@ -106,8 +106,12 @@ async function implementation (
       }
       query.page = Number(query.page) + 1;
       query.offset = Number(query.offset) + Number(query['?count']);
+
+      console.log(`offset:${query.offset}`)
+      console.log(`page:${query.page}`)
+
       nextLink = 'https://www.walmart.com/grocery/v4/api/products/search' + Object.entries(query).map(elm => `${elm[0]}=${elm[1]}`).join('&');
-      console.log('hi',nextLink);
+      console.log('nextLink => ',nextLink);
       return nextLink;
     }
     const currentPage = window.location.href;
@@ -117,10 +121,16 @@ async function implementation (
     cp.href = currentPage;
     document.body.append(cp);
     if (nextLink !== 'stop') {
-      const np = document.createElement('a');
-      cp.id = 'nextLink';
-      np.href = nextLink;
-      document.body.append(np);
+      let nextLinkEl = document.querySelector('a[id="nextLink"]');
+      if (!nextLinkEl){
+        const np = document.createElement('a');
+        cp.id = 'nextLink';
+        np.href = nextLink;
+        document.body.append(np);
+      } else {
+        nextLinkEl.setAttribute('href',nextLink);
+      }
+
     }
   }
   try {
