@@ -2,7 +2,7 @@ input:
   keywords: omelette
   _url: http://myer.com.au
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ad1df4ac-776b-43b0-887e-c5254baea0e1/task=98805228-b545-4d49-a35c-f357155d25d3/f9acd11b-b6eb-48f3-84ac-b01f2a1047a4.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=947868ca-5a41-41c3-8e09-1f5731ec3bba/task=8491367f-7b18-4949-8cb6-d2265785fed8/db4e94f1-7f4e-4bc7-afe4-8f0159a4bc78.html
     extractionConfigId: product/search/stores/m/myer/AU/extract
     data:
       - group:
@@ -24,11 +24,8 @@ extractions:
             price:
               - text: $89.95
                 xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[1]/div[1]/div[1]/p[1]/span[2]
-            manufacturer:
-              - text: Breville
-                xpath: /html/body/div[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[1]/div[1]/h3[1]/a[1]/div[2]/span[1]
             aggregateRating2:
               - text: "0"
                 type: STRING
         xpath: /html
-    timestamp: 1612947037393
+    timestamp: 1613381477060
