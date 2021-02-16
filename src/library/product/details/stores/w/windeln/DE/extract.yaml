@@ -74,8 +74,8 @@ fields:
 - name: quantity
   singleValue: false
   description: Quantity as described on the page
-  xpath: //div[contains(@class, 'selected-row')]/descendant::div[@itemprop="name"]
-  regExp: '([^,]*$)'
+  xpath: //div[contains(@class, 'selected-row')]/descendant::div[@itemprop="name"][contains(., 'Stück') or contains(., 'ml') or contains(., 'Tücher') or contains(., 'Kondome ')]
+  regExp: ' ([^,]*$)'
   regExpReplace: $1
 - name: weightNet
   singleValue: falses
