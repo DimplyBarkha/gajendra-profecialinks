@@ -5,7 +5,7 @@ module.exports = {
     country: 'JP',
     store: 'amazon',
     domain: 'amazon.co.jp',
-    loadedSelector: 'div#dp',
+    loadedSelector: 'div#dp, center span.h1',
     noResultsXPath: '//td/b[contains(text(),"Looking for something?")]',
     zipcode: '',
   },
