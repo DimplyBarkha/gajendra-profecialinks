@@ -17,7 +17,7 @@ module.exports = {
     await context.setJavaScriptEnabled(true);
     // await context.setAntiFingerprint(false);
     // await context.setUseRelayProxy(false);
-    await context.goto(url, { firstRequestTimeout: 60000, timeout: timeout, waitUntil: 'load', checkBlocked: false });
+    await context.goto(url, { firstRequestTimeout: 65000, timeout: timeout, waitUntil: 'load', checkBlocked: false });
     if (url.includes('x=0&y=0')) {
       try {
         await new Promise((resolve) => setTimeout(resolve, 5000));
