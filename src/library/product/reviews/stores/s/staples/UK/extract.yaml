@@ -1,86 +1,99 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="pr-review"]
+recordXPath: //div[@id="added_reviews"]/div[@id="review" and @review_date]
 fields:
+    ##############!!!!
   - name: helpfulCount
     singleValue: true
     type: NUMBER
     description: Number of people who said the review was helpful
-    xpath: //button[@class="pr-helpful-btn pr-helpful-yes"]/span[@class="pr-helpful-count"]
+    xpath: '@added_helpful'
   - name: commentCount
     singleValue: true
     type: NUMBER
     description: Number of comments on the review
+    ##############!!!!
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: ancestor::html/body/@added_brand
+    ##############!!!!
   - name: name
     singleValue: true
     description: The product name
     xpath: ancestor::html/body/@added_name
+    ##############!!!!!
   - name: sku
     singleValue: true
     description: The store-specific product identifier
     xpath: ancestor::html/body/@added_sku
+    ##############!!!!!
   - name: reviewDate
     singleValue: true
     type: DATETIME
     description: Date the review was made
     xpath: '@review_date'
+    ##############!!!!!
   - name: reviewRating
     type: NUMBER
     singleValue: true
     description: Rating normalized to be out of 5
     xpath: '@added_rating'
+    ##############!!!!
   - name: reviewText
     singleValue: true
     description: The text of the review
-    xpath: //p[@class="pr-rd-description-text"]
+    xpath: '@added_text'
+    ##############!!!!
   - name: reviewTitle
     singleValue: true
     description: The title of the review
-    xpath: //span[contains(@class, "pr-rd-review-headline pr-h2")]
+    xpath: '@added_title'
   - name: reviewerTags
     singleValue: false
     description: The tags a reviewer has
+    ##############!!!!
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //div[@class="formLabel SB_m EffortItemCode"]//div[@class="formLabel"][contains(@content, "gtin")]/text()
+    xpath: ancestor::html/body/@added_sku
+    ##############!!!!
   - name: productUrl
     singleValue: true
     description: The url of the product details page
     xpath: ancestor::html/body/@product_url
+    ##############xxxxx
   - name: verifiedPurchase
     singleValue: true
     type: BOOLEAN
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
-    xpath: //span[@class="pr-rd-badging-text"]/text()[contains(.,"Verified Buyer")]
-    regExp: (.+)
-    regExpReplace: Yes
+    xpath: '@added_verified'
   - name: manufacturerResponse
     singleValue: true
     description: The response of the manufacturer (if any)
+    ##############!!!!!
   - name: syndicatedFrom
     singleValue: true
     description: Stated place the review was syndicated from
-    xpath: //p[@class="pr-rd-details pr-rd-author-location"]/span/span[not(@class)]
+    xpath: '@added_from'
   - name: reviewUrl
     singleValue: true
     description: A direct link to the review
+    ##############!!!!
   - name: reviewedSku
     singleValue: true
     description: The SKU of the item that was reviewed (may be different from the
       sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
       value, transform will handle the value.
-    xpath: ancestor::html//div[@class="formLabel SB_m EffortItemCode"]//div[@class="formLabel"][contains(@content, "mpn")]/text()
+    xpath: ancestor::html/body/@added_sku
+    ##############
   - name: user
     description: The user name of the reviewer
     type: TEXT
-    xpath: //p[@class="pr-rd-details pr-rd-author-nickname"]/span/span[not(@class)]
+    xpath: '@added_user'
+    ##############!!!!!
   - name: aggregateRating
     description: The product rating
     xpath: ancestor::html/body/@rating
