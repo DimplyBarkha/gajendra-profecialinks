@@ -17,7 +17,7 @@ fields:
     xpath: //div[@id='ii_nameExtended']
   - name: price
     singleValue: true
-    xpath: //p[@class='productPrice_price']
+    xpath: //p[contains(@class,'productPrice_price')]
   - name: promotion
     singleValue: true
     xpath: //p[@class="productPrice_savingAmount"]//text()
