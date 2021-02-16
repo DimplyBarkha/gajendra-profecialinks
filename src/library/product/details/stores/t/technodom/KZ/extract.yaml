@@ -47,13 +47,13 @@ fields:
     xpath: //meta[@itemprop='sku']/@content
   - name: description
     singleValue: false
-    xpath: //div[@class="ProductDetails-ShortDescription"]/li
+    xpath: //span[@class="ProductAttribute-Label ProductTabInformation-AttributeLabel"]/text() | //span[@class="ProductAttribute-Value ProductTabInformation-AttributeValue"]
   - name: listPrice
     singleValue: false
     xpath: //div[@class="ProductInformation-Row"]//del[@aria-label="Старая цена продукта"]  
   - name: specifications
     singleValue: false
-    xpath: //div[@id="product-information-active"]//li//h3[text()="Основные характеристики"]//following-sibling::ul//li
+    xpath: //span[@class="ProductAttribute-Label ProductTabInformation-AttributeLabel"]/text() | //span[@class="ProductAttribute-Value ProductTabInformation-AttributeValue"]
   - name: variants
     singleValue: false
     xpath: //div[@class="ProductSwatches"]//div[@class="ProductSwatches-SwatchesConfigurable"]//a/data/@title

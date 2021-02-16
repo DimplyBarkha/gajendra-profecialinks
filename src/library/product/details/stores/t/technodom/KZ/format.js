@@ -23,17 +23,17 @@ const transform = (data) => {
       return data;
     };
     for (const { group } of data) {      
-      var variantCount = 0;
+      var variantCount = 0, temp_arr1 = [];
       for (let row of group) { 
             if (row.specifications) {
-              var temp_arr = [];var temp_arr1 = [];
+              var temp_arr = [];
               row.specifications.forEach(item => {
                 temp_arr.push(item.text);
-                temp_arr1.push(item.text.replace('?',''));
+                //temp_arr1.push(item.text.replace('?',''));
               });
               if (temp_arr.length > 1) {
                 row.specifications= [{ "text": temp_arr.join(" || "), "xpath": row.specifications[0]["xpath"] }];
-                row.description= [{ "text": temp_arr1.join(" | "), "xpath": row.specifications[0]["xpath"] }];
+                //row.description= [{ "text": temp_arr1.join(" | "), "xpath": row.specifications[0]["xpath"] }];
               } else {
                 delete row.specifications;
               }
@@ -62,6 +62,19 @@ const transform = (data) => {
               } else {
                 delete row.variantInformation;
               }
+            }
+            if(row.description){
+              let tmp='',temp_arr1=[];
+              row.description.forEach(item=>{
+                if(tmp==''){
+                  tmp=item.text;
+                }else{
+                  tmp=tmp+":"+item.text;
+                  temp_arr1.push(tmp);
+                  tmp='';
+                }
+              })
+              row.description=[{"text":temp_arr1.join('|')}];
             }
       }
     }
