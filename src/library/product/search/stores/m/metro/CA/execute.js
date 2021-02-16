@@ -5,7 +5,7 @@ module.exports = {
     country: 'CA',
     store: 'metro',
     domain: 'metro.ca',
-    url: 'https://www.metro.ca/epicerie-en-ligne/recherche?filter={searchTerms}&freeText=true',
+    url: 'https://www.metro.ca/en/online-grocery/search?filter={searchTerms}',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',

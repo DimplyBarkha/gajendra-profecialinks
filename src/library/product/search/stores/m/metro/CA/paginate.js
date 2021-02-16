@@ -13,7 +13,7 @@ module.exports = {
     noResultsXPath: '//div[@class="did-you-mean"]/p[@class="typo--07"]',
     stopConditionSelectorOrXpath: null,
     openSearchDefinition: {
-      template: 'https://www.metro.ca/epicerie-en-ligne/recherche-page-{page}?&filter={searchTerms}',
+      template: 'https://www.metro.ca/en/online-grocery/search-page-{page}?&filter={searchTerms}',
     },
     domain: 'metro.ca',
     zipcode: '',

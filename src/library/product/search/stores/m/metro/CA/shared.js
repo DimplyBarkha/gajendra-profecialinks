@@ -33,10 +33,10 @@ const transform = (data, context) => {
           const start = obj.text.indexOf('ou');
           const end = obj.text.indexOf('$');
           const price = obj.text.slice(start + 2, end).trim();
-          row.price = [{ text: price }];
+          row.price = [{ text: price.replace(',', '.') }];
         } catch (e) {
           const end = row.price[0].text.indexOf(' ');
-          row.price = [{ text: end > 1 ? row.price[0].text.slice(0, end) : '' }];
+          row.price = [{ text: end > 1 ? row.price[0].text.slice(0, end).replace(',', '.') : '' }];
         }
       }
       if (row.productUrl) row.productUrl = [{ text: 'https://www.metro.ca' + row.productUrl[0].text }];
