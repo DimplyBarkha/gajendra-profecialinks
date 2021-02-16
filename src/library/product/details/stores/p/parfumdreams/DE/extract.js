@@ -1,4 +1,5 @@
 
+const { addAlias } = require("module-alias");
 const { cleanUp } = require("../../../../shared");
 module.exports = {
   implements: 'product/details/extract',
@@ -149,7 +150,7 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
       const allVariants = getAllXpath("//form[@id='formVariatonPost']/div[@id='schema-offer']|//form[@action='/Shared/VariationPost']/div[contains(@class,'variation')]", 'nodeValue');
-      let arrAvailability = [], varprice = [], varpricePerUnit = [], varpriceUOM = [], varvariants = [];
+      let arrAvailability = [], varprice = [], varpricePerUnit = [], varpriceUOM = [], varvariants = [], varlpr = [], varbrand = [], varnameex = [], varcolor = [], varvariantsids = [];
 
       //AVAILABILITY
       try {
@@ -184,7 +185,7 @@ module.exports = {
       try {
         var price = getAllXpath("//meta[@itemprop='price']/@content|//form/div/div[4]/p[1]/text()", 'nodeValue');
         for (var i = 0; i < price.length; i++) {
-          var price1 = price[i].replace('.', ',')
+          var price1 = price[i].replace('.', ',').replace('€', '')
           varprice.push(price1 + ' €');
         }
       }
@@ -204,14 +205,42 @@ module.exports = {
       }
       catch (error) {
       }
-      
+
+      //VARIANTSID
+      try {
+        var var1;
+        var1 = getAllXpath('//div[@id="schema-offer"]/div[3]/meta[@itemprop="sku"]/@content', 'nodeValue');
+        if (var1.length == 0) {
+          var1 = getAllXpath('//*[@id="variationId"]/@value', 'nodeValue');
+        }
+        for (var i = 0; i < var1.length; i++) {
+          varvariantsids.push(var1[i]);
+        }
+      }
+      catch (error) {
+      }
+
+      //COLOR
+      try {
+
+        var var11 = getAllXpath('//*[@id="variationsdropdown"]/ul/li/a/div/text()', 'nodeValue');
+
+        for (var i = 0; i < var11.length; i++) {
+          var nzz = var11[i].split('/')[0];
+          varcolor.push(nzz);
+        }
+      }
+      catch (error) {
+      }
+
       //LIST PRICE
       try {
         var lpr = document.querySelectorAll('div[id="schema-offer"] div:nth-of-type(3) div div');
         for (var i = 0; i < lpr.length; i++) {
           // @ts-ignore
           var aa = lpr[i].innerText;
-          addHiddenDiv4('lpr', aa, i)
+          //'addHiddenDiv4('lpr', aa, i)
+          varlpr.push(aa)
         }
       }
       catch (error) { }
@@ -240,25 +269,48 @@ module.exports = {
 
       //NAME EXTENDED
       try {
-        var type1 = getAllXpath('//*[@id="schema-offer"]/div[2]/p[1]/span/text()', 'nodeValue');
+
         // @ts-ignore
-        var name = document.querySelector('h1[class="article-header"]').innerText
-        if (type1 != null) {
-          for (var i = 0; i < type1.length; i++) {
-            addHiddenDiv4('desc', name + '- ' + type1[i], i)
+        var name = document.querySelector('h1[class="article-header"]').innerText;
+        //var name = getXpath('//*[@id="right-column"]/div/div[1]/div/div[2]/div[1]/div[1]/h1|(//h1)[2]', 'nodeValue');
+        //*[@id="right-column"]/div/div[1]/div/div[2]/div[1]/div[1]/h1|(//h1)[2]
+        if (name.trim != null) {
+          // @ts-ignore
+          for (var i = 0; i < varvariants.length; i++) {
+            //addHiddenDiv4('desc', name + '- ' + varvariants[i], i)
+            varnameex.push(name + '- ' + varvariants[i])
           }
         }
+        else {
+          var type2 = getAllXpath("//form/div/div[1]/img/@alt", 'nodeValue');
+          for (var i = 0; i < varvariants.length; i++) {
+            //addHiddenDiv5('desc', type2[i], i)
+            varnameex.push(type2[i])
+          }
+        }
+        //var type1 = getAllXpath('//*[@id="schema-offer"]/div[2]/p[1]/span/text()', 'nodeValue');
+        
+
+        // else{
+        //   // @ts-ignore
+        //   var name = document.querySelector('#right-column > div > div > div.cw.clearfix > div.c.d-7.p-l-6.p-m-12 > h1').innerText
+        //   var type2 = getAllXpath("//form/div/div[1]/img/@alt", 'nodeValue');
+        //   for (var i = 0; i < type2.length; i++) {
+        //     //addHiddenDiv5('desc', type2[i], i)
+        //     varnameex.push(type2[i])
+        //   }
+        // }
       }
       catch (error) {
-        var type2 = getAllXpath("//form/div/div[1]/img/@alt", 'nodeValue');
-        // @ts-ignore
-        //var name = document.querySelector('h1[class="article-header"]').innerText
-        if (type2.length >= 1) {
-          // @ts-ignore
-          for (var i = 0; i < type2.length; i++) {
-            addHiddenDiv5('desc', type2[i], i)
-          }
-        }
+        // var type2 = getAllXpath("//form/div/div[1]/img/@alt", 'nodeValue');
+        // // @ts-ignore
+        // //var name = document.querySelector('h1[class="article-header"]').innerText
+        // if (type2.length >= 1) {
+        //   // @ts-ignore
+        //   for (var i = 0; i < type2.length; i++) {
+        //     addHiddenDiv5('desc', type2[i], i)
+        //   }
+        // }
       }
 
 
@@ -272,7 +324,7 @@ module.exports = {
       }
       catch (error) { }
 
-      //AVAILABILITY
+      //IMAGECOUNT
       try {
         var imgcount = getAllXpath('//div[@class="carousel more-pictures"]/div[@class="swiper-wrapper"]/div[position()>1]/div/img/@src|//div[@class="slick-track"]/div[position()>1]/div/@data-image-m', 'nodeValue');
         addElementToDocument('imgcount', imgcount.length);
@@ -281,21 +333,14 @@ module.exports = {
 
       //BRAND
       try {
-        var brand = getXpath("//span[@itemprop='brand']", 'nodeValue');
-        var price = getAllXpath("//meta[@itemprop='price']/@content", 'nodeValue');
-        for (var i = 0; i < price.length; i++) {
+        var brand = getXpath("//span[@itemprop='brand']|//h1[@class='hidden']/text()", 'nodeValue');
+        //var price = getAllXpath("//meta[@itemprop='price']/@content", 'nodeValue');
+        for (var i = 0; i < allVariants.length; i++) {
           addHiddenDiv4('brand', brand, i);
+          varbrand.push(brand)
         }
       }
       catch (error) {
-        var brand = getXpath("//h1[@class='hidden']/text()", 'nodeValue');
-        var type2 = getAllXpath("//form/div/div[1]/img/@alt", 'nodeValue');
-        if (type2.length >= 1) {
-          // @ts-ignore
-          for (var i = 0; i < type2.length; i++) {
-            addHiddenDiv5('brand', brand, i)
-          }
-        }
       }
       for (let j = 0; j < allVariants.length; j++) {
         addEmptyDiv();
@@ -304,6 +349,12 @@ module.exports = {
         appendData('perunit', varpriceUOM[j], j);
         appendData('price', varprice[j], j);
         appendData('varinfo', varvariants[j], j);
+        appendData('lpr', varlpr[j], j);
+        appendData('brand', varbrand[j], j);
+        appendData('desc', varnameex[j], j);
+        appendData('color', varcolor[j], j);
+        appendData('varids', varvariantsids[j], j);
+
       }
 
     });
