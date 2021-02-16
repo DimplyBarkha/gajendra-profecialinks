@@ -1,0 +1,135 @@
+input:
+  id: 166356PAK
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=9746b6bf-661e-4395-86ef-2935f7017e89/task=0a31cd95-f311-4882-8a96-3987829f2e0e/c1100b9d-39cb-41c7-9edd-d4a3f09ab474.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.com/jumbo-brownie-mix-360g/166356PAK/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://static-images.jumbo.com/product_images/090520191803_166356PAK-1_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Jumbo Brownie Mix 360g
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            alternateImages:
+              - text: https://static-images.jumbo.com/product_images/090520191801_166356PAK-9_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[2]/a[1]/img[1]/@src
+            category:
+              - text: Browniesmix
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: Jumbo Brownie Mix 360g
+                xpath: /html/head[1]/meta[8]/@content
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/button[1]/span[1]
+            description:
+              - text: Mix voor brownies
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[2]/text()[1]
+            brandText:
+              - text: Jumbo
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[13]/p[1]/a[1]/@href
+            quantity:
+              - text: 360 g
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            variantId:
+              - text: 166356PAK
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[1]/@data-jum-product-details
+            directions:
+              - text: >-
+                  Zelf toevoegene
+
+                  • 50 gram boter
+
+                  • 100 ml water
+
+                  Variatetip:
+
+                  Lekker met pecan- of walnoten.
+
+                  Extra nodig
+
+                  50 gram boter of margarine
+
+                  (kamertemperatuur)
+
+                  100 ml water
+
+                  Verwarm de oven voor en maak intussen het beslag
+
+                  Elektrisch: 180°C
+
+                  Gas: stand 4
+
+                  Hetelucht: 160°C
+
+                  Bereidingswijze: klop de boter tot een romige massa. Voeg de mix voor brownies en het water toe en meng dit met een mixer water toe en meng dit met een mixer met garden op de laagste snelheid. Klop vervolgens het geheel op middelmatige snelheid in 1 minuut tot een glad en klontvrij beslag. Vouw de randen van de browniebakvorm bij de perforatie om en vul deze gelijkmatig met het beslag.
+
+                  Bakken: plaats de bakvorm in het midden van uw voorverwarmde oven en bak deze in 40 minuten gaar. De brownie zal iets terugzakken en krijgt daardoor een vochtige binnenkant. Na goed afkoelen verwijderen uit de bakvorm.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[9]/p[1]
+            name:
+              - text: Jumbo Brownie Mix 360g
+                xpath: /html/head[1]/meta[8]/@content
+            ingredientsList:
+              - text: " -Suiker -tarwebloem -magere cacaopoeder 11% -scharreleiwitpoeder
+                  -tarwezetmeel -rijsmiddelen: E341, E450 en E500 -aroma -zout
+                  -E = door EU goedgekeurde hulpstof. -Allergenen: tarwe
+                  (gluten), ei."
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[6]/ul[1]/li[1]
+            servingSize:
+              - text: RI*
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/thead[1]/tr[1]/th[4]
+            caloriesPerServing:
+              - text: 10%
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[2]/td[3]
+            totalFatPerServing:
+              - text: "9"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[3]/td[3]
+            saturatedFatPerServing:
+              - text: "13"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[4]/td[3]
+            totalSugarsPerServing:
+              - text: "32"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[6]/td[3]
+            saltPerServing:
+              - text: "5"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[3]/table[1]/tbody[1]/tr[9]/td[3]
+            storage:
+              - text: Koel en droog bewaren.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[10]/p[1]
+            allergyAdvice:
+              - text: Bevat Eieren
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[11]/ul[1]/li[1]
+              - text: Bevat Tarwe
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[11]/ul[1]/li[2]
+              - text: Bevat Gluten
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[11]/ul[1]/li[3]
+            recyclingInformation:
+              - text: "Recycling: Doos: Papier - Doorgaans gerecycled"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[2]/div[8]/ul[1]/li[1]
+            pricePerUnit:
+              - text: 4,53/kilo
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            pricePerUnitUom:
+              - text: kilo
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            price:
+              - text: 1,63€
+        xpath: /
+    timestamp: 1607952922871

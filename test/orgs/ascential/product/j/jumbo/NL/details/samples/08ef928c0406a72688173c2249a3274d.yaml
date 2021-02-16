@@ -1,0 +1,161 @@
+input:
+  id: 358731CUP
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=980775b9-1047-4ac1-953a-92b4660a77cb/task=91e69164-2766-4f9c-9eee-1e9ef8a5b695/5a955f34-1831-4eb0-b763-2890666c7867.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.com/becel-romig-250g/358731CUP/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://static-images.jumbo.com/product_images/210320200725_358731CUP-1_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Becel Romig 250g
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            category:
+              - text: Halvarine, margarine
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: Becel Romig 250g
+                xpath: /html/head[1]/meta[8]/@content
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]/button[1]/span[1]
+            description:
+              - text: " -Becel Romig heeft een heerlijke romige smaak voor onder zowel hartig
+                  als zoet broodbeleg.: • 100% plantaardig: • Vol met
+                  ingrediënten van natuurlijke oorsprong*: • Meer dan 50% van
+                  het plastic voor onze kuipjes draagt bij aan hernieuwbare
+                  bronnen*: • Goed voor het hart: • De unieke mix van
+                  zonnebloem-, lijnzaad- en koolzaadolie in Becel is van nature
+                  rijk aan Omega 3 en bevat van nature Omega 6. Dat draagt bij
+                  aan het behoud van een gezond cholesterolgehalte in het bloed.
+                  Becel, goed voor het hart.: • *Kijk voor meer informatie op
+                  www.becel.nl -Product met 70% vet."
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
+            brandText:
+              - text: becel
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/c:set[1]/div[7]/p[2]/a[1]/@href
+              - text: http://www.becel.com/transparantie
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/c:set[1]/div[7]/p[3]/a[1]/@href
+            quantity:
+              - text: 250 g
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            variantId:
+              - text: 358731CUP
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[1]/@data-jum-product-details
+            manufacturerDescription:
+              - text: >-
+                  Becel - Goed voor het hart.
+
+                  Waarom is Becel goed voor het hart?
+
+                  De mix van zonnebloem-, lijnzaad- en koolzaadolie in Becel is van nature rijk aan Omega 3 en bevat van nature Omega 6 die goed zijn voor het hart.
+
+                  Ze dragen bij aan het behoud van een gezond cholesterolgehalte in het bloed.
+
+                  Becel koopt 100% duurzame palmolie.
+
+                  Kijk op www.becel.com
+
+                  Hoe komen de oliën in dit Becel kuipje?
+
+                  Kijk op: www.becel.com/transparantie
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/c:set[1]/div[7]/p[1]
+            name:
+              - text: Becel Romig 250g
+                xpath: /html/head[1]/meta[8]/@content
+            ingredientsList:
+              - text: " -Plantaardige oliën 70% (zonnebloem 44%, palm 17%, lijnzaad 7%, koolzaad
+                  2%) -water -zout (0,2%) -emulgator (zonnebloemlecithine)
+                  -natuurlijk aroma -vitamine A en D"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[1]
+            servingSize:
+              - text: Per 100 g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/thead[1]/tr[1]/th[2]
+            servingSizeUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/thead[1]/tr[1]/th[2]
+            caloriesPerServing:
+              - text: 2588 kJ / 618 kcal
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[1]/td[1]
+            totalFatPerServing:
+              - text: "70"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[2]/td[1]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[2]/td[1]
+            saturatedFatPerServing:
+              - text: "18"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[3]/td[1]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[3]/td[1]
+            totalCarbPerServing:
+              - text: <0.1
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[6]/td[1]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[6]/td[1]
+            totalSugarsPerServing:
+              - text: <0.1
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[7]/td[1]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[7]/td[1]
+            proteinPerServing:
+              - text: <0.1
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[8]/td[1]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[8]/td[1]
+            vitaminAPerServing:
+              - text: "800"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[10]/td[1]
+            vitaminAPerServingUom:
+              - text: µg
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[10]/td[1]
+            saltPerServing:
+              - text: "0.21"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[9]/td[1]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[9]/td[1]
+            storage:
+              - text: "Gekoeld bewaren (2-7°C). Niet invriezen. Ten minste houdbaar tot: zie
+                  deksel"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/c:set[1]/div[3]/p[1]
+            recyclingInformation:
+              - text: "Recycling: Beker: Recyclebaar"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/c:set[1]/div[2]/ul[1]/li[1]
+            productOtherInformation:
+              - text: V-Label Vegan (VEBU) - Vegan - European Vegetarian Union - v-label.eu
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/c:set[1]/div[5]/p[1]
+            additives:
+              - text: Zonder Kunstmatige smaakstoffen
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/c:set[1]/div[4]/p[1]
+            pricePerUnit:
+              - text: 6,52/kilo
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            pricePerUnitUom:
+              - text: kilo
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            price:
+              - text: 1,63€
+        xpath: /
+    timestamp: 1607953618649

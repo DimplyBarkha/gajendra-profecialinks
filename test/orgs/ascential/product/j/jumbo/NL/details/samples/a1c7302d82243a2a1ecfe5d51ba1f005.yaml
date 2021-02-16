@@ -1,0 +1,136 @@
+input:
+  id: 360525DS
+  _url: http://jumbo.com
+extractions:
+  - html: https://workbench.import.io/html/run=9746b6bf-661e-4395-86ef-2935f7017e89/task=73b08bec-9146-4b2e-9672-62a062576435/b07219a6-8753-4544-b726-791a171b384c.html
+    extractionConfigId: product/details/stores/j/jumbo/NL/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.jumbo.com/b-better-water-blueberry--acai-750ml/360525DS/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://static-images.jumbo.com/product_images/210520200451_360525DS-1_360x360_2.png
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/ul[1]/li[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: B-Better Water Blueberry & Acai 750ml
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/img[1]/@alt
+            category:
+              - text: Plat water met smaak
+                xpath: /html/head[1]/title[1]
+            nameExtended:
+              - text: B-Better Water Blueberry & Acai 750ml
+                xpath: /html/head[1]/meta[8]/@content
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/button[1]/span[1]
+            description:
+              - text: " -B-Better Blueberry & Acai Water voor een heerlijke verfrissing:
+                  Gearomatiseerd water, laag in suiker en calorieën: Onze unieke
+                  verpakking is voor 90% gemaakt van plantaardig materiaal: Met
+                  een frisse smaak van bosbessen en açai: Zonder kunstmatige
+                  zoetstoffen en kleurstoffen: B-Better Water is goed voor jou
+                  en beter voor de planeet -Drank op basis van water met de
+                  smaak van bosbessen en açai."
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[1]/div[1]/div[1]/p[1]
+            brandText:
+              - text: B-Better
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[11]/p[2]/a[1]/@href
+            quantity:
+              - text: 75 cl
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/span[1]
+            variantId:
+              - text: 360525DS
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[1]/@data-jum-product-details
+            manufacturerDescription:
+              - text: B-Better
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[11]/p[1]
+            name:
+              - text: B-Better Water Blueberry & Acai 750ml
+                xpath: /html/head[1]/meta[8]/@content
+            ingredientsList:
+              - text: " -Water -geconcentreerd citroensap -natuurlijke aroma's -açai-extract
+                  -geconcentreerd bosbessensap"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[6]/ul[1]/li[1]
+            servingSize:
+              - text: "per 250 ml** (%*):"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/thead[1]/tr[1]/th[3]
+            servingSizeUom:
+              - text: ml
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/thead[1]/tr[1]/th[3]
+            caloriesPerServing:
+              - text: 5 kJ / 2 kcal (<1%*)
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[1]/td[2]
+            totalFatPerServing:
+              - text: "0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[2]/td[2]
+            totalFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[2]/td[2]
+            saturatedFatPerServing:
+              - text: "0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[3]/td[2]
+            saturatedFatPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[3]/td[2]
+            totalCarbPerServing:
+              - text: <0.5
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[4]/td[2]
+            totalCarbPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[4]/td[2]
+            totalSugarsPerServing:
+              - text: <0.5
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[5]/td[2]
+            totalSugarsPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[5]/td[2]
+            proteinPerServing:
+              - text: "0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[6]/td[2]
+            proteinPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[6]/td[2]
+            saltPerServing:
+              - text: "0"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[7]/td[2]
+            saltPerServingUom:
+              - text: g
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[3]/table[1]/tbody[1]/tr[7]/td[2]
+            storage:
+              - text: "Ten minste houdaar tot einde: zie dop. Na opening gekoeld bewaren en
+                  beperkt houdbaar."
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[8]/p[1]
+            recyclingInformation:
+              - text: "Recycling: Verpakking: Recyclebaar"
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[7]/ul[1]/li[1]
+            productOtherInformation:
+              - text: FSC - Certified Cardboard - This pack looks different because it is.
+                  Protecting the water from light, fully recyclable,
+                  FSC-certified cardboard, plant-based materials, ASI-certified
+                  aluminium and a reduced carbon footprint. It's a start for
+                  less plastic and a better planet. 1% of our revenue goes to
+                  local actions for the environment.
+                xpath: /html/body/div[3]/div[5]/article[1]/div[1]/div[1]/section[3]/div[9]/p[1]
+            pricePerUnit:
+              - text: 1,85/liter
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            pricePerUnitUom:
+              - text: liter
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/span[2]/span[2]
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
+            imageZoomFeaturePresent:
+              - text: No
+            price:
+              - text: 1,39€
+        xpath: /
+    timestamp: 1607952924236
