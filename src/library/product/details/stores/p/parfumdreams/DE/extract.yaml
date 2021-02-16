@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //form[@id='formVariatonPost']/div[@id='schema-offer']|//form[@action='/Shared/VariationPost']/div[contains(@class,'variation')]
+recordXPath: //div[@class='variants']
 fields:
   - name: nameExtended
     xpath: //html//div[@id='desc']
@@ -92,10 +92,10 @@ fields:
   #   defaultValue: 0
   - name: pricePerUnit
     singleValue: true
-    xpath: ancestor::html//div[@id='priceper']
+    xpath: //html//div[@id='priceper']
   - name: pricePerUnitUom
     singleValue: true
-    xpath: ancestor::html//div[@id='perunit']
+    xpath: //html//div[@id='perunit']
   # - name: imageAlt
   #   singleValue: true
   #   xpath: ancestor::html//*[@id="article-primary-image"]/div/img[1]/@alt

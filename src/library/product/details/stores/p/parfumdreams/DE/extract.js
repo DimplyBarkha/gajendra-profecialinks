@@ -74,15 +74,6 @@ module.exports = {
         const originalDiv = document.querySelectorAll("div[class*='font-headline description']")[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-      function addHiddenDiv2(id, content, index) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        const originalDiv = document.querySelectorAll("div[class*='font-headline ']")[index];
-        originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-      }
-
       function addHiddenDiv4(id, content, index) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -144,68 +135,76 @@ module.exports = {
       }
       catch (error) { }
 
+      function appendData(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.getElementsByClassName('variants')[index].appendChild(newDiv);
+      }
+      function addEmptyDiv() {
+        const newDiv = document.createElement('div');
+        newDiv.className = 'variants';
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      const allVariants = getAllXpath("//form[@id='formVariatonPost']/div[@id='schema-offer']|//form[@action='/Shared/VariationPost']/div[contains(@class,'variation')]", 'nodeValue');
+      let arrAvailability = [], varprice = [], varpricePerUnit = [], varpriceUOM = [], varvariants = [];
+
       //AVAILABILITY
       try {
-        var avail = getAllXpath('//div[@id="schema-offer"]/@data-outofstock', 'nodeValue');
+        var avail = getAllXpath('//div[@id="schema-offer"]/@data-outofstock | //form[@action="/Shared/VariationPost"]/@data-outofstock', 'nodeValue');
         for (var i = 0; i < avail.length; i++) {
           if (avail[i] == 'False') {
-            addHiddenDiv4('avail', 'In Stock', i)
-        }
-        else{
-          addHiddenDiv4('avail', 'Out of Stock', i)
-        }
+            arrAvailability.push('In Stock');
+          }
+          else {
+            arrAvailability.push('Out of Stock');
+          }
         }
       }
-      catch (error) { 
-        var avail = getAllXpath('//form[@action="/Shared/VariationPost"]/@data-outofstock', 'nodeValue');
-        for (var i = 0; i < avail.length; i++) {
-          if (avail[i] == 'False') {
-            addHiddenDiv5('avail', 'In Stock', i)
-        }
-        else{
-          addHiddenDiv5('avail', 'Out of Stock', i)
-        }
-        }
-
+      catch (error) {
       }
 
       //PRICEPERUNIT
       try {
-        var perunit = getXpath('(//*[@id="schema-offer"]/div[2]/p[1]/text())[1]', 'nodeValue');
-        if (perunit != null) {
-          var priceper = perunit.split("/")[0].split('GP: ')[1];
-          var peruni2 = perunit.split("/")[1];
-          addElementToDocument('priceper', priceper);
-          addElementToDocument('perunit', peruni2);
+        var perunit = getAllXpath('//*[@id="schema-offer"]/div[2]/p[contains(text(),"GP")]/text()', 'nodeValue');
+        for (let i = 0; i < perunit.length; i++) {
+          if (perunit[i].trim().length > 1) {
+            var priceper = perunit[i].split("/")[0].split('GP: ')[1];
+            varpricePerUnit.push(priceper);
+            var peruni2 = perunit[i].split("/")[1];
+            varpriceUOM.push(peruni2);
+          }
         }
       }
       catch (error) { }
-      
+
       //PRICE
       try {
-        
-        var price = getAllXpath("//meta[@itemprop='price']/@content", 'nodeValue');
+        var price = getAllXpath("//meta[@itemprop='price']/@content|//form/div/div[4]/p[1]/text()", 'nodeValue');
         for (var i = 0; i < price.length; i++) {
-          var price1 = price[i].replace('.',',')
-          addHiddenDiv4('price', price1+' €', i)
+          var price1 = price[i].replace('.', ',')
+          varprice.push(price1 + ' €');
         }
       }
       catch (error) {
-        //var price2 = document.querySelectorAll("form>div>div:nth-of-type(4)>p:nth-of-type(1)")
-        var price2 = getAllXpath("//form/div/div[4]/p[1]/text()", 'nodeValue');
-        
-        if (price2.length >= 1){
-          for (var i = 0; i < price2.length; i++) {
-            // @ts-ignore
-            //var aa = price2[i].innerText;
-            //var aa = price2[i];
-            addHiddenDiv5('price', price2[i], i)
-          }
+      }
+
+      //VARIANTSINFO
+      try {
+        var var1;
+        var1 = getAllXpath('//*[@id="schema-offer"]/div[2]/p[1]/span/text()', 'nodeValue');
+        if (var1.length == 0) {
+          var1 = getAllXpath('//*[@id="variationsdropdown"]/ul/li/a/div/text()', 'nodeValue');
         }
-        
-       }
-
-
+        for (var i = 0; i < var1.length; i++) {
+          varvariants.push(var1[i]);
+        }
+      }
+      catch (error) {
+      }
+      
       //LIST PRICE
       try {
         var lpr = document.querySelectorAll('div[id="schema-offer"] div:nth-of-type(3) div div');
@@ -249,38 +248,20 @@ module.exports = {
             addHiddenDiv4('desc', name + '- ' + type1[i], i)
           }
         }
-        //else {}
       }
       catch (error) {
         var type2 = getAllXpath("//form/div/div[1]/img/@alt", 'nodeValue');
+        // @ts-ignore
+        //var name = document.querySelector('h1[class="article-header"]').innerText
+        if (type2.length >= 1) {
           // @ts-ignore
-          //var name = document.querySelector('h1[class="article-header"]').innerText
-          if (type2.length >= 1) {
-            // @ts-ignore
-            for (var i = 0; i < type2.length; i++) {
-              addHiddenDiv5('desc', type2[i], i)
-            }
-          }
-       }
-      //VARIANTSINFO
-      try{
-        var var1 = getAllXpath('//*[@id="schema-offer"]/div[2]/p[1]/span/text()', 'nodeValue');
-        if(var1!=null){
-          for (var i = 0; i < var1.length; i++) {
-            addHiddenDiv4('varinfo', var1[i], i)
-          }
-        }
-        //var var2 = getAllXpath("//form/div/div[1]/img/@alt", 'nodeValue');
-      }
-      catch(error){
-        var var2 = getAllXpath('//*[@id="variationsdropdown"]/ul/li/a/div/text()', 'nodeValue');
-        if(var2!=null){
-          for (var i = 0; i < var2.length; i++) {
-            addHiddenDiv4('varinfo', var2[i], i)
+          for (var i = 0; i < type2.length; i++) {
+            addHiddenDiv5('desc', type2[i], i)
           }
         }
       }
-      
+
+
       //URL
       try {
         var currurl = window.location.href
@@ -303,7 +284,7 @@ module.exports = {
         var brand = getXpath("//span[@itemprop='brand']", 'nodeValue');
         var price = getAllXpath("//meta[@itemprop='price']/@content", 'nodeValue');
         for (var i = 0; i < price.length; i++) {
-        addHiddenDiv4('brand', brand,i);
+          addHiddenDiv4('brand', brand, i);
         }
       }
       catch (error) {
@@ -315,9 +296,15 @@ module.exports = {
             addHiddenDiv5('brand', brand, i)
           }
         }
-
-        
-       }
+      }
+      for (let j = 0; j < allVariants.length; j++) {
+        addEmptyDiv();
+        appendData('avail', arrAvailability[j], j);
+        appendData('priceper', varpricePerUnit[j], j);
+        appendData('perunit', varpriceUOM[j], j);
+        appendData('price', varprice[j], j);
+        appendData('varinfo', varvariants[j], j);
+      }
 
     });
     await context.extract(productDetails);
