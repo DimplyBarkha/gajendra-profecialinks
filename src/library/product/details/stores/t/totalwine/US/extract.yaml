@@ -20,7 +20,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: td[@class="breadCrumbs"]//td[@class="name"][position()>1]
+    xpath: //td[@class="breadCrumbs"]//tbody//tr[position()>1]//td[@class="name"]
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
