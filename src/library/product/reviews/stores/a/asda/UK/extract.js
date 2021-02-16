@@ -1,10 +1,11 @@
+const { transform } = require('../shared');
 
 module.exports = {
   implements: 'product/reviews/extract',
   parameterValues: {
     country: 'UK',
     store: 'asda',
-    // transform,
+    transform,
     domain: 'asda.com',
     zipcode: "''",
   },
@@ -15,6 +16,7 @@ module.exports = {
     dependencies,
   ) {
     const { productReviews } = dependencies;
+    // eslint-disable-next-line no-shadow
     const { transform } = parameters;
 
     // clicking in reviews section
@@ -23,45 +25,34 @@ module.exports = {
       const reviewsSection = document.querySelector('button[data-auto-id="tab-1"]');
 
       if (reviewsSection !== null) {
+        // @ts-ignore
         reviewsSection.click();
       }
     });
 
-    async function getElementByXpath (path) {
+    async function nextPage () {
       await context.evaluate(() => {
-        return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      }, path);
+        document.querySelector('button[data-auto-id="btnright"]').click();
+      });
     }
 
-    getElementByXpath('//button[@data-auto-id="btnright"]');
+    while (true) {
+      const date = Date.now();
 
-    // async function nextPage () {
-    //   await context.evaluate(() => {
-    //     document.querySelector('div.pdp-description-reviews__review-pagination-cntr button[data-auto-id="btnright"]').click();
-    //   });
-    // }
+      const lastPaginationButton = await context.evaluate(() => {
+        return document.querySelector(
+          'span[class*="asda-icon asda-icon--gray asda-icon--small asda-icon--rotate270"]');
+      });
 
-    // const currentPage = await context.evaluate(() => {
-    //   document.querySelector('select.co-dropdown__select.co-pagination__select').click();
-    //   return parseInt(document.querySelector('select.co-dropdown__select.co-pagination__select').lastElementChild.textContent);
-    // });
+      if (lastPaginationButton !== null) {
+        return await context.extract(productReviews, { transform }, 'MERGE_ROWS');
+      } else {
+        await context.extract(productReviews, { transform }, 'MERGE_ROWS');
 
-    // const lastPage = await context.evaluate(() => {
-    //   return parseInt(document.querySelector(
-    //     'button.asda-link.asda-link--primary.asda-link--button.co-pagination__last-page').textContent);
-    // });
+        await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    // if (currentPage === lastPage) {
-    //   return await context.extract(productReviews, 'MERGE_ROWS');
-    // } else {
-    //   await context.extract(productReviews, 'MERGE_ROWS');
-
-    //   // waiting for extraction
-
-    //   await new Promise((resolve) => setTimeout(resolve, 3000));
-
-    //   nextPage();
-    // }
-    return await context.extract(productReviews, 'MERGE_ROWS');
+        nextPage();
+      }
+    }
   },
 };

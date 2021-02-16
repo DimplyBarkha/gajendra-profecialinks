@@ -8,31 +8,31 @@ fields:
   #   type: NUMBER
   #   description: Number of people who said the review was helpful
   #   xpath: //span[contains(@aria-label, 'of up votes')]
-  - name: commentCount
-    singleValue: false
-    type: NUMBER
-    description: Number of comments on the review
-    xpath: //button[contains(@aria-label, "Reviews")]
-    regExp: '[0-9]+'
+  # - name: commentCount
+  #   singleValue: false
+  #   type: NUMBER
+  #   description: Number of comments on the review
+  #   xpath: //button[contains(@aria-label, "Reviews")]
+  #   regExp: '[0-9]+'
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-  - name: name
-    singleValue: true
-    description: The product name
-    xpath: //h1[@class="pdp-main-details__title"]
-  - name: sku
-    singleValue: true
-    description: The store-specific product identifier
-    xpath: //html/head/link[@rel='canonical']/@href
-    regExp: (?:https:\/\/.+/(\d+))
-    regExpReplace: $1
-  - name: reviewDate
-    singleValue: true
-    type: DATETIME
-    description: Date the review was made
-    xpath: //div[@class="pdp-description-reviews__submitted-date"]
+  # - name: name
+  #   singleValue: true
+  #   description: The product name
+  #   xpath: //h1[@class="pdp-main-details__title"]
+  # - name: sku
+  #   singleValue: true
+  #   description: The store-specific product identifier
+  #   xpath: //html/head/link[@rel='canonical']/@href
+  #   regExp: (?:https:\/\/.+/(\d+))
+  #   regExpReplace: $1
+  # - name: reviewDate
+  #   singleValue: false
+  #   type: DATETIME
+  #   description: Date the review was made
+  #   xpath: //div[@class="pdp-description-reviews__submitted-date"]
   - name: reviewRating
     type: NUMBER
     singleValue: false
@@ -49,15 +49,15 @@ fields:
   - name: reviewerTags
     singleValue: false
     description: The tags a reviewer has
-  - name: gtin
-    singleValue: true
-    description: GTIN code (includes UPC/EAN)
-    xpath: //span[@class="pdp-main-details__product-code"]
-    regExp: '[0-9]+'
-  - name: productUrl
-    singleValue: true
-    description: The url of the product details page
-    xpath: //html/head/link[@rel='canonical']/@href
+  # - name: gtin
+  #   singleValue: true
+  #   description: GTIN code (includes UPC/EAN)
+  #   xpath: //span[@class="pdp-main-details__product-code"]
+  #   regExp: '[0-9]+'
+  # - name: productUrl
+  #   singleValue: true
+  #   description: The url of the product details page
+  #   xpath: //html/head/link[@rel='canonical']/@href
   - name: verifiedPurchase
     singleValue: true
     type: BOOLEAN
@@ -82,8 +82,8 @@ fields:
   - name: user
     description: The user name of the reviewer
     type: TEXT
-  - name: aggregateRating
-    description: The product rating
-    xpath: //div[@class="rating-stars rating-stars--large rating-stars--windows"]/@aria-label
-    regExp: '(.*) stars'
-    regExpReplace: $1
+  # - name: aggregateRating
+  #   description: The product rating
+  #   xpath: //div[@class="rating-stars rating-stars--large rating-stars--windows"]/@aria-label
+  #   regExp: '(.*) stars'
+  #   regExpReplace: $1
