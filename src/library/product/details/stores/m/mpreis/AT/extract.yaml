@@ -5,10 +5,10 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    xpath: //img[@class='tm-pdetail-img tm-ns']/@src
+    xpath: //img[contains(@class, 'tm-pdetail-img')]/@src
   - name: imageAlt
     singleValue: true
-    xpath: //img[@class='tm-pdetail-img tm-ns']/@alt
+    xpath: //img[contains(@class, 'tm-pdetail-img')]/@alt
   - name: metaKeywords
     singleValue: true
     xpath: //meta[@name='keywords']/@content

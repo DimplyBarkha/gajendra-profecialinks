@@ -4,12 +4,10 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: variantId
-    singleValue: false
+    singleValue: true
     description: variant id, to uniquely identify variant
-    xpath: //div[@id="desc"]//div[@class="panel panel-default"]//h4[@class='panel-title']/a
+    xpath: //a[contains(@class, 'mp-variant-link')]//i
   - name: variantUrl
-    singleValue: false
+    singleValue: true
     description: variant Url
-    xpath: //div[@id="desc"]//div[@class="panel panel-default"]//h4[@class='panel-title']/a/@href
-    # regExp: (\d+)
-    # regExpReplace: https://www.walmart.com/ip/$1/?selected=true
+    xpath: //a[contains(@class, 'mp-variant-link')]//span
