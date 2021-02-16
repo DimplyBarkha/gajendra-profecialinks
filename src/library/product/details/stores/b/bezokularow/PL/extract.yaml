@@ -98,13 +98,15 @@ fields:
   #   description: Content under "warnings" header
   - name: ratingCount
     description: The number of ratings
-    xpath: //span[@itemprop="reviewCount"]/text()
+    xpath: //span[@itemprop="reviewCount"]/text() | //div[@class="rating"]//div[@class="label"]/strong
   # - name: aggregateRatingText
   #   singleValue: true
   #   description: The stated aggregate rating
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //span[@itemprop="ratingValue"]/text()
+    xpath: substring-after(//div[@class="rating"]//div[@class="label"]/strong/following::text()[1], ':')
+    regExp: \s(\d+)(.*)
+    regExpReplace: $1
   # - name: shippingInfo
   #   singleValue: true
   #   description: Shipping information for the product
@@ -137,7 +139,7 @@ fields:
     xpath: //span[contains(@class,"number current")]/@videourl
   - name: name
     description: The product name
-    xpath: //h1[@itemprop="name"]
+    xpath: //h1[@itemprop="name"] | //h1[@class="name"]
   # - name: inStorePrice
   #   singleValue: true
   #   description: Price in the selected store
