@@ -140,7 +140,8 @@ module.exports = {
           const attrbSelector = element.querySelector('div.q-card');
           const prodId = apiResults[index];
           if (prodId) {
-            attrbSelector.setAttribute('my-prodId', prodId);
+            const idToUse = prodId.slice(prodId.length - 5);
+            attrbSelector.setAttribute('my-prodId', idToUse);
           } 
         });
       }
