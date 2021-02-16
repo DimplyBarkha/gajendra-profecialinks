@@ -1,0 +1,557 @@
+input:
+  keywords: Einwegwindeln
+  _url: http://windeln.de
+extractions:
+  - html: https://workbench.import.io/html/run=e3063fbc-434f-4f24-8c73-752fe23b21b3/task=68225dd1-e94f-4311-bbbd-20e888710d84/bcdbe391-260e-421a-8dc2-7cc95ba87c77.html
+    extractionConfigId: product/search/stores/w/windeln/DE/extract
+    data:
+      - group:
+          - id:
+              - text: "5065000041199"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/@data-record-ean
+            name:
+              - text: Bambino Mio Miosolo All-in-One Stoffwindel
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/bambino-mio-miosolo-all-in-one-stoffwindel.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "5065000041199"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.Xi7TNCD59SRKmfV2/5065000041199-1.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/@aggrating
+            reviewCount:
+              - text: "1"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/@ratingcount
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/@ratingcount
+            price:
+              - text: 19,11 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "1"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/@rank
+                type: NUMBER
+                raw: "1"
+                locale: de_DE
+                value: 1
+            rankOrganic:
+              - text: "1"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[1]/@rank
+                type: NUMBER
+                raw: "1"
+                locale: de_DE
+                value: 1
+          - id:
+              - text: "8001090698346"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/@data-record-ean
+            name:
+              - text: Pampers Splashers Schwimmwindeln
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pampers-splashers-schwimmwindeln-txgn.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "8001090698346"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.WnxIAv3JJW7TPHxD/8001090698346-6.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/@aggrating
+            reviewCount:
+              - text: "26"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/@ratingcount
+            ratingCount:
+              - text: "26"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/@ratingcount
+            price:
+              - text: 6,77 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "2"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: de_DE
+                value: 2
+            rankOrganic:
+              - text: "2"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[2]/@rank
+                type: NUMBER
+                raw: "2"
+                locale: de_DE
+                value: 2
+          - id:
+              - text: "5060324889090"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/@data-record-ean
+            name:
+              - text: Bambino Mio Miosolo Alles-In-Einem Stoffwindel mit Motiv
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/bambino-mio-miosolo-alles-in-einem-stoffwindel-mit-motiv.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "5060324889090"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/@data-record-ean
+            thumbnail:
+              - text: https://image.windeln.de/windeln-media/87/6e/16/4d/5915d28ce4b0f7324d166e87.230x230.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,9
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/@aggrating
+            reviewCount:
+              - text: "10"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/@ratingcount
+            ratingCount:
+              - text: "10"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/@ratingcount
+            price:
+              - text: 22,39 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "3"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/@rank
+                type: NUMBER
+                raw: "3"
+                locale: de_DE
+                value: 3
+            rankOrganic:
+              - text: "3"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[3]/@rank
+                type: NUMBER
+                raw: "3"
+                locale: de_DE
+                value: 3
+          - id:
+              - text: "5060575630410"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/@data-record-ean
+            name:
+              - text: Bambino Mio Miosoft Stoffwindel Pack
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/bambino-mio-miosoft-stoffwindel-pack.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "5060575630410"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.W2gn6TauMSlVCASF/ms1-itcc-rfaw.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 3,8
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/@aggrating
+            reviewCount:
+              - text: "6"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/@ratingcount
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/@ratingcount
+            price:
+              - text: 59,99 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "4"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/@rank
+                type: NUMBER
+                raw: "4"
+                locale: de_DE
+                value: 4
+            rankOrganic:
+              - text: "4"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[4]/@rank
+                type: NUMBER
+                raw: "4"
+                locale: de_DE
+                value: 4
+          - id:
+              - text: "5060575637662"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/@data-record-ean
+            name:
+              - text: Bambino Mio, Miosoft stoffwindel pack Flauschige Freunde
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/bambino-mio-miosoft-stoffwindel-pack-flauschige-freunde.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "5060575637662"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.X2Se_HvRiU0bOoke/0-ms1-itcc-pet.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            price:
+              - text: 59,99 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "5"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/@rank
+                type: NUMBER
+                raw: "5"
+                locale: de_DE
+                value: 5
+            rankOrganic:
+              - text: "5"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[5]/@rank
+                type: NUMBER
+                raw: "5"
+                locale: de_DE
+                value: 5
+          - id:
+              - text: "5060575630502"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/@data-record-ean
+            name:
+              - text: Bambino Mio Miosoft Stoffwindel Kit
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/bambino-mio-miosoft-stoffwindel-kit.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "5060575630502"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.W2gdvzauMSlVCAR3/ns1-itc-rfdw.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 3,3
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/@aggrating
+            reviewCount:
+              - text: "3"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/@ratingcount
+            ratingCount:
+              - text: "3"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/@ratingcount
+            price:
+              - text: 79,99 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "6"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/@rank
+                type: NUMBER
+                raw: "6"
+                locale: de_DE
+                value: 6
+            rankOrganic:
+              - text: "6"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[6]/@rank
+                type: NUMBER
+                raw: "6"
+                locale: de_DE
+                value: 6
+          - id:
+              - text: "5060575637693"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/@data-record-ean
+            name:
+              - text: Bambino Mio, Miosoft stoffwindel kit Flauschige Freunde
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/bambino-mio-miosoft-stoffwindel-kit-flauschige-freunde.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "5060575637693"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.X2Sf6XvRiU0bOokr/0-ns2-itc-pet.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            price:
+              - text: 99,99 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "7"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/@rank
+                type: NUMBER
+                raw: "7"
+                locale: de_DE
+                value: 7
+            rankOrganic:
+              - text: "7"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[7]/@rank
+                type: NUMBER
+                raw: "7"
+                locale: de_DE
+                value: 7
+          - id:
+              - text: "07640118230024"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/@data-record-ean
+            name:
+              - text: Pingo Ökowindeln
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pingo-oekowindeln.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "07640118230024"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.X0zHCHvRiU0bOoPs/0024-02-mini-pingo-swiss.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            price:
+              - text: 9,95 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "8"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/@rank
+                type: NUMBER
+                raw: "8"
+                locale: de_DE
+                value: 8
+            rankOrganic:
+              - text: "8"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[8]/@rank
+                type: NUMBER
+                raw: "8"
+                locale: de_DE
+                value: 8
+          - id:
+              - text: "9006720102193"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/@data-record-ean
+            name:
+              - text: Popolini UltraFit
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/popolini-ultrafit.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "9006720102193"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/@data-record-ean
+            thumbnail:
+              - text: https://image.windeln.de/windeln-media/3f/83/f5/e4/55c2593ce4b09205e4f5833f.230x230.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/@aggrating
+            reviewCount:
+              - text: "8"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/@ratingcount
+            ratingCount:
+              - text: "8"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/@ratingcount
+            price:
+              - text: 18,90 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "9"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/@rank
+                type: NUMBER
+                raw: "9"
+                locale: de_DE
+                value: 9
+            rankOrganic:
+              - text: "9"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[9]/@rank
+                type: NUMBER
+                raw: "9"
+                locale: de_DE
+                value: 9
+          - id:
+              - text: "8001090840561"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/@data-record-ean
+            name:
+              - text: Pampers Premium Protection Pants
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/pampers-premium-protection-pants.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "8001090840561"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.XkMuuFH0SVMt49tg/8001090840561-1.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,8
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/@aggrating
+            reviewCount:
+              - text: "2215"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/@ratingcount
+            ratingCount:
+              - text: "2215"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/@ratingcount
+            price:
+              - text: 15,10 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "10"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/@rank
+                type: NUMBER
+                raw: "10"
+                locale: de_DE
+                value: 10
+            rankOrganic:
+              - text: "10"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[10]/@rank
+                type: NUMBER
+                raw: "10"
+                locale: de_DE
+                value: 10
+          - id:
+              - text: "5029053566870"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/@data-record-ean
+            name:
+              - text: Huggies Windelhöschen
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/huggies-windelhoeschen.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "5029053566870"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.W2GxvDauMSlVB_no/05029053566870-1.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/@aggrating
+            reviewCount:
+              - text: "70"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/@ratingcount
+            ratingCount:
+              - text: "70"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/@ratingcount
+            price:
+              - text: 21,35 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "11"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/@rank
+                type: NUMBER
+                raw: "11"
+                locale: de_DE
+                value: 11
+            rankOrganic:
+              - text: "11"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[11]/@rank
+                type: NUMBER
+                raw: "11"
+                locale: de_DE
+                value: 11
+          - id:
+              - text: "05029054654149"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/@data-record-ean
+            name:
+              - text: DryNites Pyjama Unterhosen für Jungen
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/huggies-drynites-pyjama-unterhosen-fuer-jungen.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "05029054654149"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/@data-record-ean
+            thumbnail:
+              - text: https://image.windeln.de/windeln-media/3c/91/16/4d/5980a542e4b0f7324d16913c.230x230.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,7
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/@aggrating
+            reviewCount:
+              - text: "59"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/@ratingcount
+            ratingCount:
+              - text: "59"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/@ratingcount
+            price:
+              - text: 19,88 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "12"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/@rank
+                type: NUMBER
+                raw: "12"
+                locale: de_DE
+                value: 12
+            rankOrganic:
+              - text: "12"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[12]/@rank
+                type: NUMBER
+                raw: "12"
+                locale: de_DE
+                value: 12
+          - id:
+              - text: "05029054654156"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/@data-record-ean
+            name:
+              - text: DryNites Pyjama Unterhosen für Mädchen
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/huggies-drynites-pyjama-unterhosen-fuer-maedchen.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "05029054654156"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/@data-record-ean
+            thumbnail:
+              - text: https://image.windeln.de/windeln-media/24/91/16/4d/5980a4c1e4b0f7324d169124.230x230.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/@aggrating
+            reviewCount:
+              - text: "61"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/@ratingcount
+            ratingCount:
+              - text: "61"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/@ratingcount
+            price:
+              - text: 19,88 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "13"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/@rank
+                type: NUMBER
+                raw: "13"
+                locale: de_DE
+                value: 13
+            rankOrganic:
+              - text: "13"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[13]/@rank
+                type: NUMBER
+                raw: "13"
+                locale: de_DE
+                value: 13
+          - id:
+              - text: "5029053537795"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/@data-record-ean
+            name:
+              - text: Huggies Little Swimmers
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/section[1]/div[1]/div[2]/div[2]/a[1]/h3[1]
+            productUrl:
+              - text: https://www.windeln.de/huggies-little-swimmers.html
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/section[1]/div[1]/div[2]/div[2]/a[1]/@href
+            gtin:
+              - text: "5029053537795"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/@data-record-ean
+            thumbnail:
+              - text: https://windeln-assets.windeln-static.net/product/200.WhKcvTauMUcF1eu5/5029053537795-01-huggies-little-swimmers-2-3.jpg
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/section[1]/div[1]/div[1]/div[3]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/@aggrating
+            reviewCount:
+              - text: "35"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/@ratingcount
+            ratingCount:
+              - text: "35"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/@ratingcount
+            price:
+              - text: 5,84 €
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/section[1]/div[1]/div[2]/div[3]/div[2]/div[1]
+            rank:
+              - text: "14"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/@rank
+                type: NUMBER
+                raw: "14"
+                locale: de_DE
+                value: 14
+            rankOrganic:
+              - text: "14"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[1]/div[6]/article[14]/@rank
+                type: NUMBER
+                raw: "14"
+                locale: de_DE
+                value: 14
+        xpath: /html
+    timestamp: 1604667644685
