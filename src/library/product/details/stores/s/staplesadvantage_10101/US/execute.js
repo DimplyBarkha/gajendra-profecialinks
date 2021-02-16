@@ -1,5 +1,5 @@
 
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const url = 'https://www.staplesadvantage.com/product_{id}'.replace(
     '{id}',
     encodeURIComponent(inputs.id),
@@ -33,13 +33,18 @@ async function implementation (inputs, parameters, context, dependencies) {
     return !currentUrl.includes('idm');
   });
   // when the user is not logged in, the extractor fills out the form
+
   if (!isUserLogged) {
-    // filling in the inputs only works after clicking them first
-    await context.click('input[name="accountNumber"]');
-    await context.evaluate(async () => {
-      document.querySelector('input[name="accountNumber"]').setAttribute('value', '1021401');
-    });
-    await context.click('input[name="userId"]');
+    try {
+      // filling in the inputs only works after clicking them first
+      await context.click('input[name="accountNumber"]');
+      await context.evaluate(async () => {
+        document.querySelector('input[name="accountNumber"]').setAttribute('value', '1021401');
+      });
+      await context.click('input[name="userId"]');
+    } catch (error) {
+      console.log(error)
+    }
     // after filling in the account number input and clicking away, the page is reloaded
     // and the extractor needs to wait to fill in the rest of the inputs
     await new Promise((resolve) => setTimeout(resolve, 3000));
@@ -47,14 +52,27 @@ async function implementation (inputs, parameters, context, dependencies) {
       document.querySelector('input[name="userId"]').setAttribute('value', 'LLAWSON');
     });
 
-    await context.click('input[name="password"]');
-    await context.evaluate(async () => {
-      document.querySelector('input[name="password"]').setAttribute('value', 'Norris2017');
-    });
+    try {
+      await context.click('input[name="password"]');
+      await context.evaluate(async () => {
+        document.querySelector('input[name="password"]').setAttribute('value', 'Norris2017');
+      });
+    } catch (error) {
+      console.log(error)
+    }
     // clicking outside the form after filling it out
     // then clicking the log in button
     await context.click('section[aria-label="Contact us"]');
-    await context.click('div[id="loginBtn"]');
+    try{
+      await context.click('div[id="loginBtn"]');
+    } catch(error) {
+      console.log(error)
+    }
+    try {
+      await context.click('div#twofieldNextBtn');
+    } catch (error) {
+      console.log(error)
+    }
   };
   // logging in takes a moment and reloads the page, then goes to the homepage
   await context.waitForNavigation();
