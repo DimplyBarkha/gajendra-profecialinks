@@ -31,17 +31,14 @@ const transform = (data, context) => {
         Object.keys(row).forEach(header => row[header].forEach(el => {
           el.text = clean(el.text);
         }));
-        if (row.aggregateRating) {
-          let counter = 0;
-          row.aggregateRating.forEach(item => {
-            if (item.text.trim().includes('is-filled')) {
-              counter = counter + 1;
-            } else if (item.text.trim().includes('is-half')) {
-              counter = counter + 0.5;
-            }
-          });
-          row.aggregateRating = [{ text: counter.toFixed(1), xpath: row.aggregateRating[0].xpath }];
-        }
+        if (row.aggregateRating2) {
+            row.aggregateRating2.forEach(item => {
+              item.text = item.text.replace('Average product rating out of 5: ', '');
+              item.text = item.text.replace(/. Product score is.*/, '');
+              item.text = item.text.replace('.', '.');
+              item.text = Number(item.text);
+            });
+          }
         if (row.reviewCount) {
           row.reviewCount.forEach(item => {
             item.text = item.text.replace(/[{()}]/g, '');
