@@ -110,5 +110,5 @@ module.exports = {
     store: 'ralphs_92201',
     zipcode: '92201',
   },
-  // implementation,
+  implementation,
 };
