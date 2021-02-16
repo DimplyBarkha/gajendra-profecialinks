@@ -114,7 +114,7 @@ fields:
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
   - name: directions
     singleValue: false
-    xpath: //*[contains(text(), "Directions")][not(ancestor::*[@id="aplus" or @class="aplus"])]/following-sibling::*[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
+    xpath: //*[contains(text(), 'Directions')][not(ancestor::*[@id='aplus' or @class='aplus'])]/following-sibling::*[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
   - name: warnings
     singleValue: false
     xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text() | //div[contains(@id, "important-information")]/div[contains(@class, "a-section content") and contains(., "Warning")])[1] | (//div[@id='importantInformation_feature_div']//div[contains(.,'Safety Information')]/p)
@@ -306,18 +306,14 @@ fields:
     singleValue: false
     xpath: //div[contains(@id, "package_quantity")]//span[contains(@class, "selection")] | //*[contains(text(), "Number of Items")]/following-sibling::td[1]
   - name: caloriesPerServing
-    #singleValue: true
     xpath: 
   - name: caloriesFromFatPerServing
-    #singleValue: true
     xpath: 
   - name: totalFatPerServing
-    #singleValue: true
     xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
     regExp: Crude Fat\s+([^%]+)
     regExpReplace: $1
   - name: totalFatPerServingUom
-    #singleValue: true
     xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
     regExp: Crude Fat\s+([^%]+)
     regExpReplace: '%'
@@ -496,16 +492,18 @@ fields:
     regExpReplace: Yes
     defaultValue: No
   - name: termsAndConditions
-    #singleValue: true
     defaultValue: No
   - name: privacyPolicy
-    #singleValue: true
     defaultValue: No
+    xpath: //*[contains(text(),"Privacy Notice")]
+    regExp: (.+)
+    regExpReplace: Yes
   - name: customerServiceAvailability
-    #singleValue: true
     defaultValue: No
+    xpath: //*[contains(text(),"Customer Service")]
+    regExp: (.+)
+    regExpReplace: Yes
   - name: materials
-    #singleValue: true
     xpath: //div[contains(@id, "prodDetails")]//tr[contains(., "Material") or (contains(., "material"))]/td[contains(@class,'value')] | //*[normalize-space(text())="materials" or normalize-space(text())="Material"]/following-sibling::*[1]
   - name: Image360Present
     #singleValue: true

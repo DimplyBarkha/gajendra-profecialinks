@@ -154,15 +154,15 @@ async function implementation (
       notLastPage = Number(totalCount) > data.length;
       api = `/gp/aod/ajax?asin=${asin}&pageno=${++page}`;
     }
-    if(data.length === 0) {        
+    if (data.length === 0) {
       data = Array.from(document.querySelectorAll('#mbc > div.mbc-offer-row')).map(offer => {
-      const sellerPrice = offer.querySelector('span[id^="mbc-price"]') && offer.querySelector('span[id^="mbc-price"]').innerText || '';
-      const sellerName = offer.querySelector('span.mbcMerchantName') && offer.querySelector('span.mbcMerchantName').innerText || '';
-      const shippingPrice = offer.querySelector('span[id^="mbc-shipping-fixed"]') && offer.querySelector('span[id^="mbc-shipping-fixed"]').textContent || '0.00';
-      const sellerId = offer.querySelector('span[data-a-popover]') && offer.querySelector('span[data-a-popover]').getAttribute('data-a-popover');
-      const sellerPrime = offer.querySelector('[target="AmazonHelp"]') && 'YES' || 'NO';
-      return { sellerPrice, sellerName, shippingPrice, sellerPrime, sellerId };
-    });
+        const sellerPrice = offer.querySelector('span[id^="mbc-price"]') && offer.querySelector('span[id^="mbc-price"]').innerText || '';
+        const sellerName = offer.querySelector('span.mbcMerchantName') && offer.querySelector('span.mbcMerchantName').innerText || '';
+        const shippingPrice = offer.querySelector('span[id^="mbc-shipping-fixed"]') && offer.querySelector('span[id^="mbc-shipping-fixed"]').textContent || '0.00';
+        const sellerId = offer.querySelector('span[data-a-popover]') && offer.querySelector('span[data-a-popover]').getAttribute('data-a-popover');
+        const sellerPrime = offer.querySelector('[target="AmazonHelp"]') && 'YES' || 'NO';
+        return { sellerPrice, sellerName, shippingPrice, sellerPrime, sellerId };
+      });
     }
     const lbb = data.find(elm => elm.sellerName.includes('Amazon')) ? 'YES' : 'NO';
     document.body.setAttribute('is-llb', lbb);

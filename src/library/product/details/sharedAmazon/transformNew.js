@@ -331,7 +331,7 @@ const transform = (data, context) => {
         if (match) {
           row.availabilityText[0].text = availabilityMap[match[0].toLowerCase()];
         }
-        row.availabilityText[0].text = row.availabilityText[0].text.trim().replace(/\.$/, '');
+        // row.availabilityText[0].text = row.availabilityText[0].text.trim().replace(/\.$/, '');
       }
       if (row.gtin) {
         // Getting only 10 UPCs.
@@ -380,6 +380,12 @@ const transform = (data, context) => {
         const updpLength = text.split(' || ').length;
         console.log(updpLength);
       }
+
+      if (row.alternateImagesFromScript) {
+        row.alternateImages = row.alternateImagesFromScript;
+        delete row.alternateImagesFromScript;
+      }
+
       if (row.alternateImages) {
         row.secondaryImageTotal = [{ text: row.alternateImages.length }];
       }
