@@ -8,8 +8,8 @@ fields:
     regExp: (.+)
     regExpReplace: https://ubaldi.com$1
   - name: thumbnail
-    xpath: //div[contains(@class, 'image-container')]//img/@src
-    regExp: (.+)
+    xpath: //div[contains(@class, 'la-image')]//img/@data-src
+    regExp: (.+.jpg)
     regExpReplace: https://ubaldi.com$1
   - name: aggregateRating2
     xpath: //span[contains(@class, 'rating-decimal')]
@@ -18,14 +18,14 @@ fields:
     regExp: ((\d+)\savis)
     regExpReplace: $2
   - name: price
-    xpath: //span[contains(@class, 'prix rebours-prix rebours-inited')]/@data-prix-vente
+    xpath: //span[contains(@class, 'prix rebours-prix')]/@data-prix-vente
   - name: manufacturer
     xpath: //span[@class="marque"]
   - name: rank    
   - name: rankOrganic
   - name: id
     xpath: //div[@class="lai-zone-texte"]/h2/a/@href
-    regExp: (.+--(\d+).+)
-    regExpReplace: $2
+    regExp: (\d+).php
+    regExpReplace: $1
   - name: name
     xpath: //h2[@class= 'la-titre zc-link']

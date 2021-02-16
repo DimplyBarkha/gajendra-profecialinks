@@ -6,7 +6,7 @@ module.exports = {
     store: 'ubaldi',
     domain: 'ubaldi.fr',
     zipcode: '',
-    openSearchDefinition: { template: 'https://www.ubaldi.com/recherche/{searchTerms}-page-{page}.php?from_filtres=true' },
+    openSearchDefinition: { template: 'https://www.ubaldi.com/recherche/{searchTerms}-page-{page}.php?from_filtres=true#[!opt!]{"type":"json"}[/!opt!]' },
   },
   // implementation: async function (
   //   inputs,
