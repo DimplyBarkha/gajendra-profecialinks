@@ -28,16 +28,8 @@ const transform = (data, context) => {
         row.rankOrganic = [{ text: orgRankCounter }];
       }
       if (row.price) {
-        try {
-          const obj = row.price.find(e => e.text.includes('ou'));
-          const start = obj.text.indexOf('ou');
-          const end = obj.text.indexOf('$');
-          const price = obj.text.slice(start + 2, end).trim();
-          row.price = [{ text: price.replace(',', '.') }];
-        } catch (e) {
-          const end = row.price[0].text.indexOf(' ');
-          row.price = [{ text: end > 1 ? row.price[0].text.slice(0, end).replace(',', '.') : '' }];
-        }
+        if (row.price.length === 1) row.price[0].text = row.price[0].text.replace('$', '');
+        if (row.price.length > 1) row.price = [{ text: row.price[1].text.replace('$', '') }];
       }
       if (row.productUrl) row.productUrl = [{ text: 'https://www.metro.ca' + row.productUrl[0].text }];
       row.rank = [{ text: rankCounter }];
