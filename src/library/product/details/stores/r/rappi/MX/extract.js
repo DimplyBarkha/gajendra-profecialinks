@@ -26,5 +26,5 @@ module.exports = {
     domain: 'rappi.com.mx',
     zipcode: '',
   },
-  // implementation,
+  implementation,
 };
