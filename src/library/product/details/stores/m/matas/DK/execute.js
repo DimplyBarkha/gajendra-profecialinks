@@ -5,7 +5,7 @@ module.exports = {
     country: 'DK',
     store: 'matas',
     domain: 'matas.dk',
-    loadedSelector: null,
+    loadedSelector: 'h1[class="product-name product-name--large"]',
     noResultsXPath: '//span[@class="color-positive-text"]',
     zipcode: '',
   },
