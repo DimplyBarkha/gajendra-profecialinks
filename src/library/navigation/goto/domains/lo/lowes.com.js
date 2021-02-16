@@ -21,6 +21,7 @@ module.exports = {
         firstRequestTimeout: 60000,
         timeout: 60000,
         waitUntil: 'load',
+        actionTimeout: 20000,
         checkBlocked: true,
       });
       await new Promise((resolve, reject) => setTimeout(resolve, 1500));

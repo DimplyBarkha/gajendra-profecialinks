@@ -4,12 +4,13 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'lowes_1360',
-    nextLinkSelector: 'ul[data-selector="splp-pag-lst"] li:last-child a:not(.disabled)',
-    mutationSelector: 'div.plt div[data-selector="splp-prd-lst-ttl"]',
+    openSearchDefinition: {
+      template: 'https://www.lowes.com/search?searchTerm={searchTerms}&page={page}#[!opt!]{"first_request_timeout":50000,"force200":true}[/!opt!]',
+    },
+    mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'a > span > article > span',
-    noResultsXPath: '//h1[contains(text(),"NO RESULTS FOUND FOR")]',
-    openSearchDefinition: null,
+    loadedSelector: 'div[class="items"] div[class="tile_group"]:last-child , section#main , div[id*="pd_row"]',
+    noResultsXPath: '//h1[contains(text(),"NO RESULTS FOUND FOR")] | //div[@id="mainContent"] | //div[contains(@class ,"grid-container")] | //h1[contains(text(),"Something Went Wrong")] | //h1[contains(text(),"Access Denied")]',
     domain: 'lowes.com',
     zipcode: '',
   },

@@ -1,43 +1,43 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]
+recordXPath: //div[@data-selector="splp-prd-lst-plpo"]//div/article | //div[contains(@id ,"pd_row")] | //div[contains(@class , "ProductDetailsWrapper")]
 fields:
   - name: productUrl
     singleValue: false
-    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//a/@href
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//a/@href | //div[contains(@class , "ProductDetailsWrapper")]//div[@id='Prod_url'] | //div[@data-selector="splp-prd-tl-img"]//a[@data-clicktype="product_tile_click"]/@href
     regExp: (\/.*)
     regExpReplace: https://www.lowes.com$1
   - name: thumbnail
     singleValue: false
-    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-crd"]//div[@data-selector="splp-prd-img"]//img/@src
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-crd"]//div[@data-selector="splp-prd-img"]//img/@src | //div[@id='thumbnailDetails'] | //img[@data-selector="splp-prd-img-org"]/@src 
     regExp: (htt.*.jpg)
     regExpReplace: $1
   - name: name
     singleValue: false
-    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector="splp-prd-ttl"]
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector="splp-prd-ttl"] | //div[contains(@class , "ProductDetailsWrapper")]//h1[contains(@class,"style__HeaderStyle")] | //article[@data-selector="splp-prd-ttl"]
   - name: ratingCount
     singleValue: false
-    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//div[@data-selector="splp-prd-ttl-rtgs"]/div/@aria-label
-    regExp: (.+) out of(.)
-    regExpReplace: $1
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//div[@data-selector="splp-prd-ttl-rtgs"]/div/@aria-label | //div[@class="rating-tooltip"]/div | (//div[contains(@class , "ProductDetailsWrapper")]//div[contains(@class,"fsReviewLinkDefault")])[1]
+    # regExp: (.+) out of(.)
+    # regExpReplace: $1
   - name: reviewCount
     singleValue: false
-    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//span[@class="styles__TotalWrap-RC__sc-5hhhh2-4 glgCQP total"]
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//span[@class="styles__TotalWrap-RC__sc-5hhhh2-4 glgCQP total"] | //div[contains(@class , "ProductDetailsWrapper")]//span[contains(@class,"styles__TotalWrap")] | //div[@class="rating-tooltip"]/div
   - name: price
     singleValue: false
-    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-act-$"] | //div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-rng"]
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-act-$"] | //div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-rng"] | //span[@class="finalPrice"]/div | //div[@class="prdt-actl-pr"] | //div[@data-selector="splp-prd-rng"]
   - name: id
     singleValue: false
-    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//@id
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//@id | //div[@id='idDetails'] | //div[@data-selector="splp-prd-tl-img"]/@id | //div[contains(@class , "ProductDetailsWrapper")]//div[@id='idDetails']
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//div[contains(@class,"sc-1b7wdu0-5")]//div[contains(@class,"styles__RatingDiv")]//@aria-label
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div/article//div[contains(@class,"styles__RatingDiv")]//@aria-label | (//div[contains(@class , "ProductDetailsWrapper")]//div[contains(@class,"styles__RatingDiv")]//@aria-label)[1] | //div[@class="rating-tooltip"]/div/@aria-label
     regExp: (.+) out of(.)
     regExpReplace: $1
   - name: rank
   - name: rankOrganic
   - name: searchUrl
     singleValue: false
-    xpath: //div[@id="page_url"]
+    xpath: //div[@id="page_url"] | //div[@id='Search_url'] | //div[@id='page_url_1']
  
