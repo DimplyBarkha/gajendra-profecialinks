@@ -2,11 +2,14 @@ input:
   keywords: Blasenschwäche
   _url: http://bipa.at
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=b9ba7b60-7a53-4f80-bcc9-b95d1b1a7081/task=e40d0dd8-3d21-4832-b55c-aab4ca83065b/15f8afcc-9afb-4b64-a7b3-b7ab9a60e82a.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=24efc662-e493-43b3-9ca2-8be441fdf965/task=5e3761c7-1e82-4f77-b5fb-686c5cab602f/d874cce8-99c0-4e05-9e5f-d8faee8c94bd.html
     extractionConfigId: product/search/stores/b/bipa/AT/extract
     data:
       - group:
-          - searchUrl:
+          - id:
+              - text: B3-272793
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/@data-gtmdata
+            searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/@searchurl
             name:
@@ -16,7 +19,7 @@ extractions:
               - text: https://www.bipa.at/hydas-einweg-damenslip/B3-272793.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/272797.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/272797.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 5,0
@@ -30,7 +33,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[1]/div[1]/div[2]/div[1]/div[2]/text()[1]
           - id:
               - text: B3-269738
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/@searchurl
@@ -41,14 +44,14 @@ extractions:
               - text: https://www.bipa.at/abena-abri-fix-soft-cotton-mit-bein--m/B3-269738.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269738.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269738.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 13,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[2]/@data-gtmdata
           - id:
               - text: B3-269680
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/@searchurl
@@ -59,14 +62,14 @@ extractions:
               - text: https://www.bipa.at/abena-abri-san-premium-6-einlagen/B3-269680.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269680.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269680.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 15,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[3]/@data-gtmdata
           - id:
               - text: B3-957593
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/@searchurl
@@ -77,14 +80,14 @@ extractions:
               - text: https://www.bipa.at/doppelherz-mannose/B3-957593.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/957593.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/957593.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 9,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[4]/@data-gtmdata
           - id:
               - text: B3-338391
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/@searchurl
@@ -95,14 +98,14 @@ extractions:
               - text: https://www.bipa.at/abena-abri-form-premium-l-1/B3-338391.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/338391.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/338391.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 16,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[5]/@data-gtmdata
           - id:
               - text: B3-325576
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/@searchurl
@@ -113,14 +116,14 @@ extractions:
               - text: https://www.bipa.at/bi-comfort-pants-classic-large/B3-325576.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/325576.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/325576.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 7,29
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[6]/@data-gtmdata
           - id:
               - text: B3-325570
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/@searchurl
@@ -131,14 +134,14 @@ extractions:
               - text: https://www.bipa.at/bi-comfort-hygiene-einlagen-extra/B3-325570.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/325570.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/325570.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 2,49
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[7]/@data-gtmdata
           - id:
               - text: B3-325575
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/@searchurl
@@ -149,7 +152,7 @@ extractions:
               - text: https://www.bipa.at/bi-comfort-pants-classic-medium/B3-325575.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/325575.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/325575.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 5,0
@@ -166,7 +169,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[8]/@data-gtmdata
           - id:
               - text: B3-325574
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/@searchurl
@@ -177,7 +180,7 @@ extractions:
               - text: https://www.bipa.at/bi-comfort-pants-diskret-large/B3-325574.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/325574.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/325574.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 5,0
@@ -194,7 +197,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[9]/@data-gtmdata
           - id:
               - text: B3-325573
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/@searchurl
@@ -205,14 +208,14 @@ extractions:
               - text: https://www.bipa.at/bi-comfort-hygiene-pants-diskret-medium/B3-325573.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/325573.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/325573.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 7,29
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[10]/@data-gtmdata
           - id:
               - text: B3-325571
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/@searchurl
@@ -223,14 +226,14 @@ extractions:
               - text: https://www.bipa.at/bi-comfort-hygiene-einlagen-extra-plus/B3-325571.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/325571.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/325571.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 2,49
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[11]/@data-gtmdata
           - id:
               - text: B3-325324
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/@searchurl
@@ -241,7 +244,7 @@ extractions:
               - text: https://www.bipa.at/bi-comfort-hygiene-einlagen-normal/B3-325324.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/325324.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/325324.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 3,7
@@ -258,7 +261,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[12]/@data-gtmdata
           - id:
               - text: B3-325572
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/@searchurl
@@ -269,7 +272,7 @@ extractions:
               - text: https://www.bipa.at/bi-comfort-hygiene-einlagen-maxi/B3-325572.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/325572.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/325572.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 5,0
@@ -286,7 +289,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[13]/@data-gtmdata
           - id:
               - text: B3-308898
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/@searchurl
@@ -297,14 +300,14 @@ extractions:
               - text: https://www.bipa.at/abena-abri-fix-pants-super-l/B3-308898.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/308898.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/308898.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 2,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[14]/@data-gtmdata
           - id:
               - text: B3-308906
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/@searchurl
@@ -315,14 +318,14 @@ extractions:
               - text: https://www.bipa.at/abena-abri-let-anatomic-einlagen/B3-308906.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/308906.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/308906.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 3,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[15]/@data-gtmdata
           - id:
               - text: B3-308905
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/@searchurl
@@ -333,14 +336,14 @@ extractions:
               - text: https://www.bipa.at/abena-abri-fix-pants-super-m/B3-308905.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/308905.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/308905.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 2,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[16]/@data-gtmdata
           - id:
               - text: B3-308883
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/@searchurl
@@ -351,7 +354,7 @@ extractions:
               - text: https://www.bipa.at/abena-abri-form-premium-m2-inkontinenzwindeln/B3-308883.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/308883.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/308883.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 3,5
@@ -368,7 +371,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[17]/@data-gtmdata
           - id:
               - text: B3-297186
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/@searchurl
@@ -379,7 +382,7 @@ extractions:
               - text: https://www.bipa.at/tetesept-femi-blase-blasenentzuendung-mannose-akut/B3-297186.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/297186.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/297186.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 5,0
@@ -392,9 +395,12 @@ extractions:
               - text: "1"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 9,99
+              - text: 7,49
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[18]/@data-gtmdata
-          - searchUrl:
+          - id:
+              - text: B3-283411
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/@data-gtmdata
+            searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/@searchurl
             name:
@@ -404,12 +410,15 @@ extractions:
               - text: https://www.bipa.at/attends-stretch-fit-pants/B3-283411.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/283411.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/283411.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/div[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 17,49
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[19]/@data-gtmdata
-          - searchUrl:
+          - id:
+              - text: B3-283649
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[20]/@data-gtmdata
+            searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[20]/div[1]/@searchurl
             name:
@@ -419,12 +428,15 @@ extractions:
               - text: https://www.bipa.at/attends-stretch-pants-regular/B3-283649.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[20]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/283660.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/283660.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[20]/div[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 6,49
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[20]/@data-gtmdata
-          - searchUrl:
+          - id:
+              - text: B3-283435
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/@data-gtmdata
+            searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/div[1]/@searchurl
             name:
@@ -434,14 +446,14 @@ extractions:
               - text: https://www.bipa.at/attends-stretch-pants-comfort/B3-283435.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/283435.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/283435.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/div[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 7,95
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[21]/@data-gtmdata
           - id:
               - text: B3-283400
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/div[1]/@searchurl
@@ -452,14 +464,14 @@ extractions:
               - text: https://www.bipa.at/attends-einlagen-soft-6/B3-283400.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/283400.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/283400.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 15,49
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[22]/@data-gtmdata
           - id:
               - text: B3-283468
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[23]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[23]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[23]/div[1]/@searchurl
@@ -470,7 +482,7 @@ extractions:
               - text: https://www.bipa.at/attends-professional-care-barrier-spray/B3-283468.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[23]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/283468.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/283468.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[23]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 2,0
@@ -487,7 +499,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[23]/@data-gtmdata
           - id:
               - text: B3-283410
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/div[1]/@searchurl
@@ -498,7 +510,7 @@ extractions:
               - text: https://www.bipa.at/attends-einlagen-soft-7/B3-283410.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/283410.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/283410.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 3,5
@@ -515,7 +527,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[24]/@data-gtmdata
           - id:
               - text: B3-283392
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/div[1]/@searchurl
@@ -526,256 +538,269 @@ extractions:
               - text: https://www.bipa.at/attends-for-men-einlagen-4/B3-283392.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/283392.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/283392.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 7,79
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[25]/@data-gtmdata
           - id:
-              - text: B3-283394
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/form[1]/input[1]/@value
+              - text: B3-272707
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/@searchurl
             name:
-              - text: Einlagen Soft 1Mini
+              - text: Airlaid Rechteckvlieseinlagen
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/attends-einlagen-soft-1mini/B3-283394.html
+              - text: https://www.bipa.at/hydas-airlaid-rechteckvlieseinlagen/B3-272707.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/283394_1.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/272707.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
-            price:
-              - text: 4,49
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/@data-gtmdata
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[26]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
           - id:
-              - text: B3-272707
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/form[1]/input[1]/@value
+              - text: B3-269742
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/@searchurl
             name:
-              - text: Airlaid Rechteckvlieseinlagen
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+              - text: Abri-Fix Man Fixierhose mit Bein
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/hydas-airlaid-rechteckvlieseinlagen/B3-272707.html
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/form[1]/a[1]/@href
+              - text: https://www.bipa.at/abena-abri-fix-man-fixierhose-mit-bein/B3-269742.html
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/272707.jpg?sw=170&sfrm=png&q=20
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,0
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
-                type: STRING
-            reviewCount:
-              - text: (1)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
-          - searchUrl:
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269743.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/div[1]/a[1]/span[1]/span[1]/img[1]/@src
+            price:
+              - text: 17,29
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[27]/@data-gtmdata
+          - id:
+              - text: B3-269675
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/@data-gtmdata
+            searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/@searchurl
             name:
-              - text: Abri-Fix Man Fixierhose mit Bein
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+              - text: Abri-Flex Premium XL2 Inkontinenzhöschen
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-fix-man-fixierhose-mit-bein/B3-269742.html
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/a[1]/@href
+              - text: https://www.bipa.at/abena-abri-flex-premium-xl2-inkontinenzhoeschen/B3-269675.html
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269743.jpg?sw=170&sfrm=png&q=20
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/a[1]/span[1]/span[1]/img[1]/@src
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269675.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 17,29
+              - text: 29,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[28]/@data-gtmdata
           - id:
-              - text: B3-269675
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/form[1]/input[1]/@value
+              - text: B3-269740
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/@searchurl
             name:
-              - text: Abri-Flex Premium XL2 Inkontinenzhöschen
+              - text: Abri-Fix Soft Cotton mit Bein XL
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-flex-premium-xl2-inkontinenzhoeschen/B3-269675.html
+              - text: https://www.bipa.at/abena-abri-fix-soft-cotton-mit-bein--xl/B3-269740.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269675.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269740.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,0
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
-                type: STRING
-            reviewCount:
-              - text: (1)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 29,99
+              - text: 14,49
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[29]/@data-gtmdata
           - id:
-              - text: B3-269740
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/form[1]/input[1]/@value
+              - text: B3-269691
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/@searchurl
             name:
-              - text: Abri-Fix Soft Cotton mit Bein XL
+              - text: Abri-Form Premium XL2 Inkontinenzwindeln
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-fix-soft-cotton-mit-bein--xl/B3-269740.html
+              - text: https://www.bipa.at/abena-abri-form-premium-xl2-inkontinenzwindeln/B3-269691.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269740.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269691.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 14,49
+              - text: 17,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[30]/@data-gtmdata
           - id:
-              - text: B3-269691
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/form[1]/input[1]/@value
+              - text: B3-269726
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/@searchurl
             name:
-              - text: Abri-Form Premium XL2 Inkontinenzwindeln
+              - text: Abri-Fix Soft Cotton S
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-form-premium-xl2-inkontinenzwindeln/B3-269691.html
+              - text: https://www.bipa.at/abena-abri-fix-soft-cotton-s/B3-269726.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269691.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269726.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 5,0
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
-                type: STRING
-            reviewCount:
-              - text: (1)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 17,99
+              - text: 13,59
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[31]/@data-gtmdata
           - id:
-              - text: B3-269726
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/form[1]/input[1]/@value
+              - text: B3-269684
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/@searchurl
             name:
-              - text: Abri-Fix Soft Cotton S
+              - text: Abri-San Premium 8 Einlagen
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-fix-soft-cotton-s/B3-269726.html
+              - text: https://www.bipa.at/abena-abri-san-premium-8-einlagen/B3-269684.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269726.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269684.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 13,59
+              - text: 8,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[32]/@data-gtmdata
           - id:
-              - text: B3-269684
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/div[1]/form[1]/input[1]/@value
+              - text: B3-269728
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/div[1]/@searchurl
             name:
-              - text: Abri-San Premium 8 Einlagen
+              - text: Abri-Fix Soft Cotton M
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-san-premium-8-einlagen/B3-269684.html
+              - text: https://www.bipa.at/abena-abri-fix-soft-cotton-m/B3-269728.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269684.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269728.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 5,0
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
-                type: STRING
-            reviewCount:
-              - text: (1)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 8,99
+              - text: 13,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[33]/@data-gtmdata
           - id:
-              - text: B3-269728
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/div[1]/form[1]/input[1]/@value
+              - text: B3-269739
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/div[1]/@searchurl
             name:
-              - text: Abri-Fix Soft Cotton M
+              - text: Abri-Fix Soft Cotton mit Bein L
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-fix-soft-cotton-m/B3-269728.html
+              - text: https://www.bipa.at/abena-abri-fix-soft-cotton-mit-bein--l/B3-269739.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269728.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269739.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 13,99
+              - text: 14,49
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[34]/@data-gtmdata
           - id:
-              - text: B3-269739
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/form[1]/input[1]/@value
+              - text: B3-269735
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/@searchurl
             name:
-              - text: Abri-Fix Soft Cotton mit Bein L
+              - text: Abri-Fix Soft Cotton XL
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-fix-soft-cotton-mit-bein--l/B3-269739.html
+              - text: https://www.bipa.at/abena-abri-fix-soft-cotton-xl/B3-269735.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269739.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269735.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 5,0
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
-                type: STRING
-            reviewCount:
-              - text: (1)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
               - text: 14,49
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[35]/@data-gtmdata
           - id:
-              - text: B3-269735
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/form[1]/input[1]/@value
+              - text: B3-269678
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/@searchurl
             name:
-              - text: Abri-Fix Soft Cotton XL
+              - text: Abri-San Premium 5 Einlagen
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-fix-soft-cotton-xl/B3-269735.html
+              - text: https://www.bipa.at/abena-abri-san-premium-5-einlagen/B3-269678.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269735.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269678.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (2)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 14,49
+              - text: 12,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[36]/@data-gtmdata
           - id:
               - text: B3-269688
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/div[1]/@searchurl
@@ -786,401 +811,411 @@ extractions:
               - text: https://www.bipa.at/abena-abri-san-premium-11-einlagen/B3-269688.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269688.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269688.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 8,39
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[37]/@data-gtmdata
           - id:
-              - text: B3-269678
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/form[1]/input[1]/@value
+              - text: B3-269715
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/@searchurl
             name:
-              - text: Abri-San Premium 5 Einlagen
+              - text: Man Formula 0 Einlagen
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-san-premium-5-einlagen/B3-269678.html
+              - text: https://www.bipa.at/abena-man-formula-0-einlagen/B3-269715.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269678.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269715.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 5,0
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
-                type: STRING
-            reviewCount:
-              - text: (2)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
-            ratingCount:
-              - text: "2"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 12,99
+              - text: 2,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[38]/@data-gtmdata
           - id:
-              - text: B3-269715
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/div[1]/form[1]/input[1]/@value
+              - text: B3-269639
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/div[1]/@searchurl
             name:
-              - text: Man Formula 0 Einlagen
+              - text: Abri-Flex Premium S2 Inkontinenzhöschen
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-man-formula-0-einlagen/B3-269715.html
+              - text: https://www.bipa.at/abena-abri-flex-premium-s2-inkontinenzhoeschen/B3-269639.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269715.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269639.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
-              - text: 2,99
+              - text: 18,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[39]/@data-gtmdata
           - id:
-              - text: B3-269639
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/div[1]/form[1]/input[1]/@value
+              - text: B3-269732
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/div[1]/@searchurl
             name:
-              - text: Abri-Flex Premium S2 Inkontinenzhöschen
+              - text: Abri-Fix Soft Cotton L
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-flex-premium-s2-inkontinenzhoeschen/B3-269639.html
+              - text: https://www.bipa.at/abena-abri-fix-soft-cotton-l/B3-269732.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269639.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269732.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
-              - text: 18,99
+              - text: 14,49
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[40]/@data-gtmdata
           - id:
-              - text: B3-269732
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/form[1]/input[1]/@value
+              - text: B3-269718
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/@searchurl
             name:
-              - text: Abri-Fix Soft Cotton L
+              - text: Pants M0
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-fix-soft-cotton-l/B3-269732.html
+              - text: https://www.bipa.at/abena-pants-m0/B3-269718.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269732.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269718.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (2)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 14,49
+              - text: 12,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[41]/@data-gtmdata
           - id:
-              - text: B3-269718
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/form[1]/input[1]/@value
+              - text: B3-269686
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/@searchurl
             name:
-              - text: Pants M0
+              - text: Abri-San Premium 9 Einlagen
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-pants-m0/B3-269718.html
+              - text: https://www.bipa.at/abena-abri-san-premium-9-einlagen/B3-269686.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269718.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269686.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 5,0
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
                 type: STRING
             reviewCount:
-              - text: (2)
+              - text: (1)
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             ratingCount:
-              - text: "2"
+              - text: "1"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 12,99
+              - text: 13,19
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[42]/@data-gtmdata
           - id:
-              - text: B3-269686
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/form[1]/input[1]/@value
+              - text: B3-269696
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/@searchurl
             name:
-              - text: Abri-San Premium 9 Einlagen
+              - text: Einlagen Light Mini Plus 1A
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-san-premium-9-einlagen/B3-269686.html
+              - text: https://www.bipa.at/abena-einlagen-light-mini-plus-1a/B3-269696.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269686.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269696.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 5,0
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
-                type: STRING
-            reviewCount:
-              - text: (1)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 13,19
+              - text: 2,39
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[43]/@data-gtmdata
           - id:
-              - text: B3-269696
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/form[1]/input[1]/@value
+              - text: B3-269690
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/@searchurl
             name:
-              - text: Einlagen Light Mini Plus 1A
+              - text: Abri-Form Premium L2 Inkontinenzwindeln
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-einlagen-light-mini-plus-1a/B3-269696.html
+              - text: https://www.bipa.at/abena-abri-form-premium--l2-inkontinenzwindeln/B3-269690.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269696.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269690.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 2,39
+              - text: 16,49
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[44]/@data-gtmdata
           - id:
-              - text: B3-269690
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/form[1]/input[1]/@value
+              - text: B3-269737
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/@searchurl
             name:
-              - text: Abri-Form Premium L2 Inkontinenzwindeln
+              - text: Abri-Fix Soft Cotton mit Bein S
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-form-premium--l2-inkontinenzwindeln/B3-269690.html
+              - text: https://www.bipa.at/abena-abri-fix-soft-cotton-mit-bein--s/B3-269737.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269690.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269737.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 5,0
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
-                type: STRING
-            reviewCount:
-              - text: (1)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 16,49
+              - text: 13,69
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[45]/@data-gtmdata
           - id:
-              - text: B3-269737
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/form[1]/input[1]/@value
+              - text: B3-269719
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/@searchurl
             name:
-              - text: Abri-Fix Soft Cotton mit Bein S
+              - text: Pants L0
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-fix-soft-cotton-mit-bein--s/B3-269737.html
+              - text: https://www.bipa.at/abena-pants-l0/B3-269719.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269737.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269719.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,5
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (2)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 13,69
+              - text: 13,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[46]/@data-gtmdata
           - id:
-              - text: B3-269719
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/form[1]/input[1]/@value
+              - text: B3-269716
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/@searchurl
             name:
-              - text: Pants L0
+              - text: Man Formula 1Einlagen
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-pants-l0/B3-269719.html
+              - text: https://www.bipa.at/abena-man-formula-1einlagen/B3-269716.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269719.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269716.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,5
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
-                type: STRING
-            reviewCount:
-              - text: (2)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
-            ratingCount:
-              - text: "2"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 13,99
+              - text: 3,49
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[47]/@data-gtmdata
           - id:
-              - text: B3-269716
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[48]/div[1]/form[1]/input[1]/@value
+              - text: B3-269682
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[48]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[48]/div[1]/@searchurl
             name:
-              - text: Man Formula 1Einlagen
+              - text: Abri-San Premium 7 Einlagen
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[48]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-man-formula-1einlagen/B3-269716.html
+              - text: https://www.bipa.at/abena-abri-san-premium-7-einlagen/B3-269682.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[48]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269716.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/269682.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[48]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
-              - text: 3,49
+              - text: 14,49
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[48]/@data-gtmdata
           - id:
-              - text: B3-269682
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/div[1]/form[1]/input[1]/@value
+              - text: B3-255394
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/div[1]/@searchurl
             name:
-              - text: Abri-San Premium 7 Einlagen
+              - text: pelzy Protect Vlieswindeln
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/abena-abri-san-premium-7-einlagen/B3-269682.html
+              - text: https://www.bipa.at/cosmea-pelzy-protect-vlieswindeln/B3-255394.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/269682.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/255394.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (6)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "6"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 14,49
+              - text: 3,69
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[49]/@data-gtmdata
           - id:
-              - text: B3-255394
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/form[1]/input[1]/@value
+              - text: B3-256932
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/@searchurl
             name:
-              - text: pelzy Protect Vlieswindeln
+              - text: Bed Underpad Betteinlage
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/cosmea-pelzy-protect-vlieswindeln/B3-255394.html
+              - text: https://www.bipa.at/tena-bed-underpad-betteinlage/B3-256932.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/255394.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/256932.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 5,0
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
                 type: STRING
             reviewCount:
-              - text: (6)
+              - text: (3)
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             ratingCount:
-              - text: "6"
+              - text: "3"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 3,69
+              - text: 5,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[50]/@data-gtmdata
           - id:
-              - text: B3-256932
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/div[1]/form[1]/input[1]/@value
+              - text: B3-960572
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/div[1]/@searchurl
             name:
-              - text: Bed Underpad Betteinlage
+              - text: Men Slipeinlagen
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/tena-bed-underpad-betteinlage/B3-256932.html
+              - text: https://www.bipa.at/tena-men-slipeinlagen/B3-960572.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/256932.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/960572.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 5,0
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
-                type: STRING
-            reviewCount:
-              - text: (3)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
-            ratingCount:
-              - text: "3"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 5,99
+              - text: 5,95
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[51]/@data-gtmdata
           - id:
-              - text: B3-960572
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[52]/div[1]/form[1]/input[1]/@value
+              - text: B3-957015
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[52]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[52]/div[1]/@searchurl
             name:
-              - text: Men Slipeinlagen
+              - text: Pearl Light Liebeskugeln Raspberry
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[52]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/tena-men-slipeinlagen/B3-960572.html
+              - text: https://www.bipa.at/moqqa-pearl-light-liebeskugeln-raspberry/B3-957015.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[52]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/960572.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/957015.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[52]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
-              - text: 5,95
+              - text: 21,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[52]/@data-gtmdata
           - id:
-              - text: B3-957020
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/form[1]/input[1]/@value
+              - text: B3-956925
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/@searchurl
             name:
-              - text: Pearl Heavy Liebeskugeln Raspberry
+              - text: Honeybuns Leichte Liebeskugeln Pink
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/moqqa-pearl-heavy-liebeskugeln-raspberry/B3-957020.html
+              - text: https://www.bipa.at/miss-v-honeybuns-leichte-liebeskugeln-pink/B3-956925.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/957020.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/956925.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 5,0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
               - text: 21,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[53]/@data-gtmdata
           - id:
-              - text: B3-957015
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/form[1]/input[1]/@value
+              - text: B3-956923
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/@searchurl
             name:
-              - text: Pearl Light Liebeskugeln Raspberry
+              - text: Honeybuns Leichte Liebeskugeln Pretty Violet
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/moqqa-pearl-light-liebeskugeln-raspberry/B3-957015.html
+              - text: https://www.bipa.at/miss-v-honeybuns-leichte-liebeskugeln-pretty-violet/B3-956923.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/957015.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/956923.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,0
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (1)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
               - text: 21,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[54]/@data-gtmdata
           - id:
-              - text: B3-956925
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/div[1]/form[1]/input[1]/@value
+              - text: B3-957019
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/div[1]/@searchurl
             name:
-              - text: Honeybuns Leichte Liebeskugeln Pink
+              - text: Pearl Heavy Liebeskugeln Strawberry
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/miss-v-honeybuns-leichte-liebeskugeln-pink/B3-956925.html
+              - text: https://www.bipa.at/moqqa-pearl-heavy-liebeskugeln-strawberry/B3-957019.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/956925.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/957019.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 5,0
@@ -1196,47 +1231,37 @@ extractions:
               - text: 21,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[55]/@data-gtmdata
           - id:
-              - text: B3-956923
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/div[1]/form[1]/input[1]/@value
+              - text: B3-957011
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/div[1]/@searchurl
             name:
-              - text: Honeybuns Leichte Liebeskugeln Pretty Violet
+              - text: Pearl Light Liebeskugeln Strawberry
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/miss-v-honeybuns-leichte-liebeskugeln-pretty-violet/B3-956923.html
+              - text: https://www.bipa.at/moqqa-pearl-light-liebeskugeln-strawberry/B3-957011.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/956923.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/957011.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,0
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
-                type: STRING
-            reviewCount:
-              - text: (1)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
-            ratingCount:
-              - text: "1"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
               - text: 21,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[56]/@data-gtmdata
           - id:
-              - text: B3-957019
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/div[1]/form[1]/input[1]/@value
+              - text: B3-933708
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/div[1]/@searchurl
             name:
-              - text: Pearl Heavy Liebeskugeln Strawberry
+              - text: Lady Maxi Night Einlagen
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/moqqa-pearl-heavy-liebeskugeln-strawberry/B3-957019.html
+              - text: https://www.bipa.at/tena-lady-maxi-night-einlagen/B3-933708.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/957019.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/933708.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 5,0
@@ -1249,317 +1274,327 @@ extractions:
               - text: "1"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 21,99
+              - text: 4,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[57]/@data-gtmdata
           - id:
-              - text: B3-957011
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[58]/div[1]/form[1]/input[1]/@value
+              - text: B3-676618
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[58]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[58]/div[1]/@searchurl
             name:
-              - text: Pearl Light Liebeskugeln Strawberry
+              - text: Men Pants Large
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[58]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/moqqa-pearl-light-liebeskugeln-strawberry/B3-957011.html
+              - text: https://www.bipa.at/tena-men-pants-large/B3-676618.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[58]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/957011.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/676618.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[58]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,2
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[58]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (29)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[58]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "29"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[58]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 21,99
+              - text: 9,95
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[58]/@data-gtmdata
           - id:
-              - text: B3-933708
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[59]/div[1]/form[1]/input[1]/@value
+              - text: B3-676646
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[59]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[59]/div[1]/@searchurl
             name:
-              - text: Lady Maxi Night Einlagen
+              - text: Men Pants Medium
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[59]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/tena-lady-maxi-night-einlagen/B3-933708.html
+              - text: https://www.bipa.at/tena-men-pants--medium/B3-676646.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[59]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/933708.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/676646.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[59]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
-              - text: 5,0
+              - text: 4,1
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[59]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
                 type: STRING
             reviewCount:
-              - text: (1)
+              - text: (25)
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[59]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             ratingCount:
-              - text: "1"
+              - text: "25"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[59]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 4,99
+              - text: 9,95
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[59]/@data-gtmdata
           - id:
-              - text: B3-676618
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[60]/div[1]/form[1]/input[1]/@value
+              - text: B3-580507
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[60]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[60]/div[1]/@searchurl
             name:
-              - text: Men Pants Large
+              - text: Men Protective Shield Extra light
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[60]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/tena-men-pants-large/B3-676618.html
+              - text: https://www.bipa.at/tena-men-protective-shield-extra-light/B3-580507.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[60]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/676618.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/580507.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[60]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: 4,4
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[60]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
                 type: STRING
             reviewCount:
-              - text: (29)
+              - text: (54)
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[60]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             ratingCount:
-              - text: "29"
+              - text: "54"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[60]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 9,95
+              - text: 5,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[60]/@data-gtmdata
           - id:
-              - text: B3-676646
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[61]/div[1]/form[1]/input[1]/@value
+              - text: B3-580486
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[61]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[61]/div[1]/@searchurl
             name:
-              - text: Men Pants Medium
+              - text: Men Level 2 Einlagen
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[61]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/tena-men-pants--medium/B3-676646.html
+              - text: https://www.bipa.at/tena-men-level-2-einlagen/B3-580486.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[61]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/676646.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/580486.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[61]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,1
+              - text: 4,9
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[61]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
                 type: STRING
             reviewCount:
-              - text: (25)
+              - text: (9)
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[61]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             ratingCount:
-              - text: "25"
+              - text: "9"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[61]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 9,95
+              - text: 5,95
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[61]/@data-gtmdata
           - id:
-              - text: B3-580507
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[62]/div[1]/form[1]/input[1]/@value
+              - text: B3-565368
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[62]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[62]/div[1]/@searchurl
             name:
-              - text: Men Protective Shield Extra light
+              - text: Lovely Lady Liebeskugel
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[62]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/tena-men-protective-shield-extra-light/B3-580507.html
+              - text: https://www.bipa.at/amorelie-cupe-lovely-lady-liebeskugel/B3-565368.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[62]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/580507.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/565368.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[62]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,4
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[62]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
-                type: STRING
-            reviewCount:
-              - text: (54)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[62]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
-            ratingCount:
-              - text: "54"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[62]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 5,99
+              - text: 19,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[62]/@data-gtmdata
           - id:
-              - text: B3-580486
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[63]/div[1]/form[1]/input[1]/@value
+              - text: B3-565386
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[63]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[63]/div[1]/@searchurl
             name:
-              - text: Men Level 2 Einlagen
+              - text: Mrs. Miracle Liebeskugel
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[63]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/tena-men-level-2-einlagen/B3-580486.html
+              - text: https://www.bipa.at/amorelie-mrs.-miracle-liebeskugel/B3-565386.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[63]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/580486.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/565386.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[63]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,9
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[63]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
-                type: STRING
-            reviewCount:
-              - text: (9)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[63]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
-            ratingCount:
-              - text: "9"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[63]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 5,95
+              - text: 24,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[63]/@data-gtmdata
           - id:
-              - text: B3-565368
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[64]/div[1]/form[1]/input[1]/@value
+              - text: B3-321382
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[64]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[64]/div[1]/@searchurl
             name:
-              - text: Lovely Lady Liebeskugel
+              - text: Men Level 1 Einlagen
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[64]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/amorelie-cupe-lovely-lady-liebeskugel/B3-565368.html
+              - text: https://www.bipa.at/tena-men-level-1-einlagen/B3-321382.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[64]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/565368.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/321382.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[64]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,6
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[64]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (17)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[64]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "17"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[64]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 19,99
+              - text: 5,95
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[64]/@data-gtmdata
           - id:
-              - text: B3-565386
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[65]/div[1]/form[1]/input[1]/@value
+              - text: B3-894994
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[65]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[65]/div[1]/@searchurl
             name:
-              - text: Mrs. Miracle Liebeskugel
+              - text: Pants Super Large
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[65]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/amorelie-mrs.-miracle-liebeskugel/B3-565386.html
+              - text: https://www.bipa.at/tena-pants-super-large/B3-894994.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[65]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/565386.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/894994.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[65]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+            aggregateRating2:
+              - text: 4,3
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[65]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+                type: STRING
+            reviewCount:
+              - text: (9)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[65]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+            ratingCount:
+              - text: "9"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[65]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 24,99
+              - text: 22,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[65]/@data-gtmdata
           - id:
-              - text: B3-321382
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[66]/div[1]/form[1]/input[1]/@value
+              - text: B3-685340
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[66]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[66]/div[1]/@searchurl
             name:
-              - text: Men Level 1 Einlagen
+              - text: Pants Plus Large
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[66]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/tena-men-level-1-einlagen/B3-321382.html
+              - text: https://www.bipa.at/tena-pants-plus-large/B3-685340.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[66]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/321382.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/685340.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[66]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,6
+              - text: 4,2
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[66]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
                 type: STRING
             reviewCount:
-              - text: (17)
+              - text: (19)
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[66]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             ratingCount:
-              - text: "17"
+              - text: "19"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[66]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 5,95
+              - text: 9,95
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[66]/@data-gtmdata
           - id:
-              - text: B3-894994
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[67]/div[1]/form[1]/input[1]/@value
+              - text: B3-902015
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[67]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[67]/div[1]/@searchurl
             name:
-              - text: Pants Super Large
+              - text: Pants Discreet Medium
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[67]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/tena-pants-super-large/B3-894994.html
+              - text: https://www.bipa.at/tena-pants-discreet-medium/B3-902015.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[67]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/894994.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/902015.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[67]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,3
+              - text: 2,8
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[67]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
                 type: STRING
             reviewCount:
-              - text: (9)
+              - text: (6)
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[67]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             ratingCount:
-              - text: "9"
+              - text: "6"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[67]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 22,99
+              - text: 7,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[67]/@data-gtmdata
           - id:
-              - text: B3-685340
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[68]/div[1]/form[1]/input[1]/@value
+              - text: B3-634054
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[68]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[68]/div[1]/@searchurl
             name:
-              - text: Pants Plus Large
+              - text: Pants Super Medium
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[68]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/tena-pants-plus-large/B3-685340.html
+              - text: https://www.bipa.at/tena-pants-super-medium/B3-634054.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[68]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/685340.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/634054.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[68]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,2
+              - text: 3,9
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[68]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
                 type: STRING
             reviewCount:
-              - text: (19)
+              - text: (11)
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[68]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             ratingCount:
-              - text: "19"
+              - text: "11"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[68]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 9,95
+              - text: 22,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[68]/@data-gtmdata
           - id:
-              - text: B3-902015
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[69]/div[1]/form[1]/input[1]/@value
+              - text: B3-659033
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[69]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[69]/div[1]/@searchurl
             name:
-              - text: Pants Discreet Medium
+              - text: Pants Plus Medium
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[69]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/tena-pants-discreet-medium/B3-902015.html
+              - text: https://www.bipa.at/tena-pants-plus-medium/B3-659033.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[69]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/902015.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/659033.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[69]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
-              - text: 2,8
+              - text: 4,5
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[69]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
                 type: STRING
             reviewCount:
-              - text: (6)
+              - text: (22)
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[69]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             ratingCount:
-              - text: "6"
+              - text: "22"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[69]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 7,99
+              - text: 9,95
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[69]/@data-gtmdata
           - id:
               - text: B3-900059
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[70]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[70]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[70]/div[1]/@searchurl
@@ -1570,7 +1605,7 @@ extractions:
               - text: https://www.bipa.at/tena-einlagen-lady-extra-plus/B3-900059.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[70]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/900059.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/900059.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[70]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 5,0
@@ -1587,7 +1622,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[70]/@data-gtmdata
           - id:
               - text: B3-395791
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[71]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[71]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[71]/div[1]/@searchurl
@@ -1598,14 +1633,14 @@ extractions:
               - text: https://www.bipa.at/tena-discreet-normal-night-einlagen/B3-395791.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[71]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/395791.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/395791.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[71]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 4,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[71]/@data-gtmdata
           - id:
               - text: B3-382575
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[72]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[72]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[72]/div[1]/@searchurl
@@ -1616,14 +1651,14 @@ extractions:
               - text: https://www.bipa.at/always-noname/B3-382575.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[72]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/pg/382575_1.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/pg/382575_1.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[72]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
               - text: 2,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[72]/@data-gtmdata
           - id:
               - text: B3-336265
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[73]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[73]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[73]/div[1]/@searchurl
@@ -1634,7 +1669,7 @@ extractions:
               - text: https://www.bipa.at/tena-pants-maxi-large/B3-336265.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[73]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/336265.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/336265.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[73]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 3,8
@@ -1651,7 +1686,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[73]/@data-gtmdata
           - id:
               - text: B3-336260
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[74]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[74]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[74]/div[1]/@searchurl
@@ -1662,7 +1697,7 @@ extractions:
               - text: https://www.bipa.at/tena-pants-maxi-medium/B3-336260.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[74]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/336260.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/336260.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[74]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 3,8
@@ -1679,7 +1714,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[74]/@data-gtmdata
           - id:
               - text: B3-319355
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[75]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[75]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[75]/div[1]/@searchurl
@@ -1690,7 +1725,7 @@ extractions:
               - text: https://www.bipa.at/tena-silhouette-noir-pants-plus-large/B3-319355.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[75]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/319355.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/319355.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[75]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,5
@@ -1707,7 +1742,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[75]/@data-gtmdata
           - id:
               - text: B3-319354
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[76]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[76]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[76]/div[1]/@searchurl
@@ -1718,7 +1753,7 @@ extractions:
               - text: https://www.bipa.at/tena-silhouette-noir-pants-plus-medium/B3-319354.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[76]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/319354.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/319354.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[76]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,7
@@ -1735,7 +1770,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[76]/@data-gtmdata
           - id:
               - text: B3-293467
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[77]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[77]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[77]/div[1]/@searchurl
@@ -1746,7 +1781,7 @@ extractions:
               - text: https://www.bipa.at/tena-silhouette-lady-pants-creme-m/B3-293467.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[77]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/293467.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/293467.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[77]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,1
@@ -1763,7 +1798,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[77]/@data-gtmdata
           - id:
               - text: B3-293497
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[78]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[78]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[78]/div[1]/@searchurl
@@ -1774,7 +1809,7 @@ extractions:
               - text: https://www.bipa.at/tena-silhouette-lady-pants-creme-l/B3-293497.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[78]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/293497.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/293497.png?sw=170&sfrm=png
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[78]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,1
@@ -1791,7 +1826,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[78]/@data-gtmdata
           - id:
               - text: B3-580110
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[79]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[79]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[79]/div[1]/@searchurl
@@ -1802,7 +1837,7 @@ extractions:
               - text: https://www.bipa.at/always-einlagen-small-mit-fluegeln/B3-580110.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[79]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/580110.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/580110.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[79]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,7
@@ -1819,7 +1854,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[79]/@data-gtmdata
           - id:
               - text: B3-253565
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[80]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[80]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[80]/div[1]/@searchurl
@@ -1832,7 +1867,7 @@ extractions:
               - text: https://www.bipa.at/always-boutique-pants-plus-large/B3-253565.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[80]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/253565.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/253565.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[80]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,4
@@ -1849,7 +1884,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[80]/@data-gtmdata
           - id:
               - text: B3-253562
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[81]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[81]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[81]/div[1]/@searchurl
@@ -1862,7 +1897,7 @@ extractions:
               - text: https://www.bipa.at/always-boutique-pants-plus-medium/B3-253562.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[81]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/253562.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/253562.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[81]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,4
@@ -1879,7 +1914,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[81]/@data-gtmdata
           - id:
               - text: B3-801208
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[82]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[82]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[82]/div[1]/@searchurl
@@ -1890,7 +1925,7 @@ extractions:
               - text: https://www.bipa.at/always-binden-maxi-night/B3-801208.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[82]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/801208.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/801208.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[82]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,0
@@ -1907,7 +1942,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[82]/@data-gtmdata
           - id:
               - text: B3-267535
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[83]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[83]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[83]/div[1]/@searchurl
@@ -1918,7 +1953,7 @@ extractions:
               - text: https://www.bipa.at/always-pants-plus-medium/B3-267535.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[83]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/267535.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/267535.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[83]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,5
@@ -1935,7 +1970,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[83]/@data-gtmdata
           - id:
               - text: B3-267551
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[84]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[84]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[84]/div[1]/@searchurl
@@ -1946,7 +1981,7 @@ extractions:
               - text: https://www.bipa.at/always-slipeinlagen/B3-267551.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[84]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/267551.png?sw=170&sfrm=png
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/267551.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[84]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,7
@@ -1963,7 +1998,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[84]/@data-gtmdata
           - id:
               - text: B3-267529
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[85]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[85]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[85]/div[1]/@searchurl
@@ -1974,7 +2009,7 @@ extractions:
               - text: https://www.bipa.at/always-einlagen-normal/B3-267529.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[85]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/267529.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/267529.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[85]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,7
@@ -1991,7 +2026,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[85]/@data-gtmdata
           - id:
               - text: B3-267589
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[86]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[86]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[86]/div[1]/@searchurl
@@ -2002,7 +2037,7 @@ extractions:
               - text: https://www.bipa.at/always-einlagen-long-plus/B3-267589.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[86]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/267589.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/267589.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[86]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,7
@@ -2019,7 +2054,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[86]/@data-gtmdata
           - id:
               - text: B3-267547
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[87]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[87]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[87]/div[1]/@searchurl
@@ -2030,7 +2065,7 @@ extractions:
               - text: https://www.bipa.at/always-einlagen-small/B3-267547.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[87]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/267547.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/267547.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[87]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,7
@@ -2047,7 +2082,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[87]/@data-gtmdata
           - id:
               - text: B3-267553
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[88]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[88]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[88]/div[1]/@searchurl
@@ -2058,7 +2093,7 @@ extractions:
               - text: https://www.bipa.at/always-binden-long/B3-267553.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[88]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/267553.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/267553.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[88]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,7
@@ -2075,7 +2110,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[88]/@data-gtmdata
           - id:
               - text: B3-267543
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[89]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[89]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[89]/div[1]/@searchurl
@@ -2086,7 +2121,7 @@ extractions:
               - text: https://www.bipa.at/always-pants-plus-large/B3-267543.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[89]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/267543.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/267543.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[89]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,5
@@ -2103,7 +2138,7 @@ extractions:
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[89]/@data-gtmdata
           - id:
               - text: B3-868335
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[90]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[90]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[90]/div[1]/@searchurl
@@ -2114,7 +2149,7 @@ extractions:
               - text: https://www.bipa.at/tena-einlagen-lady-extra/B3-868335.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[90]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/868335.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/868335.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[90]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 4,8
@@ -2129,90 +2164,83 @@ extractions:
             price:
               - text: 4,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[90]/@data-gtmdata
-          - searchUrl:
+          - id:
+              - text: B3-283394
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[91]/@data-gtmdata
+            searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[91]/div[1]/@searchurl
             name:
-              - text: Pull-ons 5 Einmalhosen
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[91]/div[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+              - text: Einlagen Soft 1Mini
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[91]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/attends-pull-ons-5-einmalhosen/B3-283458.html
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[91]/div[1]/a[1]/@href
+              - text: https://www.bipa.at/attends-einlagen-soft-1mini/B3-283394.html
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[91]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/283455.jpg?sw=170&sfrm=png&q=20
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[91]/div[1]/a[1]/span[1]/span[1]/img[1]/@src
-            aggregateRating2:
-              - text: 4,3
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[91]/div[1]/div[2]/div[1]/div[1]/@class
-                type: STRING
-            reviewCount:
-              - text: (4)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[91]/div[1]/div[2]/div[1]/div[2]/text()[1]
-            ratingCount:
-              - text: "4"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[91]/div[1]/div[2]/div[1]/div[2]/text()[1]
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/283394_1.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[91]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             price:
-              - text: 18,99
+              - text: 4,49
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[91]/@data-gtmdata
           - id:
-              - text: B3-659033
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[92]/div[1]/form[1]/input[1]/@value
+              - text: B3-565387
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[92]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[92]/div[1]/@searchurl
             name:
-              - text: Pants Plus Medium
+              - text: Lusty Lady Liebeskugel
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[92]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/tena-pants-plus-medium/B3-659033.html
+              - text: https://www.bipa.at/amorelie-cupe-lusty-lady-liebeskugel/B3-565387.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[92]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/659033.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/565387.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[92]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
-              - text: 4,5
+              - text: 5,0
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[92]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
                 type: STRING
             reviewCount:
-              - text: (22)
+              - text: (1)
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[92]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             ratingCount:
-              - text: "22"
+              - text: "1"
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[92]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 9,95
+              - text: 24,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[92]/@data-gtmdata
           - id:
-              - text: B3-634054
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/div[1]/form[1]/input[1]/@value
+              - text: B3-283458
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/div[1]/@searchurl
             name:
-              - text: Pants Super Medium
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/div[1]/form[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
+              - text: Pull-ons 5 Einmalhosen
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/div[1]/div[2]/div[2]/div[2]/a[1]/text()[1]
             productUrl:
-              - text: https://www.bipa.at/tena-pants-super-medium/B3-634054.html
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/div[1]/form[1]/a[1]/@href
+              - text: https://www.bipa.at/attends-pull-ons-5-einmalhosen/B3-283458.html
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/div[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/634054.jpg?sw=170&sfrm=png&q=20
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/283455.jpg?sw=170&sfrm=png&q=20
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/div[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
-              - text: 3,9
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/div[1]/form[1]/div[2]/div[1]/div[1]/@class
+              - text: 4,3
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/div[1]/div[2]/div[1]/div[1]/@class
                 type: STRING
             reviewCount:
-              - text: (11)
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+              - text: (4)
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/div[1]/div[2]/div[1]/div[2]/text()[1]
             ratingCount:
-              - text: "11"
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/div[1]/form[1]/div[2]/div[1]/div[2]/text()[1]
+              - text: "4"
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/div[1]/div[2]/div[1]/div[2]/text()[1]
             price:
-              - text: 22,99
+              - text: 18,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[93]/@data-gtmdata
           - id:
               - text: B3-600082
-                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[94]/div[1]/form[1]/input[1]/@value
+                xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[94]/@data-gtmdata
             searchUrl:
               - text: https://www.bipa.at/suche?q=Blasenschw%C3%A4che
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[94]/div[1]/@searchurl
@@ -2223,7 +2251,7 @@ extractions:
               - text: https://www.bipa.at/tena-lady-maxi-einlagen/B3-600082.html
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[94]/div[1]/form[1]/a[1]/@href
             thumbnail:
-              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1612952691775/original/600082.jpg?sw=170&sfrm=png&q=20
+              - text: https://www.bipa.at/dw/image/v2/AAFT_PRD/on/demandware.static/-/Sites-catalog/de_AT/v1613458429751/original/600082.jpg?sw=170&sfrm=png&q=20
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[94]/div[1]/form[1]/a[1]/span[1]/span[1]/img[1]/@src
             aggregateRating2:
               - text: 5,0
@@ -2239,4 +2267,4 @@ extractions:
               - text: 4,99
                 xpath: /html/body/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[1]/ul[1]/li[94]/@data-gtmdata
         xpath: /html
-    timestamp: 1612958831403
+    timestamp: 1613464424986
