@@ -68,6 +68,7 @@ const transform = (data) => {
         item.text = item.text.replace(/\s*/g, '').trim();
         item.text = item.text.slice(1,-1);
         item.text = '€'+item.text;
+        item.text = item.text.replace('.', ',').trim();
         info.push(item.text);
     });
     if (info.length) {
