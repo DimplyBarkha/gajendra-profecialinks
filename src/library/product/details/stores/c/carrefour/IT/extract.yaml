@@ -69,7 +69,7 @@ fields:
   - name: quantity  #remind me chaneg this
     singleValue: false
     xpath: //h1[@class="product-description"]
-    #regExp: '([^/]*$)'
+    #regExp: '([^0-9,]*)'
     #regExpReplace: '$1'
     #3270name: servingSize
     #singleValue: false
@@ -82,33 +82,105 @@ fields:
   - name: totalFatPerServing
     xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"rassi")]/following-sibling::span)[1]
     singleValue: false
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: totalFatPerServingUom  
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"rassi")]/following-sibling::span)[1]
+    singleValue: false
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'
   - name: saturatedFatPerServing
     xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"di cui acidi grassi saturi")]/following-sibling::span)[1]
     singleValue: false
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: saturatedFatPerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"di cui acidi grassi saturi")]/following-sibling::span)[1]
+    singleValue: false
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'  
   - name: totalCarbPerServing
     xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"arboidrati")]/following-sibling::span)[1]
     singleValue: false 
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: totalCarbPerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"arboidrati")]/following-sibling::span)[1]
+    singleValue: false 
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'  
   - name: totalSugarsPerServing
     xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"di cui zuccheri")]/following-sibling::span)[1]
     singleValue: false
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: totalSugarsPerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"di cui zuccheri")]/following-sibling::span)[1]
+    singleValue: false
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'
   - name: dietaryFibrePerServing
     xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"ibre")]/following-sibling::span)[1]
     singleValue: false
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: dietaryFibrePerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"ibre")]/following-sibling::span)[1]
+    singleValue: false
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'
   - name: proteinPerServing
     xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"roteine")]/following-sibling::span)[1]
     singleValue: false  
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: proteinPerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"roteine")]/following-sibling::span)[1]
+    singleValue: false  
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'
   - name: saltPerServing
     xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"ale")]/following-sibling::span)[1]
-    singleValue: false         
+    singleValue: false     
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'    
+  - name: saltPerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"ale")]/following-sibling::span)[1]
+    singleValue: false     
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'  
   - name: variantId #change how it look
     xpath: //div[contains(@class,"product-detail-page")]/div/@data-pid
     singleValue: false  
+  - name: calciumPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"alcio")]/following-sibling::span)[1]
+    singleValue: false  
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: calciumPerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"alcio")]/following-sibling::span)[1]
+    singleValue: false  
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'  
   - name: warnings
     xpath: //div[contains(@id,"panel-usageTips")]/p[contains(text(),"Avvertenze")]/following-sibling::p
-    singleValue:  
+    singleValue: false  
+  - name: sodiumPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"odio")]/following-sibling::span)[1]
+    singleValue: false 
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: sodiumPerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"odio")]/following-sibling::span)[1]
+    singleValue: false 
+    regExp: '([^0-9,\s]*)'  
+    regExpReplace: '$1'
   - name: availabilityText
     singleValue: false
     xpath: //div[contains(@class,"prices-add-to-cart-actions")]/div[contains(@class,"add-to-cart")]/@class
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="product-main-info"]/div[contains(@class,"price")]/div[contains(@class,"price")]/div/div/div[contains(@class,"discount-percentage")]
     #regExp: (.+)
     #regExpReplace: In Stock
     #defaultValue: Out of Stock    
