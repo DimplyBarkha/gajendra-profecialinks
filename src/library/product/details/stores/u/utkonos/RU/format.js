@@ -40,10 +40,20 @@ const transform = (data) => {
                   }
                 });          
             }
-            if (row.aggregateRating) {                    
+            if (row.aggregateRating) {
               row.aggregateRating.forEach(item => {
                 item.text = item.text + ".o";
               });          
+            }
+            if (row.price) {                    
+              row.price.forEach(item => {
+                item.text = item.text.replace(',', '.').trim();
+              });
+            }
+            if (row.listPrice) {                    
+              row.listPrice.forEach(item => {
+                item.text = item.text.replace(',', '.').trim();
+              });
             }
             if (row.calciumPerServing) {                    
               row.calciumPerServing.forEach(item => {
@@ -59,7 +69,7 @@ const transform = (data) => {
                 item.text = item.text.substr(0, item.text.indexOf("."));
                 //item.text = item.text.substr(0, item.text.indexOf(","));
                 item.text = item.text.replace('Энергетическая ценность', '').trim();
-                item.text = item.text.replace(/[^\d-]/g, "");
+                item.text = item.text.replace(/[^\d-/]/g, "");
               });
             }
             if (row.dietaryFibrePerServing) {                    
@@ -88,13 +98,13 @@ const transform = (data) => {
               row.ingredientsList.forEach(item => {
                 item.text = item.text.substr(item.text.indexOf("Состав"));
                 item.text = item.text.substr(0, item.text.indexOf("."));
-                item.text = item.text.replace("Состав:", "");
+                item.text = item.text.replace("Состав: ", "");
               });
             }
             if (row.totalFatPerServing) {                    
               row.totalFatPerServing.forEach(item => {
                 item.text = item.text.substr(item.text.indexOf("жиры"));
-                item.text = item.text.substr(0, item.text.indexOf(","));
+                item.text = item.text.substr(0, item.text.indexOf(";"));
                 item.text = item.text.replace('жиры', '').trim();
                 item.text = item.text.replace(/[^\d,]/g, "");
               });
