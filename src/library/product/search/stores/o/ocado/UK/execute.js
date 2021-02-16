@@ -29,7 +29,7 @@ async function implementation (
         const productsCount = products.snapshotLength;
         scrollTop += 500;
         window.scroll(0, scrollTop);
-        if (scrollTop === 20000 || productsCount > 160) {
+        if (scrollTop === 20000 || productsCount > 1050) {
           await stall(5000);
           break;
         }

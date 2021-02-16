@@ -32,7 +32,7 @@ const transform = (data, context) => {
         el.text = clean(el.text);
       }));
     }
-    group = group.slice(0, 150);
+    group = group.slice(0, 1000);
     data[0].group = group;
     data[0].rows = group.length;
     console.log('Group length' + data[0].group.length);
