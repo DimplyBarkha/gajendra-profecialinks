@@ -48,8 +48,6 @@ module.exports = {
           });
         }
       }
-
-
       function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -109,13 +107,13 @@ module.exports = {
               }
             }
             const itemCount = 18;
-            const apiUrl = `https://www.mechta.kz/api/main/catalog_new/index.php?query=${searchTerm}&type=search&page_num=${index + 1}&catalog=true&page_element_count=${itemCount}`
+            const apiUrl = `https://www.mechta.kz/api/main/catalog_new/index.php?query=${searchTerm}&type=search&page_num=${index + 1}&catalog=true&page_element_count=${itemCount}`;
             console.log('apiUrl  -=====', apiUrl);
             const response = await getAPIData(apiUrl);
-            console.log('response  -=====', response);
+            // console.log('response  -=====', response);
             if (response) {
               const data = response.data;
-              console.log('data1  -=====', data);
+              // console.log('data1  -=====', data);
               if (data && data.ITEMS) {
                 data.ITEMS.forEach(item => {
                   const prodId = item.CODE_1C;
@@ -132,7 +130,7 @@ module.exports = {
         }
       }
 
-      console.log('apiResults ======== ', apiResults);
+      // console.log('apiResults ======== ', apiResults);
 
       const prodItems = document.querySelectorAll('div.hoverCard-child.bg-white');
       if (prodItems) {
