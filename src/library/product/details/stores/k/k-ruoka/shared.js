@@ -5,7 +5,6 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, inputs) => {
-  // console.log(inputs, '<=========');
   for (const { group } of data) {
     for (const row of group) {
       // let text = '';
@@ -108,9 +107,15 @@ const transform = (data, inputs) => {
 
       if (row.drive) {
         const driveJson = JSON.parse(row.drive[0].text);
-        row.drive[0].text = driveJson.zipcode;
-        row.retailerId[0].text = driveJson.zipcode;
-        row.driveId[0].text = driveJson.zipcode;
+        if(driveJson.zipcode){
+          row.drive[0].text = driveJson.zipcode;
+          row.retailerId[0].text = driveJson.zipcode;
+          row.driveId[0].text = driveJson.zipcode;
+        } else if(driveJson['StoreID']){
+          row.drive[0].text = driveJson['StoreID'];
+          row.retailerId[0].text = driveJson['StoreID'];
+          row.driveId[0].text = driveJson['StoreID'];
+        }
       }
     }
   }
