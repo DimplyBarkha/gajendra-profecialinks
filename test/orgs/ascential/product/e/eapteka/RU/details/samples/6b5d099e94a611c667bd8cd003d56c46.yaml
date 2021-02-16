@@ -1,0 +1,156 @@
+input:
+  _url: http://eapteka.ru
+  URL: https://www.eapteka.ru/goods/id291246/
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9968228f-66be-4834-b031-c6f10e695a91/task=87fe802a-b431-4df6-b3f8-1162bc06cfe6/4ccb673d-12fe-42bb-af99-4c3eb040fba1.html
+    extractionConfigId: product/details/stores/e/eapteka/RU/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.eapteka.ru/goods/id291246/
+                xpath: /html/head[1]/link[15]/@href
+            image:
+              - text: https://cdn.eapteka.ru/upload/offer_photo/291/246/resized/450_450_1.jpeg?_cvc=1613392413
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
+            imageAlt:
+              - text: Bella Подгузники Baby Happy 4 maxi plus 9-20 кг, 25 шт.
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]/img[1]/@alt
+            metaKeywords:
+              - text: Bella Подгузники Baby Happy 4 maxi plus 9-20 кг 25 шт. инструкция, Bella
+                  Подгузники Baby Happy 4 maxi plus 9-20 кг 25 шт. инструкция по
+                  применению, Bella Подгузники Baby Happy 4 maxi plus 9-20 кг 25
+                  шт. описание, Bella Подгузники Baby Happy 4 maxi plus 9-20 кг
+                  25 шт. отзывы, Bella Подгузники Baby Happy 4 maxi plus 9-20 кг
+                  25 шт. цена, Bella Подгузники Baby Happy 4 maxi plus 9-20 кг
+                  25 шт. купить в Москве и Области,Bella Подгузники Baby Happy 4
+                  maxi plus 9-20 кг 25 шт. Москва, Bella Подгузники Baby Happy 4
+                  maxi plus 9-20 кг 25 шт. купить в интернет аптеке, Bella
+                  Подгузники Baby Happy 4 maxi plus 9-20 кг 25 шт. лекарство,
+                  Bella Подгузники Baby Happy 4 maxi plus 9-20 кг 25 шт.
+                  показания к применению,Bella Подгузники Baby Happy 4 maxi plus
+                  9-20 кг 25 шт. противопоказания, Bella Подгузники Baby Happy 4
+                  maxi plus 9-20 кг 25 шт. от чего помогает, Bella Подгузники
+                  Baby Happy 4 maxi plus 9-20 кг 25 шт. дешевые аналоги,Bella
+                  Подгузники Baby Happy 4 maxi plus 9-20 кг 25 шт.
+                  заказать,Bella Подгузники Baby Happy 4 maxi plus 9-20 кг 25
+                  шт. круглосуточно,Bella Подгузники Baby Happy 4 maxi plus 9-20
+                  кг 25 шт. на дом.
+                xpath: /html/head[1]/meta[13]/@content
+            category:
+              - text: Средства для матери и ребенка
+                xpath: /html/body/section[1]/div[1]/ul[1]/li[3]/a[1]
+              - text: Подгузники
+                xpath: /html/body/section[1]/div[1]/ul[1]/li[5]/a[1]
+              - text: Bella Подгузники Baby Happy
+                xpath: /html/body/section[1]/div[1]/ul[1]/li[7]/a[1]
+            nameExtended:
+              - text: Bella Подгузники Baby Happy 4 maxi plus 9-20 кг, 25 шт.
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/h1[1]
+            price:
+              - text: 331 руб.
+                xpath: /html/body/div[11]/@price
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[11]/@availability_text
+            description:
+              - text: >-
+                  верхний слой из мягкого и нежного нетканого материала «Magic
+                  Green»;
+                  	внутренний впитывающий слой из целлюлозы и суперабсорбента быстро и равномерно распределяет влагу, содержит экстракт зеленого чая;
+                  	дышащий внешний слой;
+                  	эластичные поясные резинки;
+                  	эластичные застежки-липучки многократного фиксирования;
+                  	эластичные оборки.
+                   
+                   Размер Maxi Plus рекомендован для младенцев с весом от 9 до 20 кг. Широкие, эластичные липучки обеспечивают правильную фиксацию и комфорт ребенку во время движения. Инновационный нетканый материал Magic Green мгновенно распределяет влагу по всей длине подгузника, кожа ребенка остается сухой. Супервпитывающий вкладыш преобразует внутри подгузника влагу в гель и предотвращает контакт с кожей ребенка. Высокие, эластичные оборки предотвращают боковые протекания. Экстракт зеленого чая обладает сильными противовоспалительными свойствами, подавляет размножение бактерий, нейтрализует неприятный запах. Эластичный поясок обеспечивает идеальное прилегание подгузника и комфорт ребенку во время движения. Цветной принт на подгузнике притягивает внимание самых маленьких и смена подгузника будет большим удовольствием.
+                xpath: /html/body/div[11]/@description
+            brandText:
+              - text: Белла
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/p[2]/a[1]
+            manufacturer:
+              - text: ТЗМО С.А., Польша
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/p[1]/a[1]
+            weightNet:
+              - text: 0.787 кг;
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[11]/div[1]/div[2]
+            sku:
+              - text: "291246"
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]/small[1]/span[1]
+            variantId:
+              - text: "5900516601201"
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[11]/div[1]/div[1]
+            manufacturerDescription:
+              - text: |-
+                  Производитель
+                   
+                   ТЗМО С.А., Польша
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]
+              - text: >-
+                  Характеристики
+                   
+
+                   
+
+                   
+                  верхний слой из мягкого и нежного нетканого материала «Magic Green»;
+                   
+                  внутренний впитывающий слой из целлюлозы и суперабсорбента быстро и равномерно распределяет влагу, содержит экстракт зеленого чая;
+                   
+                  дышащий внешний слой;
+                   
+                  эластичные поясные резинки;
+                   
+                  эластичные застежки-липучки многократного фиксирования;
+                   
+                  эластичные оборки.
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[3]
+              - text: >-
+                  Описание
+                   
+                   Размер Maxi Plus рекомендован для младенцев с весом от 9 до 20 кг. Широкие, эластичные липучки обеспечивают правильную фиксацию и комфорт ребенку во время движения. Инновационный нетканый материал Magic Green мгновенно распределяет влагу по всей длине подгузника, кожа ребенка остается сухой. Супервпитывающий вкладыш преобразует внутри подгузника влагу в гель и предотвращает контакт с кожей ребенка. Высокие, эластичные оборки предотвращают боковые протекания. Экстракт зеленого чая обладает сильными противовоспалительными свойствами, подавляет размножение бактерий, нейтрализует неприятный запах. Эластичный поясок обеспечивает идеальное прилегание подгузника и комфорт ребенку во время движения. Цветной принт на подгузнике притягивает внимание самых маленьких и смена подгузника будет большим удовольствием.
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[4]
+              - text: |-
+                  Условия отпуска из аптек
+                   
+                   Без рецепта
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[5]
+              - text: |-
+                  Вес ребенка
+                   
+                   От 9 до 20 кг
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[6]
+              - text: |-
+                  Пол
+                   
+                   Унисекс
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[7]
+              - text: |-
+                  Размер
+                   
+                   Maxi, 4
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[8]
+              - text: |-
+                  Упаковка, шт
+                   
+                   25
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[9]
+              - text: |-
+                  Форма выпуска
+                   
+                   Подгузники
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[10]
+            manufacturerImages:
+              - text: https://cdn.eapteka.ru/upload/offer_certificate/291/246/1.JPG?_cvc=1613392413
+                xpath: /html/body/ul[1]/li[1]
+            name:
+              - text: Bella Подгузники Baby Happy 4 maxi plus 9-20 кг, 25 шт.
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/h1[1]
+            brandLink:
+              - text: /goods/brand/bella/
+                xpath: /html/body/section[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/p[2]/a[1]/@href
+            descriptionBullets:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "0"
+        xpath: /
+    timestamp: 1613473176558

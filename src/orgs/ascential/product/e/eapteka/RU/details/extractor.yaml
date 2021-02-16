@@ -8,10 +8,10 @@ proxy:
   zone: ZUK
   type: DATA_CENTER
 policy:
-  numberRetries: 5
+  numberRetries: 3
   priority: MEDIUM
-  retryDelay: 120
-  backoffPolicy: LINEAR
+  retryDelay: 300
+  backoffPolicy: EXPONENTIAL
   retryWithResidentialProxyAfter: 99
 meta:
   branches:
