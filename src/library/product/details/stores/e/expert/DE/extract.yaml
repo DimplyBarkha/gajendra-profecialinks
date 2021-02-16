@@ -173,7 +173,8 @@ fields:
     xpath: //*[@id='ii_manufContentImg']
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class, "widget-ArticleImageGallery")]//div[@title="Play video"]//meta[@itemprop="embedURL"]/@content|//div[contains(@class, "widget-ArticleImageGallery")]//img[contains(@data-type, "Video")]/@src|//*[@id="ii_manufVideo"]
+    #xpath: //*[@id="ii_manufVideo"]
+    xpath: //div[contains(@class, "widget-ArticleImageGallery")]//div[@title="Play video"]//meta[@itemprop="embedURL"]/@content|//div[contains(@class, "widget-ArticleImageGallery")]//img[contains(@data-type, "Video")]/@src|//*[@id="ii_manufVideo"] | //div[contains(@class,'header-content desktop')]//div[2]/@data-video
     description: URLs of videos on page
   - name: name
     xpath: (//meta[@itemprop="name"]/@content|//li[@itemprop="itemListElement"][last()])[1]
