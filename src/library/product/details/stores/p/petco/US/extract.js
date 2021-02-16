@@ -52,7 +52,7 @@ async function implementation (
       });
       const manuDesc = await context.evaluate(() => {
         const desc = document.evaluate(
-          '//div[@data-role="module"]//h1 | //div[@data-role="module"]//h3 | //div[@data-role="module"]//p | //div[@data-role="module"]//span | //table//*[@data-role="chart-product-name"] | //table//*[@data-role="chart-feature-name"] | //table//tbody//th[contains(@class,"feature-header")] | //table//*[@data-role="data-cell-content"] | //div[contains(@class, "inpage_selector_feature")]|//h2[@data-role="header"]|//div[@id="flix-container"]',
+          '//div[@data-role="module"]//h1 | //div[@data-role="module"]//h3 | //div[@data-role="module"]//p | //div[@data-role="module"]//span | //table//*[@data-role="chart-product-name"] | //table//*[@data-role="chart-feature-name"] | //table//tbody//th[contains(@class,"feature-header")] | //table//*[@data-role="data-cell-content"] | //div[contains(@class, "inpage_selector_feature")]|//h2[@data-role="header"]|//div[@id="flix-container"]|//div[contains(@class,"flix-text-center")]|//div[contains(@class,"flix-mobile-hide")]|//div[@data-role="comparison-chart"] |//div[@id="flix-container"]|//div[contains(@class,"flix-p")]',
           document,
           null,
           XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
@@ -83,7 +83,7 @@ async function implementation (
   }
 
   try {
-    await context.waitForSelector('div[class*="DescriptionContainer"]', { timeout: 60000 });
+    await context.waitForSelector('div[class*="DescriptionContainer"]', { timeout: 30000 });
     await context.evaluate(() => {
       const desc = document.evaluate(
         '//div[contains(@class,"DescriptionContainer")]/div//p[not(contains(@class,"DetailsTab___StyledP"))]|//div[contains(@class,"DescriptionContainer")]/div//ul',
