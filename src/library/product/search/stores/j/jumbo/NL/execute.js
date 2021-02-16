@@ -7,7 +7,7 @@ module.exports = {
     domain: 'jumbo.com',
     url: 'https://www.jumbo.com/producten/?offSet=0&searchTerms={searchTerms}',
     loadedSelector: 'div[analytics-tag="product list"]',
-    noResultsXPath: '//div[@class="error-state-wrapper text-center cl ctr"]',
+    noResultsXPath: '//div[@class="error-state-wrapper text-center cl ctr"] | //div[@class="jum-page gd-container"]',
     zipcode: '',
   },
 };
