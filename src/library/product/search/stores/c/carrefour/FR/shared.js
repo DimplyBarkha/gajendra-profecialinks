@@ -57,14 +57,11 @@ const transform = (data, context) => {
           row.thumbnail.forEach(item => {
             if ((item.text.includes('https') || (item.text.includes('http')))) {
               item.text = item.text;
+              item.text = item.text.replace('200x200','1500x1500');
             } else {
               item.text = 'https://www.carrefour.fr' + item.text;
+              item.text = item.text.replace('200x200','1500x1500');
             }
-            // if (item.text.includes('https://www.carrefour.fr')) {
-            //   item.text = item.text;
-            // } else {
-            //   item.text = 'https://www.carrefour.fr' + item.text;
-            // }
           });
         }
       }

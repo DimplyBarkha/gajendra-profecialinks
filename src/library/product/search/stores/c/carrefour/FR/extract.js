@@ -91,31 +91,65 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.evaluate(async function () {
-      
-      
-    while (document.querySelector('div.pagination__button-wrap button')) {
-      const element = document.querySelector('div.pagination__button-wrap button');
-      element.scrollIntoView();
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      // @ts-ignore
-      document.querySelector('div.pagination__button-wrap button').click();
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      let ul = document.querySelectorAll('ul#data-plp_produits');
-      let finalUL ;
-      if(ul){
-        finalUL = ul[1];
-      }
-      let NoOFelementForBreak=finalUL.querySelectorAll("li.product-grid-item").length;
-      
-      // @ts-ignore
-      if( NoOFelementForBreak=="150"){
-        break;
+  let nextLinkSelector = null;
+  try {
+    await new Promise(resolve => setTimeout(resolve, 5000));
+  } catch (error) {
+    console.log('All products not loaded after scrolling!!');
+  }
+  nextLinkSelector = await context.evaluate(() => 
+      !!document.querySelector('div.pagination__button-wrap button')
+    );
+    async function nextLink() {
+      nextLinkSelector = await context.evaluate(() => 
+        !!document.querySelector('div.pagination__button-wrap button')
+      );
+
+      let count = 0;
+      while(nextLinkSelector){
+        count += await context.evaluate(() => {
+          return document.querySelectorAll('li.product-grid-item').length;
+        });
+
+        if(count <= 179){
+          await context.extract(productDetails, { transform }, { type: 'APPEND' });
+          await context.click('div.pagination__button-wrap button');
+          await new Promise(resolve => setTimeout(resolve, 2000));
+          nextLinkSelector = await context.evaluate(() => 
+            !!document.querySelector('div.pagination__button-wrap button')
+          );
+        } else {
+          break;
+        }
       }
     }
-  });
+    if(nextLinkSelector){
+      await nextLink();
+    }
+  // await context.evaluate(async function () { 
+  //   while (document.querySelector('div.pagination__button-wrap button')) {
+  //     const element = document.querySelector('div.pagination__button-wrap button');
+  //     element.scrollIntoView();
+  //     await new Promise(resolve => setTimeout(resolve, 1500));
+  //     // @ts-ignore
+  //     document.querySelector('div.pagination__button-wrap button').click();
+  //     await new Promise(resolve => setTimeout(resolve, 1500));
+  //     let ul = document.querySelectorAll('ul#data-plp_produits');
+  //     let finalUL ;
+  //     if(ul){
+  //       finalUL = ul[1];
+  //     }
+  //     let NoOFelementForBreak=finalUL.querySelectorAll("li.product-grid-item").length;
+      
+  //     // @ts-ignore
+  //     if( NoOFelementForBreak=="150"){
+  //       break;
+  //     }
+  //   }
+  // });
   try {
     await context.waitForXPath('//li[contains(@class,"product-grid-item")]');
+    await new Promise(resolve => setTimeout(resolve, 5000));
   } catch (error) {
     console.log('All products not loaded after scrolling!!');
   }
