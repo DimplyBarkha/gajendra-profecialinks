@@ -22,8 +22,9 @@ const transform = (data, context) => {
     const joinArray = (array, delim = ' | ') => array.join(delim).trim().replace(/\| \|/g, '|');
 
     const doubleRegexSearch = (regex1, regex2, item) => {
+        let matchArray = [];
         try{
-            const matchArray = sg(item).toString().match(regex1);
+            matchArray = sg(item).toString().match(regex1);
         } catch(e) {
             console.log('cannot be coverted to string');
         }
@@ -66,8 +67,9 @@ const transform = (data, context) => {
                 shippingWeight: item => sg(item).replace(/\s\(/g, '').trim(),
                 grossWeight: item => sg(item).replace(/\s\(/g, '').trim(),
                 largeImageCount: item => {
+                    let array = [];
                     try{
-                    const array = sg(item).toString().split('SL1500');
+                        array = sg(item).toString().split('SL1500');
                     } catch(e) {
                         console.log('cannot be coverted to string');
                     }
