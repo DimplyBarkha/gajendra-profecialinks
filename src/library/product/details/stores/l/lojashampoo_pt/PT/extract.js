@@ -94,14 +94,24 @@ module.exports = {
         var description = document.querySelector('div[id="tab-description"]');
         if (description != null) {
           description = description.innerText;
-          addElementToDocument('descrip', (description.split('Ingredientes')[0]).split(description.match(/(Como.+)/gm))[0].split('Descrição')[1]);
+          if (description.includes('Descrição')) {
+            addElementToDocument('descrip', (description.split('Ingredientes')[0]).split(description.match(/(Como.+)/gm))[0].split('Descrição')[1]);
+          } else if (description.includes('Contém:')) {
+            addElementToDocument('descrip', description);
+          } else {
+            addElementToDocument('descrip', description.split(description.match(/(Como.+)/gm))[0]);
+          }
+
         }
       } catch (error) { }
 
       // Availability
-      var availability = getXpath('//button[@id="button-cart"]/span[contains(text(),"COMPRA JÁ")]/text()', 'nodeValue');
+      var availability = getXpath('//button[@id="button-cart"]/span[contains(text(),"COMPRA JÁ")]/text() | //button[@class="button-option"]//p[contains(text(),"COMPRA JÁ")]/text()', 'nodeValue');
+      var oos = getXpath('//button[@id="button-cart"]/span[contains(text(),"ESGOTADO")]/text() |//button[@class="button-option"]//p[contains(text(),"ESGOTADO")]/text()', 'nodeValue');
       if (availability != null) {
         addElementToDocument('availability', 'In Stock');
+      } else if (oos != null) {
+        addElementToDocument('availability', 'Out of Stock');
       }
       // quantitty 
       var quantity = getXpath('//h1[@class="title-product"]/text()', 'nodeValue');
