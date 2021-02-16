@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: false
     xpath: //img[@id="image-main"]//@src
-    regExp: (.*)-\d+-\d+(\/.*jpg)
+    regExp: (ht.*\d+)-\d+-\d+(\/.*jpg|\/.*gif)
     regExpReplace: $1$2
   - name: imageAlt
     singleValue: false
@@ -19,7 +19,7 @@ fields:
   - name: alternateImages
     singleValue: false
     xpath: //li//a[@id="botaoZoom"]/@rel
-    regExp: (.*)-\d+-\d+(\/.*jpg)
+    regExp: (ht.*\d+)-\d+-\d+(\/.*jpg|\/.*gif)
     regExpReplace: $1$2
   - name: category
     singleValue: false
