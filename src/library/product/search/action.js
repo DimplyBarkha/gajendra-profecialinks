@@ -78,13 +78,15 @@ module.exports = {
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-    const resultsReturned = await execute({
+    const newInputs = {
       ...inputs,
+      results,
       searchURL: URL,
       keywords: inputKeywords,
       zipcode: inputs.zipcode || zipcode,
       query: query,
-    });
+    };
+    const resultsReturned = await execute(newInputs);
 
     // do the search
 
@@ -94,7 +96,7 @@ module.exports = {
     }
 
     // try gettings some search results
-    const pageOne = await extract({ keywords });
+    const pageOne = await extract(newInputs);
 
     let collected = length(pageOne);
 
@@ -108,7 +110,7 @@ module.exports = {
 
     let page = 2;
     while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
-      const data = await extract({});
+      const data = await extract(newInputs);
       const count = length(data);
       if (count === 0) break; // no results
       collected += count;

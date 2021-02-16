@@ -6,10 +6,11 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const { results } = inputs;
 
   const allResults = [];
 
-  await context.evaluate(async function () {
+  await context.evaluate(async function (results) {
     function stall (ms) {
       return new Promise(resolve => {
         setTimeout(() => {
@@ -32,55 +33,66 @@ async function implementation (
       await stall(250);
     }
 
-    const getPageDOM = async (url, domParser) => {
+    const getPageDOM = async (url) => {
+      const domParser = new DOMParser();
       try {
         const response = await fetch(url);
-        const text = await response.text;
-        return domParser.parseFromString(text, 'text/html');
+        const text = await response.text();
+        return { dom: domParser.parseFromString(text, 'text/html'), text };
       } catch (error) {
         console.log(error);
       }
     };
 
-    const extractData = (dataArr) => {
-      const domParser = new DOMParser();
+    const prepareData = async (dataArr) => {
       let count = 0;
+      let itemIndex = 0;
 
-      dataArr.forEach(async el => {
-        if (count >= 150) {
-          return;
-        }
-        if (el.querySelector('div[itemprop="name"]')) {
+      while (count < results) {
+        const el = dataArr[itemIndex];
+        itemIndex += 1;
+        if (el.querySelector('div[itemprop="name"], h3')) {
           el.classList.add('productInfo');
           const name = el.querySelector('h3').innerText;
           const thumbnail = el.querySelector('img').getAttribute('src');
           const url = el.querySelector('a').getAttribute('href');
-          const detailPage = await getPageDOM(url, domParser);
-          const id = detailPage.querySelector('meta[itemprop = "productID sku"]') &&
-            detailPage.querySelector('meta[itemprop = "productID sku"]').content ||
+          const idFromUrl = url.split('-').slice(-2).join('-');
+          let idFromDom;
+          if (/[^\d-]/.test(idFromUrl)) { // id should only contains numbers and dashes
+            const { dom: detailPage, text } = await getPageDOM(url);
+            idFromDom = (detailPage.querySelector('meta[itemprop = "productID sku"]') &&
+            detailPage.querySelector('meta[itemprop = "productID sku"]').content) ||
             (detailPage.querySelector('div[data-bv-show="inline_rating"]') &&
               detailPage.querySelector('div[data-bv-show="inline_rating"]').dataset.bvProductId);
-
-          const splitURL = url.split('-');
+            if (!idFromDom) {
+              const reg = /data-bv-product-id=\\"([^"]*)\\"/;
+              const match = reg.exec(text);
+              idFromDom = match[1];
+              if (!idFromDom || /[^\d-]/.test(idFromDom)) continue; // does not populate if it failed to load the id
+            }
+          }
+          const id = idFromDom || idFromUrl;
+          addHiddenDiv(el, 'count', count);
           addHiddenDiv(el, 'name', name);
           addHiddenDiv(el, 'id', id);
           addHiddenDiv(el, 'thumbnail', thumbnail);
           addHiddenDiv(el, 'url', url);
           count++;
+        } else {
+          addHiddenDiv(el, 'notValid', 'NotValid');
         }
-      });
+      }
     };
 
     const cssInnerCardType = '.card__inner';
     const cssGWrap = '.g-wrap';
-    let allProducts = document.querySelectorAll(cssInnerCardType);
+    const allProducts = document.querySelectorAll(cssInnerCardType).length ? document.querySelectorAll(cssInnerCardType) : document.querySelectorAll(cssGWrap);
     if (allProducts.length) {
+      await prepareData([...allProducts]);
     } else {
-      allProducts = document.querySelectorAll(cssGWrap);
+      console.log(`No products found, css: ${cssInnerCardType} and ${cssGWrap} both returned 0 products`);
     }
-
-    allProducts.length ? extractData(allProducts) : console.log(`No products found, css: ${cssInnerCardType} and ${cssGWrap} both returned 0 products`);
-  });
+  }, results);
   const extract = await context.extract(productDetails, { transform });
   allResults.push(extract);
   return allResults;
