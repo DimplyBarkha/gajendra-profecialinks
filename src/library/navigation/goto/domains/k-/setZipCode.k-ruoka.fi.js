@@ -43,31 +43,6 @@ module.exports = {
       await context.setInputValue('.store-selector__search input', zipcode);
       await context.click('.store-list a');
       await context.setInputValue('input[type="search"][value]', zipcode);
-      // await context.evaluate(async function () {
-      //   document.body.setAttribute('k-zip', zipcode);
-      // });
-      // await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]');
-      // await context.waitForSelector('li[data-automation-id="selectFlyoutItem"]:first-child input');
-      // await context.evaluate(async function () {
-      //   const searchZipCode = document.querySelector('input[data-automation-id="selectFlyoutItemBtn"]:first-child');
-      //   if (searchZipCode !== undefined) {
-      //     searchZipCode.click();
-      //   }
-      //   locationStreetAddress = (document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__addressLine"]')) ? document.querySelector('li[data-automation-id="selectFlyoutItem"] span[class^="AddressPanel__addressLine"]').textContent : '';
-      // });
-
-      // await context.waitForSelector('button[data-automation-id="locationFlyout-continueBtn"]');
-
-      // disabledContinueButton = await hasDisabledContinuedButton();
-
-      // if (disabledContinueButton === false) {
-      //   await context.click('button[data-automation-id="locationFlyout-continueBtn"]');
-      //   await context.waitForSelector('button[data-automation-id="confirmFulfillmentBtn"]');
-      //   await context.click('button[data-automation-id="confirmFulfillmentBtn"]');
-      //   await new Promise((resolve, reject) => setTimeout(resolve, 15000));
-      //   await context.waitForSelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]');
-      //   // context.waitForMutuation('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]', { timeout: 20000 });
-      // }
     }
 
     const changedLocationStreetAddress = await context.evaluate(function () {
