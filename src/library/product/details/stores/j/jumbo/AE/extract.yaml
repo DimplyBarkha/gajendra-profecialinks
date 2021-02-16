@@ -67,7 +67,7 @@ fields:
     xpath: //div[@id='videoResultsDiv']/iframe/@src | //div[@id='added_video']
   - name: weightNet
     singleValue: false
-    xpath: //div[@id='feature_groups']//td[contains(text(),'Weight')]/following-sibling::td
+    xpath: //div[@id='feature_groups']//td[contains(text(),'Weight')]/following-sibling::td | //div[@id="flix-std-inpage"]//table//div[contains(@class,'flix-value')][contains(.,'Weight')]/following-sibling::*
   - name: ratingCount
     singleValue: false
     xpath: //div[@itemprop="reviewCount"]/@content
