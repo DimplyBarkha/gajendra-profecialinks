@@ -23,7 +23,8 @@ fields:
   - name: sku
     singleValue: false
     description: The store-specific product identifier
-    xpath: ancestor::html//span[contains(@itemprop, 'sku')]
+    xpath: ancestor::html//span[contains(@itemprop, 'sku')] | ancestor::html//p[contains(@id, 'product-body-item-number')]
+    regExp: (\d+)
   - name: reviewDate
     singleValue: false
     type: DATETIME
