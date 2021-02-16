@@ -106,8 +106,8 @@ fields:
   - name: directions
     singleValue: true
     description: Content under "directions" header
-    xpath: //html//div[@id="directions"]
-      # concat(//*[contains(text(),"Anwendung")]/text()," ",//*[contains(text(),"Anwendung")]/following::p[1]/text())
+    # xpath: //html//div[@id="directions"]
+    xpath: concat(//*[contains(text(),"Anwendung")]," ",//*[contains(text(),"Anwendung")]/following::p[1])
   - name: warnings
     singleValue: true
     description: Content under "warnings" header
@@ -264,6 +264,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
+    xpath: concat(//h2[contains(text(),"Inhaltsstoffe")],"",//h2[contains(text(),"Inhaltsstoffe")]/following::*[1])
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
