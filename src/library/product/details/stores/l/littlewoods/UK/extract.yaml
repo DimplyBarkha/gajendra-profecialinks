@@ -14,7 +14,8 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class='amp-zoom-overflow']//img/@src
+    # xpath: //div[@class='amp-zoom-overflow']//img/@src
+    xpath: //li[@class="amp-slide"]//div[@class='amp-zoom-overflow']//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -242,7 +243,8 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: true
-    description: null
+    description: total of Secondary Image
+    xpath: count(//li[@class="amp-slide"]//div[@class='amp-zoom-overflow']//img/@src)
     type: NUMBER
   - name: news
     singleValue: true
