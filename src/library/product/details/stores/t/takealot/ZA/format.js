@@ -89,7 +89,7 @@ const transform = (data) => {
       }
       if(row.alternateImages){
         row.alternateImages.forEach(item=>{
-          item.text=item.text.replace('-list.','-zoom.');
+          item.text=item.text.replace('-pdpxl.','-zoom.');
         })
       }
       /*if(row.descriptionBullets){

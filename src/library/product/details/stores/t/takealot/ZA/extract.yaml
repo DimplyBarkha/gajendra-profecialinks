@@ -11,7 +11,7 @@ fields:
     xpath: //div[contains(@class,"swiper-slide-active")]/div[contains(@class,"pdp-gallery-module_main-gallery-photo_3gh0y")]/img/@alt | //div[contains(@class,"pdp-gallery-module_main-gallery-photo-single_3Moxa")]/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="pdp-gallery-module_thumb-wrapper_30oA3" and position()>1]/div/img/@src
+    xpath: //div[@class="pdp-gallery-module_gallery_3GytJ"]/div[contains(@class,"swiper-container")]/div[@class="swiper-wrapper"]/div[position()>1]//img/@src
   - name: category
     singleValue: false
     xpath: //div[@class="bread-crumbs-module_bread-crumbs_3U_RQ"]//a
