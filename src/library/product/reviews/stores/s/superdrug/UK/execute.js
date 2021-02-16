@@ -27,9 +27,13 @@ async function implementation (
     await new Promise((resolve) => setTimeout(resolve, 500));
     if (document.querySelector('ul[class="plp__product-container"]')) {
       return document.querySelector('a[class="item__image ClickSearchResultEvent_Class"]').href;
+    } else {
+      return null;
     }
   });
-  await dependencies.goto({ url: product, zipcode });
+  if (product) {
+    await dependencies.goto({ url: product, zipcode });
+  }
   if (sortButtonSelectors) {
     const selectors = sortButtonSelectors.split('|');
     for (const selector of selectors) {
