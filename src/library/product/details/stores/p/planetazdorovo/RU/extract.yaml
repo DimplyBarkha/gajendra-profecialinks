@@ -29,7 +29,8 @@ fields:
     xpath: //div[@class="product-detail__price-wrap"]//div[contains(@class,"new")]//text()
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class="product-detail__availability"]//p//text()
+    xpath: (//div[@class="product-detail__availability"]//p)[1]
+    defaultValue: "Out Of Stock"
   - name: brandText
     singleValue: false
     xpath: //table[@class="product-detail__spec"]//tr[contains(td, "Бренд:")]

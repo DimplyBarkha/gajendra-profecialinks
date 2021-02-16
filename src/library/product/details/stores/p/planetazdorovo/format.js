@@ -7,25 +7,25 @@ const transform = (data, context) => {
   const clean = (text) =>
     text
       .toString()
-      .replace(/\r\n|\r|\n/g, " ")
-      .replace(/&amp;nbsp;/g, " ")
-      .replace(/&amp;#160/g, " ")
-      .replace(/\u00A0/g, " ")
-      .replace(/\s{2,}/g, " ")
+      .replace(/\r\n|\r|\n/g, ' ')
+      .replace(/&amp;nbsp;/g, ' ')
+      .replace(/&amp;#160/g, ' ')
+      .replace(/\u00A0/g, ' ')
+      .replace(/\s{2,}/g, ' ')
       .replace(/"\s{1,}/g, '"')
       .replace(/\s{1,}"/g, '"')
-      .replace(/^ +| +$|( )+/g, " ")
+      .replace(/^ +| +$|( )+/g, ' ')
       // eslint-disable-next-line no-control-regex
-      .replace(/[\x00-\x1F]/g, "")
-      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, " ");
+      .replace(/[\x00-\x1F]/g, '')
+      .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
   for (const { group } of data) {
     for (const row of group) {
       if (row.price) {
         row.price.forEach((element) => {
           element.text = element.text.substr(
-            element.text.indexOf(" "),
-            element.text.indexOf("₽") - 2
+            element.text.indexOf(' '),
+            element.text.indexOf('₽') - 2,
           );
         });
       }
@@ -36,20 +36,15 @@ const transform = (data, context) => {
         });
       }
       if (row.availabilityText) {
-        let availabilityText = "";
-        row.availabilityText.forEach((element) => {
-          availabilityText = element.text ? "In Stock" : "Out of Stock";
+        const availabilityTextArr = row.availabilityText.map((item) => {
+          return item.text && item.text.trim() === 'В наличии в 441 аптеке' ? 'In Stock' : 'Out Of Stock';
         });
-        row.availabilityText = [
-          {
-            text: availabilityText,
-          },
-        ];
+        row.availabilityText = [{ text: availabilityTextArr.join(''), xpath: row.availabilityText[0].xpath }];
       }
       if (row.description) {
-        let text = "";
+        let text = '';
         row.description.forEach((item) => {
-          text = row.description.map((elm) => elm.text).join(" | ");
+          text = row.description.map((elm) => elm.text).join(' | ');
         });
         row.description = [
           {
@@ -62,18 +57,18 @@ const transform = (data, context) => {
       }
       if (row.brandText) {
         row.brandText.forEach((element) => {
-          element.text = element.text.replace(/\n/g, "");
-          element.text = element.text.replace("Бренд: ", "").trim();
+          element.text = element.text.replace(/\n/g, '');
+          element.text = element.text.replace('Бренд: ', '').trim();
         });
       }
       if (row.manufacturer) {
         row.manufacturer.forEach((element) => {
-          element.text = element.text.replace(/\n/g, "");
-          element.text = element.text.replace("Производитель: ", "").trim();
+          element.text = element.text.replace(/\n/g, '');
+          element.text = element.text.replace('Производитель: ', '').trim();
         });
       }
       if (row.ingredientsList) {
-        let text = "";
+        let text = '';
         row.ingredientsList.forEach((item) => {
           if (text.includes(item.text)) {
             text = text + item.text;
@@ -86,7 +81,7 @@ const transform = (data, context) => {
         ];
       }
       if (row.directions) {
-        let text = "";
+        let text = '';
         row.directions.forEach((item) => {
           if (text.indexOf(item.text)) {
             text = text + item.text;
@@ -99,9 +94,9 @@ const transform = (data, context) => {
         ];
       }
       if (row.warnings) {
-        let text = "";
+        let text = '';
         row.warnings.forEach((item) => {
-          text = row.warnings.map((elm) => elm.text).join(" ");
+          text = row.warnings.map((elm) => elm.text).join(' ');
         });
         row.warnings = [
           {
@@ -112,26 +107,26 @@ const transform = (data, context) => {
       if (row.numberOfServingsInPackage) {
         row.numberOfServingsInPackage.forEach((element) => {
           element.text = element.text
-            .substr(element.text.indexOf(":") + 1)
+            .substr(element.text.indexOf(':') + 1)
             .trim();
         });
       }
       if (row.otherSellersName) {
         row.otherSellersName.forEach((element) => {
           element.text = element.text
-            .substr(element.text.indexOf(":") + 1)
+            .substr(element.text.indexOf(':') + 1)
             .trim();
         });
       }
 
       if (row.storage) {
-        row.storage = [{ text: row.storage[0].text.trim() }]
+        row.storage = [{ text: row.storage[0].text.trim() }];
       }
 
       Object.keys(row).forEach((header) =>
         row[header].forEach((el) => {
           el.text = clean(el.text);
-        })
+        }),
       );
     }
   }
