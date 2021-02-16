@@ -16,6 +16,40 @@ module.exports = {
     { productDetails }
   ) => {
     await context.evaluate(async () => {
+      let apiResults = [];
+      const searchUrl = 'https://www.mechta.kz/search/';
+      const pageUrl = window.location.href;
+
+      const initialUrl = pageUrl.replace(searchUrl, '');
+      let endIdx = initialUrl.indexOf('/#');
+
+      let searchTerm = initialUrl.substring(0, endIdx); //'4k+тв'; //
+
+      console.log('searchTerm :::::::; ', searchTerm);
+      const getAPIData = async function (apiUrl) {
+        const response = await fetch(apiUrl, {
+          method: 'GET',
+        });
+        const data = await response.json();
+        return data;
+      };
+
+      const apiUrl = `https://www.mechta.kz/api/main/catalog_new/index.php?query=${searchTerm}&type=search&page_num=1&catalog=true&page_element_count=9`;
+      const response = await getAPIData(apiUrl);
+      console.log('response  -=====', response);
+      if (response) {
+        const data = response.data;
+        console.log('data  -=====', data);
+        if (data && data.ITEMS) {
+          data.ITEMS.forEach(item => {
+            const prodId = item.CODE_1C;
+            // console.log('prodId  -=====', prodId);
+            apiResults.push(prodId);
+          });
+        }
+      }
+
+
       function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
@@ -33,6 +67,8 @@ module.exports = {
           break;
         }
       }
+
+      await new Promise((resolve, reject) => setTimeout(resolve, 1000));
 
       let index = 1;
       while (index < 10) {
@@ -72,6 +108,22 @@ module.exports = {
                 break;
               }
             }
+            const itemCount = 18;
+            const apiUrl = `https://www.mechta.kz/api/main/catalog_new/index.php?query=${searchTerm}&type=search&page_num=${index + 1}&catalog=true&page_element_count=${itemCount}`
+            console.log('apiUrl  -=====', apiUrl);
+            const response = await getAPIData(apiUrl);
+            console.log('response  -=====', response);
+            if (response) {
+              const data = response.data;
+              console.log('data1  -=====', data);
+              if (data && data.ITEMS) {
+                data.ITEMS.forEach(item => {
+                  const prodId = item.CODE_1C;
+                  // console.log('prodId  -=====', prodId);
+                  apiResults.push(prodId);
+                });
+              }
+            }
             index++;
           } catch (e) {}
           await new Promise((resolve, reject) => setTimeout(resolve, 1000));
@@ -79,6 +131,20 @@ module.exports = {
           index++;
         }
       }
+
+      console.log('apiResults ======== ', apiResults);
+
+      const prodItems = document.querySelectorAll('div.hoverCard-child.bg-white');
+      if (prodItems) {
+        prodItems.forEach((element, index) => {
+          const attrbSelector = element.querySelector('div.q-card');
+          const prodId = apiResults[index];
+          if (prodId) {
+            attrbSelector.setAttribute('my-prodId', prodId);
+          } 
+        });
+      }
+      return apiResults;
     });
     return await context.extract(productDetails, { transform });
   },

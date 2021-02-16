@@ -5,9 +5,10 @@ recordSelector: div.hoverCard-child.bg-white
 fields:
   - name: id
     SingleValue: false
-    xpath: //div[@class="hoverCard-child bg-white"]//a//div[@class="q-img__image absolute-full"]/@style
-    regExp: \d{4,}
-    regExpReplace:
+    xpath: //@my-prodId
+    # xpath: //div[@class="hoverCard-child bg-white"]//a//div[@class="q-img__image absolute-full"]/@style
+    # regExp: \d{4,}
+    # regExpReplace:
   - name: productUrl
     SingleValue: false
     # xpath: //a[@class="ifont14 j_product_link"]/@href
