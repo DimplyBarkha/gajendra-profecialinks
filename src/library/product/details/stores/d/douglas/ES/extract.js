@@ -35,11 +35,19 @@ async function implementation (
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
-  var variantChecker = await context.evaluate(async () => {
+  var variantChecker1 = await context.evaluate(async () => {
     return (document.querySelectorAll('div.rd__blob img.rd__img')) ? document.querySelectorAll('div.rd__blob img.rd__img').length : 0;
   });
 
-  if (variantChecker === 0) {
+  var variantChecker2 = await context.evaluate(async () => {
+    return (document.querySelectorAll('div[class*="rd__headline--80"][title]')) ? document.querySelectorAll('div[class*="rd__headline--80"][title]').length : 0;
+  });
+
+  var variantChecker3 = await context.evaluate(async () => {
+    return (document.querySelectorAll('h2[class*="rd__headline--80"][title]')) ? document.querySelectorAll('h2[class*="rd__headline--80"][title]').length : 0;
+  });
+
+  if ((variantChecker1 === 0 && variantChecker2 <= 1 && variantChecker3 <= 1)) {
     var variantLength = await context.evaluate(async () => {
       return (document.querySelectorAll('div.rd__product-details')) ? document.querySelectorAll('div.rd__product-details').length : 0;
     });
