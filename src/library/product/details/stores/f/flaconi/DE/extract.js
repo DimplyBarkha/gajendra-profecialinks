@@ -38,7 +38,7 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-
+      try{
       const directionelement1 = document.evaluate("//div[contains(@class, 'instruction-content')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       const directionelement2 = document.evaluate("//div[contains(@class, 'instruction')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       if (directionelement1) {
@@ -48,6 +48,12 @@ module.exports = {
         // @ts-ignore
         addElementToDocument('fl_directioninfo', directionelement2.innerText);
       }
+    }
+    catch(e)
+    {
+
+    }
+    try{
       const variantCount = 0;
       addElementToDocument('variantCount', variantCount);
       const colorlement = document.evaluate("//ul[@id='makeup-color-list']/li[1]//span/@style", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -57,15 +63,24 @@ module.exports = {
         const colorCode = colorlement.value.slice(colorlement.value.indexOf('#') + 1);
         addElementToDocument('fl_colorcode', colorCode);
       }
+    }
+    catch(e)
+    {
+
+    }
+    try{
       const videoarr = document.querySelectorAll('div.lazyYoutube > a[title=""]');
       if (videoarr && videoarr.length) {
         addVideoElementToDocument('pd_video', videoarr);
       }
+    }
+    catch(e){}
       // Double Pipe Concatenation
       const pipeSeparatorDouble = (id, data) => {
         var doubleSeparatorText = data.join(' || ');
         addElementToDocument(id, doubleSeparatorText);
       };
+      try{
       var descfinal = [];
       //const description1 = getXpath("//div[@class='description-content']//text()", 'nodeValue');
       // @ts-ignore
@@ -73,11 +88,22 @@ module.exports = {
       if (description1.length > 0) {
         descfinal.push(description1)
       }
+    }
+    catch(e)
+    {
+
+    }
+    try{
       var countLi = document.querySelectorAll("ul[class='product-properties-list'] li");
       for (let i = 0; i < countLi.length; i++) {
         // @ts-ignore
         descfinal.push(countLi[i].innerText);
       }
+    }
+    catch(e)
+    {
+      
+    }
 
       //var ratingValue = aggregateRating ? aggregateRating.replace(/^\D+/g, '') : '';
       pipeSeparatorDouble('desc', descfinal);
@@ -92,6 +118,7 @@ module.exports = {
       const name3 = getXpath('(//div[@class="product-name"]//span)[1]//text()','nodeValue')
       addElementToDocument('name',name1+" "+name2)
       addElementToDocument('namee',name1+" "+name2+" "+name3)
+    
     });
     await context.extract(productDetails);
   },
