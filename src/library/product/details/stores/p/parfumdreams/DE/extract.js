@@ -82,20 +82,22 @@ module.exports = {
         const originalDiv = document.querySelectorAll("div[class*='font-headline ']")[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-      // function addHiddenDiv3(id, content, index) {
-      //   const newDiv = document.createElement('div');
-      //   newDiv.id = id;
-      //   newDiv.textContent = content;
-      //   newDiv.style.display = 'none';
-      //   const originalDiv = document.querySelectorAll("div[class*='font-headline ']")[index];
-      //   originalDiv.parentNode.insertBefore(newDiv, originalDiv);
-      // }
+
       function addHiddenDiv4(id, content, index) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
         newDiv.style.display = 'none';
         const originalDiv = document.querySelectorAll("form[id='formVariatonPost'] div[id='schema-offer']")[index]
+        //const originalDiv = document.querySelectorAll("//form[@id='formVariatonPost']/div[@id='schema-offer']")[index];
+        originalDiv.appendChild(newDiv);
+      }
+      function addHiddenDiv5(id, content, index) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        const originalDiv = document.querySelectorAll("form[action='/Shared/VariationPost']>div[class*='variation']")[index]
         //const originalDiv = document.querySelectorAll("//form[@id='formVariatonPost']/div[@id='schema-offer']")[index];
         originalDiv.appendChild(newDiv);
       }
@@ -116,39 +118,58 @@ module.exports = {
         return result && result.trim ? result.trim() : result;
       };
 
-      // function addEmptyDiv() {
-      //   const newDiv = document.createElement('div');
-      //   newDiv.className = 'variants';
-      //   newDiv.style.display = 'none';
-      //   document.body.appendChild(newDiv);
-      // }
-
-
-      var dec = getAllXpath('(//div[@class="variation-alt-images clearfix"]/div/@data-variation-id | //*[@id="schema-offer"]/div[1]/div/input/@value)', 'nodeValue');
-      var str = "";
-      if (dec != null) {
-        str = dec.join(" | ");
-        addElementToDocument('str', str);
-      }
-      var name = getXpath('//*[@id="schema-offer"]/div[2]/p[2]/text()', 'nodeValue');
-      if (name != null) {
-        if (name.includes("not available")) {
-          name = "Out of Stock";
-        } else {
-          name = "In Stock";
+      //VARIANTS
+      try {
+        var dec = getAllXpath('(//div[@class="variation-alt-images clearfix"]/div/@data-variation-id | //*[@id="schema-offer"]/div[1]/div/input/@value)', 'nodeValue');
+        var str = "";
+        if (dec != null) {
+          str = dec.join(" | ");
+          addElementToDocument('str', str);
         }
-        //addElementToDocument('name', name);
       }
-      var aggr = getXpath('//span[@itemprop="ratingValue"]/text()', 'nodeValue');
-      if (aggr != null) {
-        if (aggr.includes(",")) {
-          addElementToDocument('aggr', aggr);
-        } else {
-          var nwaggr = aggr + ',0';
-          addElementToDocument('aggr', nwaggr);
+      catch (error) { }
+
+      //AGGREGATE RATING
+      try {
+        var aggr = getXpath('//span[@itemprop="ratingValue"]/text()', 'nodeValue');
+        if (aggr != null) {
+          if (aggr.includes(",")) {
+            addElementToDocument('aggr', aggr);
+          } else {
+            var nwaggr = aggr + ',0';
+            addElementToDocument('aggr', nwaggr);
+          }
+          //addElementToDocument('name', name);
         }
-        //addElementToDocument('name', name);
       }
+      catch (error) { }
+
+      //AVAILABILITY
+      try {
+        var avail = getAllXpath('//div[@id="schema-offer"]/@data-outofstock', 'nodeValue');
+        for (var i = 0; i < avail.length; i++) {
+          if (avail[i] == 'False') {
+            addHiddenDiv4('avail', 'In Stock', i)
+        }
+        else{
+          addHiddenDiv4('avail', 'Out of Stock', i)
+        }
+        }
+      }
+      catch (error) { 
+        var avail = getAllXpath('//form[@action="/Shared/VariationPost"]/@data-outofstock', 'nodeValue');
+        for (var i = 0; i < avail.length; i++) {
+          if (avail[i] == 'False') {
+            addHiddenDiv5('avail', 'In Stock', i)
+        }
+        else{
+          addHiddenDiv5('avail', 'Out of Stock', i)
+        }
+        }
+
+      }
+
+      //PRICEPERUNIT
       try {
         var perunit = getXpath('(//*[@id="schema-offer"]/div[2]/p[1]/text())[1]', 'nodeValue');
         if (perunit != null) {
@@ -159,37 +180,44 @@ module.exports = {
         }
       }
       catch (error) { }
-      // try {
-      //   var lpr = getAllXpath('//*[@id="schema-offer"]/div[3]/div[1]/div/span/text()', 'nodeValue');
-      //   for (var i = 0; i < lpr.length; i++) {
-      //     var aa = lpr[i]
-      //     addHiddenDiv3('lpr', aa, i)
-      //   }
-      // }
-      // catch (error) {
-        //var lpr = getAllXpath('//*[@id="schema-offer"]/div[3]/div[1]/div', 'nodeValue');
+      
+      //PRICE
+      try {
         
+        var price = getAllXpath("//meta[@itemprop='price']/@content", 'nodeValue');
+        for (var i = 0; i < price.length; i++) {
+          var price1 = price[i].replace('.',',')
+          addHiddenDiv4('price', price1+' €', i)
+        }
+      }
+      catch (error) {
+        //var price2 = document.querySelectorAll("form>div>div:nth-of-type(4)>p:nth-of-type(1)")
+        var price2 = getAllXpath("//form/div/div[4]/p[1]/text()", 'nodeValue');
+        
+        if (price2.length >= 1){
+          for (var i = 0; i < price2.length; i++) {
+            // @ts-ignore
+            //var aa = price2[i].innerText;
+            //var aa = price2[i];
+            addHiddenDiv5('price', price2[i], i)
+          }
+        }
+        
+       }
+
+
+      //LIST PRICE
+      try {
         var lpr = document.querySelectorAll('div[id="schema-offer"] div:nth-of-type(3) div div');
         for (var i = 0; i < lpr.length; i++) {
           // @ts-ignore
           var aa = lpr[i].innerText;
           addHiddenDiv4('lpr', aa, i)
         }
-      // }
+      }
+      catch (error) { }
 
-
-      // var avi = getAllXpath('//div[@id="schema-offer"]/@data-outofstock', 'nodeValue');
-      // for (var i = 0; i < avi.length; i++) {
-      //   if (avi[i] != null) {
-      //     if (avi[i].includes('False')) {
-      //       addHiddenDiv('avail', 'In Stock', i)
-      //     }
-      //     else {
-      //       addHiddenDiv('avail', 'Out of Stock', i)
-      //     }
-      //   }
-      // }
-
+      //DESCRIPTION
       try {
         // @ts-ignore
         var d2 = document.querySelector('div[class="footer-content"]> div:nth-child(1)').innerText
@@ -199,38 +227,61 @@ module.exports = {
       }
       catch (error) { }
 
-      var qq = getAllXpath('//div[@id="schema-offer"]/div[2]/div/div[1]/div/text()', 'nodeValue');
-      if (qq != null) {
-        for (var i = 0; i < qq.length; i++) {
-          addHiddenDiv('qty', qq[i], i)
+
+      //QUANTITY
+      try {
+        var qq = getAllXpath('//div[@id="schema-offer"]/div[2]/div/div[1]/div/text()', 'nodeValue');
+        if (qq != null) {
+          for (var i = 0; i < qq.length; i++) {
+            addHiddenDiv('qty', qq[i], i)
+          }
         }
       }
+      catch (error) { }
+
+      //NAME EXTENDED
       try {
-        //concat(+'- '+//*[@id="schema-offer"]/div[2]/p[1]/span/text())
         var type1 = getAllXpath('//*[@id="schema-offer"]/div[2]/p[1]/span/text()', 'nodeValue');
-        //var name = getXpath("//*[@id='right-column']/div/div[1]/div/div[2]/div[1]/div[1]/h1", 'nodeValue')
         // @ts-ignore
         var name = document.querySelector('h1[class="article-header"]').innerText
         if (type1 != null) {
-          // @ts-ignore
           for (var i = 0; i < type1.length; i++) {
-            addHiddenDiv2('desc', name + '- ' + type1[i], i)
+            addHiddenDiv4('desc', name + '- ' + type1[i], i)
           }
         }
-        // else {
-        //   var type2= getAllXpath('//*[@id="schema-offer"]/div[2]/p[1]/span/text()', 'nodeValue');
-        //   if (type2 != null) {
-        //     // @ts-ignore
-        //     var name = getXpath("//*[@id='right-column']/div/div[1]/div/div[2]/div[1]/div[1]/h1", 'nodeValue')
-        //     for (var i = 0; i < type2.length; i++) {
-        //       addHiddenDiv2('desc', name + '- ' + type2[i], i)
-        //     }
-        //   }
-        // }
-
-
+        //else {}
       }
-      catch (error) { }
+      catch (error) {
+        var type2 = getAllXpath("//form/div/div[1]/img/@alt", 'nodeValue');
+          // @ts-ignore
+          //var name = document.querySelector('h1[class="article-header"]').innerText
+          if (type2.length >= 1) {
+            // @ts-ignore
+            for (var i = 0; i < type2.length; i++) {
+              addHiddenDiv5('desc', type2[i], i)
+            }
+          }
+       }
+      //VARIANTSINFO
+      try{
+        var var1 = getAllXpath('//*[@id="schema-offer"]/div[2]/p[1]/span/text()', 'nodeValue');
+        if(var1!=null){
+          for (var i = 0; i < var1.length; i++) {
+            addHiddenDiv4('varinfo', var1[i], i)
+          }
+        }
+        //var var2 = getAllXpath("//form/div/div[1]/img/@alt", 'nodeValue');
+      }
+      catch(error){
+        var var2 = getAllXpath('//*[@id="variationsdropdown"]/ul/li/a/div/text()', 'nodeValue');
+        if(var2!=null){
+          for (var i = 0; i < var2.length; i++) {
+            addHiddenDiv4('varinfo', var2[i], i)
+          }
+        }
+      }
+      
+      //URL
       try {
         var currurl = window.location.href
         addElementToDocument('currurl', currurl);
@@ -240,13 +291,35 @@ module.exports = {
       }
       catch (error) { }
 
-      var imgcount = getAllXpath('//div[@class="carousel more-pictures"]/div[@class="swiper-wrapper"]/div[position()>1]/div/img/@src|//div[@class="slick-track"]/div[position()>1]/div/@data-image-m', 'nodeValue');
-      addElementToDocument('imgcount', imgcount.length);
+      //AVAILABILITY
+      try {
+        var imgcount = getAllXpath('//div[@class="carousel more-pictures"]/div[@class="swiper-wrapper"]/div[position()>1]/div/img/@src|//div[@class="slick-track"]/div[position()>1]/div/@data-image-m', 'nodeValue');
+        addElementToDocument('imgcount', imgcount.length);
+      }
+      catch (error) { }
 
+      //BRAND
+      try {
+        var brand = getXpath("//span[@itemprop='brand']", 'nodeValue');
+        var price = getAllXpath("//meta[@itemprop='price']/@content", 'nodeValue');
+        for (var i = 0; i < price.length; i++) {
+        addHiddenDiv4('brand', brand,i);
+        }
+      }
+      catch (error) {
+        var brand = getXpath("//h1[@class='hidden']/text()", 'nodeValue');
+        var type2 = getAllXpath("//form/div/div[1]/img/@alt", 'nodeValue');
+        if (type2.length >= 1) {
+          // @ts-ignore
+          for (var i = 0; i < type2.length; i++) {
+            addHiddenDiv5('brand', brand, i)
+          }
+        }
+
+        
+       }
 
     });
-
-
     await context.extract(productDetails);
 
   },
