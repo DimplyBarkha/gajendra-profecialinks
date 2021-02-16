@@ -19,18 +19,18 @@ async function implementation(
     await stall(5000);
 
 
-    const productUrl = await context.evaluate(function() {
+    const productUrl = await context.evaluate(function () {
         return window.location.href;
     });
 
-    const sku = await context.evaluate(function() {
+    const sku = await context.evaluate(function () {
         if (document.querySelector('.sku-man.hide-for-small')) {
             return document.querySelector('.sku-man.hide-for-small').innerText.split(' ')[1];
         }
     });
 
 
-    let ratingsAndReviews = await context.evaluate(async function(sku) {
+    let ratingsAndReviews = await context.evaluate(async function (sku) {
         return await fetch(`https://mark.reevoo.com/reevoomark/product_summary?locale=en-IE&sku=${sku}&trkref=ERI&callback=ReevooLib.Data.callbacks`)
             .then(response => response.text());
     }, sku);
@@ -40,22 +40,22 @@ async function implementation(
     }
 
 
-    async function scrollToRec (node) {
+    async function scrollToRec(node) {
         await context.evaluate(async function (node) {
-          var element = (document.querySelector(node)) ? document.querySelector(node) : null;
-          if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-            await new Promise((resolve) => {
-              setTimeout(resolve, 3000);
-            });
-          }
+            var element = (document.querySelector(node)) ? document.querySelector(node) : null;
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
+                await new Promise((resolve) => {
+                    setTimeout(resolve, 3000);
+                });
+            }
         }, node);
-      }
-      await scrollToRec('div#specificationTab');
-      await scrollToRec('div.footer');
-      await scrollToRec('div[class*="InTheBox"]');
+    }
+    await scrollToRec('div#specificationTab');
+    await scrollToRec('div.footer');
+    await scrollToRec('div[class*="InTheBox"]');
 
-    await context.evaluate(async function(ratingsAndReviews) {
+    await context.evaluate(async function (ratingsAndReviews) {
 
         function stall(ms) {
             return new Promise(resolve => {
@@ -190,27 +190,45 @@ async function implementation(
             });
             if (document.querySelector('.flix-std-specs-table')) {
                 document.querySelectorAll('.flix-std-specs-table').forEach(el => {
-                    el.querySelectorAll('tr').forEach(tr => {
-                        if (tr.querySelector('.flix-value') && tr.querySelector('.flix-value').querySelector('span').innerText === 'Weight') {
-                            addHiddenDiv('weightNet', tr.querySelector('.flix-title').innerText);
-                        }
-                        if (tr.querySelector('.flix-value') && tr.querySelector('.flix-value').querySelector('span').innerText === 'Height') {
-                            enhancedSpecifications.push(tr.querySelector('.flix-title').innerText + ' height');
-                        }
-                        if (tr.querySelector('.flix-value') && tr.querySelector('.flix-value').querySelector('span').innerText === 'Width') {
-                            enhancedSpecifications.push(tr.querySelector('.flix-title').innerText + ' width');
-                        }
-                        if (tr.querySelector('.flix-value') && tr.querySelector('.flix-value').querySelector('span').innerText === 'Length') {
-                            enhancedSpecifications.push(tr.querySelector('.flix-title').innerText + ' length');
-                        }
-                    });
+                    // el.querySelectorAll('tr').forEach(tr => {
+                    //     if (tr.querySelector('.flix-value') && tr.querySelector('.flix-value').querySelector('span').innerText === 'Weight') {
+                    //         addHiddenDiv('weightNet', tr.querySelector('.flix-title').innerText);
+                    //     }
+                    //     if (tr.querySelector('.flix-value') && tr.querySelector('.flix-value').querySelector('span').innerText === 'Height') {
+                    //         enhancedSpecifications.push(tr.querySelector('.flix-title').innerText + ' height');
+                    //     }
+                    //     if (tr.querySelector('.flix-value') && tr.querySelector('.flix-value').querySelector('span').innerText === 'Width') {
+                    //         enhancedSpecifications.push(tr.querySelector('.flix-title').innerText + ' width');
+                    //     }
+                    //     if (tr.querySelector('.flix-value') && tr.querySelector('.flix-value').querySelector('span').innerText === 'Length') {
+                    //         enhancedSpecifications.push(tr.querySelector('.flix-title').innerText + ' length');
+                    //     }
+                    // });
+                    const headers = [...document.querySelectorAll('.flix-value span')]
+                    const values = [...document.querySelectorAll('.flix-title span')]
+                    const heads = []
+                    const vals = []
+                    headers.forEach(item => {
+                        heads.push(item.innerText)
+                    })
+                    values.forEach(item => {
+                        vals.push(item.innerText)
+                    })
+                    let specs = ''
+                    for (let i = 0; i < heads.length; i++) {
+                        specs = specs + (specs ? ` | ${heads[i]} ${vals[i]}` : `${heads[i]} ${vals[i]}`)
+
+                    }
+                    enhancedSpecifications.push(specs);
+                    return specs;
+
                 });
             }
         }
 
-        if (enhancedSpecifications.length) {
-            addHiddenDiv('specifications', enhancedSpecifications.join(' x '));
-        }
+        // if (enhancedSpecifications.length) {
+        //     addHiddenDiv('specifications', enhancedSpecifications.join(' x '));
+        // }
 
         addHiddenDiv('manufacturerImages', manufacturerImages.join(' | '));
 
@@ -261,20 +279,38 @@ async function implementation(
                 if (tr.querySelectorAll('td')[0].innerText === 'Warranty') {
                     addHiddenDiv('warranty', tr.querySelectorAll('td')[1].innerText);
                 }
-                if (tr.querySelectorAll('td')[0].innerText === 'Width (mm)') {
-                    specifications.push(tr.querySelectorAll('td')[1].innerText + ' width');
+                // if (tr.querySelectorAll('td')[0].innerText === 'Width (mm)') {
+                //     specifications.push(tr.querySelectorAll('td')[1].innerText + ' width');
+                // }
+                // if (tr.querySelectorAll('td')[0].innerText === 'Height (mm)') {
+                //     specifications.push(tr.querySelectorAll('td')[1].innerText + ' height');
+                // }
+                // if (tr.querySelectorAll('td')[0].innerText === 'Length (mm)') {
+                //     specifications.push(tr.querySelectorAll('td')[1].innerText + ' length');
+                // }
+                const headers1 = [...document.querySelectorAll('h3~table tr')]
+                const heads1 = []
+                headers1.forEach(item => {
+                    heads1.push(item.innerText)
+                })
+                let specs1 = ''
+                for (let i = 0; i < heads1.length; i++) {
+                    specs1 = specs1 + (specs1 ? ` | ${heads1[i]}` : `${heads1[i]}`)
+
                 }
-                if (tr.querySelectorAll('td')[0].innerText === 'Height (mm)') {
-                    specifications.push(tr.querySelectorAll('td')[1].innerText + ' height');
-                }
-                if (tr.querySelectorAll('td')[0].innerText === 'Length (mm)') {
-                    specifications.push(tr.querySelectorAll('td')[1].innerText + ' length');
-                }
+                specifications.push(specs1);
+                return specs1;
             });
         }
 
-        if (specifications.length) {
-            addHiddenDiv('specifications', specifications.join(' x '));
+        // if (specifications.length) {
+        //     addHiddenDiv('specifications', specifications.join(' x '));
+        // }
+        if (enhancedSpecifications.length || specifications.length) {
+            let enhancedSpecification = [...new Set(enhancedSpecifications)]
+            let specification = [...new Set(specifications)]
+            let spec = enhancedSpecification.join(' | ') + ' | ' + specification;
+            addHiddenDiv('specifications', spec);
         }
 
         document.querySelectorAll('iframe').forEach(el => {
@@ -300,6 +336,14 @@ async function implementation(
         }
 
     }, ratingsAndReviews);
+    await context.evaluate(() => {
+        const comparasionText = document.evaluate(`(//li[contains(@class,"flix-comp-item")])[1]`, document).iterateNext();
+        if (comparasionText) {
+            const appendElements = document.querySelector('body[id="pageBody"]')
+            // addElement('comparasionText', 'Yes');
+            appendElements.setAttribute('comparasionText', 'Yes');
+        }
+    });
     return await context.extract(productDetails, { transform });
 }
 

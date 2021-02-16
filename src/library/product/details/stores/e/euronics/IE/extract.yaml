@@ -165,9 +165,10 @@ fields:
     singleValue: true
     xpath: //div[@id="pdf"]
   - name: hasComparisonTable
-    xpath: (//li[contains(@class,"flix-comp-item")])[1]
-    regExp: (.*)
-    regExpReplace: Yes 
+    # xpath: (//li[contains(@class,"flix-comp-item")])[1]
+    xpath: //body[@id="pageBody"]/@comparasionText
+    # regExp: (.*)
+    # regExpReplace: Yes 
     defaultValue: No
   - name: inTheBoxUrl
     xpath: //head//@intheboxurl
