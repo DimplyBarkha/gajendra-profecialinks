@@ -27,11 +27,13 @@ const transform = (data, context) => {
   let rankCounter = state.rankCounter || 0;
   for (const { group } of data) {
     for (const row of group) {
-      rankCounter += 1;
-      row.rank = [{ text: rankCounter }];
-      if (!row.sponsored) {
-        orgRankCounter += 1;
-        row.rankOrganic = [{ text: orgRankCounter }];
+      if (row.id) {
+        rankCounter += 1;
+        row.rank = [{ text: rankCounter }];
+        if (!row.sponsored) {
+          orgRankCounter += 1;
+          row.rankOrganic = [{ text: orgRankCounter }];
+        }  
       }
       // if (row.productUrl) {
       //   row.productUrl.forEach(item => {
