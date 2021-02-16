@@ -53,8 +53,10 @@ async function implementation (
         const overallCategory = data.selectedCategory.label;
 
         data.products.forEach(product => {
-          product.overallCategory = overallCategory;
-          addDiv('products', JSON.stringify(product));
+          if (product.onSale === false){
+            product.overallCategory = overallCategory;
+            addDiv('products', JSON.stringify(product));
+          }
         });
       }
     }
