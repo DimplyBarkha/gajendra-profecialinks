@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@id, "search-result-items")]//li[contains(@class, "grid-tile")]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //h3[contains(@class, "product-title")]
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[contains(@class, "product-tile-link")]//img/@src
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class, "product-tile")]/@data-itemid
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class, "product-info")]//a[contains(@class, "product-tile-link")]/@href
+  - name: price
+    singleValue: false
+    xpath: //ul[contains(@id, "search-result-items")]//li[contains(@class, "grid-tile")]//div[contains(@class, "product-pricing")]//span[@class="" or @class="product-sales-price"]
