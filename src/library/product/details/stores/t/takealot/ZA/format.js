@@ -47,6 +47,16 @@ const transform = (data) => {
           }
         })
         row.weightNet=[{"text":weightNetStr}];
+        delete row.tmpWeightNet;
+      }else{
+        let tmpWeightNet='';
+        if(row.tmpWeightNet){
+          row.tmpWeightNet.forEach(item=>{
+            tmpWeightNet=item.text;
+          })
+          row.weightNet=[{"text":tmpWeightNet}];
+          delete row.tmpWeightNet;
+        }
       }
       if(row.color){
         row.color.forEach(item=>{
@@ -63,6 +73,16 @@ const transform = (data) => {
           }
         })
         row.warranty=[{"text":warrantyStr}];
+        delete row.tmpWarranty;
+      }else{
+        let tmpWarranty='';
+        if(row.tmpWarranty){
+          row.tmpWarranty.forEach(item=>{
+            tmpWarranty=item.text;
+          })
+          row.warranty=[{"text":tmpWarranty}];
+          delete row.tmpWarranty;
+        }
       }
       if(row.materials){
         row.materials.forEach(item=>{
@@ -140,6 +160,7 @@ const transform = (data) => {
           row.ingredientsList=[{"text":ingredientsListData}];
         }
       }
+
       row.rank = [{ "text": rank }];
       row.rankOrganic = [{ "text": rank }];
       rank++;

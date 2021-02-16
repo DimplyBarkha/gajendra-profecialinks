@@ -80,6 +80,9 @@ fields:
   - name: warranty
     singleValue: false
     xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()
+  - name: tmpWarranty
+    singleValue: false
+    xpath: //div[@id="myCustomProductDescriptionSpecification"]/table//td[@class="title-cell" and text()="Warranty"]/following-sibling::td/p
   - name: materials
     singleValue: false
     xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()
@@ -97,13 +100,16 @@ fields:
     xpath: //div[@id="myCustomProductDescriptionSpecification"]//td[text()="Basic Colours"]/parent::*/td[2]
   - name: imageZoomFeaturePresent
     singleValue: false
-    defaultValue: Yes
+    defaultValue: No
   - name: quantity
     singleValue: false
     xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()
   - name: weightNet
     singleValue: false
     xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()
+  - name: tmpWeightNet
+    singleValue: false
+    xpath: //div[@id="myCustomProductDescriptionSpecification"]/table//td[@class="title-cell" and text()="Weight"]/following-sibling::td/p
   - name: videos
     singleValue: false
     xpath: //a[contains(@href,"youtu.be/")]/iframe[contains(@src,"youtube.com/")]
@@ -119,3 +125,6 @@ fields:
   - name: ingredientsListOld
     singleValue: false
     xpath: //div[contains(@class,"product-description-module_product-description_3bMdX")]
+  - name: color
+    singleValue: false
+    xpath: //div[@id="myCustomProductDescriptionSpecification"]/table//td[@class="title-cell" and text()="Basic Colours"]/following-sibling::td/p
