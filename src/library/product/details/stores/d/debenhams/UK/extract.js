@@ -90,9 +90,9 @@ module.exports = {
                             addHiddenDiv("custom-attr-product-brand-image", imageText.replace("w=1500", "w=640").replace("h=1500", "h=640").replace('fmt=webp', 'fmt=jpg').replace('&qlt=50', '').replace('&qlt=60', ''));
                             sku = imageText.match(/(_\d+)/g)[0].toString().replace("_", "");
                         }
-                        if (sku.length > 0) {
-                            addHiddenDiv("custom-attr-product-sku-number", sku || "");
-                        }
+                        // if (sku.length > 0) {
+                        //     addHiddenDiv("custom-attr-product-sku-number", sku || "");
+                        // }
                         // const breadcrumbs = document.querySelectorAll("div.t-breadcrumb div.t-breadcrumb__wrap");
                         // const categoryEl = document.createElement("ul");
                         // breadcrumbs.forEach(x => {
@@ -206,7 +206,13 @@ module.exports = {
 
                         const products = (window.getTagProduct_Child_Sku() || "").split("|");
                         if (products.length) {
-                            addHiddenDiv("custom-attr-product-sku-number", products[j] || "");
+                            if (sku.length > 0 && products[j] == parseInt(sku)) {
+                                addHiddenDiv("custom-attr-product-sku-number", products[j] || "");
+                            } else if (sku.length > 0) {
+                                addHiddenDiv("custom-attr-product-sku-number", sku || "");
+                            } else {
+                                addHiddenDiv("custom-attr-product-sku-number", products[j] || "");
+                            }
                         }
                         // else if (sku.length > 0) {
                         //     addHiddenDiv("custom-attr-product-sku-number", sku || "");
