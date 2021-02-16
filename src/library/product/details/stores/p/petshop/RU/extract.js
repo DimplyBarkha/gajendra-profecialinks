@@ -23,8 +23,8 @@ module.exports = {
     const productDescription = await context.evaluate(async () => {
       const getDescription = () => {
         const digForText = (parent, descriptionArr) => {
-          for (let i = 0; i < parent.childNodes.length; i++) {
-            const child = parent.childNodes[i];
+          for (let n = 0; n < parent.childNodes.length; n++) {
+            const child = parent.childNodes[n];
             if (child.nodeType === 3) descriptionArr.push(child.textContent.trim());
             else if (child.nodeName === 'TABLE') break;
             else digForText(child, descriptionArr);
@@ -81,7 +81,7 @@ module.exports = {
     });
 
     // adding manufacturer images
-    await context.evaluate(async => {
+    await context.evaluate((async) => {
       const allImages = document.querySelectorAll('div[data-testid="ProductDescription__content"] img');
       const imagesList = document.createElement('ol');
       imagesList.id = 'manufacturer_images';
@@ -113,9 +113,13 @@ module.exports = {
     const variantsTotal = await context.evaluate(
       async () => document.querySelectorAll('div[class^="style_info"] div[class^="style_tile_wrapper"] > label').length,
     );
-    const iterations = variantsTotal || 1;
+    const specialVariantsTotal = await context.evaluate(
+      async () => document.querySelectorAll('div.product-detail-page__product-form__items > ul > li').length,
+    );
+
+    const iterations = variantsTotal || specialVariantsTotal || 1;
     for (let i = 0; i < iterations; i++) {
-      if (variantsTotal > 1) {
+      if (variantsTotal) {
         await context.evaluate(
           async ({ i }) => {
             document.querySelectorAll('div[class^="style_info"] div[class^="style_tile_wrapper"] > label')[i].click();
@@ -124,28 +128,39 @@ module.exports = {
           { i },
         );
       }
+      console.log(`Variant number: ${i}`);
       await context.evaluate(
-        async ({ variantsTotal, productDescription }) => {
+        async ({ i, productDescription }) => {
+          console.log(`Variant number: ${i}`);
           const digForText = (parent, descriptionArr) => {
-            for (let i = 0; i < parent.childNodes.length; i++) {
-              const child = parent.childNodes[i];
+            for (let n = 0; n < parent.childNodes.length; n++) {
+              const child = parent.childNodes[n];
               if (child.nodeType === 3) descriptionArr.push(child.textContent.trim());
               else if (child.nodeName === 'TABLE') break;
               else digForText(child, descriptionArr);
             }
           };
 
+          const regularVariants = document.querySelectorAll(
+            'div[class^="style_info"] div[class^="style_tile_wrapper"] > label',
+          );
+          const specialVariants = document.querySelectorAll('div.product-detail-page__product-form__items > ul > li');
+          const variantsTotal = regularVariants.length || specialVariants.length;
+          const hasSpecialVariants = !!specialVariants.length;
+
           const addedList = document.querySelector('ol#variants_list');
           const listElem = document.createElement('li');
+
+          // We add 1 because the for loop starts at 0
           const variantElem = document.evaluate(
-            '//div[contains(@class, "art") and starts-with(text(), "Арт")]',
+            `(//div[contains(@class, "art") and starts-with(text(), "Арт")])[${i + 1}]`,
             document,
             null,
-            XPathResult.STRING_TYPE,
+            XPathResult.ANY_UNORDERED_NODE_TYPE,
             null,
-          ).stringValue;
+          ).singleNodeValue;
           const variantId =
-            variantElem && variantElem.match(/Арт(икул)?: (.+)/) ? variantElem.match(/Арт(икул)?: (.+)/)[2] : '';
+            variantElem && variantElem.textContent.match(/Арт(икул)?: (.+)/) ? variantElem.textContent.match(/Арт(икул)?: (.+)/)[2] : '';
           listElem.setAttribute('variant_id', variantId);
 
           const productScript = document.evaluate(
@@ -173,21 +188,38 @@ module.exports = {
           listElem.setAttribute('added_sku', sku);
           listElem.setAttribute('added_mpc', mpc);
 
+          // extracting images
           const imagesList = document.createElement('ol');
           imagesList.id = 'images';
-          const allImages =
-            productObj && productObj.images ? productObj.images.filter((item) => item.type === 'image') : [];
-          allImages.forEach((image) => {
-            const imageElem = document.createElement('li');
-            imageElem.setAttribute('src', `https:${image.defaultImgSrc}`);
-            imageElem.setAttribute('alt', image.alt);
-            imagesList.appendChild(imageElem);
-          });
-          imagesList.setAttribute('total', allImages.length - 1);
+
+          let allImages;
+          if (!hasSpecialVariants) {
+            allImages =
+              productObj && productObj.images ? productObj.images.filter((item) => item.type === 'image') : [];
+            allImages.forEach((image) => {
+              const imageElem = document.createElement('li');
+              imageElem.setAttribute('src', `https:${image.defaultImgSrc}`);
+              imageElem.setAttribute('alt', image.alt);
+              imagesList.appendChild(imageElem);
+            });
+          } else {
+            allImages = document.querySelectorAll('ul.js-preview-img > li > a');
+            for (let j = 0; j < allImages.length; j++) {
+              const image = allImages[j];
+              const imageElem = document.createElement('li');
+              const alt = image.querySelector('img') ? image.querySelector('img').alt : '';
+              imageElem.setAttribute('src', image.href);
+              imageElem.setAttribute('alt', alt);
+              imagesList.appendChild(imageElem);
+            }
+          }
+          imagesList.setAttribute('total', allImages.length ? allImages.length - 1 : 0);
           listElem.appendChild(imagesList);
 
           const videosList = document.createElement('ol');
           videosList.id = 'videos';
+
+          // products with special variants type seem to not have videos
           const allVideos =
             productObj && productObj.images
               ? productObj.images.filter((item) => item.type === 'video' && item.youtubeCode)
@@ -212,28 +244,56 @@ module.exports = {
           const brandName = brandElem ? brandElem.innerText.trim() : '';
           const brandLink = brandElem ? `https://www.petshop.ru${brandElem.getAttribute('href')}` : '';
 
-          const listPrice = document.evaluate(
-            'html//div[contains(@class, "style_price_wrapper")]/div/span/text()[contains(., "Обычная") or contains(., "со скидкой")]/ancestor::div[contains(@class, "style_price_wrapper")]//span[contains(@class, "style_price_old")]',
-            document,
-            null,
-            XPathResult.STRING_TYPE,
-            null,
-          ).stringValue;
-          const price = document.evaluate(
-            'html//div[contains(@class, "style_price_wrapper")]/div/span/text()[contains(., "Обычная") or contains(., "со скидкой")]/ancestor::div[contains(@class, "style_price_wrapper")]//div[contains(@class, "style_price_current")]/span[@itemprop="priceCurrency"]',
-            document,
-            null,
-            XPathResult.STRING_TYPE,
-            null,
-          ).stringValue;
+          let listPrice;
+          let price;
+          let availabilityText;
+          let couponText;
 
-          const availabilityText = document.querySelector('div[data-testid="deliveryInfo"][class*="not_available"]')
-            ? 'Out of Stock'
-            : 'In Stock';
+          if (!hasSpecialVariants) {
+            listPrice = document.evaluate(
+              'html//div[contains(@class, "style_price_wrapper")]/div/span/text()[contains(., "Обычная") or contains(., "со скидкой")]/ancestor::div[contains(@class, "style_price_wrapper")]//span[contains(@class, "style_price_old")]',
+              document,
+              null,
+              XPathResult.STRING_TYPE,
+              null,
+            ).stringValue;
+            price = document.evaluate(
+              'html//div[contains(@class, "style_price_wrapper")]/div/span/text()[contains(., "Обычная") or contains(., "со скидкой")]/ancestor::div[contains(@class, "style_price_wrapper")]//div[contains(@class, "style_price_current")]/span[@itemprop="priceCurrency"]',
+              document,
+              null,
+              XPathResult.STRING_TYPE,
+              null,
+            ).stringValue;
 
-          const couponText = document.querySelector('div.product-info div.flag')
-            ? document.querySelector('div.product-info div.flag').textContent
-            : '';
+            availabilityText = document.querySelector('div[data-testid="deliveryInfo"][class*="not_available"]')
+              ? 'Out of Stock'
+              : 'In Stock';
+
+            couponText = document.querySelector('div.product-info div.flag')
+              ? document.querySelector('div.product-info div.flag').textContent
+              : '';
+          } else {
+            const variantRow = document.evaluate(
+              './ancestor::li',
+              variantElem,
+              null,
+              XPathResult.ANY_UNORDERED_NODE_TYPE,
+              null,
+            ).singleNodeValue;
+
+            listPrice = variantRow.querySelector('div.j_product_price_old.product-price-old > span')
+              ? variantRow.querySelector('div.j_product_price_old.product-price-old > span').textContent + ' ₽'
+              : '';
+            price = variantRow.querySelector('span.j_offer_price.product-price > span')
+              ? variantRow.querySelector('span.j_offer_price.product-price > span').textContent + ' ₽'
+              : '';
+            availabilityText = variantRow.querySelector('div[itemprop="availability"].not-available')
+              ? 'Out Of Stock'
+              : 'In Stock';
+            couponText = variantRow.querySelector('div.j_discount_label')
+              ? variantRow.querySelector('div.j_discount_label').textContent
+              : '';
+          }
           const nameExtended =
             brandName && !name.toLowerCase().includes(brandName.toLowerCase()) ? `${brandName} - ${name}` : name;
 
@@ -313,8 +373,8 @@ module.exports = {
               XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
               null,
             );
-            for (let i = 0; i < fatSnapshot.snapshotLength; i++) {
-              const elem = fatSnapshot.snapshotItem(i);
+            for (let j = 0; j < fatSnapshot.snapshotLength; j++) {
+              const elem = fatSnapshot.snapshotItem(j);
               const elemText = elem.textContent.toLowerCase().trim();
               if (elemText.startsWith('жир') || elemText.match(/жиры?[\s,:]/)) {
                 fatElem = elem;
@@ -579,7 +639,7 @@ module.exports = {
 
           addedList.appendChild(listElem);
         },
-        { variantsTotal, productDescription },
+        { i, productDescription },
       );
     }
     await context.extract(productDetails, { transform });

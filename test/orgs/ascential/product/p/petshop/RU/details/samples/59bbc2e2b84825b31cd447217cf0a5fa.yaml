@@ -1,0 +1,262 @@
+input:
+  id: 21152
+  _url: http://petshop.ru
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=03803627-f4f8-49c5-9232-5b1ab212b4f4/task=d68d202f-8cee-4cb0-9951-610b888b21a5/d1ee65b1-a76c-4568-b26c-859a4cc582c8.html
+    extractionConfigId: product/details/stores/p/petshop/RU/extract
+    data:
+      - group:
+          - productUrl:
+              - text: https://www.petshop.ru/catalog/cats/syxkor/vzroslye_1_6let/dlya_persov_1_10_let_persian_30_1042/
+                xpath: /html/body/ol[1]/li[1]/@product_url
+            image:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/37/0d/60/353448_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@src
+            imageAlt:
+              - text: Корм Royal Canin (сухие корма) для персидских кошек 1-10 лет, Persian
+                  Adult
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[1]/@alt
+            alternateImages:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7d/79/0e/354865_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[2]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/e8/22/4b/353450_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[3]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/bd/d0/40/353451_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[1]/ol[1]/li[4]/@src
+            nameExtended:
+              - text: Корм Royal Canin (сухие корма) для персидских кошек 1-10 лет, Persian
+                  Adult
+                xpath: /html/body/ol[1]/li[1]/@name_extended
+            listPrice:
+              - text: 7 171 ₽
+                xpath: /html/body/ol[1]/li[1]/@list_price
+            price:
+              - text: 6 597 ₽
+                xpath: /html/body/ol[1]/li[1]/@price
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/ol[1]/li[1]/@availability_text
+            description:
+              - text: Royal Canin Persian Adult – это корм для персидских кошек старше 1 года.
+                  Данная порода известна своей густой и длинной шерстью,
+                  требующей особого ухода и защиты. Роял Канин для персов создан
+                  с учётом этой особенности. Кроме того, он предотвращает
+                  развитие ряда заболеваний желудочно-кишечного тракта. Форма
+                  крокетов продукта соответствует способу захвата корма,
+                  характерного для названной породы.
+                xpath: /html/body/ol[1]/li[1]/@description
+            variantId:
+              - text: "21152"
+                xpath: /html/body/ol[1]/li[1]/@variant_id
+            ratingCount:
+              - text: "269"
+                xpath: /html/body/ol[1]/li[1]/@rating_count
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/ol[1]/li[1]/@aggregate_rating
+                type: NUMBER
+                raw: 5,0
+                locale: ru
+                value: 5
+            variantCount:
+              - text: "5"
+                xpath: /html/body/ol[1]/li[1]/@variant_count
+            name:
+              - text: Корм Royal Canin (сухие корма) для персидских кошек 1-10 лет, Persian
+                  Adult
+                xpath: /html/body/ol[1]/li[1]/@product_name
+            coupon:
+              - text: -8%
+                xpath: /html/body/ol[1]/li[1]/@coupon_text
+            brandLink:
+              - text: https://www.petshop.ru/brand/royal_canin/
+                xpath: /html/body/ol[1]/li[1]/@brand_link
+            secondaryImageTotal:
+              - text: "3"
+                xpath: /html/body/ol[1]/li[1]/ol[1]/@total
+            ingredientsList:
+              - text: "Дегидратированное мясо птицы, рис, кукуруза, животные жиры, изолят
+                  растительных белков, растительная клетчатка, кукурузная мука,
+                  гидролизат животных белков, кукурузная клейковина, рыбий жир,
+                  жом цикория, семена подорожника, гидролизат дрожжей, соевое
+                  масло, фруктоолигосахариды, масло огуречника, экстракт
+                  бархатцев и минеральные вещества.  Содержание питательных
+                  веществ: - белки: 30 %  - жиры: 22 %  - минеральные вещества:
+                  7,4 %  - клетчатка общая: 4,7 %  Royal Canin персидских кошек
+                  обогащен такими добавками, как витамины A и D3, железо, йод,
+                  медь, марганец, селен и антиоксиданты."
+                xpath: /html/body/ol[1]/li[1]/@ingredients
+            Image360Present:
+              - text: "false"
+                xpath: /html/body/ol[1]/li[1]/@image_360_present
+            category:
+              - text: Каталог
+                xpath: /html/body/div[7]/div[1]/ul[1]/li[3]/a[1]
+              - text: Товары для кошек
+                xpath: /html/body/div[7]/div[1]/ul[1]/li[5]/a[1]
+              - text: Сухой корм
+                xpath: /html/body/div[7]/div[1]/ul[1]/li[7]/a[1]
+              - text: Взрослые (1-6 лет)
+                xpath: /html/body/div[7]/div[1]/ul[1]/li[9]/a[1]
+            imageZoomFeaturePresent:
+              - text: "false"
+          - productUrl:
+              - text: https://www.petshop.ru/catalog/cats/syxkor/vzroslye_1_6let/dlya_persov_1_10_let_persian_30_1042/
+                xpath: /html/body/ol[1]/li[2]/@product_url
+            image:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/37/0d/60/353448_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[1]/@src
+            imageAlt:
+              - text: Корм Royal Canin (сухие корма) для персидских кошек 1-10 лет, Persian
+                  Adult
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[1]/@alt
+            alternateImages:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7d/79/0e/354865_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[2]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/e8/22/4b/353450_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[3]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/bd/d0/40/353451_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[2]/ol[1]/li[4]/@src
+            nameExtended:
+              - text: Корм Royal Canin (сухие корма) для персидских кошек 1-10 лет, Persian
+                  Adult
+                xpath: /html/body/ol[1]/li[2]/@name_extended
+            price:
+              - text: 3 124 ₽
+                xpath: /html/body/ol[1]/li[2]/@price
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/ol[1]/li[2]/@availability_text
+            description:
+              - text: Royal Canin Persian Adult – это корм для персидских кошек старше 1 года.
+                  Данная порода известна своей густой и длинной шерстью,
+                  требующей особого ухода и защиты. Роял Канин для персов создан
+                  с учётом этой особенности. Кроме того, он предотвращает
+                  развитие ряда заболеваний желудочно-кишечного тракта. Форма
+                  крокетов продукта соответствует способу захвата корма,
+                  характерного для названной породы.
+                xpath: /html/body/ol[1]/li[2]/@description
+            variantId:
+              - text: "21151"
+                xpath: /html/body/ol[1]/li[2]/@variant_id
+            ratingCount:
+              - text: "269"
+                xpath: /html/body/ol[1]/li[2]/@rating_count
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/ol[1]/li[2]/@aggregate_rating
+                type: NUMBER
+                raw: 5,0
+                locale: ru
+                value: 5
+            variantCount:
+              - text: "5"
+                xpath: /html/body/ol[1]/li[2]/@variant_count
+            name:
+              - text: Корм Royal Canin (сухие корма) для персидских кошек 1-10 лет, Persian
+                  Adult
+                xpath: /html/body/ol[1]/li[2]/@product_name
+            brandLink:
+              - text: https://www.petshop.ru/brand/royal_canin/
+                xpath: /html/body/ol[1]/li[2]/@brand_link
+            secondaryImageTotal:
+              - text: "3"
+                xpath: /html/body/ol[1]/li[2]/ol[1]/@total
+            ingredientsList:
+              - text: "Дегидратированное мясо птицы, рис, кукуруза, животные жиры, изолят
+                  растительных белков, растительная клетчатка, кукурузная мука,
+                  гидролизат животных белков, кукурузная клейковина, рыбий жир,
+                  жом цикория, семена подорожника, гидролизат дрожжей, соевое
+                  масло, фруктоолигосахариды, масло огуречника, экстракт
+                  бархатцев и минеральные вещества.  Содержание питательных
+                  веществ: - белки: 30 %  - жиры: 22 %  - минеральные вещества:
+                  7,4 %  - клетчатка общая: 4,7 %  Royal Canin персидских кошек
+                  обогащен такими добавками, как витамины A и D3, железо, йод,
+                  медь, марганец, селен и антиоксиданты."
+                xpath: /html/body/ol[1]/li[2]/@ingredients
+            Image360Present:
+              - text: "false"
+                xpath: /html/body/ol[1]/li[2]/@image_360_present
+            category:
+              - text: Каталог
+                xpath: /html/body/div[7]/div[1]/ul[1]/li[3]/a[1]
+              - text: Товары для кошек
+                xpath: /html/body/div[7]/div[1]/ul[1]/li[5]/a[1]
+              - text: Сухой корм
+                xpath: /html/body/div[7]/div[1]/ul[1]/li[7]/a[1]
+              - text: Взрослые (1-6 лет)
+                xpath: /html/body/div[7]/div[1]/ul[1]/li[9]/a[1]
+            imageZoomFeaturePresent:
+              - text: "false"
+          - productUrl:
+              - text: https://www.petshop.ru/catalog/cats/syxkor/vzroslye_1_6let/dlya_persov_1_10_let_persian_30_1042/
+                xpath: /html/body/ol[1]/li[3]/@product_url
+            image:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/37/0d/60/353448_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[3]/ol[1]/li[1]/@src
+            imageAlt:
+              - text: Корм Royal Canin (сухие корма) для персидских кошек 1-10 лет, Persian
+                  Adult
+                xpath: /html/body/ol[1]/li[3]/ol[1]/li[1]/@alt
+            alternateImages:
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/7d/79/0e/354865_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[3]/ol[1]/li[2]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/e8/22/4b/353450_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[3]/ol[1]/li[3]/@src
+              - text: https://6kcmxu3d7l.a.trbcdn.net/upload/files-new/bd/d0/40/353451_1600x1600.jpg
+                xpath: /html/body/ol[1]/li[3]/ol[1]/li[4]/@src
+            nameExtended:
+              - text: Корм Royal Canin (сухие корма) для персидских кошек 1-10 лет, Persian
+                  Adult
+                xpath: /html/body/ol[1]/li[3]/@name_extended
+            price:
+              - text: 1 628 ₽
+                xpath: /html/body/ol[1]/li[3]/@price
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/ol[1]/li[3]/@availability_text
+            description:
+              - text: Royal Canin Persian Adult – это корм для персидских кошек старше 1 года.
+                  Данная порода известна своей густой и длинной шерстью,
+                  требующей особого ухода и защиты. Роял Канин для персов создан
+                  с учётом этой особенности. Кроме того, он предотвращает
+                  развитие ряда заболеваний желудочно-кишечного тракта. Форма
+                  крокетов продукта соответствует способу захвата корма,
+                  характерного для названной породы.
+                xpath: /html/body/ol[1]/li[3]/@description
+            variantId:
+              - text: "21150"
+                xpath: /html/body/ol[1]/li[3]/@variant_id
+            ratingCount:
+              - text: "269"
+                xpath: /html/body/ol[1]/li[3]/@rating_count
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/ol[1]/li[3]/@aggregate_rating
+                type: NUMBER
+                raw: 5,0
+                locale: ru
+                value: 5
+            variantCount:
+              - text: "5"
+                xpath: /html/body/ol[1]/li[3]/@variant_count
+            name:
+              - text: Корм Royal Canin (сухие корма) для персидских кошек 1-10 лет, Persian
+                  Adult
+                xpath: /html/body/ol[1]/li[3]/@product_name
+            brandLink:
+              - text: https://www.petshop.ru/brand/royal_canin/
+                xpath: /html/body/ol[1]/li[3]/@brand_link
+            secondaryImageTotal:
+              - text: "3"
+                xpath: /html/body/ol[1]/li[3]/ol[1]/@total
+            ingredientsList:
+              - text: "Дегидратированное мясо птицы, рис, кукуруза, животные жиры, изолят
+                  растительных белков, растительная клетчатка, кукурузная мука,
+                  гидролизат животных белков, кукурузная клейковина, рыбий жир,
+                  жом цикория, семена подорожника, гидролизат дрожжей, соевое
+                  масло, фруктоолигосахариды, масло огуречника, экстракт
+                  бархатцев и минеральные вещества.  Содержание питательных
+                  веществ: - белки: 30 %  - жиры: 22 %  - минеральные вещества:
+                  7,4 %  - клетчатка общая: 4,7 %  Royal Canin персидских кошек
+                  обогащен такими доба�
