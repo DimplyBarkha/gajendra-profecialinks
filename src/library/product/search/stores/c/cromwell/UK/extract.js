@@ -7,6 +7,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       function addHiddenDiv (id, content) {
@@ -39,7 +40,6 @@ async function implementation (
   };
 
   await applyScroll(context);
-  await new Promise((resolve, reject) => setTimeout(resolve, 10000));
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
