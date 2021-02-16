@@ -1,7 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //*[@id='plp-product-list']//ul[contains(@class,'product-grids')]/li
+recordXPath: //div[@class="price"]/../../../..//parent::li
+# recordXPath: //*[@id='plp-product-list']//ul[contains(@class,'product-grids')]/li
 fields:
   - name: brand
     singleValue: false

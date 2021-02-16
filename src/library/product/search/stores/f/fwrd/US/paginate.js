@@ -6,7 +6,6 @@ module.exports = {
     country: 'US',
     store: 'fwrd',
     nextLinkSelector: '#noPagination',
-    // nextLinkSelector: "#plp-product-list div.pagination a.pagination__controls.link[rel='next']",
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
