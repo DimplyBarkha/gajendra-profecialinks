@@ -28,9 +28,12 @@ async function implementation (
         }
       }
       specsArr = specsText.split('\n');
+      let specString='';
       specsArr.forEach((e) => {
-        addHiddenDiv('addedSpec', e);
+        specString+=e+' | ';
+        // addHiddenDiv('addedSpec', e);
       });
+      addHiddenDiv('addedSpec',specString);
     }
     const elList = document.querySelectorAll('div.tm-marketplace-listing-body__item p');
     let inTheBox = null;
