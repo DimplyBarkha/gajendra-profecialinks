@@ -87,8 +87,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //div[contains(@class,'product-offer__BuyButtonWrapper')]//a[@id='buy-button']/@to
-    regExp: (?<=productSku=)[^&]+(?=&)
+    xpath: //table[contains(@class,'src__SpecsCell')]//*[contains(text(),'Referência d')]//following-sibling::*
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same
@@ -97,7 +96,7 @@ fields:
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
-    xpath: //table[contains(@class,'src__SpecsCell')]//*[contains(text(),'Referência do Modelo')]//following-sibling::*
+    xpath: //table[contains(@class,'src__SpecsCell')]//*[contains(text(),'Referência d')]//following-sibling::*
   - name: packSize
     singleValue: true
     description: The number of packs in the product offer (if stated separately on the
@@ -127,11 +126,11 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //a[contains(@class,'sold-and-delivered')]//font/text()
+    xpath: //a[contains(@class,'sold-and-delivered')]//font/text()|//a[contains(@class,'sold-and-delivered')]
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //table[contains(@class,'src__SpecsCell')]//*[contains(text(),'Dimensões aproximadas da embalagem')]//following-sibling::* 
+    xpath: (//table[contains(@class,'src__SpecsCell')]//*[contains(text(),'AxLxP')]//following-sibling::*)[1]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight
@@ -155,6 +154,10 @@ fields:
     description: Images within the third party description
     xpath: //div[@id="manufacturerImages"]
   - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: //div[@id='video']
+  - name: galleryVideos
     singleValue: false
     description: URLs of videos on page
     xpath: //div[@id='video']
@@ -253,6 +256,7 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description:
+    xpath: count((//div[contains(@class,'product-info__ProductInfoContainer')]//div[contains(@class,'src__ThumbContainer')]//picture[contains(@class,'src__Picture')]//img/@src)[position()>1])
   - name: news
     singleValue: true
     description:

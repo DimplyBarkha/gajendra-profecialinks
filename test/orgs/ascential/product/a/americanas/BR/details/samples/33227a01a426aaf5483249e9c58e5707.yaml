@@ -2,21 +2,11 @@ input:
   id: 1708933455
   _url: http://americanas.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=403e2574-1b7e-4c68-9d03-eeb97890356c/task=929b7f4a-510b-4e00-a17b-4d66057d08f9/f59f595d-97e9-49ee-a06a-f8fb432de583.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6777a4c4-8c89-47c0-b079-c45a567dc6eb/task=ddac9cbd-486e-4f65-87ac-e46ddc873a52/11141bf2-f08e-4957-8797-6f848641ae6a.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
-          - ratingCount:
-              - text: "192"
-                xpath: /html/body/div[1]/div[1]/script[1]
-            category:
-              - text: TV e Home Theater
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/text()[1]
-              - text: TV
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/text()[1]
-              - text: TV LED
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/text()[1]
-            image:
+          - image:
               - text: https://images-americanas.b2w.io/produtos/01/00/img/1708933/4/1708933463_1GG.jpg
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             alternateImages:
@@ -26,6 +16,16 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/picture[1]/img[1]/@src
               - text: https://images-americanas.b2w.io/produtos/01/00/img/1708933/4/1708933463_4GG.jpg
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/picture[1]/img[1]/@src
+            ratingCount:
+              - text: "192"
+                xpath: /html/body/div[1]/div[1]/script[1]
+            category:
+              - text: TV e Home Theater
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/text()[1]
+              - text: TV
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/text()[1]
+              - text: TV LED
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/text()[1]
             nameExtended:
               - text: Smart TV LED LG 24" Monitor Wi-Fi Webos 3.5 DTV Machine Ready
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
@@ -35,9 +35,9 @@ extractions:
             price:
               - text: R$ 926,91
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
-            sku:
-              - text: "1708933463"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[3]/a[1]/@to
+            shippingInfo:
+              - text: Onofre Agora
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[4]/p[1]/a[1]
             name:
               - text: Smart TV LED LG 24" Monitor Wi-Fi Webos 3.5 DTV Machine Ready
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
@@ -67,12 +67,18 @@ extractions:
             gtin:
               - text: "7893299911453"
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[2]/td[2]
+            sku:
+              - text: 24TL520S
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[7]/td[2]
             variantId:
               - text: "1708933455"
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[1]/td[2]
             mpc:
               - text: 24TL520S
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[7]/td[2]
+            shippingDimensions:
+              - text: 340X563X58
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[5]/td[2]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[3]
@@ -81,5 +87,7 @@ extractions:
                 xpath: /html/body/div[4]
             descriptionBullets:
               - text: "0"
+            secondaryImageTotal:
+              - text: "3"
         xpath: /html
-    timestamp: 1613395914571
+    timestamp: 1613499248198

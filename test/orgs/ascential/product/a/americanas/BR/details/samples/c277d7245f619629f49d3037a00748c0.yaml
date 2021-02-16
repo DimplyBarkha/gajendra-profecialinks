@@ -2,12 +2,12 @@ input:
   id: 134511851
   _url: http://americanas.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=403e2574-1b7e-4c68-9d03-eeb97890356c/task=d4ed0807-7bcd-4065-aadf-40fd2ee376b8/f1adbedf-80db-437a-9f69-2ac9bdf4085b.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6777a4c4-8c89-47c0-b079-c45a567dc6eb/task=44ab9d64-c735-440a-a627-fd6326c9311b/396359fa-a19f-4ca0-90db-1ab2a1067f3f.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
           - ratingCount:
-              - text: "350"
+              - text: "352"
                 xpath: /html/body/div[1]/div[1]/script[1]
             category:
               - text: TV e Home Theater
@@ -36,9 +36,6 @@ extractions:
             price:
               - text: R$ 1.329,99
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
-            sku:
-              - text: "134511869"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[3]/a[1]/@to
             name:
               - text: Smart TV Android LED 32" Semp 32S5300 Bluetooth 2 HDMI 1 USB Controle
                   Remoto com Comando de Voz e Google Assistant
@@ -64,12 +61,18 @@ extractions:
             gtin:
               - text: "7899968300863"
                 xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[2]/td[2]
+            sku:
+              - text: 32S5300
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[30]/td[2]
             variantId:
               - text: "134511851"
                 xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]
             mpc:
               - text: 32S5300
                 xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[30]/td[2]
+            shippingDimensions:
+              - text: 43,2x73,2x7,9cm
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[28]/td[2]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[3]
@@ -78,5 +81,7 @@ extractions:
                 xpath: /html/body/div[4]
             descriptionBullets:
               - text: "0"
+            secondaryImageTotal:
+              - text: "3"
         xpath: /html
-    timestamp: 1613395948719
+    timestamp: 1613499281748

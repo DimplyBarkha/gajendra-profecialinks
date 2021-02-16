@@ -2,22 +2,12 @@ input:
   id: 1448008211
   _url: http://americanas.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=403e2574-1b7e-4c68-9d03-eeb97890356c/task=567c8a4d-d4b3-44b3-9a7d-e3ba6ae4b04e/9df940b4-d0d3-47c1-9990-fe235927d52b.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6777a4c4-8c89-47c0-b079-c45a567dc6eb/task=1b5fbfe3-73d4-4e87-b76c-887f818e06ac/8cd1f436-b3ab-436c-8cc1-8016d46211da.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
-          - image:
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_1GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            alternateImages:
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_2GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_3GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/picture[1]/img[1]/@src
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_4GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/picture[1]/img[1]/@src
-            ratingCount:
-              - text: "330"
+          - ratingCount:
+              - text: "333"
                 xpath: /html/body/div[1]/div[1]/script[1]
             category:
               - text: Celulares e Smartphones
@@ -40,9 +30,6 @@ extractions:
             price:
               - text: R$ 679,00
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
-            sku:
-              - text: "1448008246"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[3]/a[1]/@to
             name:
               - text: Smartphone Samsung Galaxy A01 Android 10.0 Tela 5.7” Octa-Core 32GB 4G
                   Câmera 13MP - Vermelho
@@ -50,21 +37,37 @@ extractions:
             coupon:
               - text: 7%
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
-            brandText:
-              - text: Samsung
-                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[4]/td[2]
-            manufacturer:
-              - text: Samsung
-                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[3]/td[2]
-            quantity:
-              - text: "0.148"
-                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[11]/td[2]
-            gtin:
-              - text: "7892509113267"
-                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[2]/td[2]
+            image:
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_1GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            alternateImages:
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_2GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_3GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/picture[1]/img[1]/@src
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_4GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/picture[1]/img[1]/@src
             variantId:
               - text: "1448008211"
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[1]/td[2]
+            gtin:
+              - text: "7892509113267"
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[2]/td[2]
+            manufacturer:
+              - text: Samsung
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[3]/td[2]
+            brandText:
+              - text: Samsung
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[4]/td[2]
+            shippingDimensions:
+              - text: 14,6x7,0x0,8
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[10]/td[2]
+            quantity:
+              - text: "0.148"
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[11]/td[2]
+            sku:
+              - text: Galaxy A01
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[12]/td[2]
             mpc:
               - text: Galaxy A01
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[12]/td[2]
@@ -76,5 +79,7 @@ extractions:
                 xpath: /html/body/div[4]
             descriptionBullets:
               - text: "0"
+            secondaryImageTotal:
+              - text: "3"
         xpath: /html
-    timestamp: 1613395914739
+    timestamp: 1613499295297

@@ -17,6 +17,18 @@ module.exports = {
         div.innerHTML = element;
         document.body.appendChild(div);
       }
+      function getHTML (url, callback) {
+        if (!window.XMLHttpRequest) return;
+        var xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+          if (callback && typeof callback === 'function') {
+            callback(this.responseXML);
+          }
+        };
+        xhr.open('GET', url);
+        xhr.responseType = 'document';
+        xhr.send();
+      }
 
       const productUrl = window.location.href;
       addElementToDom(productUrl, 'productUrl');
@@ -36,6 +48,23 @@ module.exports = {
         const roundedRatingValue = parseFloat(ratingValue).toFixed(1).toString().replace('.', ',');
         addElementToDom('ratingValue', roundedRatingValue);
       }
+      const manufacturerDescriptionFrameLink = document.querySelector('#info-section iframe') ? document.querySelector('#info-section iframe').getAttribute('src') : '';
+      let manufacturerImagesArr = [];
+      if (manufacturerDescriptionFrameLink) {
+        getHTML(manufacturerDescriptionFrameLink, function (response) {
+          addElementToDom('', 'manufacturerSite');
+          const manufacturerSiteDiv = document.querySelector('#manufacturerSite');
+          manufacturerSiteDiv.innerHTML = response.querySelector('body').innerHTML;
+          manufacturerImagesArr = Array.from(response.querySelectorAll('img')).map((item) => {
+            return `${manufacturerDescriptionFrameLink}${item.getAttribute('src')}`.replace('index.html', '');
+          });
+        });
+      }
+      const manufacturerDescription = document.querySelector('#manufacturerSite') ? document.querySelector('#manufacturerSite').innerText : '';
+      addElementToDom(manufacturerDescription, 'manufacturerDescription');
+      setTimeout(() => {
+        addElementToDom(manufacturerImagesArr, 'manufacturerImages');
+      }, 500);
 
       const specifications = document.querySelectorAll("table[class^='src__SpecsCell'] td");
       const specificationsArr = [];

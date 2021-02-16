@@ -2,19 +2,11 @@ input:
   id: 134188002
   _url: http://americanas.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=403e2574-1b7e-4c68-9d03-eeb97890356c/task=874cd39a-5289-4d43-ad94-9457a348faba/1a39c332-aa0f-442c-a4af-460d0acdc045.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6777a4c4-8c89-47c0-b079-c45a567dc6eb/task=23348e5c-30d5-40cf-a6c3-c403d0f82788/adf2a5bd-a1a2-4fd8-ab52-803172bd83fb.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
-          - image:
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/134188/0/134188011_1GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            alternateImages:
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/134188/0/134188011_2GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/134188/0/134188011_3GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/picture[1]/img[1]/@src
-            ratingCount:
+          - ratingCount:
               - text: "482"
                 xpath: /html/body/div[1]/div[1]/script[1]
             category:
@@ -22,14 +14,22 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/text()[1]
               - text: Máquina de Lavar
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/text()[1]
+            image:
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/134188/0/134188011_1GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            alternateImages:
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/134188/0/134188011_2GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/134188/0/134188011_3GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/picture[1]/img[1]/@src
             nameExtended:
-              - text: Lavadora de Roupas Consul 9Kg Branca CWB09 110V
+              - text: Lavadora de Roupas Consul 9Kg CWB09 Branca - 220V
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
             price:
               - text: R$ 1.299,99
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
             name:
-              - text: Lavadora de Roupas Consul 9Kg Branca CWB09 110V
+              - text: Lavadora de Roupas Consul 9Kg CWB09 Branca - 220V
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
             description:
               - text: >-
@@ -52,12 +52,18 @@ extractions:
             gtin:
               - text: "7891129267657"
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[2]/td[2]
+            sku:
+              - text: CWB09ABANA
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[30]/td[2]
             variantId:
               - text: "134188002"
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[1]/td[2]
             mpc:
               - text: CWB09ABANA
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[30]/td[2]
+            shippingDimensions:
+              - text: 101x56.9x66.5
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[3]/td[2]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[3]
@@ -66,5 +72,7 @@ extractions:
                 xpath: /html/body/div[4]
             descriptionBullets:
               - text: "0"
+            secondaryImageTotal:
+              - text: "2"
         xpath: /html
-    timestamp: 1613395909989
+    timestamp: 1613499254718

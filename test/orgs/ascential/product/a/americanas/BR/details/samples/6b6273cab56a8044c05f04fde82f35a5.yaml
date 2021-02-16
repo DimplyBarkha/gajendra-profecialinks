@@ -2,7 +2,7 @@ input:
   id: 134444782
   _url: http://americanas.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=403e2574-1b7e-4c68-9d03-eeb97890356c/task=4fbaf195-4174-454e-bfed-abc6ddc7c7a2/dd0ac386-245c-40e8-baf2-6f8986c5508d.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6777a4c4-8c89-47c0-b079-c45a567dc6eb/task=df9f9cca-8d74-44c7-bbd7-c64cb70a8396/c4b1248b-ef5e-4d68-9885-2aeeb4b20764.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
@@ -36,9 +36,6 @@ extractions:
             price:
               - text: R$ 1.259,99
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
-            sku:
-              - text: "134444791"
-                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[3]/a[1]/@to
             name:
               - text: Smart TV Led 32" LG HD Thinq AI Conversor Digital Integrado 3 HDMI 2 USB
                   Wi-Fi - Preta
@@ -64,9 +61,18 @@ extractions:
             gtin:
               - text: "7893299911507"
                 xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[2]/td[2]
+            sku:
+              - text: 32LM625BPSB
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[31]/td[2]
             variantId:
               - text: "134444782"
                 xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]
+            mpc:
+              - text: 32LM625BPSB
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[31]/td[2]
+            shippingDimensions:
+              - text: 47,2x74,2x18cm
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[29]/td[2]
             availabilityText:
               - text: In Stock
                 xpath: /html/body/div[3]
@@ -75,5 +81,7 @@ extractions:
                 xpath: /html/body/div[4]
             descriptionBullets:
               - text: "0"
+            secondaryImageTotal:
+              - text: "3"
         xpath: /html
-    timestamp: 1613395925010
+    timestamp: 1613499259432

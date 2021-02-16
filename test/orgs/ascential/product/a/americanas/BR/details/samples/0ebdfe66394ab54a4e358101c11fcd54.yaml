@@ -1,0 +1,76 @@
+input:
+  id: 1704351001
+  _url: http://americanas.com.br
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6777a4c4-8c89-47c0-b079-c45a567dc6eb/task=886ed768-2e13-4bb3-9cca-90365d37f94f/1a072965-c9fc-4b7a-a498-5b589096ebae.html
+    extractionConfigId: product/details/stores/a/americanas/BR/extract
+    data:
+      - group:
+          - ratingCount:
+              - text: "165"
+                xpath: /html/body/div[1]/div[1]/script[1]
+            category:
+              - text: TV e Home Theater
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/text()[1]
+              - text: TV
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/text()[1]
+              - text: Smart TV
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/text()[1]
+            alternateImages:
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_3GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/picture[1]/img[1]/@src
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_4GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/picture[1]/img[1]/@src
+            nameExtended:
+              - text: Smart TV LED 40'' Samsung Tizen FHD 40T5300 2020 - WIFI, HDR para Brilho e
+                  Contraste, Plataforma Tizen
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
+            listPrice:
+              - text: R$ 1.699,99
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/span[1]
+            price:
+              - text: R$ 1.614,99
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
+            name:
+              - text: Smart TV LED 40'' Samsung Tizen FHD 40T5300 2020 - WIFI, HDR para Brilho e
+                  Contraste, Plataforma Tizen
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
+            coupon:
+              - text: 5%
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+            variantId:
+              - text: "1704351001"
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]
+            gtin:
+              - text: "7892509114301"
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[2]/td[2]
+            manufacturer:
+              - text: Samsung
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[3]/td[2]
+            brandText:
+              - text: Samsung
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[4]/td[2]
+            shippingDimensions:
+              - text: 0,52x0,91x0,77
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[32]/td[2]
+            quantity:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[33]/td[2]
+            sku:
+              - text: UN40T5300AGXZD
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[34]/td[2]
+            mpc:
+              - text: UN40T5300AGXZD
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[34]/td[2]
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[3]
+            aggregateRating:
+              - text: 4,2
+                xpath: /html/body/div[4]
+            descriptionBullets:
+              - text: "0"
+            secondaryImageTotal:
+              - text: "2"
+        xpath: /html
+    timestamp: 1613499282822
