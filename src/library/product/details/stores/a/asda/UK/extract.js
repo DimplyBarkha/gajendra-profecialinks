@@ -23,9 +23,10 @@ module.exports = {
     const { productDetails, Helpers: { Helpers } } = dependencies;
     const helper = new Helpers(context);
 
-    await context.waitForSelector(cssProduct, { timeout: 10000 });
+    await context.waitForSelector(cssProduct, { timeout: 10000 })
+      .catch(() => console.log('No results displayed'));
     const productAvailable = await helper.checkSelector(cssProduct, 'CSS');
-
+    console.log(`product available: ${productAvailable}`);
     if (productAvailable) {
       console.log('clicking product link');
       await helper.ifThereClickOnIt(cssProduct);
@@ -34,8 +35,12 @@ module.exports = {
       const productDetailsAvailable = await helper.checkSelector(cssProductDetails, 'CSS');
       console.log(`productDetailsAvailable: ${productDetailsAvailable}`);
       if (!productDetailsAvailable) {
-        throw new Error('ERROR: Failed to load product details page');
+        console.log('ERROR: Failed to load product details page');
+        return context.extract(productDetails);
       }
+    } else {
+      console.log('Returning empty data');
+      return context.extract(productDetails);
     }
 
     const jsonFromCatalogue = await context.evaluate(async function (inputs) {
@@ -66,33 +71,6 @@ module.exports = {
 
       const productDetails = await postData('https://groceries.asda.com/api/items/catalog', requestBody);
       return (productDetails.data.uber_item && productDetails.data.uber_item.items.length && productDetails.data.uber_item.items[0]) || {};
-      /*
-      function addHiddenDiv (id, content) {
-        const newDiv = document.createElement('div');
-        newDiv.id = id;
-        newDiv.textContent = content;
-        newDiv.style.display = 'none';
-        document.body.appendChild(newDiv);
-      }
-      const productImageDetails = await getData(`https://groceries.asda.com/api/items/search?keyword=${inputs.id}`);
-      console.log('productImageDetails : ' + JSON.stringify(productImageDetails));
-      const productImage = productImageDetails && productImageDetails.items && productImageDetails.items[0] && productImageDetails.items[0].imageURL;
-      const productGTIN = productImageDetails && productImageDetails.items && productImageDetails.items[0] && productImageDetails.items[0].scene7AssetId;
-
-      const item = (productDetails.data.uber_item && productDetails.data.uber_item.items.length && productDetails.data.uber_item.items[0]) || false;
-
-      if (item) {
-        console.log('Item details found.');
-        const packInfo = (item.item_enrichment && item.item_enrichment.enrichment_info && item.item_enrichment.enrichment_info.packaging) || false;
-
-        const itemBrand = (item.item && item.item.brand) || false;
-
-        if (itemBrand) addHiddenDiv('brandName', itemBrand);
-        if (packInfo) addHiddenDiv('packInfo', packInfo);
-      }
-      if (productImage) addHiddenDiv('productImage', productImage);
-      if (productGTIN) addHiddenDiv('productGTIN', productGTIN);
-      */
     }, inputs);
 
     await context.saveJson('productDetailsJSON', jsonFromCatalogue);

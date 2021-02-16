@@ -1,4 +1,14 @@
-schema: product/details/search
+proxy:
+  zone: USA
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
+honorRobots: false
+schema: product/search
 parameters:
   - store
   - country
