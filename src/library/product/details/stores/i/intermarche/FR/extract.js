@@ -11,6 +11,11 @@ module.exports = {
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     const cssPageNum = '.styled__ProductWrapper-h5dvb4-1.NvJDv';
     await context.waitForSelector(cssPageNum, { timeout: 80000 });
+    var hasAcceptLink = await context.evaluate((selector) => !!document.querySelector(selector), '#didomi-popup > div > div > div > a');
+    if (hasAcceptLink) {
+      await context.click('#didomi-popup > div > div > div > a');
+    }
+    await new Promise((resolve) => setTimeout(resolve, 5000));
     await context.evaluate(function (parentInput) {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
