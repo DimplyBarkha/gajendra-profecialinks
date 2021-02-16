@@ -18,11 +18,21 @@ module.exports = {
     //await context.setAntiFingerprint(false);
     //await context.setUseRelayProxy(false);
     await context.goto(url, { firstRequestTimeout: 7000, timeout: timeout, waitUntil: 'load', checkBlocked: false });
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 5000));
-      await context.waitForSelector('div#product-image');
-    } catch (error) {
-      console.log("error");
+    if (url.includes('x=0&y=0')) {
+      try {
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+        await context.waitForSelector('div#search-products');
+      } catch (error) {
+        console.log("error");
+      }
+    } else {
+      try {
+        await new Promise((resolve) => setTimeout(resolve, 5000));
+        await context.waitForSelector('div#product-image');
+      } catch (error) {
+        console.log("error");
+      }
     }
+    
   }
 };
