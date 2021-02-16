@@ -99,7 +99,9 @@ fields:
     regExpReplace: $1
   - name: aggregateRatingText
     singleValue: false
-    description: The stated aggregate rating
+    xpath: //div[@aria-label="rating"]//span[@class="sr-only"]
+    regExp: (.+)\sout of 5 Customer Rating
+    regExpReplace: $1
   - name: aggregateRating
     singleValue: false
     xpath: //div[contains(@class,"pdp-tile")]//button[@id="ratings-summary"]
