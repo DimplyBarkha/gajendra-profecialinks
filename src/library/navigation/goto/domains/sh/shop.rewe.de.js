@@ -8,6 +8,31 @@ module.exports = {
     store: 'rewe',
     zipcode: '',
   },
+  implementation: async ({ url }, parameterValues, context, dependencies) => {
+      const isCaptcha = async () => {
+      return await context.evaluate(async function () {
+        const captchaEl = document.evaluate('//div[@class="captcha-box"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+        if (captchaEl.snapshotLength) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+    };
+
+    if (isCaptcha()) {
+      console.log('isCaptcha', true);
+
+      await context.solveCaptcha({
+        type: 'HCAPTCHA',
+        inputElement: `#challenge-form > input[name='r']`,
+        autoSubmit: true,
+      });
+      console.log('solved captcha, waiting for page change');
+      context.waitForNavigation();
+      console.log('Captcha vanished');
+    }
+  },
   // implementation: async ({ url }, parameterValues, context, dependencies) => {
   //   // eslint-disable-next-line
   //   // const js_enabled = true; // Math.random() > 0.7;
