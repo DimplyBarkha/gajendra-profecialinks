@@ -111,7 +111,7 @@ module.exports = {
 
       // packsize
       var packSize = getXpath('//h1[@class="title-product"]/text()', 'nodeValue');
-      if (packSize != null && packSize.match(/((\d+)x(\d+\.)?\d+\s?(ml|g|gr|Cápsulas))$/m).length >= 2) {
+      if (packSize != null && packSize.match(/((\d+)x(\d+\.)?\d+\s?(ml|g|gr|Cápsulas))$/m) != null) {
         addElementToDocument('packsize', packSize.match(/((\d+)x(\d+\.)?\d+\s?(ml|g|gr|Cápsulas))$/m)[2]);
       }
 
