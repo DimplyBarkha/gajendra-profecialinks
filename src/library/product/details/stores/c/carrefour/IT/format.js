@@ -25,14 +25,14 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (const row of group) {
-          if(row.variantId){
+          /*if(row.variantId){
             try{
             let str=(row.variantId[0].text)?(row.variantId[0].text):'';
             row.variantId = [{ text: str.replace(/^0+/, '')}];}
             catch(e){
               console.log("error, ",e);
             }
-          } 
+          } */
           if(row.quantity){
             try{
             let stringForQuant=(row.quantity[0].text)?(row.quantity[0].text):'';
@@ -43,8 +43,15 @@ const transform = (data) => {
             }
             else if(/\d/.test(secondLastWord[0])){
                 let lastTowWord=stringForQuant.split(" ").slice(-2);
-                let finalQuantity=lastTowWord.toString().replace(/(,[^,]*),/g,"$1 ").replace(/[()]/g, '');
-                row.quantity = [{ text: finalQuantity}];
+                let finalQuantity=lastTowWord.toString().replace(/(,[^,]*),/g,"$1 ").replace(/[()]/g, '').replace(',',' ');
+                let arrayOFWords=finalQuantity.split(' ');
+                if(arrayOFWords.length==3){
+                  let lastWordInArray=arrayOFWords.pop();
+                  let finalQuantityForComma=arrayOFWords.slice(0,2).join(',')+' '+lastWordInArray;
+                  row.quantity = [{ text: finalQuantityForComma}];
+                }
+                else{
+                row.quantity = [{ text: finalQuantity}];}
             }
             else{
               row.quantity = [{ text: ''}];
@@ -82,10 +89,10 @@ const transform = (data) => {
           try{
             let textToCheckStock=row.availabilityText[0].text;
             if(textToCheckStock.includes('not-available')){
-              row.availabilityText = [{ text: 'Out of Stock'}];
+              row.availabilityText = [{ text: 'Out of stock'}];
             }
             else{
-              row.availabilityText = [{ text: 'In Stock'}];
+              row.availabilityText = [{ text: 'In stock'}];
             }
           }
           catch(e){
