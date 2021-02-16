@@ -1,12 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@class="ratings-list-item"][@itemprop="review"][position() < 10000 and @review_date]|//ol[starts-with(@data-bv-v, "contentItemCollection") and not(//div[@class="ratings-list-item"][@itemprop="review"][position() < 10000 and @review_date])]//li[starts-with(@data-content-id, "Reviews")][position() < 10000 and @review_date]
 fields:
   - name: helpfulCount
     singleValue: true
     type: NUMBER
     description: Number of people who said the review was helpful
+    xpath: '@helpful_count'
   - name: commentCount
     singleValue: true
     type: NUMBER
@@ -15,35 +16,44 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: ancestor::html/body/@added_brand
   - name: name
     singleValue: true
     description: The product name
+    xpath: ancestor::html/body/@added_name
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: ancestor::html/body/@added_sku
   - name: reviewDate
     singleValue: true
     type: DATETIME
     description: Date the review was made
+    xpath: '@review_date'
   - name: reviewRating
     type: NUMBER
     singleValue: true
     description: Rating normalized to be out of 5
+    xpath: '@added_rating'
   - name: reviewText
     singleValue: true
     description: The text of the review
+    xpath: '@review_text'
   - name: reviewTitle
     singleValue: true
     description: The title of the review
+    xpath: '@review_title'
   - name: reviewerTags
     singleValue: false
     description: The tags a reviewer has
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
+    xpath: ancestor::html/body/@added_sku
   - name: productUrl
     singleValue: true
     description: The url of the product details page
+    xpath: ancestor::html/body/@product_url
   - name: verifiedPurchase
     singleValue: true
     type: BOOLEAN
@@ -54,6 +64,7 @@ fields:
   - name: syndicatedFrom
     singleValue: true
     description: Stated place the review was syndicated from
+    xpath: '@syndicated_from'
   - name: reviewUrl
     singleValue: true
     description: A direct link to the review
@@ -65,5 +76,7 @@ fields:
   - name: user
     description: The user name of the reviewer
     type: TEXT
+    xpath: '@review_user_name'
   - name: aggregateRating
     description: The product rating
+    xpath: ancestor::html/body/@rating

@@ -1,0 +1,53 @@
+input:
+  _url: http://windeln.de
+  URL: https://www.windeln.de/nuk-trinklernset.html
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=23b2c54c-fa5b-4ba2-9967-b4fcd0c3670c/task=3099f8ee-5d20-4060-8e31-023797885579/76ab55e2-414c-4043-8ccb-560f43588fca.html
+    extractionConfigId: product/reviews/stores/w/windeln/DE/extract
+    data:
+      - group:
+          - brandText:
+              - text: NUK
+                xpath: /html/body/@added_brand
+            name:
+              - text: NUK Trinklernset
+                xpath: /html/body/@added_name
+            sku:
+              - text: "4008600366713"
+                xpath: /html/body/@added_sku
+            reviewDate:
+              - text: 2021-02-16T10:53:06.000+01:00
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/@review_date
+                type: DATETIME
+                raw: Fri Feb 12 10:53:06 CET 2021
+                locale: de_DE
+                tz: UTC
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/@added_rating
+                type: NUMBER
+                raw: 5,0
+                locale: de_DE
+                value: 5
+            reviewText:
+              - text: |-
+                  Auslaufsicher in der Variante mit dem Nuckelaufsatz
+                  Qualität überzeugt wie immer von NUK
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/@review_text
+            reviewTitle:
+              - text: Trinklernset von NUK
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/@review_title
+            gtin:
+              - text: "4008600366713"
+                xpath: /html/body/@added_sku
+            productUrl:
+              - text: https://www.windeln.de/nuk-trinklernset.html
+                xpath: /html/body/@product_url
+            user:
+              - text: Najatje
+                xpath: /html/body/div[3]/div[3]/div[1]/div[1]/div[2]/div[3]/div[2]/div[1]/@review_user_name
+            aggregateRating:
+              - text: 4,7
+                xpath: /html/body/@rating
+        xpath: /html
+    timestamp: 1613468492713
