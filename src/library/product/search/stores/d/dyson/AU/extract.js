@@ -1,4 +1,4 @@
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -10,7 +10,7 @@ async function implementation(
   const allResults = [];
 
   await context.evaluate(async function () {
-    function stall(ms) {
+    function stall (ms) {
       return new Promise(resolve => {
         setTimeout(() => {
           resolve();
@@ -18,7 +18,7 @@ async function implementation(
       });
     }
 
-    function addHiddenDiv(el, id, text) {
+    function addHiddenDiv (el, id, text) {
       const div = document.createElement('div');
       div.innerHTML = text;
       div.classList.add(id);
@@ -36,12 +36,11 @@ async function implementation(
       try {
         const response = await fetch(url);
         const text = await response.text;
-        debugger
         return domParser.parseFromString(text, 'text/html');
       } catch (error) {
         console.log(error);
       }
-    }
+    };
 
     const extractData = (dataArr) => {
       const domParser = new DOMParser();
@@ -57,10 +56,10 @@ async function implementation(
           const thumbnail = el.querySelector('img').getAttribute('src');
           const url = el.querySelector('a').getAttribute('href');
           const detailPage = await getPageDOM(url, domParser);
-          const id = detailPage.querySelector(`meta[itemprop = "productID sku"]`)
-            && detailPage.querySelector(`meta[itemprop = "productID sku"]`).content
-            || (detailPage.querySelector(`div[data-bv-show="inline_rating"]`)
-              && detailPage.querySelector(`div[data-bv-show="inline_rating"]`).dataset.bvProductId);
+          const id = detailPage.querySelector('meta[itemprop = "productID sku"]') &&
+            detailPage.querySelector('meta[itemprop = "productID sku"]').content ||
+            (detailPage.querySelector('div[data-bv-show="inline_rating"]') &&
+              detailPage.querySelector('div[data-bv-show="inline_rating"]').dataset.bvProductId);
 
           const splitURL = url.split('-');
           addHiddenDiv(el, 'name', name);
@@ -70,8 +69,7 @@ async function implementation(
           count++;
         }
       });
-    }
-
+    };
 
     const cssInnerCardType = '.card__inner';
     const cssGWrap = '.g-wrap';
