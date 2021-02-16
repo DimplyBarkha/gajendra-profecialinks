@@ -35,16 +35,18 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //span[@class='jsx-3642073353 Price__currency_title Price__currency_discount'] | //span[@class='jsx-3642073353 Price__currency_title']
+    xpath: //span[@class='jsx-3642073353 Price__value_title Price__value_discount']
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //button[contains(.,'Добавить в корзину')]
+    xpath: //button[contains(@class, 'big-product-card__add-to-cart-btn')]/*[contains(text(),'Нет в наличии')]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out Of Stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
+#    xpath: //div[@id='stock']
+#    xpath: //div[contains(@class, 'main')]/@stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -75,13 +77,13 @@ fields:
     singleValue: true
     description: Gross weight as described on the page
     xpath: //*[contains(text(), 'Вес')]/following::*[1]
-#  - name: gtin
-#    singleValue: true
-#    description: GTIN code (includes UPC/EAN)
-#    xpath: substring(//div[contains(@data-marker-popup, 'Big product card')][not(contains(@data-productkey, 'metro'))]/@data-productkey,2)
-#  - name: eangtin
-#    singleValue: true
-#    xpath: substring(//div[contains(@data-marker-popup, 'Big product card')][not(contains(@data-productkey, 'metro'))]/@data-productkey,2)
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+    xpath: substring(//div[contains(@data-marker-popup, 'Big product card')][not(contains(@data-productkey, 'metro'))]/@data-productkey,2)
+  - name: eangtin
+    singleValue: true
+    xpath: substring(//div[contains(@data-marker-popup, 'Big product card')][not(contains(@data-productkey, 'metro'))]/@data-productkey,2)
   - name: sku
     singleValue: true
     description: The store-specific product identifier
