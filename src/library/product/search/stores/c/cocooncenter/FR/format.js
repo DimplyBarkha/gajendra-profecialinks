@@ -4,33 +4,33 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, context) => {
-    for (const { group } of data) {
-        for (const row of group) {            
-            if (row.thumbnail) {
-                row.thumbnail[0].text = 'http:' + row.thumbnail[0].text;
-            }
+  for (const { group } of data) {
+    for (const row of group) {
+      if (row.thumbnail) {
+        row.thumbnail[0].text = 'http:' + row.thumbnail[0].text;
+      }
 
-            if (row.price) {
-                row.price[0].text = row.price[0].text.replace(',','.');
-            }
+      if (row.price) {
+        row.price[0].text = row.price[0].text.replace(',', '.');
+      }
 
-            if (row.reviewCount) {
-                row.reviewCount[0].text = row.reviewCount[0].text.replace('(','');
-                row.reviewCount[0].text = row.reviewCount[0].text.replace(')','');
-            }
+      if (row.reviewCount) {
+        row.reviewCount[0].text = row.reviewCount[0].text.replace('(', '');
+        row.reviewCount[0].text = row.reviewCount[0].text.replace(')', '');
+      }
 
-            if (row.ratingCount) {
-                row.ratingCount[0].text = row.ratingCount[0].text.replace('(','');
-                row.ratingCount[0].text = row.ratingCount[0].text.replace(')','');
-            }
+      if (row.ratingCount) {
+        row.ratingCount[0].text = row.ratingCount[0].text.replace('(', '');
+        row.ratingCount[0].text = row.ratingCount[0].text.replace(')', '');
+      }
 
-            if (row.productUrl) {
-                row.productUrl[0].text = 'https://www.cocooncenter.com' + row.productUrl[0].text;
-            }
-        }        
+      if (row.productUrl) {
+        row.productUrl[0].text = 'https://www.cocooncenter.com' + row.productUrl[0].text;
+      }
     }
+  }
 
-    const clean = text => text.toString()
+  const clean = text => text.toString()
     .replace(/\r\n|\r|\n/g, ' ')
     .replace(/&amp;nbsp;/g, ' ')
     .replace(/&amp;#160/g, ' ')
@@ -43,30 +43,32 @@ const transform = (data, context) => {
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
-    const state = context.getState();
-    let orgRankCounter = state.orgRankCounter || 0;
-    let rankCounter = state.rankCounter || 0;
-    for (const { group } of data) {
-      for (const row of group) {
+  const state = context.getState();
+  let orgRankCounter = state.orgRankCounter || 0;
+  let rankCounter = state.rankCounter || 0;
+  for (const { group } of data) {
+    for (const row of group) {
+      if (row.id) {
         rankCounter += 1;
         if (!row.sponsored) {
           orgRankCounter += 1;
           row.rankOrganic = [{ text: orgRankCounter }];
         }
         row.rank = [{ text: rankCounter }];
-        Object.keys(row).forEach(header => row[header].forEach(el => {
-          el.text = clean(el.text);
-        }));
       }
-    }
-    context.setState({ rankCounter });
-    context.setState({ orgRankCounter });
-    data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-      if (typeof el.text!=='undefined') {  
+      Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
-      }
-    }))));
-    return data;
-};  
+      }));
+    }
+  }
+  context.setState({ rankCounter });
+  context.setState({ orgRankCounter });
+  data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
+    if (typeof el.text !== 'undefined') {
+      el.text = clean(el.text);
+    }
+  }))));
+  return data;
+};
 
 module.exports = { transform };

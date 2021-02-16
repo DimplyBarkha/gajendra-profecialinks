@@ -10,7 +10,7 @@ fields:
     xpath: //div[@class='fmd_div_nom_marque']
   - name: name
     singleValue: false
-    description: 
+    description:
     xpath: //div[contains(@class,'fm_div_info_base')]//a
   - name: price
     singleValue: false
@@ -29,7 +29,7 @@ fields:
     xpath: //div[contains(@class,'fm_div_info_base')]//a/@href
   - name: id
     singleValue: false
-    xpath: //input[@name='product']/@value
+    xpath: //input[contains(@id,'fiche_id')]/@value
   - name: searchUrl
     singleValue: false
     xpath: //div[@id="page_url"]
