@@ -85,8 +85,10 @@ module.exports = {
                         }
 
                         let imageText = document.querySelector("div.t-product-details__main-wrapper div.t-product-details__image div.t-product-details__carousel-container img").src;
+                        let sku = "";
                         if (imageText) {
                             addHiddenDiv("custom-attr-product-brand-image", imageText.replace("w=1500", "w=640").replace("h=1500", "h=640").replace('fmt=webp', 'fmt=jpg').replace('&qlt=50', '').replace('&qlt=60', ''));
+                            sku = imageText.match(/(_\d+)/g)[0].toString().replace("_", "");
                         }
                         // const breadcrumbs = document.querySelectorAll("div.t-breadcrumb div.t-breadcrumb__wrap");
                         // const categoryEl = document.createElement("ul");
@@ -202,7 +204,9 @@ module.exports = {
                         const products = (window.getTagProduct_Child_Sku() || "").split("|");
                         if (products.length) {
                             addHiddenDiv("custom-attr-product-sku-number", products[j] || "");
-                        }
+                        } else if (sku.length > 0) {
+                            addHiddenDiv("custom-attr-product-sku-number", sku || "");
+                        } else {}
 
                         const selectedVariant = productVariationsField[j];
                         if (selectedVariant) {

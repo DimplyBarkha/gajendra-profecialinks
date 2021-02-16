@@ -26,7 +26,7 @@ const transform = (data) => {
             if (row.alternateImages) {
                 row.alternateImages = row.alternateImages.map(x => ({
                     ...x,
-                    text: `https:${x.text}`.replace("w=130", "w=1500").replace("h=130", "h=1500")
+                    text: `https:${x.text}`.replace("w=130", "w=1500").replace("h=130", "h=1500").replace('fmt=webp', 'fmt=jpg').replace('&qlt=50', '').replace('&qlt=60', '')
                 }));
             }
             if (row.image) {
