@@ -62,6 +62,19 @@ module.exports = {
         return month + '/' + day + '/' + year;
       };
 
+      try {
+        console.log('Closing cookies popup.');
+        await context.click('button[class="accept-all-cookies"]');
+      } catch (err) {
+        console.log('Cookies popup not present.');
+      }
+      try {
+        await context.waitForSelector('div[id="VATSelectionTakeOver"]', { timeout: 20000 });
+        await context.click('input[class="button js-vatOption VATbtn"]');
+      } catch (err) {
+        console.log('Modal not present.');
+      }
+
       const brand = document.evaluate('//div[@class="formLabel SB_m EffortItemCode"]//div[@class="formLabel SL_m"]/text()', document, null, XPathResult.STRING_TYPE, null).stringValue;
 
       const name = document.evaluate('//h1[@class="skuName"]', document, null, XPathResult.STRING_TYPE, null).stringValue;
