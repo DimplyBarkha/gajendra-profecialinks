@@ -47,7 +47,8 @@ fields:
   #   xpath: 
   - name: aggregateRating2
     singleValue: false
-    xpath: //html//div[@id='agg']
+    # xpath: //html//div[@id='agg']
+    xpath: ancestor::html//div[@id='agg']
   - name: alternateImages
     singleValue: false
     xpath: //html//div[@id='AltImg']
@@ -60,9 +61,9 @@ fields:
   - name: sku
     singleValue: false
     xpath: (ancestor::html//td[@class='b-fact-value js-fact-value'])[5]
-  # - name: variantInformation
-  #   singleValue: false
-  #   xpath: concat((//td[@class='b-fact-value js-fact-value'])[3], '-', //div[@class='b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size']/div/a/@data-value)
+  - name: variantInformation
+    singleValue: false
+    xpath: //html//div[@id='colorVar']
   # - name: url
   #   singleValue: false
   #   xpath: (//div[@class='b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size']/div/a/@href)[1]

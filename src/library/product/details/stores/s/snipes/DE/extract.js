@@ -86,12 +86,14 @@ module.exports = {
         aval = 'In stock';
         addElementToDocument('aval', aval);
       }
+      // aggregateRating
       var str = getXpath('(//div[@class="b-rating-value"]/@style)[1]', 'nodeValue');
       if (str != null) {
         // for (var i = 0; i < str.length; i++) {
         var abc = str.split(': ')[1];
         abc = abc.slice(0, -1);
         abc = (abc) / 20;
+        console.log('amol' + abc);
         addElementToDocument('agg', abc);
         // }
       }
@@ -101,11 +103,15 @@ module.exports = {
         var AltImg = alternateimage.join(' | ');
         addElementToDocument('AltImg', AltImg);
       }
+      // quantity
       var qq = getAllXpath('//div[@class="b-swatch-value-wrapper"]/a/span/span/text()', 'nodeValue');
+      var color1 = getXpath("(//td[@class='b-fact-value js-fact-value']/text())[3]", 'nodeValue');
       if (qq != null) {
         for (var i = 0; i < qq.length; i++) {
+          var colorVar = color1 + ' - ' + qq[i];
           addEmptyDiv();
           addHiddenDiv('qty', qq[i], i);
+          addHiddenDiv('colorVar', colorVar, i);
           // console.log('amol'+qq[i]);
         }
       }
