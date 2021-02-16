@@ -57,7 +57,7 @@ fields:
     xpath: //div[@class='product-page_images']//div[contains(@class,'gallery__images-preview-item __active')]//img//@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='product-page_images']//div[@class='ng-star-inserted'][position()>1]//img//@src
+    xpath: //div[contains(@class,'product-page_images')]//div[@class='ng-star-inserted'][position()>1]//img//@src
   - name: quantity
     singleValue: false
     defaultValue: 1
