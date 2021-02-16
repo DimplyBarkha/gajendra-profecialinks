@@ -5,7 +5,7 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: //div[@id="photo"]//img[@class="MagicZoomFullSizeImage"]/@src
+    xpath: //div[@id="photo"]//img[contains(@class,"j-zoom-photo")]/@src
   - name: imageAlt
     singleValue: false
     xpath: //div[@id="photo"]//img[@class="preview-photo j-preview-photo"]/@alt
