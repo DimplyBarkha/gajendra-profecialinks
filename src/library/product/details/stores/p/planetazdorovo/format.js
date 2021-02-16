@@ -36,10 +36,11 @@ const transform = (data, context) => {
         });
       }
       if (row.availabilityText) {
-        const availabilityTextArr = row.availabilityText.map((item) => {
-          return item.text && item.text.trim() === 'В наличии в 441 аптеке' ? 'In Stock' : 'Out Of Stock';
-        });
-        row.availabilityText = [{ text: availabilityTextArr.join(''), xpath: row.availabilityText[0].xpath }];
+        const textData = row.availabilityText[0].text == 'В наличии в 498 аптеках' ? 'In Stock' : 'Out Of Stock';
+        // const availabilityTextArr = row.availabilityText.map((item) => {
+        //   return item.text && item.text.trim() == 'В наличии в 498 аптеках' ? 'In Stock' : 'Out Of Stock';
+        // });
+        row.availabilityText = [{ text: textData, xpath: row.availabilityText[0].xpath }];
       }
       if (row.description) {
         let text = '';

@@ -5,11 +5,18 @@ module.exports = {
   parameterValues: {
     country: 'RU',
     store: 'planetazdorovo',
-    transform: transform,
+    transform,
     domain: 'planetazdorovo.ru',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
+  implementation: async (
+    inputs,
+    parameters,
+    context,
+    dependencies,
+  ) => {
+    const { transform } = parameters;
+    const { productDetails } = dependencies;
     const firstItemLink = await context.evaluate(async function () {
       const listPresent = document.querySelector('div.card-list');
       if (listPresent) {
@@ -20,6 +27,6 @@ module.exports = {
       await context.goto(firstItemLink, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
       context.waitForNavigation();
     }
-    await context.extract(productDetails);
+    return await context.extract(productDetails, { transform });
   },
 };
