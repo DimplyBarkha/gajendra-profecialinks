@@ -1,6 +1,6 @@
 var { transform } = require('../format');
 
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -8,6 +8,13 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+
+  await context.evaluate(async () => {
+    if (document.querySelector('.uc-btn-new.uc-btn-accept')) {
+      document.querySelector('.uc-btn-new.uc-btn-accept').click();
+    }
+  })
+
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
@@ -20,7 +27,7 @@ async function implementation (
           break;
         }
       }
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -43,17 +50,16 @@ async function implementation (
     //@ts-ignore
     return document.querySelector("a.next_and_prev_button") ? document.querySelector("a.next_and_prev_button").getAttribute("href") : "";
   });
-  
-  for(var i=1;i<= searchLength;i++){
-    if(searchLength == 1){
-      await applyScroll(context); 
+
+  for (var i = 1; i <= searchLength; i++) {
+    if (searchLength == 1) {
+      await applyScroll(context);
       continue;
     }
-    if (searchUrl != ""){
+    if (searchUrl != "") {
       searchUrl = searchUrl.split("page=")[0] + "page=" + i
     }
-    else
-    {
+    else {
       searchUrl = mainUrl;
     }
     await context.goto(searchUrl, { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
@@ -73,12 +79,12 @@ async function implementation (
         addHiddenDiv('page_url', window.location.href, i);
       }
     });
-    await applyScroll(context);  
+    await applyScroll(context);
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     if (i !== searchLength) { await context.extract(productDetails, { transform }, { type: 'APPEND' }); }
   }
-  
-  
+
+
   return await context.extract(productDetails, { transform });
 }
 
