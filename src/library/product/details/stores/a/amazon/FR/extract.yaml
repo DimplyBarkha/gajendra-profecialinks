@@ -1,0 +1,69 @@
+extends: ../../../../sharedAmazon/shared
+fields:
+  - name: backupBrand
+    singleValue: false
+    xpath: //a[@id='brand'] | //span[@class='author notFaded']//a[1] | //a[@id="bylineInfo"]/text() | //div[contains(@id,"bylineInfo") and not(//a[@id="bylineInfo"]/text())] | //a[@id="brandteaser"]/img/@alt
+    regExp: '(Marque\s:\s+(.+)$|Visiter\sla\sboutique (.+)|by\s+(.+)$|^(.+)$)'
+    regExpReplace: $2$3$4$5
+  - name: brandText
+    singleValue: false
+    xpath: //a[@id='brand'] | //span[@class='author notFaded']//a[1] | //*[normalize-space(text())="Brand" or normalize-space(text())="Brand:" or normalize-space(text())="Brand Name"]/following-sibling::*[1]  
+  - name: brandLink
+    singleValue: false
+    xpath: //a[@id='brand'] | //span[@class='author notFaded']//a[1] | //*[normalize-space(text())="Brand" or normalize-space(text())="Brand:" or normalize-space(text())="Brand Name"]/following-sibling::*[1]  
+    type: LINK
+  - name: quantity
+    singleValue: false
+    xpath: //td[contains(.,'Volume')]/following-sibling::td | //label[contains(text(), 'Taille')]/following-sibling::*[1]
+  - name: weightNet
+    singleValue: false
+    xpath: //*[contains(normalize-space(text()),"Dimensions")]/following-sibling::*[1][contains(.,';')] | //*[normalize-space(text())="Item Weight"]/following-sibling::*[1]
+    regExp: '[^;]+$'
+  - name: weightGross
+    singleValue: false
+    xpath: //*[contains(text(), "Dimensions du colis")]/following-sibling::* | //*[contains(text(), "Item Package Dimensions")]/following-sibling::*
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //th[contains(text(), 'Dimensions')]/following-sibling::*[1]/text()[1]
+  - name: shippingWeight
+    singleValue: false
+    xpath: //th[contains(text(), 'Dimensions')]/following-sibling::*[1]/text()[1]
+    regExp: (.*);(.*)
+    regExpReplace: $2
+  - name: manufacturer
+    singleValue: false
+    xpath: //*[normalize-space(text())='Fabricant']/following-sibling::*[1]
+  - name: salesRankRaw
+    singleValue: false 
+    xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
+    regExp: ([0-9,]{1,})[ \t]*en[ \t]*([^\(]+)
+    regExpReplace: >-
+      #$1 en $2
+  - name: salesRank
+    singleValue: false
+    xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
+    regExp: ([0-9,]{1,})[ \t]*en[ \t]*([^\(]+)
+    regExpReplace: $1
+  - name: salesRankCategory
+    singleValue: false
+    xpath: //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and contains(text(), "See")]/preceding-sibling::text()[1] | //div[contains(@id, "productDetails_feature_div")]//a[contains(@href, "bestseller")]/ancestor::span[1] | //div[contains(@id, "detailBulletsWrapper_feature_div")]//a[contains(@href, "bestseller") and not(contains(text(), "See"))]/ancestor::li[1]
+    regExp: ([0-9,]{1,})[ \t]*en[ \t]*([^\(]+)
+    regExpReplace: $2
+  - name: mpc
+    singleValue: false
+    xpath: //*[contains(text(),"modèle de")]/following-sibling::*[1] | //th[contains(.,'RÃ©fÃ©rence fabricant')]/following-sibling::*[1] | //th[contains(.,'Référence constructeur')]/following-sibling::*[1]
+  - name: imageZoomFeaturePresent
+    defaultValue: true
+  - name: ingredientsList
+    xpath: //p[preceding-sibling::*[not(name()=p)][1][contains(normalize-space(text()),"Ingrédients")]]
+  - name: warnings
+    xpath: //p[preceding-sibling::h3[1][normalize-space(text())="Avertissement De Sûreté"]]
+  - name: directions
+    xpath: //p[preceding-sibling::h3[1][normalize-space(text())="Conseils d'utilisation"]] | //div[@id='importantInformation_feature_div']//div[contains(.,"Conseils d'utilisation")]/p[not(normalize-space(.)="")] | //div[@id='importantInformation_feature_div']//div[contains(.,"Conseils d'utilisation")]/div[@class="TabPanel"]
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Mentions Légales')]/p
+  - name: price
+    singleValue: false
+    xpath: (//span[contains(@id,"priceblock_dealprice")] | //*[@id="priceblock_ourprice"][not(contains(@class,"a-text-strike"))] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1] | //span[@id="priceblock_saleprice"] | //li[contains(@class,selected) and contains(@class,"swatchElement")]//span[contains(@class,"a-size-base a-color-price")] | //span[contains(@class,"header-price")][not(@id="subscriptionPrice")] | //li[@class="swatchSelect"]//span[@class="olp-message a-color-price"]/span/text()[last()] | //div[@id="buyNew_noncbb"]/span
+    regExp: ([^\s]+)\s*€

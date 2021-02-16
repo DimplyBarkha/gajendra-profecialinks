@@ -1,0 +1,23 @@
+robot: product/details
+parameters:
+  country: DE
+  domain: amazon.de
+  store: amazon
+  zipcode: "10117"
+proxy:
+  zone: ZDE
+  type: DATA_CENTER
+meta:
+  branches:
+    dev:
+      extractor: bf397b2f-c188-466e-807c-0cc095aed937
+      legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
+    staging:
+      extractor: 3c200cad-d87d-49da-946b-6169f83cdf1f
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    testing:
+      extractor: 2825c9c6-fdf0-460b-9651-2a36fd43d823
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    development:
+      extractor: 00cb4449-6c44-46ee-a096-9a5e5bc38151
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013

@@ -8,44 +8,45 @@ fields:
   xpath: //meta[@property='og:image']/@content
 - name: imageAlt
   singleValue: true
-  xpath: //li[contains(@class,'slider-slide')]//div[@data-tl-id='ProductPage-alt-image0']/img/@alt
+  xpath: //*[contains(@class,'slider')]//div[@data-tl-id='ProductPage-alt-image0']/img/@alt
 - name: alternateImages
   singleValue: false
-  xpath: //li[@class='slider-slide']//img/@src
+  xpath: //div[@id='product-overview']//li[@class='slider-slide']//img/@src
 - name: metaKeywords
   singleValue: true
   xpath: //meta[@name="keywords"]/@content
 - name: category
   singleValue: false
-  xpath: //li[contains(@class,"breadcrumb")]//span[not(contains(@class,'separator'))]
+  xpath: //li[contains(@class,"breadcrumb")]//span[not(contains(@class,'separator'))] | (//div[contains(@class,'breadcrumb-container')])[1]//li[contains(@class,"breadcrumb")]//a
 - name: nameExtended
   singleValue: true
-  xpath: //meta[@name='description']/@content
-  regExp: (. Buy )(.*)(at Walmart.com)
-  regExpReplace: $2
+  xpath: (//h1[@itemprop='name'])[1] | (//h2[@itemprop='name'])[1]  
 - name: listPrice
   singleValue: true
   xpath: //section[contains(@class,'prod-PriceSection')]//span[contains(@class,'price--strikethrough')]//span[contains(@class,'price-group')]
 - name: price
   singleValue: true
-  xpath: //span[@itemprop="highPrice"]/@content|//*[@id="price"]//span[contains(@class,'price--stylized')]/span[contains(@class,'price-group')]
+  xpath: //span[@itemprop="highPrice"]/@content|//*[@class="prod-PriceHero"]//span[contains(@class,'price--stylized')]/span[contains(@class,'price-group')]
+- name: shippingPrice
+  singleValue: true
+  xpath: //div[@id='added-sprice']  
 - name: availabilityText
   singleValue: true
-  xpath: //link[@itemprop="availability"]/@href
-  defaultValue: In stock
-  regExp: OutOfStock
-  regExpReplace: Out of Stock
+  xpath: //link[@itemprop="availability"]/@href | //div[contains(@class,'Price-OOS')]
+- name: availabilityMessage
+  singleValue: true
+  xpath: //div[@class='prod-fulfillment']//div[@class='fulfillment-text'] | //div[contains(@class,'unavailableBOT')] |//h2[contains(@class,'prod-InvalidPromptMsg')]
 - name: manufacturer
   singleValue: true
-  manualSelector: script[id='item']
+  manualSelector: script[id='item'], script[id='product']
   regExp: (\"manufacturer\"\:\")([^"]+)(",")
   regExpReplace: $2
 - name: description
   singleValue: false
-  xpath: //div[contains(@class,'about-desc')]
+  xpath: //div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div
 - name: descriptionBullets
   singleValue: true
-  xpath: count(//div[contains(@class,'about-desc')]//ul/li)
+  xpath: count((//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//ul/li)
 - name: ingredientsList
   singleValue: true
   manualSelector: p.Ingredients
@@ -60,21 +61,25 @@ fields:
   singleValue: true
 - name: gtin
   singleValue: true
-  xpath: //*[@itemprop="gtin13"]/@content
+  xpath: //*[contains(@itemprop,'gtin')]/@content
 - name: sku
   singleValue: true
-  xpath: //script[@id='item']
-  regExp: (",\"productId\":\")(\w+)
+  xpath: //script[@id='item'] | //script[id='product']
+  regExp: (","productId":\")(\w+)(","sell)?(","item)?
   regExpReplace: $2
 - name: asin
   singleValue: false
-  xpath: //div[contains(@class,'wm-item-number')]  
+  xpath: //div[contains(@class,'wm-item-number')]
 - name: variantId
   singleValue: true
-  xpath: //meta[@itemprop='sku']/@content
+  xpath: //div[@id='added-sku'] 
+- name: firstVariant
+  singleValue: true
+  manualSelector: script[id='item'], script[id='product']
+  regExp: ("primaryProductId":")([^"]+)(","primary)
 - name: mpc
   singleValue: true
-  manualSelector: script[id='item']
+  manualSelector: script[id='item'], script[id='product']
   regExp: (\"manufactureNumber\"\:\")([^"]+)(",")
   regExpReplace: $2
 - name: packSize
@@ -86,26 +91,27 @@ fields:
   xpath: //p[@class='Directions']
 - name: warnings
   singleValue: true
-  xpath: //p[@class='Warnings']
+  xpath: //p[@class='Warnings'] | //div[@class='LegalBadge-description'][contains(.,'arning')]
 - name: warranty
   singleValue: true
-  manualSelector: script[id='item']
-  regExp: (warranty":{(.*),"information":")([^"]+)("})
-  regExpReplace: $3
-  xpath: //p[@class='Warnings']
+  xpath: //div[contains(@id,'card-warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span  | //div[contains(@title,'Warranty')]//span[contains(text(),'Warranty Information')]/following-sibling::span 
+ 
 - name: ratingCount
   singleValue: true
-  xpath: //span[@class='stars-reviews-count-node']
-  regExp: (\d*)
-  regExpReplace: $1
+  xpath: //*[@itemprop='aggregateRating']//span[@class='stars-reviews-count-node']
+  regExp: (\d*)  
 - name: aggregateRatingText
   singleValue: true
 - name: aggregateRating
   singleValue: true
-  xpath: //*[@itemprop='ratingValue']
+  xpath: //*[@itemprop='aggregateRating']//*[@itemprop='ratingValue']
 - name: shippingInfo
   singleValue: true 
-  xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"]
+  xpath: //section[contains(@class, 'prod-SellerSection')]//*[@data-tl-id="ProductSellerInfo-SellerName"] | //div[contains(@class, 'seller-info-container')]//a[contains(@class,'seller-name')]
+- name: shippingInfo1
+  singleValue: false
+  xpath: //script[@id='item'] | //script[@id='product']
+  regExp: \"sellerDisplayName\"\:\"([^"]+)(\"\,\"showSold)  
 - name: shippingDimensions
   singleValue: true
   xpath: //td[contains(text(),'Product Dimensions')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
@@ -114,37 +120,33 @@ fields:
   xpath: //td[contains(text(),'Product Weight')]/following-sibling::td[@class='s-padding-ends s-padding-sides']
 - name: variantCount
   singleValue: true
-- name: firstVariant
-  singleValue: true
-  manualSelector: script[id='item']
-  regExp: (\"primaryProductId\"\:\")(\S+)(\",\"primaryUsItemId\")
-  regExpReplace: $2
 - name: variantInformation
-  singleValue: true
-  manualSelector: script[id='item']
-  regExp: \{\"name\"\:\"(\w*_\w*)\",\"value\"\:\"(\w*_\w*)-([^\"]*)\"\}
-  regExpReplace: $3  
+  singleValue: false 
+  manualSelector: script[id='item'], script[id='product']
+  regExp: >-
+    {"name":"\w*_\w*","value":"(\w*_\w*-[^\"]*)"}
+
 - name: variants
   singleValue: false
-  manualSelector: script[id='item']
-  regExp: ({"productId":")(\w+)
+  manualSelector: script[id='item'], script[id='product']
+  regExp: ("productId":")(\w+)(","usItem)
   regExpReplace: $2
 - name: color
   singleValue: true 
-  manualSelector: script[id='item']
+  manualSelector: script[id='item'], script[id='product']
   regExp: \{\"name\"\:\"actual_color\",\"value\"\:\"actual_color-([^\"]*)\"\}
   regExpReplace: $1
 - name: colorCode
   singleValue: true
 - name: manufacturerDescription
   singleValue: false
-  xpath: //div[contains(@class,'wc-aplus-body')]
+  xpath: //div[@id='added-marketing']//div[contains(@class,'wc-aplus')] |//div[@id='added-marketing']//div[contains(@class,'content')]
 - name: manufacturerImages
   singleValue: false
-  xpath: //div[contains(@class,'wc-aplus-body')]//img/@src
+  xpath: //div[@id='added-marketing']//div[contains(@class,'wc-aplus')]//img/@src |//div[@id='added-marketing']//div[contains(@class,'content')]//img/@src
 - name: videos
   singleValue: false
-  manualSelector: script[id='item']
+  manualSelector: script[id='item'], script[id='product']
   regExp: ("versions":{"\w+":")(http[^"]+mp4)(\")
   regExpReplace: $2
 - name: name
@@ -152,24 +154,26 @@ fields:
   xpath: //h1[@class='prod-ProductTitle font-normal']
 - name: otherSellersName
   singleValue: false
-  xpath: //div[@class='marketplace-body']//*[@data-tl-id="ProductSellerInfo-SellerName"]
+  xpath: //div[@id='added-sellers']//*[@data-tl-id="ProductSellerCardSellerInfo-SellerName"]
+  
 - name: otherSellersPrice
   singleValue: false
-  xpath: //div[contains(@class,'seller-offer')]//div[contains(@class,'prod-PriceHero')]//span[contains(@class,'price--stylized')]//span[@class='visuallyhidden']
-- name: otherSellersShipping
+  xpath: //div[@id='added-sellers']//div[contains(@class,'seller-offer')]//div[contains(@class,'prod-PriceHero')]//span[contains(@class,'price--stylized')]//span[@class='visuallyhidden']
+ 
+- name: otherSellersShipping2
   singleValue: false
-  xpath: //div[@data-tl-id="ProductSellerOffer-ShippingPrice"]
-  regExp: (\d+\.?\d*) delivery
-  regExpReplace: $ 1
+  xpath: //div[@id='added-sellers']//div[contains(@class,'product-shipping-price')]//span[contains(@class,'price price')] | //div[@id='added-sellers']//div[contains(@class,'product-shipping-price')]//span[contains(@class,'font-semibold')]
+  regExp: ([Free]?\d*\.?\d*))
+  defaultValue: 0
 - name: lbb
-  singleValue: true
-  defaultValue: Yes
+  singleValue: true  
   xpath: //div[@class='SellerInfo']//a[@class='seller-name']
-  regExp: Walmart
-  regExpReplace: No
+ 
+- name: lbbPrice
+  singleValue: true  
 - name: additionalDescBulletInfo
   singleValue: false  
-  xpath: //div[contains(@class,'about-desc')]//ul/li
+  xpath: (//div[contains(@class,'about-desc')] | //div[contains(@class,'DetailedHeroImage-ShortDescription')] | //div[contains(@class,'AboutThisBundle-description')] | //div[contains(@class,'about-item')]/div)//ul/li
 - name: promotion
   singleValue: false
   xpath: //div[@class='container-flags']//span[@class='flag-angle__content']
@@ -179,8 +183,11 @@ fields:
 - name: energyEfficiency
   singleValue: false  
 - name: technicalInformationPdfPresent
-  singleValue: false  
+  singleValue: true  
   defaultValue: No
+  xpath: (//div[@class='ManualsAndGuides'])[1]
+  regExp: (.*)
+  regExpReplace: Yes
 - name: termsAndConditions
   singleValue: false  
   defaultValue: No
@@ -204,7 +211,7 @@ fields:
   defaultValue: No
 - name: nutritionInfo
   singleValue: true
-  manualSelector: script[id='item']
+  manualSelector: script[id='item'], script[id='product']
   regExp: ("nutritionFacts":{"calorieInfo(.*)}})(,"legalBadges")
   regExpReplace: $1
 - name: servingSize
@@ -298,4 +305,6 @@ fields:
 
 - name: ironPerServingUom
   singleValue: false
-  
+
+- name: productUrl
+  singleValue: true

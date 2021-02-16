@@ -1,0 +1,18 @@
+extends: ../../../../sharedAmazon/shared
+fields:
+  - name: promotion
+    singleValue: true
+    xpath: concat(//div[@id="price"]/table/tbody/tr[1]/td[1],//*[@id="regularprice_savings"])
+  - name: enhancedContent_HTML
+    xpath: //div[@id="aplus"] | //div[@class="aplus"]
+    html: true
+  - name: directions
+    singleValue: false
+    xpath: //div[@id="productDescription"][not(h3)] | //div[@id="productDescription"]/h3[1]/following-sibling::*[count(preceding-sibling::h3)=1][not(name()="h3")]
+  - name: asin
+    singleValue: true
+    xpath: //div[@id='added-asin'] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text() | //div[contains(@id,'detailBullets_feature_div')]/ul/li[contains(*, 'ASIN')]//text() 
+    regExp: ^\w+
+  - name: ingredientsList
+    #singleValue: true
+    xpath:  //div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p | //td[contains(.,"Ingredients")]/following-sibling::td//span[@class="a-truncate-full a-offscreen"] | //div[@id='important-information']//div[contains(.,'Ingredientes')]/p

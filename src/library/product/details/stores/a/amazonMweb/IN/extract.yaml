@@ -1,0 +1,14 @@
+extends: ../../../../sharedAmazon/shared
+fields:
+ - name: quantity
+   singleValue: true
+   xpath: //div[contains(@id, 'detailBullets_feature_div')]//ul/li[contains(., 'Item Weight')]//span/span[2]
+ - name: price
+   singleValue: true
+   xpath: (//span[contains(@id,"priceblock_dealprice")] | //*[@id="priceblock_ourprice"][not(contains(@class,"a-text-strike"))] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1] | //span[@id="priceblock_saleprice"] | //li[contains(@class,selected) and contains(@class,"swatchElement")]//span[contains(@class,"a-size-base a-color-price")] | //span[contains(@class,"header-price")][not(@id="sub")]
+ - name: brandText
+   singleValue: true
+   xpath: //table[@class="a-normal a-spacing-micro"][1]//tr//td[contains(.,'Brand')]/following-sibling::td[1] | //div[@id='bylineInfo']/span[@class='author notFaded']/span[@class='a-declarative']/a[@class='a-link-normal contributorNameID'] | //div[@class='a-section a-spacing-none']/a[@id='bylineInfo'] | //div[@id='bylineInfo_feature_div']/div[@id='bylineInfo'] 
+#  - name: nameExtended
+#    singleValue: true
+#    xpath: //div[@id='titleSection']/h1[@id='title']/span[@id='productTitle']
