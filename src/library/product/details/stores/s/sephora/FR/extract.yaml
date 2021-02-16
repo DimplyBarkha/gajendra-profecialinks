@@ -24,7 +24,7 @@ fields:
     singleValue: false
     # type: NUMBER
     description: The number of ratings
-    xpath: ancestor::html//meta[@name="reviewCount"]/@content
+    xpath: ancestor::html//meta[@name="reviewCount"]/@content | ancestor::html//meta[@itemprop ="reviewCount"]/@content
     # xpath: //div[@class="bv_numReviews_component_container"]/meta[@itemprop="reviewCount"]/@content
     # xpath: //div[@class="bv_numReviews_text"]
     # regExp: (\d{1,2})|(\d{3,4})
@@ -34,7 +34,8 @@ fields:
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    xpath: ancestor::html//div[@itemprop="ratingValue"]
+    # xpath: ancestor::html//div[@itemprop="ratingValue"]
+    xpath: translate(ancestor::html//div[@itemprop="ratingValue"], ".", ",")
     # type: NUMBER
   - name: imageAlt
     singleValue: false
@@ -58,7 +59,7 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(ancestor::html//meta[@itemprop="name"], ' ', //a/@title)
+    xpath: ancestor::html//meta[@itemprop="name"]/@content
     # xpath: (//meta[@itemprop="name"]/@content)[last()]
   - name: listPrice
     singleValue: false
@@ -89,12 +90,12 @@ fields:
     singleValue: false
   - name: ingredientsList
     singleValue: false
-    xpath: ancestor::html//div[@class="tabs-panel"][contains(text(),'INGREDIENTS')]
+    xpath: ancestor::html//div[@class="tabs-panel"][contains(text(),'INGREDIENTS')] | ancestor::html//div[contains(@class,"tabs-panel")][contains(., "d'ingrédients")]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[contains(@class, "product-description-box")]/ancestor::div[@class="tabs-panel is-active"]
+    xpath: ancestor::html//div[contains(@class, "product-description-box")]/ancestor::div[@class="tabs-panel is-active"]
   - name: additional_description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -103,7 +104,7 @@ fields:
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
-    xpath: count(ancestor::html//div[contains(@class, "product-description-box")]/ancestor::div[@class="tabs-panel is-active"]//li)
+    xpath: count(ancestor::html//div[contains(@class, "product-description-box")]/ancestor::div[@class="tabs-panel is-active"]//li|ancestor::html//div[contains(@class, "product-description-box")]/ancestor::div[@class="tabs-panel is-active"]//text()[contains(., "-")])
     type: NUMBER
   - name: brandText
     singleValue: false
@@ -133,7 +134,8 @@ fields:
     singleValue: false
     description: The store-specific product identifier
     # xpath: //a@data-pid
-    xpath: //meta[@itemprop="sku"]/@content
+    # xpath: //meta[@itemprop="sku"]/@content
+    xpath:  ancestor::html//div[@data-bv-productid]/@data-bv-productid| ancestor::html//meta[@itemprop="productid"]/@content
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
@@ -151,6 +153,7 @@ fields:
     description: Content under "legal disclaimer" header
   - name: directions
     singleValue: false
+    xpath: ancestor::html//div[@id="ii_directions"]
     description: Content under "directions" header
   - name: warnings
     singleValue: false
@@ -516,6 +519,7 @@ fields:
   - name: additionalDescBulletInfo
     singleValue: false
     description: null
+    xpath: ancestor::html//div[contains(@class, "product-description-box")]/ancestor::div[@class="tabs-panel is-active"]//text()[contains(., "-")]
   - name: prop65Warning
     singleValue: false
     description: null
