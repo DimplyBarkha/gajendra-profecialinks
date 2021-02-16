@@ -154,6 +154,73 @@ module.exports = {
       } catch (err) {}
     });
     await new Promise(resolve => setTimeout(resolve, 1000));
+    try {
+      const locationUrl = await context.evaluate(async () => {
+        return window.location.href;
+      });
+
+      let flixCarUrl = await context.evaluate(async () => {
+        const flixUrl = document.querySelector('a[title*="Flixmedia Minisite"]') ? document.querySelector('a[title*="Flixmedia Minisite"]').getAttribute('onclick') : '';
+        return flixUrl;
+      });
+
+      if (flixCarUrl && flixCarUrl.length > 0) {
+        console.log('flixCarUrl----->', flixCarUrl);
+        flixCarUrl = flixCarUrl.replace(/\_FFOpenWin\(\"/, 'https:').replace(/\"\);/, '');
+        await context.goto(flixCarUrl);
+        const manufactDes = await context.evaluate(async () => {
+          // @ts-ignore
+          let desc = document.querySelector('div[id*="inpage_container"]') ? document.querySelector('div[id*="inpage_container"]').innerText : '';
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          const check = document.querySelector('a[id*="ui-id-2"]') ? document.querySelector('a[id*="ui-id-2"]') : '';
+          // @ts-ignore
+          if (check && check.innerHTML && check.innerHTML === 'Features') {
+            // @ts-ignore
+            const desc2 = document.querySelector('div[id*="tabs-8"] div[id*="inpage_container"]') ? document.querySelector('div[id*="tabs-8"] div[id*="inpage_container"]').innerText : '';
+            desc = desc + ' ' + desc2;
+          }
+          console.log('desc---->', desc);
+          return desc;
+        });
+        await context.goto(locationUrl);
+        await context.evaluate((manufactDes) => {
+          addHiddenDiv('ii_manu', manufactDes);
+          // addHiddenDiv('ii_img', manufactImg);
+          function addHiddenDiv (id, content) {
+            const newDiv = document.createElement('div');
+            newDiv.id = id;
+            newDiv.textContent = content;
+            newDiv.style.display = 'none';
+            document.body.appendChild(newDiv);
+          }
+        }, manufactDes);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+
+    try {
+      await context.evaluate(async () => {
+        function addHiddenDiv (id, content) {
+          const newDiv = document.createElement('div');
+          newDiv.id = id;
+          newDiv.textContent = content;
+          newDiv.style.display = 'none';
+          document.body.appendChild(newDiv);
+        }
+        const listPrice = Array.from(document.querySelectorAll('div[class="online-price active"] span[class*="op-value"], div[class="online-price active"] span[class*="currency"]'));
+        const myPrice = Array.from(document.querySelectorAll('div[class="math-table"] div[id="pull-right-price"] span[class="value"], div[class="math-table"] div[id="pull-right-price"] span[class="currency"]'));
+        if (listPrice && listPrice.length > 0 && myPrice && myPrice.length > 0) {
+          const newListPrice = listPrice[0].innerHTML + listPrice[1].innerHTML;
+          const newMyPrice = myPrice[0].innerHTML + myPrice[1].innerHTML;
+          if (newListPrice !== newMyPrice && (newMyPrice.includes('-') === false)) {
+            addHiddenDiv('listPrice', newListPrice);
+          }
+        }
+      });
+    } catch (e) {
+      console.log(e);
+    };
     var variantRadio = await context.evaluate(async () => {
       return (document.querySelectorAll('span[role="radiogroup"] label')) ? document.querySelectorAll('span[role="radiogroup"] label').length : 0;
     });
@@ -235,29 +302,6 @@ module.exports = {
         }
       }
     }
-
-    try {
-      await context.evaluate(async () => {
-        function addHiddenDiv (id, content) {
-          const newDiv = document.createElement('div');
-          newDiv.id = id;
-          newDiv.textContent = content;
-          newDiv.style.display = 'none';
-          document.body.appendChild(newDiv);
-        }
-        const listPrice = Array.from(document.querySelectorAll('div[class="online-price active"] span[class*="op-value"], div[class="online-price active"] span[class*="currency"]'));
-        const myPrice = Array.from(document.querySelectorAll('div[class="math-table"] div[id="pull-right-price"] span[class="value"], div[class="math-table"] div[id="pull-right-price"] span[class="currency"]'));
-        if (listPrice && listPrice.length > 0 && myPrice && myPrice.length > 0) {
-          const newListPrice = listPrice[0].innerHTML + listPrice[1].innerHTML;
-          const newMyPrice = myPrice[0].innerHTML + myPrice[1].innerHTML;
-          if (newListPrice !== newMyPrice && (newMyPrice.includes('-') === false)) {
-            addHiddenDiv('listPrice', newListPrice);
-          }
-        }
-      });
-    } catch (e) {
-      console.log(e);
-    };
 
     try {
       await context.evaluate(async () => {
@@ -403,62 +447,6 @@ module.exports = {
         }
       }
     });
-    /// /////////////////////////////////////////////////////////////////////////////////////////////////
-    //  GOTO enhanced content approach
-    //  Get Enhanced HTML.
-    // async function getEnhancedHtmlJS () {
-    //   if (id) {
-    //     // const id = url.match(/(\d+).p\?/)[1];
-    //     await context.goto('https://content.syndigo.com/', { checkBlocked: false });
-    //     return await context.evaluate(async (id) => {
-    //       // const api = `https://scontent.webcollage.net/bestbuy/power-page?ird=true&channel-product-id=${id}`;
-    //       const api = `https://content.syndigo.com/assets/${id}`;
-
-    //       const response = await fetch(api);
-    //       const text = await response.text();
-    //       return text;
-    //       // return text.match(/html\s*:\s*"([^\n]+)/)[1].replace(/"$/, '').replace(/\\/g, '');
-    //     }, id);
-    //   }
-    //   return false;
-    // }
-    // let enhacnedContentJS;
-    // try {
-    //   enhacnedContentJS = await getEnhancedHtmlJS();
-    // } catch (error) {
-    //   console.log('error getting enhanced content');
-    // }
-    // const url = window.location.href;
-    // await context.goto(`${url}&intl=nosplash#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
-    // // Get Enhanced HTML.
-    // if (enhacnedContentJS) {
-    //   await context.evaluate((enhacnedContentJS) => {
-    //     eval(enhacnedContentJS);
-    //     // @ts-ignore
-    //     const html = window._wccontent.aplus.html;
-    //     const newDiv = document.createElement('div');
-    //     newDiv.id = 'webcollage-content';
-    //     newDiv.innerHTML = html;
-    //     document.body.appendChild(newDiv);
-    //     function getIframeHTML (parentIFrame) {
-    //       if (parentIFrame.tagName === 'IFRAME') {
-    //         parentIFrame = parentIFrame.contentDocument;
-    //       }
-    //       const iframes = Array.from(parentIFrame.querySelectorAll('iframe'));
-    //       console.log(iframes);
-    //       for (const iframe of iframes) {
-    //         const html = getIframeHTML(iframe);
-    //         iframe.parentElement.innerHTML = html;
-    //       }
-    //       if (parentIFrame.querySelector('html')) {
-    //         return parentIFrame.querySelector('html').outerHTML;
-    //       }
-    //     }
-    //     getIframeHTML(document.querySelector('#webcollage-content'));
-    //     Array.from(document.querySelectorAll('#webcollage-content .wc-json-data')).forEach(elm => elm.remove());
-    //   }, enhacnedContentJS);
-    // }
-    /// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Syndigo API1 code to append enhanced content.
     const productID = await context.evaluate(async () => {
@@ -732,6 +720,62 @@ module.exports = {
       }
     }
     await syndigoAPI2(productID, pageId2);
+    /// /////////////////////////////////////////////////////////////////////////////////////////////////
+    //  GOTO enhanced content approach
+    //  Get Enhanced HTML.
+    // async function getEnhancedHtmlJS () {
+    //   if (id) {
+    //     // const id = url.match(/(\d+).p\?/)[1];
+    //     await context.goto('https://content.syndigo.com/', { checkBlocked: false });
+    //     return await context.evaluate(async (id) => {
+    //       // const api = `https://scontent.webcollage.net/bestbuy/power-page?ird=true&channel-product-id=${id}`;
+    //       const api = `https://content.syndigo.com/assets/${id}`;
+
+    //       const response = await fetch(api);
+    //       const text = await response.text();
+    //       return text;
+    //       // return text.match(/html\s*:\s*"([^\n]+)/)[1].replace(/"$/, '').replace(/\\/g, '');
+    //     }, id);
+    //   }
+    //   return false;
+    // }
+    // let enhacnedContentJS;
+    // try {
+    //   enhacnedContentJS = await getEnhancedHtmlJS();
+    // } catch (error) {
+    //   console.log('error getting enhanced content');
+    // }
+    // const url = window.location.href;
+    // await context.goto(`${url}&intl=nosplash#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true}[/!opt!]`, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: true });
+    // // Get Enhanced HTML.
+    // if (enhacnedContentJS) {
+    //   await context.evaluate((enhacnedContentJS) => {
+    //     eval(enhacnedContentJS);
+    //     // @ts-ignore
+    //     const html = window._wccontent.aplus.html;
+    //     const newDiv = document.createElement('div');
+    //     newDiv.id = 'webcollage-content';
+    //     newDiv.innerHTML = html;
+    //     document.body.appendChild(newDiv);
+    //     function getIframeHTML (parentIFrame) {
+    //       if (parentIFrame.tagName === 'IFRAME') {
+    //         parentIFrame = parentIFrame.contentDocument;
+    //       }
+    //       const iframes = Array.from(parentIFrame.querySelectorAll('iframe'));
+    //       console.log(iframes);
+    //       for (const iframe of iframes) {
+    //         const html = getIframeHTML(iframe);
+    //         iframe.parentElement.innerHTML = html;
+    //       }
+    //       if (parentIFrame.querySelector('html')) {
+    //         return parentIFrame.querySelector('html').outerHTML;
+    //       }
+    //     }
+    //     getIframeHTML(document.querySelector('#webcollage-content'));
+    //     Array.from(document.querySelectorAll('#webcollage-content .wc-json-data')).forEach(elm => elm.remove());
+    //   }, enhacnedContentJS);
+    // }
+    /// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // SearchForRequest for getting video urls
     // var videoRequest = await context.searchForRequest('https://content.syndigo.com/asset/.*ts', 'GET');
     // if (videoRequest && videoRequest.url) {

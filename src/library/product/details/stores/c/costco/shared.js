@@ -301,6 +301,17 @@ const transform = (data) => {
           }
         }
       }
+      if (!row.manufacturerDescription && row.demoDescription && row.demoDescription.length > 0) {
+        row.demoDescription[0].text = row.demoDescription[0].text.split('/******************************/ //')[0].replace(/123456789 /, '').trim();
+        row.manufacturerDescription = row.demoDescription;
+      }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach(item => {
+          if (item.text.startsWith('//media.flixcar.com')) {
+            item.text = item.text.replace('//media.flixcar.com', 'https://media.flixcar.com');
+          }
+        });
+      }
     // console.log('myDesc->', myDesc);
     //   if (row.listPrice && row.listPrice.length) {
     //     let text = '';
