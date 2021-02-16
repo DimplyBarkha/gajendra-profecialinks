@@ -124,7 +124,12 @@ async function implementation(
     }
     var nameextended = []
     for (i = 0; i < attr.length; i++) {
+      if (brand3 == null){
       var temp = final + " - " + attr[i];
+      }
+      else{
+        var temp = final;
+      }
       nameextended.push(temp)
 
     }
@@ -159,18 +164,24 @@ async function implementation(
         data = data + inglist2[i];
       }
       var ingredient = inglist + ' ' + data;
+      ingredient = ingredient.replace("Ingredientes ","")
       addHiddenDiv1('ingredient', ingredient);
     }
+    //variants//
+    var variants = attr.join(" | ")
+    addHiddenDiv1('variants', variants);
 
     // list-price
     var desc2 = getXpath('//p[@id="old_price"]/span[@class="old-price"]/text()', 'nodeValue');
 
     if (desc2 != null) {
+      // if (desc2.includes("PVR"))
       if (desc2.includes(":")) {
         desc2 = desc2.split(": ")[1]
+        addHiddenDiv1('desc2', desc2);
       }
       // desc2 = desc2.replace(",", ".")
-      addHiddenDiv1('desc2', desc2);
+      
     }
 
     //availibility//
