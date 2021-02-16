@@ -39,11 +39,11 @@ async function implementation(
       // @ts-ignore
       //document.querySelector('span[class="glyphicon glyphicon-edit js-change-store-link"]').click()
       document.querySelector('div[id="store-flyout-link-root"] a').click()
-      await new Promise(r => setTimeout(r, 4000));
+      await new Promise(r => setTimeout(r, 3000));
       console.log("waiting for open store input box")
       // @ts-ignore
       document.querySelector('a[class="StoreFlyout__changeStore"]').click();
-      await new Promise(r => setTimeout(r, 4000));
+      await new Promise(r => setTimeout(r, 3000));
       console.log("waiting for send store id to input link");
       var att = document.createAttribute('value');
       //att.value = "49684"
@@ -51,11 +51,11 @@ async function implementation(
       document.querySelector('input[id="store-flyout-address"]').setAttributeNode(att);
       // @ts-ignore
       document.querySelector('button[class="StoreFlyout__search-button btn btn-primary"]').click();
-      await new Promise(r => setTimeout(r, 5000));
+      await new Promise(r => setTimeout(r, 3000));
       console.log("waiting for search link");
       // @ts-ignore
       document.querySelector('button[class="StoreFlyout__myStore btn btn-primary StoreFlyout__selectOptions"]').click();
-      // await new Promise(r => setTimeout(r, 5000));
+      await new Promise(r => setTimeout(r, 3000));
       console.log("waiting for submit link");
     }
     catch (e) {
