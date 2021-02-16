@@ -23,7 +23,7 @@ fields:
     singleValue: false
     description: The stated undiscounted price for the product
     # type: CURRENCY
-    xpath: //div[@class='pd__cost__total undefined']/text()|//div[@class='pd__cost__total--promo undefined']
+    xpath: //html//div[@id="listprice"]
   - name: price
     singleValue: false
     type: CURRENCY
@@ -37,7 +37,7 @@ fields:
     # defaultValue: Out of Stock
   - name: description
     singleValue: false
-    xpath: //*[contains(text(),'Description')]/following-sibling::*[1] |//*[contains(text(),'Description')]/following-sibling::*
+    xpath: //*[contains(text(),'Description')]/following-sibling::*[1]
   - name: brandText
     singleValue: true
     xpath: //html//div[@id="brandText"] 
@@ -75,7 +75,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     # type: NUMBER
-    xpath: //html//div[@id="aggregateRating1"]
+    xpath: //html//div[@id="aggregateRating"]
   - name: shippingInfo
     singleValue: false
     description: Shipping information for the product
@@ -156,4 +156,17 @@ fields:
   - name: ratingCount
     xpath: //span[@data-test-id="review-count"]
     regExp: \d+
+  - name: promotion
+    xpath: //html//div[@id='res']
+    # regExp: :(.\w.*)
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //*[contains(text(),'Energy')]/following-sibling::*[1]  
+    # regExp: \d.+
+  - name: totalFatPerServing
+    xpath: //*[contains(text(),'Fat')]/following-sibling::*[1]
+  - name: quantity
+    xpath: //*[contains(text(),'Size')]/following-sibling::*[1]
+  - name: warnings
+    xpath: //*[contains(text(),'Caution')] |(//*[contains(text(),'Alcohol')]/following-sibling::*[1])[1]
     
