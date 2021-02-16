@@ -1,86 +1,99 @@
+# @format
+
 singleRecord: true
 regionsSelector: null
 recordSelector: null
-recordXPath: //main
+recordXPath: null
 fields:
   - name: image
-    singleValue: false
-    xpath: //div[@class="slide"][position()=1]//img[contains(@class, "js-responsive-image")]/@src | //div[@class="magnifyWrapper" and not(parent::div[@class="slide"])]//img[contains(@class, "js-responsive-image")]/@src | //img[contains(@class, "mo1vzo-6")]/@src
-    regExp: (\/.*)
-    regExpReplace: https:$1
+    # singleValue: false
+    # xpath: //div[@class="slide"][position()=1]//img[contains(@class, "js-responsive-image")]/@src | //div[@class="magnifyWrapper" and not(parent::div[@class="slide"])]//img[contains(@class, "js-responsive-image")]/@src | //img[contains(@class, "mo1vzo-6")]/@src
+    # regExp: (\/.*)
+    # regExpReplace: https:$1
+    xpath: //div[contains(@class,"OAydc")]/button[position()=1]/img/@src | //div[contains(@class,"OAtmX")]/button[position()=1]/img/@src | //ul[contains(@class,"mo1vzo")]/li[position()=1]/img/@src
   - name: imageAlt
     singleValue: false
     xpath: //div[@class="slide"][position()=1]//img[contains(@class, "js-responsive-image")]/@alt | //div[@class="magnifyWrapper" and not(parent::div[@class="slide"])]//img[contains(@class, "js-responsive-image")]/@alt | //img[contains(@class, "mo1vzo-6")]/@alt
   - name: alternateImages
-    singleValue: false
-    xpath: //div[@class="slide"][position()>1]//img[contains(@class, "js-responsive-image")]/@src | //img[contains(@class, "mo1vzo-6")]/@src
-    regExp: (\/.*)
-    regExpReplace: https:$1
+    # singleValue: false
+    # xpath: //div[@class="slide"][position()>1]//img[contains(@class, "js-responsive-image")]/@src | //img[contains(@class, "mo1vzo-6")]/@src
+    # regExp: (\/.*)
+    # regExpReplace: https:$1
+    xpath: //div[contains(@class,"OAydc")]/button[position()>1]/img/@src | //div[contains(@class,"OAtmX")]/button[position()>1]/img/@src
   - name: secondaryImageTotal
-    singleValue: false
-    xpath: count(//div[@class="slide"][position()>1]//img[contains(@class, "js-responsive-image")]/@src)
+    # singleValue: false
+    # xpath: count(//div[@class="slide"][position()>1]//img[contains(@class, "js-responsive-image")]/@src)
+    xpath: count(//div[contains(@class,"OAydc")]/button[position()>1]/img/@src | //div[contains(@class,"OAtmX")]/button[position()>1]/img/@src)
   - name: metaKeywords
-    singleValue: false
     xpath: //meta[@name="keywords"]/@content
   - name: category
-    singleValue: false
-    xpath: //div[@class="Breadcrumb"]//a[position()>2]
+    xpath: //div[@data-testid="header-breadcrumbs"]/a[position()>1]
+  - name: name
+    # xpath: concat(//div[contains(@class,"product-details")]//div[contains(@class,"ProductPageHeader")]//h1[@class="page-title"], //div[contains(@class,"product-details")]//div[contains(@class,"ProductPageHeader")]//p[@class="page-title-info"])
+    xpath: //h1[contains(@data-testid,"product-common-header-title")]
   - name: nameExtended
-    singleValue: false
-    xpath: concat(//div[contains(@class,"product-details")]//div[contains(@class,"ProductPageHeader")]//h1[@class="page-title"], //div[contains(@class,"product-details")]//div[contains(@class,"ProductPageHeader")]//p[@class="page-title-info"])
+    # xpath: concat(//div[contains(@class,"product-details")]//div[contains(@class,"ProductPageHeader")]//h1[@class="page-title"], //div[contains(@class,"product-details")]//div[contains(@class,"ProductPageHeader")]//p[@class="page-title-info"])
+    xpath: //h1[contains(@data-testid,"product-common-header-title")]
   - name: price
-    singleValue: false
-    xpath: //div[contains(@class,"product-details")]//div[@class="property"]//span[contains(@class,"test-price-property")]
+    # xpath: //div[contains(@class,"product-details")]//div[@class="property"]//span[contains(@class,"test-price-property")]
+    xpath: //header//div[contains(@data-testid,"product-block-price")]
   - name: availabilityText
-    singleValue: false 
+    singleValue: false
     xpath: //div[contains(@class,"ProductDetails")]//div[contains(@class,"OutOfStockMessage")]//p
     defaultValue: In Stock
   - name: description
-    singleValue: false
-    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Beschrijving")]/following::p[1]
+    # singleValue: false
+    # xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Beschrijving")]/following::p[1]
+    xpath: //div[contains(@class,"e3oax-13")]/p
   - name: brandText
-    singleValue: false
-    xpath: //div[contains(@class,"product-details")]//div[contains(@class,"ProductPageHeader")]//p[@class="page-title-info"]
+    # xpath: //div[contains(@class,"product-details")]//div[contains(@class,"ProductPageHeader")]//p[@class="page-title-info"]
+    xpath: //div[contains(@class,"e3oax-6")]/div
   - name: manufacturer
-    singleValue: false
-    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Benaming")]/following::p[1]
+    # xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Benaming")]/following::p[1]
+    xpath: //h5[contains(text(),"Benaming")]/following-sibling::div
   - name: quantity
-    singleValue: false
-    xpath: normalize-space(substring-before(//div[contains(@class,"ProductDetails")]//div[contains(@class,"test-qty-property")], "-"))
+    # singleValue: false
+    # xpath: normalize-space(substring-before(//div[contains(@class,"ProductDetails")]//div[contains(@class,"test-qty-property")], "-"))
+    xpath: //header//div[contains(@data-testid,"supplementary-price-2")]
   - name: weightNet
-    singleValue: false
-    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Net inhoud")]/following::p[1]
+    # singleValue: false
+    # xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Net inhoud")]/following::p[1]
+    xpath: //h5[contains(text(),"Net inhoud")]/following-sibling::div
   - name: sku
-    singleValue: false
-    xpath: substring-after(//div[@class="color_grey_5"]//p[contains(text(), "ID :")], "ID :")
+    # singleValue: false
+    # xpath: substring-after(//div[@class="color_grey_5"]//p[contains(text(), "ID :")], "ID :")
+    xpath: substring-after(//p[contains(text(),"ID:")],"ID:")
   - name: variantId
-    singleValue: false
-    xpath: //div[contains(@class,"product-details")]//div[contains(@class,"Product")]//@data-item-id
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (.+)(/\p\/)(.+)
+    regExpReplace: $3
   - name: directions
-    singleValue: false
-    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Gebru")]/following::p[1]
+    # singleValue: false
+    # xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Gebru")]/following::p[1]
+    xpath: //h5[contains(text(),"Gebruiksaanwijzing")]/following-sibling::div
   - name: ingredientsList
-    singleValue: false
-    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Ingrediënten")]/following::p[1]
+    # xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Ingrediënten")]/following::p[1]
+    xpath: //h5[contains(text(),"Ingrediënten")]/following-sibling::div
   - name: storage
-    singleValue: false
-    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "bewaarvoorschriften")]/following::p[1]
+    # singleValue: false
+    # xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "bewaarvoorschriften")]/following::p[1]
+    xpath: //h5[contains(text(),"Bijzondere bewaarvoorschriften")]/following-sibling::div
   - name: allergyAdvice
-    singleValue: false
-    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Allergènes")]/following::p[1]
+    # singleValue: false
+    # xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Allergènes")]/following::p[1]
+    xpath: //h5[contains(text(),"Allergenen")]/following-sibling::div
   - name: numberofServingsInPackage
     singleValue: false
     xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "verpakking")]/following::p[1]
   - name: servingSize
-    singleValue: false
-    xpath: (//h3[contains(text(), "Voeding")]/following::div//table//thead//th[not(contains(text(), "Per")) and not (contains(text(),"Portie")) ])[1]
-    regExp: (\d+)
-    regExpReplace: $1
+    # singleValue: false
+    # xpath: (//h3[contains(text(), "Voeding")]/following::div//table//thead//th[not(contains(text(), "Per")) and not (contains(text(),"Portie")) ])[1]
+    xpath: //h2[contains(text(),"Productinformatie")]/following-sibling::div/following-sibling::div//td[contains(text(),"Per")]/following-sibling::td[1]
+    # regExp: (\d+)
+    # regExpReplace: $1
   - name: servingSizeUom
-    singleValue: false
-    xpath: (//h3[contains(text(), "Voeding")]/following::div//table//thead//th[not(contains(text(), "Per")) and not (contains(text(),"Portie")) ])[1]
-    regExp: ([a-zA-Z]+)
-    regExpReplace: $1
+    xpath: //h2[contains(text(),"Productinformatie")]/following-sibling::div/following-sibling::div//td[contains(text(),"Per")]/following-sibling::td[1]
+    regExp: (g|ml|MLT)
   - name: caloriesPerServing
     singleValue: false
     xpath: //td[contains(text(), "Energie")]/following::td[1]
@@ -95,17 +108,14 @@ fields:
     singleValue: false
     xpath: //td[contains(text(), "Vetten waarvan")]/following::td[1]
     regExp: (g|mg)
-    regExpReplace: $1
   - name: saturatedFatPerServing
     singleValue: false
     xpath: //td[contains(text(), "Verzadigde vetten")]/following::td[1]
     #regExp: (<?([\d\.\,]+)%?[^mg()]*)
     #regExpReplace: $1
   - name: saturatedFatPerServingUom
-    singleValue: false
     xpath: //td[contains(text(), "Verzadigde vetten")]/following::td[1]
     regExp: (g|mg)
-    regExpReplace: $1
   - name: saltPerServing
     singleValue: false
     xpath: //td[contains(text(), "Zout")]/following::td[1]
@@ -117,45 +127,42 @@ fields:
     regExp: (g|mg)
     regExpReplace: $1
   - name: totalCarbPerServing
-    singleValue: false
-    xpath: //td[contains(text(), "Koolhydraten")]/following::td[1]
+    # singleValue: false
+    # xpath: //td[contains(text(), "Koolhydraten")]/following::td[1]
     #regExp: (<?([\d\.\,]+)%?[^mg()]*)
     #regExpReplace: $1
+    xpath: //td[contains(text(), "Koolhydraten")]/following::td[1]
   - name: totalCarbPerServingUom
     singleValue: false
     xpath: //td[contains(text(), "Koolhydraten")]/following::td[1]
     regExp: (g|mg)
-    regExpReplace: $1
   - name: totalSugarsPerServing
-    singleValue: false
-    xpath: //td[contains(text(), "Suikers")]/following::td[1]
+    # singleValue: false
+    # xpath: //td[contains(text(), "Suikers")]/following::td[1]
     #regExp: (<?([\d\.\,]+)%?[^mg()]*)
     #regExpReplace: $1
+    xpath: //td[contains(text(), "Suikers")]/following::td[1]
   - name: totalSugarsPerServingUom
-    singleValue: false
     xpath: //td[contains(text(), "Suikers")]/following::td[1]
     regExp: (g|mg)
-    regExpReplace: $1
   - name: proteinPerServing
-    singleValue: false
-    xpath: //td[contains(text(), "Eiwitten")]/following::td[1]
+    # singleValue: false
+    # xpath: //td[contains(text(), "Eiwitten")]/following::td[1]
     #regExp: (<?([\d\.\,]+)%?[^mg()]*)
     #regExpReplace: $1
+    xpath: //td[contains(text(), "Eiwitten")]/following::td[1]
   - name: proteinPerServingUom
-    singleValue: false
     xpath: //td[contains(text(), "Eiwitten")]/following::td[1]
     regExp: (g|mg)
-    regExpReplace: $1
   - name: calciumPerServing
-    singleValue: false
+    # singleValue: false
+    # xpath: //td[contains(text(), "Calcium")]/following::td[1]
+    # regExp: (<?([\d\.\,]+)%?[^mg()\s]*)
+    # regExpReplace: $1
     xpath: //td[contains(text(), "Calcium")]/following::td[1]
-    regExp: (<?([\d\.\,]+)%?[^mg()\s]*)
-    regExpReplace: $1
   - name: calciumPerServingUom
-    singleValue: false
     xpath: //td[contains(text(), "Calcium")]/following::td[1]
     regExp: (g|mg)
-    regExpReplace: $1
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: substring("Yes", 1, boolean(//span[contains(@class,"zoom-message")])*3)
@@ -167,29 +174,28 @@ fields:
     singleValue: false
     xpath: //td[contains(text(), "Magnesium")]/following::td[1]
     regExp: (<?([\d\.\,]+)%?[^mg()\s]*)
-    regExpReplace: $1  
+    regExpReplace: $1
   - name: magnesiumPerServingUom
     singleValue: false
     xpath: //td[contains(text(), "Magnesium")]/following::td[1]
     regExp: (g|mg)
-    regExpReplace: $1 
+    regExpReplace: $1
   - name: sodiumPerServing
-    singleValue: false
+    # singleValue: false
+    # xpath: //td[contains(text(), "Zout")]/following::td[1]
+    # regExp: (<?([\d\.\,]+)%?[^mg()\s]*)
+    # regExpReplace: $1
     xpath: //td[contains(text(), "Zout")]/following::td[1]
-    regExp: (<?([\d\.\,]+)%?[^mg()\s]*)
-    regExpReplace: $1  
   - name: sodiumPerServingUom
     singleValue: false
     xpath: //td[contains(text(), "Zout")]/following::td[1]
     regExp: (g|mg)
-    regExpReplace: $1
   - name: temp_sku
     singleValue: false
-    xpath: substring-after(//div[@class="color_grey_5"]//p[contains(text(), "ID:")], "ID:")   
+    xpath: substring-after(//div[@class="color_grey_5"]//p[contains(text(), "ID:")], "ID:")
   - name: temp_allergyAdvice
     singleValue: false
-    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Allergenen")]/following::p[1]    
+    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Allergenen")]/following::p[1]
   - name: imNameExtended
     singleValue: false
     xpath: //h1[@data-testid='product-common-header-title']
-  
