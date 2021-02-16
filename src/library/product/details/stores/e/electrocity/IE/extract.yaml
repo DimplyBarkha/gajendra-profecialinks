@@ -48,7 +48,7 @@ fields:
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='elementor-widget-container']//p[@class='price']//span[@class='woocommerce-Price-amount amount']
+    xpath: //div[@class='elementor-widget-container']//p[@class='price']//span[@class='woocommerce-Price-amount amount'] | //div[@class='elementor-widget-container']//p[contains(@class,"price")]//span[contains(@class,'Price-amount')]
   - name: availabilityText
     singleValue: true
     description: Availability as described on page for the selected variant. If
