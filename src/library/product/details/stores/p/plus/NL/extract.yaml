@@ -60,6 +60,7 @@ fields:
   - name: gtin
     description: GTIN code (includes UPC/EAN)
     xpath: //*[contains(@name,"EAN")]/@value
+    regExp: (^\d+)
   - name: sku
     description: The store-specific product identifier
     xpath: //div[@id="prod-detail-ctnr"]/@data-id
