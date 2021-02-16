@@ -13,6 +13,7 @@ fields:
     xpath: //meta[@name='keywords']/@content
   - name: category
     singleValue: false
+    xpath: //ul[contains(@class,"bop-categoriesList")][1]/li | //ul[contains(@class,"bop-categoriesList")][2]/li 
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -46,7 +47,8 @@ fields:
   - name: brandText
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //h6[contains(.,'Brand')]/following-sibling::div
+    xpath: //section[@id="categories"]/div/ul/li/span[contains(text(),'Brands')]/following-sibling::*/a/text() #|//h6[contains(.,'Brand')]/following-sibling::div
+    singleValue: true
   - name: manufacturer
     description: Product manufacturer
     xpath: //h6[contains(.,'Manufacturer')]/following-sibling::div | //h6[contains(.,'Manufacturer')]/parent::div/following-sibling::div
