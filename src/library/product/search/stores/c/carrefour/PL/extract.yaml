@@ -6,7 +6,7 @@ recordXPath: //button[contains(@class,"MuiButton-containedPrimary") and  contain
 fields:
   - name: name
     singleValue: false
-    xpath: //body//div[@class="jss259"]//button[@class="MuiButtonBase-root"]/div[@class="lazyload-wrapper"]/img/@alt
+    xpath: //body//div[@class="jss259"]//button[@class="MuiButtonBase-root"]/div[@class="lazyload-wrapper"]/img/@alt | //body//div[@class="jss259"]/div/a/@title | //body//div[@class="jss259"]/div/a/span
   - name: thumbnail
     singleValue: false
     xpath: //body//div[@class="jss259"]//div[@class="lazyload-wrapper"]/img/@src
