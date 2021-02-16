@@ -9,10 +9,15 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  // try{
+  //   await context.waitForSelector('#amasty-shopby-product-list > div:nth-child(4) div.pages ul li.pages-item-next a.action.next[title="Successivo"]');
+  // } catch(e){
+  //   console.log('Next Link selector not found')   
+  // }
   try{
-    await context.waitForSelector('#amasty-shopby-product-list > div:nth-child(4) div.pages ul li.pages-item-next a.action.next[title="Successivo"]');
+    await context.waitForSelector('ol[class*="items product-items "] li:last-child img[class*="product-image-photo"]');
   } catch(e){
-    console.log('Next Link selector not found')   
+    console.log('Image not loaded')   
   }
   return await context.extract(productDetails, { transform });
 }
@@ -132,5 +137,5 @@ module.exports = {
     domain: ' ',
     zipcode: '',
   },
-  // implementation
+  implementation
 };
