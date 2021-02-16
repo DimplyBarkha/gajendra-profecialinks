@@ -10,10 +10,13 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ url, id, zipcode, storeId }, { loadedSelector, noResultsXPath }, context, dependencies) => {
-    if (!url) {
-      if (!id) throw new Error('No id provided');
-      else url = await dependencies.createUrl({ id });
-    }
+    if (!id) {
+      if (!url) {
+        throw new Error('No id/url provided');
+      } else {
+        url = await dependencies.createUrl({ id: url });
+      }
+    } else url = await dependencies.createUrl({ id });
     await dependencies.goto({ url, zipcode, storeId });
 
     if (loadedSelector) {
