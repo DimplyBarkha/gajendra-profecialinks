@@ -63,9 +63,9 @@ fields:
     xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' x')]
   - name: warranty
     xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),'warranty')]
-  - name: specifications
-    # xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' x') or contains(text(),'cord')]
-    xpath: ancestor::html//div[contains(@class,"_3LvFj")]/ul/li
+  # - name: specifications
+  #   # xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' x') or contains(text(),'cord')]
+  #   xpath: ancestor::html//div[contains(@class,"_3LvFj")]/ul/li
   - name: weightNet
     xpath: ancestor::html//div[contains(text(),"Details & Care")]//following-sibling::ul//li/span[contains(text(),' lb.')]
   - name: mpc
