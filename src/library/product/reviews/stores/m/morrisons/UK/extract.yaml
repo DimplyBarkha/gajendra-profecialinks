@@ -1,11 +1,12 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[@id="added_reviews"]/div[@id="review" and @review_date]
 fields:
   - name: helpfulCount
-    xpath: //button[contains(text(),"Yes")]/following-sibling::span[@class="bop-reviews__recommendationNumber"]/text()
-    regExp: \d+
+    # xpath: //button[contains(text(),"Yes")]/following-sibling::span[@class="bop-reviews__recommendationNumber"]/text()
+    # regExp: \d+
+    xpath: ancestor::html/body/@added_helpful
     singleValue: true
     type: NUMBER
     description: Number of people who said the review was helpful
@@ -14,12 +15,14 @@ fields:
     type: NUMBER
     description: Number of comments on the review
   - name: brandText
-    xpath: //ul[@class="bop-tagsList"]/li[last()]/div[@class='bop-tagsWrapper']/a[@class='bop-tag']
+    # xpath: //ul[@class="bop-tagsList"]/li[last()]/div[@class='bop-tagsWrapper']/a[@class='bop-tag']
+    xpath: ancestor::html/body/@added_brand
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: name
-    xpath: //header[@class="bop-title"]/h2/text()
+    # xpath: //header[@class="bop-title"]/h2/text()
+    xpath: ancestor::html/body/@added_name
     singleValue: true
     description: The product name
   - name: sku
@@ -28,21 +31,25 @@ fields:
     singleValue: true
     description: The store-specific product identifier
   - name: reviewDate
-    xpath: //meta[@itemprop="datePublished"]/@content
+    # xpath: //meta[@itemprop="datePublished"]/@content
+    xpath: '@review_date'
     singleValue: true
     type: DATETIME
     description: Date the review was made
   - name: reviewRating
-    xpath: //div[@id="customerReviews"]//div[@itemprop="reviewRating"]//meta[@itemprop="ratingValue"]/@content
+    # xpath: //div[@id="customerReviews"]//div[@itemprop="reviewRating"]//meta[@itemprop="ratingValue"]/@content
+    xpath: '@added_rating'
     type: NUMBER
     singleValue: true
     description: Rating normalized to be out of 5
   - name: reviewText
-    xpath: //div[@class="gn-card bop-reviews__review"]//p
+    # xpath: //div[@class="gn-card bop-reviews__review"]//p
+    xpath: '@added_text'
     singleValue: true
     description: The text of the review
   - name: reviewTitle
-    xpath: //div[@class="gn-card bop-reviews__review"]//h6[@class="bop-reviews__title"]
+    # xpath: //div[@class="gn-card bop-reviews__review"]//h6[@class="bop-reviews__title"]
+    xpath: '@added_title'
     singleValue: true
     description: The title of the review
   - name: reviewerTags
@@ -52,9 +59,10 @@ fields:
     singleValue: true
     description: GTIN code (includes UPC/EAN)
   - name: productUrl
-    xpath: //meta[@property="og:url"]/@content
-    regExp: (\d{4,})
-    regExpReplace: http://groceries.morrisons.com/products/$1
+    # xpath: //meta[@property="og:url"]/@content
+    # regExp: (\d{4,})
+    # regExpReplace: http://groceries.morrisons.com/products/$1
+    xpath: ancestor::html/body/@product_url
     singleValue: true
     description: The url of the product details page
   - name: verifiedPurchase
@@ -77,8 +85,12 @@ fields:
       sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
       value, transform will handle the value.
   - name: user
-    xpath: //a[@itemprop="author"]
+    # xpath: //a[@itemprop="author"]
+    xpath: '@@added_user'
     description: The user name of the reviewer
     type: TEXT
+    singleValue: true
   - name: aggregateRating
+    # xpath: //span[@itemprop="ratingValue"]
+    xpath: ancestor::html/body/@rating
     description: The product rating
