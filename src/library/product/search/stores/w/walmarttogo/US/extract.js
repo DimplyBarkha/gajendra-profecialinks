@@ -114,17 +114,25 @@ async function implementation (
       console.log('nextLink => ',nextLink);
       return nextLink;
     }
+    
     const currentPage = window.location.href;
+    let currentPageEl = document.querySelector('a#currentPage');
+    if (!currentPageEl){
+      const cp = document.createElement('a');
+      cp.id = 'currentPage';
+      cp.href = currentPage;
+      document.body.append(cp);
+    } else {
+      currentPageEl.setAttribute('href',currentPage);
+    }
+    
     const nextLink = await getNextLink();
-    const cp = document.createElement('a');
-    cp.id = 'currentPage';
-    cp.href = currentPage;
-    document.body.append(cp);
+
     if (nextLink !== 'stop') {
       let nextLinkEl = document.querySelector('a[id="nextLink"]');
       if (!nextLinkEl){
         const np = document.createElement('a');
-        cp.id = 'nextLink';
+        np.id = 'nextLink';
         np.href = nextLink;
         document.body.append(np);
       } else {
@@ -145,6 +153,7 @@ async function implementation (
   } catch (error) {
     console.log('Error adding links. Error: ', error);
   }
+  
   return await context.extract(productDetails, { transform });
 }
 module.exports = {

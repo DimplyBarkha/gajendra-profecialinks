@@ -83,12 +83,11 @@ async function implementation (
     return true;
   }
 
-  let url = openSearchDefinition ? false : await context.evaluate((nextSelectors) => {
-    const selector = nextSelectors.filter(u => u).join(', ');
-    const next = document.querySelector(selector);
+  let url = openSearchDefinition ? false : await context.evaluate((nextPageUrlSelector) => {
+    const next = document.querySelector(nextPageUrlSelector);
     if (!next) return false;
     return next.href;
-  }, [nextPageUrlSelector, 'head link[rel="next"]']);
+  }, nextPageUrlSelector);
 
   if (!url && openSearchDefinition) {
     const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
