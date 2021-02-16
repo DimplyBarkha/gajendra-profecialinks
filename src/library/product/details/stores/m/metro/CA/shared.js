@@ -11,6 +11,7 @@ const transform = (data) => {
   data.forEach(el => {
     el.group.forEach(gr => {
       try {
+        if (gr.alternateImages) gr.alternateImages.shift();
         if (gr.category) {
           gr.category.shift();
           gr.category.forEach(e => {
