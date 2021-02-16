@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div//p[@class="total-products"]/following::div[@class="infinite-scroll-pagination"]/div[contains(@class,"product-card")]/div
+fields:
+  - name: productUrl
+    xpath: //div[@class="product-card--title"]/a/@href
+    regExp: (.+)
+    regExpReplace: https://online.parfetts.co.uk$1
+  - name: thumbnail
+    xpath: //div[@class="product--top"]/a/img/@src
+  - name: name
+    xpath: //a/h5[contains(@class,"product-name")]
+  - name: price
+    xpath: //div[@class="product-card--price"]//div[@class="price-info"]/div[@class="main-price"]/span[1]
+    regExp: (\d+\.\d+|\d+|\d+\,\d+)
+    regExpReplace: $1
+  - name: rank
+  - name: rankOrganic
+  - name: id
+    xpath: //div[@class="product-card--title"]/a/@href
+    regExp: (\d{4,15})
+    regExpReplace: $1 
