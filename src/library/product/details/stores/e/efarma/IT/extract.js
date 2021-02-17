@@ -30,7 +30,7 @@ module.exports = {
     });
     await context.evaluate(async function () {
       let quantity = document.querySelector('article div[class*="std"]') ? document.querySelector('article div[class*="std"]').textContent : '';
-      if (quantity.includes('Formato')) {
+      if (quantity.includes('Formato') && quantity.split('Formato')[1].match(/\d+/) !== null) {
         quantity = quantity.split('Formato')[1].match(/\d+/)[0];
       } else {
         quantity = '';
