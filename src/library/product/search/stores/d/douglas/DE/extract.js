@@ -19,18 +19,18 @@ async function implementation (
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      const originalDiv = document.querySelectorAll('div.rd__productinfo')[index];
+      const originalDiv = document.querySelectorAll('div.product-tile__product-info')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
 
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));
-    const product = document.querySelectorAll('div.rd__productinfo');
+    const product = document.querySelectorAll('div.product-tile__product-info');
     for (let i = 0; i < product.length; i++) {
       // @ts-ignore
-      const name1 = (product[i].querySelectorAll('span'))[0].textContent;
-      const name2 = (product[i].querySelectorAll('span'))[1].textContent;
-      const name3 = (product[i].querySelectorAll('span'))[3].textContent;
-      const name4 = (product[i].querySelectorAll('span'))[2].textContent;
+      const name1 = (product[i].querySelectorAll('span'))[0] && (product[i].querySelectorAll('span'))[0].textContent;
+      const name2 = (product[i].querySelectorAll('span'))[1] && (product[i].querySelectorAll('span'))[1].textContent;
+      const name3 = (product[i].querySelectorAll('span'))[3] && (product[i].querySelectorAll('span'))[3].textContent;
+      const name4 = (product[i].querySelectorAll('span'))[2] && (product[i].querySelectorAll('span'))[2].textContent;
       const name = name1 + ' ' + name2 + ' ' + name3 + ' ' + name4;
       if (name) {
         addHiddenDiv('ii_name', name, i);

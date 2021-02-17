@@ -1,31 +1,39 @@
 singleRecord: false
 regionsSelector:
 recordSelector: null
-recordXPath: //div[@class="rd__product-list"]/a
+recordXPath: //div[contains(@class,'product-grid-column')]
 fields:
   - name: name
     xpath: //div[@id="ii_name"]
   - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class="rd__productinfo__rating"]
+    # xpath: //div[@class="rd__productinfo__rating"]
+    xpath: //span[@class="product-tile__ratings-info"]
+    regExp: (.+)\(\d+\)
+    regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //div[@class="rd__product-list"]//a//div[@class="rd__productinfo"]//span[contains(@class, 'price rd__productinfo__price--sale')] | //div[@class="rd__product-list"]//a//div[@class="rd__productinfo"]//span[contains(@class, 'productinfo__price')]
-    regExp: €\s\d+,\d+
+    # xpath: //div[@class="rd__product-list"]//a//div[@class="rd__productinfo"]//span[contains(@class, 'price rd__productinfo__price--sale')] | //div[@class="rd__product-list"]//a//div[@class="rd__productinfo"]//span[contains(@class, 'productinfo__price')]
+    xpath: //div[contains(@class,"product-price__discount")] | //div[contains(@class,"product-price__no-discount")]
+    regExp: (EUR)?(\s)?\d+(,)?(.)?\d+(\s€)?
+    # regExp: €\s\d+,\d+
   - name: productUrl
     singleValue: false
     xpath: //@href
-    # regExp: (.+)
-    # regExpReplace: https://www.douglas.de$1
+    regExp: (.+)
+    regExpReplace: https://www.douglas.de$1
   - name: thumbnail
     singleValue: false
-    xpath: //script[@type="application/ld+json"]
-    regExp: ("image":\s")(.+)(",\s"brand)
-    regExpReplace: $2
+    xpath: //div[contains(@class,'product-grid-column')]//img/@src
+    # xpath: //script[@type="application/ld+json"]
+    # regExp: ("image":\s")(.+)(",\s"brand)
+    # regExpReplace: $2
   - name: id
     singleValue: false
-    xpath: //script[@type="application/ld+json"]
-    regExp: '"image":\s*"https://media.douglas.[^\/]+/([^\/]+)'
+    xpath: //@href
+    regExp: \/de\/p\/(\w+)(\?variant=(\w+))?
+    # xpath: //script[@type="application/ld+json"]
+    # regExp: '"image":\s*"https://media.douglas.[^\/]+/([^\/]+)'
     regExpReplace: $1
   - name: rank 
   - name: rankOrganic

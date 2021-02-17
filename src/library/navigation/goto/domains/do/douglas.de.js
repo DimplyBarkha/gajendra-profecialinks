@@ -17,7 +17,11 @@ module.exports = {
     //await context.setCookies();
     await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true, cookies: [] });
     // Check if cookies pop-up appeared
+    try {
     await context.waitForSelector('#uc-banner-centered');
+    } catch(error) {
+      console.log(error)
+    }
     const doesPopupExist = await context.evaluate(function () {
       return Boolean(document.querySelector('#uc-banner-centered'));
     });

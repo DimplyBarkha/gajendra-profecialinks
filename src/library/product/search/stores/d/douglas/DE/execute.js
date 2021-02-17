@@ -5,8 +5,9 @@ module.exports = {
     country: 'DE',
     store: 'douglas',
     domain: 'douglas.de',
-    url: 'https://www.douglas.de/search.html?query={searchTerms}',
-    loadedSelector: 'div.rd__product-list',
-    noResultsXPath: '//h3[contains(text(),"0 Treffer")]',
+    url: 'https://www.douglas.de/de/search?q={searchTerms}',
+    loadedSelector: 'div[class*=product-grid-column]',
+    // noResultsXPath: '//h3[contains(text(),"0 Treffer")]',
+    noResultsXPath: '//span[contains(.,"0 Treffer")]',
   },
 };
