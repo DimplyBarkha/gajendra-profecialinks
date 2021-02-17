@@ -1,5 +1,17 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
-fields: null
+recordXPath: //li[@class="LoopList__item"]
+fields:
+  - name: brandText
+  - name: name
+    xpath: //p[1]/a/span
+  - name: productUrl
+    xpath: //p[1]/a/@href
+    regExp: (.*)\?
+    regExpReplace: $1
+  - name: reviewCount
+    xpath: //span[contains(@class,"Review__count")]
+    regExp: (\d+)件
+    regExpReplace: $1
+  - name: sku

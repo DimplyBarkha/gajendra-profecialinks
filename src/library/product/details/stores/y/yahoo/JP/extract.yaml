@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="gdColumns gd3ColumnItem"]
+fields:
+  - name: brandText
+    xpath: ancestor::html//meta[@property="og:title"]/@content
+  - name: colour
+  - name: flavour
+  - name: image
+    xpath: ancestor::html//meta[@property="og:image"]/@content
+  - name: pageTitle
+    xpath: ancestor::html//meta[@property="og:title"]/@content
+  - name: category
+    xpath: ancestor::html//div[@class="mdBreadCrumb"]//span
+  - name: subCategory
+    xpath: (ancestor::html//div[@class="mdBreadCrumb"]//span)[2]
+  - name: reviewCount
+    xpath: //a[@class="elHeaderReviewDetailLink"]
+    regExp: 数(.*)件
+    regExpReplace: $1
+  - name: pageOffset
+  - name: sku
+    xpath: //a[@class="elReviewLink"]/@href
+    regExp: list\?(.*)
+    regExpReplace: $1

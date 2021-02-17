@@ -1,0 +1,16 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class="elItems"]/li[contains(@class,"elItem")]
+fields:
+  - name: helpfulCount
+    xpath: //p[@class="elVoteText"]/span
+  - name: reviewRating
+    xpath: //p[@class="elItemScore"]
+  - name: reviewDate
+    type: DATE
+    xpath: //p[@class="elItemDate"]
+  - name: reviewText
+    xpath: //p[@class="elItemCommentText"]
+  - name: reviewTitle
+    xpath: //p[@class="elItemCommentTitle"]
