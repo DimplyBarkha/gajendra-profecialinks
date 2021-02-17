@@ -24,6 +24,7 @@ fields:
   - name: category
     singleValue: false
     xpath: //html//div[@id='category']
+    # xpath: ((//div[@id="breadcrumb"]/ol/li)[position()>1])//text()
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: true
@@ -121,7 +122,7 @@ fields:
     description: Content under "warnings" header
   - name: ratingCount
     singleValue: true
-    xpath: //html//div[@id='ratings']/text()
+    xpath: //html//div[@id='ratingCount']
     # regExp: (\d+)
     description: The number of ratings
     # type: NUMBER

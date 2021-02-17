@@ -16,6 +16,7 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
+
       const getAllXpath = (xpath, prop) => {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const result = [];
@@ -45,7 +46,7 @@ module.exports = {
 
       // remove apostrophe
       const removeApostrphy = (x) => {
-        return x.replace("'", '');
+        return x.replace(/\'/, '');
       };
 
       //name and extended name  
@@ -61,7 +62,7 @@ module.exports = {
       }
 
       // Category
-      var category = getAllXpath('((//div[@id="breadcrumb"]/ol/li)[position()>1])//text()', 'nodeValue');
+      var category = getAllXpath('(//div[@id="breadcrumb"]/ol/li[position()>1 and position()<last()])/a/span//text()', 'nodeValue');
       if (category.length >= 1) {
         for (var i = 0; i < category.length; i++) {
           addElementToDocument('category', removeApostrphy(category[i]));
@@ -111,7 +112,7 @@ module.exports = {
       if (availability != null) {
         addElementToDocument('availability', 'In Stock');
       } else if (oos != null) {
-        addElementToDocument('availability', 'Out of Stock');
+        addElementToDocument('availability', 'Out Of Stock');
       }
       // quantitty 
       var quantity = getXpath('//h1[@class="title-product"]/text()', 'nodeValue');
@@ -164,18 +165,12 @@ module.exports = {
       //Rating Count
       try {
         var sku = getXpath('(//div[@class="NETREVIEWS_PRODUCT_STARS"]/@data-product-id)[1]', 'nodeValue');
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'https://cl.avis-verifies.com/pt/cache/a/e/a/aea5d810-72dc-eaa4-5d4d-d752dc9b21fe/AWS/PRODUCT_API/REVIEWS/' + sku + ".json");
-        xhr.responseType = 'json';
-        xhr.send();
-        xhr.onload = function () {
-          let responseObj = xhr.response;
-          for (var i = 0; i < responseObj.length; i++) {
-
-          }
-          addElementToDocument('ratings', responseObj.length);
-          console.log(responseObj);
-        };
+        // let response = await fetch('https://cl.avis-verifies.com/pt/cache/a/e/a/aea5d810-72dc-eaa4-5d4d-d752dc9b21fe/AWS/PRODUCT_API/REVIEWS/10012.json')
+        // if (response.ok) {
+        //   let json = await response.json()
+        //   addElementToDocument('ratingCount',json.length);
+        // }
+        fetch('https://cl.avis-verifies.com/pt/cache/a/e/a/aea5d810-72dc-eaa4-5d4d-d752dc9b21fe/AWS/PRODUCT_API/REVIEWS/10012.json').then(res => res.json()).then(res => addElementToDocument('ratingCount',res.length));
       } catch (error) { }
 
     });
