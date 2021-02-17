@@ -36,7 +36,7 @@ const transform = (data) => {
       if (row.description) {
         let finalDesc = '';
         for (let i = 0; i < row.description.length; i++) {
-          if (row.description[i].text.startsWith('#youtube-player-details') ) {
+          if (row.description[i].text.includes('#youtube-player-details') ) {
 
           }
           else if (row.description[i].xpath.includes('li')) {            
@@ -75,9 +75,9 @@ const transform = (data) => {
         let ingredients = '';
         let finalIngredients = '';
         let activeIngredients = '';
-        const containsIngredientsRegex = new RegExp("\\b"+"Inhaltsstoffe"+"\\b | \\b"+"Ingredients"+"\\b");
+        const containsIngredientsRegex = new RegExp(/\b(?:Inhaltsstoffe|Inhaltsstoffe:|Ingredients:|Ingredients)\b/g);
         const containsIngredients = containsIngredientsRegex.test(ingredientsParent);        
-        const containsActiveIngredientsRegex = new RegExp("\\b"+"Wirkstoffe"+"\\b");        
+        const containsActiveIngredientsRegex = new RegExp("\\b"+"Wirkstoffe:"+"\\b");        
         const containsActiveIngredients = containsActiveIngredientsRegex.test(ingredientsParent);
         if (row.ingredientsList.length > 1) {
           activeIngredients = row.ingredientsList[1].text;
