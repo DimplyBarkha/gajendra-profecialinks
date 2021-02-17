@@ -1,9 +1,15 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //span[@class="price"]/span[not(contains(@class,"strike-through"))]/../../../../../../..//parent::div[contains(@class, "col-6")]
-# recordXPath: //div[contains(@class, "product-grid")]//div[contains(@class, "col-6")]
+recordXPath: //div[contains(@class, "product-grid")]//div[contains(@class, "col-6")]
+# recordXPath: //span[@class="price"]/span[not(contains(@class,"strike-through"))]/../../../../../../..//parent::div[contains(@class, "col-6")]
 fields:
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class,"strike-through-present")] | //span[@class="price"]/span[not(contains(@class,"strike-through"))]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(text(),"Price reduced from")]//following-sibling::span[contains(@class,"price")]
   - name: brand
     singleValue: false
     description: The brand name
