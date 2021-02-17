@@ -18,6 +18,7 @@ module.exports = {
 
     await context.setBlockAds(false);
     await context.setFirstRequestTimeout(90000);
+    await context.setBypassCSP(true);
     await dependencies.goto({ ...inputs, url: builtUrl || url });
 
     if (loadedSelector) {

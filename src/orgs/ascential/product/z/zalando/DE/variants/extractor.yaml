@@ -4,6 +4,16 @@ parameters:
   country: DE
   store: zalando
   zipcode: ""
+# There was no proxy and policy here
+proxy:
+  zone: GBR
+  type: DATA_CENTER
+policy:
+  numberRetries: 5
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: LINEAR
+  retryWithResidentialProxyAfter: 3
 meta:
   branches:
     tdcm_zalando_DE_variants:
