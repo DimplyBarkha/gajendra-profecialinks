@@ -1,0 +1,90 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: '//div[@class="_27M-vq"]'
+fields:
+  - name: helpfulCount
+    singleValue: false
+    # type: NUMBER
+    description: Number of people who said the review was helpful
+    xpath: //div[@class="_1LmwT9"]//span[@class="_3c3Px5"]
+  - name: commentCount
+    singleValue: true
+    type: NUMBER
+    description: Number of comments on the review
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //div[@id="brandText"]
+  - name: name
+    singleValue: false
+    description: The product name
+    xpath: ancestor::html//a[contains(@class,"_2rpwqI")]/@title
+    # xpath: //a[contains(@class,"_2rpwqI")]/@title
+  - name: sku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //div[@class="variantId"]
+  - name: reviewDate
+    singleValue: false
+    type: DATETIME
+    description: Date the review was made
+    # xpath: //p[@class="_2sc7ZR"]
+    xpath: //div[@class="date_time"]
+
+  - name: reviewRating
+    # type: NUMBER
+    singleValue: false
+    description: Rating normalized to be out of 5
+    xpath: //div[contains(@class,"_3LWZlK ")] 
+  - name: reviewText
+    singleValue: false
+    description: The text of the review
+    # xpath: //div[@class="t-ZTKy"]/div/div
+    xpath: //div[@class="review_text"]
+  - name: reviewTitle
+    singleValue: false
+    description: The title of the review
+    xpath: //p[@class="_2-N8zT"]
+  - name: reviewerTags
+    singleValue: false
+    description: The tags a reviewer has
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: productUrl
+    singleValue: false
+    description: The url of the product details page
+    xpath: //div[@class="product_url"]
+  - name: verifiedPurchase
+    singleValue: false
+    # type: BOOLEAN
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+    xpath: //span[contains(text(),"Certified Buyer")]
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: ''
+    
+  - name: manufacturerResponse
+    singleValue: true
+    description: The response of the manufacturer (if any)
+  - name: syndicatedFrom
+    singleValue: true
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    singleValue: false
+    description: A direct link to the review
+    xpath: //div[@class="review_url"]
+  - name: reviewedSku
+    singleValue: true
+    description: The SKU of the item that was reviewed (may be different from the
+      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+      value, transform will handle the value.
+  - name: user
+    description: The user name of the reviewer
+    type: TEXT
+    xpath: //p[@class="_2sc7ZR _2V5EHH"]
+  - name: aggregateRating2
+    description: The product rating
+    xpath: ancestor::html//div[@class='_2d4LTz']
