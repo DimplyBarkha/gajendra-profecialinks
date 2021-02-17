@@ -65,7 +65,7 @@ module.exports = {
         addHiddenDiv('description', descriptionText);
       }
   
-      await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+      await new Promise((resolve, reject) => setTimeout(resolve, 5000));
       const button = document.getElementsByClassName('kds-Tabs-tab')[1];
   
       if (button && button.textContent === 'Nutrition Info') {

@@ -67,16 +67,16 @@ async function implementation (
 
   const changeZip = async (wantedZip) => {
     await context.click('button.CurrentModality-button');
-    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
 
     await context.setInputValue('input[data-testid="PostalCodeSearchBox-input"]', wantedZip);
-    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
 
     await context.click('button.kds-SolitarySearch-button');
-    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     // await findButtonWithShip();
     await findButtonWithStoreSelect();
-    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 8000));
     await findClosestStore();
     await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   };
@@ -104,7 +104,7 @@ async function implementation (
     }
   });
   
-  await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 5000));
 }
 
 module.exports = {
