@@ -28,8 +28,21 @@ const transform = (data, context) => {
           orgRankCounter += 1;
           row.rankOrganic = [{ text: orgRankCounter }];
         }
-        row.rank = [{ text: rankCounter }];  
+        row.rank = [{ text: rankCounter }];
       }
+      // if (row.name) {
+      //   let text = '';
+      //   row.name.forEach(item => {
+      //     text += `${item.text.replace(/\n \n/g,' ' )}`;
+      //     text += `${item.text.replace(' Хиноин, Вен' , ' ')}`;
+      //   });
+      //   row.name = [
+      //     {
+      //       text: text.slice(0, -4),
+      //     },
+      //   ];
+      // }
+      row.rank = [{ text: rankCounter }];
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
