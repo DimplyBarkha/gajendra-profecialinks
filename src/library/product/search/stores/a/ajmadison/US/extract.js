@@ -9,9 +9,17 @@ transform: transform,
 domain: 'ajmadison.com',
 zipcode: '',
 },
-implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
-await context.evaluate(async function () {
-// Java Script Code for adding new Div
+implementation,
+}
+async function implementation(
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
+  await context.evaluate(async function () {
 function addHiddenDiv(id, content, index) {
     const newDiv = document.createElement('div');
     newDiv.id = id;
@@ -51,6 +59,5 @@ try {
 } catch (error) {
 }
 });
-return await context.extract(productDetails);
-},
-};
+return await context.extract(productDetails, { transform });
+}
