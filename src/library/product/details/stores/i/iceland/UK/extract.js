@@ -42,7 +42,7 @@ module.exports = {
         addElementToDocument('avl', avl);
       }
       var abc = getAllXpath('//div[@class="product-header d-none d-md-block clearfix"]//div[@class="pdp-review-summary"]//div[@class="rating"]/div/child::*/@class', 'nodeValue');
-      if (abc != null) {
+      if (abc.length >= 1) {
         abc.pop();
         var cnt = 0;
         for (var j = 0; j < 5; j++) {
@@ -58,9 +58,24 @@ module.exports = {
         addElementToDocument('agg', cnt);
       }
 
+      //calaries
 
+      var calaries = getAllXpath('//td[contains(text(), "Energy")]/following::td[1]/text()', 'nodeValue');
+      if (calaries.length >= 1) {
+        if (calaries.length >= 2) {
+          var cal = calaries[0] + "/" + calaries[1];
+          addElementToDocument('cal', cal);
+        } else {
+          var cal1 = calaries[0];
+          addElementToDocument('cal', cal1);
+
+        }
+      }
       
+
+
+
     });
     await context.extract(productDetails);
-    },
-    };
+  },
+};
