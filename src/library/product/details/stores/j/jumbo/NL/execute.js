@@ -19,17 +19,6 @@ module.exports = {
     } else url = await dependencies.createUrl({ id });
     await dependencies.goto({ url, zipcode, storeId });
 
-    if (loadedSelector) {
-      await context.waitForFunction(
-        (selector, xpath) => {
-          return !!(document.querySelector(selector) || document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue);
-        },
-        { timeout: 10000 },
-        loadedSelector,
-        noResultsXPath,
-      );
-    }
-
     const isGeoButtonPresent = await context.evaluate(async () => {
       return document.querySelector('div[data-testautomation="navbar-store-finder"]') !== null;
     });
@@ -54,6 +43,17 @@ module.exports = {
       addHiddenDiv('retailerName', store);
       addHiddenDiv('drive', zipcode);
     }, store, zipcode);
+
+    if (loadedSelector) {
+      await context.waitForFunction(
+        (selector, xpath) => {
+          return !!(document.querySelector(selector) || document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue);
+        },
+        { timeout: 25000 },
+        loadedSelector,
+        noResultsXPath,
+      );
+    }
 
     return await context.evaluate((xpath) => !document.evaluate(xpath, document, null, XPathResult.BOOLEAN_TYPE, null).booleanValue, noResultsXPath);
   },
