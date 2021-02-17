@@ -10,7 +10,7 @@ const { productDetails } = dependencies;
 const applyScroll = async function (context) {
 await context.evaluate(async function () {
 let scrollTop = 0;
-while (scrollTop !== 1000) {
+while (scrollTop !== 3000) {
 scrollTop += 1000;
 window.scroll(0, scrollTop);
 await stall(1000);
@@ -27,7 +27,7 @@ resolve();
 await applyScroll(context);
 async function getProductsCount (context) {
 return context.evaluate(async function () {
-const products = document.evaluate('//div[@class="gXdoAx"]', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+const products = document.evaluate('//li[@class="product-tile-group__list__item"]', document.body, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
 return products.snapshotLength;
 });
 }

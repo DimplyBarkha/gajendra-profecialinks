@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    selector: div.product-image-list > div > div:nth-child(1) > div > div > div > div >div
+    xpath: //div[@id="a"]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -81,7 +81,6 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     xpath: (//span[@class="product-number__code"])
-    regExp: (\d+)
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
@@ -237,6 +236,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
+    xpath: count(//div[@id="a"])
   - name: news
     singleValue: true
     description: null
@@ -266,7 +266,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
-    xpath: //span[contains(text(),'Calories')]/following::span[2]]
+    xpath: //span[contains(text(),'Calories')]/following::span[2]
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
@@ -433,8 +433,8 @@ fields:
     description: List of additives in the product
   - name: pricePerUnit
     singleValue: true
-    defaultValue: $
     description: Price of the product split into certain units
+    xpath: (//span[@class="price__value selling-price-list__item__price selling-price-list__item__price--now-price__value"])[1]
   - name: pricePerUnitUom
     singleValue: true
     description: The unit of measurement used in price_per_unit

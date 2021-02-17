@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     domain: 'loblaws.ca',
     prefix: null,
-    url: null,
+    url: "https://www.loblaws.ca/p/{id}_EA",
     country: 'CA',
     store: 'loblaws',
     zipcode: '',
