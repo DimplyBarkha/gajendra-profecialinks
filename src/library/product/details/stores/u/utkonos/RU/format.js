@@ -91,6 +91,7 @@ const transform = (data) => {
               row.proteinPerServing.forEach(item => {
                 item.text = item.text.substr(item.text.indexOf(" бел"));
                 item.text = item.text.substr(0, item.text.indexOf(","));
+                item.text = item.text.replace(" белки - ", "");
                 item.text = item.text.replace(/[^\d-]/g, "");
               });
             }
