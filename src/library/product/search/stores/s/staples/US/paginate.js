@@ -9,10 +9,10 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: null,
     noResultsXPath: null,
-    // openSearchDefinition: null,
+    openSearchDefinition: null,
     // openSearchDefinition: {
     //   offset: 24,
-    //   template: 'https://www.staples.com/11%20x%2017%20copy%20paper/directory_{searchTerms}?pn={page}&offset={offset}',
+    //   template: 'https://www.staples.com/11%20x%2017%20copy%20paper/directory_{searchTerms}?pn={page}',
     // },
     domain: 'staples.com',
     zipcode: '',
