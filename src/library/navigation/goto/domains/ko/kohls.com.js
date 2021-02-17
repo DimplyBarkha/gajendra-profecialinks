@@ -8,4 +8,11 @@ module.exports = {
     store: 'kohls',
     zipcode: '',
   },
+  implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
+    await context.goto(url, {
+      timeout: 30000,
+      waitUntil: 'networkidle0',
+      checkBlocked: false,
+    });
+  },
 };
