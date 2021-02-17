@@ -40,11 +40,7 @@ module.exports = {
       }
     } else {
       console.log('Returning empty data');
-      try {
-        context.halt(true);
-      } catch (error) {
-        return;
-      }
+      return context.halt(true);
     }
 
     const jsonFromCatalogue = await context.evaluate(async function (inputs) {
