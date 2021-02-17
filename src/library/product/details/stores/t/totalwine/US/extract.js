@@ -1,4 +1,4 @@
-const { cleanUp } = require('../../../../shared');
+const { transform } = require('./format');
 
 async function implementation (
   inputs,
@@ -144,7 +144,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'totalwine',
-    transform: cleanUp,
+    transform,
     domain: 'totalwine.com',
     zipcode: '',
   },

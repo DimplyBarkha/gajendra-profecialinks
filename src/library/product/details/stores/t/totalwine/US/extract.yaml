@@ -39,7 +39,7 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-    xpath: //td[@class="shoppingOptions"]//td[@class="type"][text()="DELIVERY"]/preceding-sibling::td[@class="eligible"][text()="true"]
+    xpath: //td[@class="shoppingOptions"]//td[@class="type"][text()="INSTORE_PICKUP"]/preceding-sibling::td[@class="eligible"][text()="true"]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -124,8 +124,14 @@ fields:
   - name: name
     description: The product name
     xpath: td[@class="name"]
-  # - name: inStorePrice
-  #   description: Price in the selected store
+  - name: inStorePrice
+    description: Price in the selected store
+    xpath: //td[@class="price"]//td[@class="type"][text()="EDLP"]/ancestor::tr[1]/following-sibling::tr//td[text()="LTSP"]/preceding-sibling::td[@class="price"]|//td[@class="price"]//*[count(tbody//tr)=1]//td[@class="type"][text()="EDLP"]/preceding-sibling::td[@class="price"]|//td[@class="price"]//td[@class="type"][contains(text(),"MIX")]//ancestor::tr[1]//preceding-sibling::tr//td[@class="price"]
+  - name: notEligibleForShipping
+    xpath: //td[@class="shoppingOptions"]//td[@class="type"][text()="SHIPPING"]/following-sibling::td/following-sibling::td[contains(., "not eligible for shipping")]
+  - name: notEligibleForShippingButAvail
+    xpath: //td[@class="shoppingOptions"]//td[@class="type"][text()="INSTORE_PICKUP"]/following-sibling::td[contains(., "true")]
+
   # - name: asin
   #   description: null
   # - name: coupon
