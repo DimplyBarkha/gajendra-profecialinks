@@ -62,6 +62,12 @@ async function implementation(
 
   await context.waitForNavigation({ timeout: 2000, waitUntil: 'load' });
 
+  try {
+    await context.waitForSelector('div.review_topicon a span', { timeout: 10000 });
+  } catch (e) {
+    console.log('review count is not loaded');
+  }
+
   await context.evaluate(async function () {
     function addHiddenDiv(id, reviewData) {
       const newDiv = document.createElement('div');
@@ -77,6 +83,7 @@ async function implementation(
     if (document.querySelector('div.review_topicon a span')) {
       const reviewString = document.querySelector('div.review_topicon a span').textContent;
       const totalReviewsCount = Number(reviewString.replace(/,/g, ''));
+      console.log('totalReviewsCount ', totalReviewsCount);
       if (totalReviewsCount > 0 && page > 0) {
         // const itemStr = url.match(/(\d+).html/g)[0].replace('.html', '');
         const itemStr = url.match(/(?<=--)(.*)(?=.html)/g)[0];
