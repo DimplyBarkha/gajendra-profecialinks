@@ -191,10 +191,10 @@ async function implementation(
       document.querySelector('#option-wrapper-false #product-options-false div ul').appendChild(newLi);
       var array = [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')];
       var jsonString = JSON.parse(document.querySelector("script[type='application/ld+json']").innerText);
-      var skus = jsonString.offers.map(e => e.sku);
-      for (i = 0; i < array.length; i++) {
-        array[i].setAttribute('skuId', skus[i]);
-      }
+      // var skus = jsonString.offers.map(e => e.sku);
+      // for (i = 0; i < array.length; i++) {
+      //   array[i].setAttribute('skuId', skus[i]);
+      // }
 
       [...document.querySelectorAll('#option-wrapper-false #product-options-false > div:nth-last-child(1) ul li')].map((e) => {
         e.setAttribute('nameExtended', `${document.querySelector('h1[data-automation-id="product-title"]').textContent} ` + `- ${e.textContent}`);
