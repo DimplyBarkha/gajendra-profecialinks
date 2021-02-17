@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@id="layout_content"]//ul[contains(@class,'product-media-gallery__wrapper')]//li[1]//img/@src
+    xpath: //div[@id="layout_content"]//ul[contains(@class,'product-media-gallery__wrapper')]//li[1]//img/@src | //div[contains(@class,"grid-unit")]//img[contains(@class,"image-with-text-overlay__image")]/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -129,7 +129,9 @@ fields:
     singleValue: true
     description: The number of ratings
     type: NUMBER
-    xpath: //div[@id='addedReviewCount']
+    xpath: //div[@id='addedReviewCount'] | //div[contains(@class,"review-rating review-rating")]/span
+    regExp: (\d+)+\s?review
+    regExpReplace: $1
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
