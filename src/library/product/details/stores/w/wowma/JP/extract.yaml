@@ -1,0 +1,32 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    description: URL of the main product image
+    xpath: //li[@class="imgBox js-slidrBox js-itemImage"][@data-number="0"]/div[@class="imgWrapper"]/img/@src
+  - name: category
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //div[@class="navigationPartsTopContainer"]//ul/li/a
+  - name: brandText
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: //h1[contains(@class,"name")]
+  - name: sku
+    description: The store-specific product identifier
+    xpath: //p[@class="heading01"][contains(text(), 'ロットナンバー')]/following::p[1]
+  - name: color
+    description: A textual description of the colour
+    xpath: //div[@class='uniSkuSpec01']//table[@class="scrollTableList"]//th
+  - name: name
+    description: The product name
+    xpath: //h1[@class="name"]
+  - name: flavour
+  - name: pageTitle
+    xpath: //title
+  - name: reviewCount
+    xpath: //span[@class='reviewCount']/a/text()
+    regExp: (.*)件
+    regExpReplace: $1
+

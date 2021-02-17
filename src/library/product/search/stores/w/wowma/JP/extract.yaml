@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"searchListingItems")]//div[@class="productItem"]
+fields:
+  - name: manufacturer
+    singleValue: false
+  # - name: name
+  #   singleValue: false
+  #   xpath: //p[@class="productName"]
+  # - name: productUrl
+  #   singleValue: false
+  #   xpath: //a[@class="productMainColumn"]/@href
+  # - name: reviewCount
+  #   xpath: //a[@class="productMainColumn"]//span[@class="listingReviewAmount"]
+  #   regExp: ([^()]+)
+  #   regExpReplace: $1
+  # - name: sku
+  #   xpath: //a[@class="productMainColumn"]/@href
+  #   regExp: (\d)+
