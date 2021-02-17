@@ -31,16 +31,16 @@ const transform = (data, context) => {
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
-      if (row.aggregateRating) {
-        let counter = 0;
-        row.aggregateRating.forEach(item => {
-          if (item.text.trim().includes('is-filled')) {
-            counter = counter + 1;
-          } else if (item.text.trim().includes('is-half')) {
-            counter = counter + 0.5;
+      if (row.aggregateRating2) {
+        row.aggregateRating2.forEach(item => {
+          let tmp=item.text.replace('Average product rating out of 5:','').split('. Product score is based on');
+          if(tmp[0].indexOf('.')>-1){
+            item.text=tmp[0];
+          }else{
+            item.text=tmp[0]+'.0';
           }
         });
-        row.aggregateRating = [{ text: counter.toFixed(1), xpath: row.aggregateRating[0].xpath }];
+        //row.aggregateRating = [{ text: counter, xpath: row.aggregateRating[0].xpath }];
       }
       if (row.reviewCount) {
         row.reviewCount.forEach(item => {

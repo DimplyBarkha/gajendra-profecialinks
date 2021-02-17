@@ -20,9 +20,9 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //a[@class="shelfProductTile-imageWrapper"]/img/@src
-  - name: aggregateRating
+  - name: aggregateRating2
     singleValue: false
-    xpath: //div[@class="shelfProductTile-ratingBlock"]//div[@class='rating-stars']//div//@class
+    xpath: //div[@class="shelfProductTile-ratingBlock"]//div[@class='rating-stars']/following-sibling::span[@class="sr-only"]
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="shelfProductTile-ratingBlock"]//span[@class='rating-count']
