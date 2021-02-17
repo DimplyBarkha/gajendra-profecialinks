@@ -5,13 +5,15 @@ recordXPath: null
 fields:
   - name: image
     # xpath: //button[@class="sc-image-viewer-img-button"]//img/@src | //div[@class="sc-pc-image"]//img/@src
-    xpath: //button//div[@role="presentation"]//img/@src | //div[@class="sc-pc-image"]//img/@src
+    # xpath: //button//div[@role="presentation"]//img/@src | //div[@class="sc-pc-image"]//img/@src 
+    xpath: //link[@rel="preload" and contains(@href, "DT_PDP_Image")]/@href | //meta[@itemProp="image"]/@content | //button//div[@role="presentation"]//img/@src | //div[@class="sc-pc-image"]//img/@src 
   - name: imageAlt
     xpath: //div[@class="sc-pc-large-desktop-layout"]/meta[1]/@content | //div[@class="sc-pc-image"]//img/@alt
   - name: alternateImages
     xpath: //div[@class="slider-frame"]//ul[@class="slider-list"]/li[position()>1]//img/@src
     regExp: (.+)\$(.+)
-    regExpReplace: $1wid=600&hei=600&qlt=80&op_sharpen=1
+    regExpReplace: $1wid=76&hei=76&qlt=80&op_sharpen=1
+    #$1wid=600&hei=600&qlt=80&op_sharpen=1
   - name: metaKeywords
     xpath: /html/head/meta[@name="keywords"]/@content
   - name: url
@@ -19,7 +21,7 @@ fields:
   - name: category
     xpath: //div[@class="sc-pc-breadcrumbs"]/ol/li[position()>1] | //nav[contains(@class,"breadcrumbs")]/ol/li[position()>1]
   - name: nameExtended
-    xpath: //div[contains(@class,"sc-pc-large-desktop-oos-card-columns")]//div[contains(@class,"sc-pc-title-medium")]//h3 | //meta[@itemprop="name"]/@content | //div[contains(@class,"sc-pc-title-full-desktop")]//h1
+    xpath: /html/head/title | //div[contains(@class,"sc-pc-large-desktop-oos-card-columns")]//div[contains(@class,"sc-pc-title-medium")]//h3 | //meta[@itemprop="name"]/@content | //div[contains(@class,"sc-pc-title-full-desktop")]//h1
   - name: listPrice
     xpath: //span[@class="sc-channel-savings-list-price"]
   - name: price
@@ -27,12 +29,14 @@ fields:
     regExp: (\d+.\d+|\d+)
     regExpReplace: $1
   - name: availabilityText
-    xpath: //meta[@itemprop="availability"]/@content
+  #//meta[@itemprop="availability"]/@content |
+    xpath:  //div[@class="sc-pc-large-desktop-oos-card-out-of-stock-text"]
     regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
   - name: description
-    xpath: //div[@class="sc-pc-why-we-love-it"]|//div[@class="sc-pc-about-this-item"]//div[1]/text()|//div[@class="sc-pc-about-this-item"]//li|//div[@class="sc-full-description-long"]
+    #xpath: //div[@class="sc-pc-why-we-love-it"]|//div[@class="sc-pc-about-this-item"]//div[1]/text()|//div[@class="sc-pc-about-this-item"]//li|//div[@class="sc-full-description-long"]  
+    xpath: //div[@class="sc-pc-why-we-love-it"]|//div[@class="sc-pc-about-this-item"]//div[1]/text()|//div[@class="sc-pc-about-this-item"]//text()|//div[@class="sc-full-description-long"]
   - name: descriptionBullets
     xpath: count(//div[@class="sc-pc-about-this-item"]//li | //h4[contains(text(),'Specifications')]/following-sibling::div//li/text()[1])
     # xpath: count(//div[@class="sc-manufacturing-element-content"]//li)
@@ -55,7 +59,7 @@ fields:
     defaultValue: "0"
   - name: manufacturerDescription
     # xpath: //div[contains(@id, 'aplus')]//div[contains(@class,'text-wrap')] | //div[@class="enhancedContent"]
-    xpath: //div[@class="enhancedContent"]
+    xpath: //div[@id="wc-power-page"] | //div[@class="enhancedContent"]
   - name: manufacturerImages
     xpath: //div[contains(@class,"aplus-body")]//img/@src | //div[@class="enhancedContent"]//img/@src | //div[contains(@class, 'inpage_selector')]//img/@srcset
     regExp: (.*?)//(.*)
