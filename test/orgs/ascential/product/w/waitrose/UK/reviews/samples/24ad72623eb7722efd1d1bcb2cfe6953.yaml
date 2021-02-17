@@ -1,0 +1,270 @@
+input:
+  RPC: 34533
+  _url: http://waitrose.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5af3a741-d365-4132-ae1a-63c84511f66e/task=f24aab45-5b3b-4828-9a28-1d9814e1a928/bd796128-cd38-498a-9e24-bd5f1dc122f9.html
+    extractionConfigId: product/reviews/stores/w/waitrose/UK/extract
+    data:
+      - group:
+          - helpfulCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "2"
+                locale: en_GB
+                value: 2
+            name:
+              - text: Hellmann's Real Mayonnaise
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "034533"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-08-22T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-08-22
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: The only mayo for me as I am Belgian. This product is as close as possible
+                  to the real thing. Yummy
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Hellmans mayonnaise
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/hellmanns-real-mayonnaise/034533-17339-17340
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Bart11
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+            name:
+              - text: Hellmann's Real Mayonnaise
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "034533"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-07-15T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-07-15
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: Great for everything. In coleslaw, instead of butter on sandwiches, for
+                  chips. Very tasty. Need bigger jars.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: The best mayo
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/hellmanns-real-mayonnaise/034533-17339-17340
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: JuicyJam
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+            name:
+              - text: Hellmann's Real Mayonnaise
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "034533"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-03-07T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-03-07
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: We buy this every week. It goes with most things. .
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Perfect for everything
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/hellmanns-real-mayonnaise/034533-17339-17340
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Ciderpie
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+            name:
+              - text: Hellmann's Real Mayonnaise
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "034533"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2019-09-07T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2019-09-07
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: The recipe is perfect; its delicate flavour does not mask and additions
+                  the cook wishes to add and its consistency is not oily — a
+                  true emulsion!
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: The classic taste
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/hellmanns-real-mayonnaise/034533-17339-17340
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: RayJay
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "2"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "2"
+                locale: en_GB
+                value: 2
+            name:
+              - text: Hellmann's Real Mayonnaise
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "034533"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2019-04-14T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2019-04-14
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: Although I regularly buy this product, I decided to do a blind tasting
+                  with 3 other friends, using Hellman’s, another nationally
+                  marketed mayonaise and an own brand budget supermarket
+                  variety. Hellman’s won unanimously!
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Hellman’s real mayonnaise
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/hellmanns-real-mayonnaise/034533-17339-17340
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Canalboater
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "4"
+                locale: en_GB
+                value: 4
+            name:
+              - text: Hellmann's Real Mayonnaise
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "034533"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2017-04-04T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2017-04-04
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: This may sound weird, but whisk a dessert spoonful of Hellmann's into a
+                  bowl of chicken soup - and taste the difference. Delicious!
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: The Best of The Rest
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/hellmanns-real-mayonnaise/034533-17339-17340
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Our Flat
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+        xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]
+    timestamp: 1613552995652

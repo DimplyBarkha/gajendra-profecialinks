@@ -1,0 +1,179 @@
+input:
+  RPC: 10006
+  _url: http://waitrose.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5af3a741-d365-4132-ae1a-63c84511f66e/task=51a6695c-37d9-4e1d-a81d-3065a98d87b9/5c993f0d-db63-4515-9687-76c5ecdb0335.html
+    extractionConfigId: product/reviews/stores/w/waitrose/UK/extract
+    data:
+      - group:
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Cooks' Ingredients ground coriander
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "010006"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-02-15T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-02-15
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: Useful to have in the cupboard always good quality
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Useful
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/cooks-ingredients-ground-coriander/010006-4994-4995
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Sj7165
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Cooks' Ingredients ground coriander
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "010006"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2019-07-20T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2019-07-20
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: This is dried but still with flavour. Perfect for topping up an existing
+                  container.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Coriander refill pack
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/cooks-ingredients-ground-coriander/010006-4994-4995
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Lindsey47
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+            name:
+              - text: Cooks' Ingredients ground coriander
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "010006"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2016-11-26T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2016-11-26
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: All your herbs are excellent especially for my family Spag Bog!
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Herbs coriander
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/cooks-ingredients-ground-coriander/010006-4994-4995
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Wiz Bean
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+            name:
+              - text: Cooks' Ingredients ground coriander
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "010006"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2015-12-14T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2015-12-14
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 4 out of 5 stars.
+                locale: en_GB
+                value: 4
+            reviewText:
+              - text: Always buy Waitress organic cooks ingredients/spices
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Organic Ground Coriander
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/cooks-ingredients-ground-coriander/010006-4994-4995
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Lindy33
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+        xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]
+    timestamp: 1613553003365

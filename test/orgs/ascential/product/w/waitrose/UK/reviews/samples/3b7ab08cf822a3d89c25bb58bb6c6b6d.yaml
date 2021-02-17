@@ -1,0 +1,817 @@
+input:
+  RPC: 86671
+  _url: http://waitrose.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5af3a741-d365-4132-ae1a-63c84511f66e/task=6048ed21-92e3-43ee-af35-1485963185c4/efc64417-ed78-4c5c-85e9-79cda74d00ae.html
+    extractionConfigId: product/reviews/stores/w/waitrose/UK/extract
+    data:
+      - group:
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-11-07T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-11-07
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: I have two very fussy cats, and, after buying and throwing away no end of
+                  opened tins etc because they would not eat it, I finally found
+                  these sachets and this is the only cat food they will eat
+                  every scrap of. They are a bit more expensive than some of the
+                  others on the market, but, the fact that they eat it, and, as
+                  its in sachets you haven't got open tins cluttering up the
+                  fridge, they are well worth the money.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Fussy cats
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Nannykiki
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-01-07T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-01-07
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: My 2 cats really enjoyed this. It’s good quality and was eaten very
+                  quickly. It’s a shame the sachets are not standard 100g size
+                  as it definitely wouldn’t get wasted!
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Gourmet Perle
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Mrsf2015
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-01-07T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-01-07
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: My cats love this cat food great tasting can’t get enough off it
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Great value
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Walker4078
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-01-02T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-01-02
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: All the cats enjoyed these, you can see the whole shrimps! Plenty of gravy
+                  too, usually their favourite bit. All bowls cleared.
+                  Definitely will buy again.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Great for fishy loving felines
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Kitty76
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2019-12-27T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2019-12-27
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: My kitty absolutely loves this wet cat food. I give her one pouch a day
+                  with some dry food. It smells not bad. She likes to graze and
+                  it doesn't dry out like some other brands. It's a little more
+                  expensive than I would normally spend but it's a treat for my
+                  baby.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Good quality kitty food
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Emzinv
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2019-12-27T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2019-12-27
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 4 out of 5 stars.
+                locale: en_GB
+                value: 4
+            reviewText:
+              - text: My cat tried these pouches for the first time and loves them. However, the
+                  portion size per pouch seems to be less than the brand I
+                  usually buy from and they are more expensive. The contents are
+                  quite sloppy so it's difficult to empty the packs. The quality
+                  looks good and there is a reasonable quantity of fish in the
+                  gravy.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Great Quality but Small Portions
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: KatieDoes
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2019-12-22T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2019-12-22
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 4 out of 5 stars.
+                locale: en_GB
+                value: 4
+            reviewText:
+              - text: Trying this for the first time. Cats love it but are left wanting more.
+                  Just wish the portions were bigger. Works out a bit expensive
+                  given the smaller portion size.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Love it but bigger portions needed
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: c384
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2019-12-20T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2019-12-20
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: Cat absolutely loves this food. Her meowing (screaming) starts at 5am
+                  every morning and will not stop till I give her this food.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Cat is only happy when eating this food
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Jayd2091
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+        xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]
+    timestamp: 1613553008782
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5af3a741-d365-4132-ae1a-63c84511f66e/task=6048ed21-92e3-43ee-af35-1485963185c4/78f1351e-df9a-48e7-87e2-f7edac246348.html
+    extractionConfigId: product/reviews/stores/w/waitrose/UK/extract
+    data:
+      - group:
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2019-12-20T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2019-12-20
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: My cat loves this food. It is soft and easy to digest and she loves that
+                  it is in gravy. Having a mixture of fish flavours means she
+                  never gets bored.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Delicious amd moreish
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Suwe
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2019-12-20T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2019-12-20
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: WOW. My cat just could not eat this fast enough, he loved it, so
+                  delicious. Once I had opened the packet he got a waft of the
+                  smell and he was hooked!!!
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: So delicious
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Cazza14
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2019-12-19T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2019-12-19
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: Our cat gulps it. She isn't usually a fan of fish - e.g. in dry food - but
+                  loves the gravy and the "meaty" bits, too, it's a reliable
+                  favourite.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: one of the best fish pouches on the market
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: RenK
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2019-12-19T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2019-12-19
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: We bought this for our cats to try. Must say that they were impressed. Not
+                  easy to please.....will definitely get this again as they
+                  cleared the dishes. They are pretty selective normally!
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Appetizing and Appealing
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: AndrewD
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2019-12-17T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2019-12-17
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: Our cat Minx can't wait to eat his Gourmet Perle ocean selection, it's his
+                  favourite flavour and favourite cat food. As soon as its
+                  served its eaten! Definitely a 5 star review from Minx
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Goody Gourmet
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Traceysgirl
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2019-12-17T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2019-12-17
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 4 out of 5 stars.
+                locale: en_GB
+                value: 4
+            reviewText:
+              - text: Given a box to review. All three cats loved it. Juicy, small pieces. Not a
+                  bit left in the bowl after feeding. Only 85g in the packet so
+                  doesn't go very far but there was none left to throw away.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Almost too good for the cats
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Anne9658
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2018-12-20T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2018-12-20
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: This is Ron.s favourite we have tried numerous other cat foods but always
+                  have to go back to this as he just wont eat any other wet food
+                  and only this one with shrimp in it. We just hope that they
+                  never change it.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Ronnie my cat loves these
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: GINGERJAY1
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2017-06-30T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2017-06-30
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: God help us if we ever arrive home with something other than Gourmet Perle
+                  (specifically Ocean Delicacies). We've tried virtually every
+                  other brand all to no avail. She loves it so its all we have
+                  bought for the last 7 years!!
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Only eats this product
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Spursy
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "3"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "3"
+                locale: en_GB
+                value: 3
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2014-09-09T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2014-09-09
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 4 out of 5 stars.
+                locale: en_GB
+                value: 4
+            reviewText:
+              - text: Of all the cat foods we have tried this is a firm favourite for our two
+                  cats with the combination of gravy and fish. For us the
+                  pouches mean no mess and easy serving
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Loved by our cats
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: The Phillips
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "3"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[10]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "3"
+                locale: en_GB
+                value: 3
+            name:
+              - text: Gourmet Perle Ocean Delicacies
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[10]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "086671"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[10]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2014-09-09T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[10]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2014-09-09
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[10]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: Our cats, in keeping with so many others, are very fussy eaters. They have
+                  over the years switched regularly from brand to brand,
+                  however, they have been well and truly stuck on Gourmet Perle
+                  for over a year now, and NEVER leave anything.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[10]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Perfect for my fussy felines!
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[10]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/gourmet-perle-ocean-delicacies/086671-44300-44300
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[10]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: neece242
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[10]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.8"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[10]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+        xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]
+    timestamp: 1613553008782

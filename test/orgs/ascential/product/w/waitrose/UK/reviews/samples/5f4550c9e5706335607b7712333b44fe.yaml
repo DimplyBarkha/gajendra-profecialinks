@@ -1,0 +1,748 @@
+input:
+  RPC: 464022
+  _url: http://waitrose.com
+extractions:
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5af3a741-d365-4132-ae1a-63c84511f66e/task=35e9c479-b376-453a-82d9-0ea555fbecdd/aa91bea5-ceb1-4efa-85bc-de8fc6426a87.html
+    extractionConfigId: product/reviews/stores/w/waitrose/UK/extract
+    data:
+      - group:
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2021-02-15T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2021-02-15
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: An afternoon delight accompanied by a tea or coffee, or anytime, a
+                  recommended purchase
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Perfect with a coffee or tea
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Olivernorth
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2021-02-06T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2021-02-06
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: We usually purchase our Jam Swiss Roll from M&S. But this is by far
+                  head-n-shoulders better in our opinion. Please, Please - do
+                  not change the recipe.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: The most Delicious by far.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: MTandOJT
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2021-02-06T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2021-02-06
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: Have bought this several times. The family like it. Its not over the top
+                  with butter cream. The balance is just right with the sponge
+                  and jam.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Yummy
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Alice70
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2021-02-06T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2021-02-06
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: We buy this Swiss roll every week for a treat in the afternoon, it is a
+                  beautiful sponge with lovely strawberry and cream flavour,
+                  highly recommended.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Yummy Swiss roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Jenny271
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-11-07T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-11-07
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: We buy these Swiss Rolls regularly as they always taste fresh and tasty
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Delicious Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: sfreview
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-10-24T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-10-24
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 4 out of 5 stars.
+                locale: en_GB
+                value: 4
+            reviewText:
+              - text: A decent Swiss roll at a good price not the best I've had but nice
+                  packaging.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Tasty
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Anonymous
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/h2[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-10-03T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-10-03
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: This Swiss roll is perfect for my husband's lunch box. Not to sweet just
+                  right.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Raspberry Swiss roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Bluebell123
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-09-19T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-09-19
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: I buy this box roll all the time always taste the same
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Delicious
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Andrew9
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+        xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]
+    timestamp: 1613553005358
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=5af3a741-d365-4132-ae1a-63c84511f66e/task=35e9c479-b376-453a-82d9-0ea555fbecdd/eedd4fde-c5c6-4277-842e-266a05a4cb01.html
+    extractionConfigId: product/reviews/stores/w/waitrose/UK/extract
+    data:
+      - group:
+          - helpfulCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-09-05T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-09-05
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: Raspberry Swiss roll highly recommend and good value
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Raspberry Swiss roll delicious
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Barb 32
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-09-05T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-09-05
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: this is one of the tastiest Swiss rolls i have had in a long time and the
+                  Lemon roll is just as delicious
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Raspberry swiss roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Glen14
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-09-05T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-09-05
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: Just the job when you need a sweet treat in the afternoon
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Delicious treat with a cuppa
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Gail129
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "4"
+                locale: en_GB
+                value: 4
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-04-21T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-04-21
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 4 out of 5 stars.
+                locale: en_GB
+                value: 4
+            reviewText:
+              - text: This the best shop bought roll I have had. It has a moist soft spong and
+                  unlike all others I have tried the butter cream is not too
+                  sweet and the jam is quality with a nice taste, lets hope
+                  Waitrose do not mess with it.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: good
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: unitaste
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[4]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-03-14T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-03-14
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: I use this raspberry sponge roll as a dessert with fresh raspberries and
+                  topped with either yoghurt or fresh cream.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Delicious
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: ChrisHH
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[5]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-02-29T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-02-29
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: Loved this Swiss roll, very moist and moreish, will buy again.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Very moreish
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Ann P64
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[6]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "0"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "0"
+                locale: en_GB
+                value: 0
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-01-18T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-01-18
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 5 out of 5 stars.
+                locale: en_GB
+                value: 5
+            reviewText:
+              - text: Never purchased this before. It’s soft & creamy, lovely with tea
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Delicious
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Peterb16
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[7]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "1"
+                locale: en_GB
+                value: 1
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2020-01-14T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2020-01-14
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 4 out of 5 stars.
+                locale: en_GB
+                value: 4
+            reviewText:
+              - text: We love this new swiss roll. So much flavour and the sponge is so light.
+                  An excellent treat.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Excellent flavour & light
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Rush76
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[8]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+          - helpfulCount:
+              - text: "4"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[2]/div[1]/dl[1]/dd[1]/button[1]/span[1]/span[1]
+                type: NUMBER
+                raw: "4"
+                locale: en_GB
+                value: 4
+            name:
+              - text: Waitrose Raspberry Swiss Roll
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedname
+            sku:
+              - text: "464022"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            reviewDate:
+              - text: 2019-12-15T00:00:00.000+00:00
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/meta[1]/@content
+                type: DATETIME
+                raw: 2019-12-15
+                locale: en_GB
+                tz: Europe/London
+            reviewRating:
+              - text: "1"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/span[1]/span[1]/abbr[1]/@title
+                type: NUMBER
+                raw: 1 out of 5 stars.
+                locale: en_GB
+                value: 1
+            reviewText:
+              - text: Really disappointed... we couldn’t eat it as it was far too sweet. I
+                  hadn’t checked the amount of sugar before buying but at 15g
+                  for an eighth of the roll (very small slice) this is
+                  ridiculously high. We had to throw it away.
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/p[1]
+            reviewTitle:
+              - text: Far too sweet
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/h4[1]
+            productUrl:
+              - text: https://www.waitrose.com/ecom/products/waitrose-raspberry-swiss-roll/464022-707768-707769
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@producturl
+            user:
+              - text: Jess2001
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[1]/div[1]/div[1]/div[1]/div[1]/button[1]/h3[1]
+            aggregateRating:
+              - text: "4.5"
+                xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]/li[9]/div[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/@addedaggregaterating
+        xpath: /html/body/div[1]/div[1]/div[1]/main[1]/div[1]/article[1]/section[2]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/ol[1]
+    timestamp: 1613553005358
