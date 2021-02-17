@@ -14,7 +14,7 @@ fields:
     xpath: ancestor::html//div[contains(@class,"selected")]//div[contains(@class,"gallery-control__thumb")]/img/@data-src
   - name: imageAlt
     description: Alt text of the main product image
-    xpath: ancestor::html//div[contains(@class,"grid-image-gallery__box")]//img/@alt
+    xpath: ancestor::html//h1/@image-alt
   - name: alternateImages
     description: Other product images (not in manufacturer description)
     xpath: ancestor::html//div[contains(@class,"product-carousel__slide")][position()>1]//img/@data-src
@@ -106,3 +106,5 @@ fields:
     xpath: (//div[@class="double-container__box"][1]//button[contains(text(),'Ratings & Reviews')]/following-sibling::div[1]//span[@class="reviews-summary__item"][contains(text(),'Rating')])[1]
     regExp: Rating:\s(.+)/(.+)
     regExpReplace: $1
+  - name: brandText
+    xpath: ancestor::html//h1/@brand
