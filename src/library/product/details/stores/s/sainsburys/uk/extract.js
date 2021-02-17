@@ -9,9 +9,9 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {
-    // await context.waitForSelector('h2[class="pt__info__description"] a', 30000);
-    // await context.click('h2[class="pt__info__description"] a');
-    // await new Promise((resolve) => setTimeout(resolve, 5000));
+    await context.waitForSelector('h2[class="pt__info__description"] a', 30000);
+    await context.click('h2[class="pt__info__description"] a');
+    await new Promise((resolve) => setTimeout(resolve, 5000));
     await context.evaluate(() => {
       function addHiddenDiv(key, value) {
 
@@ -87,6 +87,15 @@ module.exports = {
           addHiddenDiv('res', res);
         }
         else{}
+
+      var servingsize = getAllXpath('//table[@class="nutritionTable"]/thead/tr/th/text()', 'nodeValue');
+      for(let i=0;i<servingsize.length;i++){
+        if(servingsize[i].length>1){
+          addHiddenDiv('servingsize', servingsize[i]);
+          break;
+        }
+
+      }  
 
     });
     await context.extract(productDetails);
