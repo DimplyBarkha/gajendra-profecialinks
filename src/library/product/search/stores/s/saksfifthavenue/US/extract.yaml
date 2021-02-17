@@ -1,7 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, "product-grid")]//div[contains(@class, "col-6")]
+recordXPath: //span[@class="price"]/span[not(contains(@class,"strike-through"))]/../../../../../../..//parent::div[contains(@class, "col-6")]
+# recordXPath: //div[contains(@class, "product-grid")]//div[contains(@class, "col-6")]
 fields:
   - name: brand
     singleValue: false
