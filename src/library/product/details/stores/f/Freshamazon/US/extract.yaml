@@ -1,0 +1,21 @@
+extends: ../../../../sharedAmazon/shared
+
+fields:
+  - name: availabilityTextFresh
+    xpath: //*[@id="almAvailability_feature_div"]/div[contains(@id,"availability-string")] | //div[@data-feature-name="almBuyBox"]//span[contains(.,"Currently Unavailable")] | //*[@id="almOutOfStockAvailability_feature_div"]//span/text()
+  - name: domain
+    defaultValue: 'AmazonFresh'
+  - name: availabilityTextFreshUnavailable
+    xpath: //div[@id="outOfStock"]
+    regExp: (.+)
+    regExpReplace: Out of Stock
+  - name: shippingInfo
+    xpath: //*[@data-feature-name="freshShipsFromSoldBy"]
+  - name: videos
+    singleValue: false    
+    xpath: //*[@data-element-id="video-content-panel"]//script/text()
+    regExp: (\"videoUrl\"\:\")([^"]+)(",")
+    regExpReplace: $2
+  # - name: ingredientsList
+  #   singleValue: false
+  #   xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]//p/text()[normalize-space(.)] | //td[contains(.,"Ingredients")]/following-sibling::td//span[@class="a-truncate-full a-offscreen"]/text()[normalize-space(.)]    
