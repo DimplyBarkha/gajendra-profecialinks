@@ -45,12 +45,13 @@ module.exports = {
       };
 
       const jsonStr = getXpath("//script[@type='application/ld+json'][1]/text()",'nodeValue');
-      console.log("jsonStr: ", (JSON.parse(jsonStr)).offers);
-      if(jsonStr > 0){
-        const jsonObj = JSON.parse(jsonStr);
-        if(jsonObj.offers.availability != null || jsonObj.offers.availability != 'undefined'){
+      //console.log("jsonStr: ", JSON.parse(jsonStr));
+      //const jsonObject = JSON.parse(jsonStr);
+      if(jsonStr){
+        try{
+          const jsonObj = JSON.parse(jsonStr);
           var availabilityText = jsonObj.offers.availability; 
-        console.log("availability: ",availabilityText.split('/')[3]);
+           //console.log("availability: ",availabilityText.split('/')[3]);
         if((availabilityText.split('/')[3]) === "InStock"){
           var text = "In Stock";
         }
@@ -59,15 +60,20 @@ module.exports = {
         }
         //console.log("Text:  ", text);
         addElementToDocument('added_availability_text',text);
-      }
+        }catch(error){
+      console.log("error while parse");     
+        }
+       
+       
+      
       }
 
       const quantityxpath = getXpath("//div[@class='c-singleProduct__details']//ul[@class='c-singleProduct__options']/li[2]", 'innerText');
-      console.log("quantityxpath : ", quantityxpath);
+      //console.log("quantityxpath : ", quantityxpath);
       if (quantityxpath != null) {
         const mpc = quantityxpath ? quantityxpath.split(':') : [];
         addElementToDocument('quantity', mpc[1]);
-        console.log(mpc[1]);
+        //console.log(mpc[1]);
       }
 
       const addDescxpath = getXpath(" //div[@class='c-product-description__accordioncontent']//div[not (@class='autheos-videothumbnail')]", 'innerText');
@@ -81,15 +87,15 @@ module.exports = {
      
 
       const gtinxpath = getXpath("//div[@class='c-singleProduct__details']//ul[@class='c-singleProduct__options']/li[3]", 'innerText');
-      console.log("gtinxpath : ", gtinxpath);
+      //console.log("gtinxpath : ", gtinxpath);
       if (gtinxpath != null) {
         const gtin = gtinxpath ? gtinxpath.split(':') : [];
         addElementToDocument('gtin_added', gtin[1]);
-        console.log(gtin[1]);
+        //console.log(gtin[1]);
       }
 
       const add_desc = getXpath('//*[@id="j-product-full__content"]/div[1]/div[4]/div[1]/div/p[2]', 'innerText');
-      console.log("additional Description is: ", add_desc);
+      //console.log("additional Description is: ", add_desc);
       let length;
       if (add_desc == null || add_desc == " ") {
         length = 0;
