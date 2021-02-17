@@ -5,7 +5,7 @@ module.exports = {
     country: 'ES',
     store: 'druni',
     domain: 'druni.es',
-    url: 'https://www.druni.es/#/dfclassic/query={searchTerms}',
+    url: 'https://www.druni.es/#/dfclassic/query={searchTerms}&query_name=match_or',
     // loadedSelector: null,
     // noResultsXPath: null,
     loadedSelector: 'figure img',
