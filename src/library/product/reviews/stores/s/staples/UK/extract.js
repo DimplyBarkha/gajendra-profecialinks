@@ -13,15 +13,31 @@ module.exports = {
   implementation: async (inputs, { transform }, context, { productReviews }) => {
     try {
       console.log('Closing cookies popup.');
-      await context.click('button[class="accept-all-cookies"]');
+      context.evaluate(() => {
+        document.querySelector('input[class="accept-all-cookies"]').click();
+      });
+      await context.click('input[class="accept-all-cookies"]');
     } catch (err) {
       console.log('Cookies popup not present.');
     }
     try {
+      console.log('Closing modal nr 1.');
+      context.evaluate(() => {
+        document.querySelector('div.wpcss-close-popup').click();
+      });
+      await context.click('div.wpcss-close-popup');
+    } catch (err) {
+      console.log('Modal nr 1 not present.');
+    }
+    try {
+      console.log('Closing modal nr 2.');
       await context.waitForSelector('div[id="VATSelectionTakeOver"]', { timeout: 20000 });
+      context.evaluate(() => {
+        document.querySelector('input[class="button js-vatOption VATbtn"]').click();
+      });
       await context.click('input[class="button js-vatOption VATbtn"]');
     } catch (err) {
-      console.log('Modal not present.');
+      console.log('Modal nr 2 not present.');
     }
     await context.evaluate(async () => {
       /**
