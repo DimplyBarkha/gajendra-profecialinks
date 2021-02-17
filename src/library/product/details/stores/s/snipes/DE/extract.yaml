@@ -5,7 +5,8 @@ recordXPath: //div[@class="variants"]
 fields:
   - name: variantId
     singleValue: false
-    xpath: ancestor::html//div[@class='s-pdp l-container js-product-details']/@data-pid
+    # xpath: ancestor::html//div[@class='s-pdp l-container js-product-details']/@data-pid
+    xpath: //html//div[@id='variantId']
   - name: image
     singleValue: false
     xpath: ancestor::html//div[@id='slick-slide10']/div/div/picture/img/@src

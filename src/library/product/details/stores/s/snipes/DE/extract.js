@@ -17,6 +17,20 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async function () {
+      try {
+        // @ts-ignore
+        document.querySelector('button[class="js-close-btn a-modal-close-button close"]>span[class="i-close-thin"]').click();
+        // eslint-disable-next-line promise/param-names
+        await new Promise(r => setTimeout(r, 6000));
+      } catch (error) {
+      }
+      try {
+        // @ts-ignore
+        document.querySelector('span[class="i-close-circle"]').click();
+        // eslint-disable-next-line promise/param-names
+        await new Promise(r => setTimeout(r, 6000));
+      } catch (error) {
+      }
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -106,12 +120,21 @@ module.exports = {
       // quantity
       var qq = getAllXpath('//div[@class="b-swatch-value-wrapper"]/a/span/span/text()', 'nodeValue');
       var color1 = getXpath("(//td[@class='b-fact-value js-fact-value']/text())[3]", 'nodeValue');
+      var id = getXpath("//div[@class='s-pdp l-container js-product-details']/@data-pid", 'nodeValue');
       if (qq != null) {
         for (var i = 0; i < qq.length; i++) {
           var colorVar = color1 + ' - ' + qq[i];
+          var vid = '';
+          if (i < 10) {
+            vid = id + '0000000' + [i];
+          } else {
+            vid = id + '000000' + [i];
+          }
+
           addEmptyDiv();
           addHiddenDiv('qty', qq[i], i);
           addHiddenDiv('colorVar', colorVar, i);
+          addHiddenDiv('variantId', vid, i);
           // console.log('amol'+qq[i]);
         }
       }
