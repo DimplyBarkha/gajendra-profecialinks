@@ -60,7 +60,8 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="rsection product-description-container"]//p
+    # xpath: //div[@class="rsection product-description-container"]//p
+    xpath: (//p[@class='activeContent content'])[1]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
