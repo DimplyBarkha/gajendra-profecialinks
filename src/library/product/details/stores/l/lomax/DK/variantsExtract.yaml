@@ -1,0 +1,21 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="dropdown w-100 variant-dropdown"]//div//a
+fields:
+  - name: variantId
+    xpath: //@href
+    regExp: (.+-)(\d+)
+    regExpReplace: $2
+  - name: variantUrl
+    xpath: //@href
+    regExp: (.+)
+    regExpReplace: https://www.lomax.dk/$1
+    # singleValue: true
+    description: variant Url
+  # - name: variantId
+    # xpath: //@href
+    # regExp: (.+-)(\d+)
+    # regExpReplace: $2
+    # singleValue: true
+    # description: variant id, to uniquely identify variant  
