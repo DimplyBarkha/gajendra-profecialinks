@@ -28,12 +28,6 @@ const getXpath = (xpath, prop) => {
     else result = elem ? elem.singleNodeValue : '';
     return result && result.trim ? result.trim() : result;
   };
-  var length1=document.querySelectorAll('div[class="block mr2 bold f13 font-size-md"]').length;
-  for(let i=0;i<length1;i++)
-  {
-      var rank=i+1
-      addHiddenDiv('rank',rank,i);
-      }
     var length=document.querySelectorAll('div[class="col col-9 lg-col-7 px-2"] script').length
 for (let i=0;i<length;i++)
 {
