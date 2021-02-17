@@ -28,8 +28,8 @@ const transform = (data, context) => {
           orgRankCounter = orgRankCounter + 1;
           row.rankOrganic = [{ text: orgRankCounter }];
         }  
+        row.rank = [{ text: rankCounter }];
       }
-      row.rank = [{ text: rankCounter }];
       context.setState({ rankCounter });
       context.setState({ orgRankCounter });
       Object.keys(row).forEach(header => row[header].forEach(el => {
