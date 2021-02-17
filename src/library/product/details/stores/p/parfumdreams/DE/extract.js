@@ -150,7 +150,7 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
       const allVariants = getAllXpath("//form[@id='formVariatonPost']/div[@id='schema-offer']|//form[@action='/Shared/VariationPost']/div[contains(@class,'variation')]", 'nodeValue');
-      let arrAvailability = [], varprice = [], varpricePerUnit = [], varpriceUOM = [], varvariants = [], varlpr = [], varbrand = [], varnameex = [], varcolor = [], varvariantsids = [];
+      let arrAvailability = [], varprice = [], varpricePerUnit = [], varpriceUOM = [], varvariants = [], varlpr = [], varbrand = [], varnameex = [], varcolor = [], varvariantsids = [], varsku = [];
 
       //AVAILABILITY
       try {
@@ -324,6 +324,25 @@ module.exports = {
       }
       catch (error) { }
 
+      //SKU
+      try {
+        var sku = getAllXpath('//div[@id="schema-offer"]/@data-runningnumber|//*[@id="articleId"]/@value', 'nodeValue');
+        for(var i = 0; i < sku.length; i++){
+          if(sku[i].includes('.')){
+            var varnw= sku[i].split('.')[1]
+            varsku.push(varnw)
+          }
+          else {
+            var varnw= sku[i];
+            varsku.push(varnw);
+          }
+        }
+        
+
+        addElementToDocument('gtin', gtin);
+      }
+      catch (error) { }
+
       //IMAGECOUNT
       try {
         var imgcount = getAllXpath('//div[@class="carousel more-pictures"]/div[@class="swiper-wrapper"]/div[position()>1]/div/img/@src|//div[@class="slick-track"]/div[position()>1]/div/@data-image-m', 'nodeValue');
@@ -354,6 +373,7 @@ module.exports = {
         appendData('desc', varnameex[j], j);
         appendData('color', varcolor[j], j);
         appendData('varids', varvariantsids[j], j);
+        appendData('varsku', varsku[j], j);
 
       }
 

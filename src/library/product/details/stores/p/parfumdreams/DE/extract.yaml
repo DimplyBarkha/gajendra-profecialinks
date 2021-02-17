@@ -34,9 +34,11 @@ fields:
     xpath: (ancestor::html//span[@itemprop='name'])[2]
   - name: sku
     singleValue: false
-    xpath: //div[@id='schema-offer']/@data-runningnumber|//*[@id="articleId"]/@value
-    regExp: (\d*)
-    regExpReplace: $1
+    xpath: //html//div[@id='varsku']
+    # xpath: //div[@id='schema-offer']/@data-runningnumber
+    #|//*[@id="articleId"]/@value
+    # regExp: (\d*)
+    # regExpReplace: $1
   - name: aggregateRating
     singleValue: true
     xpath: ancestor::html//div[@id="aggr"]
