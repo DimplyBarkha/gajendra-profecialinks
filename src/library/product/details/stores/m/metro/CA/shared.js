@@ -20,6 +20,7 @@ const transform = (data) => {
         }
         if (gr.listPrice) gr.listPrice[0].text = gr.listPrice[0].text.replace('$', '').trim().replace(',', '.');
         if (gr.sku) gr['_input'] = [{ text: gr.sku[0].text }];
+        if (gr.description) gr.description[0].text = cleanText(gr.description[0].text);
         if (gr.price) {
           try {
             const obj = gr.price.find(e => e.text.includes('ou'));
@@ -28,8 +29,8 @@ const transform = (data) => {
             const price = obj.text.slice(start + 2, end).trim();
             gr.price = [{ text: price.replace(',', '.') }];
           } catch (e) {
-            const end = gr.price[0].text.indexOf(' ');
-            gr.price = [{ text: gr.price[0].text.slice(0, end).replace(',', '.') }];
+            const end = gr.price[0].text.indexOf('$');
+            gr.price = [{ text: end >= 0 ? gr.price[0].text.slice(0, end).replace(',', '.') : gr.price[0].text }];
           }
         }
         if (gr.nameExtended) {
