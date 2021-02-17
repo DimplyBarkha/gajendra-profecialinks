@@ -76,8 +76,8 @@ async function implementation(
 
     // aggregate rating 
     var aggregate = getXpath("//div[@class='global-rating__rating']/text()", 'nodeValue');
-    if( aggregate != null){
-      if(aggregate.includes("/")){
+    if (aggregate != null) {
+      if (aggregate.includes("/")) {
         aggregate = aggregate.split("/")[0];
         // aggregate = aggregate.replace(",",".");
         addElementToDocument('aggregate', aggregate);
@@ -95,10 +95,10 @@ async function implementation(
     var lp1 = getXpath('//div[@class="markdownPrice priceformat"]/text()', 'nodeValue');
     var lp2 = getXpath('//div[@class="markdownPrice priceformat"]/sup/text()', 'nodeValue');
     var listPrice = "";
-    if(lp1 != null){
-      if(lp2 != null){
-        lp2 = lp2.replace('€',',');
-        listPrice = lp1+lp2+"€";
+    if (lp1 != null) {
+      if (lp2 != null) {
+        lp2 = lp2.replace('€', ',');
+        listPrice = lp1 + lp2 + "€";
         addHiddenDiv('listPrice', listPrice);
       }
     }
@@ -115,29 +115,50 @@ async function implementation(
       availabilityText = 'In Stock'
     }
     if (availabilityText == 'outOfStock') {
-      availabilityText = 'Out Of Stock'
+      availabilityText = 'Out of Stock'
     }
-    if(availabilityText != null){
+    if (availabilityText != null) {
       addHiddenDiv('availabilityText', availabilityText)
     }
-    
+    if (availabilityText == null) {
+      let outofstock = getXpath('//div[@class="store-only-product"]/text()', 'nodeValue');
+      if (outofstock != null) {
+        outofstock = "Out of Stock";
+        addHiddenDiv('availabilityText', outofstock);
+      } else {
+        var instock = "In Stock";
+        addHiddenDiv('availabilityText', instock);
+      }
+    }
+
+    /// video
+    var video = getXpath('//div[@class="productInformationSection"]//iframe/@src', 'nodeValue');
+    if(video != null){
+      console.log("...................................................................................")
+      console.log("...................................................................................")
+      console.log("...................................................................................")
+      console.log(video)
+      addHiddenDiv('video', video);
+    }
+
+
     // @ts-ignore
     // const variantId = window.dataLayer[0].ecommerce.detail.products[0].variant;
     // addHiddenDiv('variantId', variantId)
     // gtin
-    try{
+    try {
       const productInfo = document.getElementById('auditedOpinionsInfo').getAttribute('data-auditedopinionurl');
-    const splitProductInfo = productInfo.split('&')
-    console.log(splitProductInfo)
-    const getGtin = splitProductInfo[5]
-    const gtinData = getGtin.split('=')
-    const gtinValue = gtinData[1]
-    addHiddenDiv('gtinValue', gtinValue)
-  }
-  catch (error) {
+      const splitProductInfo = productInfo.split('&')
+      console.log(splitProductInfo)
+      const getGtin = splitProductInfo[5]
+      const gtinData = getGtin.split('=')
+      const gtinValue = gtinData[1]
+      addHiddenDiv('gtinValue', gtinValue)
+    }
+    catch (error) {
 
-  }
-    
+    }
+
     try {
       const productInfo = document.querySelectorAll('#auditedOpinionsInfo')[0];
       if (productInfo.attributes[5].value !== '') {

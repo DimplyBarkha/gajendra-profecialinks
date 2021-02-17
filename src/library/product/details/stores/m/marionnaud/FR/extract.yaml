@@ -12,7 +12,7 @@ fields:
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
-    xpath: //ul[@id='images_galery_mobile']/li/span/img/@alt
+    xpath: //a[@id="imageLink"]/img/@alt
   - name: alternateImages
     singleValue: false
     xpath: //ul[@id='images_galery_mobile']/li/span/img/@src
@@ -69,7 +69,7 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //div[@class='onHover_QuantitySelect']//div[@class='select']//div[@class='select-styled']
+    xpath: //div[@class="size-box-wrapper"]/a/span[@class="size-box selected "]/text()
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -162,8 +162,10 @@ fields:
     description: variantType
     # xpath: //div[@class='size-box-wrapper']//span
   - name: videos
-    singleValue: false
+    singleValue: true
     description: URLs of videos on page
+    xpath: //div[@class="productInformationSection"]//iframe/@src
+      # (//div[@class="section pdpContentContainer"]//iframe/@src | //div[@class="productInformationSection"]//iframe/@src)[1]
     # xpath: //div[@class='ytp-title-text']/a[@class='ytp-title-link yt-uix-sessionlink']/@href
   - name: name
     singleValue: true
@@ -187,6 +189,9 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
+    xpath: //div[@class="product-details"]/div/a/@href
+    regExp: (/.*)
+    regExpReplace: https://www.marionnaud.fr$1
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point
