@@ -44,35 +44,6 @@ async function implementation (
       return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     }
 
-    //  Date
-    function timeSince (date2) {
-      var now = new Date();
-      console.log('-------', date2);
-      console.log('--------', typeof (date2));
-
-      var days = date2.match(/\w+/g);
-      console.log('----', days);
-      if (days[0] == 'Today') {
-        var d = new Date();
-        d.setDate(d.getDate());
-        date2 = date2.replace(date2, d.toString());
-      }
-      if (days[1] == 'days' || days[1] == 'day') {
-        var d = new Date();
-        d.setDate(d.getDate() - parseInt(days[0]));
-        // console.log(d.toString());
-        date2 = date2.replace(date2, d.toString());
-      }
-      // if(days[1] == 'months')
-      // {
-      //   var d = new Date();
-      //   d.setMonth(d.getMonth() - parseInt(days[0]));
-      //   console.log(d.toString());
-      //   date2 = date2.replace(date2, d.toString());
-      // }
-      return date2;
-    }
-
     // Pagination
     // var count = document.querySelectorAll('nav.yFHi8N > a').length - 2;
     // console.log(count);
@@ -106,13 +77,6 @@ async function implementation (
         // {
         // addHiddenDiv(review_text[i],'brandText',brand_review);
         // }
-        if (date[i]) {
-        // console.log('-------date--type--------',date[i].textContent);
-          const date_time = timeSince(date[i].textContent);
-          if (date_time) {
-            addHiddenDiv(review_text[i], 'date_time', date_time);
-          }
-        }
       }
     }
   });
