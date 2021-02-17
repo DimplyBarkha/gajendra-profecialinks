@@ -116,28 +116,16 @@ module.exports = {
       const sku = document.querySelector('p[itemprop="sku"]')
         ? document.querySelector('p[itemprop="sku"]').textContent
         : '';
+      const brand = document.querySelector('span[class="pdp__byBrand"] a')
+        ? document.querySelector('span[class="pdp__byBrand"] a').textContent
+        : '';
       const aggregateRating = document.querySelector('a[class="bv-rating-stars-container bv-focusable"] span[class="bv-off-screen"]')
         ? document.querySelector('a[class="bv-rating-stars-container bv-focusable"] span[class="bv-off-screen"]').textContent
         : '';
-      const helpfulCount = document.evaluate(
-        '//button[contains(@class, "bv-content-btn-feedback-yes")]//span[@class="bv-content-btn-count"]',
-        document,
-        null,
-        XPathResult.STRING_TYPE,
-        null,
-      ).stringValue;
-      const commentCount = document.evaluate(
-        '//button[contains(@class, "bv-content-btn-feedback-yes")]//span[@class="bv-content-btn-count"]',
-        document,
-        null,
-        XPathResult.STRING_TYPE,
-        null,
-      ).stringValue;
       document.body.setAttribute('added_name', name);
       document.body.setAttribute('added_sku', sku);
+      document.body.setAttribute('brand', brand);
       document.body.setAttribute('aggregate_rating', aggregateRating);
-      document.body.setAttribute('added_help', helpfulCount);
-      document.body.setAttribute('added_comment', commentCount);
       document.body.setAttribute('product_url', window.location.href);
 
       const allReviews = document.querySelectorAll('ol > li[itemprop="review"]');
@@ -149,18 +137,26 @@ module.exports = {
           : '';
         const reviewDate = formatDate(getDate(dateStr));
         if (reviewDate) review.setAttribute('review_date', reviewDate);
-        const reviewRating = document.querySelector('div[class="bv-content-header-meta"] meta[itemprop="ratingValue"]')
-          ? document.querySelector('div[class="bv-content-header-meta"] meta[itemprop="ratingValue"]').getAttribute('content')
+        const reviewRating = review.querySelector('div[class="bv-content-header-meta"] meta[itemprop="ratingValue"]')
+          ? review.querySelector('div[class="bv-content-header-meta"] meta[itemprop="ratingValue"]').getAttribute('content')
           : '';
         if (reviewRating) review.setAttribute('review_rating', reviewRating);
+        const syndicatedFrom = review.querySelector('div[class="bv-syndication-summary"] img')
+          ? review.querySelector('div[class="bv-syndication-summary"] img').getAttribute('alt')
+          : '';
+        if (syndicatedFrom) review.setAttribute('synficated', syndicatedFrom);
         const reviewText = review.querySelector('div[class="bv-content-summary-body-text"] p')
           ? review.querySelector('div[class="bv-content-summary-body-text"] p').textContent
           : '';
         if (reviewText) review.setAttribute('added_text', reviewText);
-        const user = document.querySelector('span[class="bv-author"] span')
-          ? document.querySelector('span[class="bv-author"] span').textContent
+        const user = review.querySelector('span[class="bv-author"] span')
+          ? review.querySelector('span[class="bv-author"] span').textContent
           : '';
         if (user) review.setAttribute('user', user);
+        const comment = review.querySelector('button[class="bv-content-btn bv-content-btn-feedback-yes bv-focusable"] span[class="bv-content-btn-count"]')
+          ? review.querySelector('button[class="bv-content-btn bv-content-btn-feedback-yes bv-focusable"] span[class="bv-content-btn-count"]').textContent
+          : '';
+        if (comment) review.setAttribute('comment', comment);
         if (sku) review.setAttribute('added_reviewedSku', sku);
       }
     });

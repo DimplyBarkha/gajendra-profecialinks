@@ -6,16 +6,15 @@ fields:
   - name: helpfulCount
     singleValue: true
     type: NUMBER
-    xpath: ancestor::html/body/@added_help
+    xpath: '@comment'
     description: Number of people who said the review was helpful
   - name: commentCount
     singleValue: true
     type: NUMBER
-    xpath: ancestor::html/body/@added_comment
-    regExp: \d+
     description: Number of comments on the review
   - name: brandText
     singleValue: true
+    xpath: ancestor::html/body/@brand
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
   - name: name
@@ -64,6 +63,7 @@ fields:
     description: The response of the manufacturer (if any)
   - name: syndicatedFrom
     singleValue: true
+    xpath: '@synficated'
     description: Stated place the review was syndicated from
   - name: reviewUrl
     singleValue: true
