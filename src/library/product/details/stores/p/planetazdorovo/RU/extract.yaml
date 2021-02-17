@@ -29,7 +29,8 @@ fields:
     xpath: //div[@class="product-detail__price-wrap"]//div[contains(@class,"new")]//text()
   - name: availabilityText
     singleValue: false
-    xpath: (//div[@class="product-detail__availability"]//p)[1]
+    xpath: //div[@itemprop="offers" and @class="product-detail__info"]//button[contains(@class,'service_product_change_cart')]/text()
+    #xpath: (//div[@class="product-detail__availability"]//p)[1]
     defaultValue: "Out Of Stock"
   - name: brandText
     singleValue: false

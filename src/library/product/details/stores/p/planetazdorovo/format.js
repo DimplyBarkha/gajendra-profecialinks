@@ -36,7 +36,7 @@ const transform = (data, context) => {
         });
       }
       if (row.availabilityText) {
-        const textData = row.availabilityText[0].text == 'В наличии в 498 аптеках' ? 'In Stock' : 'Out Of Stock';
+        const textData = row.availabilityText[0].text === 'Купить' ? 'In Stock' : 'Out Of Stock';
         // const availabilityTextArr = row.availabilityText.map((item) => {
         //   return item.text && item.text.trim() == 'В наличии в 498 аптеках' ? 'In Stock' : 'Out Of Stock';
         // });
