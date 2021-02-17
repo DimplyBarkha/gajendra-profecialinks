@@ -1,7 +1,7 @@
 const { transform } = require('../../../../shared');
 
 // @ts-ignore
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await new Promise((resolve, reject) => setTimeout(resolve, 1000));
@@ -36,7 +36,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   await context.evaluate(async () => {
     // scroll
-    function stall (ms) {
+    function stall(ms) {
       // @ts-ignore
       return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -80,7 +80,8 @@ async function implementation (inputs, parameters, context, dependencies) {
       e.setAttribute('fullname', name.join(' '));
     });
     // convert percentage rating to number and then to string
-    var rating = document.querySelectorAll('div.icons-stars-full');
+    // var rating = document.querySelectorAll('div.icons-stars-full');
+    var rating=[...document.querySelectorAll('.proditem__reviews-stars-pct')];
     const regex = /\d+\.?\d+/gm;
 
     rating.forEach((element) => {
@@ -111,10 +112,15 @@ async function implementation (inputs, parameters, context, dependencies) {
   });
 
   var dataRef = await context.extract(productDetails, { transform });
-
-  if (dataRef[0].group.length > 150) {
-    dataRef[0].group = dataRef[0].group.slice(0, 150);
+  try {
+    if (dataRef[0].group.length > 150) {
+      dataRef[0].group = dataRef[0].group.slice(0, 150);
+    }
   }
+  catch (e) {
+    console.log("Error message");
+  }
+
 
   return dataRef;
 }
