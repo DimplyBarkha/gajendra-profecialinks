@@ -4,7 +4,7 @@ module.exports = {
         country: 'US',
         store: 'drizly',
         domain: 'drizly.com',
-        loadedSelector: 'h1[class^="ProductMetaInformation__ItemName"]',
+        // loadedSelector: 'h1[class^="ProductMetaInformation__ItemName"]',
         noResultsXPath: null,
         zipcode: '',
         storeaddress: '',
