@@ -10,113 +10,109 @@ module.exports = {
     zipcode: '',
   },
 
-
   implementation: async ({ inputString }, { country, domain }, context, { productDetails, transform }) => {
     const sectionsDiv = 'h1[id="js-product-detail-title"]';
     await context.waitForSelector(sectionsDiv, { timeout: 90000 });
-    let currentUrl = await context.evaluate(() => {
+    const currentUrl = await context.evaluate(() => {
       return document.querySelector('meta[name="twitter:url"]').getAttribute('content');
     });
     let iframeUrl = '';
     let additionalDesc = '';
-    let manufacturerImg='';
-    let manufacturerDesc= '';
+    let manufacturerImg = '';
+    let manufacturerDesc = '';
     let additionalDescBulletCount = 0;
-    try{
+    try {
       await context.waitForSelector('#loadbeeTabContent');
-      iframeUrl = await context.evaluate(()=>{
+      iframeUrl = await context.evaluate(() => {
         return document.querySelector('#loadbeeTabContent').getAttribute('src');
       });
       await context.goto(iframeUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
       await context.waitForNavigation();
-      try{
-        await context.waitForSelector('div.descriptions img')
-      }catch(e){
-        console.log('enhanced content not loaded')
+      try {
+        await context.waitForSelector('div.descriptions img');
+      } catch (e) {
+        console.log('enhanced content not loaded');
       }
-      try{
-        manufacturerDesc = await context.evaluate(()=>{
-          //@ts-ignore
-          let manufacturerDescArray = [...document.querySelectorAll('div.descriptions p')];
-          for(let  i = 0 ; i < manufacturerDescArray.length ; i ++){
-            if(manufacturerDescArray[i].innerText != '[object HTMLParagraphElement]' || manufacturerDescArray[i].innerText != ''){
+      try {
+        manufacturerDesc = await context.evaluate(() => {
+          // @ts-ignore
+          const manufacturerDescArray = [...document.querySelectorAll('div.descriptions p')];
+          for (let i = 0; i < manufacturerDescArray.length; i++) {
+            if (manufacturerDescArray[i].innerText != '[object HTMLParagraphElement]' || manufacturerDescArray[i].innerText != '') {
               manufacturerDescArray[i] = manufacturerDescArray[i].innerText;
             }
           }
-          let filtered = manufacturerDescArray.filter(function (el) {
-            return (el != null && el != "");
+          const filtered = manufacturerDescArray.filter(function (el) {
+            return (el != null && el != '');
           });
 
           return filtered.join(' | ');
         });
-      }catch(e){
+      } catch (e) {
         console.log('manufacturer Description not present');
       }
-      try{
-        manufacturerImg = await context.evaluate(()=>{
-        //@ts-ignore
-        let manufacturerImgArray = [...document.querySelectorAll('div.thumbnail')];
-        for(let  i = 0 ; i < manufacturerImgArray.length ; i ++){
-          manufacturerImgArray[i] = manufacturerImgArray[i].getAttribute('data-highres-img');
-        }
-        //@ts-ignore
-        let manufacturerImgs = [...document.querySelectorAll('div.descriptions img.img-responsive')];
-        for(let  i = 0 ; i < manufacturerImgs.length ; i ++){
-          manufacturerImgArray.push(manufacturerImgs[i].getAttribute('src'));
-        }
-        return manufacturerImgArray.join(' | ');
-      });
-      }catch(e){
+      try {
+        manufacturerImg = await context.evaluate(() => {
+        // @ts-ignore
+          const manufacturerImgArray = [...document.querySelectorAll('div.thumbnail')];
+          for (let i = 0; i < manufacturerImgArray.length; i++) {
+            manufacturerImgArray[i] = manufacturerImgArray[i].getAttribute('data-highres-img');
+          }
+          // @ts-ignore
+          const manufacturerImgs = [...document.querySelectorAll('div.descriptions img.img-responsive')];
+          for (let i = 0; i < manufacturerImgs.length; i++) {
+            manufacturerImgArray.push(manufacturerImgs[i].getAttribute('src'));
+          }
+          return manufacturerImgArray.join(' | ');
+        });
+      } catch (e) {
         console.log('Manufacturer Imapges not present');
       }
-      
-      try{
-        additionalDesc = await context.evaluate(()=>{
-        //@ts-ignore
-        let additionalDescArray = [...document.querySelectorAll('div.container-fluid.hero ul>li')];
-        for(let  i = 0 ; i < additionalDescArray.length ; i ++){
-          additionalDescArray[i] = additionalDescArray[i].innerText;
-        }
-        return additionalDescArray.join(' || ');
-      });
-       additionalDescBulletCount = await context.evaluate(()=>{
-        //@ts-ignore
-        return [...document.querySelectorAll('div.container-fluid.hero ul>li')].length;
-      });
-      }catch(e){
-        console.log('additional Description not present')
+
+      try {
+        additionalDesc = await context.evaluate(() => {
+        // @ts-ignore
+          const additionalDescArray = [...document.querySelectorAll('div.container-fluid.hero ul>li')];
+          for (let i = 0; i < additionalDescArray.length; i++) {
+            additionalDescArray[i] = additionalDescArray[i].innerText;
+          }
+          return additionalDescArray.join(' || ');
+        });
+        additionalDescBulletCount = await context.evaluate(() => {
+        // @ts-ignore
+          return [...document.querySelectorAll('div.container-fluid.hero ul>li')].length;
+        });
+      } catch (e) {
+        console.log('additional Description not present');
       }
-     
-    }catch(err){
+    } catch (err) {
       console.log('iframe not present');
     }
     await context.goto(currentUrl, { timeout: 50000, waitUntil: 'networkidle0', checkBlocked: true });
     await context.waitForNavigation();
     console.log('descrption - ', additionalDesc);
-    await context.evaluate((additionalDescBulletCount,additionalDesc,manufacturerDesc,manufacturerImg)=>{
-      document.querySelector('body').setAttribute('bullet',additionalDescBulletCount);
-      document.querySelector('body').setAttribute('desc',additionalDesc);
-      document.querySelector('body').setAttribute('manu-desc',manufacturerDesc);
-      document.querySelector('body').setAttribute('manu-img',manufacturerImg);
-    },additionalDescBulletCount,additionalDesc,manufacturerDesc,manufacturerImg);
+    await context.evaluate((additionalDescBulletCount, additionalDesc, manufacturerDesc, manufacturerImg) => {
+      document.querySelector('body').setAttribute('bullet', additionalDescBulletCount);
+      document.querySelector('body').setAttribute('desc', additionalDesc);
+      document.querySelector('body').setAttribute('manu-desc', manufacturerDesc);
+      document.querySelector('body').setAttribute('manu-img', manufacturerImg);
+    }, additionalDescBulletCount, additionalDesc, manufacturerDesc, manufacturerImg);
 
-
-    try{
+    try {
       await context.waitForSelector('#flix_hotspots');
       await context.click('#flix_product_video');
       await context.waitForSelector('iframe[id*=flix-iframe]');
-      await context.evaluate(()=>{
-      let galleryVideo = document.querySelector('iframe[id*=flix-iframe]').getAttribute('src');
-      document.querySelector('body').setAttribute('gallery-video',galleryVideo);
-    });
-    }catch(err){
+      await context.evaluate(() => {
+        const galleryVideo = document.querySelector('iframe[id*=flix-iframe]').getAttribute('src');
+        document.querySelector('body').setAttribute('gallery-video', galleryVideo);
+      });
+    } catch (err) {
       console.log('no video in gallery', err.message);
-    }    
-
+    }
 
     await context.evaluate(async function () {
       // function to append the elements to DOM
-      function addElementToDocument(key, value) {
+      function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -125,7 +121,7 @@ module.exports = {
       }
 
       // function to get the json data from the string
-      function findJsonData(scriptSelector, startString, endString) {
+      function findJsonData (scriptSelector, startString, endString) {
         try {
           const xpath = `//script[contains(.,'${scriptSelector}')]`;
           const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -141,7 +137,7 @@ module.exports = {
       }
 
       // function to get the json data from the textContent
-      function findJsonObj(scriptSelector, video) {
+      function findJsonObj (scriptSelector, video) {
         if (video) {
           var result = document.evaluate(video, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
           return result;
@@ -164,7 +160,7 @@ module.exports = {
           if (!options) {
             options = {
               mode: 'no-cors',
-              headers: { 'Content-Type': 'application/json' }
+              headers: { 'Content-Type': 'application/json' },
             };
 
             return await (await fetch(url, options)).json();
@@ -176,38 +172,38 @@ module.exports = {
         }
       };
 
-
-      let productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json'
-      let passKey = "caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ";
-      let productID = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).code_a.trim("") : "";
-      let sku = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).variant.trim("") : "";
-      let store_id = findJsonObj("", productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj("", productAvailablity).snapshotItem(0).value).store_id.trim("") : "";
-      //API
+      const productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json';
+      const passKey = 'caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ';
+      const productID = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).code_a.trim('') : '';
+      const sku = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).variant.trim('') : '';
+      const store_id = findJsonObj('', productAvailablity).snapshotItem(0).value ? JSON.parse(findJsonObj('', productAvailablity).snapshotItem(0).value).store_id.trim('') : '';
+      // API
       const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}&skus=${sku}&store_id=${store_id}&original_store=0`;
-      let apiDataResponse = await makeApiCall(productsData, {});
-      console.log("Great")
-      console.log(JSON.parse(apiDataResponse), "chec")
-      if (apiDataResponse) {
-        if (JSON.parse(apiDataResponse)._product_model) {
-          document.querySelector('.sku-model').textContent = `MODELO: ${JSON.parse(apiDataResponse)._product_model}`;
+      const apiDataResponse = await makeApiCall(productsData, {});
+      console.log('Great');
+      console.log(apiDataResponse);
+      // console.log(JSON.parse(apiDataResponse), 'chec');
+      try {
+        if (apiDataResponse) {
+          if (JSON.parse(apiDataResponse)._product_model) {
+            document.querySelector('.sku-model').textContent = `MODELO: ${JSON.parse(apiDataResponse)._product_model}`;
+          }
+          addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
+          addElementToDocument('sku', JSON.parse(apiDataResponse).id);
+          addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
+          addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse)._datalayer[0].product.variant);
         }
-        addElementToDocument('mpc', JSON.parse(apiDataResponse)._product_model);
-        addElementToDocument('sku', JSON.parse(apiDataResponse).id);
-        addElementToDocument('gtin', JSON.parse(apiDataResponse)._datalayer[0].product.gtin);
-        addElementToDocument('retailer_product_code', JSON.parse(apiDataResponse)._datalayer[0].product.variant);
-
+      } catch (err) {
+        console.log('Error at converting rating Api to Json', err);
       }
-
-
       // Number of reviews and rating
       const reviewData = `https://api.bazaarvoice.com/data/display/0.2alpha/product/summary?PassKey=${passKey}&productid=${productID}&contentType=reviews,questions&reviewDistribution=primaryRating,recommended&rev=0&contentlocale=es_ES`;
-      let apiReviewResponse = await makeApiCall(reviewData, {});
-      let responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
-      let responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace(".", ",")
-        : "";
+      const apiReviewResponse = await makeApiCall(reviewData, {});
+      const responseRatingCount = JSON.parse(apiReviewResponse) ? JSON.parse(apiReviewResponse).reviewSummary.numReviews : ratingFromDOM();
+      const responseReviewRating = JSON.parse(apiReviewResponse) ? parseFloat(JSON.parse(apiReviewResponse).reviewSummary.primaryRating.average).toFixed(1).replace('.', ',')
+        : '';
       addElementToDocument('ratingCount', responseRatingCount);
       addElementToDocument('aggregateRating', responseReviewRating);
-
 
       const imageData = findJsonObj('image');
       // Check for the data and append to DOM
@@ -216,14 +212,14 @@ module.exports = {
         addElementToDocument('product_description', imageData.description);
       }
 
-      // Get the video 
+      // Get the video
       try {
-        let inputVideo = findJsonObj("", '//input[@class="flix-jw"]/@value');
-        let imagelayoutVideo = findJsonObj("", '//div[@class="image-layout-slides-group-item"]/img/@data-url');
+        const inputVideo = findJsonObj('', '//input[@class="flix-jw"]/@value');
+        const imagelayoutVideo = findJsonObj('', '//div[@class="image-layout-slides-group-item"]/img/@data-url');
         await context.waitForSelector('.flix-jw', { timeout: 90000 });
         if (inputVideo.snapshotLength > 0) {
           for (let i = 0; i < inputVideo.snapshotLength; i++) {
-            addElementToDocument('video', JSON.parse(findJsonObj("", inputVideo).snapshotItem(0).value).playlist[0].file);
+            addElementToDocument('video', JSON.parse(findJsonObj('', inputVideo).snapshotItem(0).value).playlist[0].file);
           }
         } else {
           if (imagelayoutVideo.snapshotLength = 1) {
@@ -231,7 +227,6 @@ module.exports = {
           } else {
             for (let i = 0; i < imagelayoutVideo.snapshotLength; i++) {
               addElementToDocument('video', imagelayoutVideo.snapshotItem(0).value);
-
             }
           }
         }
@@ -269,24 +264,26 @@ module.exports = {
             addElementToDocument('sku', dataObj[0].product.code_a);
           }
 
-          // Check for List Price 
-          try{
-          if (dataObj[0].product.price.o_price) {
-            addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ","));
-          } else {
-            addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ","));
-          }}catch(err){
-            console.log('No List price')
+          // Check for List Price
+          try {
+            if (dataObj[0].product.price.o_price) {
+              addElementToDocument('listPrice', dataObj[0].product.price.o_price.toString().replace('.', ','));
+            } else {
+              addElementToDocument('listPrice', dataObj[0].product.price.original.toString().replace('.', ','));
+            }
+          } catch (err) {
+            console.log('No List price');
           }
 
-          // Check for  Price 
-          try{
-          if (dataObj[0].product.price.o_price) {
-            addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ","));
-          } else {
-            addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ","));
-          }}catch(err){
-            console.log('Price not available')
+          // Check for  Price
+          try {
+            if (dataObj[0].product.price.o_price) {
+              addElementToDocument('price', dataObj[0].product.price.f_price.toString().replace('.', ','));
+            } else {
+              addElementToDocument('price', dataObj[0].product.price.final.toString().replace('.', ','));
+            }
+          } catch (err) {
+            console.log('Price not available');
           }
 
           // Check for the product id  and append to DOM
@@ -296,23 +293,21 @@ module.exports = {
               addElementToDocument('retailer_product_code', retailerProductCode);
             }
           }
-
         }
       }
 
+      // zoom Image
 
-      //zoom Image 
-
-      let ZoomImage = "//img/@data-zoom"
-      findJsonObj("", ZoomImage)
-      if (findJsonObj("", ZoomImage).snapshotLength > 0) {
-        addElementToDocument('imageZoomFeaturePresent', "Yes");
+      const ZoomImage = '//img/@data-zoom';
+      findJsonObj('', ZoomImage);
+      if (findJsonObj('', ZoomImage).snapshotLength > 0) {
+        addElementToDocument('imageZoomFeaturePresent', 'Yes');
       } else {
-        addElementToDocument('imageZoomFeaturePresent', "No");
+        addElementToDocument('imageZoomFeaturePresent', 'No');
       }
 
       // Get the ratingCount
-      function ratingFromDOM() {
+      function ratingFromDOM () {
         const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
         let ratingCount;
         if (reviewsCount) {
@@ -337,11 +332,11 @@ module.exports = {
         }
       }
 
-      function allergyAdvice() {
+      function allergyAdvice () {
         const xpath = '//*[contains(text(),"Ingredientes y alérgensos")]/../ul/li';
         const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
         if (element) {
-          //@ts-ignore
+          // @ts-ignore
           const allElements = [...element.querySelectorAll('b')];
           const allergyAdvice = allElements.map(i => i.textContent).join(' ');
           addElementToDocument('allergyAdvice ', allergyAdvice);
@@ -349,7 +344,7 @@ module.exports = {
       } allergyAdvice();
 
       // Function to remove the `\n` from the textContent
-      function textContent(element, attributeName) {
+      function textContent (element, attributeName) {
         const text = (element && element.textContent.trim()
           .split(/[\n]/)
           .filter((ele) => ele)
@@ -358,7 +353,7 @@ module.exports = {
         addElementToDocument(attributeName, text);
       }
 
-      let description = document.querySelectorAll('.product_detail-description-in-image, .product_information');
+      const description = document.querySelectorAll('.product_detail-description-in-image, .product_information');
       if (description.length > 1) {
         description.forEach(element => {
           textContent(element, 'bulletDescription');

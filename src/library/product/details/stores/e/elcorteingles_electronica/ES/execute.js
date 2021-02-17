@@ -6,7 +6,7 @@ module.exports = {
     store: 'elcorteingles_electronica',
     domain: 'elcorteingles.es',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: "//article[contains(@class, 'msg')]//*[contains(@class, 'explain')]",
     zipcode: '',
   },
   IMPLEMENTATION : async function implementation (
