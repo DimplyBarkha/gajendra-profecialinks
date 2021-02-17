@@ -5,7 +5,16 @@ const { transform } = require('./shared');
 async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+  await context.evaluate(async () => {
+    const cookies = document.querySelector('button[id="uc-btn-accept-banner"]')
+      ? document.querySelector('button[id="uc-btn-accept-banner"]') : null;
+    if (cookies !== null) {
+      // @ts-ignore
+      cookies.click();
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+    }
+  });
   await context.evaluate(() => {
     const sponsoredProducts = document.querySelectorAll('div[class*="weHhRC"]');
     // @ts-ignore

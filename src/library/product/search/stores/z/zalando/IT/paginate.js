@@ -5,7 +5,7 @@ module.exports = {
     template: null,
     country: 'IT',
     store: 'zalando',
-    nextLinkSelector: '[class="cat_listWrapper-1zh5A"]> .cat_item-25ZBj:nth-child(3) > a > span',
+    nextLinkSelector: '[class="cat_listWrapper-1zh5A"]> .cat_item-25ZBj:nth-child(3) > a > span.z-icon-pagination-chevron-right-active',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
