@@ -19,33 +19,34 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
-    await new Promise(r => setTimeout(r, 5000));
-    console.log("waiting for first link")
-    try {
-      // @ts-ignore
-      document.querySelector('span[class="glyphicon glyphicon-edit js-change-store-link"]').click()
-      await new Promise(r => setTimeout(r, 4000));
-      console.log("waiting for open store input box")
-      // @ts-ignore
-      document.querySelector('a[class="StoreFlyout__changeStore"]').click();
-      await new Promise(r => setTimeout(r, 4000));
-      console.log("waiting for send store id to input link");
-      var att = document.createAttribute('value');
-      //att.value = "49684"
-      att.value = "Knapp’s Corner, Grand Rapids"
-      document.querySelector('input[id="store-flyout-address"]').setAttributeNode(att);
-      // @ts-ignore
-      document.querySelector('button[class="StoreFlyout__search-button btn btn-primary"]').click();
-      await new Promise(r => setTimeout(r, 5000));
-      console.log("waiting for search link");
-      // @ts-ignore
-      document.querySelector('button[class="StoreFlyout__myStore btn btn-primary StoreFlyout__selectOptions"]').click();
-      // await new Promise(r => setTimeout(r, 5000));
-      console.log("waiting for submit link");
-    }
-    catch (e) {
+    // await new Promise(r => setTimeout(r, 5000));
+    // console.log("waiting for first link")
+    // try {
+    //   // @ts-ignore
+    //   //document.querySelector('span[class="glyphicon glyphicon-edit js-change-store-link"]').click()
+    //   document.querySelector('div[id="store-flyout-link-root"] a').click()
+    //   await new Promise(r => setTimeout(r, 4000));
+    //   console.log("waiting for open store input box")
+    //   // @ts-ignore
+    //   document.querySelector('a[class="StoreFlyout__changeStore"]').click();
+    //   await new Promise(r => setTimeout(r, 4000));
+    //   console.log("waiting for send store id to input link");
+    //   var att = document.createAttribute('value');
+    //   //att.value = "49684"
+    //   att.value = "Knapp’s Corner, Grand Rapids"
+    //   document.querySelector('input[id="store-flyout-address"]').setAttributeNode(att);
+    //   // @ts-ignore
+    //   document.querySelector('button[class="StoreFlyout__search-button btn btn-primary"]').click();
+    //   await new Promise(r => setTimeout(r, 5000));
+    //   console.log("waiting for search link");
+    //   // @ts-ignore
+    //   document.querySelector('button[class="StoreFlyout__myStore btn btn-primary StoreFlyout__selectOptions"]').click();
+    //   // await new Promise(r => setTimeout(r, 5000));
+    //   console.log("waiting for submit link");
+    // }
+    // catch (e) {
 
-    }
+    // }
     // function addclass(xpathforpagination) {
     //   var elems = document.querySelectorAll(xpathforpagination);
     //   elems[0].classList.add('pagination');
