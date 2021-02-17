@@ -101,9 +101,10 @@ fields:
   description: The stated aggregate rating
 - name: aggregateRating
   singleValue: false
-  type: STRING
+  # type: STRING
   description: The stated aggregate rating normalized to be out of 5
-  xpath: //span[@aria-label="4 out of 5 stars"]
+  # xpath: //span[@aria-label="4 out of 5 stars"]
+  xpath: //span[@class="rating__rating_label"]
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
