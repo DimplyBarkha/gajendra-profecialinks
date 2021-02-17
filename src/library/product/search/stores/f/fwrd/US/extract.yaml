@@ -1,9 +1,15 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="price"]/../../../..//parent::li
-# recordXPath: //*[@id='plp-product-list']//ul[contains(@class,'product-grids')]/li
+recordXPath: //*[@id='plp-product-list']//ul[contains(@class,'product-grids')]/li
+# recordXPath: //div[@class="price"]/../../../..//parent::li
 fields:
+  - name: price
+    singleValue: false
+    xpath: //div[@class="price"] | //span[@class="price__sale"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,"price--on-sale")]/s[@class="price__retail"]/text()
   - name: brand
     singleValue: false
     xpath: //div[@class='product-grids__copy']/div[position()=1][contains(@class,'product-grids__copy-item--bold')]
