@@ -2,18 +2,18 @@ input:
   _url: http://bol.com
   URL: https://www.bol.com/nl/p/pedigree-dentastix-medium-kauwstaaf-gebitsverzorgende-hondensnack-105-stuks/9200000112981802/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=12c56b2d-f283-4d1b-8d8d-7b245508c527/task=ee03c16d-2e8f-47e3-8f23-c95471529986/487b15be-4c5d-4162-b308-01ac95b3f706.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3368363d-535c-4d7f-bcf9-ee7d906384a2/task=dddd0ba6-0c8b-4fab-9920-b39fff72510a/1d428543-3ac2-4625-833b-22b62669e5e3.html
     extractionConfigId: product/reviews/stores/b/bol/NL/extract
     data:
       - group:
           - reviewText:
-              - text: Een tandvlees wonder waar de hong veel plezier aan heeft.
+              - text: Handige verpakking en ook voordelig
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[1]/div[4]/p[1]
             reviewTitle:
-              - text: Tandvlees goede kauwer
+              - text: Zeer goed
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[1]/div[1]/strong[1]
             user:
-              - text: TomKomEten
+              - text: Zoechris
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[1]/div[2]/ul[1]/li[1]
             brandText:
               - text: Pedigree
@@ -26,10 +26,10 @@ extractions:
               - text: "9200000112981802"
                 xpath: /html/body/@added_sku
             reviewDate:
-              - text: 2021-01-24T00:00:00.000+00:00
+              - text: 2021-02-16T00:00:00.000+00:00
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[1]/@review_date
                 type: DATETIME
-                raw: 01/24/2021
+                raw: 02/16/2021
                 locale: nl_NL
                 tz: Europe/Amsterdam
             reviewRating:
@@ -48,16 +48,13 @@ extractions:
             syndicatedFrom:
               - text: https://www.bol.com/nl/
           - reviewText:
-              - text: Verwijdert tandsteen perfect en de adem van mijn hond ruikt ook frisser
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[2]/div[4]/p[2]
+              - text: Een tandvlees wonder waar de hong veel plezier aan heeft.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[2]/div[4]/p[1]
             reviewTitle:
-              - text: Aanrader
+              - text: Tandvlees goede kauwer
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[2]/div[1]/strong[1]
-            reviewedSku:
-              - text: "9200000011680468"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[2]/div[4]/p[1]/a[1]/@href
             user:
-              - text: Tmasala
+              - text: TomKomEten
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[2]/div[2]/ul[1]/li[1]
             brandText:
               - text: Pedigree
@@ -70,10 +67,10 @@ extractions:
               - text: "9200000112981802"
                 xpath: /html/body/@added_sku
             reviewDate:
-              - text: 2021-01-19T00:00:00.000+00:00
+              - text: 2021-01-24T00:00:00.000+00:00
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[2]/@review_date
                 type: DATETIME
-                raw: 01/19/2021
+                raw: 01/24/2021
                 locale: nl_NL
                 tz: Europe/Amsterdam
             reviewRating:
@@ -92,13 +89,16 @@ extractions:
             syndicatedFrom:
               - text: https://www.bol.com/nl/
           - reviewText:
-              - text: "Pluspunt van dit artikel: mijn huisdier vindt het lekker"
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[3]/div[4]/p[1]
+              - text: Verwijdert tandsteen perfect en de adem van mijn hond ruikt ook frisser
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[3]/div[4]/p[2]
             reviewTitle:
-              - text: Zeer goed
+              - text: Aanrader
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[3]/div[1]/strong[1]
+            reviewedSku:
+              - text: "9200000011680468"
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[3]/div[4]/p[1]/a[1]/@href
             user:
-              - text: BordercolliMexx
+              - text: Tmasala
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[3]/div[2]/ul[1]/li[1]
             brandText:
               - text: Pedigree
@@ -133,13 +133,13 @@ extractions:
             syndicatedFrom:
               - text: https://www.bol.com/nl/
           - reviewText:
-              - text: de Hond vind het lekker als tussendoortje, knip ze wel vaak doormidden.
+              - text: "Pluspunt van dit artikel: mijn huisdier vindt het lekker"
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[4]/div[4]/p[1]
             reviewTitle:
-              - text: tevreden hond
+              - text: Zeer goed
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[4]/div[1]/strong[1]
             user:
-              - text: Kippetje3
+              - text: BordercolliMexx
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[4]/div[2]/ul[1]/li[1]
             brandText:
               - text: Pedigree
@@ -152,10 +152,10 @@ extractions:
               - text: "9200000112981802"
                 xpath: /html/body/@added_sku
             reviewDate:
-              - text: 2021-01-06T00:00:00.000+00:00
+              - text: 2021-01-19T00:00:00.000+00:00
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[4]/@review_date
                 type: DATETIME
-                raw: 01/06/2021
+                raw: 01/19/2021
                 locale: nl_NL
                 tz: Europe/Amsterdam
             reviewRating:
@@ -174,13 +174,13 @@ extractions:
             syndicatedFrom:
               - text: https://www.bol.com/nl/
           - reviewText:
-              - text: Onze beide honden vinden de sticks super lekker
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[5]/div[4]/p[2]
+              - text: de Hond vind het lekker als tussendoortje, knip ze wel vaak doormidden.
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[5]/div[4]/p[1]
             reviewTitle:
-              - text: Super lekker
+              - text: tevreden hond
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[5]/div[1]/strong[1]
             user:
-              - text: TinaLisaNina
+              - text: Kippetje3
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[5]/div[2]/ul[1]/li[1]
             brandText:
               - text: Pedigree
@@ -193,10 +193,10 @@ extractions:
               - text: "9200000112981802"
                 xpath: /html/body/@added_sku
             reviewDate:
-              - text: 2021-01-05T00:00:00.000+00:00
+              - text: 2021-01-06T00:00:00.000+00:00
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[6]/div[1]/ul[1]/li[5]/@review_date
                 type: DATETIME
-                raw: 01/05/2021
+                raw: 01/06/2021
                 locale: nl_NL
                 tz: Europe/Amsterdam
             reviewRating:
@@ -215,4 +215,4 @@ extractions:
             syndicatedFrom:
               - text: https://www.bol.com/nl/
         xpath: /html
-    timestamp: 1613391482931
+    timestamp: 1613548161764

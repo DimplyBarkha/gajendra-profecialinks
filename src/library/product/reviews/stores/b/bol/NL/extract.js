@@ -79,6 +79,11 @@ module.exports = {
 
     // Selecting the most recent reviews
     console.log('Filtering by date');
+    try {
+      await context.waitForSelector('select#sort', { timeout: 20000 });
+    } catch (err) {
+      console.log('Failed to wait for the sorting element');
+    }
     await context.select('select#sort', 'MOST_RECENT');
     await new Promise((resolve) => setTimeout(resolve, 500));
 
