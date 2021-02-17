@@ -10,24 +10,28 @@ module.exports = {
     zipcode: '',
   },
   implementation: async (inputs, { transform }, context, { productReviews }) => {
-    // remove cookies popup
     await new Promise((resolve) => setTimeout(resolve, 5000));
     await context.evaluate(async function () {
+      // remove cookies popup
       const cookies = document.querySelector('div.acceptCookieCTA___NwqHh button');
       // @ts-ignore
       if (cookies) cookies.click();
-    });
 
-    await context.evaluate(async () => {
-      // add productUrl
-      var productUrl = window.location.href;
-      if (productUrl !== null) {
-        const element = document.createElement('a');
-        element.id = 'productUrl';
-        element.title = productUrl;
-        element.style.display = 'none';
-        document.body.appendChild(element);
-      }
+      // add product-specific fields
+      const name = document.querySelector('#productName > span')
+        ? document.querySelector('#productName > span').textContent
+        : '';
+
+      const rating = document.querySelector('span[itemprop="ratingValue"]')
+        ? document.querySelector('span[itemprop="ratingValue"]').textContent
+        : '';
+
+      const containers = document.querySelectorAll('ol div.bv-content-summary-body-text');
+      containers.forEach(container => {
+        container.setAttribute('addedName', name);
+        container.setAttribute('productUrl', window.location.href);
+        container.setAttribute('addedAggregateRating', rating);
+      });
     });
     var data = await context.extract(productReviews, { transform });
     for (let k = 0; k < data.length; k++) {
