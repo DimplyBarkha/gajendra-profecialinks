@@ -27,6 +27,9 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
+
+      addElementToDocument('added_url', window.location.href);
+
       const price = getXpath('//div[@class="formRow"]//span[@id="SkuPriceUpdate"]//text()', 'nodeValue');
       const pricecurrency = getXpath('//div[@class="formRow"]//span[@content="GBP"]//text()', 'nodeValue');
       const weightNet = getXpath('//table[@class="table specficsWrapper"]//tbody//tr//td//span[contains(text(),"Weight")]//following-sibling::text()', 'nodeValue');
