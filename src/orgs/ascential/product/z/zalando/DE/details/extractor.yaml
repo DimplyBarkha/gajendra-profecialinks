@@ -5,23 +5,14 @@ parameters:
   store: zalando
   zipcode: ''
 proxy:
-  zone: GBR
+  zone: ZUK
   type: DATA_CENTER
 policy:
-  numberRetries: 5
+  numberRetries: 3
   priority: MEDIUM
-  retryDelay: 120
-  backoffPolicy: LINEAR
-  retryWithResidentialProxyAfter: 3
-# proxy:
-#   zone: ZUK
-#   type: DATA_CENTER
-# policy:
-#   numberRetries: 3
-#   priority: MEDIUM
-#   retryDelay: 60
-#   backoffPolicy: EXPONENTIAL
-#   retryWithResidentialProxyAfter: 99
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     tdcm_zalando_DE_core:
