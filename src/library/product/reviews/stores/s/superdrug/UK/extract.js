@@ -41,6 +41,7 @@ module.exports = {
       }
     };
     // Selecting the most recent reviews
+    await context.waitForSelector('select[class="bv-select-cleanslate bv-dropdown-select"]');
     console.log('Filtering by date');
     await context.select('select[class="bv-select-cleanslate bv-dropdown-select"]', 'mostRecent');
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -152,8 +153,8 @@ module.exports = {
           ? document.querySelector('div[class="bv-content-header-meta"] meta[itemprop="ratingValue"]').getAttribute('content')
           : '';
         if (reviewRating) review.setAttribute('review_rating', reviewRating);
-        const reviewText = document.querySelector('div[class="bv-content-summary-body-text"] p')
-          ? document.querySelector('div[class="bv-content-summary-body-text"] p').textContent
+        const reviewText = review.querySelector('div[class="bv-content-summary-body-text"] p')
+          ? review.querySelector('div[class="bv-content-summary-body-text"] p').textContent
           : '';
         if (reviewText) review.setAttribute('added_text', reviewText);
         const user = document.querySelector('span[class="bv-author"] span')

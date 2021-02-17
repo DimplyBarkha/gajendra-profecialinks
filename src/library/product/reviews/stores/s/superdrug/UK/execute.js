@@ -22,15 +22,22 @@ async function implementation (
   const destinationUrl = url || patternReplace();
 
   await dependencies.goto({ url: destinationUrl, zipcode });
-
-  const product = await context.evaluate(async () => {
+  console.log('!!!!!!!!!!!!');
+  console.log(destinationUrl);
+  const keyword = destinationUrl.match(/\d+$/)[0];
+  const product = await context.evaluate(async (keyword) => {
     await new Promise((resolve) => setTimeout(resolve, 500));
     if (document.querySelector('ul[class="plp__product-container"]')) {
-      return document.querySelector('a[class="item__image ClickSearchResultEvent_Class"]').href;
+      const links = document.querySelectorAll('a[class="item__image ClickSearchResultEvent_Class"]');
+      for (let i = 0; i < links.length; i++) {
+        if (links[i].getAttribute('href').includes(keyword)) {
+          return 'https://www.superdrug.com/' + links[i].getAttribute('href');
+        }
+      }
     } else {
       return null;
     }
-  });
+  }, keyword);
   if (product) {
     await dependencies.goto({ url: product, zipcode });
   }
@@ -62,7 +69,7 @@ module.exports = {
     country: 'UK',
     store: 'superdrug',
     domain: 'superdrug.com',
-    loadedSelector: 'div[class*="pdp__BVRRContainer--container"]',
+    loadedSelector: 'div[class*="pdp__BVRRContainer--container"], body[data-page-id="productDetails"]',
     noResultsXPath: '//button[@id="first-to-write"] | //h1[contains(text(), "this product is no longer available")] | //div[@id="no_results"]',
     reviewUrl: 'https://www.superdrug.com/search?text={id}',
     sortButtonSelectors: null,
