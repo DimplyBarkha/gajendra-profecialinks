@@ -55,7 +55,7 @@ module.exports = {
       //   addElementToDocument('rpcid', rpc2)
       // }
 
-      const rawdata = getXpath("//div[@class='prd_price__main']/span/span[@id='reducedPriceAmount']/@content|//div[@class='prd_price__main']/span/span[@id='normalPriceAmount']/@content", 'nodeValue');
+      const rawdata = getXpath("//div[@class='prd_price__main']/span/span[@id='reducedPriceAmount']/@content|//div[@class='prd_price__main']/span/span[@id='normalPriceAmount']/@content|//span[@id='normalPriceAmount']/text()", 'nodeValue');
       if (rawdata != null) {
         var nr = rawdata.replace('.', ',')
         var price = '€' + nr
@@ -82,6 +82,10 @@ module.exports = {
       
       // @ts-ignore
       const aa = document.querySelector('section[class="prd_section"] div[class*=\'prd_section\']').innerText
+      // const bullets = document.querySelectorAll('#detailviewWrapper > section:nth-child(6) > div.prd_section__col.prd_section__col--15Of24 > div.prd_module.prd_module--noLine.prd_sellingPoints.js_prd_sellingPoints > ul > li')
+      // var middata= bullets.join(' || ')
+      // var mstart = middata.split(' || ')[0]
+      // var mstop = .split("/").pop()
       if (aa != null) {
         // @ts-ignore
         var desc1 = aa.replace('Artikelbeschreibung', '')

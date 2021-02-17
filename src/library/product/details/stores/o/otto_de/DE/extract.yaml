@@ -461,6 +461,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //span[@id='priceAdvantageAmount']
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -479,7 +480,7 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: (//span[@class='prd_selectedValue']/text())[1]|(//span[@class='prd_selectedValue'])//text()
+    xpath: concat((//span[@class='prd_selectedValue']/text())[1]|(//span[@class='prd_selectedValue'])//text(),'-',((//span[@class='prd_selectedValue']/text())[1]|(//span[@class='prd_selectedValue'])//text())[2])
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
