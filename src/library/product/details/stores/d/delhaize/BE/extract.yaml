@@ -68,14 +68,8 @@ fields:
     regExp: (.+)(/\p\/)(.+)
     regExpReplace: $3
   - name: directions
-<<<<<<< HEAD
     singleValue: false
     #xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Gebru")]/following::p[1]
-=======
-    # singleValue: false
-    # xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Gebru")]/following::p[1]
-    xpath: //h5[contains(text(),"Gebruiksaanwijzing")]/following-sibling::div
->>>>>>> d88781c9a7948bf978aa8caff49ede3065d80e16
   - name: ingredientsList
     # xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Ingrediënten")]/following::p[1]
     xpath: //h5[contains(text(),"Ingrediënten")]/following-sibling::div
