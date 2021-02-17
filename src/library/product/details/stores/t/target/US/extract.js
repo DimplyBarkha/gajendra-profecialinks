@@ -65,6 +65,7 @@ async function implementation(
             await context.waitForSelector('.wc-fragment', { timeout: 10000 });
             if (showMore) {
                 await context.click(manufacturerCTASelector);
+
                 await new Promise(r => setTimeout(r, 6000));
             }
         }
@@ -140,7 +141,7 @@ async function implementation(
                 addHiddenDiv(newDiv, 'primaryImage', variant.enrichment.images[0].base_url + variant.enrichment.images[0].primary);
             }
 
-            let videos = [];
+            let videos = []; 
             if (parentData.product &&
                 parentData.product.item.enrichment &&
                 parentData.product.item.enrichment.videos &&
@@ -157,6 +158,14 @@ async function implementation(
                     'https:' + video.video_files[0].video_url,
                 );
             }
+
+            document.querySelectorAll('img.wc-media.wc-video').forEach(e => {
+                var source = e.src;
+                if (source.includes(".mp4")) {
+                    var link = source.split("mp4")[0]+"mp4";
+                    videos.push(link);
+                }
+            });
 
             const productTitle = document.querySelector('h1[data-test="product-title"]') && document.querySelector('h1[data-test="product-title"]').innerText;
             if (variant.variation_info && variant.variation_info.themes) {
