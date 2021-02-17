@@ -165,7 +165,11 @@ module.exports = {
 
         for (let i = 0; i < manufacDesc.length; i++) {
           console.log(manufacDesc[i].textContent.replace(/^\s*\n/gm, ''));
-          arr.push(manufacDesc[i].textContent.replace(/^\s*\n/gm, '').trim());
+          try {
+            arr.push(manufacDesc[i].textContent.replace(/^\s*\n/gm, '').trim());
+          } catch (e) {
+            console.log('can not trim the data');
+          }
         }
         console.log('manufacturerDesc is as follows - ');
         console.log(manufacDesc);
@@ -291,7 +295,11 @@ module.exports = {
           } else {
             jsonStr = scriptContent.substring(startIdx + startString.length, endIdx);
           }
-          jsonStr = jsonStr.trim();
+          try {
+            jsonStr = jsonStr.trim();
+          } catch (e) {
+            console.log('can not trim the data');
+          }
           return JSON.parse(jsonStr);
         } catch (error) {
           console.log(error.message);
@@ -308,7 +316,11 @@ module.exports = {
             const xpath = `//script[contains(.,'${scriptSelector}')]`;
             const element = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
             let jsonStr = element.textContent;
-            jsonStr = jsonStr.trim();
+            try {
+              jsonStr = jsonStr.trim();
+            } catch (e) {
+              console.log('can not trim the data');
+            }
             return JSON.parse(jsonStr);
           } catch (error) {
             console.log(error.message);
@@ -349,11 +361,16 @@ module.exports = {
       const productAvailablity = '//div[contains(@class,"product_detail-purchase")]//div[contains(@class,"product_detail-add_to_cart")]//span[@class="dataholder"]/@data-json';
       const passKey = 'caBFucP0zZYZzTkaZEBiCUIK6sp46Iw7JWooFww0puAxQ';
       const availablity = findJsonObj('', productAvailablity);
-
-      const productID = JSON.parse(availablity.snapshotItem(0).value).code_a ? JSON.parse(availablity.snapshotItem(0).value).code_a.trim('') : '';
-      const sku = JSON.parse(availablity.snapshotItem(0).value).variant ? JSON.parse(availablity.snapshotItem(0).value).variant.trim('') : '';
-      const storeId = JSON.parse(availablity.snapshotItem(0).value).store_id ? JSON.parse(availablity.snapshotItem(0).value).store_id.trim('') : '';
-
+      let productID = '';
+      let sku = '';
+      let storeId = '';
+      try {
+        productID = JSON.parse(availablity.snapshotItem(0).value).code_a ? JSON.parse(availablity.snapshotItem(0).value).code_a.trim('') : '';
+        sku = JSON.parse(availablity.snapshotItem(0).value).variant ? JSON.parse(availablity.snapshotItem(0).value).variant.trim('') : '';
+        storeId = JSON.parse(availablity.snapshotItem(0).value).store_id ? JSON.parse(availablity.snapshotItem(0).value).store_id.trim('') : '';
+      } catch (e) {
+        console.log('can not trim the data');
+      }
       if (productID) {
         // API
         const productsData = `https://www.elcorteingles.es/api/product/${productID}?product_id=${productID}`;
@@ -546,13 +563,20 @@ module.exports = {
         const reviewsCount = document.querySelector('div.bv-content-pagination-pages-current');
         let ratingCount;
         if (reviewsCount) {
-          ratingCount = reviewsCount.textContent.trim().match(/[^\s]+(?=\sOpiniones)/);
+          try {
+            ratingCount = reviewsCount.textContent.trim().match(/[^\s]+(?=\sOpiniones)/);
+          } catch (e) {
+            console.log('can not trim the data');
+          }
           if (ratingCount) {
             return ratingCount[0];
           }
         } else if (document.querySelector('h4[itemprop="headline"]')) {
-          ratingCount = document.querySelector('h4[itemprop="headline"]').textContent.trim().match(/\d+/);
-
+          try {
+            ratingCount = document.querySelector('h4[itemprop="headline"]').textContent.trim().match(/\d+/);
+          } catch (e) {
+            console.log('can not trim the data');
+          }
           if (ratingCount) {
             if (document.querySelector('li[itemprop="review"]')) {
               ratingCount = parseInt(ratingCount[0]) + document.querySelectorAll('li[itemprop="review"]').length;
@@ -579,12 +603,16 @@ module.exports = {
 
       // Function to remove the `\n` from the textContent
       function textContent (element, attributeName) {
-        const text = (element && element.innerText.trim()
-          .split(/[\n]/)
-          .filter((ele) => ele)
-          .join(' ')) ||
+        try {
+          const text = (element && element.innerText.trim()
+            .split(/[\n]/)
+            .filter((ele) => ele)
+            .join(' ')) ||
           '';
-        addElementToDocument(attributeName, text);
+          addElementToDocument(attributeName, text);
+        } catch (e) {
+          console.log('can not trim the data');
+        }
       }
 
       textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
