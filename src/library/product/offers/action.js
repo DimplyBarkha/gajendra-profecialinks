@@ -125,7 +125,7 @@ module.exports = {
   ],
   dependencies: {
     execute: 'action:product/offers/execute',
-    paginate: 'action:product/offers/paginate',
+    paginate: 'action:navigation/paginate',
     extract: 'action:product/offers/extract',
   },
   path: './offers/stores/${store[0:1]}/${store}/${country}/offers',

@@ -39,11 +39,20 @@ module.exports = {
     setZipCode: 'action:navigation/goto/setZipCode',
   },
   path: './goto/domains/${domain[0:2]}/${domain}',
-  implementation: async ({ url, zipcode, storeId }, parameters, context, dependencies) => {
-    const timeout = parameters.timeout ? parameters.timeout : 10000;
-    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
-    if (zipcode) {
-      await dependencies.setZipCode({ url: url, zipcode: zipcode, storeId });
+  implementation: async (inputs, parameters, context, dependencies) => {
+    const { timeout = 10000 } = parameters;
+    const { url, zipcode, storeId } = inputs;
+    await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true, captureRequests: true });
+
+    // patch for synchronicity issue between json decoring and goto result
+    if (url.split('[!opt!]')[1] && url.split('[!opt!]')[1].includes('"type":"json"')) {
+      console.log('Wait for handling synchronicity issue');
+      await new Promise((resolve) => setTimeout(resolve, 8000));
+    }
+
+    console.log(`zipcode: ${zipcode}`);
+    if (zipcode || storeId) {
+      await dependencies.setZipCode(inputs);
     }
   },
 };

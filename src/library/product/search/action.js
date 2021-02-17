@@ -1,3 +1,11 @@
+/**
+ *
+ * @param { { URL: string, keywords: string, Keywords: string, Brands: string, results: string, query: string } } inputs
+ * @param { { store: any, country: any, zipcode: any, storeID: any } } parameters
+ * @param { ImportIO.IContext } context
+ * @param { { execute: ImportIO.Action, paginate: ImportIO.Action, extract: ImportIO.Action } } dependencies
+ */
+
 module.exports = {
   parameters: [
     {
@@ -30,6 +38,12 @@ module.exports = {
   ],
   inputs: [
     {
+      name: 'URL',
+      description: 'product listing url',
+      type: 'string',
+      optional: true,
+    },
+    {
       name: 'keywords',
       description: 'keywords to search for',
       type: 'string',
@@ -51,11 +65,14 @@ module.exports = {
     },
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
       name: 'Brands',
       description: 'brands to search for',
       type: 'string',
     },
     {
+=======
+>>>>>>> c5eae78183b04fd187a2d3dd3bfe2c3eaf644b4f
       name: 'query',
       description: 'Part of a uniform resource locator (URL)',
 =======
@@ -83,8 +100,7 @@ module.exports = {
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
 <<<<<<< HEAD
   implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
-    const { keywords, Keywords, results = 150, Brands, query } = inputs;
-
+    const { URL, keywords, Keywords, results = 150, Brands, query } = inputs;
     const inputKeywords = Keywords || keywords || Brands;
 
     // TODO: consider moving this to a reusable function
@@ -92,6 +108,7 @@ module.exports = {
 
     const resultsReturned = await execute({
       ...inputs,
+      searchURL: URL,
       keywords: inputKeywords,
       zipcode: inputs.zipcode || zipcode,
       query: query,

@@ -32,7 +32,7 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
         hasdropDownQuantity: '[import=element] span[data-action*=dropdown]',
         hasBuyNewBtn: '#buyNew_cbb',
         hasNoThanksAddOn: '#buybox-see-all-buying-choices-announce',
-        sellerName: 'div[id*="used"] #tabular-buybox>table>tbody>tr:nth-child(1)>td:nth-child(2) span.a-truncate-full a, div[id*="used"] #merchant-info>a[id*="seller"]:nth-child(1), div[id*="used"] #merchant-info>a[id*="seller"], #qualifiedBuybox #tabular-buybox>table>tbody>tr:nth-child(2)>td:nth-child(2) span.a-truncate-full a, div[id*="new"] #tabular-buybox>table>tbody>tr:nth-child(2)>td:nth-child(2) span.a-truncate-full a,#qualifiedBuybox #merchant-info a, div[id*="new"] #merchant-info a'
+        sellerName: 'div[id*="used"] #tabular-buybox>table>tbody>tr:nth-child(1)>td:nth-child(2) span.a-truncate-full a, div[id*="used"] #merchant-info>a[id*="seller"]:nth-child(1), div[id*="used"] #merchant-info>a[id*="seller"], #qualifiedBuybox #tabular-buybox>table>tbody>tr:nth-child(2)>td:nth-child(2) span.a-truncate-full a, div[id*="new"] #tabular-buybox>table>tbody>tr:nth-child(2)>td:nth-child(2) span.a-truncate-full a,#qualifiedBuybox #merchant-info a, div[id*="new"] #merchant-info a, a#sellerProfileTriggerId'
       };
 
       const elementChecks = {};
@@ -54,6 +54,7 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
       elementChecks.hasVariants = !!window.isTwisterPage
       elementChecks.windowLocation =  window.location ? window.location : {}
       elementChecks.sellerName = elementChecks.sellerName ? document.evaluate('(//*[contains(@id, "buyNew_cbb")]//*[contains(@id, "sfsb_accordion_head")]/div[2]//div[contains(@class, "a-column")]//span[2][not(@class)] | //*[contains(@id, "buyNew_cbb")]//*[contains(@id, "sfsb_accordion_head")]/div[2]//div[contains(@class, "a-column")]//span[@class] | //*[contains(@id, "qualifiedBuybox")]//*[contains(@id, "tabular-buybox")]/table/tbody/tr[2]/td[2]//span[contains(@class, "a-truncate-full")]//a | //div[contains(@id,"new")]//*[contains(@id, "tabular-buybox")]/table/tbody/tr[2]/td[2]//span[contains(@class, "a-truncate-full")]//a | //*[contains(@id,"qualifiedBuybox")]//*[contains(@id, "merchant-info")]//a | //div[contains(@id,"new")]//*[contains(@id,"merchant-info")]//a | //div[@id="used"]//*[contains(@id,"tabular-buybox")]/table/tbody/tr[1]/td[2]//span[contains(@class, "a-truncate-full")]//a | //div[contains(@id,"used")]//*[contains(@id,"merchant-info")]/a[contains(@id,"seller")][1] | //div[contains(@id,"used")]//*[contains(@id, "merchant-info")]/a[contains(@id,"seller")])[1]', document, null, XPathResult.ANY_TYPE, null).iterateNext().innerText : false;
+      elementChecks.addToCartErrorPage = !!document.evaluate('//h2[contains(text(), "sorry")]', document, null, XPathResult.ANY_TYPE, null).iterateNext()
       if(!!document.body){
         document.body.setAttribute('current_page_url', window.location.href);
       }
@@ -265,7 +266,9 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
 
   let pageCheck = 0;
   while (!page.isCartPage && pageCheck < 6) {
-    if (page.hasToCartFromModal && ( pageCheck===0 || pageCheck===2 || pageCheck===4)) {
+    if(!!page.addToCartErrorPage){
+      throw Error('Add to cart error page');
+    } else if (page.hasToCartFromModal && ( pageCheck===0 || pageCheck===2 || pageCheck===4)) {
       await context.click('#nav-cart');
       await new Promise(resolve => setTimeout(resolve, 3000));
     } else if (page.isCartTransitionPage) {
@@ -309,8 +312,7 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
         return
       };
       await context.waitForSelector('div[data-asin][import]:not([data-removed])')
-
-      if(sellerName){
+      if(await productSellerFound(sellerId, id) && sellerName){
         console.log('appending seller name')
         await context.evaluate((sellerName) => {
           let ele = document.querySelector('div[import=element]');
@@ -319,7 +321,6 @@ const getStockFunc = async function ({ context, sellerId, id, url }) {
           }
         }, sellerName)
       }
-
     }else{
       while (await artifactCartItems()) {
         await context.click('div[data-asin]:not([import]):not([data-removed]) input[data-action*="delete"]');

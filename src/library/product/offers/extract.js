@@ -13,7 +13,7 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productOffers } = dependencies;
-  const assignQuantity = inputs.assign_quantity;
+  const assignQuantity = inputs.assign_quantity || 0;
   const collected = inputs.collected
 
   // Adding data to page

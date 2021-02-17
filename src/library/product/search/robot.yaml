@@ -1,3 +1,17 @@
+<<<<<<< HEAD
+=======
+proxy:
+  zone: USA
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
+honorRobots: false
+schema: product/search
+>>>>>>> c5eae78183b04fd187a2d3dd3bfe2c3eaf644b4f
 parameters:
   - store
   - country
