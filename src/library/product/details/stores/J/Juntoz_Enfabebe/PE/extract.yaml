@@ -5,7 +5,8 @@ recordXPath: null
 fields:
   - name: image
     singleValue: true
-    description: URL of the main product image
+    regExp: (.+)(/orig)(.+)
+    regExpReplace: $1/490x490$3
     xpath: //div[@class="content-img-product-view ng-scope"]/img/@src
   - name: imageAlt
     singleValue: true
@@ -13,14 +14,15 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="col-sm-6 col-md-2 single-product-small-images"]/ul/li/a/@data-zoom-image
+    regExp: (.+jpg)
+    xpath: //div[@class="col-sm-6 col-md-2 single-product-small-images"]/ul/li/a[@class="img-group-01 thumb-imgs"]/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ol[@class="list-inline list-unstyled breadcrumb-detail"]/li/breadcrumb/a   
+    xpath: //div[@class="row ng-scope"]/ol/li/breadcrumb//a  
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -42,12 +44,13 @@ fields:
       should be "In Stock"
     regExp: (.+)
     regExpReplace: In Stock
+    defaultValue: Out Of Stock
     xpath: //button[@class="btn btn-lg btn-add-to-cart"]
   - name: description
-    singleValue: false
+    singleValue: true
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //meta[@itemprop="name"]/@content
+    xpath: concat(//div[@class='tab-pane active'], ,//div[@id='full-description']/p[3])
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -65,7 +68,7 @@ fields:
     description: Quantity as described on the page
     # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     # regExpReplace: $1$2$3$4
-    xpath: //div[@class="col-md-5 ng-scope"]/input/@min
+    xpath:  //div[@class="col-md-12 content-product-detail"]/table[@class="table table-striped table-bordered table-specs"]/tbody//*[contains(.,'Tamaño ')]/td[@class="ng-binding"]
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -87,9 +90,7 @@ fields:
     singleValue: true
     description: The manufacturer model code (unique) of the product
   - name: packSize
-    singleValue: true
-    description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
+    singleValue: true  
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -116,7 +117,6 @@ fields:
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
-    xpath: //div[@class="col-md-12 content-product-detail"]/table[@class="table table-striped table-bordered table-specs"]/tbody//*[contains(.,'Tamaño ')]/td[@class="ng-binding"]
   - name: shippingWeight
     singleValue: true
     description: Stated shipping weight

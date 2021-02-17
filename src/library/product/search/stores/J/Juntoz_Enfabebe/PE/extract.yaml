@@ -11,6 +11,7 @@ fields:
     xpath: //section[@class="catalog-products-body__product-prices"]/span[contains(@class,"catalog-products-body__product-special-price")]
   - name: thumbnail
     singleValue: false
+    regExp: (.+jpg)
     xpath: //div[@class="catalog-products-body__product-wrapper"]/figure[@class="catalog-products-body__product-img"]/a/img/@src        
   - name: id
     singleValue: false
@@ -25,7 +26,7 @@ fields:
     regExpReplace: https://www.juntoz.com$1    
   - name: brand
     singleValue: true
-    xpath: //span[@class="catalog-products-body__product-brand ng-binding"] 
+    xpath: //span[@class="catalog-products-body__product-brand ng-binding"]      
   - name: rank
     singleValue: false
     description: search/listing rank
@@ -34,3 +35,6 @@ fields:
     singleValue: true
     description: The position (rank) within the list excluding sponsored/paid results
     type: NUMBER    
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id="pd_url"]    

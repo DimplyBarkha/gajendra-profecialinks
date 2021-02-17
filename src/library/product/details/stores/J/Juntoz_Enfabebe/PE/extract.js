@@ -12,10 +12,11 @@ module.exports = {
   implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {
     await context.evaluate(() => {
     window.location.reload()
-    
+
     });
     await new Promise(r => setTimeout(r, 6000));
-    await context.extract(productDetails);
+    return await context.extract(productDetails);
     },
+    
     };
     

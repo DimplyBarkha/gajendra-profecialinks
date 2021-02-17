@@ -17,6 +17,7 @@ module.exports = {
     openSearchDefinition: {
       template: 'https://enfabebe.juntoz.com/catalogo?keywords={searchTerms}&allStore=false&specialPrice=false&page={page}',
       },
+      pageStartNb: 0,
     domain: 'enfabebe.juntoz.com',
     zipcode: '',
   },
