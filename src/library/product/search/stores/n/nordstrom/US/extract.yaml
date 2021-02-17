@@ -1,7 +1,10 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //h1[contains(text(),'You searched for')]/following-sibling::section/div/article|//a[contains(@id, "product-results-query-anchor")]/following-sibling::section/div/article
+# For stevemadden, excluding on sale items:
+recordXPath: //span[contains(text(),"$")]//preceding-sibling::span[not(.//text())]/../..//parent::article
+# For other projects:
+# recordXPath: //h1[contains(text(),'You searched for')]/following-sibling::section/div/article|//a[contains(@id, 'product-results-query-anchor')]/following-sibling::section/div/article
 fields:
   - name: productUrl
     xpath: //h3/a/@href
