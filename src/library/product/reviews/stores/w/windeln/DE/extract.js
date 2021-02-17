@@ -147,6 +147,7 @@ module.exports = {
       let userSel;
       let ratinValueSel;
       let synidcatedFromSel;
+      let synicatedType1Sel;
 
       switch (allReviewsModalExist) {
         case true:
@@ -157,6 +158,7 @@ module.exports = {
           userSel = 'button[itemprop="author"]';
           ratinValueSel = 'abbr.bv-rating';
           synidcatedFromSel = 'div.bv-content-data-syndication';
+          synicatedType1Sel = 'div.bv-syndication-summary img.bv-brand-logo-image';
           break;
         case false:
           console.log('Modal with all reviews NOT exist, there are fewer reviews');
@@ -166,6 +168,7 @@ module.exports = {
           userSel = 'div.ratings-list-item-name';
           ratinValueSel = 'span.ratings-stars-average';
           synidcatedFromSel = 'div.ratings-list-syndicated';
+          synicatedType1Sel = 'img.ratings-list-syndicated-image';
           break;
       }
 
@@ -199,7 +202,17 @@ module.exports = {
         if (user) review.setAttribute('review_user_name', user);
 
         const syndicatedFromElem = review.querySelector(synidcatedFromSel);
-        const syndicatedFrom = syndicatedFromElem ? syndicatedFromElem.textContent : null;
+        const synicatedType1 = syndicatedFromElem ? syndicatedFromElem.querySelector(synicatedType1Sel) : null;
+        const synicatedType2 = syndicatedFromElem ? syndicatedFromElem.querySelector('div.bv-product-family-summary a') : null;
+        let syndicatedFrom;
+
+        if (synicatedType1 && !synicatedType2) {
+          syndicatedFrom = synicatedType1.getAttribute('alt') ? synicatedType1.getAttribute('alt') : '';
+        } else if (synicatedType2 && !synicatedType1) {
+          syndicatedFrom = synicatedType2.getAttribute('href') ? synicatedType2.getAttribute('href') : '';
+        } else {
+          syndicatedFrom = '';
+        }
         if (syndicatedFrom) review.setAttribute('syndicated_from', syndicatedFrom);
 
         let ratingValue;
