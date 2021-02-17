@@ -11,7 +11,7 @@ fields:
   - name: image
     xpath: //div[@class="image"]/img/@src
   - name: pageTitle
-    xpath: //meta[@property="og:title"]/@content
+    xpath: //article[@class='main-info']/h2
   - name: category
     xpath: //p//a[@data-location="add_cart"]/@href
     regExp: ko/(.*)/
