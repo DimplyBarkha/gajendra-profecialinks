@@ -1,9 +1,29 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="product-price OneLinkNoTx"]/../../../..//parent::li[@class="category-item" and @id] | //span[@class="price-no-promo"]/../../../..//parent::div[contains(@class,"product-thumbnail") and not(contains(@class,"promo-tile")) and @id]
-# recordXPath: //li[@class="category-item" and @id] | //div[contains(@class,"product-thumbnail") and not(contains(@class,"promo-tile")) and @id]
+recordXPath: //li[@class="category-item" and @id] | //div[contains(@class,"product-thumbnail") and not(contains(@class,"promo-tile")) and @id]
+# recordXPath: //div[@class="product-price OneLinkNoTx"]/../../../..//parent::li[@class="category-item" and @id] | //span[@class="price-no-promo"]/../../../..//parent::div[contains(@class,"product-thumbnail") and not(contains(@class,"promo-tile")) and @id]
 fields:
+  - name: originalPageSku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //@href  
+    regExp: >-
+      (childItemId=)(.+)(_&)
+    regExpReplace: $2
+  - name: altPageSku
+    singleValue: false
+    description: The store-specific product identifier
+    xpath: //a[@id="productTemplateId"]/img/@item-url 
+    regExp: >-
+      (Marcus\/)(.+)(_m)
+    regExpReplace: $2
+  - name: price
+    singleValue: false
+    xpath: //span[@class="price-no-promo"] | //span[contains(@class,"currentPrice")]/span[contains(@class,"new-pricing")] | //div[@class="product-price OneLinkNoTx"] | //p[contains(@class,"highlight")]/span[@class="price OneLinkNoTx"]
+  - name: listPrice
+    singleValue: false
+    xpath: //span[contains(@class,"price-enhancement")]/span[contains(@class,"new-pricing")] | //p[contains(@class,"strikethrough")]/span[@class="price OneLinkNoTx"]
   - name: brand
     singleValue: false
     description: The brand name
@@ -24,7 +44,3 @@ fields:
     singleValue: false
     description: The product name
     xpath: //span[@class="name"] | //div[contains(@class,"productname")]
-  - name: sku
-    singleValue: false
-    description: The store-specific product identifier
-    xpath: //a[@class="quick-look "]/@product_id | //div[contains(@class,"product-thumbnail") and not(contains(@class,"promo-tile")) and @id]/@id

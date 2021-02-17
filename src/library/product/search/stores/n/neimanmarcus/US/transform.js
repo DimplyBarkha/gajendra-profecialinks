@@ -30,6 +30,12 @@ const transform = (data, context) => {
         }
       }
 
+      if (row.originalPageSku) {
+        row.sku = [{ text: row.originalPageSku[0].text }];
+      } else if (row.altPageSku) {
+        row.sku = [{ text: row.altPageSku[0].text }];
+      }
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
