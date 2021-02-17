@@ -8,7 +8,7 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await new Promise((resolve, reject) => setTimeout(resolve, 20000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 4000));
     const applyScroll = async function (context) {
       await context.evaluate(async function () {
         let scrollTop = 0;
