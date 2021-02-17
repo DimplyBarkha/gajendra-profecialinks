@@ -1,0 +1,24 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@data-dy="productsList"]/li[@data-dy="product"]
+fields:
+  - name: productUrl
+    xpath: //div[contains(@class,"_2fFxlhy")]/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.eldorado.ru$1
+  - name: thumbnail
+    xpath: //a[contains(@class,"_1RaAPF1")]/img/@src
+  - name: name
+    xpath: //a[@data-dy="title"]
+  - name: id
+    xpath: //@data-id
+  - name: aggregateRating2
+    xpath:  //html//div[@id="aggregateRating2"]
+  - name: reviewCount
+    xpath: //a[contains(@class,"_1_F55f-")]
+    regExp: \d+
+  - name: price
+    xpath: //span[contains(@class,"Q35hFri")]
+  - name: rank
+  - name: rankOrganic
