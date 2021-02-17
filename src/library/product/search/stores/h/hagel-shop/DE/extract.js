@@ -28,7 +28,7 @@ async function implementation(
       newDiv.id = id;
       newDiv.textContent = content;
       newDiv.style.display = 'none';
-      const originalDiv = document.querySelectorAll('ul[class="products-grid thumbnails"]>li')[index];
+      const originalDiv = document.querySelectorAll('ul[class="products-grid thumbnails"] li div div[class="product-name"]')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
 
