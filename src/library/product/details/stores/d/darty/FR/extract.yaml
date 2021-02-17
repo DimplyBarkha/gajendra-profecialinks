@@ -73,7 +73,7 @@ fields:
     xpath: //div[@id="product_caracteristics"]//tr[contains(translate(string(), 'Couleur', 'Couleur'), 'Couleur')]/td
   - name: videos
     singleValue: false
-    xpath: //div[contains(@class,"no_flag_picture")]//iframe/@src | //input[@class="flix-jw"]/@value
+    xpath: //div[contains(@class,"no_flag_picture")]//iframe/@src | //input[@class="flix-jw"]/@value | //div[contains(@id, 'no-parallax')]//div[contains(@class, 'eky-header-row')]//video[contains(@class, 'video-inviewport-ignores')]
   - name: galleryVideos
     singleValue: false
     xpath: //div[contains(@class,"no_flag_picture")]//iframe/@src | //input[@class="flix-jw"]/@value

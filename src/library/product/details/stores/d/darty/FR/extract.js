@@ -1,6 +1,6 @@
 const { transform } = require('../format');
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -30,7 +30,6 @@ async function implementation(
     console.log("selector of enhancedContent button doesn't exist");
   }
 
-
   await context.evaluate(async () => {
     window.scroll(0, 1000);
     if (document.querySelector('li#brand_navigation_item a')) {
@@ -54,7 +53,7 @@ async function implementation(
         }
       }
     }
-    function stall(ms) {
+    function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -93,32 +92,40 @@ async function implementation(
         document.body.appendChild(catElement1);
       }
     }
-     try{
-      const id = document.evaluate('//meta[@itemprop="sku"]/@content',document).iterateNext() && document.evaluate('//meta[@itemprop="sku"]/@content',document).iterateNext().textContent;
-      let res = await fetch(`https://api.early-birds.fr/widget/multi/581c930912983dbb01366c48-581ca05312983dbb01366c4c/recommendations/dff0a092-a05b-4b56-b5f2-9d44263d72c1?variables={"$productId":${id}}`)
-      let data = await res.json()
-      let props = Object.getOwnPropertyNames(data)
-      const text = ''
-      const updp = []
+    try {
+      const id = document.evaluate('//meta[@itemprop="sku"]/@content', document).iterateNext() && document.evaluate('//meta[@itemprop="sku"]/@content', document).iterateNext().textContent;
+      const res = await fetch(`https://api.early-birds.fr/widget/multi/581c930912983dbb01366c48-581ca05312983dbb01366c4c/recommendations/dff0a092-a05b-4b56-b5f2-9d44263d72c1?variables={"$productId":${id}}`);
+      const data = await res.json();
+      const props = Object.getOwnPropertyNames(data);
+      const text = '';
+      const updp = [];
       props.forEach(prop => {
-        let prods = data[prop].recommendations
+        const prods = data[prop].recommendations;
         prods.forEach(prod => {
-          updp.push(prod.product.descriptifCourt)
-        })
-      })
-      let updp2 = [...new Set(updp)]
-      updp2.forEach((element,index)=>{
-          let updpDiv = document.createElement('div');
-          updpDiv.className = 'updpinformation';
-          updpDiv.innerText = updp2[index];
-          document.body.append(updpDiv);
-      })
-
-     }catch(e) {
-       console.log(e)
-     }
-
+          updp.push(prod.product.descriptifCourt);
+        });
+      });
+      const updp2 = [...new Set(updp)];
+      updp2.forEach((element, index) => {
+        const updpDiv = document.createElement('div');
+        updpDiv.className = 'updpinformation';
+        updpDiv.innerText = updp2[index];
+        document.body.append(updpDiv);
+      });
+    } catch (e) {
+      console.log(e);
+    }
   });
+
+  try {
+    const videoEle = await context.evaluateInFrame('iframe#eky-dyson-iframe', function () {
+      return document.querySelector('div#no-parallax div.eky-header-row video.video-inviewport-ignores');
+    });
+    console.log('videoEle ====', videoEle);
+  } catch (err) {
+    console.log('error while evaluating video', err);
+  }
+
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
