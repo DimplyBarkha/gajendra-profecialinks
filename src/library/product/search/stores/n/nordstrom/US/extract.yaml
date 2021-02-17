@@ -1,11 +1,13 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-# For stevemadden, excluding on sale items:
-recordXPath: //span[contains(text(),"$")]//preceding-sibling::span[not(.//text())]/../..//parent::article
-# For other projects:
-# recordXPath: //h1[contains(text(),'You searched for')]/following-sibling::section/div/article|//a[contains(@id, 'product-results-query-anchor')]/following-sibling::section/div/article
+recordXPath: //h1[contains(text(),'You searched for')]/following-sibling::section/div/article|//a[contains(@id, 'product-results-query-anchor')]/following-sibling::section/div/article
 fields:
+  - name: price
+    xpath: //span[contains(.,'Sale') and not(contains(.,'After'))]/../span[2][contains(.,'$')] | //span[not(contains(.,'Sale')) and not(contains(.,'After')) and not(contains(.,'Was'))]/following-sibling::span[contains(.,'$')]
+    regExp: "[^–]+$"
+  - name: listPrice
+    xpath: //span[contains(text(),"% off")]//preceding-sibling::span[not(contains(text(),"Was"))]
   - name: productUrl
     xpath: //h3/a/@href
     regExp: (.+)
@@ -26,9 +28,6 @@ fields:
     xpath: //a//span[contains(@aria-label,'out of')]/following-sibling::span
     regExp: (\d+)
     regExpReplace: $1
-  - name: price
-    xpath: //span[contains(.,'Sale') and not(contains(.,'After'))]/../span[2][contains(.,'$')] | //span[not(contains(.,'Sale')) and not(contains(.,'After')) and not(contains(.,'Was'))]/following-sibling::span[contains(.,'$')]
-    regExp: "[^–]+$"
   - name: rank
     singleValue: false
   - name: rankOrganic
