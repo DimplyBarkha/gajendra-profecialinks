@@ -432,7 +432,7 @@ fields:
     description: null
   - name: specifications
     singleValue: true
-    xpath: //div[contains(@id,"productExtraDescription")][not(contains(@class,"hidden"))]//ul//li//div//span[contains(text(), 'מידות')]//text()
+    xpath: //div[contains(@id,"productExtraDescription")][not(contains(@class,"hidden"))]//ul//li//div//span[contains(text(), 'מידות')]//text()  | //div[@class="content"]/child::div//span[contains(text(), 'מידות')]//text()
     description: The physical dimensions of the product including packaging.
   - name: warranty
     singleValue: true
