@@ -37,8 +37,11 @@ const transform = (data) => {
       // }
       if (row.brandText) {
         if (row.nameExtended) {
-          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
+          row.nameExtended = [{ text: row.brandText[0].text + ' ' + row.nameExtended[0].text }];
         }
+      }
+      if (row.quantity && row.quantity[0]) {
+        row.quantity[0].text = row.quantity[0].text.trim();
       }
       if (row.specifications) {
         var specificationsArr = [];

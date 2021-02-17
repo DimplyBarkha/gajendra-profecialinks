@@ -62,6 +62,17 @@ const transform = (data) => {
           },
         ];
       }
+      if (row.manufacturer) {
+        let text = '';
+        row.manufacturer.forEach(item => {
+          text += `${item.text.replace('Adres producenta:', '')}`;
+        });
+        row.manufacturer = [
+          {
+            text: text.slice(0, -1),
+          },
+        ];
+      }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
           item.text = item.text.replace('/90x90/', '/900x900/');

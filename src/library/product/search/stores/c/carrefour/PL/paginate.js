@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'PL',
     store: 'carrefour',
-    nextLinkSelector: null,
+    // nextLinkSelector: 'button.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorPrimary:nth-of-type(2) span',
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div#__next header + div + div>div',

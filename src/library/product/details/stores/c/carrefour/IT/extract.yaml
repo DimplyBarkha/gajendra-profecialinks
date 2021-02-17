@@ -1,0 +1,190 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: (//div[contains(@class,"swiper-wrapper")]/div/img/@src)[1]
+    regExp: (.+)
+    regExpReplace: https://www.carrefour.it$1
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[contains(@class,"swiper-wrapper")]/div/img/@alt)[1]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,"swiper-wrapper")]/div[position()>1]/img/@src
+    regExp: (.+)
+    regExpReplace: https://www.carrefour.it$1
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class,"swiper-wrapper")]/div[position()>1]/img/@src)
+  - name: secondaryImageTotal #count alternateImage
+    singleValue: false
+    xpath:
+  - name: _url
+    singleValue: false
+    xpath: //link[@rel="canonical"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.carrefour.it$
+  - name: category
+    xpath: (//div/div/div[contains(@class,"glide")]/div[contains(@class,"glide__track")]/ul[contains(@class,"glide__slides")]/li[contains(@class,"selected")])[1]
+    singleValue: false 
+  - name: name
+    xpath: //h1[@class="product-description"]
+    singleValue: false 
+  - name: nameExtended
+    xpath: //h1[@class="product-description"]
+    singleValue: false 
+  - name: description
+    xpath: //div[contains(@id,"panel-otherInformation")]
+    singleValue: false
+  - name: ingredientsList
+    xpath: //div[contains(@id,"panel-ingredientAndAllergens")]/ul/*
+    singleValue: false
+  - name: allergyAdvice
+    xpath: //div[contains(@id,"panel-ingredientAndAllergens")]/p[position()>2][1]
+    singleValue: false
+  - name: storage
+    xpath: (//div[contains(@id,"panel-usageTips")]/p)[2] | //div[contains(@id,"panel-usageTips")]/p[2]/span #try to give space in first word
+    singleValue: false
+    #name: countryOfOrigin
+    #xpath: //div[contains(@id,"panel-otherInformation")]/p[@class][8]
+    #singleValue: false
+    #name: origin
+    #xpath: //div[contains(@id,"panel-otherInformation")]/p[@class][10]
+    #singleValue: false
+   #name: discountPercentage
+    #xpath: //*[@id="maincontent"]/div[3]/div[2]/div/div[3]/div[2]/div/div/div/div[1]
+    #singleValue: false
+  - name: price
+    xpath: //div[@class="product-main-info"]/div[contains(@class,"price")]/div[contains(@class,"price")]/div/span/span/span[contains(@class,"value")]
+    singleValue: false  
+  - name: listPrice
+    xpath: //div[@class="product-main-info"]/div[contains(@class,"price")]/div[contains(@class,"price")]/div/span/del/span/span[contains(@class,"value")]
+    singleValue: false
+  - name: brandText
+    xpath: (//p[contains(@class,"product-name")])[1]
+    singleValue: false
+  - name: quantity  #remind me chaneg this
+    singleValue: false
+    xpath: //h1[@class="product-description"]
+    #regExp: '([^0-9,]*)'
+    #regExpReplace: '$1'
+    #3270name: servingSize
+    #singleValue: false
+    #xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"er")])[1]
+    #regExp: '([\d]+\s*(.+))'
+    #regExpReplace: '$1'
+  - name: caloriesPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"nergia")]/following-sibling::span)[1]
+    singleValue: false
+  - name: totalFatPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"rassi")]/following-sibling::span)[1]
+    singleValue: false
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: totalFatPerServingUom  
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"rassi")]/following-sibling::span)[1]
+    singleValue: false
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'
+  - name: saturatedFatPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"di cui acidi grassi saturi")]/following-sibling::span)[1]
+    singleValue: false
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: saturatedFatPerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"di cui acidi grassi saturi")]/following-sibling::span)[1]
+    singleValue: false
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'  
+  - name: totalCarbPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"arboidrati")]/following-sibling::span)[1]
+    singleValue: false 
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: totalCarbPerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"arboidrati")]/following-sibling::span)[1]
+    singleValue: false 
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'  
+  - name: totalSugarsPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"di cui zuccheri")]/following-sibling::span)[1]
+    singleValue: false
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: totalSugarsPerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"di cui zuccheri")]/following-sibling::span)[1]
+    singleValue: false
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'
+  - name: dietaryFibrePerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"ibre")]/following-sibling::span)[1]
+    singleValue: false
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: dietaryFibrePerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"ibre")]/following-sibling::span)[1]
+    singleValue: false
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'
+  - name: proteinPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"roteine")]/following-sibling::span)[1]
+    singleValue: false  
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: proteinPerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"roteine")]/following-sibling::span)[1]
+    singleValue: false  
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'
+  - name: saltPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"ale")]/following-sibling::span)[1]
+    singleValue: false     
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'    
+  - name: saltPerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"ale")]/following-sibling::span)[1]
+    singleValue: false     
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'  
+  - name: variantId #change how it look
+    xpath: //div[contains(@class,"product-detail-page")]/div/@data-pid
+    singleValue: false  
+  - name: calciumPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"alcio")]/following-sibling::span)[1]
+    singleValue: false  
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: calciumPerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"alcio")]/following-sibling::span)[1]
+    singleValue: false  
+    regExp: '([^0-9,\s]*)'
+    regExpReplace: '$1'  
+  - name: warnings
+    xpath: //div[contains(@id,"panel-usageTips")]/p[contains(text(),"Avvertenze")]/following-sibling::p
+    singleValue: false  
+  - name: sodiumPerServing
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"odio")]/following-sibling::span)[1]
+    singleValue: false 
+    regExp: '([0-9,]*)'
+    regExpReplace: '$1'
+  - name: sodiumPerServingUom
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"odio")]/following-sibling::span)[1]
+    singleValue: false 
+    regExp: '([^0-9,\s]*)'  
+    regExpReplace: '$1'
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[contains(@class,"prices-add-to-cart-actions")]/div[contains(@class,"add-to-cart")]/@class
+  - name: promotion
+    singleValue: false
+    xpath: //div[@class="product-main-info"]/div[contains(@class,"price")]/div[contains(@class,"price")]/div/div/div[contains(@class,"discount-percentage")]
+    #regExp: (.+)
+    #regExpReplace: In Stock
+    #defaultValue: Out of Stock    
+
+
+
+  

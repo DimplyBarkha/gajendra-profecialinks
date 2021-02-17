@@ -12,12 +12,21 @@ async function implementation (
   console.log('parameters:: ', parameters);
   if (id) {
     await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-    await context.waitForXPath('//div[@class="ltr-uviwge"]/a');
+    try {
+      await context.waitForXPath('(//ul//div[contains(@class,"ltr")]//a/@href)[1]');
+    } catch(error) {
+      console.log(error);
+    }
+    
 
-    await context.waitForSelector('div.ltr-uviwge a');
-    console.log('everything fine !!!');
+    try {
+      await context.waitForSelector('ul div ul[class*=ltr] a');
+    } catch(error) {
+      console.log(error);
+    }
+      console.log('everything fine !!!');
     await context.evaluate(() => {
-      const firstItem = document.querySelector('div.ltr-uviwge a');
+      const firstItem = document.querySelector('ul div ul[class*=ltr] a');
       firstItem.click();
     });
   }

@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -97,13 +97,13 @@ fields:
   - name: proteinPerServing
     singleValue: false
     xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'Protéines')]//following-sibling::td)[1]
-    regExp: (.+?)\s+
+    regExp: (\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?
     regExpReplace: $1
   - name: proteinPerServingUom
     singleValue: false
     xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'Protéines')]//following-sibling::td)[1]
     regExp: \s+(.+)
-    regExpReplace: $1    
+    regExpReplace: g   
   - name: totalFatPerServing
     singleValue: false
     xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'Matières grasses')]//following-sibling::td)[1]
@@ -129,7 +129,7 @@ fields:
     singleValue: false
     xpath: (//td[contains(.,"Energie")]/following-sibling::td)[1]
     regExp: \s+(.+)
-    regExpReplace: $1    
+    regExpReplace: $1 
   - name: saltPerServing
     singleValue: false
     xpath: (//div[@class="dataDecode"]//tbody//tr//td[contains(normalize-space(),'Sel')]//following-sibling::td)[1]
@@ -165,7 +165,7 @@ fields:
   - name: imageZoomFeaturePresent
     singleValue: false
     xpath: //span[contains(@class,'con-search-magnifying-glass')]
-    regExp: (.+)   (([0-9]+)\W+([a-zA-Z]+))$
+    regExp: (.+)   
     regExpReplace: Yes
     defaultValue: No
   - name: listPrice
@@ -177,8 +177,8 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //h1//div[@class='prod-title']
-    regExp: (([0-9]+)\W+([a-zA-Z]+))$
-    regExpReplace: Yes
+    regExp: ((\d+(\.|\,\d)?\d*)\s?([a-zA-Z]|%)?)(g|G|L|Kg|Mg|Ml|ml|Oz|s|l|EA|GR|stuk|tabletten|kauwtabletten|condoms|zuigtabletten|pathch|stucks|pen|par|capsules|zakjes|zetpillen|pièces|crÃ¨me|ml roller|ampoules| ml spray|stick(s)|dragees|zak|zakjes|mg|ampoules|paar|patch| ml tube| préservatifs|pansements|set|sachet|pleisters)
+    regExpReplace: $1
   - name: sodiumPerServing
     singleValue: false
     xpath: //td[.="Na:"]/following-sibling::td

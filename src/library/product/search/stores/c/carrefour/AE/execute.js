@@ -43,7 +43,7 @@ module.exports = {
     country: 'AE',
     store: 'carrefour',
     domain: 'carrefouruae.com',
-    url: 'https://www.carrefouruae.com/v4/search?keyword={searchTerms}',
+    url: 'https://www.carrefouruae.com/v3/search?keyword={searchTerms}',
     // url: 'https://www.carrefouruae.com/v4/search?currentPage=0&filter=&keyword={searchTerms}&nextPageOffset=0&pageSize=60&sortBy=relevance',
     loadedSelector: 'div.ltr-14tfefh div[offset="5"]', //'ul[data-testid="scrollable-list-view"] div.ltr-jyyiad',
     noResultsXPath: '//h2[@data-testid="no-result-text"]',
