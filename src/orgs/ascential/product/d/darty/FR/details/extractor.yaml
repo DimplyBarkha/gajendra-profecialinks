@@ -1,0 +1,24 @@
+robot: product/details
+parameters:
+  country: FR
+  domain: darty.com
+  store: darty
+  zipcode: ""
+proxy:
+  zone: ZFR
+  type: DATA_CENTER
+  retryWithResidentialProxyAfter: 1
+meta:
+  branches:
+    dev:
+      extractor: a44e3520-fbc2-4da1-ad5c-f2e8306d3490
+      legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
+    ascential-darty:
+      extractor: bcdd399e-d1e1-428e-9b6c-8e6a9affff1f
+      legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
+    dev_osm:
+      extractor: 9a4af906-316f-404f-a8b1-0f8ea5c39e6f
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    darty_details_test:
+      extractor: 89052076-b386-4d3c-99fc-d4e866bd0423
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
