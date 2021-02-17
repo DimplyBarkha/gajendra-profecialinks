@@ -168,6 +168,11 @@ async function implementation (inputs, parameters, context, dependencies) {
   //   const element = allProducts[i];
   //   await addElements(element);
   return await context.extract(productDetails, { transform });
+  // const dataRef = await context.extract(productDetails, { transform });
+
+  // if (dataRef[0].group[0].mpc) {
+  //   dataRef[0].group[0].mpc[0].text = dataRef[0].group[0].mpc[0].text.replace('MPN:', '').trim();
+  // }
 }
 module.exports = {
   implements: 'product/details/extract',
