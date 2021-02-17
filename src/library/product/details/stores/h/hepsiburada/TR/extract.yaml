@@ -55,6 +55,7 @@ fields:
     regExp: (\d.+)
   - name: gtin
     xpath: //body//@upc
+    regExp: (^.{1,60})
   - name: sku
     description: The store-specific product identifier
     xpath: //meta[@itemprop="sku"]//@content
