@@ -188,7 +188,7 @@ fields:
   - name: sku
   - name: coupon
     singleValue: false
-    xpath: //div[@id="unclippedCouponSns"]//span[@class="a-color-success"] | //div[@id="price"][not(ancestor::html//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text() | //div[contains(@id, "promoPriceBlockMessage")][not(ancestor::html//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])]/*[not(name()="script" or name()="noscript")] | //div[contains(@class,"vpcApplyCoupon")]//span[contains(@class,"a-color-success")]
+    xpath: //div[@id="unclippedCouponSns"]//span[@class="a-color-success"] | //div[@id="price"][not(ancestor::html//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])]//*[contains(@id,"coupon")]//div[contains(@class, "alert-content")]/span/text() | //div[contains(@id, "promoPriceBlockMessage")][not(ancestor::html//div[@id="unclippedCouponSns"]//span[@class="a-color-success"])]/*[not(name()="script" or name()="noscript")] | //div[contains(@class,"vpcApplyCoupon")]//span[contains(@class,"a-color-success")] | //div[@id="applicable_promotion_list_sec"]//span[contains(@class,"apl_message")]//span
   - name: amazonChoice
     singleValue: false
     xpath: //*[@id="acBadge_feature_div"]//*[contains(@class,"ac-badge-text-primary")]
