@@ -38,6 +38,9 @@ const transform = (data, context) => {
           );
         }
 
+        let pricing = productObj.price.sellingPrice;
+        row.price = [{ text: (pricing.amount / pricing.divisor) }];        
+
         delete row.product;
       }
 
