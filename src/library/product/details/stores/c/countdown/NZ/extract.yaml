@@ -8,7 +8,7 @@ fields:
     xpath: //figure[@labelledby="product-title"]//img[@aria-labelledby="product-title"]//@src
   - name: category
     singleValue: false
-    xpath: //div[@id="breadcrumb"]//ul[@class="ng-star-inserted"]//li[position()>1 and not(contains(position(),last()))]
+    xpath: //div[@id="breadcrumb"]//ul[@class="ng-star-inserted"]//li[position()>1 and not(contains(position(),last()))] | //div[@class="ng-tns-c167-0"]//ul[@class="ng-star-inserted"]//li[position()>1 and not(contains(position(),last()))]
   - name: nameExtended
     singleValue: false
     xpath: //div[@id="product-details"]//h1[@class="product-title"] | //product-price-meta//span[contains(@class,"size ng-star-inserted")]
