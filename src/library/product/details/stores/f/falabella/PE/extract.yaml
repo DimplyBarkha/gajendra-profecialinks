@@ -8,8 +8,8 @@ fields:
     xpath: //meta[@property="og:url"]/@content
   - name: image
     singleValue: false
-    xpath: //div[contains(@class,"jsx-3622739909")]/img[@class="jsx-2487856160"]/@src
-    # xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_1?') or contains(@src,'_01?')][1]/@src
+    # xpath: //div[contains(@class,"jsx-3622739909")]/img[@class="jsx-2487856160"]/@src
+    xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_1?') or contains(@src,'_01?')][1]/@src
   - name: category
     singleValue: false
     xpath: //ol[contains(@class,'breadcrum')]/li[position() >1 ]
@@ -23,8 +23,8 @@ fields:
     xpath: //meta[@property="og:image:alt"]/@content
   - name: alternateImages
     singleValue: false
-    xpath: (//div[contains(@class,"jsx-3622739909")]/img[@class="jsx-2487856160"]/@src)[position()>1]
-    # xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src
+    # xpath: (//div[contains(@class,"jsx-3622739909")]/img[@class="jsx-2487856160"]/@src)[position()>1]
+    xpath: //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -71,8 +71,8 @@ fields:
     xpath: count(//div[contains(@class,'specifications-list')]/ul/li)
   - name: secondaryImageTotal
     singleValue: false
-    xpath: count((//div[contains(@class,"jsx-3622739909")]/img[@class="jsx-2487856160"]/@src)[position()>1])
-    # xpath: count(//div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src)
+    # xpath: count((//div[contains(@class,"jsx-3622739909")]/img[@class="jsx-2487856160"]/@src)[position()>1])
+    xpath: count(//div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_') and not(contains(@src,'_1?'))]/@src)
   - name: brandText
     singleValue: false
     xpath: //div/@data-brand
