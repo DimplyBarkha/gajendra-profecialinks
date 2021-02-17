@@ -2,7 +2,7 @@ module.exports = {
     implements: 'navigation/goto',
     parameterValues: {
         domain: 'drizly.com',
-        timeout: 6000,
+        timeout: 30000,
         jsonToTable: null,
         country: 'US',
         store: 'drizly',
