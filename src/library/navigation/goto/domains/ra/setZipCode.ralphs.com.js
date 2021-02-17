@@ -78,7 +78,7 @@ async function implementation (
     await findButtonWithStoreSelect();
     await new Promise((resolve, reject) => setTimeout(resolve, 4000));
     await findClosestStore();
-    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
   };
 
   await context.evaluate(() => {
@@ -104,7 +104,7 @@ async function implementation (
     }
   });
   
-  await new Promise((resolve, reject) => setTimeout(resolve, 2000));
+  await new Promise((resolve, reject) => setTimeout(resolve, 4000));
 }
 
 module.exports = {
