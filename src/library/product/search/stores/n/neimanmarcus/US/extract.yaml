@@ -1,8 +1,8 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //li[@class="category-item" and @id] | //div[contains(@class,"product-thumbnail") and not(contains(@class,"promo-tile")) and @id]
-# recordXPath: //div[contains(@class,"product-thumbnail") and not(contains(@class,"promo-tile"))] | //figure[contains(@class,"product-thumbnail") and not(contains(@class,"promo-tile"))]
+recordXPath: //div[@class="product-price OneLinkNoTx"]/../../../..//parent::li[@class="category-item" and @id] | //span[@class="price-no-promo"]/../../../..//parent::div[contains(@class,"product-thumbnail") and not(contains(@class,"promo-tile")) and @id]
+# recordXPath: //li[@class="category-item" and @id] | //div[contains(@class,"product-thumbnail") and not(contains(@class,"promo-tile")) and @id]
 fields:
   - name: brand
     singleValue: false
@@ -13,7 +13,6 @@ fields:
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
     xpath: ancestor::html//ul[contains(@class,"breadcrumb")]/li
-    # [@aria-current="page"]
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
