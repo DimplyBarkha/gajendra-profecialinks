@@ -69,7 +69,7 @@ const transform = (data) => {
                 item.text = item.text.substr(0, item.text.indexOf("."));
                 //item.text = item.text.substr(0, item.text.indexOf(","));
                 item.text = item.text.replace('Энергетическая ценность', '').trim();
-                item.text = item.text.replace(/[^\d-/]/g, "");
+                item.text = item.text.replace(/[^\d-/,]/g, "");
               });
             }
             if (row.dietaryFibrePerServing) {                    
@@ -89,10 +89,15 @@ const transform = (data) => {
             }
             if (row.proteinPerServing) {                    
               row.proteinPerServing.forEach(item => {
-                item.text = item.text.substr(item.text.indexOf(" бел"));
-                item.text = item.text.substr(0, item.text.indexOf(","));
-                item.text = item.text.replace(" белки - ", "");
-                item.text = item.text.replace(/[^\d-]/g, "");
+                if(item.text.indexOf(" белок") !== -1){
+                  item.text = item.text.substr(item.text.indexOf(" белок"));
+                  item.text = item.text.replace(" белок ", "");
+                }else{
+                  item.text = item.text.substr(item.text.indexOf(" белки"));
+                  item.text = item.text.replace(" белки ", "");
+                }
+                item.text = item.text.substr(0, item.text.indexOf(", жир"));
+                item.text = item.text.replace(/[^\d-,]/g, "");
               });
             }
             if (row.ingredientsList) {                    
