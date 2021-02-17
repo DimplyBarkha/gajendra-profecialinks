@@ -39,7 +39,7 @@ fields:
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
-    xpath: //td[@class="shoppingOptions"]//td[@class="type"][text()="SHIPPING"]/following-sibling::td[@class="selected"]/text()
+    xpath: //td[@class="shoppingOptions"]//td[@class="type"][text()="DELIVERY"]/preceding-sibling::td[@class="eligible"][text()="true"]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
