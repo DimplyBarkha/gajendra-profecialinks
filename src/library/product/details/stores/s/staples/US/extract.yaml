@@ -113,7 +113,7 @@ fields:
     description: The number of ratings
     type: NUMBER
     xpath: //div[contains(@class,'rating')]//span[contains(text(),'Review')]/text()
-    regExp: (\d+) Reviews
+    regExp: (.+) Reviews
   - name: aggregateRatingText
     singleValue: true
     description: The stated aggregate rating
@@ -121,7 +121,7 @@ fields:
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
-    xpath: //div[@id='product-reviews']//div[@class='ReviewStyles__average_rating_section']//span[@class='ReviewStyles__average_Rating_count']/text()
+    xpath: //div[@id="review_section"]//span[@class="rating__rating_label"]/text()
     # xpath: //div[@id='added_aggregateRating']
   - name: shippingInfo
     singleValue: true

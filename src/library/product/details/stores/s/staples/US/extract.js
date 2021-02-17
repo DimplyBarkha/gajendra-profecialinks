@@ -18,7 +18,7 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      const url = getXpath('//div[@class="productView__productTileRows"]//a[@class="standard-type__product_title"]/@href', 'nodeValue');
+      const url = getXpath('//div[@class="grid__row"]//div[@class="grid__column grid__span_xs_12 grid__span_sm_6 grid__span_md_4 grid__span_lg_3"][position()=last()]//div[@class="standard-tile__badge_image_holder"]//a/@href', 'nodeValue');
       return url;
     });
     console.log(productUrl);
@@ -105,12 +105,15 @@ module.exports = {
       const variantInformation = getXpath("//div[@class='sku-set__product_skuset']//select[@id='childProductSelection']//option[@selected]/text()", 'nodeValue');
 
       addElementToDocument('added_variantInformation', variantInformation);
-      const manufacturerName = window.__PRELOADED_STATE__.skuState.skuData.items[0].product.manufacturerName;
-      console.log('manufacturerName ' + manufacturerName);
-      addElementToDocument('added_manufacturer', manufacturerName);
-      const upcCode = window.__PRELOADED_STATE__.skuState.skuData.items[0].product.upcCode;
-      console.log('upcCode ' + upcCode);
-      addElementToDocument('added_gtin', upcCode);
+      // const scriptText = getXpath('//script[@id="__NEXT_DATA__"]', 'innerText');
+      // var scriptTextObj = JSON.parse(scriptText);
+      // addElementToDocument('added_manufacturer', scriptTextObj.manufacturerName);
+      // const manufacturerName = window.__PRELOADED_STATE__.skuState.skuData.items[0].product.manufacturerName;
+      // console.log('manufacturerName ' + manufacturerName);
+      // addElementToDocument('added_manufacturer', manufacturerName);
+      // const upcCode = window.__PRELOADED_STATE__.skuState.skuData.items[0].product.upcCode;
+      // console.log('upcCode ' + upcCode);
+      // addElementToDocument('added_gtin', upcCode);
 
       var variantCount = getAllXpath("//div[@class='sku-set__dropdown_duration']//select[@id='childProductSelection']/option", 'nodeValue').length;
       console.log('variantCount' + variantCount);
