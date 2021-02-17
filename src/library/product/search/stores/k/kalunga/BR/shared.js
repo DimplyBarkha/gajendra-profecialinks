@@ -15,7 +15,13 @@ const transform = (data) => {
           const findPrice = gr.price.find(el => el.text.includes('$'));
           gr.price = [{ text: findPrice.text.replace(onlyNumbers, '') }];
         }
-        if (gr && gr.aggregateRating && gr.aggregateRating.length) gr.aggregateRating[0].text = gr.aggregateRating[0].text.replace(onlyNumbers, '');
+        if (gr && gr.aggregateRating && gr.aggregateRating.length) {
+          if (gr.aggregateRating[0].text.includes('(')) {
+            gr.aggregateRating[0].text = gr.aggregateRating[0].text.replace(onlyNumbers, '');
+          } else {
+            gr.aggregateRating[0].text = '0';
+          }
+        }
         if (gr && gr.productUrl && gr.productUrl.length) gr.productUrl = [{ text: 'https://www.kalunga.com.br' + gr.productUrl[0].text }];
         if (gr && gr.id && gr.id.length) {
           const text = gr.id[0].text;
