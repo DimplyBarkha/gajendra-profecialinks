@@ -13,7 +13,7 @@ module.exports = {
     const zipcode = inputs.zipcode;
     const storeId = inputs.storeID;
     await context.goto(url, { timeout: 30000, waitUntil: 'load', checkBlocked: true, antiCaptchaOptions: { type: 'RECAPTCHA' } });
-    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 2000));
     // await context.click('div.top-nav li:nth-child(2) a');
     await context.setInputValue('input[class="search-input Locator-input js-locator-input"]', `${inputs.zipcode}`);
     await context.waitForSelector('button[type="submit"]');
@@ -31,7 +31,7 @@ module.exports = {
     console.log(storeName);
     const url2 = `https://groceries.asda.com/search/${inputs.URL}`;
     await context.goto(url2, { timeout: 60000, waitUntil: 'load', checkBlocked: true });
-    await new Promise((resolve, reject) => setTimeout(resolve, 20000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     await context.evaluate(async function () {
       if (!document.querySelector('div.co-product')) {
         throw Error('We cant find any product for input provided');
