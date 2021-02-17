@@ -40,7 +40,7 @@ fields:
     xpath: //div[@class="main-wrapper"]//div[@class="sc-pc-large-desktop-layout"]/meta[@itemprop="brand"]/@content | //meta[@itemprop="brand"]/@content
   - name: sku
     # xpath: substring-after(//span[contains(@class, 'item-number')][last()],'# ') | //meta[@itemprop="mpn"]/@content
-    xpath: //meta[@itemprop="mpn"]/@content
+    xpath: //meta[@itemprop="sku"]/@content
   - name: variantId
     xpath: //div[@class="sc-product-header"]//div[@class="sc-product-header-item-number"]
     regExp: (\d+)
