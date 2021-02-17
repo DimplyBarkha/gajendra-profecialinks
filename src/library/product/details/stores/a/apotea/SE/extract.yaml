@@ -23,7 +23,7 @@ fields:
   xpath: string(//div[contains(@id,"price-info")]/span)  
 - name: promotion
   singleValue: false
-  xpath: //div[contains(@class, "promotion-badge")]/img/@src
+  xpath: //div[contains(@id, "product-image")]//div[contains(@class, "promotion-badge")]/img/@src
 - name: availabilityText
   singleValue: true
   xpath: //div[contains(@id,"stock-info")]/span/span
@@ -67,7 +67,7 @@ fields:
   xpath: //div[contains(@id,"product-image")]/div/a/img/@alt
 - name: listPrice
   singleValue: false
-  xpath: //div[contains(@id,"price-info")]/div[1]
+  xpath: //div[contains(@id,"price-info")]/div[contains(text(), "ord. pris")]
   regExp: '([\d]+\s*(.+))'
   regExpReplace: '$1'
 - name: proteinPerServing
