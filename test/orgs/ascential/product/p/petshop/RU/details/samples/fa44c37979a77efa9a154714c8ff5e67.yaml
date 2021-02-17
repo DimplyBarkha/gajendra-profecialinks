@@ -2,7 +2,7 @@ input:
   id: 37492
   _url: http://petshop.ru
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=03803627-f4f8-49c5-9232-5b1ab212b4f4/task=9d731f1c-5c74-47d2-b613-2b869888551d/d545af45-ff60-4d4f-aab2-af1902ee6af4.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=12a4aafe-a1a7-42ef-95e5-135ace7c6d68/task=12c5bcc1-319e-4e94-bc67-bd6395863ebe/8dffd79e-2636-4260-886f-7f1b64aac566.html
     extractionConfigId: product/details/stores/p/petshop/RU/extract
     data:
       - group:
@@ -252,6 +252,9 @@ extractions:
             sku:
               - text: "548660"
                 xpath: /html/body/ol[1]/li[2]/@added_sku
+            variantId:
+              - text: "37485"
+                xpath: /html/body/ol[1]/li[2]/@variant_id
             mpc:
               - text: "37485"
                 xpath: /html/body/ol[1]/li[2]/@added_mpc
@@ -438,6 +441,9 @@ extractions:
             sku:
               - text: "548673"
                 xpath: /html/body/ol[1]/li[3]/@added_sku
+            variantId:
+              - text: "37498"
+                xpath: /html/body/ol[1]/li[3]/@variant_id
             mpc:
               - text: "37498"
                 xpath: /html/body/ol[1]/li[3]/@added_mpc
@@ -624,6 +630,9 @@ extractions:
             sku:
               - text: "548662"
                 xpath: /html/body/ol[1]/li[4]/@added_sku
+            variantId:
+              - text: "37487"
+                xpath: /html/body/ol[1]/li[4]/@variant_id
             mpc:
               - text: "37487"
                 xpath: /html/body/ol[1]/li[4]/@added_mpc
@@ -754,4 +763,4 @@ extractions:
             imageZoomFeaturePresent:
               - text: "true"
         xpath: /html
-    timestamp: 1613469180009
+    timestamp: 1613564592327

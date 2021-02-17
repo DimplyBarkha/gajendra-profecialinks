@@ -15,7 +15,7 @@ module.exports = {
   implementation: async ({ id }, { domain }, context, dependencies) => {
     await dependencies.goto({ url: `https://www.${domain}/search/?q=${id}` });
     const productHref = await context.evaluate(async () => (document.querySelector('div#products-wrapper ul.product-list > li > a') ? document.querySelector('div#products-wrapper ul.product-list > li > a').getAttribute('href') : null));
-    if (!productHref) throw new Error('Failed to create a URL for a given id');
+    if (!productHref) throw new Error('No product was found for a given ID.');
     return `${domain}${productHref}`;
   },
 };

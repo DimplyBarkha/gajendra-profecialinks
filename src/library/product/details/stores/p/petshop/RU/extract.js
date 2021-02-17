@@ -152,15 +152,21 @@ module.exports = {
           const listElem = document.createElement('li');
 
           // We add 1 because the for loop starts at 0
+          const variantElemXpath = `(//div[contains(@class, "art") and starts-with(text(), "Арт")])[${
+            hasSpecialVariants ? i + 1 : 1
+          }]`;
           const variantElem = document.evaluate(
-            `(//div[contains(@class, "art") and starts-with(text(), "Арт")])[${i + 1}]`,
+            variantElemXpath,
             document,
             null,
             XPathResult.ANY_UNORDERED_NODE_TYPE,
             null,
           ).singleNodeValue;
+
           const variantId =
-            variantElem && variantElem.textContent.match(/Арт(икул)?: (.+)/) ? variantElem.textContent.match(/Арт(икул)?: (.+)/)[2] : '';
+            variantElem && variantElem.textContent.match(/Арт(икул)?: (.+)/)
+              ? variantElem.textContent.match(/Арт(икул)?: (.+)/)[2]
+              : '';
           listElem.setAttribute('variant_id', variantId);
 
           const productScript = document.evaluate(
