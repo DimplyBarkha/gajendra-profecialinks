@@ -12,6 +12,8 @@ fields:
     description: Other product images (not in manufacturer description)
   - name: category
     xpath: //nav[@aria-label="Breadcrumb"]/ol/li[position()>1]
+  - name: imNameExtended
+    xpath: //div[@class="product-card-header_root__1GTl1"]/h1
   - name: nameExtended
     xpath: concat(//div[@class="product-card-header_root__1GTl1"]/h1," ",//div[contains(@class,"product-card-header")]/text())
   - name: listPrice

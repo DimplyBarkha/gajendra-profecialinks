@@ -6,7 +6,7 @@ module.exports = {
     store: 'appie',
     domain: 'appie.nl',
     loadedSelector: '.product-footer__info',
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(@data-testhook,"search-no-results")]',
     zipcode: '',
   },
 };
