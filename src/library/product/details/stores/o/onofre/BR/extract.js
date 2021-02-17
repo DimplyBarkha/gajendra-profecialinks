@@ -32,6 +32,7 @@ module.exports = {
         }
       });
     };
+    await new Promise((resolve, reject) => setTimeout(resolve, 6000));
     await applyScroll(context);
     return await context.extract(productDetails, { transform });
   },

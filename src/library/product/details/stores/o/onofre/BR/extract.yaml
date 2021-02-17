@@ -66,7 +66,7 @@ fields:
     xpath: //div[@class='product-description']//p/..
   - name: descriptionBullets
     singleValue: false
-    defaultValue: '0'
+    defaultValue: "0"
   - name: brandText
     singleValue: false
     xpath: //table[@id='product-attribute-specs-table']//th[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'),'marca')]//following-sibling::td
@@ -85,12 +85,12 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //span[@itemprop="ratingCount"] | //span[@itemprop="reviewCount"]
-  - name: aggregateRating
-    singleValue: false
-    xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="ratingValue"]
-  - name: aggregateRating2
-    singleValue: false
-    xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="ratingValue"]
+  # - name: aggregateRating
+  #   singleValue: false
+  #   xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="ratingValue"]
+  # - name: aggregateRating2
+  #   singleValue: false
+  #   xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="ratingValue"]
   - name: aggregateRatingText
     singleValue: false
     xpath: //div[@itemprop="aggregateRating"]//span[@itemprop="ratingValue"]
@@ -114,7 +114,7 @@ fields:
     xpath: //table[@id='product-attribute-specs-table']//th[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'),'cor')]//following-sibling::td
   - name: imageZoomFeaturePresent
     singleValue: false
-    defaultValue: 'Yes'
+    defaultValue: "Yes"
   - name: directions
     singleValue: false
     xpath: (//div[@class='product-description']//p//strong[contains(text(),'Modo de usar:')]//..)[1] | (//div[@class='product-description']//p//b[contains(text(),'Modo de usar:')]//..)[1] | (//div[@class='product-description']//p//b//span[contains(text(),'Modo de usar:')]//../..)[1]
