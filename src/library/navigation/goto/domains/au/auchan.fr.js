@@ -17,7 +17,7 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setBypassCSP(true);
     await context.setUseRelayProxy(false);
-    const lastResponseData = await context.goto(url, { first_request_timeout: 60000, timeout, waitUntil: 'load', checkBlocked: false });
+    const lastResponseData = await context.goto(url, { first_request_timeout: 60000, actionTimeout: 20000, timeout, waitUntil: 'load', checkBlocked: false });
     try {
       console.log('lastResponseData.status', lastResponseData.status);
       if (lastResponseData.status === 404) {
