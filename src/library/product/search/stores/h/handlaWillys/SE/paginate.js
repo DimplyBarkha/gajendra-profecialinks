@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'ax-product-grid[type-of-results="results"] > div > div > ax-product-puff.ax-product-grid-tile',
+    loadedSelector: '.ax-product-puff-image img ',
     noResultsXPath: '//div[contains(@class,"no-search-result")]',
     // openSearchDefinition: null,
     domain: 'willys.se',

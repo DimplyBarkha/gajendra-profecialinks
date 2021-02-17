@@ -1,6 +1,6 @@
 const { transform } = require('../../../../shared');
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -45,10 +45,10 @@ async function implementation(
       const data = await response.json();
       productInfo = data.results;
       const prodCount = productInfo.length;
-      let j = 0
+      let j = 0;
       const results = document.querySelectorAll('ax-product-grid[type-of-results="results"] > div > div > ax-product-puff.ax-product-grid-tile');
       const resultCount = results.length;
-      const oneElement = document.querySelector('ax-product-grid[type-of-results="results"] > div > div > ax-product-puff.ax-product-grid-tile')
+      const oneElement = document.querySelector('ax-product-grid[type-of-results="results"] > div > div > ax-product-puff.ax-product-grid-tile');
       const parentNode = oneElement.parentNode;
       const diff = prodCount - resultCount;
       while (j < diff) {
@@ -70,12 +70,12 @@ async function implementation(
       return productCards.length;
     }
 
-    function addHiddenDiv(i, productCards, productInfo) {
+    function addHiddenDiv (i, productCards, productInfo) {
       const newDivUrl = document.createElement('div');
       newDivUrl.id = i;
       newDivUrl.className = 'extra-info-url';
       newDivUrl.style.display = 'none';
-     
+
       const newDivId = document.createElement('div');
       newDivId.id = i;
       newDivId.className = 'extra-info-id';
@@ -100,10 +100,9 @@ async function implementation(
       newDivManufacturer.id = i;
       newDivManufacturer.className = 'extra-info-manufacturer';
       newDivManufacturer.style.display = 'none';
-      
-      
+
       if (productInfo && productInfo[i]) {
-        let prodUrl = "https://www.willys.se/produkt/${name}";
+        const prodUrl = 'https://www.willys.se/produkt/${name}';
         let name = productInfo[i].name + '-' + productInfo[i].code;
         name = name.replace(/\s+/g, '-');
         newDivUrl.textContent = `https://www.willys.se/produkt/${name}`;
@@ -131,9 +130,8 @@ async function implementation(
     document.body.appendChild(hiddenSearchDiv);
   });
 
-
   await new Promise((resolve, reject) => setTimeout(resolve, 10000));
-  
+
   return await context.extract(productDetails, { transform });
 }
 module.exports = {
