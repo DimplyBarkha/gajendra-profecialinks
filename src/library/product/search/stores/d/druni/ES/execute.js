@@ -12,4 +12,5 @@ module.exports = {
     noResultsXPath: '//div[contains(@class,"results")]//p[contains(@class,"no-results")]',
     zipcode: "''",
   },
+
 };
