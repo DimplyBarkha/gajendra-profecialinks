@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  *
  * @param {{
@@ -6,15 +7,22 @@
  *  offset: number,
  * }} inputs
  * @param {{
- *  nextLinkSelector: string,
+<<<<<<< HEAD
+=======
+ *  nextPageUrlSelector: string,
  *  nextLinkXpath: string,
- *  mutationSelector: string,
  *  loadedSelector: string,
  *  loadedXpath: string,
  *  noResultsXPath: string,
  *  spinnerSelector: string,
  *  stopConditionSelectorOrXpath: string,
  *  resultsDivSelector: string,
+<<<<<<< HEAD
+=======
+ *  dateSelector: string,
+ *  datePattern: string,
+ *  dateReplacePattern: string
+>>>>>>> c5eae78183b04fd187a2d3dd3bfe2c3eaf644b4f
  *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number, pageIndexMultiplier?: number, pageStartNb?: number }
  * }} parameters
  * @param { ImportIO.IContext } context
@@ -30,12 +38,20 @@ async function implementation (
   dependencies,
 ) {
   const { id, date, keywords, page, offset } = inputs;
+<<<<<<< HEAD
   const { stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
+=======
+  const { nextPageUrlSelector, stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, dateSelector, datePattern, dateReplacePattern, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
+>>>>>>> c5eae78183b04fd187a2d3dd3bfe2c3eaf644b4f
 
   let nextLink;
 
   if (stopConditionSelectorOrXpath) {
+<<<<<<< HEAD
     const conditionIsTrue = await context.waitForFunction((sel) => {
+=======
+    const conditionIsTrue = await context.evaluate((sel) => {
+>>>>>>> c5eae78183b04fd187a2d3dd3bfe2c3eaf644b4f
       try {
         const isThere = document.querySelector(sel);
         return !!isThere;
@@ -47,11 +63,43 @@ async function implementation (
           return false;
         }
       }
+<<<<<<< HEAD
     }, { timeout: 1000000 }, stopConditionSelectorOrXpath);
+=======
+    }, stopConditionSelectorOrXpath);
+>>>>>>> c5eae78183b04fd187a2d3dd3bfe2c3eaf644b4f
     // @ts-ignore
     if (conditionIsTrue) return false;
   }
 
+<<<<<<< HEAD
+=======
+  if (dateSelector) {
+    const stopDateFound = await context.evaluate((sel, stopDate, datePattern, dateReplacePattern) => {
+      try {
+        const isThere = document.querySelectorAll(sel);
+        if (isThere[isThere.length - 1]) {
+          let pageDateStr = isThere[isThere.length - 1].textContent;
+          if (datePattern && dateReplacePattern) {
+            const pattern = new RegExp(datePattern, 'g');
+            pageDateStr = pageDateStr.replace(pattern, dateReplacePattern);
+          }
+
+          if (new Date(pageDateStr).getTime() < new Date(stopDate).getTime()) {
+            return true;
+          }
+        }
+        return false;
+      } catch (error) {
+        return error.message;
+      }
+    }, dateSelector, date, datePattern, dateReplacePattern);
+    // @ts-ignore
+    console.log(stopDateFound);
+    if (stopDateFound) return false;
+  }
+
+>>>>>>> c5eae78183b04fd187a2d3dd3bfe2c3eaf644b4f
   if (nextLinkSelector) {
     const hasNextLink = await context.evaluate((selector) => !!document.querySelector(selector), nextLinkSelector);
     if (!hasNextLink) return false;
@@ -81,6 +129,7 @@ async function implementation (
     return true;
   }
 
+<<<<<<< HEAD
   let url = openSearchDefinition ? false : await context.evaluate(function () {
     /** @type { HTMLLinkElement } */
     const next = document.querySelector('head link[rel="next"]');
@@ -89,6 +138,14 @@ async function implementation (
     }
     return next.href;
   });
+=======
+  let url = openSearchDefinition ? false : await context.evaluate((nextSelectors) => {
+    const selector = nextSelectors.filter(u => u).join(', ');
+    const next = document.querySelector(selector);
+    if (!next) return false;
+    return next.href;
+  }, [nextPageUrlSelector, 'head link[rel="next"]']);
+>>>>>>> c5eae78183b04fd187a2d3dd3bfe2c3eaf644b4f
 
   if (!url && openSearchDefinition) {
     const { pageStartNb = 1, indexOffset, pageOffset, pageIndexMultiplier, template } = openSearchDefinition;
@@ -111,12 +168,20 @@ async function implementation (
   if (loadedSelector) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+<<<<<<< HEAD
     }, { timeout: 1000000 }, loadedSelector, noResultsXPath);
+=======
+    }, { timeout: 10000 }, loadedSelector, noResultsXPath);
+>>>>>>> c5eae78183b04fd187a2d3dd3bfe2c3eaf644b4f
   }
   if (loadedXpath) {
     await context.waitForFunction(function (sel, xp) {
       return Boolean(document.evaluate(sel, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext() || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+<<<<<<< HEAD
     }, { timeout: 1000000 }, loadedXpath, noResultsXPath);
+=======
+    }, { timeout: 10000 }, loadedXpath, noResultsXPath);
+>>>>>>> c5eae78183b04fd187a2d3dd3bfe2c3eaf644b4f
   }
   console.log('Checking no results', noResultsXPath);
 
@@ -153,6 +218,13 @@ module.exports = {
       description: 'CSS selector for the next link',
     },
     {
+<<<<<<< HEAD
+=======
+      name: 'nextPageUrlSelector',
+      description: 'CSS selector to get next page url for goto. Use this instead of openSearchDefinition if you have multiple patterns of paginate urls and next link is present in a "href".',
+    },
+    {
+>>>>>>> c5eae78183b04fd187a2d3dd3bfe2c3eaf644b4f
       name: 'nextLinkXpath',
       description: 'Xpath selector for the next link',
     },
