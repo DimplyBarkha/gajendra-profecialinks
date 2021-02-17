@@ -23,7 +23,7 @@ module.exports = {
         if (reviewCount !== '' && reviewCount === '(1)') {
           document.body.setAttribute('review_count', '1');
           let rating = document.querySelector('div[ng-show="review.rating > 0"] div[class="mp-review-rating"]') ? document.querySelector('div [ng-show="review.rating > 0"] div[class="mp-review-rating"]').getAttribute('ng-style') : '0';
-          rating = (parseInt(rating.match(/\d+/)[0]) * 5 / 100).toString() + '.0';
+          rating = (parseInt(rating.match(/\d+/)[0]) * 5 / 100).toString() + ',0';
           document.body.setAttribute('rating', rating);
         }
       }
