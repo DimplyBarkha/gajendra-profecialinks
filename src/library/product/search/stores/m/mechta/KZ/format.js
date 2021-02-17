@@ -33,7 +33,7 @@ const transform = (data, context) => {
         if (!row.sponsored) {
           orgRankCounter += 1;
           row.rankOrganic = [{ text: orgRankCounter }];
-        }  
+        }
       }
       // if (row.productUrl) {
       //   row.productUrl.forEach(item => {

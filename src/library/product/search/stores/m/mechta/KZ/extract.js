@@ -21,10 +21,10 @@ module.exports = {
       const pageUrl = window.location.href;
 
       const initialUrl = pageUrl.replace(searchUrl, '');
-      let endIdx = initialUrl.indexOf('/#');
+      const endIdx = initialUrl.length - 1; //initialUrl.indexOf('/#');
 
-      let searchTerm = initialUrl.substring(0, endIdx); //'4k+тв'; //
-
+      const searchTerm = initialUrl.substring(0, endIdx); //'4k+тв'; //
+      console.log('window.location.href :::::::; ', window.location.href);
       console.log('searchTerm :::::::; ', searchTerm);
       const getAPIData = async function (apiUrl) {
         const response = await fetch(apiUrl, {
@@ -34,7 +34,7 @@ module.exports = {
         return data;
       };
 
-      const apiUrl = `https://www.mechta.kz/api/main/catalog_new/index.php?query=${searchTerm}&type=search&page_num=1&catalog=true&page_element_count=9`;
+      const apiUrl = `https://www.mechta.kz/api/main/catalog_new/index.php?query=${searchTerm}&type=search&page_num=1&catalog=true&page_element_count=9`
       const response = await getAPIData(apiUrl);
       console.log('response  -=====', response);
       if (response) {
@@ -43,7 +43,7 @@ module.exports = {
         if (data && data.ITEMS) {
           data.ITEMS.forEach(item => {
             const prodId = item.CODE_1C;
-            // console.log('prodId  -=====', prodId);
+            console.log('prodId  -=====', prodId);
             apiResults.push(prodId);
           });
         }
@@ -69,10 +69,10 @@ module.exports = {
       await new Promise((resolve, reject) => setTimeout(resolve, 1000));
 
       let index = 1;
-      while (index < 10) {
-        console.log("index:: ", index);
+      while (index < 9) {
+        // console.log("index:: ", index);
 
-        let nextScrollTop = 2000;
+        const nextScrollTop = 2000;
         let moreButton;
         try {
           moreButton = document.evaluate(
@@ -80,14 +80,14 @@ module.exports = {
             document,
             null,
             XPathResult.FIRST_ORDERED_NODE_TYPE,
-            null
+            null,
           );
           await new Promise((resolve, reject) => setTimeout(resolve, 1000));
         } catch (err) {
-          console.log("Error occurred for moreButton : ", err);
+          // console.log('Error occurred for moreButton : ', err);
         }
         if (moreButton && moreButton.singleNodeValue != null) {
-          // console.log("clicking more button for index:: ", index);
+          console.log("clicking more button for index:: ", index);
           try {
             moreButton.singleNodeValue.click();
             // }catch(e) {}
@@ -110,14 +110,14 @@ module.exports = {
             const apiUrl = `https://www.mechta.kz/api/main/catalog_new/index.php?query=${searchTerm}&type=search&page_num=${index + 1}&catalog=true&page_element_count=${itemCount}`;
             console.log('apiUrl  -=====', apiUrl);
             const response = await getAPIData(apiUrl);
-            // console.log('response  -=====', response);
+            console.log('response  -=====', response);
             if (response) {
               const data = response.data;
-              // console.log('data1  -=====', data);
+              console.log('data1  -=====', data);
               if (data && data.ITEMS) {
                 data.ITEMS.forEach(item => {
                   const prodId = item.CODE_1C;
-                  // console.log('prodId  -=====', prodId);
+                  console.log('prodId  -=====', prodId);
                   apiResults.push(prodId);
                 });
               }
@@ -130,7 +130,7 @@ module.exports = {
         }
       }
 
-      // console.log('apiResults ======== ', apiResults);
+      console.log('apiResults ======== ', apiResults);
 
       const prodItems = document.querySelectorAll('div.hoverCard-child.bg-white');
       if (prodItems) {
@@ -140,7 +140,7 @@ module.exports = {
           if (prodId) {
             const idToUse = prodId.slice(prodId.length - 5);
             attrbSelector.setAttribute('my-prodId', idToUse);
-          } 
+          }
         });
       }
       return apiResults;
