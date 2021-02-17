@@ -34,6 +34,12 @@ async function implementation (
 
   await context.waitForNavigation({ timeout: 10000, waitUntil: 'load' });
 
+  try {
+    await context.waitForSelector(resultsCountSelector, { timeout: 10000 });
+  } catch (e) {
+    console.log('review count is not loaded');
+  }
+
   const resultsCount = await context.evaluate((resultsCountSelector) => {
     if (document.querySelector(resultsCountSelector)) {
       const reviewCount = document.querySelector(resultsCountSelector).textContent;
