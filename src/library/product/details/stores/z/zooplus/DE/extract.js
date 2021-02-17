@@ -53,6 +53,8 @@ module.exports = {
           });
         }
 
+        addElementToDocument('addedproducturl', window.location.href);
+
         // Method to Retrieve Xpath content of a Single Node
         const getXpath = (xpath, prop) => {
           const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
