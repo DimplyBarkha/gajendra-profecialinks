@@ -71,7 +71,7 @@ module.exports = {
         if (node === null) {
           return;
         }
-        const parentNode = document.evaluate('self::*/ancestor::div', node, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
+        const parentNode = document.evaluate('self::*/..', node, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null).singleNodeValue;
         const elements = document.createElement('div');
         let foundStartTitleFlag = false;
         elements.id = key;
