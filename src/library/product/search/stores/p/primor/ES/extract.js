@@ -8,23 +8,23 @@ async function implementation(
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(async function () {
-        let scrollTop = 0;
-        while (scrollTop <= 20000) {
-            await stall(500);
-            scrollTop += 1000;
-            window.scroll(0, scrollTop);
-            if (scrollTop === 20000) {
-                await stall(500);
-                break;
-            }
-        }
-        function stall(ms) {
-            return new Promise(resolve => {
-                setTimeout(() => {
-                    resolve();
-                }, ms);
-            });
-        }
+        // let scrollTop = 0;
+        // while (scrollTop <= 20000) {
+        //     await stall(500);
+        //     scrollTop += 1000;
+        //     window.scroll(0, scrollTop);
+        //     if (scrollTop === 20000) {
+        //         await stall(500);
+        //         break;
+        //     }
+        // }
+        // function stall(ms) {
+        //     return new Promise(resolve => {
+        //         setTimeout(() => {
+        //             resolve();
+        //         }, ms);
+        //     });
+        // }
         function addHiddenDiv1(id, content, index) {
             // @ts-ignore
             const newDiv = document.createElement('div');
