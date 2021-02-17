@@ -61,7 +61,8 @@ module.exports = {
     domain: 'plein.nl',
     url: 'https://www.plein.nl/zoeken?search={searchTerms}',
     loadedSelector: 'div[class*="product-view-container"]',
-    noResultsXPath: '//div[contains(text(),"Probeer eens een merknaam of beschrijving van je product in te typen.")]',
+    noResultsXPath: '//div[contains(@class,"info-panel-body")][contains(.,"Probeer")]',
     zipcode: "''",
   },
+  implementation,
 };
