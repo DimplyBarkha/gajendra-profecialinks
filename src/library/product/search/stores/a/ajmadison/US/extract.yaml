@@ -21,11 +21,11 @@ fields:
   singleValue: false
   xpath: //div[@class="col col-3 lg-col-5 px-2"]//a[contains(text(),'Reviews')]
   type: NUMBER
-- name: aggregateRating
+- name: aggregateRating2
   singleValue: false
   xpath: //html//div[@id="rating1"]
 - name: Price
-  singleValue: false
+  singleValue: true
   xpath: //tr[1]//td[@class='py05 nowrap right-align']/a/text()
   type: CURRENCY
 - name: searchUrl
