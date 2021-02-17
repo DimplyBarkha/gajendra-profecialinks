@@ -24,7 +24,7 @@ fields:
     xpath: //span[@class='unitPrice priceOffer']/following::del/text()
   - name: price
     singleValue: true
-    xpath: //span[@class='currentPrice'] | //span[@class='unitPrice']
+    xpath: //span[@class='currentPrice'] | //span[@class='unitPrice'] | //span[@class="actionPrice"]
   - name: availabilityText
     regExp: (.+)
     regExpReplace: In Stock
