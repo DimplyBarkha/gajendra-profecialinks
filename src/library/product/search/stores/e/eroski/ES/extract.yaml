@@ -21,8 +21,8 @@ fields:
     singleValue: false
     # xpath: //a[contains(@class,"product-image-resp")]/@href
     xpath: //div[@class="col col-xs-12 col-sm-12 col-md-12 col-lg-12 product-item big-item"]/a[position() =1]/@href
-    regExp: \Wes\Wproductdetail\W([^-]+)
-    regExpReplace: $1
+    regExp: \d{4,}
+    # regExpReplace: $1
     description: Unique id (within this extractor)
   - name: rankOrganic
     singleValue: true
