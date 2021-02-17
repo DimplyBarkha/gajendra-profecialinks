@@ -1,10 +1,10 @@
-const { transform } = require('../../../../shared');
+const { cleanUp } = require('../../../../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'NL',
     store: 'deonlinedrogist',
-    transform: transform,
+    transform: cleanUp,
     domain: 'deonlinedrogist.nl',
     zipcode: '',
   },
@@ -45,11 +45,12 @@ module.exports = {
       };
 
       const jsonStr = getXpath("//script[@type='application/ld+json'][1]/text()",'nodeValue');
-      console.log("jsonStr: ", jsonStr);
-      if(jsonStr){
+      console.log("jsonStr: ", (JSON.parse(jsonStr)).offers);
+      if(jsonStr > 0){
         const jsonObj = JSON.parse(jsonStr);
-        var availabilityText = jsonObj.offers.availability;
-        //console.log("availability: ",availabilityText.split('/')[3]);
+        if(jsonObj.offers.availability != null || jsonObj.offers.availability != 'undefined'){
+          var availabilityText = jsonObj.offers.availability; 
+        console.log("availability: ",availabilityText.split('/')[3]);
         if((availabilityText.split('/')[3]) === "InStock"){
           var text = "In Stock";
         }
@@ -58,6 +59,7 @@ module.exports = {
         }
         //console.log("Text:  ", text);
         addElementToDocument('added_availability_text',text);
+      }
       }
 
       const quantityxpath = getXpath("//div[@class='c-singleProduct__details']//ul[@class='c-singleProduct__options']/li[2]", 'innerText');
@@ -69,11 +71,14 @@ module.exports = {
       }
 
       const addDescxpath = getXpath(" //div[@class='c-product-description__accordioncontent']//div[not (@class='autheos-videothumbnail')]", 'innerText');
-      if ((addDescxpath.substring(0, 2)) == "NL") {
-        addElementToDocument('added_description_desc', addDescxpath.substring(2, addDescxpath.length));
-      } else {
-        addElementToDocument('added_description_desc', addDescxpath);
+      if(addDescxpath != null){
+        if ((addDescxpath.substring(0, 2)) == "NL") {
+          addElementToDocument('added_description_desc', addDescxpath.substring(2, addDescxpath.length));
+        } else {
+          addElementToDocument('added_description_desc', addDescxpath);
+        }
       }
+     
 
       const gtinxpath = getXpath("//div[@class='c-singleProduct__details']//ul[@class='c-singleProduct__options']/li[3]", 'innerText');
       console.log("gtinxpath : ", gtinxpath);
@@ -99,10 +104,13 @@ module.exports = {
 
       const priceXpathFirst = getXpath("//span[@class='c-singleProduct__price--new']/text()", 'nodeValue');
       const priceXpathSecond = getXpath("//span[@class='c-singleProduct__price--coins']/text()", 'nodeValue');
-      const priceXpathFirstContent = priceXpathFirst.split(",")[0];
-      const priceXpathDot = priceXpathFirstContent.concat(".");
-      const priceXpath = priceXpathDot.concat(priceXpathSecond);
-      addElementToDocument('priceXpath', priceXpath);
+      if(priceXpathFirst != null || priceXpathSecond != null){
+        const priceXpathFirstContent = priceXpathFirst.split(",")[0];
+        const priceXpathDot = priceXpathFirstContent.concat(".");
+        const priceXpath = priceXpathDot.concat(priceXpathSecond);
+        addElementToDocument('priceXpath', priceXpath);
+      }
+
 
       const categoryXpath = getXpath("//div[@class='c-breadcrumbs']//span[@class='c-breadcrumbs__item link']/span/text()", 'nodeValue');
       addElementToDocument('categoryXpath', categoryXpath);
