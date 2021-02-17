@@ -82,7 +82,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: directions
     singleValue: true
-    xpath: //div[@class='c-product-description__accordioncontent'][1]/div/p/b[contains(text(),"Hoe te gebruiken?")]/following-sibling::text()
+    xpath: //div[@class='c-product-description__accordioncontent'][1]/div/p/b[contains(text(),"Hoe te gebruiken?")]/following-sibling::text() | //div[@class='c-product-description__accordioncontent'][1]/div/b[contains(text(),"Hoe te gebruiken?")]/following-sibling::text()
     description: directions
   - name: warnings
     singleValue: true
