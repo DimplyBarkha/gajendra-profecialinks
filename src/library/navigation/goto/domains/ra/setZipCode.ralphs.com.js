@@ -28,34 +28,39 @@ async function implementation (
   };
 
   const findClosestStore = async () => {
-    await context.evaluate(function () {
-      const mystore = document.querySelector('div.ModalitySelector--StoreSearchResult:nth-of-type(1) div.StoreSearchResults-StartButton button');
-      if (mystore) mystore.click();
-    });
-
-    // const indexToClick = await context.evaluate(async function () {
-      // const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
-      // let smallestDistance = null;
-      //let indexToClosestStore = null;
-      // let indexToClosestStore = 1;
-      // sections.forEach((sectionItem, i) => {
-      //   const section = sectionItem.querySelector('div.StoreSearchResults-StoreButtonWrapper div div');
-
-      //   if (section && section.textContent) {
-      //     const distance = parseFloat(section.textContent);
-      //     if (!smallestDistance || distance < smallestDistance) {
-      //       smallestDistance = distance;
-      //       indexToClosestStore = i + 1;
-      //     }
-      //   }
-      //   console.log(section.textContent);
-      // });
-      // console.log('Closest store: ' + smallestDistance);
-      // return indexToClosestStore;
+    // await context.evaluate(function () {
+    //   const mystore = document.querySelector('div.ModalitySelector--StoreSearchResult:nth-of-type(1) div.StoreSearchResults-StartButton button');
+    //   if (mystore) mystore.click();
     // });
+
+    const indexToClick = await context.evaluate(async function () {
+      const sections = document.querySelectorAll('div.ModalitySelector--StoreSearchResult');
+      let smallestDistance = null;
+      let indexToClosestStore = null;
+      sections.forEach((sectionItem, i) => {
+        const storeSelect = sectionItem.querySelector('div.ModalitySelector-StoreSearchResultVanityNameWrapper div.kds-Text--l');
+        if (storeSelect) {
+          const storeContent = storeSelect.textContent;
+          if (storeContent && storeContent === "Citrus Plaza") {
+            indexToClosestStore = i + 1;
+            // const section = sectionItem.querySelector('div.StoreSearchResults-StoreButtonWrapper div div');
+            // if (section && section.textContent) {
+            //   const distance = parseFloat(section.textContent);
+            //   if (!smallestDistance || distance < smallestDistance) {
+            //     smallestDistance = distance;
+            //     indexToClosestStore = i + 1;
+            //   }
+            // }  
+            // console.log(section.textContent);
+          }
+        }
+      });
+      console.log('Closest store: ' + smallestDistance);
+      return indexToClosestStore;
+    });
     try {
-      const indexToClick = 1;
-      // await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${indexToClick}) div.StoreSearchResults-StartButton`);
+      // const indexToClick = 1;
+      await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(${indexToClick}) div.StoreSearchResults-StartButton button`);
       // await context.click(`div.ModalitySelector--StoreSearchResult:nth-of-type(1) div.StoreSearchResults-StartButton`);
     } catch (err) {}
   };

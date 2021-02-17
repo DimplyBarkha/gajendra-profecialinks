@@ -20,14 +20,32 @@ const transform = (data, context) => {
     let orgRankCounter = state.orgRankCounter || 0;
     let rankCounter = state.rankCounter || 0;
     const productCodes = state.productCodes || [];
+    const idsList = [];
     for (const { group } of data) {
         for (const row of group) {
-            rankCounter += 1;
-            if (!row.sponsored) {
-                orgRankCounter += 1;
-                row.rankOrganic = [{ text: orgRankCounter }];
+            if (row.id) {
+                const ipId = row.id;
+                const prodId = ipId[0].text;
+                if (idsList.includes(prodId)) {
+                    row.id = [{text : ''}];
+                } else {
+                    idsList.push(prodId);
+                    rankCounter += 1;
+                    if (!row.sponsored) {
+                        orgRankCounter += 1;
+                        row.rankOrganic = [{ text: orgRankCounter }];
+                    }
+                    row.rank = [{ text: rankCounter }];    
+                }    
             }
-            row.rank = [{ text: rankCounter }];
+            // if (row.id && (row.id[0].text)) {
+            //     rankCounter += 1;
+            //     if (!row.sponsored) {
+            //         orgRankCounter += 1;
+            //         row.rankOrganic = [{ text: orgRankCounter }];
+            //     }
+            //     row.rank = [{ text: rankCounter }];    
+            // }
             Object.keys(row).forEach(header => row[header].forEach(el => {
                 el.text = clean(el.text);
             }));
