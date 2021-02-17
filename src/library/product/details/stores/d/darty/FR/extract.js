@@ -117,14 +117,47 @@ async function implementation (
     }
   });
 
+  // try {
+  //   const videoEle = await context.evaluateInFrame('iframe#eky-dyson-iframe', function () {
+  //     return document.querySelector('div#no-parallax div.eky-header-row video.video-inviewport-ignores');
+  //   });
+  //   console.log('videoEle ====', videoEle);
+  // } catch (err) {
+  //   console.log('error while evaluating video', err);
+  // }
+  let foundFrame = false;
+  const selector = 'iframe#eky-dyson-iframe';
   try {
-    const videoEle = await context.evaluateInFrame('iframe#eky-dyson-iframe', function () {
-      return document.querySelector('div#no-parallax div.eky-header-row video.video-inviewport-ignores');
-    });
-    console.log('videoEle ====', videoEle);
+    await context.waitForSelector(selector, { timeout: 20000 });
+    foundFrame = true;
   } catch (err) {
-    console.log('error while evaluating video', err);
+    console.log('video IFrame did not found', err);
   }
+
+  async function extractVideosFromEnhancedContent () {
+    try {
+      const videos = await context.evaluateInFrame(selector,
+        function () {
+          console.log('start of evaluate');
+          const a = document.querySelector('video.video-inviewport-ignore');
+          console.log("------------",a);
+          if (a) {
+            // return a.getAttribute('src');
+            console.log(a);
+            return a.getAttribute('src');
+          }
+        },
+      );
+      return videos;
+    } catch (err) {
+      console.log(err);
+      return null;
+    }
+  };
+
+  const extractedVideoLink = await extractVideosFromEnhancedContent();
+  console.log("foundFrame", foundFrame)
+  console.log('post execution', extractedVideoLink);
 
   return await context.extract(productDetails, { transform });
 }
