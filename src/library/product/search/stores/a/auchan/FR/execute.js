@@ -6,7 +6,7 @@ module.exports = {
     store: 'auchan',
     domain: 'auchan.fr',
     url: 'https://www.auchan.fr/recherche?text={searchTerms}',
-    loadedSelector: 'div.list__container',
+    loadedSelector: 'div[class="product-list--container grid"],div[class="list__container"]',
     noResultsXPath: "//section[@class='no-result']",
     zipcode: '',
   },

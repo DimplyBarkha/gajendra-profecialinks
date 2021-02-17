@@ -6,8 +6,8 @@ fields:
     singleValue: false
     description:
     xpath: //a[contains(@class,'product-thumbnail__details-wrapper')]/@href
-    regExp: \/pr-(\d*)
-    regExpReplace: $1
+    regExp: (.+)p[r]?-(.+)
+    regExpReplace: $2
   - name: thumbnail
     singleValue: false
     description:
