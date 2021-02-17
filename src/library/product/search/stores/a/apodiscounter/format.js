@@ -31,6 +31,10 @@ const transform = (data, context) => {
         el.text = clean(el.text);
       }));
 
+      if (row.id && row.id[0]) {
+        row.id[0].text = row.id[0].text.trim();
+      }
+
       if (row.price) {
         const text = row.price[0].text;
         row.price[0].text = String(text).replace('*', '');
