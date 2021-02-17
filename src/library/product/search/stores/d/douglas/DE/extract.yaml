@@ -8,7 +8,7 @@ fields:
   - name: aggregateRating2
     singleValue: false
     # xpath: //div[@class="rd__productinfo__rating"]
-    xpath: //span[@class="product-tile__ratings-info"]
+    xpath: translate(//span[@class="product-tile__ratings-info"],'.',',')
     regExp: (.+)\(\d+\)
     regExpReplace: $1
   - name: price
