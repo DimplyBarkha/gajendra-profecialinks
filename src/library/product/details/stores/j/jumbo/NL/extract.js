@@ -120,6 +120,7 @@ module.exports = {
 
       addHiddenDiv('url', window.location.href);
     });
+    await context.waitForXPath('//img[@class="jum-pdp-card__image d-block"]/@src', {timeout: 5000});
     const dataRef = await context.extract(productDetails, { transform });
     function reduceInfoToOneField (field, separator = ' ') {
       if (field && field.length > 1) {
