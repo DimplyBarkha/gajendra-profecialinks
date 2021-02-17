@@ -30,9 +30,9 @@ const transform = (data, context) => {
           }
         });
       }
-      if (row.aggregateRating2 && row.aggregateRating2[0]) {
-        row.aggregateRating2[0].text = row.aggregateRating2[0].text.replace('.', ',');
-      }
+      // if (row.aggregateRating2 && row.aggregateRating2[0]) {
+      //   row.aggregateRating2[0].text = row.aggregateRating2[0].text.replace('.', ',');
+      // }
       rankCounter += 1;
       if (!row.sponsored) {
         orgRankCounter += 1;
