@@ -32,6 +32,15 @@ module.exports = {
           }, ms);
         });
       }
+      let scrollTop = 500;
+      while (true) {
+        window.scroll(0, scrollTop);
+        await stall(1000);
+        scrollTop += 500;
+        if (scrollTop === 10000) {
+          break;
+        }
+      };
 
       // Method to Retrieve Xpath content of a Single Node
       const getXpath = (xpath, prop) => {
@@ -57,6 +66,16 @@ module.exports = {
       const warrantyNodes = getAllXpath("//dl[@data-property-name='Warranty']//dd/text() | //dl[@data-property-name='Warranty type']//dd/text() | //dl[@data-property-name='Garantie']//dd/text() | //dl[@data-property-name='Garantietype']//dd/text()", 'nodeValue');
       addElementToDocument('addedWarranty', warrantyNodes);
 
+      // @ts-ignore
+      var availabilityStatus = window.dataLayer[0].google_tag_params.ecomm_availability;
+      var availabilityStatusValue = 'Out of Stock';
+      if (availabilityStatus === 'on-stock') {
+        availabilityStatusValue = 'In Stock';
+      }
+      addElementToDocument('addedAvailability', availabilityStatusValue);
+      // getXpath('//script[@type="application/ld+json"][contains(text(),"http://schema.org/InStock")]', 'nodeValue');
+      // console.log('availabilityStatus');
+      // console.log(availabilityStatus);
       // var availabilityStatus = Boolean(document.querySelector('div.product-order form button.button--order'));
       // var availabilityStatusValue = 'Out of Stock';
       // if (availabilityStatus) {
@@ -67,14 +86,74 @@ module.exports = {
       // availabilityText = (availabilityText === 'temporary-out-of-stock') ? 'Out of Stock' : 'In stock';
       // addElementToDocument('addedAvailability', availabilityText);
 
-      const reviewNodeContent = getXpath("//div[contains(@class,'product-page--title-links')]//div[contains(@class,'review-rating')]//span[contains(@class,'review-rating__reviews')]//a/text() | //div[@id='product-content']//div[contains(@class,'review-rating')]//span[contains(@class,'review-rating__reviews')]//a/text()", 'nodeValue');
+      let onlinePriceScript;
+      // @ts-ignore
+      if ((window.dataLayer[0].google_tag_params.ecomm_availability === 'temporary-out-of-stock' || window.dataLayer[0].google_tag_params.ecomm_availability === 'on-stock') && (window.dataLayer[0].google_tag_params.ecomm_pvalue !== undefined || window.dataLayer[0].google_tag_params.ecomm_pvalue != null)) {
+        // @ts-ignore
+        onlinePriceScript = 'EUR ' + window.dataLayer[0].google_tag_params.ecomm_pvalue;
+        addElementToDocument('addedOnlinePrice', onlinePriceScript.replace(/\./g, ','));
+      } else {
+        let onlinePrice = getXpath("//div[contains(@class,'product-order')][1]//div[contains(@class,'js-desktop-order-block')]//span[contains(@class,'sales-price')]//*[contains(@class,'sales-price__current')]/text()", 'nodeValue');
+        if (onlinePrice != null) {
+          onlinePrice = 'EUR ' + onlinePrice;
+          addElementToDocument('addedOnlinePrice', onlinePrice);
+        }
+      }
+
+      const productDescription = getXpath("//div[@id='product-content']//h1/text()[normalize-space(.)] | //h1//span/text()[normalize-space(.)] | //h1/text()[normalize-space(.)]", 'nodeValue');
+      let prodDesc = '';
+      let variantInformation = '';
+      if (productDescription != null) {
+        const productDropdownVariant = getXpath("//div[contains(@class,'collection-entrance__wrapper')]//span[@class='overflow--ellipsis']/text()", 'nodeValue');
+        const productSelectionVariant = getXpath("//*[@class='color--additional']/text()[contains(.,'Variant')]//following::text()[1][normalize-space(.)]", 'nodeValue');
+        var productSelectionSubVariant = getAllXpath("//*[@class='color--additional']/text()[contains(.,'Variant')]//following::span[@class='color--separator']//following::text()[1][normalize-space(.)]", 'nodeValue');
+        var subVariant = '';
+        if (productSelectionSubVariant != null) {
+          subVariant = productSelectionSubVariant.join(' | ');
+        }
+        if (productDropdownVariant != null && productSelectionVariant != null) {
+          console.log('1');
+          prodDesc = productDescription + ' - ' + productDropdownVariant + ' - ' + productSelectionVariant.replace(/:/g, '').trim();
+          variantInformation = productDropdownVariant + ' - ' + productSelectionVariant.replace(/:/g, '').trim();
+          if (subVariant !== '') {
+            prodDesc = prodDesc + ' | ' + subVariant;
+            variantInformation = variantInformation + ' | ' + subVariant;
+          }
+        } else if (productDropdownVariant != null && productSelectionVariant === null) {
+          console.log('2');
+          prodDesc = productDescription + ' - ' + productDropdownVariant;
+          variantInformation = productDropdownVariant;
+        } else if (productSelectionVariant != null && productDropdownVariant === null) {
+          prodDesc = productDescription + ' - ' + productSelectionVariant.replace(/:/g, '').trim();
+          variantInformation = productSelectionVariant.replace(/:/g, '').trim();
+          if (subVariant !== '') {
+            prodDesc = prodDesc + ' | ' + subVariant;
+            variantInformation = variantInformation + ' | ' + subVariant;
+          }
+        } else {
+          prodDesc = productDescription;
+        }
+
+        // if (productSelectionVariant != null) {
+        //   prodDesc = productDescription + ' - ' + productSelectionVariant.replace(/:/g, '').trim();
+        // }
+        addElementToDocument('addedProdDesc', prodDesc);
+        addElementToDocument('addedvariantInformation', variantInformation);
+      }
+      const reviewNodeContent = getXpath("//div[contains(@class,'product-page--title-links')]//div[contains(@class,'review-rating')]//span[contains(@class,'review-rating__reviews')]//a/text() | //div[@id='product-content']//div[contains(@class,'review-rating')]//span[contains(@class,'review-rating__reviews')]//a/text() | //main[@id='main-content']//div[contains(@class,'review-rating')]//span[contains(@class,'review-rating__reviews')]//a/text()", 'nodeValue');
       if (reviewNodeContent != null) {
         var reviewContent = reviewNodeContent.substr((reviewNodeContent.indexOf('(') + 1), reviewNodeContent.length);
         reviewContent = reviewContent.replace(/[^0-9]/g, '');
         addElementToDocument('addedReviewCount', reviewContent);
       }
 
-      const ratingNodeContent = getXpath("//div[contains(@class,'product-page--title-links')]//div[contains(@class,'review-rating')]//div[@class='review-rating__icons']/@title | //div[@id='product-content']//div[contains(@class,'review-rating')]//div[@class='review-rating__icons']/@title", 'nodeValue');
+      const packSize = getXpath("//h1/text()[contains(.,'pack')] | //h1//span/text()[normalize-space(.)]", 'nodeValue');
+      if (packSize != null) {
+        const packText = packSize.split('-');
+        console.log(packText);
+        addElementToDocument('addedPackSize', packText[packText.length - 1]);
+      }
+      const ratingNodeContent = getXpath("//div[contains(@class,'product-page--title-links')]//div[contains(@class,'review-rating')]//div[@class='review-rating__icons']/@title | //div[@id='product-content']//div[contains(@class,'review-rating')]//div[@class='review-rating__icons']/@title | //main[@id='main-content']//div[contains(@class,'review-rating')]//div[@class='review-rating__icons']/@title", 'nodeValue');
       // @ts-ignore
       if (ratingNodeContent != null) {
         var ratingContent = ratingNodeContent.substr(0, ratingNodeContent.indexOf('van'));
@@ -89,17 +168,26 @@ module.exports = {
         addElementToDocument('addedSpecification', specificationsList.join(' || '));
       }
 
-      const additionalDescriptionBulletInfo = getAllXpath("//div[@id='product-information']//ul[@class='list']//li//div[@class='icon-with-text__text']/text()", 'nodeValue');
+      const additionalDescriptionBulletInfo = getAllXpath("//section[@id='product-information']//ul[@class='list']//li//div[@class='icon-with-text__text']/text()", 'nodeValue');
       if (additionalDescriptionBulletInfo !== null && additionalDescriptionBulletInfo.length > 0) {
         addElementToDocument('additionalDescriptionBulletInfo', additionalDescriptionBulletInfo.join(' || '));
       }
 
-      const additionalDescription = getAllXpath("//div[@id='product-information']//div[contains(@class,'cms-content')][position() < 2]//text()[normalize-space(.)]", 'nodeValue');
+      const additionalDescription = getAllXpath("//div[@id='product-information']//div[contains(@class,'cms-content')][position() < 2]//text()[normalize-space(.)] | //section[@id='product-information']//div[contains(@class,'cms-content')][position() < 2]//text()[normalize-space(.)]", 'nodeValue');
       if (additionalDescription !== null && additionalDescription.length > 0) {
         const finalContent = (additionalDescriptionBulletInfo != null) ? additionalDescriptionBulletInfo.join(' || ') + ' | ' + additionalDescription.join(' | ') : additionalDescription.join(' | ');
         addElementToDocument('addedAdditionalDescription', finalContent);
       }
 
+      const enhancedContent = getAllXpath("//div[@id='product-information']//div[contains(@class,'cms-content')][position() < 2]//text()[normalize-space(.)] | //section[@id='product-information']//div[contains(@class,'cms-content')][position() < 2]//text()[normalize-space(.)]", 'nodeValue');
+      if (enhancedContent !== null && enhancedContent.length > 0) {
+        addElementToDocument('addedEnhancedContent', enhancedContent);
+      }
+
+      const videos = getAllXpath("//section[@id='product-information']//div[contains(@class,'cms-content') and contains(@class,'hide-until-m')]//iframe/@src | //div[@id='layout_content']//ul[contains(@class,'product-media-gallery__wrapper')]//li[contains(@class,'js-product-page-video-link')]/@data-video", 'nodeValue');
+      if (videos !== null && videos.length > 0) {
+        addElementToDocument('addedVideos', videos.join(' || '));
+      }
       const technicalDocument = getXpath("//div[@class='js-product-in-the-box-container']//ul[contains(@class,'bullet-list')]//li[1]//a[contains(@href,'manuals')]/@href", 'nodeValue');
       console.log(technicalDocument);
       var technicalDocumentStatus = (technicalDocument != null) ? 'Yes' : 'No';
@@ -140,16 +228,6 @@ module.exports = {
       } else {
         addElementToDocument('addedVariantCount', 0);
       }
-
-      let scrollTop = 500;
-      while (true) {
-        window.scroll(0, scrollTop);
-        await stall(1000);
-        scrollTop += 500;
-        if (scrollTop === 10000) {
-          break;
-        }
-      };
     });
     await context.extract(productDetails, { transform: transformParam });
   },

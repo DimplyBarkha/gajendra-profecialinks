@@ -27,17 +27,23 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    # xpath: //div[@id='product-content']//h1/text() | //h1//span/text()
-    xpath: concat(//h1//text()[normalize-space(.)], '-', //div[contains(@class,'collection-entrance__wrapper')]//span[@class="overflow--ellipsis"]/text())
+    xpath: //div[@id='addedProdDesc']
+    # xpath: //div[@id='product-content']//h1/text()[normalize-space(.)] | //h1//span/text()[normalize-space(.)] | //h1/text()[normalize-space(.)]
+    # xpath: concat(//h1//text()[normalize-space(.)], '-', //div[contains(@class,'collection-entrance__wrapper')]//span[@class="overflow--ellipsis"]/text())
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@class='product-order'][1]//div[@class='js-desktop-order-block']//span[contains(@class,'sales-price')]//*[contains(@class,'sales-price__former')]/text()
+    xpath: //div[contains(@class,'product-order')][1]//div[contains(@class,'js-desktop-order-block')]//span[contains(@class,'sales-price')]//*[contains(@class,'sales-price__former')]/text()
+    regExp: (.+)
+    regExpReplace: EUR $1
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: //div[@class='product-order'][1]//div[@class='js-desktop-order-block']//span[contains(@class,'sales-price')]//*[contains(@class,'sales-price__current')]/text()
+    xpath: //div[@id='addedOnlinePrice']
+    # xpath: //div[contains(@class,'product-order')][1]//div[contains(@class,'js-desktop-order-block')]//span[contains(@class,'sales-price')]//*[contains(@class,'sales-price__current')]/text()
+    # regExp: (.+)
+    # regExpReplace: EUR $1
   # - name: availabilityText
   #   singleValue: true
   #   description: Availability as described on page for the selected variant. If
@@ -46,10 +52,11 @@ fields:
   #   xpath: //div[@id='addedAvailability']
   - name: availabilityText
     singleValue: true
-    xpath: //script[@type="application/ld+json"][contains(text(),'http://schema.org/InStock')]
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out Of Stock
+    xpath: //div[@id='addedAvailability']
+    # xpath: //script[@type="application/ld+json"][contains(text(),'http://schema.org/InStock')]
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out Of Stock
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -59,7 +66,7 @@ fields:
     singleValue: true
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//section[@id='product-information']//div[@class='grid-section-xs--gap-2']//div[@class='js-pros-and-cons']//ul//li | //div[@id='product-information']//div[contains(@class,'grid-unit-xs--col-12 grid-unit-m--col-9')]//div[@class='grid-section-xs--gap-1']//ul//li)
+    xpath: count(//section[@id='product-information']//ul[@class='list']//li)
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -99,6 +106,7 @@ fields:
     singleValue: true
     description: The number of packs in the product offer (if stated separately on
       the site to quantity)
+    xpath: //div[@id='addedPackSize']
   - name: legalDisclaimer
     singleValue: true
     description: Content under "legal disclaimer" header
@@ -143,17 +151,21 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
+    xpath: //div[@id='addedEnhancedContent']
   - name: manufacturerImages
     singleValue: false
     description: Images within the third party description
+    xpath: //section[@id="product-information"]//div[contains(@class,'cms-content') and contains(@class,'hide-until-m')]//img/@src
   - name: videos
     singleValue: false
     description: URLs of videos on page
-    xpath: //div[@id="layout_content"]//ul[contains(@class,'product-media-gallery__wrapper')]//li[contains(@class,'js-product-page-video-link')]/@data-video
+    # xpath: //div[@id="layout_content"]//ul[contains(@class,'product-media-gallery__wrapper')]//li[contains(@class,'js-product-page-video-link')]/@data-video
+    xpath: //div[@id='addedVideos']
   - name: name
     singleValue: true
     description: The product name
-    xpath: concat(//h1//text()[normalize-space(.)], '-', //div[contains(@class,'collection-entrance__wrapper')]//span[@class="overflow--ellipsis"]/text())
+    xpath: //div[@id='product-content']//h1/text() | //h1//span/text() | //h1/text()
+    # xpath: concat(//h1//text()[normalize-space(.)], '-', //div[contains(@class,'collection-entrance__wrapper')]//span[@class="overflow--ellipsis"]/text())
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
@@ -461,7 +473,8 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath:  //div[contains(@class,'collection-entrance__wrapper')]//span[@class="overflow--ellipsis"]/text()
+    # xpath:  //div[contains(@class,'collection-entrance__wrapper')]//span[@class="overflow--ellipsis"]/text()
+    xpath: //div[@id='addedvariantInformation']
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of
