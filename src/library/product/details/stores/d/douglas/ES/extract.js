@@ -228,7 +228,7 @@ async function implementation (
         addHiddenDiv1('my-availab', availab);
 
         const listPriceXpath = '//div[@class="rd__product-details__options__price__item__amount sd__product-details__options__price__item__amount"]//div[contains(@class,"sd__product-details__options__price__item__quantity")] | //div[contains(text(), "Precio base hidratante:")]//..//following-sibling::span[@class="rd__headline--130"] | //div[@class="rd__headline rd__headline--100"]';
-        const listPrice = getSingleText(listPriceXpath, document, index - 1);
+        const listPrice = getSingleText(listPriceXpath, document, index);
         addHiddenDiv1('my-listPrice', listPrice);
 
         // //const colorXpath = '//div[@class="rd__product-details__colors__select__collapsible__item rd__col--lg-12"]/@data-rd-color-name';
