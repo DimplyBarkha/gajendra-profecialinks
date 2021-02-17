@@ -22,7 +22,7 @@ module.exports = {
       .replace('{searchTerms}', `${encodeURIComponent(keywords)}`)
       .replace('{queryParams}', `${encodeURIComponent(query)}`);
     await dependencies.goto({ ...inputs, url: destinationUrl });
-  
+
     if (loadedSelector) {
       await context.waitForFunction(function (sel, xp) {
         return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
