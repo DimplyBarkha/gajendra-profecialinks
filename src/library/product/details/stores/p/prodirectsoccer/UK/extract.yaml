@@ -31,9 +31,9 @@ fields:
     xpath: ancestor::html//div[@class="product-title"]/following-sibling::div[1]//span[contains(@class,"item")][1]  
   - name: availabilityText
     xpath: //span[contains(@class, 'product-sizes-list__item--out-stock')]
-    defaultValue: In stock
+    defaultValue: In Stock
     regExp: (.+)
-    regExpReplace: Out of stock
+    regExpReplace: Out of Stock
   - name: quantity
     xpath: //span[contains(@class, 'product-sizes-list__value')]
   - name: variantInformation
