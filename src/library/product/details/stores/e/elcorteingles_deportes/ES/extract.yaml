@@ -21,10 +21,12 @@ fields:
     xpath: //*/@color
   - name: variantId
     singleValue: true
-    xpath: //*/@retailer_product_code
+    # xpath: //*/@retailer_product_code
+    xpath: ancestor::html //div[@id="SKU"]         
   - name: sku
     singleValue: true
-    xpath: ancestor::html //div[@id="SKU"]         
+    # xpath: ancestor::html //div[@id="SKU"]
+    xpath: //*/@retailer_product_code
   - name: firstVariant
     singleValue: true
     xpath : ancestor::html //div[@id="SKU"]
@@ -160,7 +162,7 @@ fields:
     xpath :  
   - name: shippingWeight
     singleValue: true
-    xpath : 
+    xpath :
   - name: colorCode
     singleValue: true
   - name: manufacturerDescription
