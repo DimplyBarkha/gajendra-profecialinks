@@ -8,8 +8,8 @@ module.exports = {
     transform: transform,
     domain: 'groceries.morrisons.com',
     zipcode: '',
-  }, implementation: async (inputs, { transform }, context, { productReviews }) => {
-
+  },
+  implementation: async (inputs, { transform }, context, { productReviews }) => {
     await context.evaluate(async () => {
       /**
        * Function parsing a given date string to a date object
@@ -99,10 +99,10 @@ module.exports = {
       reviews.id = 'added_reviews';
       appendElementToParent(reviews, 'body');
 
-
       const today = new Date();
       while (document.querySelector('div.gn-card.bop-reviews__review') && await shouldLoadMore(today)) {
         const allReviews = document.querySelectorAll('div.gn-card.bop-reviews__review');
+        console.log('odpalam dla:', allReviews);
         for (let i = 0; i < allReviews.length; i++) {
           const catReview = document.createElement('div');
           catReview.id = 'review';
@@ -132,15 +132,19 @@ module.exports = {
           if (helpfulCount) catReview.setAttribute('added_helpful', helpfulCount.textContent);
 
           appendElementToParent(catReview, 'div#added_reviews');
-
         }
+        try {
+          document.querySelector('div.bop-reviews__paginationWrapper > button.bop-reviews__paginationButton:last-child:not([disabled])').click();
+        } catch (e) {
+          console.log('there is no next button to click');
+        }
+        await new Promise((resolve, reject) => setTimeout(resolve, 1500));
       }
     });
 
     return await context.extract(productReviews, { transform });
   },
 };
-
 
 //     //   /**
 //     //    * A function returning the absolute number of days between 2 dates
