@@ -58,7 +58,7 @@ fields:
     xpath: //div[contains(@class,"product-details")]//div[contains(@class,"Product")]//@data-item-id
   - name: directions
     singleValue: false
-    xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Gebru")]/following::p[1]
+    #xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Gebru")]/following::p[1]
   - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "Ingrediënten")]/following::p[1]
@@ -73,82 +73,82 @@ fields:
     xpath: //div[contains(@class,"ShowMoreLess__content")]//h3[contains(text(), "verpakking")]/following::p[1]
   - name: servingSize
     singleValue: false
-    xpath: (//h3[contains(text(), "Voeding")]/following::div//table//thead//th[not(contains(text(), "Per")) and not (contains(text(),"Portie")) ])[1]
+    xpath: (//h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//thead//th[not(contains(text(), "Per")) and not (contains(text(),"Portie")) ])[1]
     regExp: (\d+)
     regExpReplace: $1
   - name: servingSizeUom
     singleValue: false
-    xpath: (//h3[contains(text(), "Voeding")]/following::div//table//thead//th[not(contains(text(), "Per")) and not (contains(text(),"Portie")) ])[1]
+    xpath: (//h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//thead//th[not(contains(text(), "Per")) and not (contains(text(),"Portie")) ])[1]
     regExp: ([a-zA-Z]+)
     regExpReplace: $1
   - name: caloriesPerServing
     singleValue: false
-    xpath: //td[contains(text(), "Energie")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Energie")]/following::td[1]
     #regExp: (<?([\d\.\,]+)%?[^mg()]*)
     #regExpReplace: $1
   - name: totalFatPerServing
     singleValue: false
-    xpath: //td[contains(text(), "Vetten waarvan")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Vetten waarvan")]/following::td[1]
     #regExp: (<?([\d\.\,]+)%?[^mg()]*)
     #regExpReplace: $1
   - name: totalFatPerServingUom
     singleValue: false
-    xpath: //td[contains(text(), "Vetten waarvan")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Vetten waarvan")]/following::td[1]
     regExp: (g|mg)
     regExpReplace: $1
   - name: saturatedFatPerServing
     singleValue: false
-    xpath: //td[contains(text(), "Verzadigde vetten")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Verzadigde vetten")]/following::td[1]
     #regExp: (<?([\d\.\,]+)%?[^mg()]*)
     #regExpReplace: $1
   - name: saturatedFatPerServingUom
     singleValue: false
-    xpath: //td[contains(text(), "Verzadigde vetten")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Verzadigde vetten")]/following::td[1]
     regExp: (g|mg)
     regExpReplace: $1
   - name: saltPerServing
     singleValue: false
-    xpath: //td[contains(text(), "Zout")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Zout")]/following::td[1]
     #regExp: (<?([\d\.\,]+)%?[^mg()]*)
     #regExpReplace: $1
   - name: saltPerServingUom
     singleValue: false
-    xpath: //td[contains(text(), "Zout")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Zout")]/following::td[1]
     regExp: (g|mg)
     regExpReplace: $1
   - name: totalCarbPerServing
     singleValue: false
-    xpath: //td[contains(text(), "Koolhydraten")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Koolhydraten")]/following::td[1]
     #regExp: (<?([\d\.\,]+)%?[^mg()]*)
     #regExpReplace: $1
   - name: totalCarbPerServingUom
     singleValue: false
-    xpath: //td[contains(text(), "Koolhydraten")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Koolhydraten")]/following::td[1]
     regExp: (g|mg)
     regExpReplace: $1
   - name: totalSugarsPerServing
     singleValue: false
-    xpath: //td[contains(text(), "Suikers")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Suikers")]/following::td[1]
     #regExp: (<?([\d\.\,]+)%?[^mg()]*)
     #regExpReplace: $1
   - name: totalSugarsPerServingUom
     singleValue: false
-    xpath: //td[contains(text(), "Suikers")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Suikers")]/following::td[1]
     regExp: (g|mg)
     regExpReplace: $1
   - name: proteinPerServing
     singleValue: false
-    xpath: //td[contains(text(), "Eiwitten")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Eiwitten")]/following::td[1]
     #regExp: (<?([\d\.\,]+)%?[^mg()]*)
     #regExpReplace: $1
   - name: proteinPerServingUom
     singleValue: false
-    xpath: //td[contains(text(), "Eiwitten")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Eiwitten")]/following::td[1]
     regExp: (g|mg)
     regExpReplace: $1
   - name: calciumPerServing
     singleValue: false
-    xpath: //td[contains(text(), "Calcium")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Calcium")]/following::td[1]
     regExp: (<?([\d\.\,]+)%?[^mg()\s]*)
     regExpReplace: $1
   - name: calciumPerServingUom
@@ -165,24 +165,24 @@ fields:
     xpath: //div[@class='ProductPromotions']
   - name: magnesiumPerServing
     singleValue: false
-    xpath: //td[contains(text(), "Magnesium")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Magnesium")]/following::td[1]
     regExp: (<?([\d\.\,]+)%?[^mg()\s]*)
     regExpReplace: $1  
   - name: magnesiumPerServingUom
     singleValue: false
-    xpath: //td[contains(text(), "Magnesium")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Magnesium")]/following::td[1]
     regExp: (g|mg)
     regExpReplace: $1 
   - name: sodiumPerServing
     singleValue: false
-    xpath: //td[contains(text(), "Zout")]/following::td[1]
+    xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Zout")]/following::td[1]
     regExp: (<?([\d\.\,]+)%?[^mg()\s]*)
     regExpReplace: $1  
   - name: sodiumPerServingUom
     singleValue: false
-    xpath: //td[contains(text(), "Zout")]/following::td[1]
-    regExp: (g|mg)
-    regExpReplace: $1
+    #xpath: //h5/div[contains(text(), "Voeding")]/parent::h5/parent::*/following-sibling::div//table//td[contains(text(), "Zout")]/following::td[1]
+    #regExp: (g|mg)
+    #regExpReplace: $1
   - name: temp_sku
     singleValue: false
     xpath: substring-after(//div[@class="color_grey_5"]//p[contains(text(), "ID:")], "ID:")   
