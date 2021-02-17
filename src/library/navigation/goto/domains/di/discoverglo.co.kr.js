@@ -20,6 +20,12 @@ async function implementation (
     if (lastResponseData.status === 404 || lastResponseData.status === 410) {
       return;
     }
+
+    if (lastResponseData.status === 400) {
+      // throw Error('Bad response code: ' + lastResponseData.code);
+      return context.reportBlocked(lastResponseData.status, 'Blocked: ' + lastResponseData.status);
+    }
+
     if (lastResponseData.status !== 200) {
       lastResponseData = await context.goto(url, {
         timeout,

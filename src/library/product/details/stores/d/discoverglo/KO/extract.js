@@ -41,6 +41,8 @@ module.exports = {
       }
     });
 
+    await new Promise((resolve) => setTimeout(resolve, 5000));
+
     return await context.extract(productDetails, { transform });
   },
 };
