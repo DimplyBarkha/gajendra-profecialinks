@@ -53,14 +53,9 @@ async function implementation(
       };
       
     const v = getAllXpath('//div[@class="slick-track"]/div[not(@data-index="0")]/div//img/@src', 'nodeValue');
-    var uniq = [...new Set(v)];
-    for(let i=0;i<uniq.length;i++){
-
-      addElementToDocument('secondaryImages',uniq[i])
-      console.log(uniq[i],'------------------------------v[i]')
-      }
     console.log(v,'----------------------v')
     // @ts-ignore
+    var uniq = [...new Set(v)];
 
 
 
