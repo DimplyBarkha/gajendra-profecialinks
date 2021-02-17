@@ -3,6 +3,10 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
+  - name: productUrl
+    singleValue: true
+    xpath: //html//div[@id='currul']
+    #lafda
   - name: image
     singleValue: true
     description: URL of the main product image
@@ -14,7 +18,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[@class="owl-item"]//img[@itemprop="image"])[position()>1]/@src
+    xpath: //div[@class="owl-item loading"]/div/div/img/@data-src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -37,9 +41,10 @@ fields:
   - name: price
     singleValue: true
     #xpath: //div[@class="display-price"]//span/text()| //div[@class="display-price sale-price"]/text()
-    xpath: //html//div[@id="price"]
+    # xpath: //html//div[@id="price"]
+    selector: div[class*="display-price"]
     # xpath: //div[@class="display-price"]
-    type: CURRENCY
+    # type: CURRENCY
   - name: availabilityText
     singleValue: true
     xpath: //button[@id="addToCartButton"][contains(text(),"Add to Cart")]
@@ -50,7 +55,8 @@ fields:
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: //div[@class="rsection product-description-container"]//p
+    # xpath: //div[@class="rsection product-description-container"]//p
+    xpath: (//p[@class='activeContent content'])[1]
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
@@ -66,9 +72,9 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //div[@id="size"]
-    # regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    # regExpReplace: $1$2$3$4
+    xpath: //div[@class='lsection mobile-product-name h6']
+    regExp: ((\d+\.)?\d+\s?(Ct|oz|Fluid oz|ml|L|lb|Oz|OZ|Ounce|lt|PK|pk|PACK|Count|cans|Ounce|-Count|-pack))
+    regExpReplace: $1
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -237,6 +243,7 @@ fields:
     description: null
   - name: secondaryImageTotal
     singleValue: true
+    xpath: count(//div[@class="owl-item loading"]/div/div/img/@data-src)
     description: null
     type: NUMBER
   - name: news
@@ -252,7 +259,7 @@ fields:
     singleValue: true
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //div[@class="pdp-section collapsable-section bottom-border"]//div//span[.//text()[contains(.,'Ingredients')]]/following::p[1]
+    xpath: //p[@class='content']//text()
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.

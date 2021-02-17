@@ -52,6 +52,7 @@ module.exports = {
     try {
     const size = getXpath("//div[@class='lsection mobile-product-name h6']//text()", 'nodeValue');
     var nameArr = size.split(',');
+
     addElementToDocument('size', nameArr[nameArr.length - 1])
     const price = getXpath("//div[@class='display-price']//span[@itemprop='price']/text() | (//div[@class='display-price sale-price']/text())[1]", 'nodeValue');
     if (price.includes('$')) {
@@ -76,6 +77,11 @@ module.exports = {
     }
     } catch (error) {
     }
+
+    //Curry
+    var currurl= window.location.href
+    addElementToDocument('currul', currurl);
+
     });
     await context.extract(productDetails, { transform: transformParam });
     },
