@@ -13,10 +13,10 @@ async function implementation (
     waitUntil: 'load',
     checkBlocked: false,
   });
-  const locationSet = await context.evaluate(() => {
+  const locationSet = await context.evaluate(async function () {
     // @ts-ignore
-    const location = document.querySelector("span[class*='localised-suburb']") ? document.querySelector("span[class*='localised-suburb']").innerText : '';
-    return location.includes('Sydney, NSW');
+    const checkLocation = document.querySelector("span[class*='localised-suburb']") ? document.querySelector("span[class*='localised-suburb']").innerText : '';
+    return checkLocation.includes('Sydney, NSW');
   });
 
   async function changeLocation () {
@@ -28,7 +28,6 @@ async function implementation (
     await context.clickAndWaitForNavigation("div[id*='search-autocomplete'] li[role*='option']:nth-child(1)", {}, { timeout: 60000 });
     await context.waitForXPath('//span[contains(@class,"localised-suburb") and contains(text(),"Sydney, NSW")]', { timeout: 60000 });
     await context.waitForSelector("input[id*='localisation-search']", { timeout: 60000 });
-    await new Promise((resolve) => setTimeout(resolve, 2000));
   }
   try {
     if (!locationSet) {
@@ -49,7 +48,7 @@ async function implementation (
     if (!builtUrl) return false; // graceful exit when not able to create a url
   }
 
-  builtUrl = builtUrl ? `${builtUrl}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"load_all_resources":true}[/!opt!]` : '';
+  builtUrl = builtUrl ? `${builtUrl}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true,"cookies":[]}[/!opt!]` : '';
 
   async function gotoListingPage (builtUrl, url) {
     await context.setBlockAds(false);
@@ -59,19 +58,25 @@ async function implementation (
     await context.setAntiFingerprint(false);
     await context.goto(builtUrl || url, { timeout: 60000, waitUntil: 'load', checkBlocked: true });
   }
-  await gotoListingPage(builtUrl);
+  await gotoListingPage(builtUrl, url);
 
   try {
     await context.waitForSelector('section[id*="product-list"] a[class*="product-image-link"]');
   } catch (error) {
     console.log('products url not presents!!');
+    // check if actually product is not present!
     const IS_PRODUCT_PRESENT = await context.evaluate(() => !document.getElementById('emptyCatalogEntryList'));
     if (IS_PRODUCT_PRESENT) {
       await gotoListingPage(builtUrl, url);
+      try {
+        await context.waitForSelector('section[id*="product-list"] a[class*="product-image-link"]');
+      } catch (error) {
+        console.log('products url not presents after second try!!');
+      }
     }
   }
 
-  const productUrl = await context.evaluate((id) => {
+  const productUrl = await context.evaluate(async function (id) {
     const productXpath = `//h3[contains(@class,'product-title') and @data-partnumber="${id}"]//ancestor::section[contains(@id,'product-list')]//div[@tile='tile' and @data-ng-switch-when="product"]//a[contains(@class,'product-image-link')]`;
     let link = document.evaluate(productXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     console.log('url element : ', link);
@@ -93,7 +98,7 @@ async function implementation (
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
-    productUrl = `${productUrl}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"load_all_resources":true}[/!opt!]`;
+    productUrl = `${productUrl}#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true,"cookies":[]}[/!opt!]`;
     await context.goto(productUrl, {
       firstRequestTimeout: 90000,
       timeout: 60000,
