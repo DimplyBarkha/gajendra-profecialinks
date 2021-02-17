@@ -144,9 +144,10 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class='inpage_ftgridimg']/img/@src
-    regExp: (.+)
-    regExpReplace: https://bigw.com.au$1
+    xpath: //div[contains(@id,'dyson_jump_features')]//ul//li//div[contains(@class,'inpage_ftgridimg')]/img/@srcset
+    #xpath:  | //ul[contains(@class,'inpage_features_grid')]//li//div[contains(@class,'inpage_ftgridimg')]/img/@srcset
+    #regExp: (.+)
+    #regExpReplace: https://bigw.com.au$1
   # - name: upc
   #  singleValue: true
   #  xpath: //ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Model Number:')]/following-sibling::div
@@ -156,6 +157,9 @@ fields:
   - name: listPrice
     singleValue: true
     xpath: //div[@class="priceMeta hide-sm hide-prv"]
+  - name: manufacturerDescription
+    singleValue: false,
+    xpath: concat(//span[contains(@itemprop,'description')], ' ',//ul[contains(@class,'inpage_features_grid')]//li//div[contains(@class,'inpage_h4 flix-d-h3')])
   - name: colorCode
     singleValue: true
   #- name: newDescription
