@@ -99,6 +99,8 @@ module.exports = {
     // console.log(data);
 
     // await context.goto('https://drizly.com/home', { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
-    await context.goto(url, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
+    // await context.goto(url, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
+    await context.goto('https://drizly.com/liquor/whiskey/american-whiskey/jack-daniels-gentleman-jack-tennessee-whiskey/p3473?variant=4606', { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
+
   },
 };
