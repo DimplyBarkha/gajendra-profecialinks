@@ -28,16 +28,16 @@ module.exports = {
 
     if (variantLength > 0) {
       let j = 0;
-      // for (let j = 0; j < variantLength; j++) {
-        // if (variantLength > 1) {
-          // await context.evaluate(async (j) => {
-          //   return document
-          //     .querySelectorAll(
-          //       'div#purchase-box div#finish-swatches ul.finish-list li'
-          //     )
-          //     [j].click();
-          // }, j);
-        // }
+      for (let j = 0; j < variantLength; j++) {
+        if (variantLength > 1) {
+          await context.evaluate(async (j) => {
+            return document
+              .querySelectorAll(
+                'div#purchase-box div#finish-swatches ul.finish-list li'
+              )
+              [j].click();
+          }, j);
+        }
         await context.evaluate(async (j) => {
           j = parseInt(document.querySelector('.list .b--theme-grey-dark') ? document.querySelector('.list .b--theme-grey-dark').getAttribute('data-iterator') : 0)
           function addHiddenDiv(id, content) {
@@ -274,10 +274,10 @@ module.exports = {
         }, j);
 
         // await preparePage(j, variantLength);
-        // if (j !== variantLength - 1) {
-        //   await context.extract(data, { transform }, { type: "APPEND" });
-        // }
-      // }
+        if (j !== variantLength - 1) {
+          await context.extract(data, { transform }, { type: "APPEND" });
+        }
+      }
     }
     return await context.extract(data, { transform });
   },
