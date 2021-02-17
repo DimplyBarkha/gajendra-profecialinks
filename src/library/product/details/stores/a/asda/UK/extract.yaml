@@ -517,8 +517,10 @@ fields:
   - name: productUrl
     singleValue: true
     xpath: //html/head/link[@rel='canonical']/@href
+  - name: drive
+    xpath: //div[@id="retailerzipcode"]
   - name: retailerId
-    xpath: //div[@id="retailername"]
+    xpath: //div[@id="retailerid"]
   - name: online_store
     xpath: //div[@id="retailername"]
 # Salsify Attributes 
