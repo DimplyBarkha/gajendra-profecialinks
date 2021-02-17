@@ -65,11 +65,12 @@ const transform = (data) => {
         }
         if(row.availabilityText){
           row.availabilityText.forEach(item=>{
-            if(item.text=='display: none;'){
+            if(item.text=='True'){
               item.text='In Stock';
             }else{
-              item.text='Out of Stock';
-            }
+              item.text='Out Of Stock';
+            } 
+            
           })
         }
         if(row.aggregateRating){

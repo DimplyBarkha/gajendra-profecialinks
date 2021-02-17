@@ -29,7 +29,7 @@ fields:
     xpath: //div[@id="final-sales-price"]
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class="wishlist-action nostock"]/@style
+    xpath: //button[@id="addToWishlistButton"]/@data-quantityavailable
   - name: description
     singleValue: false
     xpath: //div[@id="product-description"]/p[not(contains(@class,"product-number"))] | //div[@id="product-description"]//li | //div[@id="product-description"]/text()
