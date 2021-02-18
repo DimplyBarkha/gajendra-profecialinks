@@ -10,7 +10,7 @@ async function implementation (
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
     const video = document.querySelector('.icon-fa-video-camera.icon-video');
-    if (video) document.querySelectorAll('.slick-dots > li[role*="presentation"]').click();
+    if (video) document.getElementById('slick-slide02').click();
   });
   return await context.extract(productDetails, { transform });
 }
