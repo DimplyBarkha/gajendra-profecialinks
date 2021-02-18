@@ -4,8 +4,8 @@ recordSelector: null
 recordXPath: //li[contains(@class,"list-page__item")]
 fields:
   - name: id
-    SingleValue: false
-    xpath: //a[contains(@class,"productTile")]/@id
+    SingleValue: false 
+    xpath: //a[contains(@class,"productTile")]/@id | //div[@class="productTile__wrapper  productTile__wrapper--noEqualHeights "]/div/@id
   - name: productUrl
     SingleValue: false
     xpath: //a[contains(@class,"productTile")]/@href
@@ -13,7 +13,7 @@ fields:
     regExpReplace: https://www.coop.ch$1 
   - name: price
     SingleValue: false
-    xpath: //dd[contains(@class,"productTile__price-value-lead")]
+    xpath: //dd[contains(@class,"productTile__price-value-lead")]/p[position() = 1]
   - name: thumbnail
     SingleValue: false
     xpath: //img[contains(@class,"product-listing__thumbnail__image")]/@src
