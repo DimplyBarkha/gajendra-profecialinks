@@ -40,7 +40,7 @@ module.exports = {
   },
   path: './goto/domains/${domain[0:2]}/${domain}',
   implementation: async (inputs, parameters, context, dependencies) => {
-    const { timeout = 10000 } = parameters;
+    const { timeout = 300000 } = parameters;
     const { url, zipcode, storeId } = inputs;
     await context.goto(url, { timeout, waitUntil: 'load', checkBlocked: true, captureRequests: true });
 

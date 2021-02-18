@@ -1,0 +1,172 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //*[@id="DropdownList"]//li
+fields:
+  - name: image
+    description: URL of the main product image
+    xpath: ancestor::html//picture[@class="d-block"]/img/@src
+
+  - name: imageAlt
+    description: Alt text of the main product image
+    xpath: ancestor::html//picture[@class="d-block"]/img/@alt
+
+  - name: alternateImages
+    description: Other product images (not in manufacturer description)
+    xpath: ancestor::html//div[@class='lg-thumb-item']/img/@src[not(contains(.,'AVS'))]
+
+  - name: secondaryImageTotal
+    singleValue: false
+    description: 
+    xpath: count(//div[@class='lg-thumb-item']/img/@src[not(contains(.,'AVS'))])
+    type: NUMBER  
+
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords contentex
+    xpath: ancestor::html//head/meta[10]/@content
+
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: ancestor::html//browse-breadcrumb/nav/ul/li/span/a/span
+
+    
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    xpath: //ul[@id="DropdownList"]/li/@listprice
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //ul[@id="DropdownList"]/li/@price
+
+  - name: availabilityText
+    singleValue: false
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    xpath: //ul[@id="DropdownList"]/li/@Availability | ancestor::html//button[@id="add-to-cart"]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
+
+  - name: description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: ancestor::html//div[@id='add_desc']
+    
+
+  - name: descriptionBullets
+    singleValue: false
+    description: Number of ul > li tags in the description
+    type: Number
+    xpath: count(//pdp-product-long-description/div/common-accordion/div/div[3]/div[1]/div/div[1]/div/section/div/ul/li | //pdp-product-long-description/div/common-accordion/div/div[3]/div[1]/div/div[1]/div/div/ul/li | //pdp-product-long-description/div/common-accordion/div/div[3]/div[1]/div/div[1]/div/ul/li | //pdp-product-long-description/div/common-accordion/div/div[3]/div[1]/div/div[1]/div/section/ul/li | //pdp-product-container/pdp-in-stock-default/div[5]/div[1]/div/pdp-product-long-description/div/common-accordion/div/div[3]/div[1]/div/div[1]/div/section/div[2]/div/ul/li)
+      
+  - name: brandText
+    singleValue: false
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    xpath: ancestor::html//div[@class="description-text-wrapper"]/ul/li[1]/span/span
+
+
+
+  - name: weightNet
+    singleValue: true
+    description: Net weight as described on the page
+    xpath: ancestor::html//div[@id='weig']
+    defaultValue: ""  
+
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+    xpath: //ul[@id="DropdownList"]/li/@sku
+
+  - name: gtin
+    singleValue: true
+    description: The store product identifie
+    xpath: //ul[@id="DropdownList"]/li/@upc 
+
+  - name: variantId
+    singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //ul[@id="DropdownList"]/li/@variantId
+    
+    
+  - name: mpc
+    singleValue: true
+    description: The manufacturer model code (unique) of the product
+
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+    xpath: ancestor::html//div[@class='bv_numReviews_text']
+    type: NUMBER
+  
+  
+  - name: shippingInfo
+    singleValue: false
+    description: Shipping information for the product
+
+  - name: color
+    singleValue: true
+    description: A textual description of the colour
+    xpath: //ul[@id="DropdownList"]/li/@color
+
+  - name: videos
+    singleValue: false
+    description: URLs of videos on page
+    xpath: ancestor::html//div[@class='lg-thumb-item']/img/@src[contains(.,'AVS')]
+    regExp: (.+\is\/image)(\/.+)(\-AVS)
+    regExpReplace: https://dks.scene7.com/is/content$2_Tablet_Autox480p_1400k
+
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //ul[@id="DropdownList"]/li/@nameExtend
+
+  - name: nameExtended
+    singleValue: true
+    description: The product name
+    xpath: //ul[@id="DropdownList"]/li/@nameExtend
+ 
+  - name: specifications
+    singleValue: true
+    description: The physical dimensions of the product including packaging.
+    xpath: ancestor::html//div[@id='specification']
+
+ 
+  - name: countryOfOrigin
+    singleValue: true
+    description: The country from which the product originates
+    xpath: ancestor::html//div[@id='origin']
+
+
+
+  - name: variantInformation
+    singleValue: false
+    description: colour / scent / flavour / other
+    xpath: //ul[@id="DropdownList"]/li/@variantInformation
+
+  - name: additionalDescBulletInfo
+    singleValue: false
+    description: null
+    xpath: ancestor::html//div[@id='description']
+
+  
+  
+  - name: quantity
+    singleValue: false
+    xpath: //ul[@id="DropdownList"]/li/@Size  
+
+  - name: materials
+    singleValue: false
+    description: Materials used to make the product
+
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    xpath:  ancestor::html//pdp-rating-summary-stars/div/span/div/div/button/div[2] | ancestor::html//pdp-rating-summary-stars/div/span/div/div/div[1]/div[2]/button | ancestor::html//div[@class='product-review-summary full-width']/div[@class='container']/div[@class='row gutters']/div/div[@class='overall-rating']/p[1]/span[@class='average-rating']
+ 
