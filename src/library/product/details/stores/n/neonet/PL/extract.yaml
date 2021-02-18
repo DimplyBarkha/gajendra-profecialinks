@@ -1,3 +1,5 @@
+# @format
+
 singleRecord: true
 regionsSelector: null
 recordSelector: null
@@ -96,16 +98,14 @@ fields:
   - name: warnings
     singleValue: false
   - name: aggregateRating
-    singleValue: false
-    type: NUMBER
     xpath: (//div[@class="productRatingCss-rating-2Og"])[1]/@style
     regExp: (.*width:)(.\d+)(%)
     regExpReplace: $2
-  - name: aggregateRatingText
-    singleValue: false
-    xpath: (//div[@class="productRatingCss-rating-2Og"])[1]/@style
-    regExp: (.*width:)(.\d+)(%)
-    regExpReplace: $2
+  # - name: aggregateRatingText
+  #   singleValue: false
+  #   xpath: (//div[@class="productRatingCss-rating-2Og"])[1]/@style
+  #   regExp: (.*width:)(.\d+)(%)
+  #   regExpReplace: $2
   - name: variantCount
     singleValue: false
     type: NUMBER
@@ -179,5 +179,3 @@ fields:
   - name: inTheBoxUrl
     singleValue: false
     xpath: //div[contains(@id, "added-inBox-images-")]
-
-
