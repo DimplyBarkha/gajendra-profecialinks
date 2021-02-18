@@ -17,3 +17,5 @@ fields:
     regExp: ^([^\s]+)
   - name: domain
     defaultValue: 'amazon.co.uk'
+  - name: searchUrl
+    xpath: (ancestor::html//link[@rel="canonical"]/@href | ancestor::html//body/@current_page_url)[position()=1]
