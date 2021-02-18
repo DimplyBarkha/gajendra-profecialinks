@@ -204,19 +204,40 @@ module.exports = {
                             addHiddenDiv("single-custom-attr-product-first_variant", first_variant);
                         }
 
+                        // let iframeSku = document.querySelector('iframe[src*="sku_id"]').src;
+                        // if (iframeSku) {
+                        //     iframeSku = iframeSku.toString().match(/sku_id=(\d+)/g);
+                        //     iframeSku = iframeSku.length > 0 ? iframeSku[0].split("=")[1] : "";
+                        //     if (isNaN(iframeSku) == false) {
+                        //         addHiddenDiv("custom-attr-product-sku-number", iframeSku || "");
+                        //     }
+                        // }
+                        // console.log("-->>>iframeSku::", iframeSku);
+
+
                         const products = (window.getTagProduct_Child_Sku() || "").split("|");
                         if (products.length) {
-                            if (sku.length > 0 && products[j] == parseInt(sku)) {
+                            if (sku.length > 0 && parseInt(products[j]) == parseInt(sku)) {
                                 addHiddenDiv("custom-attr-product-sku-number", products[j] || "");
-                            } else if (sku.length > 0) {
+                            } else if (isNaN(sku) == false) {
                                 addHiddenDiv("custom-attr-product-sku-number", sku || "");
                             } else {
                                 addHiddenDiv("custom-attr-product-sku-number", products[j] || "");
                             }
+                        } else if (isNaN(sku) == false) {
+                            addHiddenDiv("custom-attr-product-sku-number", sku || "");
+                        } else {
+                            let iframeSku = document.querySelector('iframe[src*="sku_id"]').src;
+                            if (iframeSku) {
+                                iframeSku = iframeSku.toString().match(/sku_id=(\d+)/g);
+                                iframeSku = iframeSku.length > 0 ? iframeSku[0].split("=")[1] : "";
+                                if (isNaN(iframeSku) == false) {
+                                    addHiddenDiv("custom-attr-product-sku-number", iframeSku || "");
+                                }
+                            }
+                            console.log("-->>>iframeSku::", iframeSku);
                         }
-                        // else if (sku.length > 0) {
-                        //     addHiddenDiv("custom-attr-product-sku-number", sku || "");
-                        // } else {}
+
 
                         const selectedVariant = productVariationsField[j];
                         if (selectedVariant) {
