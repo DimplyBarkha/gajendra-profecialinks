@@ -14,7 +14,7 @@ fields:
     xpath: //div[@class="grid-product__figure"]//a//img//@src
   - name: price
     sigleValue: false
-    xpath: //span[@class="grid-product__price"]
+    xpath: //div[contains(@class,"grid-product__price")]
   - name: reviewCount
     singleValue: false
     xpath: //span[@class="count"]
