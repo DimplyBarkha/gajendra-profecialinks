@@ -107,12 +107,22 @@ module.exports = {
 
       //var ratingValue = aggregateRating ? aggregateRating.replace(/^\D+/g, '') : '';
       pipeSeparatorDouble('desc', descfinal);
+      try{
       const rpc1 = getXpath('//meta[@itemprop="sku"]/@content','nodeValue')
       var rpc=rpc1.split("-")
       addElementToDocument('rpc',rpc[0])
+      }
+      catch(e){
+
+      }
+      try{
       const rating = getXpath('(//span[@class="sr-only"])[1]//text()','nodeValue')
       var rating1=rating.split(" ")
       addElementToDocument('rating',rating1[0])
+      }
+      catch(e){
+        
+      }
       const name1 = getXpath('//div[@class="product-name"]//a//text()','nodeValue')
       const name2 = getXpath('(//div[@class="product-name"]//span)[1]//text()','nodeValue')
       const name3 = getXpath('(//div[@class="product-name"]//span)[1]//text()','nodeValue')
