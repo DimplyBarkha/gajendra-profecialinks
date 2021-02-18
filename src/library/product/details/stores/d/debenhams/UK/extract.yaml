@@ -30,17 +30,17 @@ fields:
     regExpReplace: $1
   - name: price
     singleValue: false
-    xpath: //span[contains(@class, 'dbh-product-price')]
+    xpath: //*[contains(@class, 'dbh-product-price')]
     regExp: .*£(.*)
     regExpReplace: £$1
   - name: promotion
     singleValue: false
-    xpath: //span[contains(@class, 'dbh-product-saving')]
+    xpath: //*[contains(@class, 'dbh-product-saving')]
     regExp: \((.*)\)
     regExpReplace: $1
   - name: listPrice
     singleValue: false
-    xpath: //span[contains(@class, 'dbh-product-original')]
+    xpath: //*[contains(@class, 'dbh-product-original')]
     regExp: .*£(.*)
     regExpReplace: £$1
   - name: ratingCount

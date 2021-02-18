@@ -31,7 +31,7 @@ const transform = (data) => {
             }
             if (row.image) {
                 row.image.forEach(element => {
-                    element.text = `https:${element.text}`.replace("w=1500", "w=640").replace("h=1500", "h=640").replace('fmt=webp', 'fmt=jpg').replace('&qlt=50', '').replace('&qlt=60', '')
+                    element.text = `https:${element.text}`.replace('fmt=webp', 'fmt=jpg').replace('&qlt=50', '').replace('&qlt=60', '')
                 });
             }
             if (row.variantInformation) {
