@@ -42,7 +42,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //*[@class="availableCopy"]/text()
+    xpath: //span[@itemprop="availability"]/@content[contains(.,"in_stock")]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
