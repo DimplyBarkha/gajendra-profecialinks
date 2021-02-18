@@ -49,7 +49,31 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
+      const getAllXpath = (xpath, prop) => {
+        const nodeSet = document.evaluate(
+          xpath,
+          document,
+          null,
+          XPathResult.ORDERED_NODE_SNAPSHOT_TYPE,
+          null
+        );
+        const result = [];
+        for (let index = 0; index < nodeSet.snapshotLength; index++) {
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
+        }
+        return result;
+      };
+      //custom code to concatenate
+      var manufacturerDesc = getAllXpath("//div[@class='wc-rich-content-description']//text()","nodeValue");
       // custom code to get price with $
+      // console.log('abc'+manufacturerDesc)
+      let final_manufacturerDesc;
+      for (let index = 0; index < manufacturerDesc.length; index++) {
+        final_manufacturerDesc += manufacturerDesc[index]
+      }
+      console.log('Saipavan'+final_manufacturerDesc)
+      addElementToDocument('final_manufacturerDesc', final_manufacturerDesc)
       try {
         const size = getXpath("//div[@class='lsection mobile-product-name h6']//text()", 'nodeValue');
         console.log('Raghav'+size);
