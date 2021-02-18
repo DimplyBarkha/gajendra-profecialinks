@@ -5,8 +5,13 @@ parameters:
   store: intermarche
   zipcode: ""
 proxy:
-  zone: ZUS
-  type: DATA_CENTER
+  zone: FRA
+  type: RESIDENTIAL
+policy:
+  numberRetries: 3
+  priority: NORMAL
+  retryDelay: 60
+  retryWithResidentialProxyAfter: 1
 meta:
   branches:
     intermarche_fr:

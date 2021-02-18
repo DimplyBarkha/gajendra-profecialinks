@@ -4,7 +4,7 @@ module.exports = {
     country: "FR",
     store: "intermarche",
     domain: "intermarche.com",
-    loadedSelector: '.styled__ProductWrapper-h5dvb4-1.NvJDv',
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: "",
   },
