@@ -25,6 +25,7 @@ const transform = (data) => {
     for (const { group } of data) {
       var skuText=''; var bText='';var nText='';
       for (let row of group) {
+        console.log(row.videos)
         if(row.videos){
           //console.log('comming to row.videos');
           var info=[];
@@ -35,6 +36,13 @@ const transform = (data) => {
             //console.log('vList : ',info);
           });
           row.videos=[{"text":info.join(" | ")}];
+        }
+        if(row.secondaryImageTotal){
+          var tot=0;
+          row.secondaryImageTotal.forEach(item=>{
+            tot++;
+          });
+          row.secondaryImageTotal=[{"text":tot}];
         }
         if(row.descriptionBullets){
           var tot=0;
@@ -62,6 +70,11 @@ const transform = (data) => {
           row.listPrice.forEach(item => {
             item.text=item.text.replace('Før: ','').slice(0, -2);
           });
+        }
+        if(row.promotion){
+          row.promotion.forEach(item => {
+            item.text='Fri fragt';
+          })
         }
         if(row.availabilityText){
           row.availabilityText.forEach(item=>{

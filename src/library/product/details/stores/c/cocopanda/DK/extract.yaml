@@ -11,7 +11,10 @@ fields:
     xpath: //div[@class="image-large"]/a/figure/img/@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,"slick-vertical")]//div[@class="slick-track"]/a[@data-zoom-id="pdp-images" and position()>1 and not(contains(@class,"video"))]/@href
+    xpath: //div[contains(@class,"slick-dots")]//div[@class="slick-track"]/a[@data-zoom-id="pdp-images" and position()>1 and not(contains(@class,"video"))]/@href
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: //div[contains(@class,"slick-dots")]//div[@class="slick-track"]/a[@data-zoom-id="pdp-images" and position()>1 and not(contains(@class,"video"))]/@href
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -27,12 +30,16 @@ fields:
   - name: price
     singleValue: false
     xpath: //div[@id="final-sales-price"]
+  - name: promotion
+    singleValue: false
+    xpath: //div[@id="price-discount-text-tag"]/span
   - name: availabilityText
     singleValue: false
     xpath: //button[@id="addToWishlistButton"]/@data-quantityavailable
+    defaultValue: Out Of Stock
   - name: description
     singleValue: false
-    xpath: //div[@id="product-description"]/p[not(contains(@class,"product-number"))] | //div[@id="product-description"]//li | //div[@id="product-description"]/text()
+    xpath: //div[@id="product-description"]/p[not(contains(@class,"product-number"))] | //div[@id="product-description"]//li | //div[@id="product-description"]/text() | //div[@id="product-description"]/div
   - name: brandText
     singleValue: false
     xpath: //h2[@id="product-manufacturer"]
@@ -53,7 +60,7 @@ fields:
     xpath: //div[@id="product-ratings-summary"]/@class
   - name: videos
     singleValue: false
-    xpath: //html/body/ul/li[@class="b-video-item"]/div[@class="b-video-item-tile"]/@data-videoid
+    xpath: //div[@class="custom_video_class"]
   - name: name
     singleValue: false
     xpath: //h1[@id="product-title"]

@@ -59,7 +59,7 @@ module.exports = {
     store: 'cocopanda',
     domain: 'cocopanda.dk',
     loadedSelector: 'div#main',
-    noResultsXPath: '//body[@class="page-error"]',
+    noResultsXPath: null,
     zipcode: '',
   },
   implementation,
