@@ -1,35 +1,36 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //ul[contains(@class, "products-list")]//li
+recordXPath: //div[contains(@class,"ProductFlexBox__StyledListItem")]
 fields:
   - name: productUrl
     singleValue: false
-    xpath: //div[contains(@class,'product-wrapper')]//aside[contains(@class, "product-photo")]//a/@href
+    xpath: //a/@href
     regExp: (.+)
     regExpReplace: https://www.mediamarkt.es$1
     description: The URL for the product details page
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,'product-wrapper')]//aside[contains(@class, "product-photo")]//a//img/@data-original
-    regExp: (.+)
-    regExpReplace: https:$1
+    xpath: //div[contains(@class,"ProductImage__StyledPictureWrapper")]//img/@src
+    # regExp: (.+)
+    # regExpReplace: https:$1
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,'product-wrapper')]//h2
+    xpath: //div[contains(@class,"ProductHeader__StyledHeadingWrapper")]
     description: The product name
   - name: ratingCount
     singleValue: false
     description: The number of ratings
   - name: reviewCount
     singleValue: false
-    xpath: //a[contains(@class, "see-reviews")]
-    regExp: (\d+)
+    xpath: //div[contains(@class,"Rating__StyledRatingWrapper")]/span
+    regExp: \((.+)\)
+    regExpReplace: $1
     description: The number of reviews
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,'product-wrapper')]//div[contains(@class, "price-box")]//div[contains(@class, "price small")]
+    xpath: //div[contains(@class,"UnbrandedPriceDisplay") and not(contains(@class,'StrikeThrough'))]/div[@tabindex="0"]
     description: The offered price for the product
   - name: rank
     singleValue: true
@@ -43,6 +44,9 @@ fields:
     description: Unique id (within this extractor)
   - name: aggregateRating2
     singleValue: false
-    xpath: //footer//ul//div[contains(@class, "rating")]//div/@class
-    regExp: (?<=\-)\s*(.*)
+    # xpath: //footer//ul//div[contains(@class, "rating")]//div/@class
+    # regExp: (?<=\-)\s*(.*)
+    xpath: //div[contains(@class,"ProductRating")]/@aria-label
+    regExp: (.+:) (.+) de 5 estrellas
+    regExpReplace: $2
     description: The stated aggregate rating normalized to be out of 5
