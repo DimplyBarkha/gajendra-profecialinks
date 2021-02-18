@@ -88,7 +88,7 @@ module.exports = {
                         let sku = "";
                         if (imageText) {
                             addHiddenDiv("custom-attr-product-brand-image", imageText.replace("w=1500", "w=640").replace("h=1500", "h=640").replace('fmt=webp', 'fmt=jpg').replace('&qlt=50', '').replace('&qlt=60', ''));
-                            sku = imageText.match(/(_\d+)/g)[0].toString().replace("_", "");
+                            sku = imageText.match(/(_\d+)/g) ? imageText.match(/(_\d+)/g)[0].toString().replace("_", "") : "";
                         }
                         // if (sku.length > 0) {
                         //     addHiddenDiv("custom-attr-product-sku-number", sku || "");
