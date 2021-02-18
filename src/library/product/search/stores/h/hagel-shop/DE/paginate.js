@@ -58,6 +58,12 @@ module.exports = {
           if (PageNumber != null) {
             if(PageNumber.includes("&p=")){
               return PageNumber.split("&p=")[1].split("&")[0];
+            }else if(PageNumber.includes("?p=")){
+              if(PageNumber.includes("&")){
+                return PageNumber.split("?p=")[1].split("&")[0];  
+              }else{
+                return PageNumber.split("?p=")[1].split("#")[0];
+              }
             }
           }
         });
