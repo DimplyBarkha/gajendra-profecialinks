@@ -1,31 +1,39 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="panel-body"]
+# recordXPath: //div[@class="panel-body"]
+recordXPath: null
+
 fields:
   - name: productUrl
+    singleValue: false
     description: The URL for the product details page
-    xpath: //div[@class="article-left article-thumbnail"]/a/@href
+    xpath: //div[@class="panel-body"]//div[@class="article-left article-thumbnail"]/a/@href
   - name: thumbnail
+    singleValue: false
     description: The URL for the product thumbnail image
-    type: FILE
-    xpath: //div[@class="article-left article-thumbnail"]//a[@class="title"]/img/@data-src
+    # type: FILE
+    xpath: //div[@class="panel-body"]//div[@class="article-left article-thumbnail"]//a[@class="title"]/img/@data-src
   - name: name
     type: TEXT
-    xpath: //div[@class="article-left article-thumbnail"]/a/img/@alt
+    singleValue: false
+    xpath: //div[@class="panel-body"]//div[@class="article-left article-thumbnail"]/a/img/@alt
   - name: id
     description: The store-specific product identifier
-    xpath: //div[@class='form-group to-basket-default']//button/@data-datamints-enhancedga-product
+    singleValue: false
+    xpath: //div[@class="panel-body"]//div[@class='form-group to-basket-default']//button/@data-datamints-enhancedga-product
     regExp: '(\"id\"\:\ ")([^"]+)'
     # xpath: //div[@class="article-left article-thumbnail"]//a[@class="title"]/img/@data-src
     # regExp: (ximage_)([A-Z 0-9]+)
     regExpReplace: $2
   - name: aggregateRating2
-    xpath: //div[@class="rating "]/@data-rating
+    singleValue: false
+    xpath: //div[@class="panel-body"]//div[@class="rating "]/@data-rating
   - name: reviewCount
+    singleValue: false
     type: NUMBER
-    xpath: //span[@class='rating-count']
+    xpath: //div[@class="panel-body"]//span[@class='rating-count']
   - name: price
+    singleValue: false
     description: The offered price for the product
-    xpath: //html//div[@id="price"]
-  
+    xpath: //html//div[@id="PRICEVALUE"]
