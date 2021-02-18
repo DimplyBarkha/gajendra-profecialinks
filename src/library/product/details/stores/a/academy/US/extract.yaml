@@ -66,10 +66,10 @@ fields:
     xpath: //div[@class='recs--4 row flex-nowrap flex-lg-nowrap mobile-overflow-scroll']//a/@data-brand
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-  - name: manufacturer
-    singleValue: true
-    description: Product manufacturer
-    # xpath: //div[@class='flex-wrap flex-fill']//text()
+  # - name: manufacturer
+  #   singleValue: true
+  #   description: Product manufacturer
+  #   xpath: //div[@class='flex-wrap flex-fill']//text()
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -92,7 +92,8 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: sku
     singleValue: true
-    xpath: //span[@data-auid='skuId']//text()
+    xpath: //section[@class="css-3ywggk"]/div[@class="mt-1"]/div[2]/span
+    # xpath: //span[@data-auid='skuId']//text()
     description: The store-specific product identifier
   - name: variantId
     singleValue: true

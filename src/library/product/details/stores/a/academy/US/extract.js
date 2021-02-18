@@ -11,14 +11,14 @@ module.exports = {
   implementation: async ({ inputString }, { country, domain }, context, { productDetails }) => {
     // await context.waitForXPath("//div[@class='bv-control-bar-count']//span[@role='status']");
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -142,11 +142,16 @@ module.exports = {
       let availabilityText = getXpath("//div[@data-auid='PDP_DeliveryInfo_ShipToHome']//div[@class='css-1flyvhq']//span[2]", 'innerText');
       console.log('Availabity Text', availabilityText);
       if (availabilityText !== null && availabilityText === 'SHIPPING AVAILABLE') {
-        availabilityText = 'In store only';
-        console.log('Availabity Text if shipping available', availabilityText);
-      } else {
         availabilityText = 'In Stock';
+        console.log('Availabity Text if shipping available', availabilityText);
+      }
+      else if (availabilityText !== null && availabilityText === 'SHIPPING NOT AVAILABLE') {
+        availabilityText = 'In store only';
         console.log('Availabity Text if shipping not available', availabilityText);
+      }
+      else {
+        availabilityText = 'Out of Stock';
+        console.log('Availabity Text if product and shipping not available', availabilityText);
       }
       addElementToDocument('added_availabilityText', availabilityText);
 

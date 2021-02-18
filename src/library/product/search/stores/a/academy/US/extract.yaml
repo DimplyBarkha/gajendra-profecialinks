@@ -23,6 +23,8 @@ fields:
   - name: thumbnail
     singleValue: true
     xpath: //div[@class='horizontal product-card c-product__has-quickview css-zcw7sa']//picture//img[@class='css-1lt8ar8 w-100 pt-3 pb-1 pb-md-0 pt-md-1 px-1 px-md-2 h-lazyloadimg']//@src
+    # regExp: [^(.*)$] 
+    # regExpReplace: 'https:'
       # //div[@class='horizontal product-card c-product__has-quickview css-zcw7sa']//picture//@src
   - name: aggregateRating
     singleValue: true
