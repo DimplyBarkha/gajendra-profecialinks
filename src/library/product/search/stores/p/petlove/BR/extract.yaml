@@ -5,9 +5,7 @@ recordXPath: //div[@class='catalog-list-item']
 fields:
   - name: id
     singleValue: false
-    xpath: //a[@title]/@href
-    regExp: sku=(.+)$
-    regExpReplace: $1
+    xpath: //h3[@itemprop="name"]/following-sibling::span[1]
   - name: searchUrl
     singleValue: false
     xpath: //div[@class='catalog-list-item']/@searchurl
@@ -21,7 +19,9 @@ fields:
     regExpReplace: https://www.petlove.com.br$1
   - name: gtin
     singleValue: false
-    xpath: //span[@itemprop='sku']
+    xpath: //a[@title]/@href
+    regExp: sku=(.+)$
+    regExpReplace: $1
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="catalog-list-image"]/img/@data-src
