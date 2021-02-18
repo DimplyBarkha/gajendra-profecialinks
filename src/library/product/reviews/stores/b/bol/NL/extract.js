@@ -188,13 +188,14 @@ module.exports = {
       const name = document.querySelector('h1.page-heading > span')
         ? document.querySelector('h1.page-heading > span').textContent
         : '';
-      const sku = document.evaluate(
-        '(//div[@class="buy-block"]//a/@data-product-id | //div[@class="buy-block"]//div/@data-global-id)[1]',
-        document,
-        null,
-        XPathResult.STRING_TYPE,
-        null,
-      ).stringValue;
+      // const sku = document.evaluate(
+      //   '(//div[@class="buy-block"]//a/@data-product-id | //div[@class="buy-block"]//div/@data-global-id)[1]',
+      //   document,
+      //   null,
+      //   XPathResult.STRING_TYPE,
+      //   null,
+      // ).stringValue;
+      const sku = document.evaluate('normalize-space(//dt[contains(text(), "EAN")]/following-sibling::dd[1])', document, null, XPathResult.STRING_TYPE, null).stringValue;
 
       const ratingElem = document.querySelector('div[class="rating-horizontal__average-score"]');
       const rating = ratingElem ? ratingElem.textContent.replace('.', ',') : '';
