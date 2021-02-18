@@ -144,7 +144,7 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@id,'dyson_jump_features')]//ul//li//div[contains(@class,'inpage_ftgridimg')]/img/@srcset
+    xpath: //div[contains(@class,'inpage_ftgridimg')]/img/@srcset
     #xpath:  | //ul[contains(@class,'inpage_features_grid')]//li//div[contains(@class,'inpage_ftgridimg')]/img/@srcset
     #regExp: (.+)
     #regExpReplace: https://bigw.com.au$1
