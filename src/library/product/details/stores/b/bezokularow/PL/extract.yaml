@@ -46,7 +46,7 @@ fields:
     xpath: //div[@id="description"]/*[not(div)]//text()
   - name: descriptionBullets
     description: Number of ul > li tags in the description
-    xpath: count(//div[@itemprop="description"]//ul/li)
+    xpath: count(//div[@itemprop="description"]//ul/li | //div[@id="description"]//ul/li)
   - name: brandText
     description:
       Product brand shown - this may actually NOT be just a brand name,
