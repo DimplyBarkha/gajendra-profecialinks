@@ -73,6 +73,6 @@ fields:
     manualSelector: section.main
   - name: manufacturerImages
     singleValue: false
-    xpath: //div[@id="customIframeData"]/section[@class="main"]//img/@src
+    xpath: //div[@id="customIframeData"]/section[@class="main" or contains(@class,"main")]//img/@src
     regExp: (.+)
     regExpReplace: https://www.technodom.kz$1
