@@ -8,7 +8,6 @@ module.exports = {
     transform,
     domain: 'santediscount.com',
     zipcode: '',
-    noResultsXPath: `//div[@class='catalogsearch_no_result--content']`
   },
   implementation: async (inputs,
     parameters,

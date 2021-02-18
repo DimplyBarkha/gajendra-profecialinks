@@ -6,7 +6,7 @@ module.exports = {
     store: 'santediscount',
     domain: 'santediscount.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: `//div[@class='catalogsearch_no_result--content']`,
     zipcode: '',
   },
 };
