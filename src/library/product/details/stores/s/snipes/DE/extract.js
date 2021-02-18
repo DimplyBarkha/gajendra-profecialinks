@@ -121,9 +121,14 @@ module.exports = {
       var qq = getAllXpath('//div[@class="b-swatch-value-wrapper"]/a/span/span/text()', 'nodeValue');
       var color1 = getXpath("(//td[@class='b-fact-value js-fact-value']/text())[3]", 'nodeValue');
       var id = getXpath("//div[@class='s-pdp l-container js-product-details']/@data-pid", 'nodeValue');
+      var name = document.querySelector("div[class='js-target']").innerText;
+      var name1 = document.querySelector("div[class='js-pdp-color-label']").innerText;
+      var sku = getXpath("(//td[@class='b-fact-value js-fact-value']/text())[5]", 'nodeValue');
+      console.log('amol' + name);
       if (qq != null) {
         for (var i = 0; i < qq.length; i++) {
           var colorVar = color1 + ' - ' + qq[i];
+          var nameExtended = name + ' ' + name1 + ' ' + qq[i] + ' | ' + sku;
           var vid = '';
           if (i < 10) {
             vid = id + '0000000' + [i];
@@ -135,6 +140,7 @@ module.exports = {
           addHiddenDiv('qty', qq[i], i);
           addHiddenDiv('colorVar', colorVar, i);
           addHiddenDiv('variantId', vid, i);
+          addHiddenDiv('nameEx', nameExtended, i);
           // console.log('amol'+qq[i]);
         }
       }

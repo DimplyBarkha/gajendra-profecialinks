@@ -36,7 +36,7 @@ fields:
     xpath: ancestor::html//div[@class='b-details-content']
     # xpath: //html//div[@id='specs']
   - name: descriptionBullets
-    singleValue: true
+    singleValue: false
     xpath: count(ancestor::html//div[@class='b-details-content']/ul/li)
   - name: ratingCount
     singleValue: false
@@ -52,7 +52,7 @@ fields:
     xpath: ancestor::html//div[@id='agg']
   - name: alternateImages
     singleValue: false
-    xpath: //html//div[@id='AltImg']
+    xpath: ancestor::html//div[@id='AltImg']
   - name: secondaryImageTotal
     singleValue: false
     xpath: count((ancestor::html//div[@class="b-pdp-thumbs-carousel js-pdp-thumbs-carousel slick-initialized slick-slider slick-vertical"])/div/div/div[position()>1 and position() <= last()]/div/div/picture/img/@src)
@@ -70,14 +70,15 @@ fields:
   #   xpath: (//div[@class='b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size']/div/a/@href)[1]
   - name: nameExtended
     singleValue: false
-    xpath: concat(ancestor::html//h1[@class='t-page-title b-pdp-title']/div,' | ',(ancestor::html//td[@class='b-fact-value js-fact-value'])[5])
+    # xpath: concat(ancestor::html//h1[@class='t-page-title b-pdp-title']/div,' ','//html//div[@id='qty']',' | ',(ancestor::html//td[@class='b-fact-value js-fact-value'])[5])
+    xpath: //html//div[@id='nameEx']
   - name: quantity
     singleValue: false
     # xpath: (//div[@class='b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size']/div/a/@data-value)
     xpath: //html//div[@id='qty']
   # - name: variants
-  #   singleValue: true
-  #   xpath: //html//div[@id='ab']
+
+  #   xpath: //html//div[@id='ab']  #   singleValue: true
   # - name: variantCount
   #   singleValue: false
   #   xpath: count(ancestor::html//div[@class="b-pdp-attribute b-pdp-attribute--size js-pdp-attributes--size"]/div)
