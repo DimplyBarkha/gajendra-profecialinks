@@ -12,5 +12,8 @@ fields:
     xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/i | //span[contains(@aria-label,"stars")]/@aria-label
     regExp: ^([^\s]+)
     # used in transform.
+  - name: aggregateRating
+    xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/i | //span[contains(@aria-label,"stars")]/@aria-label
+    regExp: ^([^\s]+)
   - name: domain
     defaultValue: 'amazon.co.uk'
