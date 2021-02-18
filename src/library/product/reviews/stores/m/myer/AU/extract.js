@@ -29,7 +29,7 @@ async function implementation (
       const productStoreCode = document.querySelector('p[data-automation="product-part-number"] > span').textContent;
       const productUrl = reviews.q1.Includes.Products[id].ProductPageUrl;
 
-      const timestamp = new Date().getTime() - (30 * 24 * 60 * 60 * 1000);
+      const timestamp = new Date().getTime() - (31 * 24 * 60 * 60 * 1000);
       console.log('timeStamp ', timestamp);
       reviews.q1.Results.forEach(review => {
         const dateTime = +Date.parse(review.SubmissionTime);
