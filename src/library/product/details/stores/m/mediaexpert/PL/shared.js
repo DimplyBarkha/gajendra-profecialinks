@@ -105,10 +105,10 @@ const transform = (data) => {
         imageData = imageData.substring(imageData.indexOf("'/media") + 1, imageData.indexOf("',"));
         row.image = [{ text: `https://www.mediaexpert.pl${imageData}` }];
         row.imageAlt = row.productSingleImageAltText ? row.productSingleImageAltText : [];
-        if (row.alternateImages) {
-          delete row.alternateImages;
-          delete row.secondaryImageTotal;
-        }
+        // if (row.alternateImages) {
+        //   delete row.alternateImages;
+        //   delete row.secondaryImageTotal;
+        // }
       }
 
       // if (row.manufacturerDescription) {
