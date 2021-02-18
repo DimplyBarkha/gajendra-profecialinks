@@ -23,7 +23,7 @@ module.exports = {
   implementation,
 };
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
@@ -53,7 +53,7 @@ async function implementation(
   }
 
   await context.evaluate(async function () {
-    function addHiddenDiv(el, myClass, content) {
+    function addHiddenDiv (el, myClass, content) {
       const newDiv = document.createElement('div');
       newDiv.setAttribute('class', myClass);
       newDiv.textContent = content;
@@ -62,7 +62,7 @@ async function implementation(
     }
 
     //  Date
-    function timeSince(date2) {
+    function timeSince (date2) {
       var now = new Date();
       console.log('-------', date2);
       console.log('--------', typeof (date2));
@@ -87,7 +87,7 @@ async function implementation(
         date2 = date2.replace(date2, d.toString());
       }
 
-      console.log('DATE STRING', d.toString())
+      console.log('DATE STRING', d.toString());
       return d.toString();
     }
 
