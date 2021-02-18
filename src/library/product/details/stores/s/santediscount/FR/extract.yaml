@@ -18,7 +18,7 @@ fields:
   - name: metaKeywords
     xpath: ancestor::*//meta[@name="keywords"]/@content
   - name: category
-    xpath: //nav[@id="breadcrumbs"]/ul/li[position() < last()]/a/@title
+    xpath: //nav[@id="breadcrumbs"]/ul/li[position() = 2]/a/@title
   - name: nameExtended
     xpath: //h1[@itemprop="name"]
   - name: listPrice
@@ -65,6 +65,7 @@ fields:
   - name: manufacturerImages
   - name: videos
   - name: name
+    xpath: //h1[@itemprop="name"]
   - name: inStorePrice
   - name: asin
   - name: coupon
@@ -231,4 +232,4 @@ fields:
   - name: imageZoomFeaturePresent
     defaultValue: No
   - name: subCategory
-    xpath: //nav[@id="breadcrumbs"]/@data-breadcrumbs
+    xpath: //nav[@id="breadcrumbs"]/ul/li[position() > 2][position() < last()]/a/@title

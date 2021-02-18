@@ -8,6 +8,7 @@ module.exports = {
     transform,
     domain: 'santediscount.com',
     zipcode: '',
+    noResultsXPath: `//div[@class='catalogsearch_no_result--content']`
   },
   implementation: async (inputs,
     parameters,
@@ -56,8 +57,11 @@ module.exports = {
       if (response.status !== 404) {
         var json = await response.json();
         console.log(`Resultant --> ${JSON.stringify(json)}`);
-        document.querySelector('section.product-view-essential').setAttribute('review-total', json.reviewSummary.numReviews);
-        document.querySelector('section.product-view-essential').setAttribute('review-average', json.reviewSummary.primaryRating.average);
+
+        if (document.querySelector('section.product-view-essential')) {
+          document.querySelector('section.product-view-essential').setAttribute('review-total', json.reviewSummary.numReviews);
+          document.querySelector('section.product-view-essential').setAttribute('review-average', json.reviewSummary.primaryRating.average);
+        }
       } else {
         console.log('404');
       }
@@ -99,7 +103,7 @@ module.exports = {
         }
       }
 
-      if (!directionsHTML) {
+      if (desc && !directionsHTML) {
         let descHTML = desc.innerHTML;
         descHTML = descHTML.replace(`<strong> Conseils d'utilisation :`, `<strong>Conseils d'utilisation :`)
         descHTML = descHTML.replace(`<strong style="letter-spacing: 0.03em; font-size: 12.132px;">Conseils d'utilisation :`, `<strong>Conseils d'utilisation :`)
@@ -134,7 +138,7 @@ module.exports = {
         }
       }
 
-      if (!ingridientsHTML) {
+      if (desc && !ingridientsHTML) {
         let descHTML = desc.innerHTML;
         descHTML = descHTML.split(`<strong>Composition :`);
 
