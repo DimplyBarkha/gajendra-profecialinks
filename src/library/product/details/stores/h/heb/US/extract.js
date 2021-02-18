@@ -35,6 +35,19 @@ module.exports = {
     addElementToDocument("avail", avail)
   }
 
+  //brand//
+
+  var brand4 = getXpath('(//a[@class="btn-add-to-list"]/following::script[@type="application/json"])[1]/text()', 'nodeValue');
+  if (brand4!=null){
+    var data = JSON.parse(brand4);
+    try {
+      var brand = data[0].ecommerce.add.products[0].brand;
+      addElementToDocument("brand", brand)
+    } catch (error) {
+      
+    }
+  }
+
   //image//
   var image = getXpath("(//div[@class='pdp-mobile-image-container']/img)[1]/@src", 'nodeValue');
   if (image != null){
