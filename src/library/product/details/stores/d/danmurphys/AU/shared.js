@@ -20,6 +20,7 @@ const transform = (data) => {
         if (gr.sku) {
           const start = gr.sku[0].text.indexOf('product/');
           gr.sku[0].text = gr.sku[0].text.slice(start, gr.sku[0].text.length).replace('product/', '');
+          gr['variantId'] = gr.sku;
         }
         if (gr.videos) gr.videos = gr.videos.filter(el => !el.text.includes('undefined'));
         if (gr.availabilityText && gr.availabilityText[0].text !== 'Out of stock') gr.availabilityText[0].text = 'In stock';
