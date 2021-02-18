@@ -109,7 +109,7 @@ fields:
       Identifier for a variant from a store where variants share the same
       sku
     type: STRING
-    xpath: //form[@id="AddToCartForm"]//input[@name="sku"]/@value
+    xpath: //th[text()="Herstellernummer"]/following-sibling::td[1]
   - name: mpc
     singleValue: true
     type: STRING
@@ -478,8 +478,8 @@ fields:
     singleValue: true
     description:
   - name: specifications
+    singleValue: true
     description: The physical dimensions of the product including packaging.
-    defaultValue: ' '
   - name: specificationKey
     xpath: //h3[@id="specifications-header"]/..//tr[contains(@class,"technicalDetails__row")]//th
   - name: specificationValue
