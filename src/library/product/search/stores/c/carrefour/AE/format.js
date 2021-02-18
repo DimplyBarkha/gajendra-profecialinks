@@ -22,12 +22,14 @@ const transform = (data, context) => {
   let rankCounter = state.rankCounter || 0;
   for (const { group } of data) {
     for (const row of group) {
-      rankCounter = rankCounter + 1;
-      if (!row.sponsored) {
-        orgRankCounter = orgRankCounter + 1;
-        row.rankOrganic = [{ text: orgRankCounter }];
+      if (row.id) {
+        rankCounter = rankCounter + 1;
+        if (!row.sponsored) {
+          orgRankCounter = orgRankCounter + 1;
+          row.rankOrganic = [{ text: orgRankCounter }];
+        }  
+        row.rank = [{ text: rankCounter }];
       }
-      row.rank = [{ text: rankCounter }];
       context.setState({ rankCounter });
       context.setState({ orgRankCounter });
       Object.keys(row).forEach(header => row[header].forEach(el => {
@@ -39,41 +41,41 @@ const transform = (data, context) => {
       //     item.text = item.text.split(' ')[0];
       //   });
       // }
-      if (row.productUrl) {
-        row.productUrl.forEach(item => {
-          if ((item.text.includes('https') || (item.text.includes('http')))) {
-            item.text = item.text;
-          } else {
-            item.text = "https://www.carrefouruae.com" + item.text;
-          }
-        });
-      }
-      if (row.thumbnail) {
-        row.thumbnail.forEach(item => {
-          if ((item.text.includes('https') || (item.text.includes('http')))) {
-            item.text = item.text;
-          } else {
-            item.text = "https://www.carrefouruae.com" + item.text;
-          }
-          if (!row.price && row.listPrice) {
-            row.price = row.listPrice;
-            delete row.listPrice;
-          }
-          if (row.id) {
-            row.id.forEach(item => {
-              var myRegexp = /\/p\/(.+)/g;
-              var match = myRegexp.exec(item.text);
-              if (match) {
-                if (match.length) {
-                  item.text = match[1].trim();
-                } else {
-                  delete row.id;
-                }
-              }
-            });
-          }
-        });
-      }
+      // if (row.productUrl) {
+      //   row.productUrl.forEach(item => {
+      //     if ((item.text.includes('https') || (item.text.includes('http')))) {
+      //       item.text = item.text;
+      //     } else {
+      //       item.text = "https://www.carrefouruae.com" + item.text;
+      //     }
+      //   });
+      // }
+      // if (row.thumbnail) {
+      //   row.thumbnail.forEach(item => {
+          // if ((item.text.includes('https') || (item.text.includes('http')))) {
+          //   item.text = item.text;
+          // } else {
+          //   item.text = "https://www.carrefouruae.com" + item.text;
+          // }
+          // if (!row.price && row.listPrice) {
+          //   row.price = row.listPrice;
+          //   delete row.listPrice;
+          // }
+          // if (row.id) {
+          //   row.id.forEach(item => {
+          //     var myRegexp = /\/p\/(.+)/g;
+          //     var match = myRegexp.exec(item.text);
+          //     if (match) {
+          //       if (match.length) {
+          //         item.text = match[1].trim();
+          //       } else {
+          //         delete row.id;
+          //       }
+          //     }
+          //   });
+          // }
+      //   });
+      // }
     }
   }
   return data;
