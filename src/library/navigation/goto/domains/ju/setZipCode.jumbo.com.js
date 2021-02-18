@@ -43,7 +43,7 @@ module.exports = {
         document.querySelector('div#jum-store-list > ul > li:first-child button[data-jum-action="savePreferredStore"]').click();
       }
     });
-    await context.waitForSelector('div#jum-store-list > ul > li:first-child button[data-jum-action="savePreferredStore"][disabled]');
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     // going to product page
     await context.goto({ url, zipcode, storeId });

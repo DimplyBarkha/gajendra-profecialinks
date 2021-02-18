@@ -19,18 +19,7 @@ module.exports = {
     } else url = await dependencies.createUrl({ id });
     await dependencies.goto({ url, zipcode, storeId });
 
-    const isGeoButtonPresent = await context.evaluate(async () => {
-      return document.querySelector('div[data-testautomation="navbar-store-finder"]') !== null;
-    });
-    if (isGeoButtonPresent) {
-      await context.click('div[data-testautomation="navbar-store-finder"]');
-      await context.waitForNavigation();
-    }
-    const store = await context.evaluate(async () => {
-      return document.querySelector('div[data-testautomation="navbar-store-finder"] h6+span') ? document.querySelector('div[data-testautomation="navbar-store-finder"] h6+span').textContent : '';
-    });
-
-    await context.evaluate(async (store, zipcode) => {
+    await context.evaluate(async (zipcode) => {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
@@ -40,9 +29,10 @@ module.exports = {
         return newDiv;
       }
 
+      const store = document.querySelector('span.jum-homestore-selected') ? document.querySelector('span.jum-homestore-selected').textContent : '';
       addHiddenDiv('retailerName', store);
       addHiddenDiv('drive', zipcode);
-    }, store, zipcode);
+    }, zipcode);
 
     if (loadedSelector) {
       await context.waitForFunction(
