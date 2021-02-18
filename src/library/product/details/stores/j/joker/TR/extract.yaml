@@ -241,7 +241,7 @@ fields:
   #   singleValue: false
   #   description: null
   - name: secondaryImageTotal
-    xpath: count(//*[@id="jMain"]/div/div[8]/div[1]/div[2]/div[3]/div[4]/button[position()>1]/img/@src)
+    xpath: count(//button[contains(@class,'owl-thumb-item')][position()>1]/img/@src)
     singleValue: true
     description: null
     type: NUMBER
