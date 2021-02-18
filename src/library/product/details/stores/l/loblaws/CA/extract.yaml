@@ -53,7 +53,6 @@ fields:
   - name: descriptionBullets
     singleValue: true
     description: Number of ul > li tags in the description
-    type: NUMBER
     xpath: count(//p[@class="product-description-text__text"]/ul/li)
   - name: brandText
     singleValue: true
@@ -235,7 +234,6 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description: null
-    type: NUMBER
     xpath: count(//div[@id="secondaryImages"])
   - name: news
     singleValue: true
@@ -285,7 +283,6 @@ fields:
     description: Nutritional Information for Saturated Fat content - Usually based
       on per 100g serving
     xpath: //span[contains(text(),'Saturated Fat')]/following::span[1]
-    type: NUMBER
   - name: saturatedFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Saturated Fat content
@@ -310,7 +307,6 @@ fields:
     description: Nutritional Information for Sodium content - Usually based on per
       100g serving
     xpath: //span[contains(text(),'Sodium')]/following::span[2]
-    type: NUMBER
   - name: sodiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Sodium content
@@ -319,7 +315,6 @@ fields:
     description: Nutritional Information for Total Carbohydrate content - Usually
       based on per 100g serving
     xpath: //span[contains(text(),'Total Carbohydrate')]/following::span[2]
-    type: NUMBER
   - name: totalCarbPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Carbohydrate content
@@ -328,7 +323,6 @@ fields:
     description: Nutritional Information for Dietary Fibre content - Usually based
       on per 100g serving
     xpath: //span[contains(text(),'Dietary Fiber')]/following::span[2]
-    type: NUMBER
   - name: dietaryFibrePerServingUom
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content
@@ -337,7 +331,6 @@ fields:
     description: Nutritional Information for Total Sugar content - Usually based on
       per 100g serving
     xpath: //span[contains(text(),'Sugars')]/following::span[1]  
-    type: NUMBER
   - name: totalSugarsPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Sugar content
@@ -370,7 +363,6 @@ fields:
     description: Nutritional Information for Calcium content - Usually based on per
       100g serving
     xpath: (//span[@class="nutrient-per-serving__label-item nutrient-per-serving__label-item--value-percent"])[15]
-    type: NUMBER
   - name: calciumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Calcium
