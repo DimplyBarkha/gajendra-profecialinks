@@ -5,10 +5,11 @@ recordXPath: null
 fields:
   - name: variantUrl
     singleValue: false
-    xpath: //div[@id="productVariantDisplay"]/div/a/@href | //div[@id="buttonClickshow"]/ul/li/a/@href
-    regExp: (/.*)
-    regExpReplace: https://www.marionnaud.fr$1
+    xpath: //html//div[@id="url"]
+      # //div[@id="productVariantDisplay"]/div/a/@href | //div[@id="buttonClickshow"]/ul/li/a/@href
+    # regExp: (/.*)
+    # regExpReplace: https://www.marionnaud.fr$1
     description: variant Url
-  - name: variantId
-    singleValue: false
-    xpath: //div[@id="productVariantDisplay"]/div/a/@data-code | //div[@id="buttonClickshow"]/ul/li/a/@data-code
+  # - name: variantId
+  #   singleValue: false
+  #   xpath: //div[@id="productVariantDisplay"]/div/a/@data-code | //div[@id="buttonClickshow"]/ul/li/a/@data-code
