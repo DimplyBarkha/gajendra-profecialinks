@@ -71,7 +71,17 @@ module.exports = {
               for (let i = 0; i < el.length; i++) {
                 hrefs.push(el[i].getAttribute('href'));
               }
+              const results = document.querySelector('.spnQtdeRegistros').innerText;
               addElementToDocument('hrefs', hrefs);
+              const els = document.querySelectorAll('.blocoproduto');
+              els.forEach((el, index) => {
+                if (results * 1 < 150) {
+                  el.setAttribute('id', `id-${index + 1}`);
+                  if (index + 1 > results * 1) {
+                    document.getElementById(`id-${index + 1}`).remove();
+                  }
+                }
+              });
             }
           });
       }
