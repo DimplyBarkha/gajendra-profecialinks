@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //*[@id="aod-offer"] | (//html[not(//*[@id="aod-offer"])]//*)[1] | //*[@id="aod-sticky-pinned-offer"]
+recordXPath: //*[@id="aod-offer"] | (//html[not(//*[@id="aod-offer"])]//*)[1] | //*[@id="aod-sticky-pinned-offer"] | //*[@id='aod-pinned-offer']
 fields:
   - name: name
     xpath: (ancestor::html//h5[@id='aod-asin-title-text'])[1]
@@ -42,4 +42,5 @@ fields:
   - name: brandText
     xpath: ancestor::html//div[@id="olpProductByline"]
   - name: deliveryDate
-    xpath: .//*[contains(@id, "elivery") and contains(@id, "essage")]//b/text()[1]
+    xpath: (.//*[contains(@id, "elivery") and contains(@id, "essage")]//b/text()[1])[1]
+  
