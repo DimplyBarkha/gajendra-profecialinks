@@ -19,7 +19,7 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   try {
-    await context.waitForSelector("div[class='wc-rich-content-description']", { timeout: 30000 });
+    await context.waitForSelector("div[class='wc-rich-content-description']", { timeout: 50000 });
   } catch (error) {
     
   }
