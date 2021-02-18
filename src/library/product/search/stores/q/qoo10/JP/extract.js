@@ -1,14 +1,13 @@
 
-async function implementation(
+async function implementation (
   inputs,
   parameters,
   context,
   dependencies,
 ) {
-
   const { productDetails } = dependencies;
   await context.evaluate(async () => {
-    function stall(ms) {
+    function stall (ms) {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve();
@@ -18,7 +17,7 @@ async function implementation(
 
     const applyScroll = async function () {
       let scrollTop = window.scrollY;
-      scrollTop = scrollTop + 5000
+      scrollTop = scrollTop + 5000;
       let scroll = window.scrollY;
       while (scroll !== scrollTop) {
         await stall(100);
@@ -32,7 +31,7 @@ async function implementation(
     };
 
     const el = document.querySelector('div.pagingInfo div.btn_more');
-    const totalCount = el.getAttribute("totalpage");
+    const totalCount = el.getAttribute('totalpage');
     const moreBtn = document.querySelector('div.pagingInfo a#btn_more_item');
     if (el) {
       new Promise(resolve => {
@@ -63,5 +62,5 @@ module.exports = {
     domain: 'qoo10.jp',
     zipcode: '',
   },
-  implementation
+  implementation,
 };
