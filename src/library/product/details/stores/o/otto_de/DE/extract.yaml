@@ -34,7 +34,7 @@ fields:
     description: The stated undiscounted price for the product
     xpath: //*[@id="oldPriceAmount"]
     regExp: (.*)
-    regExpReplace: €$1
+    regExpReplace: € $1
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -480,7 +480,8 @@ fields:
   - name: variantInformation
     singleValue: true
     description: colour / scent / flavour / other
-    xpath: concat((//span[@class='prd_selectedValue']/text())[1]|(//span[@class='prd_selectedValue'])//text(),'-',((//span[@class='prd_selectedValue']/text())[1]|(//span[@class='prd_selectedValue'])//text())[2])
+    xpath: //html//div[@id='varinf']
+    # xpath: concat((//span[@class='prd_selectedValue']/text())[1]|(//span[@class='prd_selectedValue'])//text(),'-',((//span[@class='prd_selectedValue']/text())[1]|(//span[@class='prd_selectedValue'])//text())[2])
   - name: firstVariant
     singleValue: true
     description: Unique identifier for a collection of variants. For a subset of

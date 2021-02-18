@@ -35,11 +35,11 @@ module.exports = {
       };
       // @ts-ignore
       const URL = window.location.href
-      let varidd=''
+      let varidd = ''
       try {
         var rpc = URL.split('/#variationId=')[1]
         addElementToDocument('rpcid', rpc)
-        varidd=rpc
+        varidd = rpc
       }
       catch (error) {
 
@@ -55,51 +55,64 @@ module.exports = {
       //   addElementToDocument('rpcid', rpc2)
       // }
 
-      const rawdata = getXpath("//div[@class='prd_price__main']/span/span[@id='reducedPriceAmount']/@content|//div[@class='prd_price__main']/span/span[@id='normalPriceAmount']/@content|//span[@id='normalPriceAmount']/text()", 'nodeValue');
-      if (rawdata != null) {
-        var nr = rawdata.replace('.', ',')
-        var price = '€' + nr
+      //const rawdata = getXpath("//div[@class='prd_price__main']/span/span[@id='reducedPriceAmount']/@content|//div[@class='prd_price__main']/span/span[@id='normalPriceAmount']/@content|//span[@id='normalPriceAmount']/text()", 'nodeValue');
+      var newprc = getXpath("//span[@id='reducedPriceAmount']/text()|//span[@id='normalPriceAmount']/text()", 'nodeValue');
+
+      if (newprc != null) {
+        //var nr = newprc.replace('.', ',');
+        var price = '€ ' + newprc
         addElementToDocument('price', price);
       }
 
+      //varinfo
+
+      const varinf = getAllXpath("//span[@class='prd_selectedValue']/text()", 'nodeValue');
+
+      var nwvarinf = varinf.join('-');
+      addElementToDocument('varinf', nwvarinf);
+
+
+
       const img = getXpath('//div[contains(@class,"js_prd_swiper-slide prd_swiper-slide js_prd_zoomWrapper swiper-slide-visible swiper-slide-active")]/a/@href', 'nodeValue');
-      var nimg= img
+      var nimg = img
       if (nimg != null) {
         var nwimg = nimg.split('?$')[0]
         //var price = '€' + nr
         addElementToDocument('img', nwimg);
       }
-      
-      const brandd=getXpath('//a[@id="brand"]/@data-brand', 'nodeValue');
-      const brandd2= getXpath('//div/h1[@itemprop="name"]/text()', 'nodeValue');
-      if(brandd!=null){
+
+      const brandd = getXpath('//a[@id="brand"]/@data-brand', 'nodeValue');
+      const brandd2 = getXpath('//div/h1[@itemprop="name"]/text()', 'nodeValue');
+      if (brandd != null) {
         addElementToDocument('brandd', brandd);
       }
       else {
-        var newbrandd= brandd2.split(' ')[0]
+        var newbrandd = brandd2.split(' ')[0]
         addElementToDocument('brandd', newbrandd);
       }
-      
+
       // @ts-ignore
       const aa = document.querySelector('section[class="prd_section"] div[class*=\'prd_section\']').innerText
-      // const bullets = document.querySelectorAll('#detailviewWrapper > section:nth-child(6) > div.prd_section__col.prd_section__col--15Of24 > div.prd_module.prd_module--noLine.prd_sellingPoints.js_prd_sellingPoints > ul > li')
-      // var middata= bullets.join(' || ')
-      // var mstart = middata.split(' || ')[0]
-      // var mstop = .split("/").pop()
-      if (aa != null) {
+      var bulletz= getAllXpath("//ul[@class='prd_unorderedList']/li/text()", 'nodeValue');
+      var newdesc =''
+      if (newdesc != null) {
+      for (var i=0; i<=bulletz.length; i++){
+        newdesc= aa.replace(bulletz[i],bulletz[i]+'||')
+      }
+      
         // @ts-ignore
-        var desc1 = aa.replace('Artikelbeschreibung', '')
+        var desc1 = newdesc.replace('Artikelbeschreibung', '')
         addElementToDocument('desc1', desc1);
       }
 
-      
+
       const rawjson = getXpath("//script[@id='productDataJson']/text()", 'nodeValue');
 
       var jsondata = JSON.parse(rawjson);
       var sku = jsondata.id;
       var a = jsondata.sortedVariationIds;
-      let gtin= jsondata.variations[varidd].ean;
-      
+      let gtin = jsondata.variations[varidd].ean;
+
 
       var variants = a.join(' | ');
       addElementToDocument('sku', sku);
@@ -131,7 +144,7 @@ module.exports = {
       const aggr = getXpath("//span[@class='p_rating200']/@content", 'nodeValue');
       if (aggr != null) {
         if (aggr.includes('.')) {
-          var newaggr = aggr.replace('.',',');
+          var newaggr = aggr.replace('.', ',');
           addElementToDocument('aggr', newaggr);
         }
         else {
