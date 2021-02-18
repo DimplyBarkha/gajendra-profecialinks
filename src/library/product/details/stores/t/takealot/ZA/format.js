@@ -23,8 +23,26 @@ const transform = (data) => {
     return data;
   };
   for (const { group } of data) {
-    var rank = 1, quantityStr='',weightNetStr='',colorStr='',warrantyStr='',materialsStr='';
+    var rank = 1, quantityStr='',weightNetStr='',colorStr='',warrantyStr='',materialsStr='',shippingDimensionsStr='';
     for (let row of group) { 
+      if(row.shippingDimensions){
+        row.shippingDimensions.forEach(item=>{
+          shippingDimensionsStr=item.text;
+        })
+        row.shippingDimensions=[{"text":shippingDimensionsStr}];
+      }
+      if(shippingDimensionsStr==''){
+        if(row.tmpshippingDimensions){
+          row.tmpshippingDimensions.forEach(item=>{
+            if(item.text.indexOf('- Dimensions:')=='0'){
+              shippingDimensionsStr=item.text.replace('- Dimensions:','').trim();
+            }
+          })
+          if(shippingDimensionsStr!=''){
+            row.shippingDimensions=[{"text":shippingDimensionsStr}];
+          }
+        }
+      }
       if(row.ingredientsList){
         row.ingredientsList.forEach(item=>{
           item.text=item.text.replace('Ingredients :','').trim();
@@ -42,20 +60,23 @@ const transform = (data) => {
       }
       if(row.weightNet){
         row.weightNet.forEach(item=>{
+          //console.log('weightNet item',item.text);
           if(item.text.indexOf('- Weight:')=='0'){
+            //console.log('weightNet item in side IF=======================',item.text);
             weightNetStr=item.text.replace('- Weight:','').trim();
           }
         })
         row.weightNet=[{"text":weightNetStr}];
-        delete row.tmpWeightNet;
-      }else{
+      }
+      if(weightNetStr==''){
         let tmpWeightNet='';
         if(row.tmpWeightNet){
           row.tmpWeightNet.forEach(item=>{
             tmpWeightNet=item.text;
           })
-          row.weightNet=[{"text":tmpWeightNet}];
-          delete row.tmpWeightNet;
+          if(tmpWeightNet!=''){
+            row.weightNet=[{"text":tmpWeightNet}];
+          }
         }
       }
       if(row.color){
@@ -66,6 +87,14 @@ const transform = (data) => {
         })
         row.color=[{"text":colorStr}];
       }
+      if(colorStr==''){
+        if(row.tmpcolor){
+          row.tmpcolor.forEach(item=>{
+            colorStr=item.text;
+          })
+          row.color=[{"text":colorStr}];
+        }
+      }
       if(row.warranty){
         row.warranty.forEach(item=>{
           if(item.text.indexOf('- Warranty:')=='0'){
@@ -73,15 +102,14 @@ const transform = (data) => {
           }
         })
         row.warranty=[{"text":warrantyStr}];
-        delete row.tmpWarranty;
-      }else{
+      }
+      if(warrantyStr==''){
         let tmpWarranty='';
         if(row.tmpWarranty){
           row.tmpWarranty.forEach(item=>{
             tmpWarranty=item.text;
           })
           row.warranty=[{"text":tmpWarranty}];
-          delete row.tmpWarranty;
         }
       }
       if(row.materials){
@@ -91,6 +119,14 @@ const transform = (data) => {
           }
         })
         row.materials=[{"text":materialsStr}];
+      }
+      if(materialsStr==''){
+        if(row.tmpmaterials){
+          row.tmpmaterials.forEach(item=>{
+            materialsStr=item.text;
+          })
+          row.materials=[{"text":materialsStr}];
+        }
       }
       
       if(row.ratingCount){
@@ -140,29 +176,33 @@ const transform = (data) => {
         })
         row.ingredientsList=[{"text":tmp.join(' ').replace('Ingredients:','').replace('Ingredients :','').trim()}];
         if(row.ingredientsListOld){
-          delete row.ingredientsListOld;
         }
       }else{
         let ingredientsListData='';
         if(row.ingredientsListOld){
           row.ingredientsListOld.forEach(item=>{
-            console.log('item.text::',item.text);
+            //console.log('item.text::',item.text);
             let tmp=item.text.match(/Ingredients\s*:\s*\n*(.+?)\n*$/is);
-            console.log('tmp::',tmp);
+            //console.log('tmp::',tmp);
             if(tmp){
               ingredientsListData=tmp[1];
             }
           })
-          delete row.ingredientsListOld;
         }
-        console.log('ingredientsListData ::',ingredientsListData);
+        //console.log('ingredientsListData ::',ingredientsListData);
         if(ingredientsListData!=''){
           row.ingredientsList=[{"text":ingredientsListData}];
         }
       }
-
-      row.rank = [{ "text": rank }];
-      row.rankOrganic = [{ "text": rank }];
+      delete row.tmpshippingDimensions;
+      delete row.ingredientsListOld;
+      delete row.tmpWeightNet;
+      delete row.tmpcolor;
+      delete row.tmpWarranty;
+      delete row.tmpmaterials;
+      delete row.ingredientsListOld;
+      //row.rank = [{ "text": rank }];
+      //row.rankOrganic = [{ "text": rank }];
       rank++;
     }
   }

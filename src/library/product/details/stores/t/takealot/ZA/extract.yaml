@@ -62,6 +62,9 @@ fields:
   - name: shippingDimensions
     singleValue: false
     xpath: //div[@id="myCustomProductDescriptionSpecification"]//td[text()="Assembled Dimensions"]/parent::*/td[2]
+  - name: tmpshippingDimensions
+    singleValue: false
+    xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p/text()  
   - name: variantCount
     singleValue: false
     defaultValue: '0'
@@ -70,7 +73,10 @@ fields:
     xpath: //div[contains(@class,"rating-and-reviews")]//div[contains(@class,"reviews")]/a/@href
   - name: color
     singleValue: false
-    xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()
+    xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p/text()
+  - name: tmpcolor
+    singleValue: false
+    xpath: //div[@id="myCustomProductDescriptionSpecification"]/table//td[@class="title-cell" and text()="Colours"]/following-sibling::td/p
   - name: name
     singleValue: false
     xpath: //div[@class="product-title"]//h1
@@ -79,13 +85,16 @@ fields:
     xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]
   - name: warranty
     singleValue: false
-    xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()
+    xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p/text()
   - name: tmpWarranty
     singleValue: false
     xpath: //div[@id="myCustomProductDescriptionSpecification"]/table//td[@class="title-cell" and text()="Warranty"]/following-sibling::td/p
   - name: materials
     singleValue: false
-    xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()
+    xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p/text()
+  - name: tmpmaterials
+    singleValue: false
+    xpath: //div[@id="myCustomProductDescriptionSpecification"]/table//td[@class="title-cell" and text()="Materials"]/following-sibling::td/p
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -106,7 +115,7 @@ fields:
     xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()
   - name: weightNet
     singleValue: false
-    xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p[contains(text(),"Specifications:")]/text()
+    xpath: //div[@class="product-description  product-description-module_product-description_3bMdX"]/p/text()
   - name: tmpWeightNet
     singleValue: false
     xpath: //div[@id="myCustomProductDescriptionSpecification"]/table//td[@class="title-cell" and text()="Weight"]/following-sibling::td/p
