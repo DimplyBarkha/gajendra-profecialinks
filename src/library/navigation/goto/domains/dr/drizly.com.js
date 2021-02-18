@@ -18,7 +18,7 @@ module.exports = {
       return JSON.parse(json);
     }
     async function getJsonDataFetch (url) {
-      const rain = await context.evaluate(async function (url) {
+      const jsonResponse = await context.evaluate(async function (url) {
         const response = await fetch(url, {
           accept: 'application/json, text/plain, */*',
           referrer: window.location.href,
@@ -35,8 +35,9 @@ module.exports = {
           return await response.json();
         }
       }, url);
-      return rain;
+      return jsonResponse;
     };
+    await context.goto('https://drizly.com/home', { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
     const jsonLatLong = await getJsonDataFetch('https://e09fh9i12d.execute-api.us-east-1.amazonaws.com/dev/zip-code-radius-solve?radius=0');
 
     let foundLatLong = null;
@@ -51,7 +52,7 @@ module.exports = {
     const storeInfo = await getJsonDataFetch(`https://drizly.com/modal/resolve_stores.json?latitude=${foundLatLong[2]}&longitude=${foundLatLong[1]}&zip=${zipcode}`);
     const { address, city, state, zip, delivery_type, latitude, longitude} = storeInfo.stores[0];
 
-    await context.goto('https://drizly.com/home', { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
+    // await context.goto('https://drizly.com/home', { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
     await context.evaluate(async function (address, city, state, zip, delivery_type, latitude, longitude) {
       const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
