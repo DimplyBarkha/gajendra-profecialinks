@@ -5,8 +5,8 @@ recordXPath: null
 fields:
   - name: image
     # xpath: //button[@class="sc-image-viewer-img-button"]//img/@src | //div[@class="sc-pc-image"]//img/@src
-    # xpath: //button//div[@role="presentation"]//img/@src | //div[@class="sc-pc-image"]//img/@src 
-    xpath: //link[@rel="preload" and contains(@href, "DT_PDP_Image")]/@href | //meta[@itemProp="image"]/@content | //button//div[@role="presentation"]//img/@src | //div[@class="sc-pc-image"]//img/@src 
+    # xpath: //button//div[@role="presentation"]//img/@src | //div[@class="sc-pc-image"]//img/@src
+    xpath: //link[@rel="preload" and contains(@href, "DT_PDP_Image")]/@href | //meta[@itemProp="image"]/@content | //button//div[@role="presentation"]//img/@src | //div[@class="sc-pc-image"]//img/@src
   - name: imageAlt
     xpath: //div[@class="sc-pc-large-desktop-layout"]/meta[1]/@content | //div[@class="sc-pc-image"]//img/@alt
   - name: alternateImages
@@ -35,7 +35,7 @@ fields:
     regExpReplace: Out of Stock
     defaultValue: In Stock
   - name: description
-    #xpath: //div[@class="sc-pc-why-we-love-it"]|//div[@class="sc-pc-about-this-item"]//div[1]/text()|//div[@class="sc-pc-about-this-item"]//li|//div[@class="sc-full-description-long"]  
+    #xpath: //div[@class="sc-pc-why-we-love-it"]|//div[@class="sc-pc-about-this-item"]//div[1]/text()|//div[@class="sc-pc-about-this-item"]//li|//div[@class="sc-full-description-long"]
     xpath: //div[@class="sc-pc-why-we-love-it"]|//div[@class="sc-pc-about-this-item"]//div[1]/text()|//div[@class="sc-pc-about-this-item"]//text()|//div[@class="sc-full-description-long"]
   - name: descriptionBullets
     xpath: count(//div[@class="sc-pc-about-this-item"]//li | //h4[contains(text(),'Specifications')]/following-sibling::div//li/text()[1])
@@ -59,11 +59,7 @@ fields:
     defaultValue: "0"
   - name: manufacturerDescription
     # xpath: //div[contains(@id, 'aplus')]//div[contains(@class,'text-wrap')] | //div[@class="enhancedContent"]
-<<<<<<< HEAD
-    xpath: //div[@class="enhancedContent"] | //div[@id="wc-power-page"]
-=======
     xpath: //div[@id="wc-power-page"] | //div[@class="enhancedContent"]
->>>>>>> 046260e5c7caf3a8ec40d77e97fec91f84599b6a
   - name: manufacturerImages
     xpath: //div[contains(@class,"aplus-body")]//img/@src | //div[@class="enhancedContent"]//img/@src | //div[contains(@class, 'inpage_selector')]//img/@srcset
     regExp: (.*?)//(.*)
