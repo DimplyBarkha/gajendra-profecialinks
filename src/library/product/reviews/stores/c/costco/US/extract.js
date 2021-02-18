@@ -1,3 +1,5 @@
+const { transform } = require('../../../../shared');
+
 async function implementation (
   inputs,
   parameters,
@@ -20,6 +22,14 @@ async function implementation (
     if (loadMoreButton) {
       loadMoreButton.click();
     }
+    try {
+      await context.waitForSelector('div.bv-control-bar div.bv-dropdown button');
+      document.querySelector('div.bv-control-bar div.bv-dropdown button') && document.querySelector('div.bv-control-bar div.bv-dropdown button').click();
+      await context.waitForSelector('li#data-bv-dropdown-item-mostRecent');
+      document.querySelector('li#data-bv-dropdown-item-mostRecent') && document.querySelector('li#data-bv-dropdown-item-mostRecent').click();
+    } catch (error) {
+      console.log(error);
+    }
   });
 
   return await context.extract(productReviews, { transform });
@@ -30,7 +40,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'costco',
-    transform: null,
+    transform,
     domain: 'costco.com',
     zipcode: '',
   },

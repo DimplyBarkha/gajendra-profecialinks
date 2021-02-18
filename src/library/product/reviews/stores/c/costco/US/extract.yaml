@@ -37,7 +37,7 @@ fields:
   - name: reviewText
     singleValue: false
     description: The text of the review
-    xpath: //span[contains(@class, 'bv-rating-stars-container')]/abbr/@title
+    xpath: //div[contains(@class, 'bv-content-summary-body-text')]
   - name: reviewTitle
     singleValue: false
     description: The title of the review
