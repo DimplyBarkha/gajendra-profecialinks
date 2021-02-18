@@ -1,0 +1,43 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: true
+    description: Unique id (within this extractor)
+    xpath: //div[@class="b6k2 b5y1"]//a[contains(@class, "a2g0")]/@href 
+  - name: pageTimestamp
+    singleValue: true
+  - name: name
+    singleValue: true
+    description: The product name
+    xpath: //div[@class="b6k2 b5y1"]//a[contains(@class, "a2g0")]
+  - name: productUrl
+    singleValue: true
+    xpath: //div[@class="b6k2 b5y1"]//a[contains(@class, "a2g0")]/@href
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+    xpath: //div[@class="b6k2 b5y1"]//div[@class='a1y6 a1z0']/@title
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+    xpath: //div[@class="b6k2 b5y1"]//div[contains(@class, "a1a9")]/a[@class='a1b']
+  - name: price
+    singleValue: true
+    xpath: //div[@class="b6k2 b5y1"]//span[contains(@class, "b5v6")]
+  - name: soldBy
+    singleValue: true
+    xpath: //div[@class="b6k2 b5y1"]//span[@class='a2g6']/font[1] 
+  - name: thumbnail
+    singleValue: true
+    description: The URL for the product thumbnail image
+    xpath: //div[@class="b6k2 b5y1"]//div[contains(@class, 'a0c6')]//div[@class="a0s9"]/@oz-thumbnail
+  - name: manufacturer
+    singleValue: true
+    xpath: //div[@class="b6k2 b5y1"]//div[contains(@class, 'a0c6')]//div[@class="a0s9"]/@oz-brand
+
+
+

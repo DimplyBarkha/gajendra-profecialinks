@@ -6,10 +6,11 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  const { results } = inputs;
 
   const allResults = [];
 
-  await context.evaluate(async function () {
+  await context.evaluate(async function (results) {
     function stall (ms) {
       return new Promise(resolve => {
         setTimeout(() => {
@@ -32,45 +33,66 @@ async function implementation (
       await stall(250);
     }
 
-    let count = 0;
-    if (document.querySelector('.card__inner')) {
-      document.querySelectorAll('.card__inner').forEach((el, ind) => {
-        if (count >= 150) {
-          return;
-        }
-        if (el.querySelector('h3')) {
+    const getPageDOM = async (url) => {
+      const domParser = new DOMParser();
+      try {
+        const response = await fetch(url);
+        const text = await response.text();
+        return { dom: domParser.parseFromString(text, 'text/html'), text };
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const prepareData = async (dataArr) => {
+      let count = 0;
+      let itemIndex = 0;
+
+      while (count < results) {
+        const el = dataArr[itemIndex];
+        itemIndex += 1;
+        if (el.querySelector('div[itemprop="name"], h3')) {
           el.classList.add('productInfo');
           const name = el.querySelector('h3').innerText;
           const thumbnail = el.querySelector('img').getAttribute('src');
           const url = el.querySelector('a').getAttribute('href');
-          const splitURL = url.split('-');
+          const idFromUrl = url.split('-').slice(-2).join('-');
+          let idFromDom;
+          if (/[^\d-]/.test(idFromUrl)) { // id should only contains numbers and dashes
+            const { dom: detailPage, text } = await getPageDOM(url);
+            idFromDom = (detailPage.querySelector('meta[itemprop = "productID sku"]') &&
+            detailPage.querySelector('meta[itemprop = "productID sku"]').content) ||
+            (detailPage.querySelector('div[data-bv-show="inline_rating"]') &&
+              detailPage.querySelector('div[data-bv-show="inline_rating"]').dataset.bvProductId);
+            if (!idFromDom) {
+              const reg = /data-bv-product-id=\\"([^"]*)\\"/;
+              const match = reg.exec(text);
+              idFromDom = match[1];
+              if (!idFromDom || /[^\d-]/.test(idFromDom)) continue; // does not populate if it failed to load the id
+            }
+          }
+          const id = idFromDom || idFromUrl;
+          addHiddenDiv(el, 'count', count);
           addHiddenDiv(el, 'name', name);
-          addHiddenDiv(el, 'id', splitURL[splitURL.length - 2] + '-' + splitURL[splitURL.length - 1]);
+          addHiddenDiv(el, 'id', id);
           addHiddenDiv(el, 'thumbnail', thumbnail);
           addHiddenDiv(el, 'url', url);
           count++;
+        } else {
+          addHiddenDiv(el, 'notValid', 'NotValid');
         }
-      });
+      }
+    };
+
+    const cssInnerCardType = '.card__inner';
+    const cssGWrap = '.g-wrap';
+    const allProducts = document.querySelectorAll(cssInnerCardType).length ? document.querySelectorAll(cssInnerCardType) : document.querySelectorAll(cssGWrap);
+    if (allProducts.length) {
+      await prepareData([...allProducts]);
     } else {
-      document.querySelectorAll('.g-wrap').forEach((el, ind) => {
-        if (count >= 150) {
-          return;
-        }
-        if (el.querySelector('h3')) {
-          el.classList.add('productInfo');
-          const name = el.querySelector('h3').innerText;
-          const thumbnail = el.querySelector('img').getAttribute('src');
-          const url = el.querySelector('a').getAttribute('href');
-          const splitURL = url.split('-');
-          addHiddenDiv(el, 'name', name);
-          addHiddenDiv(el, 'id', splitURL[splitURL.length - 2] + '-' + splitURL[splitURL.length - 1]);
-          addHiddenDiv(el, 'thumbnail', thumbnail);
-          addHiddenDiv(el, 'url', url);
-          count++;
-        }
-      });
+      console.log(`No products found, css: ${cssInnerCardType} and ${cssGWrap} both returned 0 products`);
     }
-  });
+  }, results);
   const extract = await context.extract(productDetails, { transform });
   allResults.push(extract);
   return allResults;

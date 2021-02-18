@@ -567,3 +567,5 @@ fields:
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'arranty ') or contains(text(),'arantie ')] or .//*[contains(text(),'uarantee ')] or .//*[contains(text(),'money back ')]])[1]
   - name: shippingInfo
     xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][not(.//*[contains(text(),'guarantee ')])][.//*[contains(text(),'hipping ') or contains(text(),'ivraison ')] or .//*[contains(text(),'elivery')]])[1]
+  - name: inTheBoxUrl
+    xpath: //section[contains(@class,'column-control')][3]//div[contains(@class,'responsive-image js-responsive-image-container')]/img/@src

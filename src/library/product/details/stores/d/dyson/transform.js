@@ -30,13 +30,16 @@ const transform = (data) => {
           }
         }
       }
-      if (row.inTheBoxUrl) {
+     if (row.inTheBoxUrl) {
         row.inTheBoxUrl.forEach((img) => {
           if (!img.text && img.src) {
             img.text = img.src;
           }
+
         });
+
       }
+
 
       if (row.inTheBoxText) {
         let text = '';

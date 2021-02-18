@@ -105,8 +105,8 @@ module.exports = class Helpers {
   // Function which checks a selecor
   async checkSelector (selector, type) {
     let elemIsThere;
-    if (type === 'xpath') elemIsThere = await this.checkXpathSelector(selector);
-    else if (type === 'css') elemIsThere = await this.checkCSSSelector(selector);
+    if (type.toLowerCase() === 'xpath') elemIsThere = await this.checkXpathSelector(selector);
+    else if (type.toLowerCase() === 'css') elemIsThere = await this.checkCSSSelector(selector);
     else return false;
     return elemIsThere;
   }

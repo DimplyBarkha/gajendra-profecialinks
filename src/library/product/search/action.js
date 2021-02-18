@@ -1,3 +1,11 @@
+/**
+ *
+ * @param { { URL: string, keywords: string, Keywords: string, Brands: string, results: string, query: string } } inputs
+ * @param { { store: any, country: any, zipcode: any, storeID: any } } parameters
+ * @param { ImportIO.IContext } context
+ * @param { { execute: ImportIO.Action, paginate: ImportIO.Action, extract: ImportIO.Action } } dependencies
+ */
+
 module.exports = {
   parameters: [
     {
@@ -26,6 +34,12 @@ module.exports = {
   ],
   inputs: [
     {
+      name: 'URL',
+      description: 'product listing url',
+      type: 'string',
+      optional: true,
+    },
+    {
       name: 'keywords',
       description: 'keywords to search for',
       type: 'string',
@@ -46,11 +60,6 @@ module.exports = {
       type: 'number',
     },
     {
-      name: 'Brands',
-      description: 'brands to search for',
-      type: 'string',
-    },
-    {
       name: 'query',
       description: 'Part of a uniform resource locator (URL)',
       type: 'string',
@@ -63,19 +72,21 @@ module.exports = {
   },
   path: './search/stores/${store[0:1]}/${store}/${country}/search',
   implementation: async (inputs, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
-    const { keywords, Keywords, results = 150, Brands, query } = inputs;
-
+    const { URL, keywords, Keywords, results = 150, Brands, query } = inputs;
     const inputKeywords = Keywords || keywords || Brands;
 
     // TODO: consider moving this to a reusable function
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
-    const resultsReturned = await execute({
+    const newInputs = {
       ...inputs,
+      results,
+      searchURL: URL,
       keywords: inputKeywords,
       zipcode: inputs.zipcode || zipcode,
       query: query,
-    });
+    };
+    const resultsReturned = await execute(newInputs);
 
     // do the search
 
@@ -85,7 +96,7 @@ module.exports = {
     }
 
     // try gettings some search results
-    const pageOne = await extract({ keywords });
+    const pageOne = await extract(newInputs);
 
     let collected = length(pageOne);
 
@@ -99,7 +110,7 @@ module.exports = {
 
     let page = 2;
     while (collected < results && await paginate({ keywords: inputKeywords, page, offset: collected })) {
-      const data = await extract({});
+      const data = await extract(newInputs);
       const count = length(data);
       if (count === 0) break; // no results
       collected += count;

@@ -348,7 +348,8 @@ fields:
     description: null
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-specification__dimensions ')]/ul|//div[@id='specsText']//text() | //div[@id='added_productOtherInformation']
+    xpath: //div[@id='added_productOtherInformation']
+    # xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-specification__dimensions ')]/ul|//div[@id='specsText']//text() | //div[@id='added_productOtherInformation']
     # xpath: //h2[contains(@class,'product-specification__heading')]/following-sibling::*//*[not(self::script)]/text()
   - name: warranty #localedependent
     description: Guarantee associated with the product
@@ -458,7 +459,8 @@ fields:
   - name: enhancedContentHTML #todo
     defaultValue: No
   - name: inTheBoxUrl
-    xpath: //div[normalize-space(@class)="contents"]//img | //div[contains(@class,"whats-in-the-box")]//img | //div[@id="in-the-box"]/ul/li//img | //div[contains(@data-analytics-action-title, 'tools')]/parent::div/following-sibling::section[1]//img//@data-src | //div[contains(@data-analytics-action-title, 'tools')]/parent::div/following-sibling::section[2]//img//@data-src
+    xpath: //div[normalize-space(@class)="contents"]//img | //div[contains(@class,"whats-in-the-box")]//img | //div[@id="in-the-box"]/ul/li//img |  //section[contains(@class,'column-control')][3]//div[contains(@class,'responsive-image js-responsive-image-container')]/img/@src
+    #xpath: //div[normalize-space(@class)="contents"]//img | //div[contains(@class,"whats-in-the-box")]//img | //div[@id="in-the-box"]/ul/li//img | //div[contains(@data-analytics-action-title, 'tools')]/parent::div/following-sibling::section[1]//img//@data-src | //div[contains(@data-analytics-action-title, 'tools')]/parent::div/following-sibling::section[2]//img//@data-src
     #xpath: //div[normalize-space(@class)="contents"]//img | //div[contains(@class,"whats-in-the-box")]//img | //div[@id="in-the-box"]/ul/li//img | //section[contains(@class,'column-control')][3]//div[contains(@class,'responsive-image js-responsive-image-container')]/img/@data-src | //section[contains(@class,'column-control')][2]//div[contains(@class,'responsive-image js-responsive-image-container')]/img/@data-src
     #xpath: //section[contains(@class,'column-control')][1]//ul//li//div[contains(@class,'partial-width-image__image')]//img/@data-src
     type: IMAGE
