@@ -1,0 +1,17 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[contains(@class,"product")]/div[@class="product-item-info"]
+fields:
+  - name: brandText
+    xpath: //a[@class="product-item-link"]/@href
+    regExp: nicotine-pouches/(.*)/
+    regExpReplace: $1
+  - name: name
+    xpath: //a[@class="product-item-link"]
+  - name: productUrl
+    xpath: //a[@class="product-item-link"]/@href
+    regExp: (.+)
+    regExpReplace: $1#reviews
+  - name: reviewCount
+  - name: sku

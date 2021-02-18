@@ -1,0 +1,17 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[contains(@class,"review-item")]
+fields:
+  - name: helpfulCount
+  - name: reviewRating
+    singleValue: true
+    xpath: //span[@itemprop="ratingValue"]
+  - name: reviewDate
+    singleValue: true
+    type: DATE
+    xpath: //time[@itemprop="datePublished"]/@datetime
+  - name: reviewText
+    xpath: //div[@class="review-content"]
+  - name: reviewTitle
+    xpath: //div[@class="review-title"]
