@@ -59,7 +59,7 @@ module.exports = {
     store: 'waitrose',
     domain: 'waitrose.com',
     loadedSelector: 'section[class="productDetailContainer___1TUHx"]',
-    noResultsXPath: '//div[@class="bv-content-placeholder"] | //button[@aria-label="Load more"]',
+    noResultsXPath: '//div[@class="bv-content-placeholder"] | //article[@data-test="product-pod"][2] | //div[@class="noResults___2M4HP"]',
     reviewUrl: 'https://www.waitrose.com/ecom/shop/search?&searchTerm={id}',
     sortButtonSelectors: null,
     zipcode: '',
