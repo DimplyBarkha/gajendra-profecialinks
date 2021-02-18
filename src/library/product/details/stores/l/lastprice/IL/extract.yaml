@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id='added_alternateImages']
+    xpath: //div[@class="ms-thumb-frame"]/img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
