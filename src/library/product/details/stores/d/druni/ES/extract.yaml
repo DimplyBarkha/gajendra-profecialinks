@@ -1,50 +1,48 @@
 singleRecord: false
-regionsSelector: null
-recordSelector: null
-recordXPath: null
+regionsSelector: 
+recordSelector: 
+recordXPath: 
 fields:
   - name: name
     singleValue: true
     xpath: //div[contains(@class,'product-title')]/h1
   - name: nameExtended
     singleValue: true
-    xpath: //div[contains(@class,'product-title')]/h1
+    xpath: //div[@id="nameExtended"]
   - name: image
     singleValue: true
-    xpath: (//div[contains(@class,'fotorama__stage__frame')]/img/@src)[1]
+    xpath: //*[@id="maincontent"]/div[2]/div/div[3]/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/img/@src
   - name: imageAlt
     singleValue: true
-    xpath: (//div[contains(@class,'fotorama__stage__frame')]/img/@alt)[1]
+    xpath: //*[@id="maincontent"]/div[2]/div/div[3]/div[2]/div[2]/div[2]/div[2]/div[1]/div[3]/div[1]/img/@alt
   - name: description
     singleValue: true
-    xpath: //h2[contains(@class,'description-list-container')]
+    xpath: //*[@id="maincontent"]/div[2]/div/div[3]/div[1]/div[1]/div/div/div[1]/div[2]/h2
   - name: ratingCount
     singleValue: true
-    xpath: //div[contains(@class, 'reviews-actions')]/a/span
+    xpath: //*[@id="js-scroll-to"]/span[1]
     regExp: (\d+)
     regExpReplace: $1
   - name: additionalDescription
     singleValue: true
-    xpath: //div[contains(@id , 'description')]/div
+    xpath: //*[@id="description"]/div
   - name: price
     singleValue: true
-    xpath: //*[@class="product-info-main-head"]//span[contains(@class, 'old-price')]
+    xpath: //*[@id="maincontent"]/div[2]/div/div[3]/div[1]/div[1]/div/div/div[1]/div[3]/div[1]/div[2]/span[2]/span | //*[@id="maincontent"]/div[2]/div/div[3]/div[1]/div[1]/div/div/div[1]/div[3]/div[1]/span
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //*[@class="product-info-main-head"]//span[contains(@class, 'special-price')]
+    xpath: //*[@id="maincontent"]/div[2]/div/div[3]/div[1]/div[1]/div/div/div[1]/div[3]/div[1]/div[2]/span[1]
   - name: aggregateRating
     singleValue: true
-    xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
+    xpath: //script[@type="application/ld+json"][1]
   - name: secondaryImageTotal
     singleValue: true
-    xpath: count(//div[contains(@class, 'fotorama__nav__shaft')]/div/div/img/@src)
+    xpath: count(//*[@id="maincontent"]/div[2]/div/div[3]/div[2]/div[2]/div[2]/div[2]/div[2]/div/div[2]/div/div/img/@src) - 1
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class, 'fotorama__nav__shaft')]/div/div/img/@src
-  - name: variants
-    singleValue: false
-    xpath: //*[@id='super-product-table']//div[contains(@class ,'product-name-wrapper')]/span[contains(@class,'product-item-name')]
+    xpath: (//div[contains(@class,"fotorama__thumb")]/img/@src)[position()>1] 
+    regExp: (.+)(\?)
   - name: price
     singleValue: false
     xpath: //*[@id='super-product-table']//div[contains( @class , 'product-info-price')]/div/div[contains( @class , 'special-old-box')]/span[contains(@class,'special-price')]
@@ -54,19 +52,28 @@ fields:
     xpath: //*[@id='super-product-table']//div[contains( @class , 'product-info-price')]/div/div[contains( @class , 'special-old-box')]/span[contains(@class,'old-price')]
   - name: availabilityText
     singleValue: true
-    xpath: //div[contains(@class, 'product-add-form')]/form/div[contains(@class , 'box-tocart')]/@class
-  - name: url
+    xpath: //*[@id="product_addtocart_form"]/div[2]/div[3]
+  - name: productUrl
     singleValue: true
     xpath: //meta[contains(@property, "og:url")]/@content
-  - name: colour
-    singleValue: false
-    xpath: //*[contains(@class,'dropdown-menu inner show')]//li/a/span/span[contains(@class,'swatch-color-content')]
+  # - name: colour
+  #   singleValue: false
+  #   xpath: //*[contains(@class,'dropdown-menu inner show')]//li/a/span/span[contains(@class,'swatch-color-content')]
   - name: manufacturerName
     singleValue: true
-    xpath: //h1[contains(@class, 'product attribute manufacturer')]/a
+    xpath: //*[@id="maincontent"]/div[2]/div/div[3]/div[1]/div[1]/div/div/div[1]/div[2]/div/h1/a
   - name: sku
     singleValue: true
-    xpath: //div/form[contains(@id, 'product_addtocart_form')]/@data-product-sku
+    xpath: //*[@id="product_addtocart_form"]/@data-product-sku
   - name: category
     singleValue: true
     xpath: //script[@id="exclude_tag_manager"]
+  - name: metaKeywords
+    singleValue: true
+    xpath: //span[@class="page-title"]
+  - name: variantId
+    singleValue: true
+    xpath: //script[@id="exclude_tag_manager"]
+  - name: ingredientsList
+    singleValue: true
+    xpath: //main[@id='maincontent']/div[@class='columns']/div[@class='column main']/div[@class='product-info-wrapper']/div[@class='product-info-main']/div[@class='product info detailed']/div[@class='product data items']/div[@id='ingredients']/div[@class='product attribute ingredients']/div[@class='value']
