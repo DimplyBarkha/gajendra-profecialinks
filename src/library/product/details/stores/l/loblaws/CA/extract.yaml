@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@id="a"]
+    xpath: //div[@id="secondaryImages"]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -236,7 +236,7 @@ fields:
     singleValue: true
     description: null
     type: NUMBER
-    xpath: count(//div[@id="a"])
+    xpath: count(//div[@id="secondaryImages"])
   - name: news
     singleValue: true
     description: null
