@@ -7,6 +7,13 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
+      if (row.jsonGtin) {
+        row.gtin = [{ text: row.jsonGtin[0].text, old: row.gtin }];
+      }
+      if (row.imageFromAPi) {
+        row.image = [{ text: row.imageFromAPi[0].text, old: row.image }];
+      }
+
       if (row.pricePerUnit2) {
         let text = '';
         row.pricePerUnit2.forEach(item => {
