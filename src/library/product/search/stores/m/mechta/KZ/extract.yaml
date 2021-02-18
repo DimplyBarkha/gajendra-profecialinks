@@ -5,7 +5,7 @@ recordSelector: div.hoverCard-child.bg-white
 fields:
   - name: id
     SingleValue: false
-    xpath: //@my-prodId
+    xpath: //div[@class="q-card"]/@my-prodid
     # xpath: //div[@class="hoverCard-child bg-white"]//a//div[@class="q-img__image absolute-full"]/@style
     # regExp: \d{4,}
     # regExpReplace:
@@ -23,6 +23,16 @@ fields:
     xpath: //div[@class="hoverCard-child bg-white"]//a//div[@class="q-img__image absolute-full"]/@style
     regExp: url\W+([^"]+)
     regExpReplace: $1
+  - name: aggregateRating
+    singleValue: false
+    xpath: //@my-rating
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //@my-rating
+  - name: reviewCount
+    singleValue: false
+    xpath: //@my-review
+    defaultValue: 0
   - name: name
     SingleValue: false
     # xpath: //a[@class="ifont14 j_product_link"]

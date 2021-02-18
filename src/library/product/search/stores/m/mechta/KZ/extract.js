@@ -43,8 +43,13 @@ module.exports = {
         if (data && data.ITEMS) {
           data.ITEMS.forEach(item => {
             const prodId = item.CODE_1C;
-            console.log('prodId  -=====', prodId);
-            apiResults.push(prodId);
+            const aggrating = item.RATING;
+            const review = item.REVIEWS_COUNT;
+
+            // console.log('prodId  -=====', prodId);
+            // apiResults.push(prodId);
+            const obj = { id: prodId, rating: aggrating, review: review };
+            apiResults.push(obj);
           });
         }
       }
@@ -110,15 +115,21 @@ module.exports = {
             const apiUrl = `https://www.mechta.kz/api/main/catalog_new/index.php?query=${searchTerm}&type=search&page_num=${index + 1}&catalog=true&page_element_count=${itemCount}`;
             console.log('apiUrl  -=====', apiUrl);
             const response = await getAPIData(apiUrl);
-            console.log('response  -=====', response);
+            // console.log('response  -=====', response);
             if (response) {
               const data = response.data;
-              console.log('data1  -=====', data);
+              // console.log('data1  -=====', data);
               if (data && data.ITEMS) {
                 data.ITEMS.forEach(item => {
                   const prodId = item.CODE_1C;
-                  console.log('prodId  -=====', prodId);
-                  apiResults.push(prodId);
+                  const aggrating = item.RATING;
+                  const review = item.REVIEWS_COUNT;
+                  // console.log('prodId  -=====', prodId);
+                  const obj = { id: prodId, rating: aggrating, review: review };
+                  apiResults.push(obj);
+                  // apiResults.push(prodId);
+                  // apiResults.push(aggrating);
+                  // apiResults.push(review);
                 });
               }
             }
@@ -130,16 +141,30 @@ module.exports = {
         }
       }
 
-      console.log('apiResults ======== ', apiResults);
-
+      // console.log('apiResults ======== ', apiResults);
       const prodItems = document.querySelectorAll('div.hoverCard-child.bg-white');
       if (prodItems) {
-        prodItems.forEach((element, index) => {
+        prodItems.forEach((element, index1) => {
           const attrbSelector = element.querySelector('div.q-card');
-          const prodId = apiResults[index];
-          if (prodId) {
-            const idToUse = prodId.slice(prodId.length - 5);
-            attrbSelector.setAttribute('my-prodId', idToUse);
+          const prodItem = apiResults[index1];
+
+          if (prodItem) {
+            const prodId = prodItem.id;
+            const rating = prodItem.rating;
+            const review = prodItem.review;
+            console.log(`prodId : ${prodId}, rating : ${rating}, review : ${review}`);
+            if (prodId) {
+              const idToUse = prodId.slice(prodItem.length - 5);
+              attrbSelector.setAttribute('my-prodid', idToUse);
+              attrbSelector.setAttribute('my-rating', rating);
+              attrbSelector.setAttribute('my-review', review);
+            }
+            // if (rating) {
+              
+            // }
+            // if (review) {
+              
+            // }
           }
         });
       }
