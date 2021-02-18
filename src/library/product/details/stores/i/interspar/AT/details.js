@@ -1,12 +1,10 @@
 
 module.exports = {
-  implements: 'navigation/goto',
+  implements: 'product/details',
   parameterValues: {
-    domain: 'interspar.at',
-    timeout: 60000,
-    jsonToTable: null,
     country: 'AT',
     store: 'interspar',
+    domain: 'interspar.at',
     zipcode: '',
   },
 };

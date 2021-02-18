@@ -6,8 +6,8 @@ module.exports = {
     store: 'interspar',
     domain: 'interspar.at',
     url: 'https://www.interspar.at/suche?q={searchTerms}',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: '#productsFood-content > div > div.container.offerbar',
+    noResultsXPath:null,// '//*[@id="searchFallback"]/div/div',
     zipcode: '',
   },
 };
