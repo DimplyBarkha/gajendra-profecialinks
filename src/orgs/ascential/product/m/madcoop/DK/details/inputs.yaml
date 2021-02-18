@@ -1,200 +1,1452 @@
-exampleInput1:
-  URL: https://butik.mad.coop.dk/kiosk/chokolade/moerk-chokolade/irmas-oekologisk-moerk-chokolade-p-5700384274480
-exampleInput2:
-  URL: https://butik.mad.coop.dk/baby-og-boern/babymad-og-modermaelkserstatning/middagsretter-og-mos/fejoe-aeblemos-p-5700002092700
-exampleInput3:
-  URL: https://butik.mad.coop.dk/drikkevarer/kaffe/kapsler-og-puder/oensk-corcasan-lungo-kapsel-p-5700002154712
-exampleInput4:
-  URL: https://butik.mad.coop.dk/drikkevarer/oel-og-cider/cider/blid-jordbaer-p-5700002108906
-exampleInput5:
-  URL: https://butik.mad.coop.dk/kolonial/morgenmad-og-mellemmaltid/frugtbarer-og-staenger/cocohagen-cocoa-orange-aeske-med-5-stk-p-5700002016478
-exampleInput6:
-  URL: https://butik.mad.coop.dk/husholdning/koekkenrulle-og-toiletpapir/toiletpapir/irmas-tusindfryd-toiletpapir-p-5700384289095
-exampleInput7:
-  URL: https://butik.mad.coop.dk/kiosk/chokolade/moerk-chokolade/irmas-oekologisk-moerk-orange-p-5700380550953
-exampleInput8:
-  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/kal/soeris-oekologisk-palmekal-p-5700380796726
-exampleInput9:
-  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/oliven/irmas-oekologiske-groenne-oliven-p-5700381026778
-exampleInput10:
-  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/graeskar-og-aubergine/anglamark-oekologisk-aubergine-p-5700381039631
-exampleInput11:
-  URL: https://butik.mad.coop.dk/baby-og-boern/plejeprodukter/vadservietter-og-vaskeklude/coop-365-baby-vadservietter-p-7340011498025
-exampleInput12:
-  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/beder/soeris-blandede-beder-p-5700381534129
-exampleInput13:
-  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/hamburgerryg-og-flaeskesteg/irmas-oekologisk-kamsteg-p-5700381540397
-exampleInput14:
-  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/guleroedder/coop-rodfrugter-p-5700381547785
-exampleInput15:
-  URL: https://butik.mad.coop.dk/kolonial/saucer-og-bouillon/klassisk-sauce-og-saucemix/coop-365-bechamelsauce-p-5700381929215
-exampleInput16:
-  URL: https://butik.mad.coop.dk/drikkevarer/kaffe/malede-boenner/coop-365-formalet-kaffe-p-5700381953784
-exampleInput17:
-  URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/vindruer/coop-groenne-vindruer-p-5700381965305
-exampleInput18:
+exampleInput1: 
+  URL: https://butik.mad.coop.dk/husholdning/lys-og-servietter/kronelys/coop-hvide-kronelys-p-7340011491255
+exampleInput2: 
+  URL: https://butik.mad.coop.dk/koed/koed-af-gris/hk-gris-og-kalvekoed/coop-hakket-gris-og-kalvekoed-p-5700383017392
+exampleInput3: 
+  URL: https://butik.mad.coop.dk/frost/is-og-sorbet/is/coop-karamel-is-p-7340011454090
+exampleInput4: 
+  URL: https://butik.mad.coop.dk/kolonial/marmelade-m-m-/marmelade/coop-appelsinmarmelade-p-7340011493327
+exampleInput5: 
+  URL: https://butik.mad.coop.dk/kolonial/asiatisk/kokosmaelk/coop-kokosmaelk-p-7340011482963
+exampleInput6: 
+  URL: https://butik.mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/anglamark-oekologiske-mandler-p-7340011461807
+exampleInput7: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/peberfrugt/anglamark-oekologiske-mini-snackpeber-p-5700380554869
+exampleInput8: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/jordskokker-pastinak-og-persillerod/anglamark-jordskokker-p-5750006314148
+exampleInput9: 
+  URL: https://butik.mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/anglamark-solsikkekerner-p-7340011487005
+exampleInput10: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/broed-og-boller/boller-og-rundstykker/coop-morgenstykker-p-7340011445203
+exampleInput11: 
+  URL: https://butik.mad.coop.dk/kolonial/asiatisk/saucer/coop-fiskesauce-p-5700383177904
+exampleInput12: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/kartofler/anglamark-oekologiske-sma-kartofler-p-5700381232315
+exampleInput13: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/salsa-og-dip/kims-dipmix-p-5701979303899
+exampleInput14: 
+  URL: https://butik.mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/ris/coop-jasminris-p-7340011352198
+exampleInput15: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/svampe/anglamark-oestershatte-p-5700383396190
+exampleInput16: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkenrulle-og-toiletpapir/koekkenrulle/coop-luxury-koekkenrulle-p-7340011373933
+exampleInput17: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/tomater-/anglamark-oekologiske-datterino-tomater-p-5700382906581
+exampleInput18: 
+  URL: https://butik.mad.coop.dk/frost/is-og-sorbet/is/coop-choko-marcipan-p-7340011485704
+exampleInput19: 
   URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/graeskar-og-aubergine/anglamark-oekologisk-butternut-p-5700382000265
-exampleInput19:
-  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/poelser-og-salami/irmas-oekologisk-salami-p-5700382008179
-exampleInput20:
-  URL: https://butik.mad.coop.dk/kolonial/morgenmad-og-mellemmaltid/frugtbarer-og-staenger/coop-365-frugtstaenger-med-figen-p-5700382060535
-exampleInput21:
-  URL: https://mad.coop.dk/pleje/haar-og-kropspleje/shampoo/shampoo-7340011315230
-exampleInput22:
-  URL: https://mad.coop.dk/pleje/haar-og-kropspleje/shampoo/shampoo-7340011315261
-exampleInput23:
-  URL: https://mad.coop.dk/pleje/haar-og-kropspleje/shampoo/shampoo-7340011315292
-exampleInput24:
-  URL: https://mad.coop.dk/pleje/haar-og-kropspleje/balsam-og-haarkur/conditioner-7340011315315
-exampleInput25:
-  URL: https://mad.coop.dk/pleje/haar-og-kropspleje/bodylotion-og-haandcreme/body-lotion-7340011315513
-exampleInput26:
-  URL: https://mad.coop.dk/pleje/haar-og-kropspleje/bodylotion-og-haandcreme/body-lotion-7340011315544
-exampleInput27:
-  URL: https://mad.coop.dk/pleje/haar-og-kropspleje/deodorant/deo-roll-on-7340011315599
-exampleInput28:
-  URL: https://mad.coop.dk/pleje/haar-og-kropspleje/haandsaebe/saebe-7340011315629
-exampleInput29:
-  URL: https://mad.coop.dk/kolonial/olie-og-eddike/olivenolie/italiensk-ekstra-jomfru-olivenolie-7340011315735
-exampleInput30:
-  URL: https://mad.coop.dk/kolonial/saucer-og-bouillon/marinade-glace-og-citronsaft/citronjuice-7340011315759
-exampleInput31:
-  URL: https://mad.coop.dk/frost/frugt-og-groent/oevrige-groentsager/aerter-7340011315797
-exampleInput32:
-  URL: https://mad.coop.dk/frost/frugt-og-groent/oevrige-groentsager/boenner-7340011315803
-exampleInput33:
-  URL: https://mad.coop.dk/frost/frugt-og-groent/oevrige-groentsager/majs-7340011315858
-exampleInput34:
-  URL: https://mad.coop.dk/pleje/haar-og-kropspleje/ansigtspleje/skin-tonic-7340011316039
-exampleInput35:
-  URL: https://mad.coop.dk/pleje/haar-og-kropspleje/haarstyling/hair-wax-7340011316053
-exampleInput36:
-  URL: https://mad.coop.dk/pleje/haar-og-kropspleje/haarstyling/haarspray-7340011316060
-exampleInput37:
-  URL: https://mad.coop.dk/kolonial/morgenmad-og-mellemmaaltid/cornflakes/cornflakes-7340011316411
-exampleInput38:
-  URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/toerret-pasta/fusilli-fuldkornspasta-7340011316633
-exampleInput39:
-  URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/toerret-pasta/fuldkornspenne-pasta-7340011316640
-exampleInput40:
-  URL: https://mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/grissini-og-crostini/grissini-7340011316831
-exampleInput41:
-  URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/ris/basmatiris-7340011317203
-exampleInput42:
-  URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/ris/jasminris-7340011317210
-exampleInput43:
-  URL: https://mad.coop.dk/mejeri/surmaelksprodukter/creme-fraiche-og-fraiche/creme-fraiche-7340011317470
-exampleInput44:
-  URL: https://mad.coop.dk/husholdning/rengoering-og-rens/opvaskemidler/all-in-1-opvasketabs-7340011317500
-exampleInput45:
-  URL: https://mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/sesamfroe-7340011320722
-exampleInput46:
-  URL: https://mad.coop.dk/frost/broed/flutes/minibaguetter-7340011320258
-exampleInput47:
-  URL: https://mad.coop.dk/mejeri/ost/madlavningsoste/revet-mozzarella-7340011320647
-exampleInput48:
-  URL: https://mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/hoerfroe-7340011320715
-exampleInput49:
-  URL: https://mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/oekologiske-solsikkekerner-7340011320739
-exampleInput50:
-  URL: https://mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/graeskarkerner-7340011320746
-exampleInput51:
-  URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/lasagneplader/lasagneplader-7340011346159
-exampleInput52:
-  URL: https://mad.coop.dk/kolonial/bagning/special-mel/majsmel-7340011320777
-exampleInput53:
-  URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/quinoa-couscous-og-bulgur/kikaerter-7340011320784
-exampleInput54:
-  URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/quinoa-couscous-og-bulgur/hirseflager-7340011320791
-exampleInput55:
-  URL: https://mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/tranebaer/tranebaer-7340011321170
-exampleInput56:
-  URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/quinoa-couscous-og-bulgur/bulgur-7340011321750
-exampleInput57:
-  URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/quinoa-couscous-og-bulgur/couscous-7340011321767
-exampleInput58:
-  URL: https://mad.coop.dk/broed-og-kager/cookies-og-smaakager/cookies/mini-cookies-7340011321903
-exampleInput59:
-  URL: https://mad.coop.dk/drikkevarer/kaffe/instant-kaffe/instant-decaf-7340011337140
-exampleInput60:
-  URL: https://mad.coop.dk/drikkevarer/kaffe/instant-kaffe/instant-espresso-7340011337157
-exampleInput61:
-  URL: https://mad.coop.dk/frost/middagsretter/middagsretter/middagskoedboller-7340011345121
-exampleInput62:
-  URL: https://mad.coop.dk/kolonial/mexicansk/salsa-og-sauce/chunky-salsa-7340011345275
-exampleInput63:
-  URL: https://mad.coop.dk/drikkevarer/vand-og-sodavand/cola/cola-classic-7340011345428
-exampleInput64:
-  URL: https://mad.coop.dk/drikkevarer/vand-og-sodavand/cola/cola-light-7340011345435
-exampleInput65:
-  URL: https://mad.coop.dk/drikkevarer/vand-og-sodavand/appelsin/orange-7340011345442
-exampleInput66:
-  URL: https://mad.coop.dk/drikkevarer/vand-og-sodavand/sportsvand/spirit-7340011345459
-exampleInput67:
-  URL: https://mad.coop.dk/kolonial/marmelade-m-m/gele/ribsgele-7340011345671
-exampleInput68:
-  URL: https://mad.coop.dk/frost/frugt-og-groent/frugt-og-baer/blaabaer-7340011345855
-exampleInput69:
-  URL: https://mad.coop.dk/kolonial/konserves-og-glas/konserveret-frugt-og-groent/kartofler-7340011345985
-exampleInput70:
-  URL: https://mad.coop.dk/kiosk/chips-og-snacks/snacknoedder/cashewnoedder-7340011346036
-exampleInput71:
-  URL: https://mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/grissini-og-crostini/grissini-7340011350019
-exampleInput72:
-  URL: https://mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/grissini-og-crostini/grissini-med-sesamfroe-7340011350033
-exampleInput73:
-  URL: https://mad.coop.dk/kolonial/saucer-og-bouillon/tomatsauce/toscana-7340011350576
-exampleInput74:
-  URL: https://mad.coop.dk/kolonial/saucer-og-bouillon/tomatsauce/basilicata-7340011350583
-exampleInput75:
-  URL: https://mad.coop.dk/kolonial/bagning/klassisk-mel/groft-rugmel-7340011350651
-exampleInput76:
-  URL: https://mad.coop.dk/kolonial/saucer-og-bouillon/tomatsauce/sugo-della-casa-7340011350668
-exampleInput77:
-  URL: https://mad.coop.dk/kolonial/olie-og-eddike/smagsneutral-olie/rapsolie-7340011350811
-exampleInput78:
-  URL: https://mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/rosiner/rosiner-7340011350965
-exampleInput79:
-  URL: https://mad.coop.dk/kolonial/bagning/klassisk-mel/sigtemel-7340011350996
-exampleInput80:
-  URL: https://mad.coop.dk/kolonial/konserves-og-glas/konserveret-frugt-og-groent/ananas-i-stykker-7340011351016
-exampleInput81:
-  URL: https://mad.coop.dk/kolonial/konserves-og-glas/majs/majs-7340011351061
-exampleInput82:
-  URL: https://mad.coop.dk/kolonial/konserves-og-glas/majs/loese-majs-7340011351085
-exampleInput83:
-  URL: https://mad.coop.dk/kolonial/konserves-og-glas/artiskok-hvidloeg-og-kapers/slikasparges-7340011351108
-exampleInput84:
-  URL: https://mad.coop.dk/kolonial/konserves-og-glas/konserveret-frugt-og-groent/ananas-7340011351177
-exampleInput85:
-  URL: https://mad.coop.dk/kiosk/chips-og-snacks/popcorn/popcorn-7340011351399
-exampleInput86:
-  URL: https://mad.coop.dk/kolonial/konserves-og-glas/konserveret-frugt-og-groent/mandarin-7340011351528
-exampleInput87:
-  URL: https://mad.coop.dk/kolonial/konserves-og-glas/konserveret-frugt-og-groent/paerer-7340011351559
-exampleInput88:
-  URL: https://mad.coop.dk/kolonial/bagning/klassisk-mel/grahamsmel-7340011351696
-exampleInput89:
-  URL: https://mad.coop.dk/kolonial/konserves-og-glas/konserveret-frugt-og-groent/ferskner-7340011351870
-exampleInput90:
-  URL: https://mad.coop.dk/kolonial/konserves-og-glas/konserveret-frugt-og-groent/frugtcocktail-7340011351887
-exampleInput91:
-  URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/ris/jasminris-7340011352198
-exampleInput92:
-  URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/ris/parboiled-7340011352228
-exampleInput93:
-  URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/ris/parboiled-og-vilde-ris-7340011352259
-exampleInput94:
-  URL: https://mad.coop.dk/kolonial/konserves-og-glas/majs/minimajs-7340011352280
-exampleInput95:
-  URL: https://mad.coop.dk/kolonial/morgenmad-og-mellemmaaltid/groed/groedris-7340011352303
-exampleInput96:
-  URL: https://mad.coop.dk/kolonial/asiatisk/tilbehoer/bambusskud-7340011352310
-exampleInput97:
-  URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/ris/basmatiris-7340011352327
-exampleInput98:
-  URL: https://mad.coop.dk/kolonial/saucer-og-bouillon/tomatsauce/sicily-7340011352518
-exampleInput99:
-  URL: https://mad.coop.dk/kolonial/bagning/klassisk-mel/fuldkornshvedemel-7340011352549
-exampleInput100:
-  URL: https://mad.coop.dk/kolonial/konserves-og-glas/artiskok-hvidloeg-og-kapers/asparges-7340011352754
+exampleInput20: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/loeg-og-porrer/anglamark-oekologiske-loeg-p-5750006345555
+exampleInput21: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/opvaskemidler/coop-opvasketabs-p-7340011477051
+exampleInput22: 
+  URL: https://butik.mad.coop.dk/kolonial/bagning/haevemidler-og-stabilisatorer/coop-bagepulver-p-7340011312093
+exampleInput23: 
+  URL: https://butik.mad.coop.dk/mejeri/maelk-og-floede/maelkealternativer/anglamark-oekologisk-mandeldrik-p-7300156505750
+exampleInput24: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/lommetoerklaeder/anglamark-lommeletter-p-7340011475293
+exampleInput25: 
+  URL: https://butik.mad.coop.dk/vin/roedvin/chile/anglamark-anglamark-pinot-noir-p-5700381523116
+exampleInput26: 
+  URL: https://butik.mad.coop.dk/kiosk/slik/bolcher/coop-slikkepinde-p-7340011459392
+exampleInput27: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-3-4-9-kg/libero-comfort-str-3-p-7322541083551
+exampleInput28: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/citroner-og-lime/anglamark-oekologiske-citroner-p-5700382777006
+exampleInput29: 
+  URL: https://butik.mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/coop-mandler-p-7340191110106
+exampleInput30: 
+  URL: https://butik.mad.coop.dk/frost/middagsretter/pizza/coop-pizza-kebab-p-7340011498834
+exampleInput31: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/salsa-og-dip/anglamark-dip-mix-holiday-p-5700383445782
+exampleInput32: 
+  URL: https://butik.mad.coop.dk/frost/middagsretter/pizza/coop-pizza-prosciutto-p-7340011498766
+exampleInput33: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/peber/santa-maria-sort-peber-p-7311311015670
+exampleInput34: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/salat-og-bladgroent-/coop-hjertesalat-p-7340011306108
+exampleInput35: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/paerer/coop-lucas-store-paerer-p-5750006376344
+exampleInput36: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/kal/coop-broccoli-p-5700384368493
+exampleInput37: 
+  URL: https://butik.mad.coop.dk/kolonial/marmelade-m-m-/honning-og-sirup/anglamark-akacie-honning-p-7340011459316
+exampleInput38: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/dadler/earth-control-snack-dadler-p-5706779060249
+exampleInput39: 
+  URL: https://butik.mad.coop.dk/drikkevarer/kaffe/malede-boenner/coop-guld-cirkel-kaffe-p-7340011445975
+exampleInput40: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/frikadeller/coop-middagsfrikadeller-p-5700381950844
+exampleInput41: 
+  URL: https://butik.mad.coop.dk/koed/koed-af-gris/hakket-grisekoed/coop-hakket-grisekoed-p-5700383065676
+exampleInput42: 
+  URL: https://butik.mad.coop.dk/koed/koed-af-gris/hk-gris-og-kalvekoed/coop-hakket-gris-og-kalvekoed-p-5700384085987
+exampleInput43: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/kiwi/coop-365-oekologiske-kiwier-p-5700382340408
+exampleInput44: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/rugbroed/kernerugbroed/coop-softkerne-rugbroed-p-5700383087579
+exampleInput45: 
+  URL: https://butik.mad.coop.dk/nem-mad/koederstatning/earth-control-falafler-p-5706779064155
+exampleInput46: 
+  URL: https://butik.mad.coop.dk/koed/koed-af-gris/hakket-grisekoed/coop-hakket-grisekoed-p-5700384575662
+exampleInput47: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/krydderier/anglamark-karry-p-7340011487999
+exampleInput48: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/dadler/earth-control-snack-dadler-p-5706779060232
+exampleInput49: 
+  URL: https://butik.mad.coop.dk/kiosk/slik/skum/coop-marshmallows-p-7340011364856
+exampleInput50: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/skyllemiddel/dun-let-softness-og-care-p-8714789731124
+exampleInput51: 
+  URL: https://butik.mad.coop.dk/mejeri/ost/skaereost/coop-floedehavarti-p-7340011471585
+exampleInput52: 
+  URL: https://butik.mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/earth-control-jordnoedder-i-skal-p-5706779062403
+exampleInput53: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/skinke-filet-og-rullepoelse/coop-kogt-skinke-p-7340011403036
+exampleInput54: 
+  URL: https://butik.mad.coop.dk/frost/is-og-sorbet/is/coop-classic-mandel-p-7340011454076
+exampleInput55: 
+  URL: https://butik.mad.coop.dk/drikkevarer/kaffe/hele-boenner/anglamark-oekologisk-kaffe-p-5700380127315
+exampleInput56: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/baelgfrugter/anglamark-baked-beans-p-7340011487876
+exampleInput57: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/oevrige-groentsager/coop-groenne-boenner-p-7340011481775
+exampleInput58: 
+  URL: https://butik.mad.coop.dk/kolonial/mexicansk/salsa-og-sauce/anglamark-taco-sauce-p-7340011456520
+exampleInput59: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/plejeprodukter/shampoo-balsam-og-saebe/anglamark-shampoo-p-7340011427452
+exampleInput60: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsmidler/froggy-soda-universalspray-p-4009175939715
+exampleInput61: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/groentsagsblandinger/coop-malay-wok-mix-p-7340011442820
+exampleInput62: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsmidler/anglamark-wc-rens-og-kalkfjerner-p-7340011482598
+exampleInput63: 
+  URL: https://butik.mad.coop.dk/kolonial/morgenmad-og-mellemmaltid/musli/coop-musli-mix-p-7340011416104
+exampleInput64: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/peber/mill-og-mortar-hel-sort-peber-p-5710175122593
+exampleInput65: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/kartofler/anglamark-oekologiske-kartofler-p-5700382739325
+exampleInput66: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/tomater/anglamark-groft-hakkede-tomater-p-7340011491996
+exampleInput67: 
+  URL: https://butik.mad.coop.dk/drikkevarer/vand-og-sodavand/iste/xtra-ice-tea-p-7340011420361
+exampleInput68: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/snacknoedder/coop-nut-mix-sea-salt-p-7340191106697
+exampleInput69: 
+  URL: https://butik.mad.coop.dk/koed/koed-af-gris/hk-gris-og-kalvekoed/coop-hakket-grise-og-kalvekoed-p-5700381570912
+exampleInput70: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/svoemmebleer/huggies-badebleer-p-36000183399
+exampleInput71: 
+  URL: https://butik.mad.coop.dk/kolonial/asiatisk/kokosmaelk/anglamark-oekologisk-kokosmaelk-p-7340011497080
+exampleInput72: 
+  URL: https://butik.mad.coop.dk/kolonial/morgenmad-og-mellemmaltid/frugtbarer-og-staenger/anglamark-frugtstaenger-figen-p-5700382803798
+exampleInput73: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/peberfrugt/anglamark-oekologisk-groen-peberfrugt-p-5700384502279
+exampleInput74: 
+  URL: https://butik.mad.coop.dk/kolonial/marmelade-m-m-/palaegschokolade/anglamark-moerk-palaegschokolade-p-7340011402749
+exampleInput75: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/skinke-filet-og-rullepoelse/coop-skinkestrimler-p-7340011403623
+exampleInput76: 
+  URL: https://butik.mad.coop.dk/kolonial/marmelade-m-m-/marmelade/coop-hindbaermarmelade-p-7340011493334
+exampleInput77: 
+  URL: https://butik.mad.coop.dk/nem-mad/genveje-til-hurtig-mad/coop-wok-p-5700381242277
+exampleInput78: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/harstyling/coop-strong-harvoks-p-7340011497639
+exampleInput79: 
+  URL: https://butik.mad.coop.dk/frost/middagsretter/middagsretter/coop-chicken-tikka-masala-p-7340011456742
+exampleInput80: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/figner/anglamark-soft-figs-p-7340011427711
+exampleInput81: 
+  URL: https://butik.mad.coop.dk/koed/koed-af-gris/koteletter/coop-nakkekoteletter-p-5700384404290
+exampleInput82: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/handsaebe/anglamark-hand-soap-p-7340011457497
+exampleInput83: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkentilbehoer/mademballage/anglamark-mellemlaegspapir-p-7340011452249
+exampleInput84: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/oevrige-groentsager/coop-fine-aerter-p-7340011362869
+exampleInput85: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-maxi-goodnight-p-7322540576474
+exampleInput86: 
+  URL: https://butik.mad.coop.dk/drikkevarer/kakao/kakaopulver/coop-kakaopulver-p-7340191110069
+exampleInput87: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/mundpleje/jordan-kids-tandpasta-p-7046110071519
+exampleInput88: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkentilbehoer/fryseposer/anglamark-fryseposer-2l-p-7340011496908
+exampleInput89: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/kiks/ostekiks/karen-volf-moen-kiks-til-ost-p-5709364660701
+exampleInput90: 
+  URL: https://butik.mad.coop.dk/mejeri/smoer-aeg-og-gaer/smoer/coop-smoer-p-7340011473060
+exampleInput91: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/salt/mill-og-mortar-sort-flagesalt-p-5710175199045
+exampleInput92: 
+  URL: https://butik.mad.coop.dk/kolonial/morgenmad-og-mellemmaltid/musli/coop-musli-p-7340011358732
+exampleInput93: 
+  URL: https://butik.mad.coop.dk/kolonial/asiatisk/saucer/coop-oesterssauce-p-5700383031893
+exampleInput94: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkenrulle-og-toiletpapir/koekkenrulle/lotus-premium-koekken-p-7322541032764
+exampleInput95: 
+  URL: https://butik.mad.coop.dk/drikkevarer/kaffe/instant-kaffe/anglamark-instant-decaf-p-7340011337140
+exampleInput96: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/appelsiner-og-klementiner/anglamark-oekologiske-klementiner-p-5700383897666
+exampleInput97: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/baer/anglamark-oekologiske-blabaer-p-5700383690670
+exampleInput98: 
+  URL: https://butik.mad.coop.dk/kolonial/morgenmad-og-mellemmaltid/musli/coop-musli-crunchy-p-7340011416081
+exampleInput99: 
+  URL: https://butik.mad.coop.dk/kolonial/mexicansk/salsa-og-sauce/anglamark-chunky-salsa-p-7340011345275
+exampleInput100: 
+  URL: https://butik.mad.coop.dk/mejeri/surmaelksprodukter/yoghurt/coop-vanilje-yoghurt-p-7340011404194
+exampleInput101: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkenrulle-og-toiletpapir/koekkenrulle/lotus-quickogchic-display-p-7322540997866
+exampleInput102: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkentilbehoer/fryseposer/anglamark-fryseposer-8l-p-7340011496939
+exampleInput103: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/snacknoedder/coop-noeddemix-p-7340191106680
+exampleInput104: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/abrikoser-og-svesker/anglamark-soft-apricots-p-7340011427704
+exampleInput105: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/oevrige-groentsager/anglamark-oekologisk-hakket-spinat-p-7340011481782
+exampleInput106: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/tomater/coop-purerede-tomater-p-7340011476115
+exampleInput107: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/kartofler/coop-kartofler-p-5706419000499
+exampleInput108: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/krydderurter/krydderurter-i-potte/anglamark-oekologisk-persille-p-5708869552306
+exampleInput109: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/plejeprodukter/vadservietter-og-vaskeklude/anglamark-skumklude-p-7340011487159
+exampleInput110: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkenrulle-og-toiletpapir/toiletpapir/lambi-toiletpapir-sensitive-p-6414300094821
+exampleInput111: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/guleroedder/anglamark-oekologiske-guleroedder-p-5750006323393
+exampleInput112: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/babymad-og-modermaelkserstatning/smoothie/anglamark-smoothie-p-7340011451389
+exampleInput113: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/mundpleje/xtra-tandboerster-p-7340011471356
+exampleInput114: 
+  URL: https://butik.mad.coop.dk/nem-mad/tilbehoersretter/coop-floedekartofler-p-5700383348151
+exampleInput115: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/majs/anglamark-majs-p-7340011315094
+exampleInput116: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-long-ultra-thin-p-7310790088823
+exampleInput117: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/frugt-og-baer/coop-store-blabaer-p-7340011345855
+exampleInput118: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/groentsagsblandinger/coop-groentsagssymfoni-p-7340011459439
+exampleInput119: 
+  URL: https://butik.mad.coop.dk/kiosk/chokolade/chokoladebarer/easis-soft-karamelbar-p-5703161807147
+exampleInput120: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/hamburgerryg-og-flaeskesteg/coop-hamburgerryg-p-7340011402985
+exampleInput121: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/hotdogbroed/coop-hotdogbroed-p-7340011447900
+exampleInput122: 
+  URL: https://butik.mad.coop.dk/koed/poelser-og-roegvarer/specialpoelser/anglamark-oekologiske-grillpoelser-p-5700383414016
+exampleInput123: 
+  URL: https://butik.mad.coop.dk/drikkevarer/vand-og-sodavand/cola/coop-cola-light-p-5700383761875
+exampleInput124: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/kartoffelchips/kims-chips-p-5701979995711
+exampleInput125: 
+  URL: https://butik.mad.coop.dk/kolonial/saucer-og-bouillon/bouillon/anglamark-kyllingefond-p-7340011490920
+exampleInput126: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/plaster-og-mundbind/salvequick-kids-justice-league-p-7310610017415
+exampleInput127: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/rugbroed/kernerugbroed/anglamark-moerkt-rugbroed-p-5700383558369
+exampleInput128: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkenrulle-og-toiletpapir/toiletpapir/anglamark-toiletpapir-af-100-returpapir-p-7340011415824
+exampleInput129: 
+  URL: https://butik.mad.coop.dk/fisk/rejer-og-skaldyr/rejer/coop-groenlandske-rejer-p-7340011450689
+exampleInput130: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/mundpleje/colgate-kids-6-9-p-8718951265806
+exampleInput131: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/lommetoerklaeder/kleenex-ultra-soft-p-5029053037691
+exampleInput132: 
+  URL: https://butik.mad.coop.dk/mejeri/maelk-og-floede/soedmaelk/anglamark-oekologisk-soedmaelk-p-5701975305095
+exampleInput133: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/tena-lady-discreet-mini-plus-p-7322540853568
+exampleInput134: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/gurkemejerod-og-ingefaer/anglamark-oekologisk-ingefaer-p-5700381641629
+exampleInput135: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkentilbehoer/alu/coop-aluminiumsfolie-p-7340011372370
+exampleInput136: 
+  URL: https://butik.mad.coop.dk/frost/is-og-sorbet/is/coop-vanilje-p-7340011453963
+exampleInput137: 
+  URL: https://butik.mad.coop.dk/koed/koed-af-gris/skinke-og-hamburgerryg/coop-hamburgerryg-p-5700384321566
+exampleInput138: 
+  URL: https://butik.mad.coop.dk/kolonial/olie-og-eddike/smagsneutral-olie/coop-rapsolie-p-7340011350811
+exampleInput139: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/tena-lady-discreet-extra-plus-p-7322540592863
+exampleInput140: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/peberfrugt/coop-snackpeber-p-5700381426813
+exampleInput141: 
+  URL: https://butik.mad.coop.dk/mejeri/ost/madlavningsoste/anglamark-graesk-feta-p-7340011461333
+exampleInput142: 
+  URL: https://butik.mad.coop.dk/frost/is-og-sorbet/is/coop-karamel-is-p-7340011485780
+exampleInput143: 
+  URL: https://butik.mad.coop.dk/kolonial/bagning/krydderier-til-bagning/coop-vaniljestang-p-7340011482581
+exampleInput144: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/loeg-og-porrer/anglamark-oekologiske-roedloeg-p-5750006344084
+exampleInput145: 
+  URL: https://butik.mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/anglamark-solsikkekerner-p-7340011320739
+exampleInput146: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-goodnight-p-7310791220277
+exampleInput147: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/mundpleje/colgate-zigzag-p-8714789158914
+exampleInput148: 
+  URL: https://butik.mad.coop.dk/kolonial/asiatisk/karrypasta/coop-karrypasta-p-7340011459552
+exampleInput149: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/majs/coop-minimajs-p-7340011352280
+exampleInput150: 
+  URL: https://butik.mad.coop.dk/drikkevarer/spiritus/shots-og-likoer/ga-jol-original-sort-p-5703586131148
+exampleInput151: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/peber/mill-og-mortar-sre-ambel-sort-peber-p-5710175111047
+exampleInput152: 
+  URL: https://butik.mad.coop.dk/nem-mad/pizza/coop-fuldkorn-pizzadej-p-5700382544905
+exampleInput153: 
+  URL: https://butik.mad.coop.dk/mejeri/surmaelksprodukter/creme-fraiche-og-fraiche/anglamark-thise-creme-fraiche-p-7340011403609
+exampleInput154: 
+  URL: https://butik.mad.coop.dk/kolonial/dressing-pesto-mm/mayonnaise/anglamark-mayonnaise-p-7340011483793
+exampleInput155: 
+  URL: https://butik.mad.coop.dk/kolonial/saucer-og-bouillon/bouillon/anglamark-kalvefond-p-7340011490913
+exampleInput156: 
+  URL: https://butik.mad.coop.dk/kolonial/marmelade-m-m-/marmelade/coop-blabaer-marmelade-p-7340011493303
+exampleInput157: 
+  URL: https://butik.mad.coop.dk/kolonial/saucer-og-bouillon/bouillon/anglamark-bouillon-p-7340011436164
+exampleInput158: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsartikler/anglamark-opvaskeboerste-p-5703036354103
+exampleInput159: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/baelgfrugter/anglamark-kidneyboenner-p-7340011487913
+exampleInput160: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/poelser-og-salami/coop-peberspegepoelse-p-7340011440291
+exampleInput161: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/intimpleje/libresse-delicate-wet-wipes-p-7322540996111
+exampleInput162: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/krydderurter/krydderurter-i-potte/anglamark-oekologisk-basilikum-p-5750006353208
+exampleInput163: 
+  URL: https://butik.mad.coop.dk/mejeri/surmaelksprodukter/yoghurt/coop-appelsin-yoghurt-p-7340011416067
+exampleInput164: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-4-7-14-kg/libero-comfort-str-4-p-7322541083674
+exampleInput165: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/mundpleje/zendium-active-v-shape-soft-p-8711600986343
+exampleInput166: 
+  URL: https://butik.mad.coop.dk/kolonial/saucer-og-bouillon/marinade-glace-og-citronsaft/anglamark-citronjuice-p-7340011315759
+exampleInput167: 
+  URL: https://butik.mad.coop.dk/frost/middagsretter/middagsretter/coop-gul-karry-kylling-med-jasminris-p-7340011483533
+exampleInput168: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-5-10-20-kg/libero-comfort-str-5-p-7322541083797
+exampleInput169: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/tena-lady-super-p-7310791184081
+exampleInput170: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/kartoffelchips/kims-joergens-favorit-mix-p-5701979975577
+exampleInput171: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/bananer/anglamark-oekologiske-bananer-p-5700382823611
+exampleInput172: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkentilbehoer/fryseposer/coop-fryse-og-kogeposer-p-7340011490388
+exampleInput173: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/roedbeder/anglamark-roedbeder-p-7340011440277
+exampleInput174: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/knaekbroed/anglamark-fuldkornsknaekbroed-p-7340191100480
+exampleInput175: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/appelsiner-og-klementiner/coop-365-oekologiske-appelsiner-p-5700380180303
+exampleInput176: 
+  URL: https://butik.mad.coop.dk/drikkevarer/te/urtete/yogi-tea-oekologisk-ginger-tea-p-4012824401822
+exampleInput177: 
+  URL: https://butik.mad.coop.dk/mejeri/maelk-og-floede/letmaelk/anglamark-oekologisk-letmaelk-1-5-p-5701975300939
+exampleInput178: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/pitabroed/coop-pitabroed-p-7340011426851
+exampleInput179: 
+  URL: https://butik.mad.coop.dk/koed/oksekoed/hakket-oksekoed/coop-hakket-oksekoed-p-5700381638551
+exampleInput180: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/burgerboller/coop-burgerboller-p-7340011440024
+exampleInput181: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/oksekoedpalaeg/coop-roastbeef-p-7340011434092
+exampleInput182: 
+  URL: https://butik.mad.coop.dk/drikkevarer/vand-og-sodavand/iste/fuze-tea-peach-p-57088846
+exampleInput183: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/oevrige-groentsager/anglamark-edamame-boenner-p-7340011458999
+exampleInput184: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/baer/anglamark-oekologiske-blabaer-p-5700384188008
+exampleInput185: 
+  URL: https://butik.mad.coop.dk/mejeri/maelk-og-floede/kaernemaelk/anglamark-kaernemaelk-p-5701975000402
+exampleInput186: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-ultra-thin-p-7322540972955
+exampleInput187: 
+  URL: https://butik.mad.coop.dk/kolonial/saucer-og-bouillon/kuloer-og-jaevner/coop-madkuloer-p-5701020878024
+exampleInput188: 
+  URL: https://butik.mad.coop.dk/kolonial/marmelade-m-m-/marmelade/anglamark-stikkelsbaer-marmelade-p-7340011471783
+exampleInput189: 
+  URL: https://butik.mad.coop.dk/koed/kalvekoed/kalvelever/coop-kalvelever-p-5710076000815
+exampleInput190: 
+  URL: https://butik.mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/ris/coop-basmatiris-p-7340011352327
+exampleInput191: 
+  URL: https://butik.mad.coop.dk/kolonial/bagning/sirup/coop-ahornsirup-p-7340191110588
+exampleInput192: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/wraps/santa-maria-tortilla-orginal-p-7311311021169
+exampleInput193: 
+  URL: https://butik.mad.coop.dk/kolonial/morgenmad-og-mellemmaltid/musli/coop-musli-crunchy-p-7340011416074
+exampleInput194: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/always-extra-protect-p-4015400564072
+exampleInput195: 
+  URL: https://butik.mad.coop.dk/kolonial/morgenmad-og-mellemmaltid/frugtbarer-og-staenger/anglamark-frugtstaenger-aeble-p-5700382779758
+exampleInput196: 
+  URL: https://butik.mad.coop.dk/drikkevarer/spiritus/gin/tanqueray-no-ten-gin-tanqueray-no-ten-gin-p-5000281020761
+exampleInput197: 
+  URL: https://butik.mad.coop.dk/koed/koed-af-gris/flaesk/coop-stegeflaesk-i-skiver-p-5700383419899
+exampleInput198: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/groentsagsblandinger/anglamark-stuvet-spinat-p-7340191112858
+exampleInput199: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/kartoffelchips/anglamark-salt-og-vinegar-chips-p-7340011484943
+exampleInput200: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/paerer/anglamark-oekologiske-paerer-p-5700382889761
+exampleInput201: 
+  URL: https://butik.mad.coop.dk/kiosk/pastiller-og-tyggegummi/tyggegummi/v6-strong-mint-p-5704592016689
+exampleInput202: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/krydderier/anglamark-timian-p-7340011488026
+exampleInput203: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsartikler/coop-stoevsugerposer-universal-p-5710413004292
+exampleInput204: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/tomater/coop-hakkede-tomater-p-7340011476054
+exampleInput205: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/skinke-filet-og-rullepoelse/coop-peberskinke-p-7340011426332
+exampleInput206: 
+  URL: https://butik.mad.coop.dk/koed/koed-af-gris/koteletter/coop-koteletter-p-5700383066659
+exampleInput207: 
+  URL: https://butik.mad.coop.dk/mejeri/maelk-og-floede/coop-kaffefloede-p-7340011497820
+exampleInput208: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/plejeprodukter/vadservietter-og-vaskeklude/huggies-vadservietter-p-5029053550039
+exampleInput209: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/agurk/coop-agurk-p-20201111
+exampleInput210: 
+  URL: https://butik.mad.coop.dk/kolonial/asiatisk/nudler/coop-aegnudler-p-7340011317869
+exampleInput211: 
+  URL: https://butik.mad.coop.dk/kolonial/marmelade-m-m-/kompot-og-mos/anglamark-aeblemos-p-7340191108509
+exampleInput212: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/kartoffelchips/kims-salt-skruer-p-5701979995476
+exampleInput213: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-normal-wing-p-7310790088830
+exampleInput214: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/mundpleje/aquafresh-clean-control-p-5054563005786
+exampleInput215: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/majschips/anglamark-tortilla-chips-p-7340011450962
+exampleInput216: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/krydderurter/krydderurter-i-potte/anglamark-oekologisk-purloeg-p-5708869552320
+exampleInput217: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsmidler/ajax-easy-rinse-p-8718951011311
+exampleInput218: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkenrulle-og-toiletpapir/toiletpapir/lotus-comfort-p-7322541027739
+exampleInput219: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/handsaebe/lux-beauty-moments-soft-og-creamy-p-8717644925249
+exampleInput220: 
+  URL: https://butik.mad.coop.dk/frost/broed/flutes/coop-mini-flutes-p-7340011499312
+exampleInput221: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/wraps/santa-maria-tortilla-orginal-p-7311311020599
+exampleInput222: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-4-7-14-kg/anglamark-maxi-bleer-p-7340011485292
+exampleInput223: 
+  URL: https://butik.mad.coop.dk/kolonial/asiatisk/nudler/coop-ris-nudler-p-7340011482017
+exampleInput224: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsmidler/sterling-soda-p-5701098016182
+exampleInput225: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-dailyfresh-long-p-7322540803013
+exampleInput226: 
+  URL: https://butik.mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/coop-valnoeddekerner-p-7340011497561
+exampleInput227: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/fennikel/anglamark-oekologisk-fennikel-p-5750006338724
+exampleInput228: 
+  URL: https://butik.mad.coop.dk/kolonial/saucer-og-bouillon/klassisk-sauce-og-saucemix/anglamark-bechamelsauce-p-5700381934813
+exampleInput229: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/anglamark-normal-ultra-thin-p-7340011407140
+exampleInput230: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/kylling-og-kalkunpalaeg/anglamark-oekologisk-kyllingepalaeg-p-5700380910030
+exampleInput231: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-5-10-20-kg/anglamark-junior-bleer-p-7340011485285
+exampleInput232: 
+  URL: https://butik.mad.coop.dk/kolonial/saucer-og-bouillon/tomatsauce/coop-toscana-p-7340011350576
+exampleInput233: 
+  URL: https://butik.mad.coop.dk/frost/middagsretter/pizza/coop-pizza-pepperoni-p-7340011498810
+exampleInput234: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/grissini-og-crostini/earth-control-grissini-p-5706779065817
+exampleInput235: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/abrikoser-og-svesker/anglamark-abrikoser-p-7340011487395
+exampleInput236: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/plejeprodukter/vadservietter-og-vaskeklude/libero-baby-vadservietter-p-7322541164724
+exampleInput237: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/salattoppings/noeddetopping/earth-control-pistaciekerner-p-5706779062229
+exampleInput238: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/tomatpure/anglamark-tomatpure-p-7340011427520
+exampleInput239: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/kiwi/anglamark-oekologiske-kiwi-p-5700382761760
+exampleInput240: 
+  URL: https://butik.mad.coop.dk/mejeri/maelk-og-floede/maelkealternativer/anglamark-oekologisk-havredrik-p-7300156500533
+exampleInput241: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/lommetoerklaeder/kleenex-ultra-soft-p-5029053563909
+exampleInput242: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/vat/coop-vatpinde-p-7340011476658
+exampleInput243: 
+  URL: https://butik.mad.coop.dk/drikkevarer/kakao/kakaomaelk/coop-kakaomaelk-p-7340011472261
+exampleInput244: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/guleroedder/anglamark-oekologiske-sma-sproede-guleroedder-p-5700383118402
+exampleInput245: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkentilbehoer/bagning/anglamark-bagepapir-p-7340011452218
+exampleInput246: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/anden-toerret-frugt-og-baer/anglamark-bananchips-p-7340011487289
+exampleInput247: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/always-fresh-og-protect-p-8001090131232
+exampleInput248: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/babymad-og-modermaelkserstatning/snacks/organix-baby-kiks-m-banan-p-5024121653216
+exampleInput249: 
+  URL: https://butik.mad.coop.dk/mejeri/ost/madlavningsoste/coop-revet-mozzarella-p-7340011320647
+exampleInput250: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/figner/anglamark-figner-p-7340011487425
+exampleInput251: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsmidler/coop-365-universal-rengoering-p-5701318118146
+exampleInput252: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/bruschetta-og-fladbroed/coop-naan-broed-p-7340011311768
+exampleInput253: 
+  URL: https://butik.mad.coop.dk/mejeri/ost/madlavningsoste/coop-feta-p-7340011402862
+exampleInput254: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-6-13-20-kg/libero-up-og-go-no-6-p-7322541090344
+exampleInput255: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/mundpleje/colgate-bamboo-charcoal-p-8718951295711
+exampleInput256: 
+  URL: https://butik.mad.coop.dk/koed/fjerkrae-og-vildt/kylling/coop-hakket-kylling-p-5700381339595
+exampleInput257: 
+  URL: https://butik.mad.coop.dk/kiosk/tobak/tobak/lyft-freeze-x-strong-p-7350106391612
+exampleInput258: 
+  URL: https://butik.mad.coop.dk/mejeri/smoer-aeg-og-gaer/smoerbart/coop-smoerbar-p-7340011473077
+exampleInput259: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/vaskemidler/anglamark-sports-vask-p-7340011490029
+exampleInput260: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/peberfrugt/anglamark-oekologisk-peberfrugt-gul-p-5700382855476
+exampleInput261: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-dailyfresh-so-slim-p-7322540802955
+exampleInput262: 
+  URL: https://butik.mad.coop.dk/kolonial/marmelade-m-m-/marmelade/anglamark-tyttebaer-syltetoej-p-7340011471769
+exampleInput263: 
+  URL: https://butik.mad.coop.dk/drikkevarer/te/urtete/yogi-tea-licorice-mint-p-4012824400344
+exampleInput264: 
+  URL: https://butik.mad.coop.dk/frost/is-og-sorbet/is/coop-hindbaeris-p-7340011497165
+exampleInput265: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkenrulle-og-toiletpapir/toiletpapir/lotus-comfort-toiletpapir-p-7322541027685
+exampleInput266: 
+  URL: https://butik.mad.coop.dk/koed/fjerkrae-og-vildt/kylling/coop-kylling-brystfilet-tilsat-lage-p-5700383777142
+exampleInput267: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/vaskemidler/anglamark-koncentreret-til-sort/moerk-vask-p-7340011490005
+exampleInput268: 
+  URL: https://butik.mad.coop.dk/mejeri/smoer-aeg-og-gaer/smoerbart/anglamark-thise-smoerbart-p-7340011427049
+exampleInput269: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/anden-toerret-frugt-og-baer/anglamark-toerret-mango-p-7340011487463
+exampleInput270: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/skinke-filet-og-rullepoelse/coop-rullepoelse-p-7340011402978
+exampleInput271: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/krydderurter/krydderurter-i-potte/anglamark-oekologisk-koriander-p-5750006353246
+exampleInput272: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-dailyfresh-long-p-7322540802702
+exampleInput273: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/frugt-og-baer/coop-skovbaer-p-7340011451402
+exampleInput274: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/chili/anglamark-oekologisk-chili-p-5700383892340
+exampleInput275: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/svampe/anglamark-oekologiske-brune-champignon-p-5701243994815
+exampleInput276: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/salattoppings/noeddetopping/anglamark-graeskarkerner-p-7340011487258
+exampleInput277: 
+  URL: https://butik.mad.coop.dk/koed/oksekoed/hakket-oksekoed/coop-hakket-oksekoed-p-5700380476154
+exampleInput278: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/kartoffelchips/kims-snack-chips-p-5701979995940
+exampleInput279: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkenrulle-og-toiletpapir/koekkenrulle/anglamark-koekkenruller-p-7340011415848
+exampleInput280: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-dailyfresh-normal-p-7322540803211
+exampleInput281: 
+  URL: https://butik.mad.coop.dk/koed/fjerkrae-og-vildt/kylling/coop-dansk-kyllingebrystfilet-p-5700381408970
+exampleInput282: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/kartoffelchips/kims-mega-mix-p-5701979995490
+exampleInput283: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/vaskemidler/anglamark-flydende-vaskemiddel-p-7340011489993
+exampleInput284: 
+  URL: https://butik.mad.coop.dk/koed/oksekoed/hakket-oksekoed/anglamark-hakket-oksekoed-p-5700380998373
+exampleInput285: 
+  URL: https://butik.mad.coop.dk/koed/koed-af-gris/koteletter/coop-koteletter-p-5700382829736
+exampleInput286: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/salat-og-bladgroent-/anglamark-oekologisk-iceberg-salat-p-5750006344893
+exampleInput287: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/tomater-/coop-tomater-p-8430543000427
+exampleInput288: 
+  URL: https://butik.mad.coop.dk/frost/middagsretter/middagsretter/coop-panang-curry-chicken-p-7340011456728
+exampleInput289: 
+  URL: https://butik.mad.coop.dk/mejeri/ost/madlavningsoste/anglamark-oekologisk-salattern-p-5700380944745
+exampleInput290: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-1-2-5-kg/libero-touch-no-1-p-7322541070230
+exampleInput291: 
+  URL: https://butik.mad.coop.dk/mejeri/smoer-aeg-og-gaer/aeg/coop-skrabeaeg-p-5700381319313
+exampleInput292: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/kal/anglamark-oekologisk-broccoli-p-5750006331466
+exampleInput293: 
+  URL: https://butik.mad.coop.dk/drikkevarer/juice-saft-og-most/juice/anglamark-appelsinjuice-p-7340191101722
+exampleInput294: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/mundpleje/colgate-kids-0-5-pure-p-8718951265646
+exampleInput295: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/opvaskemidler/anglamark-opvask-p-7340011314318
+exampleInput296: 
+  URL: https://butik.mad.coop.dk/drikkevarer/te/sort-te/pickwick-black-tea-blend-p-8711000028971
+exampleInput297: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/tena-lady-maxi-night-p-7322540455236
+exampleInput298: 
+  URL: https://butik.mad.coop.dk/nem-mad/genveje-til-hurtig-mad/coop-fuldkorn-taertedej-p-5700382652372
+exampleInput299: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/postejer-og-pateer/anglamark-leverpostej-p-7340011432906
+exampleInput300: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/rasp/anglamark-rasp-p-7340011321309
+exampleInput301: 
+  URL: https://butik.mad.coop.dk/drikkevarer/te/sort-te/irmas-sort-te-med-kvaede-p-5700382137824
+exampleInput302: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/tomater-/coop-cherrytomater-p-7290002766315
+exampleInput303: 
+  URL: https://butik.mad.coop.dk/drikkevarer/kaffe/instant-kaffe/anglamark-instant-kaffe-p-7340011314851
+exampleInput304: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/mundpleje/colgate-twister-p-8714789584294
+exampleInput305: 
+  URL: https://butik.mad.coop.dk/kiosk/slik/lakrids/anglamark-lakridshjul-p-7340011462026
+exampleInput306: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-4-7-14-kg/libero-touch-no-4-p-7322541091839
+exampleInput307: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/vaskemidler/anglamark-flydende-vaskemiddel-p-7340011462538
+exampleInput308: 
+  URL: https://butik.mad.coop.dk/frost/is-og-sorbet/is/coop-chocois-p-7340011497172
+exampleInput309: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/cookies-og-smakager/smakager/coop-havregrynskager-p-7340011457923
+exampleInput310: 
+  URL: https://butik.mad.coop.dk/drikkevarer/te/sort-te/irmas-sort-te-med-skovbaer-p-5700381654346
+exampleInput311: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/baelgfrugter/anglamark-kikaerter-p-7340011487906
+exampleInput312: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkentilbehoer/mademballage/anglamark-smoerrebroedspapir-p-7340011496380
+exampleInput313: 
+  URL: https://butik.mad.coop.dk/palaeg/vegetarisk-palaeg/oevrige-vegetarprodukter/earth-control-veggie-boeffer-p-5706779064162
+exampleInput314: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/kiks/soede-kiks/coop-havrekiks-p-7340011498827
+exampleInput315: 
+  URL: https://butik.mad.coop.dk/nem-mad/faerdigretter/italiensk/coop-cup-risotto-funghi-p-5700384162176
+exampleInput316: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/peber/santa-maria-sort-peber-p-7311311015724
+exampleInput317: 
+  URL: https://butik.mad.coop.dk/kolonial/saucer-og-bouillon/bouillon/anglamark-groentsagsfond-p-7340011490906
+exampleInput318: 
+  URL: https://butik.mad.coop.dk/frost/middagsretter/pizza/coop-pizza-margherita-p-7340011498803
+exampleInput319: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/svampe/anglamark-oekologiske-champignon-p-5701243993450
+exampleInput320: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/poelser-og-salami/coop-aleroeget-spegepoelse-p-7340011404439
+exampleInput321: 
+  URL: https://butik.mad.coop.dk/drikkevarer/juice-saft-og-most/juice/coop-appelsinjuice-p-7340191101692
+exampleInput322: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-trusse-normal-puresens-p-7322541161914
+exampleInput323: 
+  URL: https://butik.mad.coop.dk/kolonial/marmelade-m-m-/marmelade/coop-abrikosmarmelade-p-7340011493280
+exampleInput324: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/kartoffelchips/kims-snack-chips-p-5701979995933
+exampleInput325: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/krydderier/anglamark-stoedt-koriander-p-7340011488071
+exampleInput326: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/tomater/coop-hakkede-tomater-p-7340011492054
+exampleInput327: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsartikler/coop-universalklude-p-5700381511618
+exampleInput328: 
+  URL: https://butik.mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/quinoa-couscous-og-bulgur/earth-control-bulgur-mix-p-5706779064209
+exampleInput329: 
+  URL: https://butik.mad.coop.dk/mejeri/surmaelksprodukter/oevrige/coop-ymer-p-7340011427285
+exampleInput330: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsmidler/ecoclean-universal-spray-p-5708048043588
+exampleInput331: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/groentsagsblandinger/coop-suppeurter-p-7340011459200
+exampleInput332: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/kartoffelchips/kims-chips-p-5701979995704
+exampleInput333: 
+  URL: https://butik.mad.coop.dk/kolonial/morgenmad-og-mellemmaltid/musli/coop-musli-crunchy-p-7340011358862
+exampleInput334: 
+  URL: https://butik.mad.coop.dk/kiosk/chokolade/moerk-chokolade/anglamark-oekologisk-moerk-chokolade-p-7340011316985
+exampleInput335: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/salattoppings/noeddetopping/earth-control-pinjekerner-p-5706779049435
+exampleInput336: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/graeskar-og-aubergine/anglamark-oekologisk-aubergine-p-5700381039631
+exampleInput337: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-7-og-8-16-30-kg-/libero-touch-no-7-p-7322541092386
+exampleInput338: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/snacknoedder/coop-noeddemix-med-rosiner-p-7340191106710
+exampleInput339: 
+  URL: https://butik.mad.coop.dk/koed/oksekoed/hakket-oksekoed/coop-hakket-oksekoed-p-5700381330226
+exampleInput340: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkenrulle-og-toiletpapir/koekkenrulle/coop-gigant-koekkenrulle-p-7340011453833
+exampleInput341: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/baelgfrugter/coop-kidneyboenner-p-7340011364177
+exampleInput342: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/always-ultra-normal-pads-p-8001841168395
+exampleInput343: 
+  URL: https://butik.mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/linser-og-boenner/earth-control-linse-mix-p-5706779064193
+exampleInput344: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/opvaskemidler/coop-afspaendingsmiddel-p-7340011476559
+exampleInput345: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/salsa-og-dip/anglamark-dild-dip-p-5700381212539
+exampleInput346: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-normal-duo-p-7310790088816
+exampleInput347: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/peber/coop-365-oekologisk-sort-peber-p-7340011488187
+exampleInput348: 
+  URL: https://butik.mad.coop.dk/kolonial/saucer-og-bouillon/tomatsauce/coop-sicily-p-7340011352518
+exampleInput349: 
+  URL: https://butik.mad.coop.dk/drikkevarer/vand-og-sodavand/specialvand-og-lemonade/tuxen-brewing-company-ginger-kiss-p-5713620000484
+exampleInput350: 
+  URL: https://butik.mad.coop.dk/drikkevarer/kaffe/hele-boenner/coop-kaffe-hele-boenner-p-5700382460878
+exampleInput351: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/krydderurter/afskarede-krydderurter/anglamark-oekologisk-mynte-p-5700382585915
+exampleInput352: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/anglamark-gurkemeje-p-7340011488033
+exampleInput353: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/always-ultra-night-pads-p-8001841168593
+exampleInput354: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/agurk/anglamark-oekologisk-agurk-p-5700380502907
+exampleInput355: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsmidler/anglamark-afspaendingsmiddel-p-7340011314295
+exampleInput356: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsmidler/anglamark-universal-rengoering-p-7340011493396
+exampleInput357: 
+  URL: https://butik.mad.coop.dk/nem-mad/faerdigretter/italiensk/coop-cup-pasta-carbonara-p-5700383739508
+exampleInput358: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/salattoppings/noeddetopping/anglamark-graeskarkerner-p-7340011487203
+exampleInput359: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/artiskok-hvidloeg-og-kapers/coop-hvidloeg-p-7340011484905
+exampleInput360: 
+  URL: https://butik.mad.coop.dk/koed/fjerkrae-og-vildt/kylling/coop-kyllingebrystfilet-p-5760725222341
+exampleInput361: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/vaskemidler/anglamark-vaskemiddel-til-hvid-vask-p-7340011490012
+exampleInput362: 
+  URL: https://butik.mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/anglamark-valnoeddekerner-p-7340011461890
+exampleInput363: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/citroner-og-lime/anglamark-lime-i-net-p-5700383018672
+exampleInput364: 
+  URL: https://butik.mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/anglamark-cashewnoedder-p-7340011487357
+exampleInput365: 
+  URL: https://butik.mad.coop.dk/mejeri/surmaelksprodukter/creme-fraiche-og-fraiche/coop-creme-fraiche-p-7340011317470
+exampleInput366: 
+  URL: https://butik.mad.coop.dk/koed/koed-af-gris/oevrige-udskaeringer/coop-grisekaeber-p-5700382408832
+exampleInput367: 
+  URL: https://butik.mad.coop.dk/mejeri/maelk-og-floede/skummetmaelk/anglamark-oekologisk-skummetmaelk-0-1-fedt-p-5701975300915
+exampleInput368: 
+  URL: https://butik.mad.coop.dk/kolonial/marmelade-m-m-/marmelade/anglamark-jordbaer-marmelade-p-7340011471912
+exampleInput369: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/babymad-og-modermaelkserstatning/middagsretter-og-mos/anglamark-aeble-og-banan-pure-p-7340011495857
+exampleInput370: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/mundpleje/coop-2in1-soft-sticks-p-7340011488347
+exampleInput371: 
+  URL: https://butik.mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/spaghetti/coop-spaghetti-pasta-p-7340011352921
+exampleInput372: 
+  URL: https://butik.mad.coop.dk/kolonial/saucer-og-bouillon/tomatsauce/coop-basilicata-p-7340011350583
+exampleInput373: 
+  URL: https://butik.mad.coop.dk/kolonial/bagning/klassisk-mel/coop-hvedemel-p-7340011354932
+exampleInput374: 
+  URL: https://butik.mad.coop.dk/drikkevarer/kaffe/hele-boenner/coop-kaffe-hele-boenner-p-5700384250668
+exampleInput375: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/tena-lady-discreet-mini-p-7322540853377
+exampleInput376: 
+  URL: https://butik.mad.coop.dk/drikkevarer/kaffe/malede-boenner/coop-bla-cirkel-kaffe-p-7340011445968
+exampleInput377: 
+  URL: https://butik.mad.coop.dk/kiosk/tobak/soft-pack/marlboro-red-soft-p-73178750
+exampleInput378: 
+  URL: https://butik.mad.coop.dk/kolonial/asiatisk/kokosmaelk/golden-lotus-kokosmaelk-p-5700002010292
+exampleInput379: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/groentsagsblandinger/coop-kertemindegroent-p-7340011362821
+exampleInput380: 
+  URL: https://butik.mad.coop.dk/kolonial/morgenmad-og-mellemmaltid/musli/coop-musli-p-7340011442738
+exampleInput381: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-maxi-goodnight-p-7322540576450
+exampleInput382: 
+  URL: https://butik.mad.coop.dk/fisk/fiskepalaeg/rogn/lykkeberg-sort-kaviar-p-5701263025773
+exampleInput383: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/poelser-og-salami/coop-soenderjysk-spegepoelse-p-7340011404422
+exampleInput384: 
+  URL: https://butik.mad.coop.dk/koed/kalvekoed/medister-og-hakket-kalvekoed/coop-hakket-kalvekoed-8-12-p-5700383623777
+exampleInput385: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/majschips/anglamark-tortilla-chips-p-7340011450955
+exampleInput386: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/beder/anglamark-oekologiske-roedbeder-p-5750006327728
+exampleInput387: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/peberfrugt/anglamark-oekologiske-snackpeber-p-5700383270889
+exampleInput388: 
+  URL: https://butik.mad.coop.dk/mejeri/ost/faste-oste/coop-emmentaler-p-7340011493495
+exampleInput389: 
+  URL: https://butik.mad.coop.dk/frost/is-og-sorbet/is/coop-classic-ispinde-p-7340011454069
+exampleInput390: 
+  URL: https://butik.mad.coop.dk/nem-mad/desserter/coop-pandekager-p-7340011498759
+exampleInput391: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/majschips/kims-ostepops-p-5701979975546
+exampleInput392: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/postejer-og-pateer/coop-bacon-leverpostej-p-7340011444435
+exampleInput393: 
+  URL: https://butik.mad.coop.dk/kiosk/tobak/soft-pack/camel-yellow-p-57088419
+exampleInput394: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/kiks/soede-kiks/organix-kiks-m-jordbaer-p-5024121660214
+exampleInput395: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsartikler/anglamark-opvaskeboerste-p-5703036354202
+exampleInput396: 
+  URL: https://butik.mad.coop.dk/nem-mad/genveje-til-hurtig-mad/coop-poelsehornsdej-p-5700383971281
+exampleInput397: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/always-large-liner-p-8001090718464
+exampleInput398: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/opvaskemidler/anglamark-opvasketabs-p-7340011477464
+exampleInput399: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsmidler/frosch-universal-rengoering-p-4009175181190
+exampleInput400: 
+  URL: https://butik.mad.coop.dk/frost/middagsretter/pizza/coop-pizza-hawaii-p-7340011498780
+exampleInput401: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/peber/anglamark-hel-sort-peber-p-7340011488125
+exampleInput402: 
+  URL: https://butik.mad.coop.dk/frost/is-og-sorbet/coop-chokolade-isvafler-p-7340011475255
+exampleInput403: 
+  URL: https://butik.mad.coop.dk/kiosk/tobak/tobak/lyft-ice-cool-mint-slim-strong-p-7350106391452
+exampleInput404: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/anglamark-natbind-p-7340011407164
+exampleInput405: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/groentsagsblandinger/coop-rodfrugter-p-7340011459187
+exampleInput406: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-6-13-20-kg/libero-touch-no-6-p-7322541092201
+exampleInput407: 
+  URL: https://butik.mad.coop.dk/kolonial/marmelade-m-m-/palaegschokolade/anglamark-lys-palaegschokolade-p-7340011402756
+exampleInput408: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/rosiner/anglamark-rosiner-p-7340011301547
+exampleInput409: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/peber/santa-maria-sort-peber-p-7311311004452
+exampleInput410: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/intimpleje/libresse-v-care-intim-wash-gel-p-7322540986594
+exampleInput411: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkenrulle-og-toiletpapir/koekkenrulle/lambi-koekkenruller-p-6414301053001
+exampleInput412: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/lommetoerklaeder/kleenex-ultra-soft-p-5029053039930
+exampleInput413: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/oksekoedpalaeg/coop-saltkoed-p-7340011434085
+exampleInput414: 
+  URL: https://butik.mad.coop.dk/kolonial/morgenmad-og-mellemmaltid/frugtbarer-og-staenger/anglamark-frugtstaenger-jordbaer-p-5700382419142
+exampleInput415: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/oevrige-groentsager/coop-rosenkal-p-7340011442981
+exampleInput416: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-long-wing-p-7310790088847
+exampleInput417: 
+  URL: https://butik.mad.coop.dk/kolonial/bagning/krydderier-til-bagning/coop-vaniljesukker-p-7340191100008
+exampleInput418: 
+  URL: https://butik.mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/anglamark-hoerfroe-p-7340011320715
+exampleInput419: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/snacknoedder/coop-roasted-almonds-p-7340191106727
+exampleInput420: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/kartoffelchips/kims-american-grill-p-5701979995728
+exampleInput421: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/rosiner/earth-control-jumbo-rosiner-p-5706779051049
+exampleInput422: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/kal/anglamark-oekologisk-blomkal-p-5750006323300
+exampleInput423: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/anden-toerret-frugt-og-baer/earth-control-fruitmix-p-5706779036404
+exampleInput424: 
+  URL: https://butik.mad.coop.dk/nem-mad/genveje-til-hurtig-mad/coop-butterdej-p-5700382204113
+exampleInput425: 
+  URL: https://butik.mad.coop.dk/koed/fjerkrae-og-vildt/kylling/coop-hel-kylling-p-5760725231886
+exampleInput426: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/appelsiner-og-klementiner/anglamark-roede-appelsiner-p-5700382017966
+exampleInput427: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-7-og-8-16-30-kg-/libero-up-og-go-no-8-p-7322541091662
+exampleInput428: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/handsaebe/montanus-green-tea-pure-p-5705718110021
+exampleInput429: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/vat/coop-vatrondeller-p-7340011499190
+exampleInput430: 
+  URL: https://butik.mad.coop.dk/mejeri/surmaelksprodukter/yoghurt/anglamark-oekologisk-thise-yoghurt-p-7340011406808
+exampleInput431: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/snacknoedder/kims-peanuts-p-5701979011107
+exampleInput432: 
+  URL: https://butik.mad.coop.dk/kolonial/marmelade-m-m-/noeddecreme/anglamark-noeddepalaeg-p-7340011321408
+exampleInput433: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/baelgfrugter/anglamark-limaboenner-p-7340011487890
+exampleInput434: 
+  URL: https://butik.mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/oevrig-pasta-og-ris/anglamark-groedris-p-7340011301677
+exampleInput435: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/snacknoedder/kims-saltede-mandler-p-5701979994554
+exampleInput436: 
+  URL: https://butik.mad.coop.dk/drikkevarer/spiritus/gin/plymouth-plymouth-gin-navy-streng-p-5000299608050
+exampleInput437: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-7-og-8-16-30-kg-/libero-touch-no-7-p-7322541071084
+exampleInput438: 
+  URL: https://butik.mad.coop.dk/drikkevarer/te/urtete/yogi-tea-lime-mint-p-4012824400542
+exampleInput439: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/bodylotion-og-handcreme/coop-camferine-p-7340011374633
+exampleInput440: 
+  URL: https://butik.mad.coop.dk/koed/oksekoed/hakket-oksekoed/anglamark-hakket-oksekoed-p-5700380624876
+exampleInput441: 
+  URL: https://butik.mad.coop.dk/kiosk/chokolade/moerk-chokolade/anglamark-moerk-chokolade-p-7340011375296
+exampleInput442: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-extra-long-p-7322540802801
+exampleInput443: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/peber/mill-og-mortar-penja-sort-peber-p-5710175111061
+exampleInput444: 
+  URL: https://butik.mad.coop.dk/frost/is-og-sorbet/is/coop-stracciatella-p-7340011485995
+exampleInput445: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/dadler/anglamark-toerrede-dadler-p-7340011487241
+exampleInput446: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/kartofler/coop-kartofler-p-5700382729920
+exampleInput447: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsmidler/xtra-universalrengoering-p-7340011402800
+exampleInput448: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-dailyfresh-black-p-7322540919516
+exampleInput449: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/kiks/ostekiks/karen-volf-moen-kiks-p-5709364660596
+exampleInput450: 
+  URL: https://butik.mad.coop.dk/kolonial/olie-og-eddike/smagsneutral-olie/anglamark-solsikkeolie-p-7340191106208
+exampleInput451: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/wraps/coop-soft-tortillas-p-7340011353850
+exampleInput452: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/groentsagsblandinger/coop-amerikansk-mix-p-7340011443049
+exampleInput453: 
+  URL: https://butik.mad.coop.dk/koed/koed-af-gris/oevrige-udskaeringer/coop-medister-p-5700384509025
+exampleInput454: 
+  URL: https://butik.mad.coop.dk/kolonial/saucer-og-bouillon/asiatiske-saucer/coop-sambal-oelek-p-7340011483045
+exampleInput455: 
+  URL: https://butik.mad.coop.dk/vin/hvidvin/chile/anglamark-anglamark-chardonnay-p-5700384656828
+exampleInput456: 
+  URL: https://butik.mad.coop.dk/kolonial/marmelade-m-m-/marmelade/coop-jordbaer-marmelade-p-7340011493341
+exampleInput457: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/artiskok-hvidloeg-og-kapers/anglamark-oekologiske-kapers-p-7340011484219
+exampleInput458: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-6-13-20-kg/libero-touch-no-6-p-7322541071039
+exampleInput459: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/krydderurter/krydderurter-i-potte/anglamark-oekologisk-dild-p-5708869552313
+exampleInput460: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/artiskok-hvidloeg-og-kapers/coop-hvidloeg-p-7340011484899
+exampleInput461: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/kal/anglamark-oekologisk-spidskal-p-5701243993733
+exampleInput462: 
+  URL: https://butik.mad.coop.dk/drikkevarer/kaffe/hele-boenner/coop-kaffe-hele-boenner-p-5700382833511
+exampleInput463: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsmidler/frosch-universalrengoering-p-4009175193315
+exampleInput464: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/harstyling/loreal-elnett-extra-strong-p-3600520490441
+exampleInput465: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkentilbehoer/affaldsposer/coop-affaldsposer-p-7340011493235
+exampleInput466: 
+  URL: https://butik.mad.coop.dk/mejeri/smoer-aeg-og-gaer/aeg/anglamark-oekologiske-aeg-p-7340011302339
+exampleInput467: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/roeget-palaeg/coop-roeget-filet-p-7340011403029
+exampleInput468: 
+  URL: https://butik.mad.coop.dk/frost/middagsretter/suppe/coop-koedboller-p-7340011363422
+exampleInput469: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/kiks/soede-kiks/veganz-kiks-smoer-vaniljesmag-p-4260402485034
+exampleInput470: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/anglamark-trusseindlaeg-p-7340011407171
+exampleInput471: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/loeg-og-porrer/anglamark-oekologisk-porre-p-5700381206774
+exampleInput472: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/krydderurter/afskarede-krydderurter/anglamark-oekologisk-bredbladet-persille-p-5700381293446
+exampleInput473: 
+  URL: https://butik.mad.coop.dk/drikkevarer/oel-og-cider/pilsner/lager/oranjeboom-premium-strong-beer-p-8725000637514
+exampleInput474: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/frikadeller/coop-frikadellepoelse-p-7340011403012
+exampleInput475: 
+  URL: https://butik.mad.coop.dk/kolonial/dressing-pesto-mm/dressing/coop-coleslaw-dressing-p-5700381958376
+exampleInput476: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/snacknoedder/anglamark-mandler-p-7340011490548
+exampleInput477: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/babymad-og-modermaelkserstatning/smoothie/anglamark-oekologisk-smoothie-p-7340011491576
+exampleInput478: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/plejeprodukter/vadservietter-og-vaskeklude/anglamark-skumvaskeklude-p-7340011487173
+exampleInput479: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/snacknoedder/coop-cashew-p-7340191106703
+exampleInput480: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/loeg-og-porrer/anglamark-oekologiske-skalotteloeg-p-5700382619382
+exampleInput481: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/tomater/coop-hakkede-tomater-p-7340011476108
+exampleInput482: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-5-10-20-kg/libero-up-og-go-str-5-p-7322541089706
+exampleInput483: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/salsa-og-dip/kims-dipmix-p-5701979303905
+exampleInput484: 
+  URL: https://butik.mad.coop.dk/drikkevarer/te/urtete/yogi-tea-bedtime-tea-p-4012824404410
+exampleInput485: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/baer/coop-hindbaer-p-5700380928554
+exampleInput486: 
+  URL: https://butik.mad.coop.dk/nem-mad/faerdigretter/klassiske-retter/coop-cup-mac-og-cheese-p-5700384203220
+exampleInput487: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/anglamark-super-bind-p-7340011407157
+exampleInput488: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/vaskemidler/anglamark-color-vaskepulver-p-7340011481560
+exampleInput489: 
+  URL: https://butik.mad.coop.dk/drikkevarer/vand-og-sodavand/iste/fuze-tea-lemon-og-lemongrass-black-tea-p-57089270
+exampleInput490: 
+  URL: https://butik.mad.coop.dk/koed/poelser-og-roegvarer/klassiske-poelser/anglamark-oekologiske-grillpoelser-p-5700381933380
+exampleInput491: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/kartofler/anglamark-oekologiske-kartofler-til-mos-p-5700383223458
+exampleInput492: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/salattoppings/noeddetopping/anglamark-pinjekerner-p-7340191103672
+exampleInput493: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/kartofler/anglamark-oekologiske-bagekartofler-p-5700384217081
+exampleInput494: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/always-ultra-long-pads-p-8001841168531
+exampleInput495: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-7-og-8-16-30-kg-/libero-up-og-go-no-7-p-7322541091044
+exampleInput496: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-2-3-6-kg/libero-touch-no-2-p-7322541070315
+exampleInput497: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/krydderurter/anglamark-dild-p-7340011478867
+exampleInput498: 
+  URL: https://butik.mad.coop.dk/kolonial/asiatisk/karrypasta/coop-karrypasta-p-7340011459545
+exampleInput499: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/peber/santa-maria-hel-sort-peber-p-7311311004445
+exampleInput500: 
+  URL: https://butik.mad.coop.dk/drikkevarer/kaffe/malede-boenner/coop-cirkel-kaffe-p-7340011496847
+exampleInput501: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/krydderurter/krydderurter-i-potte/anglamark-oekologisk-karse-p-5700382142699
+exampleInput502: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/snacknoedder/kims-saltede-peanuts-p-5701979994530
+exampleInput503: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/jordskokker-pastinak-og-persillerod/anglamark-oekologisk-pastinakker-p-5750006327988
+exampleInput504: 
+  URL: https://butik.mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/linser-og-boenner/irmas-sort-quinoa-p-5701797500036
+exampleInput505: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/selleri/anglamark-oekologisk-bladselleri-p-5700382808823
+exampleInput506: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkentilbehoer/bagning/anglamark-bagepapir-p-7340011496373
+exampleInput507: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-5-10-20-kg/libero-touch-no-5-p-7322541092003
+exampleInput508: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/snacknoedder/coop-salted-peanuts-p-7340191106642
+exampleInput509: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/svampe/anglamark-oekologisk-portobello-svampe-p-5700382004812
+exampleInput510: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/salattoppings/noeddetopping/earth-control-studentermix-p-5706779062083
+exampleInput511: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/tomater/anglamark-purerede-tomater-p-7340011492023
+exampleInput512: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/intimpleje/libresse-wash-gel-sheaogalmond-p-7322540986556
+exampleInput513: 
+  URL: https://butik.mad.coop.dk/mejeri/maelk-og-floede/floede/anglamark-thise-oekologisk-piskefloede-p-5701975000242
+exampleInput514: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/vaskemidler/anglamark-finvask-p-7340011490036
+exampleInput515: 
+  URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/tomater/anglamark-oekologiske-hakkede-tomater-p-7340011492016
+exampleInput516: 
+  URL: https://butik.mad.coop.dk/mejeri/maelk-og-floede/letmaelk/coop-365-letmaelk-p-5701975302148
+exampleInput517: 
+  URL: https://butik.mad.coop.dk/drikkevarer/vand-og-sodavand/iste/xtra-ice-tea-p-7340011420378
+exampleInput518: 
+  URL: https://butik.mad.coop.dk/kolonial/morgenmad-og-mellemmaltid/havregryn/anglamark-havregryn-p-5700382797653
+exampleInput519: 
+  URL: https://butik.mad.coop.dk/mejeri/surmaelksprodukter/yoghurt/coop-soedmaelksyoghurt-p-7340011311119
+exampleInput520: 
+  URL: https://butik.mad.coop.dk/mejeri/maelk-og-floede/minimaelk/anglamark-oekologisk-minimaelk-0-4-p-5701975300922
+exampleInput521: 
+  URL: https://butik.mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/spaghetti/anglamark-spaghetti-pasta-p-7340011315162
+exampleInput522: 
+  URL: https://butik.mad.coop.dk/drikkevarer/spiritus/rom/pampero-pampero-seleccion-1938-ron-anejo-p-8028286000301
+exampleInput523: 
+  URL: https://butik.mad.coop.dk/kolonial/asiatisk/ris-og-rispapir/coop-rispapir-p-5700382353385
+exampleInput524: 
+  URL: https://butik.mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/rasp/coop-panko-rasp-p-7340011474227
+exampleInput525: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/vaskemidler/anglamark-vaskepulver-hvid-p-7340011481577
+exampleInput526: 
+  URL: https://butik.mad.coop.dk/kolonial/dressing-pesto-mm/dressing/coop-hvidloegsdressing-p-7340011355366
+exampleInput527: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/krydderier/anglamark-basilikum-p-7340011488101
+exampleInput528: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/kal/anglamark-groenkal-p-5708947003515
+exampleInput529: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-normal-p-7322540802993
+exampleInput530: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/harstyling/coop-men-soft-mud-p-7340011490234
+exampleInput531: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/salsa-og-dip/anglamark-dip-mix-hvidloeg-p-5700381803423
+exampleInput532: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-6-13-20-kg/libero-comfort-str-6-p-7322541083926
+exampleInput533: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/snacknoedder/anglamark-peanuts-p-7340011463528
+exampleInput534: 
+  URL: https://butik.mad.coop.dk/pleje/vitaminer-og-kosttilskud/proteindrik/stay-strong-proteindrik-p-5709281008846
+exampleInput535: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/rosiner/anglamark-rosiner-p-7340011487456
+exampleInput536: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/mundpleje/aquafresh-clean-control-p-5054563005779
+exampleInput537: 
+  URL: https://butik.mad.coop.dk/koed/oksekoed/hakket-oksekoed/coop-hakket-oksekoed-p-5700381347286
+exampleInput538: 
+  URL: https://butik.mad.coop.dk/frost/is-og-sorbet/is/coop-mini-cones-p-7340011361923
+exampleInput539: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkenrulle-og-toiletpapir/toiletpapir/coop-luxury-toiletpapir-p-7340011485353
+exampleInput540: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-3-4-9-kg/libero-touch-no-3-p-7322541070834
+exampleInput541: 
+  URL: https://butik.mad.coop.dk/drikkevarer/kakao/kakaodrik/stay-strong-proteindrik-p-5709281008853
+exampleInput542: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/tranebaer/anglamark-toerrede-tranebaer-p-7340011487371
+exampleInput543: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/kartofler/coop-lammefjords-kartofler-p-5700380394816
+exampleInput544: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/krydderurter/krydderurter-i-potte/anglamark-oekologisk-timian-p-8712119143586
+exampleInput545: 
+  URL: https://butik.mad.coop.dk/kiosk/chips-og-snacks/popcorn/coop-saltede-popcorn-p-7340011456704
+exampleInput546: 
+  URL: https://butik.mad.coop.dk/kiosk/tobak/soft-pack/marlboro-gold-soft-pack-p-73178798
+exampleInput547: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/tena-discreet-ultra-mini-plus-p-7322541079899
+exampleInput548: 
+  URL: https://butik.mad.coop.dk/kolonial/marmelade-m-m-/peanutbutter/anglamark-peanut-butter-p-7340011473039
+exampleInput549: 
+  URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/poelser-og-salami/coop-kartoffelspegepoelse-p-7340011441083
+exampleInput550: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/libresse-dailyfresh-string-p-7310791193892
+exampleInput551: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-7-og-8-16-30-kg-/libero-comfort-jumbo-p-7322541084046
+exampleInput552: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/jordskokker-pastinak-og-persillerod/coop-persillerod-p-5700384180422
+exampleInput553: 
+  URL: https://butik.mad.coop.dk/husholdning/koekkentilbehoer/fryseposer/coop-fryse-og-kogeposer-p-7340011490371
+exampleInput554: 
+  URL: https://butik.mad.coop.dk/pleje/har-og-kropspleje/showergel/nivea-creme-soft-p-4005808123834
+exampleInput555: 
+  URL: https://butik.mad.coop.dk/frost/middagsretter/middagsretter/coop-red-curry-chicken-p-7340011456735
+exampleInput556: 
+  URL: https://butik.mad.coop.dk/nem-mad/genveje-til-hurtig-mad/coop-cup-mos-med-bacon-p-5700382994502
+exampleInput557: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/peber/irmas-stoedt-sort-peber-p-5710959088046
+exampleInput558: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/svampe/anglamark-oekologiske-champignon-i-skiver-p-5700383696054
+exampleInput559: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/krydderurter/anglamark-purloeg-p-7340011478874
+exampleInput560: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-5-10-20-kg/libero-touch-no-5-p-7322541070971
+exampleInput561: 
+  URL: https://butik.mad.coop.dk/mejeri/smoer-aeg-og-gaer/smoer/anglamark-thise-smoer-p-5701975302810
+exampleInput562: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/loeg-og-porrer/anglamark-oekologiske-hvidloeg-p-3000007029575
+exampleInput563: 
+  URL: https://butik.mad.coop.dk/mejeri/surmaelksprodukter/yoghurt/coop-peach-melba-yoghurt-p-7340011311126
+exampleInput564: 
+  URL: https://butik.mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/quinoa-couscous-og-bulgur/anglamark-sort-quinoa-p-5700382282050
+exampleInput565: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/krydderurter/afskarede-krydderurter/anglamark-oekologisk-koriander-p-5700381760627
+exampleInput566: 
+  URL: https://butik.mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/toerret-pasta/anglamark-macaroni-pasta-p-7340011315193
+exampleInput567: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/frugt-og-baer/coop-jordbaer-p-7340011459514
+exampleInput568: 
+  URL: https://butik.mad.coop.dk/pleje/toiletartikler/bind-og-tamponer/tena-tena-for-men-p-7322540016413
+exampleInput569: 
+  URL: https://butik.mad.coop.dk/husholdning/rengoering-og-rens/rengoeringsartikler/coop-universalt-filtersaet-til-stoevsuger-p-5710413004339
+exampleInput570: 
+  URL: https://butik.mad.coop.dk/mejeri/smoer-aeg-og-gaer/smoer/anglamark-thise-oekologisk-smoer-p-5701975302803
+exampleInput571: 
+  URL: https://butik.mad.coop.dk/drikkevarer/vand-og-sodavand/vand-med-brus/coop-danskvand-p-5700382487356
+exampleInput572: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/grapefrugt-/-pomelo/anglamark-oekologiske-grape-p-5700381239918
+exampleInput573: 
+  URL: https://butik.mad.coop.dk/mejeri/maelk-og-floede/floede/anglamark-thise-oekologisk-piskefloede-p-5701975000594
+exampleInput574: 
+  URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/peberfrugt/coop-365-oekologiske-peberfrugter-p-5700380939437
+exampleInput575: 
+  URL: https://butik.mad.coop.dk/frost/frugt-og-groent/frugt-og-baer/anglamark-oekologiske-blabaer-p-7340011481089
+exampleInput576: 
+  URL: https://butik.mad.coop.dk/kolonial/krydderier/peber/anglamark-stoedt-sort-peber-p-7340011488132
+exampleInput577: 
+  URL: https://butik.mad.coop.dk/drikkevarer/spiritus/rom/pampero-pampero-aniversario-p-8028286000325
+exampleInput578: 
+  URL: https://butik.mad.coop.dk/baby-og-boern/bleer-og-tilbehoer/str-4-7-14-kg/libero-touch-no-4-p-7322541070919
+# exampleInput1: 
+#   Brand: Always
+# exampleInput2: 
+#   Brand: Anglamark
+# exampleInput3: 
+#   Brand: Aqua pro
+# exampleInput4: 
+#   Brand: Barrier
+# exampleInput5: 
+#   Brand: Comprilan
+# exampleInput6: 
+#   Brand: Control
+# exampleInput7: 
+#   Brand: Coop
+# exampleInput8: 
+#   Brand: Cuticell
+# exampleInput9: 
+#   Brand: Cutisoft
+# exampleInput10: 
+#   Brand: Cutisoft wipes
+# exampleInput11: 
+#   Brand: Elastic
+# exampleInput12: 
+#   Brand: Elastomull
+# exampleInput13: 
+#   Brand: Elastomull Haft
+# exampleInput14: 
+#   Brand: Fixomull Stretch
+# exampleInput15: 
+#   Brand: ForMen Casual
+# exampleInput16: 
+#   Brand: Gron Balance
+# exampleInput17: 
+#   Brand: Grøn Balance
+# exampleInput18: 
+#   Brand: Huggies
+# exampleInput19: 
+#   Brand: JOBST
+# exampleInput20: 
+#   Brand: Kids
+# exampleInput21: 
+#   Brand: Lambi
+# exampleInput22: 
+#   Brand: Leukofix
+# exampleInput23: 
+#   Brand: Leukoflex
+# exampleInput24: 
+#   Brand: Leukomed
+# exampleInput25: 
+#   Brand: Leukomed T plus
+# exampleInput26: 
+#   Brand: Leukoplast
+# exampleInput27: 
+#   Brand: Leukoplast skin sensitive
+# exampleInput28: 
+#   Brand: Leukopor
+# exampleInput29: 
+#   Brand: Leukosan
+# exampleInput30: 
+#   Brand: Leukosilk
+# exampleInput31: 
+#   Brand: Leukotape
+# exampleInput32: 
+#   Brand: Libero
+# exampleInput33: 
+#   Brand: Libresse
+# exampleInput34: 
+#   Brand: Lotus
+# exampleInput35: 
+#   Brand: Moltex
+# exampleInput36: 
+#   Brand: Opaque
+# exampleInput37: 
+#   Brand: Pampers
+# exampleInput38: 
+#   Brand: Sleek LF
+# exampleInput39: 
+#   Brand: Soft
+# exampleInput40: 
+#   Brand: Soft White
+# exampleInput41: 
+#   Brand: Strong
+# exampleInput42: 
+#   Brand: Tena
+# exampleInput43: 
+#   Brand: Tena Lady
+# exampleInput44: 
+#   Brand: Travel Socks
+# exampleInput45: 
+#   Brand: Universal
+# exampleInput46: 
+#   Brand: Veltie
+# exampleInput47: 
+#   Brand: Water proof
+# exampleInput48: 
+#   Brand: Änglamark
+# exampleInput1:
+#   URL: https://butik.mad.coop.dk/kiosk/chokolade/moerk-chokolade/irmas-oekologisk-moerk-chokolade-p-5700384274480
+# exampleInput2:
+#   URL: https://butik.mad.coop.dk/baby-og-boern/babymad-og-modermaelkserstatning/middagsretter-og-mos/fejoe-aeblemos-p-5700002092700
+# exampleInput3:
+#   URL: https://butik.mad.coop.dk/drikkevarer/kaffe/kapsler-og-puder/oensk-corcasan-lungo-kapsel-p-5700002154712
+# exampleInput4:
+#   URL: https://butik.mad.coop.dk/drikkevarer/oel-og-cider/cider/blid-jordbaer-p-5700002108906
+# exampleInput5:
+#   URL: https://butik.mad.coop.dk/kolonial/morgenmad-og-mellemmaltid/frugtbarer-og-staenger/cocohagen-cocoa-orange-aeske-med-5-stk-p-5700002016478
+# exampleInput6:
+#   URL: https://butik.mad.coop.dk/husholdning/koekkenrulle-og-toiletpapir/toiletpapir/irmas-tusindfryd-toiletpapir-p-5700384289095
+# exampleInput7:
+#   URL: https://butik.mad.coop.dk/kiosk/chokolade/moerk-chokolade/irmas-oekologisk-moerk-orange-p-5700380550953
+# exampleInput8:
+#   URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/kal/soeris-oekologisk-palmekal-p-5700380796726
+# exampleInput9:
+#   URL: https://butik.mad.coop.dk/kolonial/konserves-og-glas/oliven/irmas-oekologiske-groenne-oliven-p-5700381026778
+# exampleInput10:
+#   URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/graeskar-og-aubergine/anglamark-oekologisk-aubergine-p-5700381039631
+# exampleInput11:
+#   URL: https://butik.mad.coop.dk/baby-og-boern/plejeprodukter/vadservietter-og-vaskeklude/coop-365-baby-vadservietter-p-7340011498025
+# exampleInput12:
+#   URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/beder/soeris-blandede-beder-p-5700381534129
+# exampleInput13:
+#   URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/hamburgerryg-og-flaeskesteg/irmas-oekologisk-kamsteg-p-5700381540397
+# exampleInput14:
+#   URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/guleroedder/coop-rodfrugter-p-5700381547785
+# exampleInput15:
+#   URL: https://butik.mad.coop.dk/kolonial/saucer-og-bouillon/klassisk-sauce-og-saucemix/coop-365-bechamelsauce-p-5700381929215
+# exampleInput16:
+#   URL: https://butik.mad.coop.dk/drikkevarer/kaffe/malede-boenner/coop-365-formalet-kaffe-p-5700381953784
+# exampleInput17:
+#   URL: https://butik.mad.coop.dk/frugt-og-groent/frugt-og-baer/vindruer/coop-groenne-vindruer-p-5700381965305
+# exampleInput18:
+#   URL: https://butik.mad.coop.dk/frugt-og-groent/groentsager/graeskar-og-aubergine/anglamark-oekologisk-butternut-p-5700382000265
+# exampleInput19:
+#   URL: https://butik.mad.coop.dk/palaeg/koedpalaeg/poelser-og-salami/irmas-oekologisk-salami-p-5700382008179
+# exampleInput20:
+#   URL: https://butik.mad.coop.dk/kolonial/morgenmad-og-mellemmaltid/frugtbarer-og-staenger/coop-365-frugtstaenger-med-figen-p-5700382060535
+# exampleInput21:
+#   URL: https://mad.coop.dk/pleje/haar-og-kropspleje/shampoo/shampoo-7340011315230
+# exampleInput22:
+#   URL: https://mad.coop.dk/pleje/haar-og-kropspleje/shampoo/shampoo-7340011315261
+# exampleInput23:
+#   URL: https://mad.coop.dk/pleje/haar-og-kropspleje/shampoo/shampoo-7340011315292
+# exampleInput24:
+#   URL: https://mad.coop.dk/pleje/haar-og-kropspleje/balsam-og-haarkur/conditioner-7340011315315
+# exampleInput25:
+#   URL: https://mad.coop.dk/pleje/haar-og-kropspleje/bodylotion-og-haandcreme/body-lotion-7340011315513
+# exampleInput26:
+#   URL: https://mad.coop.dk/pleje/haar-og-kropspleje/bodylotion-og-haandcreme/body-lotion-7340011315544
+# exampleInput27:
+#   URL: https://mad.coop.dk/pleje/haar-og-kropspleje/deodorant/deo-roll-on-7340011315599
+# exampleInput28:
+#   URL: https://mad.coop.dk/pleje/haar-og-kropspleje/haandsaebe/saebe-7340011315629
+# exampleInput29:
+#   URL: https://mad.coop.dk/kolonial/olie-og-eddike/olivenolie/italiensk-ekstra-jomfru-olivenolie-7340011315735
+# exampleInput30:
+#   URL: https://mad.coop.dk/kolonial/saucer-og-bouillon/marinade-glace-og-citronsaft/citronjuice-7340011315759
+# exampleInput31:
+#   URL: https://mad.coop.dk/frost/frugt-og-groent/oevrige-groentsager/aerter-7340011315797
+# exampleInput32:
+#   URL: https://mad.coop.dk/frost/frugt-og-groent/oevrige-groentsager/boenner-7340011315803
+# exampleInput33:
+#   URL: https://mad.coop.dk/frost/frugt-og-groent/oevrige-groentsager/majs-7340011315858
+# exampleInput34:
+#   URL: https://mad.coop.dk/pleje/haar-og-kropspleje/ansigtspleje/skin-tonic-7340011316039
+# exampleInput35:
+#   URL: https://mad.coop.dk/pleje/haar-og-kropspleje/haarstyling/hair-wax-7340011316053
+# exampleInput36:
+#   URL: https://mad.coop.dk/pleje/haar-og-kropspleje/haarstyling/haarspray-7340011316060
+# exampleInput37:
+#   URL: https://mad.coop.dk/kolonial/morgenmad-og-mellemmaaltid/cornflakes/cornflakes-7340011316411
+# exampleInput38:
+#   URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/toerret-pasta/fusilli-fuldkornspasta-7340011316633
+# exampleInput39:
+#   URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/toerret-pasta/fuldkornspenne-pasta-7340011316640
+# exampleInput40:
+#   URL: https://mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/grissini-og-crostini/grissini-7340011316831
+# exampleInput41:
+#   URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/ris/basmatiris-7340011317203
+# exampleInput42:
+#   URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/ris/jasminris-7340011317210
+# exampleInput43:
+#   URL: https://mad.coop.dk/mejeri/surmaelksprodukter/creme-fraiche-og-fraiche/creme-fraiche-7340011317470
+# exampleInput44:
+#   URL: https://mad.coop.dk/husholdning/rengoering-og-rens/opvaskemidler/all-in-1-opvasketabs-7340011317500
+# exampleInput45:
+#   URL: https://mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/sesamfroe-7340011320722
+# exampleInput46:
+#   URL: https://mad.coop.dk/frost/broed/flutes/minibaguetter-7340011320258
+# exampleInput47:
+#   URL: https://mad.coop.dk/mejeri/ost/madlavningsoste/revet-mozzarella-7340011320647
+# exampleInput48:
+#   URL: https://mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/hoerfroe-7340011320715
+# exampleInput49:
+#   URL: https://mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/oekologiske-solsikkekerner-7340011320739
+# exampleInput50:
+#   URL: https://mad.coop.dk/kolonial/bagning/froe-kerner-og-noedder/graeskarkerner-7340011320746
+# exampleInput51:
+#   URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/lasagneplader/lasagneplader-7340011346159
+# exampleInput52:
+#   URL: https://mad.coop.dk/kolonial/bagning/special-mel/majsmel-7340011320777
+# exampleInput53:
+#   URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/quinoa-couscous-og-bulgur/kikaerter-7340011320784
+# exampleInput54:
+#   URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/quinoa-couscous-og-bulgur/hirseflager-7340011320791
+# exampleInput55:
+#   URL: https://mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/tranebaer/tranebaer-7340011321170
+# exampleInput56:
+#   URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/quinoa-couscous-og-bulgur/bulgur-7340011321750
+# exampleInput57:
+#   URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/quinoa-couscous-og-bulgur/couscous-7340011321767
+# exampleInput58:
+#   URL: https://mad.coop.dk/broed-og-kager/cookies-og-smaakager/cookies/mini-cookies-7340011321903
+# exampleInput59:
+#   URL: https://mad.coop.dk/drikkevarer/kaffe/instant-kaffe/instant-decaf-7340011337140
+# exampleInput60:
+#   URL: https://mad.coop.dk/drikkevarer/kaffe/instant-kaffe/instant-espresso-7340011337157
+# exampleInput61:
+#   URL: https://mad.coop.dk/frost/middagsretter/middagsretter/middagskoedboller-7340011345121
+# exampleInput62:
+#   URL: https://mad.coop.dk/kolonial/mexicansk/salsa-og-sauce/chunky-salsa-7340011345275
+# exampleInput63:
+#   URL: https://mad.coop.dk/drikkevarer/vand-og-sodavand/cola/cola-classic-7340011345428
+# exampleInput64:
+#   URL: https://mad.coop.dk/drikkevarer/vand-og-sodavand/cola/cola-light-7340011345435
+# exampleInput65:
+#   URL: https://mad.coop.dk/drikkevarer/vand-og-sodavand/appelsin/orange-7340011345442
+# exampleInput66:
+#   URL: https://mad.coop.dk/drikkevarer/vand-og-sodavand/sportsvand/spirit-7340011345459
+# exampleInput67:
+#   URL: https://mad.coop.dk/kolonial/marmelade-m-m/gele/ribsgele-7340011345671
+# exampleInput68:
+#   URL: https://mad.coop.dk/frost/frugt-og-groent/frugt-og-baer/blaabaer-7340011345855
+# exampleInput69:
+#   URL: https://mad.coop.dk/kolonial/konserves-og-glas/konserveret-frugt-og-groent/kartofler-7340011345985
+# exampleInput70:
+#   URL: https://mad.coop.dk/kiosk/chips-og-snacks/snacknoedder/cashewnoedder-7340011346036
+# exampleInput71:
+#   URL: https://mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/grissini-og-crostini/grissini-7340011350019
+# exampleInput72:
+#   URL: https://mad.coop.dk/broed-og-kager/knaekbroed-og-madbroed/grissini-og-crostini/grissini-med-sesamfroe-7340011350033
+# exampleInput73:
+#   URL: https://mad.coop.dk/kolonial/saucer-og-bouillon/tomatsauce/toscana-7340011350576
+# exampleInput74:
+#   URL: https://mad.coop.dk/kolonial/saucer-og-bouillon/tomatsauce/basilicata-7340011350583
+# exampleInput75:
+#   URL: https://mad.coop.dk/kolonial/bagning/klassisk-mel/groft-rugmel-7340011350651
+# exampleInput76:
+#   URL: https://mad.coop.dk/kolonial/saucer-og-bouillon/tomatsauce/sugo-della-casa-7340011350668
+# exampleInput77:
+#   URL: https://mad.coop.dk/kolonial/olie-og-eddike/smagsneutral-olie/rapsolie-7340011350811
+# exampleInput78:
+#   URL: https://mad.coop.dk/frugt-og-groent/toerret-frugt-og-groent/rosiner/rosiner-7340011350965
+# exampleInput79:
+#   URL: https://mad.coop.dk/kolonial/bagning/klassisk-mel/sigtemel-7340011350996
+# exampleInput80:
+#   URL: https://mad.coop.dk/kolonial/konserves-og-glas/konserveret-frugt-og-groent/ananas-i-stykker-7340011351016
+# exampleInput81:
+#   URL: https://mad.coop.dk/kolonial/konserves-og-glas/majs/majs-7340011351061
+# exampleInput82:
+#   URL: https://mad.coop.dk/kolonial/konserves-og-glas/majs/loese-majs-7340011351085
+# exampleInput83:
+#   URL: https://mad.coop.dk/kolonial/konserves-og-glas/artiskok-hvidloeg-og-kapers/slikasparges-7340011351108
+# exampleInput84:
+#   URL: https://mad.coop.dk/kolonial/konserves-og-glas/konserveret-frugt-og-groent/ananas-7340011351177
+# exampleInput85:
+#   URL: https://mad.coop.dk/kiosk/chips-og-snacks/popcorn/popcorn-7340011351399
+# exampleInput86:
+#   URL: https://mad.coop.dk/kolonial/konserves-og-glas/konserveret-frugt-og-groent/mandarin-7340011351528
+# exampleInput87:
+#   URL: https://mad.coop.dk/kolonial/konserves-og-glas/konserveret-frugt-og-groent/paerer-7340011351559
+# exampleInput88:
+#   URL: https://mad.coop.dk/kolonial/bagning/klassisk-mel/grahamsmel-7340011351696
+# exampleInput89:
+#   URL: https://mad.coop.dk/kolonial/konserves-og-glas/konserveret-frugt-og-groent/ferskner-7340011351870
+# exampleInput90:
+#   URL: https://mad.coop.dk/kolonial/konserves-og-glas/konserveret-frugt-og-groent/frugtcocktail-7340011351887
+# exampleInput91:
+#   URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/ris/jasminris-7340011352198
+# exampleInput92:
+#   URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/ris/parboiled-7340011352228
+# exampleInput93:
+#   URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/ris/parboiled-og-vilde-ris-7340011352259
+# exampleInput94:
+#   URL: https://mad.coop.dk/kolonial/konserves-og-glas/majs/minimajs-7340011352280
+# exampleInput95:
+#   URL: https://mad.coop.dk/kolonial/morgenmad-og-mellemmaaltid/groed/groedris-7340011352303
+# exampleInput96:
+#   URL: https://mad.coop.dk/kolonial/asiatisk/tilbehoer/bambusskud-7340011352310
+# exampleInput97:
+#   URL: https://mad.coop.dk/kolonial/ris-pasta-og-baelgfrugter/ris/basmatiris-7340011352327
+# exampleInput98:
+#   URL: https://mad.coop.dk/kolonial/saucer-og-bouillon/tomatsauce/sicily-7340011352518
+# exampleInput99:
+#   URL: https://mad.coop.dk/kolonial/bagning/klassisk-mel/fuldkornshvedemel-7340011352549
+# exampleInput100:
+#   URL: https://mad.coop.dk/kolonial/konserves-og-glas/artiskok-hvidloeg-og-kapers/asparges-7340011352754
