@@ -8,9 +8,9 @@ fields:
     description: URL of the main product image
     xpath: //meta[@property='og:image']//@content
   - name: imageAlt
-    singleValue: true
+    # singleValue: true
     description: Alt text of the main product image
-    xpath: //div[contains(@class,'main-image')]//div[contains(@class,'image-container')]//img//@alt
+    xpath: (//div[contains(@class,'main-image')]//div[contains(@class,'image-container')]//img//@alt)[1]
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
@@ -33,7 +33,7 @@ fields:
     description: The stated undiscounted price for the product
     xpath: //div[contains(@class,'top-info')]//div[contains(@class,'top-info__price')]//div[contains(@class,"price--was")]//span[contains(@class,'price--strike')]
   - name: price
-    singleValue: true
+    # singleValue: true
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: //div[contains(@class,'top-info')]//div[contains(@class,'top-info__price')]//div[contains(@class,"price--sell-price")]//div[contains(@class,'price--price-parts')]
@@ -69,7 +69,7 @@ fields:
     regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
     regExpReplace: $1$2$3$4
   - name: weightNet
-    singleValue: true
+    # singleValue: true
     description: Net weight as described on the page
     xpath: //section[contains(@class,'product-description')]//li[contains(text(),'Weight')]
   - name: weightGross
@@ -80,12 +80,11 @@ fields:
   #  xpath: //div[contains(@class,'aside-container')]//input[@name='product_id']/@value
   #  description: GTIN code (includes UPC/EAN)
   - name: sku
-    singleValue: true
     description: The store-specific product identifier
     xpath: //script[contains(text(),"sku_id")]
-    regExp: (\"sku_id".\S[^,]*)
+    regExp: (\"sku_id".\S([^,]*)")
+    regExpReplace: $2
   - name: variantId
-    singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //div[contains(@class,'aside-container')]//input[@name='product_id']/@value
   - name: mpc
@@ -94,7 +93,7 @@ fields:
     #xpath: //div[contains(@class,'description-block')]/ul/li[contains(text(),'Model')]
     # xpath: //div[contains(@class,'aside-container')]//input[@name='product_id']/@value
   - name: packSize
-    singleValue: true
+    # singleValue: true
     description:
       The number of packs in the product offer (if stated separately on
       the site to quantity)
@@ -121,12 +120,12 @@ fields:
     singleValue: true
     description: The stated aggregate rating
   - name: aggregateRating
-    singleValue: true
+    # singleValue: true
     xpath: //div[@class='review reviews-statistics']/p[@class='review-average-rating']
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
   - name: shippingInfo
-    singleValue: true
+    # singleValue: true
     xpath: //div[contains(@class,'list-info__details')]//div[@class='seller-info']//div[@class='seller-info__description']
   - name: shippingDimensions
     singleValue: true
@@ -142,7 +141,7 @@ fields:
     defaultValue: 0
     #xpath: count(//section[contains(@class,'for-product')]//div[contains(@class,'container')]//div[contains(@class,'grid-row')]//div[contains(@class,'product--card')])
   - name: color
-    singleValue: true
+    # singleValue: true
     description: A textual description of the colour
     # xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Colour')]
     xpath: //section[contains(@class,'product-description')]//ul/li[contains(text(),'Colour')]
@@ -428,20 +427,20 @@ fields:
     singleValue: true
     description: null
   - name: specifications
-    singleValue: false
+    # singleValue: false
     description: The physical dimensions of the product including packaging.
     #xpath: //div[contains(@class,'description-block')]//ul[text()]
     #xpath: //*[contains(text(),'Specifications')]/following::ul[1]//li//text()
     xpath: //div[@id="specifications"]//ul//li
   - name: warranty
-    singleValue: true
+    # singleValue: true
     description: Guarantee associated with the product
     xpath: //div[contains(@class,'description-block')]//ul//*[contains(text(),'WARRANTY')] | //div[contains(@class,'description-block')]//ul//*[contains(text(),'Guarantee')]
   - name: storage
     singleValue: true
     description: Suggested storage location for product
   - name: countryOfOrigin
-    singleValue: true
+    # singleValue: true
     description: The country from which the product originates
     xpath: //section[contains(@class,'product-description')]/div[contains(@class,'description-block')]/ul[contains(@id,'sublist')]/li[contains(text(),'Country of origin')]
   - name: allergyAdvice
