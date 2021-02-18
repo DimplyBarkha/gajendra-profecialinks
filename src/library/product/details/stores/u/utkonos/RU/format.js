@@ -45,11 +45,11 @@ const transform = (data) => {
                 item.text = item.text + ".o";
               });          
             }
-            if (row.price) {                    
-              row.price.forEach(item => {
-                item.text = item.text.replace(',', '.').trim();
-              });
-            }
+            // if (row.price) {                    
+            //   row.price.forEach(item => {
+            //     item.text = item.text.replace(',', '.').trim();
+            //   });
+            // }
             if (row.listPrice) {                    
               row.listPrice.forEach(item => {
                 item.text = item.text.replace(',', '.').trim();
@@ -96,8 +96,9 @@ const transform = (data) => {
                   item.text = item.text.substr(item.text.indexOf(" белки"));
                   item.text = item.text.replace(" белки ", "");
                 }
-                item.text = item.text.substr(0, item.text.indexOf(", жир"));
+                item.text = item.text.substr(0, 4);
                 item.text = item.text.replace(/[^\d-,]/g, "");
+                item.text = item.text.replace(/[^\d.,]/g, "");
               });
             }
             if (row.ingredientsList) {                    
