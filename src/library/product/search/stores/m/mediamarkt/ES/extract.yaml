@@ -40,7 +40,10 @@ fields:
     description: The position (rank) within the list excluding sponsored/paid results
   - name: id
     singleValue: false
-    xpath: //div[contains(@class,'product-wrapper')]/@data-modelnumber
+    # xpath: //div[contains(@class,'product-wrapper')]/@data-modelnumber
+    xpath: //a/@href
+    regExp: (\d+)(.html)
+    regExpReplace: $1
     description: Unique id (within this extractor)
   - name: aggregateRating2
     singleValue: false
