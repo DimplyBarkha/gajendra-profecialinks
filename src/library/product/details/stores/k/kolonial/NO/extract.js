@@ -24,9 +24,6 @@ module.exports = {
         else result = elem ? elem.singleNodeValue : '';
         return result && result.trim ? result.trim() : result;
       };
-      const size = getXpath('//span[@class="name-extra"]//text()','nodeValue');
-      var size1=size.split(",")
-      addElementToDocument('size',size1[size1.length-1]);
       const price2 = getXpath('//div[@class="unit-price"]//text()','nodeValue');
      var priceing= price2.split(" ");
      addElementToDocument('priceperunit',priceing[0]+" "+priceing[1]);
