@@ -8,7 +8,48 @@ module.exports = {
     domain: 'filshill.co.uk',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+  implementation: async ( inputs , { country, domain, transform: transformParam }, context, { productDetails }) => {
+    const productUrl = await context.evaluate(async (inputs) => {
+      const getXpath = (xpath, prop) => {
+        const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+        let result;
+        if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+        else result = elem ? elem.singleNodeValue : '';
+        return result && result.trim ? result.trim() : result;
+      };
+
+      function addElementToDocument (key, value) {
+        const catElement = document.createElement('div');
+        catElement.id = key;
+        catElement.textContent = value;
+        catElement.style.display = 'none';
+        document.body.appendChild(catElement);
+      }
+
+      const availabilityTextValue = getXpath("//div[@id='ProdGridBlock']/table/tbody/tr/td/div[contains(text(),'"+inputs.id+"')]/preceding-sibling::div", 'nodeValue');
+      console.log('inputId2',inputs.id);
+      if(availabilityTextValue == 'In Stock'){
+        addElementToDocument('availability_added','In Stock');
+      } else {
+        addElementToDocument('availability_added','Out of Stock');
+      }
+        addElementToDocument('product_url','https://sales.filshill.co.uk/products/ProdDetails.asp?product_code='+inputs.id+'&list=undefined');
+      return 'https://sales.filshill.co.uk/products/ProdDetails.asp?product_code='+inputs.id+'&list=undefined';
+    },inputs);
+
+    console.log(productUrl);
+    try {
+      await context.goto(productUrl);
+    } catch (error) {
+      console.log('No record');
+    }
+    async function loadResources () {
+      await context.setAntiFingerprint(false);
+      await context.setLoadAllResources(true);
+      await context.setBlockAds(false);
+    }
+    await loadResources();
+   
     await context.evaluate(async function () {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -43,8 +84,6 @@ module.exports = {
         }
         return result;
       };
-
-      addElementToDocument('product_url',window.location.href);
 
       const saturatedUOM = getXpath("//table[@class='detailsTable']/tbody/tr/td/table/tbody/tr/td[contains(.,'saturates')]/following-sibling::td[1]",'innerText');
       console.log("saturatedfatuom: ", saturatedUOM);
