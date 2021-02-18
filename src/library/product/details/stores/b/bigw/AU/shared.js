@@ -26,6 +26,9 @@ const transform = (data) => {
             } catch (exception) {
                 console.log('Error in transform', exception);
             }
+            if(row.manufacturerImages){
+
+            }
         }
     }
 

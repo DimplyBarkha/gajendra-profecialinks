@@ -144,10 +144,10 @@ fields:
   - name: manufacturerImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[contains(@class,'inpage_ftgridimg')]/img/@srcset
+    xpath: //div[contains(@class,'inpage_ftgridimg')]/img/@data-flixsrcset
     #xpath:  | //ul[contains(@class,'inpage_features_grid')]//li//div[contains(@class,'inpage_ftgridimg')]/img/@srcset
-    #regExp: (.+)
-    #regExpReplace: https://bigw.com.au$1
+    #regExp: (.+?)\s+.*
+    #regExpReplace: https:$1
   # - name: upc
   #  singleValue: true
   #  xpath: //ul[contains(@class,'unstyled dividedList')]//li//div[contains(.,'Model Number:')]/following-sibling::div
