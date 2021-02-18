@@ -167,13 +167,6 @@ const transform = (data) => {
 					row.videos = row.videoFromEnhancedContent;
 				}
 			}
-			if (row.image && row.alternateImages) {
-				row.alternateImages.forEach((element, index) => {
-					if (element.text == row.image[0].text) {
-						row.alternateImages.splice(index, index + 1);
-					}
-				});
-			}
 		}
 	}
 
