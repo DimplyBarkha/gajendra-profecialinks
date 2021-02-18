@@ -65,18 +65,18 @@ fields:
     singleValue: false
     description: The stated undiscounted price for the product
     # type: CURRENCY
-    xpath: (ancestor::html//span[@class="price-standard"])[1]/text() | ancestor::html//span[@class="price-sales price-sales-standard"]/span/text()
+    xpath: //a/@ii_old_price
   - name: price
     singleValue: false
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
-    xpath: (ancestor::html//div[@class="product-price  st-price "]/span/span)[1]/text() | (ancestor::html//span[@class="price-sales "]/span/text())[1]
+    xpath: //div[@itemprop="offers"]//meta[@itemprop="price"]/@content
   - name: availabilityText
     singleValue: false
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: ancestor::html//span[contains(@class,'availability-status')]
+    xpath: //div[@itemprop="offers"]//meta[@itemprop="availability"]/@content[contains(.,'InStock')]
     regExp: (.*)
     regExpReplace: In Stock
     defaultValue: Out of Stock
@@ -90,7 +90,7 @@ fields:
     singleValue: false
   - name: ingredientsList
     singleValue: false
-    xpath: ancestor::html//div[@class="tabs-panel"][contains(text(),'INGREDIENTS')] | ancestor::html//div[contains(@class,"tabs-panel")][contains(., "d'ingrédients")]
+    xpath: ancestor::html//div[@class="tabs-panel"][contains(text(),'INGREDIENTS')] | ancestor::html//div[contains(@class,"tabs-panel")][contains(., "d'ingrédients") or contains(., "may contain:") or contains(., "ingrédients")]
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -104,7 +104,7 @@ fields:
   - name: descriptionBullets
     singleValue: false
     description: Number of ul > li tags in the description
-    xpath: count(ancestor::html//div[contains(@class, "product-description-box")]/ancestor::div[@class="tabs-panel is-active"]//li|ancestor::html//div[contains(@class, "product-description-box")]/ancestor::div[@class="tabs-panel is-active"]//text()[contains(., "-")])
+    xpath: count( //div[contains(@class, "product-description-box")]/ancestor::div[@class="tabs-panel is-active"]//li | //div[contains(@class, "product-description-box")]/ancestor::div[@class="tabs-panel is-active"]//text()[contains(., "- ")])
     type: NUMBER
   - name: brandText
     singleValue: false
