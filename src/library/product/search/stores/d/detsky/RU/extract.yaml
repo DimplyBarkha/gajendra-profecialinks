@@ -1,0 +1,118 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: paid
+    singleValue: true
+    description: Whether this is a sponsored/paid result
+    type: BOOLEAN
+  - name: brand
+    singleValue: true
+    description: The brand name
+    example: Panasonic
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
+  - name: productUrl
+    singleValue: true
+    description: The URL for the product details page
+    # xpath: //main/div/div/div/div/div/div/div/div/div/a/@href
+    xpath: //div[@id="prodUrl"]
+  - name: thumbnail
+    singleValue: true
+    description: The URL for the product thumbnail image
+    # xpath: //*[@id="app-container"]/div[2]/div[1]/main/div/div[2]/div[1]/div[4]/div/div/div/div/div[1]/a/div/div[1]/div[1]/div/div/div/img/@src
+    xpath: //div[@id="prodThumbnail"]
+  - name: name
+    singleValue: true
+    description: The product name
+    # xpath: //*[@id="app-container"]/div[2]/div[1]/main/div/div[2]/div[1]/div[4]/div/div/div/div/div[1]/a/div/div[1]/div[2]/p/text()
+    xpath: //div[@id="prodName"]
+  - name: sku
+    singleValue: true
+    description: The store-specific product identifier
+  - name: mpc
+    singleValue: true
+    description: The model code of the product
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: aggregateRatingText
+    singleValue: true
+    description: The stated aggregate rating
+    # xpath: //div[@id="prodRating"]
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    # xpath: //div[@id="prodRating"]
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+    # xpath: //*[@id="app-container"]/div[2]/div[1]/main/div/div[2]/div[1]/div[4]/div/div/div/div/div[1]/a/div/div[1]/div[2]/div/div[2]/span
+    xpath: //div[@id="prodReview"]
+  - name: price
+    singleValue: false
+    description: The offered price for the product
+    # xpath: //*[@id="app-container"]/div[2]/div[1]/main/div/div[2]/div[1]/div[4]/div/div/div/div/div[1]/a/div/div[2]/div/p[1]
+    xpath: //div[@id='prodPrice']
+    #xpath: //div[@class='fP']/div/div/a/div/div/div[2]/div/p[1]
+    regExp: (\d+)(\.?)(\d+)?
+    regExpReplace: $1,$3
+  - name: listPrice
+    singleValue: true
+    description: The stated undiscounted price for the product
+    # xpath: //*[@id="app-container"]/div[2]/div[1]/main/div/div[2]/div[1]/div[4]/div/div/div/div/div[1]/a/div/div[2]/div/p[2]/span
+    #xpath: //div[@id="prodListP"]
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer
+  - name: soldBy
+    singleValue: true
+    description: The name of the seller of the item (if available)
+  - name: endorsementText
+    singleValue: true
+    description: The text that signifies that a product is endorsed
+  - name: shippingInfo
+    singleValue: true
+    description: Shipping information for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+    type: NUMBER    
+    # xpath: //div[@id="prodRank"]
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER 
+    # xpath: //div[@id="prodRank"]
+  - name: sponsored
+    singleValue: true
+    description: Is sponsored/paid
+    type: BOOLEAN    
+
+#  Should these be source specific formulas or in the extractor? 
+  - name: id
+    singleValue: false
+    description: Unique id (within this extractor)
+    xpath: //div[@id="pid"]
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+    xpath: //div[@id="prodName"]
+  - name: aggregateRating
+    singleValue: true
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: aggregateRating2
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@id="prodRating"]
+    regExp: (\d+)(\.)(\d+)
+    regExpReplace: $1,$3
+  - name: searchUrl
+    singleValue: false
+    xpath: //div[@id="search-url"]
+    # regExp: (^[^#]*)
+    # regExpReplace: $1
