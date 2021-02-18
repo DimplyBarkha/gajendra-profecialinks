@@ -9,3 +9,6 @@ fields:
     regExp: (/.*)
     regExpReplace: https://www.marionnaud.fr$1
     description: variant Url
+  - name: variantId
+    singleValue: false
+    xpath: //div[@id="productVariantDisplay"]/div/a/@data-code | //div[@id="buttonClickshow"]/ul/li/a/@data-code
