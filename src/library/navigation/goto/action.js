@@ -46,7 +46,8 @@ module.exports = {
 
     // patch for synchronicity issue between json decoring and goto result
     if (url.split('[!opt!]')[1] && url.split('[!opt!]')[1].includes('"type":"json"')) {
-      await new Promise((resolve) => setTimeout(resolve, 5000));
+      console.log('Wait for handling synchronicity issue');
+      await new Promise((resolve) => setTimeout(resolve, 8000));
     }
 
     console.log(`zipcode: ${zipcode}`);
