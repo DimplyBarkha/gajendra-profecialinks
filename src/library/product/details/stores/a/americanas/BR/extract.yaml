@@ -23,7 +23,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[contains(@class,'product-info__ProductInfoContainer')]//div[contains(@class,'src__ThumbContainer')]//picture[contains(@class,'src__Picture')]//img/@src)[position()>1]
+    xpath: //div[@id='secondaryImg']
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -72,11 +72,12 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: //table[contains(@class,'src__SpecsCell')]//*[contains(text(),'Peso')]//following-sibling::*
-    regExp: \d+\,?\.?\d*\s?\w*
+    xpath: //table[contains(@class,'src__SpecsCell')]//*[contains(text(),'Polegadas')]//following-sibling::*
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
+    xpath: //table[contains(@class,'src__SpecsCell')]//*[contains(text(),'Peso')]//following-sibling::*
+    regExp: \d+\,?\.?\d*\s?\w*
   - name: weightGross
     singleValue: true
     description: Gross weight as described on the page
@@ -87,7 +88,7 @@ fields:
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //table[contains(@class,'src__SpecsCell')]//*[contains(text(),'Referência d')]//following-sibling::*
+    xpath: //div[@id='sku']
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same
@@ -126,7 +127,7 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //a[contains(@class,'sold-and-delivered')]//font/text()|//a[contains(@class,'sold-and-delivered')]
+    xpath: //a[contains(@class,'sold-and-delivered')]//font/text()|//a[contains(@class,'sold-and-delivered')] | //div[contains(@class,'offers-box__Wrapper')]/p[contains(text(),'vendido')]//strong
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -137,11 +138,11 @@ fields:
   - name: variantCount
     singleValue: true
     description: Number of variants listed
-    xpath: //div[@id="variantCount"]
+    defaultValue: '0'
   - name: color
     singleValue: true
     description: A textual description of the colour
-    xpath: //div[@id="color"]
+    xpath: //table[contains(@class,'src__SpecsCell')]//*[text()='Cor']//following-sibling::* 
   - name: colorCode
     singleValue: true
     description: A code description of the color (e.g. RGB hex)
@@ -174,7 +175,6 @@ fields:
   - name: coupon
     singleValue: true
     description: Text of any coupon offer
-    xpath: //div[contains(@class,'src__ListPriceWrapper')]//div[contains(@class,'src__Badge')]
   - name: amazonChoice
     singleValue: true
     description: YES or Blank
@@ -256,7 +256,8 @@ fields:
   - name: secondaryImageTotal
     singleValue: true
     description:
-    xpath: count((//div[contains(@class,'product-info__ProductInfoContainer')]//div[contains(@class,'src__ThumbContainer')]//picture[contains(@class,'src__Picture')]//img/@src)[position()>1])
+    xpath: //div[@id='secondaryImgCount']
+    defaultValue: '0'
   - name: news
     singleValue: true
     description:
@@ -406,6 +407,7 @@ fields:
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
+    xpath: //table[contains(@class,'src__SpecsCell')]//*[contains(text(),'Garantia')]//following-sibling::*
   - name: storage
     singleValue: true
     description: Suggested storage location for product
@@ -436,6 +438,7 @@ fields:
   - name: promotion
     singleValue: true
     description: promotion text on product page
+    xpath: //div[contains(@class,'src__ListPriceWrapper')]//div[contains(@class,'src__Badge')]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -510,4 +513,4 @@ fields:
     singleValue: true
     description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: false
+    defaultValue: true

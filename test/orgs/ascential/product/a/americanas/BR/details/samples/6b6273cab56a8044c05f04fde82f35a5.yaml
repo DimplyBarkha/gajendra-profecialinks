@@ -2,12 +2,12 @@ input:
   id: 134444782
   _url: http://americanas.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6777a4c4-8c89-47c0-b079-c45a567dc6eb/task=df9f9cca-8d74-44c7-bbd7-c64cb70a8396/c4b1248b-ef5e-4d68-9885-2aeeb4b20764.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ebdb3f2e-916d-4ed6-8f20-96961e60ece1/task=764a14e4-1fad-489c-a236-d4748f6c733e/a4a17e46-4a40-4ae5-ba89-51d2bba52b05.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
           - ratingCount:
-              - text: "655"
+              - text: "660"
                 xpath: /html/body/div[1]/div[1]/script[1]
             category:
               - text: TV e Home Theater
@@ -19,30 +19,20 @@ extractions:
             image:
               - text: https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_1GG.jpg
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            alternateImages:
-              - text: https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_2GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
-              - text: https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_3GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/picture[1]/img[1]/@src
-              - text: https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_4GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/picture[1]/img[1]/@src
             nameExtended:
               - text: Smart TV Led 32" LG HD Thinq AI Conversor Digital Integrado 3 HDMI 2 USB
                   Wi-Fi - Preta
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
-            listPrice:
-              - text: R$ 1.399,99
-                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/span[1]
             price:
-              - text: R$ 1.259,99
-                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
+              - text: R$ 1.299,99
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+            shippingInfo:
+              - text: Americanas
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[4]/p[1]/strong[1]
             name:
               - text: Smart TV Led 32" LG HD Thinq AI Conversor Digital Integrado 3 HDMI 2 USB
                   Wi-Fi - Preta
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
-            coupon:
-              - text: 10%
-                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
             description:
               - text: >-
                   Todas as informações divulgadas são de responsabilidade do
@@ -52,36 +42,127 @@ extractions:
 
                   Imagens Meramente Ilustrativas.
                 xpath: /html/body/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/div[1]
-            brandText:
-              - text: LG
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[3]/td[2]
-            quantity:
-              - text: 5kg
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[30]/td[2]
-            gtin:
-              - text: "7893299911507"
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[2]/td[2]
-            sku:
-              - text: 32LM625BPSB
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[31]/td[2]
             variantId:
               - text: "134444782"
                 xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]
-            mpc:
-              - text: 32LM625BPSB
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[31]/td[2]
+            gtin:
+              - text: "7893299911507"
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[2]/td[2]
+            brandText:
+              - text: LG
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[3]/td[2]
+            color:
+              - text: Preto
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[5]/td[2]
+            quantity:
+              - text: "32"
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[7]/td[2]
+            warranty:
+              - text: 12 Meses
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[28]/td[2]
             shippingDimensions:
               - text: 47,2x74,2x18cm
                 xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[29]/td[2]
+            weightNet:
+              - text: 5kg
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[30]/td[2]
+            mpc:
+              - text: 32LM625BPSB
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[31]/td[2]
+            productUrl:
+              - text: https://www.americanas.com.br/produto/134444782
+                xpath: /html/body/div[2]
+            sku:
+              - text: "134444791"
+                xpath: /html/body/div[3]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[3]
+                xpath: /html/body/div[4]
+            specifications:
+              - text: Código 134444782 Código de barras 7893299911507 Marca LG Tipo de TV Smart
+                  Cor Preto Tecnologia da Tela LED Polegadas 32 Resolução HD
+                  Taxa de Atualização 60Hz Taxa de atualização com Tecnologia
+                  60Hz Potência do Áudio (RMS) 10 Quantidade de entradas USB 2
+                  Local das entradas USB Traseira Quantidade de entradas HDMI 3
+                  Local das entradas HDMI Lateral Processador Core 2 Quad Outras
+                  Conexões Não informado Wi-Fi Sim Conversor Digital Integrado
+                  Sim PIP (Picture in Picture) Não Timer On/Off Sim Sleep timer
+                  Sim Closed Caption Sim Principais Aplicativos Não informado
+                  Consumo (Kw/h) 48 Conteúdo da Embalagem TV LG .Base e
+                  parafusos de fixação .Cabo de força (Padrão ABNT) .Organizador
+                  de Cabos .Manual do Usuário .Controle remoto .Pilhas AAA
+                  Certificado Isento Garantia do fornecedor 12 Meses Dimensões
+                  Aproximadas do Produto - cm (AxLxP) 47,2x74,2x18cm Peso Liq.
+                  Aproximado do Produto (Kg) 5kg Referência do modelo
+                  32LM625BPSB Fornecedor LG SAC 4004-5400 ou 0800 707-5454
+                xpath: /html/body/div[5]
+            secondaryImageTotal:
+              - text: "13"
+                xpath: /html/body/div[6]
+            alternateImages:
+              - text: https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_2GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_3GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_4GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_5GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_6GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_7GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_8GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_9GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_10GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_11GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_12GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_13GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img7/01/00/item/134444/7/134444782_14GG.jpg
+                xpath: /html/body/div[7]
             aggregateRating:
               - text: 4,4
-                xpath: /html/body/div[4]
+                xpath: /html/body/div[8]
+            manufacturerImages:
+              - text: https://statics-americanas.b2w.io/produtos/01/02/special/134444782/img/TV-HD-32-LM62-06-AI-Desktop.jpg
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/134444782/img/TV-HD-32-LM62-06-AI-Mobile.jpg
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/134444782/img/TV-HD-32-LM62-07-webOS-Smart-TV-Desktop.jpg
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/134444782/img/TV-HD-32-LM62-07-webOS-Smart-TV-Mobile_v.jpg
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/134444782/img/TV-HD-32-LM62-01-Dynamic-Color-Desktop.jpg
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/134444782/img/TV-HD-32-LM62-01-Dynamic-Color-Mobile_v.jpg
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/134444782/img/TV-HD-32-LM62-02-Quad-Core-Processor-Desktop.jpg
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/134444782/img/TV-HD-32-LM62-02-Quad-Core-Processor-Mobile_v.jpg
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/134444782/img/TV-HD-32-LM62-03-Active-HDR-Desktop.jpg
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/134444782/img/TV-HD-32-LM62-03-Active-HDR-Mobile.jpg
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/134444782/img/TV-HD-32-LM62-04-Virtual-Surround-Plus-Desktop.jpg
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/134444782/img/TV-HD-32-LM62-04-Virtual-Surround-Plus-Mobile.jpg
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/134444782/img/TV-HD-32-LM62-09-Design-Desktop_v.jpg
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/134444782/img/TV-HD-32-LM62-09-Design-Mobile_vv.jpg
+                xpath: /html/body/div[11]
+            variantCount:
+              - text: "0"
+            imageZoomFeaturePresent:
+              - text: true
             descriptionBullets:
               - text: "0"
-            secondaryImageTotal:
-              - text: "3"
         xpath: /html
-    timestamp: 1613499259432
+    timestamp: 1613651693441

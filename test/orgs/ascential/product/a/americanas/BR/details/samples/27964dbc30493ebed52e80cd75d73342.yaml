@@ -2,7 +2,7 @@ input:
   id: 134188002
   _url: http://americanas.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6777a4c4-8c89-47c0-b079-c45a567dc6eb/task=23348e5c-30d5-40cf-a6c3-c403d0f82788/adf2a5bd-a1a2-4fd8-ab52-803172bd83fb.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ebdb3f2e-916d-4ed6-8f20-96961e60ece1/task=333bb323-ae5f-447c-a6a8-3d5dea81acef/b42e3046-d068-4f24-adba-a709acafa750.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
@@ -17,19 +17,17 @@ extractions:
             image:
               - text: https://images-americanas.b2w.io/produtos/01/00/img/134188/0/134188011_1GG.jpg
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            alternateImages:
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/134188/0/134188011_2GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/134188/0/134188011_3GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/picture[1]/img[1]/@src
             nameExtended:
-              - text: Lavadora de Roupas Consul 9Kg CWB09 Branca - 220V
+              - text: Lavadora de Roupas Consul 9Kg Branca CWB09 110V
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
             price:
               - text: R$ 1.299,99
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+            shippingInfo:
+              - text: Americanas
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[4]/p[1]/strong[1]
             name:
-              - text: Lavadora de Roupas Consul 9Kg CWB09 Branca - 220V
+              - text: Lavadora de Roupas Consul 9Kg Branca CWB09 110V
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
             description:
               - text: >-
@@ -40,39 +38,79 @@ extractions:
 
                   Todas as informações divulgadas são de responsabilidade do Fabricante/Fornecedor. Confira a voltagem selecionada antes de finalizar a compra.
                 xpath: /html/body/div[1]/div[1]/div[7]/div[1]
-            brandText:
-              - text: Consul
-                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[36]/td[2]
-            manufacturer:
-              - text: Consul
-                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[35]/td[2]
-            quantity:
-              - text: "29.4"
-                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[7]/td[2]
-            gtin:
-              - text: "7891129267657"
-                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[2]/td[2]
-            sku:
-              - text: CWB09ABANA
-                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[30]/td[2]
             variantId:
               - text: "134188002"
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[1]/td[2]
-            mpc:
-              - text: CWB09ABANA
-                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[30]/td[2]
+            gtin:
+              - text: "7891129267657"
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[2]/td[2]
             shippingDimensions:
               - text: 101x56.9x66.5
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[3]/td[2]
+            weightNet:
+              - text: "29.4"
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[7]/td[2]
+            color:
+              - text: Branco
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[26]/td[2]
+            warranty:
+              - text: 12 Meses
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[28]/td[2]
+            mpc:
+              - text: CWB09ABANA
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[30]/td[2]
+            manufacturer:
+              - text: Consul
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[35]/td[2]
+            brandText:
+              - text: Consul
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[36]/td[2]
+            productUrl:
+              - text: https://www.americanas.com.br/produto/134188002?voltagem=110V
+                xpath: /html/body/div[2]
+            sku:
+              - text: "134188011"
+                xpath: /html/body/div[3]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[3]
-            aggregateRating:
-              - text: 4,0
                 xpath: /html/body/div[4]
-            descriptionBullets:
-              - text: "0"
+            specifications:
+              - text: "Código 134188002 Código de barras 7891129267657 Dimensões Produto - cm
+                  (AxLxP) 101x56.9x66.5 Voltagem 110V ou 220V (não é bivolt)
+                  Consumo (KW/h) 0.24 Painel Manual Peso Aproximado do Produto
+                  (Kg) 29.4 Funções Temporizador Filtros Não Selo Procel Sim
+                  Eficiência Energética A Tipo de Abertura da Tampa Frontal
+                  Capacidade total (kg) 9kg Rotação do motor (rpm) 750
+                  Temperaturas Frio Alças laterais Sim Níveis de Água 4
+                  Programas 6 ou mais Cesto Sim Pés niveladores Sim Dispensers
+                  individuais Não Características da tampa Vidro temperado
+                  Ciclos de secagem Sim Cabides removíveis Não Desodorizador Não
+                  Cor Branco Conteúdo da Embalagem Manual de Instalação, Guia de
+                  Uso, Copo Dosador, Mangueira de Drenagem de Água e Mangueira
+                  de Entrada de Água Garantia do Fornecedor 12 Meses Mais
+                  Informações ITENS INCLUSOS NA EMBALAGEM: Copo Dosador de Sabão
+                  em Pó, Guia de Uso e Manual de Instalações Referência do
+                  Modelo CWB09ABANA Modelo CWB09AB SAC
+                  http://www.consul.com.br/atendimento/ Certificado Isento
+                  Código da Certificação 7891129267657 Fabricante Consul Marca
+                  Consul"
+                xpath: /html/body/div[5]
             secondaryImageTotal:
               - text: "2"
+                xpath: /html/body/div[6]
+            alternateImages:
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/134188/0/134188011_2GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img/134188/0/134188011_3GG.jpg
+                xpath: /html/body/div[7]
+            aggregateRating:
+              - text: 4,0
+                xpath: /html/body/div[8]
+            variantCount:
+              - text: "0"
+            imageZoomFeaturePresent:
+              - text: true
+            descriptionBullets:
+              - text: "0"
         xpath: /html
-    timestamp: 1613499254718
+    timestamp: 1613651688854

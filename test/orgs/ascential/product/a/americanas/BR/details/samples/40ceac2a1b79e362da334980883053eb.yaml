@@ -2,12 +2,12 @@ input:
   id: 1448008211
   _url: http://americanas.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6777a4c4-8c89-47c0-b079-c45a567dc6eb/task=1b5fbfe3-73d4-4e87-b76c-887f818e06ac/8cd1f436-b3ab-436c-8cc1-8016d46211da.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ebdb3f2e-916d-4ed6-8f20-96961e60ece1/task=7d31158f-a079-4630-acde-56910d62105d/ccc82346-75fd-4a52-b347-71de179d2ed2.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
           - ratingCount:
-              - text: "333"
+              - text: "338"
                 xpath: /html/body/div[1]/div[1]/script[1]
             category:
               - text: Celulares e Smartphones
@@ -20,33 +20,29 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[5]/a[1]/text()[1]
               - text: Galaxy A01
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[6]/a[1]/text()[1]
+            image:
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_1GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             nameExtended:
               - text: Smartphone Samsung Galaxy A01 Android 10.0 Tela 5.7” Octa-Core 32GB 4G
                   Câmera 13MP - Vermelho
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
             listPrice:
-              - text: R$ 730,11
+              - text: R$ 699,00
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/span[1]
             price:
-              - text: R$ 679,00
+              - text: R$ 664,05
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
+            shippingInfo:
+              - text: Americanas
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[4]/p[1]/strong[1]
             name:
               - text: Smartphone Samsung Galaxy A01 Android 10.0 Tela 5.7” Octa-Core 32GB 4G
                   Câmera 13MP - Vermelho
                 xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
-            coupon:
-              - text: 7%
+            promotion:
+              - text: 5%
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
-            image:
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_1GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
-            alternateImages:
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_2GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/picture[1]/img[1]/@src
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_3GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/picture[1]/img[1]/@src
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_4GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/picture[1]/img[1]/@src
             variantId:
               - text: "1448008211"
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[1]/td[2]
@@ -59,27 +55,87 @@ extractions:
             brandText:
               - text: Samsung
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[4]/td[2]
+            color:
+              - text: Vermelho
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[7]/td[2]
+            warranty:
+              - text: 12 Meses
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[9]/td[2]
             shippingDimensions:
               - text: 14,6x7,0x0,8
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[10]/td[2]
-            quantity:
+            weightNet:
               - text: "0.148"
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[11]/td[2]
-            sku:
-              - text: Galaxy A01
-                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[12]/td[2]
             mpc:
               - text: Galaxy A01
                 xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[12]/td[2]
+            productUrl:
+              - text: https://www.americanas.com.br/produto/1448008211
+                xpath: /html/body/div[2]
+            sku:
+              - text: "1448008246"
+                xpath: /html/body/div[3]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[3]
+                xpath: /html/body/div[4]
+            specifications:
+              - text: Código 1448008211 Código de barras 7892509113267 Fabricante Samsung Marca
+                  Samsung Alimentação, tipo de bateria Bateria de Íons de Lítio
+                  de 3000 mAh Bivolt Modelo SM-A015M/32DL Cor Vermelho Conteúdo
+                  da Embalagem Aparelho celular, carregador, cabo USB, fone de
+                  ouvido, extrator de chip e manual do usuário Garantia do
+                  Fornecedor 12 Meses Dimensões do produto - cm (AxLxP)
+                  14,6x7,0x0,8 Peso liq. aproximado do produto (Kg) 0.148
+                  Referência do Modelo Galaxy A01 SAC 4004-0000 (Capitais e
+                  grandes centros) ou 0800-124-421 (Demais cidades e regiões)
+                  Tipo de Chip Nano Chip Sistema Operacional Android Versão S.O.
+                  Android 10.0 Tipo de Tela LCD TFT Tamanho do Display 5.7"
+                  Resolução 720 x 1520 (HD+) Multichip Dual Chip Câmera Traseira
+                  13MP+2MP Câmera Frontal 5MP Filmadora Full HD Sintonizador de
+                  TV Não possui NFC Não Processador Octa-Core 2.0 GHz Memória
+                  RAM 2GB Memória Interna 32GB Expansivo até? MicroSD até 512GB
+                  Banda
+                  B1(2100),B2(1900),B3(1800),B4(AWS),B5(850),B7(2600),B8(900),B12(700),B17(700),B28(700)
+                  Conexões Wi-Fi,3G,4G Recursos de chamada Viva Voz
+                xpath: /html/body/div[5]
+            secondaryImageTotal:
+              - text: "6"
+                xpath: /html/body/div[6]
+            alternateImages:
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_2GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_3GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_4GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_5GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_6GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img/1448008/2/1448008246_7GG.jpg
+                xpath: /html/body/div[7]
             aggregateRating:
               - text: 4,1
-                xpath: /html/body/div[4]
+                xpath: /html/body/div[8]
+            manufacturerImages:
+              - text: https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/01.png
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/02.png
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/03.png
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/04.png
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/05.png
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/1448008211/04/img/layout3.png
+                xpath: /html/body/div[11]
+            variantCount:
+              - text: "0"
+            imageZoomFeaturePresent:
+              - text: true
             descriptionBullets:
               - text: "0"
-            secondaryImageTotal:
-              - text: "3"
         xpath: /html
-    timestamp: 1613499295297
+    timestamp: 1613651706738

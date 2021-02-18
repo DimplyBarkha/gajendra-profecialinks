@@ -2,43 +2,11 @@ input:
   id: 1704351001
   _url: http://americanas.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=6777a4c4-8c89-47c0-b079-c45a567dc6eb/task=886ed768-2e13-4bb3-9cca-90365d37f94f/1a072965-c9fc-4b7a-a498-5b589096ebae.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=854440b5-cfc1-44cc-b6a0-860ef11a767f/task=1ac79cb4-5b43-4be4-b150-b42153fa8033/7f7f41b6-4f7f-4805-b18a-c715255d934b.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
-          - ratingCount:
-              - text: "165"
-                xpath: /html/body/div[1]/div[1]/script[1]
-            category:
-              - text: TV e Home Theater
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/text()[1]
-              - text: TV
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/text()[1]
-              - text: Smart TV
-                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/text()[1]
-            alternateImages:
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_3GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[3]/div[1]/picture[1]/img[1]/@src
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_4GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[4]/div[1]/picture[1]/img[1]/@src
-            nameExtended:
-              - text: Smart TV LED 40'' Samsung Tizen FHD 40T5300 2020 - WIFI, HDR para Brilho e
-                  Contraste, Plataforma Tizen
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
-            listPrice:
-              - text: R$ 1.699,99
-                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/span[1]
-            price:
-              - text: R$ 1.614,99
-                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
-            name:
-              - text: Smart TV LED 40'' Samsung Tizen FHD 40T5300 2020 - WIFI, HDR para Brilho e
-                  Contraste, Plataforma Tizen
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
-            coupon:
-              - text: 5%
-                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
-            variantId:
+          - variantId:
               - text: "1704351001"
                 xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]
             gtin:
@@ -50,27 +18,160 @@ extractions:
             brandText:
               - text: Samsung
                 xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[4]/td[2]
+            quantity:
+              - text: 40"
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[11]/td[2]
+            color:
+              - text: Preto
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[29]/td[2]
+            warranty:
+              - text: 12 Meses
+                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[31]/td[2]
             shippingDimensions:
               - text: 0,52x0,91x0,77
                 xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[32]/td[2]
-            quantity:
+            weightNet:
               - text: "7"
                 xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[33]/td[2]
-            sku:
-              - text: UN40T5300AGXZD
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[34]/td[2]
             mpc:
               - text: UN40T5300AGXZD
                 xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[34]/td[2]
+            image:
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_1GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+            category:
+              - text: TV e Home Theater
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/text()[1]
+              - text: TV
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/text()[1]
+              - text: Smart TV
+                xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/text()[1]
+            nameExtended:
+              - text: Smart TV LED 40'' Samsung Tizen FHD 40T5300 2020 - WIFI, HDR para Brilho e
+                  Contraste, Plataforma Tizen
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
+            listPrice:
+              - text: R$ 1.699,99
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/span[1]
+            price:
+              - text: R$ 1.614,99
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
+            ratingCount:
+              - text: "175"
+                xpath: /html/body/div[1]/div[1]/script[1]
+            shippingInfo:
+              - text: Americanas
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[4]/p[1]/strong[1]
+            name:
+              - text: Smart TV LED 40'' Samsung Tizen FHD 40T5300 2020 - WIFI, HDR para Brilho e
+                  Contraste, Plataforma Tizen
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[2]/span[1]
+            promotion:
+              - text: 5%
+                xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+            productUrl:
+              - text: https://www.americanas.com.br/produto/1704351001
+                xpath: /html/body/div[2]
+            sku:
+              - text: "1704351010"
+                xpath: /html/body/div[3]
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[3]
+                xpath: /html/body/div[4]
+            specifications:
+              - text: Código 1704351001 Código de barras 7892509114301 Fabricante Samsung Marca
+                  Samsung Recursos de Vídeos Processador Hyper Real, 60Hz, PQI
+                  (Picture Quality Index) - 1000, HDR, Mega Contraste, Micro
+                  Dimming Pro, Contrast Enhancer, Modo Filme e Modo Natural
+                  Recursos/Funcionalidades Samsung SMART TV, Navegador (Web
+                  Browser), Espelhamento do Smartphone para TV, Acessibilidade -
+                  Guia de Voz (Inglês - EUA, Português - Brasil), Ampliar,
+                  Aumento de Contraste, Aprenda a mexer no Controle Remoto da TV
+                  (Inglês - EUA, Áudio de múltiplas saídas, Cores negativas,
+                  Preto e Branco, Aprenda a mexer no Menu (Inglês - EUA, Zoom de
+                  vídeo, Digital Clean View, Busca automática de canais,
+                  Desligamento Automático, Legenda, Connect Share (HDD),
+                  ConnectShare (USB 2.0), Idioma (Local - Brasil - Português),
+                  Compatível com HID USB, IPv6 Support, Sensor Ecológico, Selo
+                  Procel ("A"). Consumo (KW/h) 100 Recursos de Áudio Dolby
+                  Digital Plus, Potência Sonora (20 W RMS), 2 Canais, Multiroom
+                  Link Tipo de TV Smart TV Tecnologia da Tela LED Polegadas 40"
+                  Monitor Full HD Taxa de Atualização 60Hz Taxa de Atualização
+                  com Tecnologia 60Hz Quantidade de entradas USB 1 Local das
+                  entradas USB 1 entrada traseira HDMI 2 Local das entradas HDMI
+                  2 entradas traseiras Outras Conexões Entrada de Composto (AV),
+                  Ethernet (LAN), Saída de Áudio Digital (Óptica), Entrada de RF
+                  (terrestre/entrada de cabo), HDMI Quick Switch, Rede sem fio
+                  integrada, Anynet+ (HDMI-CEC) Wi-Fi Integrado Sim Conversor
+                  Digital Integrado Sim PIP (Picture in Picture) Não Timer
+                  On/Off Sim Sleep Timer Sim Closed Caption Sim Principais
+                  Aplicativos Youtube, Netflix, Globo Play. Os aplicativos
+                  divulgados podem não estar disponíveis em todas as Smart TV
+                  Samsung. A plataforma Samsung Smart TV é usada pelos
+                  provedores de conteúdo para disponibilizar aplicativos. Os
+                  provedores de conteúdo podem remover aplicativos da plataforma
+                  Smart TV ou parar de dar suporte a qualquer momento. O prazo
+                  entre o lançamento e a disponibilização de um aplicativo pode
+                  variar. Potência do Áudio (RMS) 20 Wi-Fi Wi-Fi integrado Cor
+                  Preto Conteúdo da Embalagem 1 TV, 2 pés, Controle remoto,
+                  Pilhas AAA 2x (opcional), manual do usuário, adaptador de
+                  antena, cabo de força Garantia do Fornecedor 12 Meses
+                  Dimensões do produto - cm (AxLxP) 0,52x0,91x0,77 Peso liq.
+                  aproximado do produto (Kg) 7 Referência do Modelo
+                  UN40T5300AGXZD SAC 4004-000 (Capitais e Grandes Centros) ou
+                  0800 124-421 (Demais cidades e regiões)
+                xpath: /html/body/div[5]
+            secondaryImageTotal:
+              - text: "9"
+                xpath: /html/body/div[6]
+            alternateImages:
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_2GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_3GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_4GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_5GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_6GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_7GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_8GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_9GG.jpg
+                  |
+                  https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_10GG.jpg
+                xpath: /html/body/div[7]
             aggregateRating:
               - text: 4,2
-                xpath: /html/body/div[4]
+                xpath: /html/body/div[8]
+            manufacturerImages:
+              - text: https://statics-americanas.b2w.io/produtos/01/02/special/1704351001/img/sdr-barra.png
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/1704351001/img/sdr2.png
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/1704351001/img/ZoomSDR.png
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/1704351001/img/hdr.png
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/1704351001/img/ZoomHDR.png
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/1704351001/img/sdr-mobile.png
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/1704351001/img/hdr-mobile.png
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/1704351001/img/hd-mobile.png
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/1704351001/img/fhd-mobile.png
+                  |
+                  https://statics-americanas.b2w.io/produtos/01/02/special/1704351001/img/footer-samsung.png
+                xpath: /html/body/div[11]
+            variantCount:
+              - text: "0"
+            imageZoomFeaturePresent:
+              - text: true
             descriptionBullets:
               - text: "0"
-            secondaryImageTotal:
-              - text: "2"
         xpath: /html
-    timestamp: 1613499282822
+    timestamp: 1613651456661

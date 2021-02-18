@@ -31,10 +31,36 @@ module.exports = {
       }
 
       const productUrl = window.location.href;
-      addElementToDom(productUrl, 'productUrl');
+      addElementToDom('productUrl', productUrl);
 
+      const jsonSelector = document.querySelector("#root script[type='application/ld+json']");
+      const json = jsonSelector && jsonSelector.textContent ? JSON.parse(jsonSelector.textContent) : '';
+
+      if (json && jsonSelector.textContent.match('sku')) {
+        const sku = json && json['@graph'] && json['@graph'][4] ? json['@graph'][4].sku : '';
+        if (sku) addElementToDom('sku', sku);
+      }
       const availabilityText = document.querySelector('a#buy-button') ? 'In Stock' : 'Out Of Stock';
       addElementToDom('availabilityText', availabilityText);
+
+      const specifications = document.querySelectorAll("table[class^='src__SpecsCell'] td");
+      const specificationsArr = [];
+      for (let i = 0; i < specifications.length; i++) {
+        if (specifications[i]) specificationsArr.push(specifications[i].textContent);
+      };
+      addElementToDom('specifications', specificationsArr.join(' '));
+
+      const basicImgHref = document.querySelector('div[class*=product-info] div[class*=src__Wrapper] img') ? document.querySelector('div[class*=product-info] div[class*=src__Wrapper] img').getAttribute('src') : '';
+      const secondaryImages = document.querySelectorAll('div[class*=thumb__WrapperImages] div[class*=src__Wrapper]');
+      if (secondaryImages.length > 0) addElementToDom('secondaryImgCount', secondaryImages.length - 1);
+      const secondaryImgArr = [];
+      if (basicImgHref && secondaryImages) {
+        for (let i = 2; i <= secondaryImages.length; i++) {
+          const secondaryImg = basicImgHref.replace(/_1/g, `_${i}`);
+          secondaryImgArr.push(secondaryImg);
+        }
+        addElementToDom('secondaryImg', secondaryImgArr.join(' | '));
+      }
 
       const videoXp = '//script[contains(.,"video") and contains(.,"window.__APOLLO_STATE__")]';
       const jsonObj = document.evaluate(videoXp, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
@@ -52,7 +78,7 @@ module.exports = {
       let manufacturerImagesArr = [];
       if (manufacturerDescriptionFrameLink) {
         getHTML(manufacturerDescriptionFrameLink, function (response) {
-          addElementToDom('', 'manufacturerSite');
+          addElementToDom('manufacturerSite', '');
           const manufacturerSiteDiv = document.querySelector('#manufacturerSite');
           manufacturerSiteDiv.innerHTML = response.querySelector('body').innerHTML;
           manufacturerImagesArr = Array.from(response.querySelectorAll('img')).map((item) => {
@@ -60,18 +86,12 @@ module.exports = {
           });
         });
       }
-      const manufacturerDescription = document.querySelector('#manufacturerSite') ? document.querySelector('#manufacturerSite').innerText : '';
-      addElementToDom(manufacturerDescription, 'manufacturerDescription');
+      const manufacturerDescription = document.querySelector('#manufacturerSite') ? document.querySelector('#manufacturerSite').textContent : '';
+      addElementToDom('manufacturerDescription', manufacturerDescription);
       setTimeout(() => {
-        addElementToDom(manufacturerImagesArr, 'manufacturerImages');
+        const filteredImgArray = manufacturerImagesArr.filter((value, index) => manufacturerImagesArr.indexOf(value) === index);
+        addElementToDom('manufacturerImages', filteredImgArray.join(' | '));
       }, 500);
-
-      const specifications = document.querySelectorAll("table[class^='src__SpecsCell'] td");
-      const specificationsArr = [];
-      for (let i = 0; i < specifications.length; i++) {
-        if (specificationsArr[i]) specificationsArr.push(specificationsArr[i].textContent);
-      };
-      addElementToDom('specifications', specificationsArr.join(' '));
     });
     await context.extract(productDetails);
   },
