@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'FR',
-    store: 'Leclerdrive',
+    store: 'Leclercdrive',
     transform: cleanUp,
     domain: 'leclercdrive.fr',
     zipcode: '982002',

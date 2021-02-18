@@ -80,9 +80,8 @@ fields:
   - name: variantId
     singleValue: true
     description: Identifier for a variant from a store where variants share the same sku
-    regEx: (.*produits-)(\d+)(-.*)
-    regexReplace: $2
-    xpath: //body[@class="bodyWCSD003_FicheProduit fixed"]/form/@action
+    regEx: (\d+$)
+    xpath: //div[contains(@id,"WCRS388_FicheProdui")]/div/@id
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product

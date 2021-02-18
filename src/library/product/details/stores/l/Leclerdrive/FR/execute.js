@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
     country: 'FR',
-    store: 'Leclerdrive',
+    store: 'Leclercdrive',
     domain: 'leclercdrive.fr',
     loadedSelector: 'body',
     noResultsXPath: null,
