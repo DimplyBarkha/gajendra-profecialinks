@@ -14,15 +14,15 @@ fields:
     regExpReplace: https:$1
     description: The URL for the product thumbnail image
   - name: name
-    xpath: //span[@class="css-d9sin2 e1gyaih30"]
+    xpath: //div[@*="productInfoTitle"]
     description: The product name
   - name: id
     xpath: //div[@data-cy="productInfoTitle"]/a/@href
     description: The store-specific product identifier
     regExp: (\d+)"*$
   - name: price
-    xpath: //div[@class="css-5hsjzt e14k98vr0"]
-    type: CURRENCY
+    xpath: //div[@*="atcWidget"]//div[contains(@class,"e14k98vr0")]
+    # type: CURRENCY
     description: The offered price for the product
   - name: quantity
     singleValue: true
