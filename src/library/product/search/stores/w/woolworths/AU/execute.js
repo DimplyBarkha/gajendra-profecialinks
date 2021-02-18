@@ -37,13 +37,8 @@ module.exports = {
     store: 'woolworths',
     domain: 'woolworths.com.au',
     url: 'https://www.woolworths.com.au/Shop/Search?searchTerm={searchTerms}',
-<<<<<<< HEAD
     loadedSelector: 'main#center-panel',
     noResultsXPath: '//span[contains(text(),"Unfortunately, we could")]',
-=======
-    loadedSelector: 'div.ng-trigger-staggerFadeInOut div.product-grid--tile',
-    noResultsXPath: '//span[contains(text(),"Unfortunately, we could")] | //h1[contains(text()," There are no products matching your filters. ")]',
->>>>>>> e7800694517875152dc8004fffec8f0127ad0f84
     zipcode: "''",
   },
   implementation,
