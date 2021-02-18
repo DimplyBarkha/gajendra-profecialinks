@@ -66,8 +66,9 @@ console.log('variantLength:: ', variantLength);
             }
             var optionId=document.querySelectorAll('div.swatch-attribute-options div.swatch-option')[j].getAttribute('option-id')?document.querySelectorAll('div.swatch-attribute-options div.swatch-option')[j].getAttribute('option-id'):0;
             var checkVariantType = document.querySelectorAll('div.swatch-attribute-options div.swatch-option div.custom-option-label')[j]?true:false;
+            
             let notAvailableNode=document.querySelectorAll('div.swatch-option div.custom-option-not-available')[j]?document.querySelectorAll('div.swatch-option div.custom-option-not-available')[j]:false;
-            if (checkVariantType) 
+            if (checkVariantType ) 
             {
               const variantDoc = document.querySelectorAll('div.swatch-attribute-options div.swatch-option')[j];
             
@@ -75,6 +76,7 @@ console.log('variantLength:: ', variantLength);
       
              // @ts-ignore
              variantDoc&&variantDoc.click();
+             await new Promise((resolve, reject) => setTimeout(resolve, 500));
             //await new Promise((resolve, reject) => setTimeout(resolve, 1000));
         
               // @ts-ignore
@@ -96,7 +98,7 @@ console.log('variantLength:: ', variantLength);
             
                 if (modifiedListPrice == parseFloat(objPrice)) {
                   var variantID = obj[objKeys].id;
-                  console.log("variantIdInIF", variantID);
+                  //console.log("variantIdInIF", variantID);
                   var removeId = document.getElementById('pd_vairiant_id');
                   removeId && removeId.remove();
                   addHiddenDiv('pd_vairiant_id', variantID);
@@ -107,6 +109,7 @@ console.log('variantLength:: ', variantLength);
               const variantDoc = document.querySelectorAll('div.swatch-attribute-options div.swatch-option')[j];
               // @ts-ignore
               variantDoc&&variantDoc.click();
+              await new Promise((resolve, reject) => setTimeout(resolve, 500));
               // @ts-ignore
               var checkTitle=document.querySelector('h1.page-title').innerText;
               var objKeysForIf = Object.keys(obj)[j];
@@ -133,11 +136,14 @@ console.log('variantLength:: ', variantLength);
                   if(checkTitle==nameToCount){
                   count++;
                   }}
-
+              // console.log('checkTitle =======>',checkTitle);
+              // console.log('objName =======>',objName);
+              // console.log('checkIndex =======>',checkIndex);
+              // console.log('count =======>',count);
               if((checkTitle==objName)||(checkIndex>0)||(checkIndex<0)||(count>0)){
                 var objKeys = Object.keys(obj)[j];
                 var variantID = obj[objKeys].id;
-                //console.log("variantIDInElse", variantID);
+                console.log("variantIDInElse", variantID);
                 var removeId = document.getElementById('pd_vairiant_id');
               removeId && removeId.remove();
                 addHiddenDiv('pd_vairiant_id', variantID);
@@ -146,15 +152,28 @@ console.log('variantLength:: ', variantLength);
               for (let i = 0; i < Object.keys(obj).length; i++) {
                 var objKeysForName = Object.keys(obj)[i];
                 var nameToCompare=obj[objKeysForName].name;
+              //   console.log('objKeysForName =======>',objKeysForName);
+              //   console.log('nameToCompare =======>',nameToCompare);
+              // console.log('labelToMatch =======>',labelToMatch);
                 if(nameToCompare.includes(labelToMatch))
                 {
                 var variantID = obj[objKeysForName].id;
                 console.log("variantIdInIF", variantID);
                                  var removeId = document.getElementById('pd_vairiant_id');
                                  removeId && removeId.remove();
-                                 addHiddenDiv('pd_vairiant_id', variantID);}
-                                
-                                }}
+                                 addHiddenDiv('pd_vairiant_id', variantID);
+                }
+                // ----starts here code to handle variants for IM------
+                // else {
+                //   var objKeysForName = Object.keys(obj)[j];
+                //   var variantID = obj[objKeysForName].id;
+                // console.log("variantIdInIF", variantID);
+                //                  var removeId = document.getElementById('pd_vairiant_id');
+                //                  removeId && removeId.remove();
+                //                  addHiddenDiv('pd_vairiant_id', variantID);
+                // }          
+                //----ends here code to handle variants for IM------      
+                }}
           
             }
             

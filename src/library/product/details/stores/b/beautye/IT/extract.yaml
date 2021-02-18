@@ -22,7 +22,7 @@ fields:
   - name: category
     singleValue: false
     xpath: //div[@class="box-tocart"]//button/@data-category
-    # //ul[@class="items"]/li[position()>1][position()<last()]
+    # for IM : //ul[contains(@class,"items")]/li[contains(@class,"category")]
   - name: nameExtended
     singleValue: false
     xpath: //h1[@class="page-title"]/span | //div[@itemprop="description"] | //div[contains(@id,"pd_description_add")]
