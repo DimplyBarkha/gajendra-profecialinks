@@ -1,0 +1,35 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[contains(@class,'j-product-list grid-4col')]/li
+fields:
+  - name: paginationUrl
+    singleValue: false
+    description: desired url to pass in chain
+    xpath: //*[@id="jMain"]/div/div[4]/div[3]/nav/div/ul
+  - name: resultsCount
+    singleValue: false
+    description: total number of results
+    xpath: ancestor::html//div[@id="my-results-count"]
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'text-container product-list-wrapper')]/p/span[contains(@itemprop,'name')]
+  # - name: gtin
+  #   singleValue: true
+  #   xpath: //script[contains(text(),'gtin8')]
+  # - name: ratingCount
+  #   singleValue: true
+  #   xpath: //script[contains(text(),'ratingCount')]
+  
+  - name: thumbnail
+    singleValue: false
+    xpath: //*[@id="jMain"]/div/div[4]/div[3]/div[5]/ul/li/div/a/div/div/div/img/@src
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,'active')]/a[contains(@class,'product-click-item')]/@href
+  - name: price
+    xpath: //div[contains(@class,"active")]/a/div/p[contains(@class,product-price)]/span[contains(@class,'discount-price')]
+    singleValue: false
+    
+
+
