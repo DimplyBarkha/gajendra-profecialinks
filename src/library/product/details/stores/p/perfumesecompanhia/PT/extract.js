@@ -12,7 +12,7 @@ module.exports = {
   // @ts-ignore
   implementation: async ({ inputString, id }, { transform }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      const productOnSearchPage = document.querySelector('#containerResultsFilter img');
+      const productOnSearchPage = document.querySelector('div#containerResultsFilter div.preview-img img');
       // @ts-ignore
       if (productOnSearchPage) {
         // @ts-ignore

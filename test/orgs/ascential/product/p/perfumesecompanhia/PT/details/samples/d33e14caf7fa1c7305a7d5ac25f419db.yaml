@@ -2,25 +2,25 @@ input:
   id: 3605533303252
   _url: http://perfumesecompanhia.pt
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=58ffe75e-0871-4ac1-bb28-59d15d3037ab/task=3329bcd5-1e39-486b-9c78-0f09f952e927/55afcb98-8de1-482a-b38e-4048c7082f74.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e762ac8f-200b-413d-9f11-e1bbf4724bb2/task=dd23843f-a2f1-4454-8888-645c3e44f823/91cc082c-fa09-42f7-a0d8-252fd5d3856b.html
     extractionConfigId: product/details/stores/p/perfumesecompanhia/PT/extract
     data:
       - group:
           - variantInformation:
-              - text: 01 - Black
-                xpath: /html/body/div[13]/@variant-info
+              - text: 01 - BLACK
+                xpath: /html/body/div[15]/@variant-info
             productUrl:
               - text: https://www.perfumesecompanhia.pt/pt/catalogo/maquilhagem/olhos/mascaras/mascara-lancme-23700/
                 xpath: /html/head[1]/link[2]/@href
             image:
               - text: https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252_1.jpg
-                xpath: /html/body/div[13]/@thumbnail
+                xpath: /html/body/div[15]/@thumbnail
             imageAlt:
               - text: Lancôme Grandiose 01-Deep intense black
-                xpath: /html/body/div[13]/@thumbnail-alt
+                xpath: /html/body/div[15]/@thumbnail-alt
             alternateImages:
               - text: https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-back.jpg|https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-side.jpg|https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-extra1.jpg|https://www.perfumesecompanhia.pt/fotos/produtos/3605533303252-extra2.jpg
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[17]
             metaKeywords:
               - text: Lancôme Grandiose Maquilhagem Olhos Máscaras perfumes e companhia,
                   perfumes, perfumaria, cosmética, cosméticos, maquilhagem
@@ -35,17 +35,18 @@ extractions:
               - text: Máscaras
                 xpath: /html/body/div[9]/div[3]/div[1]/a[4]
             nameExtended:
-              - text: Lancôme Grandiôse Wide-Angle Fan Effect Mascara - 01 - Black
-                xpath: /html/body/div[13]/@name-extended
+              - text: Lancôme Lancôme Grandiôse 01 - Black 6 ml Grandiôse Wide-Angle Fan Effect
+                  Mascara - 01 - Black
+                xpath: /html/body/div[15]/@name-extended
             listPrice:
               - text: € 37,05
-                xpath: /html/body/div[13]/@list-price
+                xpath: /html/body/div[15]/@list-price
             price:
               - text: € 27,79
-                xpath: /html/body/div[13]/@price
+                xpath: /html/body/div[15]/@price
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[13]/@availability
+                xpath: /html/body/div[15]/@availability
             description:
               - text: Grandiôse é um encontro entre a inovação e o sonho da precisão técnica e
                   requinte. A Lancôme reinventa o design do rímel com o
@@ -62,13 +63,13 @@ extractions:
                 xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/h1[1]/div[1]
             gtin:
               - text: "3605533303252"
-                xpath: /html/body/div[13]/@ean
+                xpath: /html/body/div[15]/@ean
             sku:
               - text: "23701"
-                xpath: /html/body/div[13]/@variant-id
+                xpath: /html/body/div[15]/@variant-id
             variantId:
               - text: "23701"
-                xpath: /html/body/div[13]/@variant-id
+                xpath: /html/body/div[15]/@variant-id
             directions:
               - text: A escova curva da Grandiôse deverá ser deslizada ao longo da pestana e
                   seguindo a anatomia natural do olho, assim acaba por conseguir
@@ -77,27 +78,30 @@ extractions:
                 xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[5]/div[4]
             ratingCount:
               - text: "7"
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[18]
                 type: NUMBER
                 raw: "7"
                 locale: pt
                 value: 7
             aggregateRating:
               - text: 4,28
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[19]
             variantCount:
               - text: "1"
-                xpath: /html/body/div[20]
+                xpath: /html/body/div[22]
                 type: NUMBER
                 raw: "1"
                 locale: pt
                 value: 1
             color:
               - text: 01 - Black
-                xpath: /html/body/div[13]/@color
+                xpath: /html/body/div[15]/@color
+            name:
+              - text: Grandiôse Wide-Angle Fan Effect Mascara
+                xpath: /html/body/div[15]/@prodname
             secondaryImageTotal:
               - text: "4"
-                xpath: /html/body/div[14]
+                xpath: /html/body/div[16]
                 type: NUMBER
                 raw: "4"
                 locale: pt
@@ -122,12 +126,12 @@ extractions:
                 xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[5]/div[4]
             promotion:
               - text: -25%
-                xpath: /html/body/div[13]/@promotion
+                xpath: /html/body/div[15]/@promotion
             variants:
               - text: 01 - BLACK
-                xpath: /html/body/div[19]
+                xpath: /html/body/div[14]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[18]
+                xpath: /html/body/div[20]
         xpath: /html
-    timestamp: 1611315802815
+    timestamp: 1613566059193

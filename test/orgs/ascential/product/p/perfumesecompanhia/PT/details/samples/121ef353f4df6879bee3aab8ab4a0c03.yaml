@@ -2,186 +2,21 @@ input:
   id: 8028713210310
   _url: http://perfumesecompanhia.pt
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=58ffe75e-0871-4ac1-bb28-59d15d3037ab/task=493dd4c1-3ca5-44ab-939b-fbe68d7b9bae/7d434c35-7d19-45e9-82f9-61589cfee1fc.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=e762ac8f-200b-413d-9f11-e1bbf4724bb2/task=bc232140-7daf-41bd-b368-f0c73dea4076/0aab7654-98ec-400e-bdfc-de883e3925b5.html
     extractionConfigId: product/details/stores/p/perfumesecompanhia/PT/extract
     data:
       - group:
-          - productUrl:
+          - variantInformation:
+              - text: 20ml
+                xpath: /html/body/div[15]/@variant-info
+            productUrl:
               - text: https://www.perfumesecompanhia.pt/pt/catalogo/perfumes/homem/perfumes/eau-de-cologne-colonia-intensa-41038/
                 xpath: /html/head[1]/link[2]/@href
             image:
               - text: https://www.perfumesecompanhia.pt/fotos/produtos/8028713210310_1.jpg
-                xpath: /html/body/div[13]/@thumbnail
-            imageAlt:
-              - text: Colonia Intensa Acqua di Parma Eau de Cologne 20 ml
-                xpath: /html/body/div[13]/@thumbnail-alt
-            category:
-              - text: Início
-                xpath: /html/body/div[9]/div[3]/div[1]/a[1]
-              - text: Perfumes
-                xpath: /html/body/div[9]/div[3]/div[1]/a[2]
-              - text: Homem
-                xpath: /html/body/div[9]/div[3]/div[1]/a[3]
-              - text: Perfumes
-                xpath: /html/body/div[9]/div[3]/div[1]/a[4]
-            nameExtended:
-              - text: Acqua di Parma Colonia Intensa Eau De Cologne
-                xpath: /html/body/div[13]/@name-extended
-            price:
-              - text: € 55,80
-                xpath: /html/body/div[13]/@price
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[13]/@availability
-            description:
-              - text: "Um perfume de estilo firme que se abre em notas aciduladas de bergamota
-                  da Calábria e do limão da Sicilia cujos acentos envolvem
-                  imediatamente os sentidos com a sua frescura requintada. Os
-                  acentos aromáticos do mirtilo misturam-se num fundo intenso
-                  que desvenda a incontestável originalidade desta Eau de
-                  Cologne: uma nota acobreada luminosa, táctil e intensamente
-                  masculina."
-                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[11]/div[2]/p[1]
-            brandText:
-              - text: Acqua di Parma
-                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/h1[1]/div[1]
-            quantity:
-              - text: 20ml
-                xpath: /html/body/div[13]/@quantity
-            gtin:
-              - text: "8028713210310"
-                xpath: /html/body/div[13]/@ean
-            sku:
-              - text: "41038"
-                xpath: /html/body/div[13]/@variant-id
-            variantId:
-              - text: "41038"
-                xpath: /html/body/div[13]/@variant-id
-            ratingCount:
-              - text: "0"
-                xpath: /html/body/div[19]
-                type: NUMBER
-                raw: "0"
-                locale: pt
-                value: 0
-            aggregateRating:
-              - text: "0"
-                xpath: /html/body/div[20]
-            variantCount:
-              - text: "4"
-                xpath: /html/body/div[23]
-                type: NUMBER
-                raw: "4"
-                locale: pt
-                value: 4
-            secondaryImageTotal:
-              - text: "0"
-                xpath: /html/body/div[17]
-                type: NUMBER
-                raw: "0"
-                locale: pt
-                value: 0
-            productOtherInformation:
-              - text: Familia Olfactiva - Cítrico Masculino
-                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[11]/div[3]
-            variants:
-              - text: 20ml,50ml,100ml,180ml
-                xpath: /html/body/div[22]
-            imageZoomFeaturePresent:
-              - text: Yes
-                xpath: /html/body/div[21]
-          - productUrl:
-              - text: https://www.perfumesecompanhia.pt/pt/catalogo/perfumes/homem/perfumes/eau-de-cologne-colonia-intensa-41038/
-                xpath: /html/head[1]/link[2]/@href
-            image:
-              - text: https://www.perfumesecompanhia.pt/fotos/produtos/8028713210013_1.jpg
-                xpath: /html/body/div[14]/@thumbnail
-            imageAlt:
-              - text: Colonia Intensa Acqua di Parma Eau de Cologne 50 ml
-                xpath: /html/body/div[14]/@thumbnail-alt
-            category:
-              - text: Início
-                xpath: /html/body/div[9]/div[3]/div[1]/a[1]
-              - text: Perfumes
-                xpath: /html/body/div[9]/div[3]/div[1]/a[2]
-              - text: Homem
-                xpath: /html/body/div[9]/div[3]/div[1]/a[3]
-              - text: Perfumes
-                xpath: /html/body/div[9]/div[3]/div[1]/a[4]
-            nameExtended:
-              - text: Acqua di Parma Colonia Intensa Eau De Cologne
-                xpath: /html/body/div[14]/@name-extended
-            price:
-              - text: € 85,20
-                xpath: /html/body/div[14]/@price
-            availabilityText:
-              - text: In Stock
-                xpath: /html/body/div[14]/@availability
-            description:
-              - text: "Um perfume de estilo firme que se abre em notas aciduladas de bergamota
-                  da Calábria e do limão da Sicilia cujos acentos envolvem
-                  imediatamente os sentidos com a sua frescura requintada. Os
-                  acentos aromáticos do mirtilo misturam-se num fundo intenso
-                  que desvenda a incontestável originalidade desta Eau de
-                  Cologne: uma nota acobreada luminosa, táctil e intensamente
-                  masculina."
-                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[11]/div[2]/p[1]
-            brandText:
-              - text: Acqua di Parma
-                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/h1[1]/div[1]
-            quantity:
-              - text: 50ml
-                xpath: /html/body/div[14]/@quantity
-            gtin:
-              - text: "8028713210013"
-                xpath: /html/body/div[14]/@ean
-            sku:
-              - text: "41040"
-                xpath: /html/body/div[14]/@variant-id
-            variantId:
-              - text: "41040"
-                xpath: /html/body/div[14]/@variant-id
-            ratingCount:
-              - text: "0"
-                xpath: /html/body/div[19]
-                type: NUMBER
-                raw: "0"
-                locale: pt
-                value: 0
-            aggregateRating:
-              - text: "0"
-                xpath: /html/body/div[20]
-            variantCount:
-              - text: "4"
-                xpath: /html/body/div[23]
-                type: NUMBER
-                raw: "4"
-                locale: pt
-                value: 4
-            secondaryImageTotal:
-              - text: "0"
-                xpath: /html/body/div[17]
-                type: NUMBER
-                raw: "0"
-                locale: pt
-                value: 0
-            productOtherInformation:
-              - text: Familia Olfactiva - Cítrico Masculino
-                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[11]/div[3]
-            variants:
-              - text: 20ml,50ml,100ml,180ml
-                xpath: /html/body/div[22]
-            imageZoomFeaturePresent:
-              - text: Yes
-                xpath: /html/body/div[21]
-          - productUrl:
-              - text: https://www.perfumesecompanhia.pt/pt/catalogo/perfumes/homem/perfumes/eau-de-cologne-colonia-intensa-41038/
-                xpath: /html/head[1]/link[2]/@href
-            image:
-              - text: https://www.perfumesecompanhia.pt/fotos/produtos/8028713210020_1.jpg
                 xpath: /html/body/div[15]/@thumbnail
             imageAlt:
-              - text: Colonia Intensa Acqua di Parma Eau de Cologne 100 ml
+              - text: Colonia Intensa Acqua di Parma Eau de Cologne 20 ml
                 xpath: /html/body/div[15]/@thumbnail-alt
             category:
               - text: Início
@@ -193,10 +28,13 @@ extractions:
               - text: Perfumes
                 xpath: /html/body/div[9]/div[3]/div[1]/a[4]
             nameExtended:
-              - text: Acqua di Parma Colonia Intensa Eau De Cologne
+              - text: Acqua di Parma Acqua di Parma Colonia Intensa Eau de Cologne 20 ml Acqua
+                  di Parma Colonia Intensa Eau de Cologne 50 ml Acqua di Parma
+                  Colonia Intensa Eau de Cologne 180 ml Colonia Intensa Eau De
+                  Cologne
                 xpath: /html/body/div[15]/@name-extended
             price:
-              - text: € 117,65
+              - text: € 55,80
                 xpath: /html/body/div[15]/@price
             availabilityText:
               - text: In Stock
@@ -209,64 +47,74 @@ extractions:
                   que desvenda a incontestável originalidade desta Eau de
                   Cologne: uma nota acobreada luminosa, táctil e intensamente
                   masculina."
-                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[11]/div[2]/p[1]
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[9]/div[2]/p[1]
             brandText:
               - text: Acqua di Parma
                 xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/h1[1]/div[1]
             quantity:
-              - text: 100ml
+              - text: 20ml
                 xpath: /html/body/div[15]/@quantity
             gtin:
-              - text: "8028713210020"
+              - text: "8028713210310"
                 xpath: /html/body/div[15]/@ean
             sku:
-              - text: "41042"
+              - text: "41038"
                 xpath: /html/body/div[15]/@variant-id
             variantId:
-              - text: "41042"
+              - text: "41038"
                 xpath: /html/body/div[15]/@variant-id
             ratingCount:
               - text: "0"
-                xpath: /html/body/div[19]
+                xpath: /html/body/div[22]
                 type: NUMBER
                 raw: "0"
                 locale: pt
                 value: 0
             aggregateRating:
               - text: "0"
-                xpath: /html/body/div[20]
-            variantCount:
-              - text: "4"
                 xpath: /html/body/div[23]
+            variantCount:
+              - text: "3"
+                xpath: /html/body/div[26]
                 type: NUMBER
-                raw: "4"
+                raw: "3"
                 locale: pt
-                value: 4
+                value: 3
+            name:
+              - text: Colonia Intensa Eau De Cologne
+                xpath: /html/body/div[15]/@prodname
             secondaryImageTotal:
               - text: "0"
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[20]
                 type: NUMBER
                 raw: "0"
                 locale: pt
                 value: 0
             productOtherInformation:
               - text: Familia Olfactiva - Cítrico Masculino
-                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[11]/div[3]
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[9]/div[3]
             variants:
-              - text: 20ml,50ml,100ml,180ml
-                xpath: /html/body/div[22]
+              - text: 20ml
+                xpath: /html/body/div[14]
+              - text: 50ml
+                xpath: /html/body/div[16]
+              - text: 180ml
+                xpath: /html/body/div[18]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[21]
-          - productUrl:
+                xpath: /html/body/div[24]
+          - variantInformation:
+              - text: 50ml
+                xpath: /html/body/div[17]/@variant-info
+            productUrl:
               - text: https://www.perfumesecompanhia.pt/pt/catalogo/perfumes/homem/perfumes/eau-de-cologne-colonia-intensa-41038/
                 xpath: /html/head[1]/link[2]/@href
             image:
-              - text: https://www.perfumesecompanhia.pt/fotos/produtos/8028713210112_1.jpg
-                xpath: /html/body/div[16]/@thumbnail
+              - text: https://www.perfumesecompanhia.pt/fotos/produtos/8028713210013_1.jpg
+                xpath: /html/body/div[17]/@thumbnail
             imageAlt:
-              - text: Colonia Intensa Acqua di Parma Eau de Cologne 180 ml
-                xpath: /html/body/div[16]/@thumbnail-alt
+              - text: Colonia Intensa Acqua di Parma Eau de Cologne 50 ml
+                xpath: /html/body/div[17]/@thumbnail-alt
             category:
               - text: Início
                 xpath: /html/body/div[9]/div[3]/div[1]/a[1]
@@ -277,14 +125,17 @@ extractions:
               - text: Perfumes
                 xpath: /html/body/div[9]/div[3]/div[1]/a[4]
             nameExtended:
-              - text: Acqua di Parma Colonia Intensa Eau De Cologne
-                xpath: /html/body/div[16]/@name-extended
+              - text: Acqua di Parma Acqua di Parma Colonia Intensa Eau de Cologne 20 ml Acqua
+                  di Parma Colonia Intensa Eau de Cologne 50 ml Acqua di Parma
+                  Colonia Intensa Eau de Cologne 180 ml Colonia Intensa Eau De
+                  Cologne
+                xpath: /html/body/div[17]/@name-extended
             price:
-              - text: € 156,25
-                xpath: /html/body/div[16]/@price
+              - text: € 85,20
+                xpath: /html/body/div[17]/@price
             availabilityText:
               - text: In Stock
-                xpath: /html/body/div[16]/@availability
+                xpath: /html/body/div[17]/@availability
             description:
               - text: "Um perfume de estilo firme que se abre em notas aciduladas de bergamota
                   da Calábria e do limão da Sicilia cujos acentos envolvem
@@ -293,54 +144,158 @@ extractions:
                   que desvenda a incontestável originalidade desta Eau de
                   Cologne: uma nota acobreada luminosa, táctil e intensamente
                   masculina."
-                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[11]/div[2]/p[1]
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[9]/div[2]/p[1]
             brandText:
               - text: Acqua di Parma
                 xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/h1[1]/div[1]
             quantity:
-              - text: 180ml
-                xpath: /html/body/div[16]/@quantity
+              - text: 50ml
+                xpath: /html/body/div[17]/@quantity
             gtin:
-              - text: "8028713210112"
-                xpath: /html/body/div[16]/@ean
+              - text: "8028713210013"
+                xpath: /html/body/div[17]/@ean
             sku:
-              - text: "41044"
-                xpath: /html/body/div[16]/@variant-id
+              - text: "41040"
+                xpath: /html/body/div[17]/@variant-id
             variantId:
-              - text: "41044"
-                xpath: /html/body/div[16]/@variant-id
+              - text: "41040"
+                xpath: /html/body/div[17]/@variant-id
             ratingCount:
               - text: "0"
-                xpath: /html/body/div[19]
+                xpath: /html/body/div[22]
                 type: NUMBER
                 raw: "0"
                 locale: pt
                 value: 0
             aggregateRating:
               - text: "0"
-                xpath: /html/body/div[20]
-            variantCount:
-              - text: "4"
                 xpath: /html/body/div[23]
+            variantCount:
+              - text: "3"
+                xpath: /html/body/div[26]
                 type: NUMBER
-                raw: "4"
+                raw: "3"
                 locale: pt
-                value: 4
+                value: 3
+            name:
+              - text: Colonia Intensa Eau De Cologne
+                xpath: /html/body/div[17]/@prodname
             secondaryImageTotal:
               - text: "0"
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[20]
                 type: NUMBER
                 raw: "0"
                 locale: pt
                 value: 0
             productOtherInformation:
               - text: Familia Olfactiva - Cítrico Masculino
-                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[11]/div[3]
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[9]/div[3]
             variants:
-              - text: 20ml,50ml,100ml,180ml
-                xpath: /html/body/div[22]
+              - text: 20ml
+                xpath: /html/body/div[14]
+              - text: 50ml
+                xpath: /html/body/div[16]
+              - text: 180ml
+                xpath: /html/body/div[18]
             imageZoomFeaturePresent:
               - text: Yes
-                xpath: /html/body/div[21]
+                xpath: /html/body/div[24]
+          - variantInformation:
+              - text: 180ml
+                xpath: /html/body/div[19]/@variant-info
+            productUrl:
+              - text: https://www.perfumesecompanhia.pt/pt/catalogo/perfumes/homem/perfumes/eau-de-cologne-colonia-intensa-41038/
+                xpath: /html/head[1]/link[2]/@href
+            image:
+              - text: https://www.perfumesecompanhia.pt/fotos/produtos/8028713210112_1.jpg
+                xpath: /html/body/div[19]/@thumbnail
+            imageAlt:
+              - text: Colonia Intensa Acqua di Parma Eau de Cologne 180 ml
+                xpath: /html/body/div[19]/@thumbnail-alt
+            category:
+              - text: Início
+                xpath: /html/body/div[9]/div[3]/div[1]/a[1]
+              - text: Perfumes
+                xpath: /html/body/div[9]/div[3]/div[1]/a[2]
+              - text: Homem
+                xpath: /html/body/div[9]/div[3]/div[1]/a[3]
+              - text: Perfumes
+                xpath: /html/body/div[9]/div[3]/div[1]/a[4]
+            nameExtended:
+              - text: Acqua di Parma Acqua di Parma Colonia Intensa Eau de Cologne 20 ml Acqua
+                  di Parma Colonia Intensa Eau de Cologne 50 ml Acqua di Parma
+                  Colonia Intensa Eau de Cologne 180 ml Colonia Intensa Eau De
+                  Cologne
+                xpath: /html/body/div[19]/@name-extended
+            price:
+              - text: € 156,25
+                xpath: /html/body/div[19]/@price
+            availabilityText:
+              - text: In Stock
+                xpath: /html/body/div[19]/@availability
+            description:
+              - text: "Um perfume de estilo firme que se abre em notas aciduladas de bergamota
+                  da Calábria e do limão da Sicilia cujos acentos envolvem
+                  imediatamente os sentidos com a sua frescura requintada. Os
+                  acentos aromáticos do mirtilo misturam-se num fundo intenso
+                  que desvenda a incontestável originalidade desta Eau de
+                  Cologne: uma nota acobreada luminosa, táctil e intensamente
+                  masculina."
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[9]/div[2]/p[1]
+            brandText:
+              - text: Acqua di Parma
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/h1[1]/div[1]
+            quantity:
+              - text: 180ml
+                xpath: /html/body/div[19]/@quantity
+            gtin:
+              - text: "8028713210112"
+                xpath: /html/body/div[19]/@ean
+            sku:
+              - text: "41044"
+                xpath: /html/body/div[19]/@variant-id
+            variantId:
+              - text: "41044"
+                xpath: /html/body/div[19]/@variant-id
+            ratingCount:
+              - text: "0"
+                xpath: /html/body/div[22]
+                type: NUMBER
+                raw: "0"
+                locale: pt
+                value: 0
+            aggregateRating:
+              - text: "0"
+                xpath: /html/body/div[23]
+            variantCount:
+              - text: "3"
+                xpath: /html/body/div[26]
+                type: NUMBER
+                raw: "3"
+                locale: pt
+                value: 3
+            name:
+              - text: Colonia Intensa Eau De Cologne
+                xpath: /html/body/div[19]/@prodname
+            secondaryImageTotal:
+              - text: "0"
+                xpath: /html/body/div[20]
+                type: NUMBER
+                raw: "0"
+                locale: pt
+                value: 0
+            productOtherInformation:
+              - text: Familia Olfactiva - Cítrico Masculino
+                xpath: /html/body/div[9]/div[3]/div[2]/div[1]/div[2]/div[9]/div[3]
+            variants:
+              - text: 20ml
+                xpath: /html/body/div[14]
+              - text: 50ml
+                xpath: /html/body/div[16]
+              - text: 180ml
+                xpath: /html/body/div[18]
+            imageZoomFeaturePresent:
+              - text: Yes
+                xpath: /html/body/div[24]
         xpath: /html
-    timestamp: 1611315803273
+    timestamp: 1613566058810
