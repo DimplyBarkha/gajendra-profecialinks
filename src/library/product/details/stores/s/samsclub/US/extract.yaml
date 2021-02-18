@@ -55,7 +55,7 @@ fields:
     defaultValue: "0"
   - name: manufacturerDescription
     # xpath: //div[contains(@id, 'aplus')]//div[contains(@class,'text-wrap')] | //div[@class="enhancedContent"]
-    xpath: //div[@class="enhancedContent"]
+    xpath: //div[@class="enhancedContent"] | //div[@id="wc-power-page"]
   - name: manufacturerImages
     xpath: //div[contains(@class,"aplus-body")]//img/@src | //div[@class="enhancedContent"]//img/@src | //div[contains(@class, 'inpage_selector')]//img/@srcset
     regExp: (.*?)//(.*)
@@ -104,3 +104,5 @@ fields:
     xpath: //li[contains(.,"Net weight:")]
     regExp: (:)(.+)
     regExpReplace: $2
+  - name: ingredientsList
+    xpath: //p[contains(.,"Ingredients")]/following-sibling::p[1]
