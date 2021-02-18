@@ -20,21 +20,21 @@ async function implementation(
   await context.evaluate(async function () {
     let scrollTop = 0;
     while (scrollTop !== 1000) {
-    await stall(500);
-    scrollTop += 500;
-    window.scroll(0, scrollTop);
-    if (scrollTop === 1000) {
-    await stall(500);
-    break;
-    }
+      await stall(500);
+      scrollTop += 500;
+      window.scroll(0, scrollTop);
+      if (scrollTop === 1000) {
+        await stall(500);
+        break;
+      }
     }
     function stall(ms) {
-    return new Promise((resolve, reject) => {
-    setTimeout(() => {
-    resolve();
-    }, ms);
-  });
-  }
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve();
+        }, ms);
+      });
+    }
     function addElementToDocument(key, value) {
       const catElement = document.createElement('div');
       catElement.id = key;
@@ -46,21 +46,18 @@ async function implementation(
       const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       const result = [];
       for (let index = 0; index < nodeSet.snapshotLength; index++) {
-      const element = nodeSet.snapshotItem(index);
-      if (element) result.push(prop ? element[prop] : element.nodeValue);
+        const element = nodeSet.snapshotItem(index);
+        if (element) result.push(prop ? element[prop] : element.nodeValue);
       }
       return result;
-      };
-      
-    const v = getAllXpath('//div[@class="slick-track"]/div[not(@data-index="0")]/div//img/@src', 'nodeValue');
-    console.log(v,'----------------------v')
+    };
+
+    const alternateImages = getAllXpath('//div[@class="slick-track"]/div[not(@data-index="0")]/div//img/@src', 'nodeValue');
     // @ts-ignore
-    var uniq = [...new Set(v)];
-
-
-
-    // @ts-ignore
-    var a = ''
+    var uniqalternateImages = [...new Set(alternateImages)];
+    for (let i = 0; i < uniqalternateImages.length; i++) {
+      addElementToDocument('uniqalternateImages', uniqalternateImages[i]);
+    }
     // @ts-ignore
     // const c = document.querySelectorAll('script[type="application/ld+json"]')[2].innerText;
     // if (c.includes('OutOfStock')) {
@@ -69,11 +66,9 @@ async function implementation(
     // else {
     //   a = "In Stock"
     // }
-    addElementToDocument('a', uniq);
   });
-  
+
   return await context.extract(productDetails, { transform });
-  // return await context.extract(productDetails, { transform, type: 'MERGE_ROWS' });
 }
 
 
