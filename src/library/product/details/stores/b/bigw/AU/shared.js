@@ -27,6 +27,14 @@ const transform = (data) => {
                 console.log('Error in transform', exception);
             }
             if(row.manufacturerImages){
+             row.manufacturerImages.forEach (item => {
+  if (item.text.includes (' 200w')) {
+    const imgUrl = item.text.split (' 200w, ')[0];
+    if (!item.text.includes ('http')) {
+      item.text = 'https:' + imgUrl;
+    }
+  }
+});
 
             }
         }
