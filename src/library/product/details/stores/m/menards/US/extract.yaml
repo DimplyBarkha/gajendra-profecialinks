@@ -39,15 +39,16 @@ fields:
     xpath: count(//div[@id='features']//ul/li)
   - name: secondaryImageTotal
     singleValue: false
-    #xpath: count(//div[@class="d-inline d-print-none"]//span//a//img//@src)
+    xpath: count(//meta[@property="og:image"][position()>1]/@content)
     type: NUMBER
   - name: brandText
     singleValue: true
     xpath: //div[@class='mb-0']//div//span[@class="font-weight-bold text-success pl-1"]
   - name: gtin
     singleValue: true
-    xpath: //div[@class="d-flex row align-items-center col-9 col-md-11 px-2"]//p[@class="h6 small"]//span[@class="border-left border-dark pl-1"]/text()[2]
-    regExp: (\d{5,9})
+    # xpath: //div[@class="d-flex row align-items-center col-9 col-md-11 px-2"]//p[@class="h6 small"]//span[@class="border-left border-dark pl-1"]/text()[2]
+    xpath: //div[@class="modelSKU h4"]//span/span
+    # regExp: (\d{5,9})
   - name: sku
     singleValue: true
     xpath: //div[@class="modelSKU h4"]/span/span/text()
@@ -100,12 +101,19 @@ fields:
   - name: listPrice
     singleValue: true
     xpath: (//td[@data-at-id="full-price-discount-edlp"])[2]//span
+  - name: shippingDimensions
+    singleValue: true
+    xpath: //p/b[contains(text(),"Shipping Dimensions")]/following::span[1]/text()
+  - name: shippingWeight
+    singleValue: true
+    xpath: //p/b[contains(text(),"Shipping Weight")]/following::span[1]/text()
   - name: price
     singleValue: true
     xpath: //div[@id="headerPriceContainer"]//span[@class="finalPrice"]//span
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class="slick-list draggable"]//img[@class="img-fluid img-thumbnail border-0 py-3"]/@src
+    # xpath: //div[@class="slick-list draggable"]//img[@class="img-fluid img-thumbnail border-0 py-3"]/@src
+    xpath: //html//div[@id="image"]
   - name: variantInformation
     singleValue: true
     xpath: (//div[@class="card-body row d-flex justify-content-center col-12"]//div//div[contains(text(),'Color')])[1]//following-sibling::div 
