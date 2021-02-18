@@ -70,9 +70,32 @@ module.exports = {
           addElementToDocument('cal', cal1);
 
         }
+        var uom = "g";
+        addElementToDocument('uom', uom);
       }
       
+      //manufacturer name
 
+      var manufact = getXpath('//*[@id="reviews-tab-content"]/div[2]/div/div[1]/p[4]/text()', 'nodeValue');
+      if(manufact != null){
+        if(manufact.includes(",")){
+            manufact=manufact.split(",")[0];
+        }
+        addElementToDocument('manufact', manufact);
+    }
+
+    //price_per_unit
+
+    var data = getXpath('//div[@class="product-pricing-info"]/text()', 'nodeValue');
+    if(data != null){
+      if(data.includes(" ")){
+      var arr = data.split(" ");
+      if(arr.length >= 2){
+      var priceuom = arr[arr.length-2] + " "+ arr[arr.length-1];
+      addElementToDocument('priceuom', priceuom);
+      }
+      }
+      }
 
 
     });
