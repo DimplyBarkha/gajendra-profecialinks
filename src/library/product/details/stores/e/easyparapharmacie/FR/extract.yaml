@@ -52,7 +52,7 @@ fields:
     xpath: //button[contains(@class, 'gg_add-cart-green')]
     regExp: Ajouter au panier
     regExpReplace: "In Stock"
-    defaultValue: "Out of Stock"
+    defaultValue: "Out Of Stock"
   - name: description
     singleValue: false
     description: Product description supplied by website - may be concatenanted from
@@ -94,8 +94,7 @@ fields:
     singleValue: true
     description: Identifier for a variant from a store where variants share the same
       sku
-    xpath: //script[contains(text(), 'window.algoliaConfig')]
-    regExp: (?<="productId":")\d+
+    xpath: //div[@id="variantId"]
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product

@@ -9,6 +9,10 @@ async function implementation (inputs, parameters, context, dependencies) {
     return document.querySelector('.product-options') ? document.querySelectorAll('.product-options .option').length : 0;
   });
 
+  const variants = await context.evaluate(async function () {
+    return document.querySelectorAll('div.wrap div.pict img');
+  });
+
   if (variantCount !== 0) {
     for (let i = 0; i < variantCount; i++) {
       await context.click(`.product-options .option:nth-of-type(${i + 1})`);
@@ -19,11 +23,21 @@ async function implementation (inputs, parameters, context, dependencies) {
           div.innerHTML = element;
           document.querySelector('body').appendChild(div);
         }
-
         const brandText = document.querySelector('.product-shop .product-name .product-brand')
           ? document.querySelector('.product-shop .product-name .product-brand').innerText
           : '';
         const shortName = document.querySelector('.product-shop .product-name .h1') ? document.querySelector('.product-shop .product-name .h1').innerText : '';
+        
+        const arr = [];
+        //@ts-ignore
+        variants.forEach((variant) => {
+          if(variant.className) {
+            const variantRegex = /\d+/;
+            arr.push(variant.className.match(variantRegex));
+          }
+        })
+        let variantId = arr[i + 1][0];
+        addElementToDom(variantId, 'variantId');               
 
         let nameExtended = shortName;
         if (brandText && shortName && !shortName.toLowerCase().includes(brandText.toLowerCase())) {
@@ -134,6 +148,8 @@ async function implementation (inputs, parameters, context, dependencies) {
           'productComposition',
           'variants',
           'aggregateRating',
+          'variantId',
+          'weight'
         ];
 
         elementsIds.forEach((elemId) => {
@@ -235,6 +251,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         : '';
       addElementToDom(aggregateRating, 'aggregateRating');
     });
+
     return await context.extract(productDetails, { transform });
   }
 }
