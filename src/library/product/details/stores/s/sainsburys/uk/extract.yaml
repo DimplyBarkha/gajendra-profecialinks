@@ -70,7 +70,7 @@ fields:
   - name: warnings
     singleValue: false
     description: Content under "warnings" header
-    xpath: //*[text()='Warnings:']/parent::p/following-sibling::p|//div[contains(@class,'clpWarningContainer')]|//*[contains(text(),'CAUTION')]|//*[contains(text(),'Caution')]
+    xpath: //*[text()='Warnings:']/parent::p/following-sibling::p|//div[contains(@class,'clpWarningContainer')]|//*[contains(text(),'CAUTION')]|//*[contains(text(),'Caution')]|//*[contains(text(),'Warning:')]
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
@@ -161,14 +161,14 @@ fields:
     # regExp: :(.\w.*)
   - name: caloriesPerServing
     singleValue: false
-    xpath: //*[contains(text(),'Energy')]/following-sibling::*[1]  
+    xpath: //th[contains(text(),'Energy')]/following-sibling::*[1]
     # regExp: \d.+
   - name: totalFatPerServing
     xpath: //*[contains(text(),'Fat')]/following-sibling::*[1]
   - name: quantity
     xpath: //*[contains(text(),'Size')]/following-sibling::*[1]
-  - name: warnings
-    xpath: //*[contains(text(),'Caution')] |(//*[contains(text(),'Alcohol')]/following-sibling::*[1])[1]
+  # - name: warnings
+    # xpath: //*[contains(text(),'Caution')] |(//*[contains(text(),'Alcohol')]/following-sibling::*[1])[1]
   - name: servingSize
     xpath: //html//div[@id='servingsize']  
   - name: allergyAdvice
