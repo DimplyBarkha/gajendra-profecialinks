@@ -45,7 +45,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         hasShippingDetails: '#contextualIngressPtLabel_deliveryShortLine',
         hasCookieAcceptRequest: '#sp-cc-accept',
         hasDogsofAmazon: 'img[alt*="Dogs of Amazon"]',
-        hasTitle: 'title, #gouda-common-atf h1',
+        hasTitle: 'title, #gouda-common-atf h1, [id*=title]',
         hasToCartBtn: '#hlb-view-cart-announce',
         hasProdsToDeleteInCart: 'div[data-asin] div[class*=removed]:not([style=""]) + div input[value*="Delete"], .sc-list-item-content input[data-action=delete]',
         hasAddOnModal: '#attach-popover-lgtbox:not([style*="display: none"])',
@@ -475,6 +475,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     await context.setCssEnabled(false);
 
     lastResponseData = await context.goto(gotoInput.url, {
+      max_redirects: 0,
       checkBlocked: false,
     });
     console.log('lastResponseData: ', lastResponseData);

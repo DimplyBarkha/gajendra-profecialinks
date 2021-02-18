@@ -1,4 +1,3 @@
-
 /**
  *
  * @param { { URL: string, id: any, RPC: string, SKU: string, results: number, zipcode: any, assign_quantity: any } } inputs
@@ -13,7 +12,8 @@ async function implementation (
   dependencies,
 ) {
   const { URL, RPC, SKU } = inputs;
-  const { execute, extract, paginate } = dependencies;
+  // const { execute, extract, paginate } = dependencies;
+  const { execute, extract } = dependencies;
   const { country, store, domain, defaultResults, mergeType } = parameters;
   const url = URL;
   const id = (RPC) || ((SKU) || inputs.id);
@@ -32,7 +32,7 @@ async function implementation (
   }
   let collected = 0
   // try gettings some search results
-  const pageOne = await extract({assign_quantity, collected});
+  const pageOne = await extract({id, assign_quantity, collected});
 
   collected = length(pageOne);
 
@@ -43,18 +43,18 @@ async function implementation (
     return;
   }
 
-  let page = 2;
-  while (collected < results && await paginate({ id, page, offset: collected })) {
-    const data = await extract({assign_quantity, collected});
-    const count = length(data);
-    if (count === 0) {
-      // no results
-      break;
-    }
-    collected = (mergeType && (mergeType === 'MERGE_ROWS') && count) || (collected + count);
-    console.log('Got more results', collected);
-    page++;
-  }
+  // let page = 2;
+  // while (collected < results && await paginate({ id, page, offset: collected })) {
+  //   const data = await extract({assign_quantity, collected});
+  //   const count = length(data);
+  //   if (count === 0) {
+  //     // no results
+  //     break;
+  //   }
+  //   collected = (mergeType && (mergeType === 'MERGE_ROWS') && count) || (collected + count);
+  //   console.log('Got more results', collected);
+  //   page++;
+  // }
 }
 module.exports = {
   parameters: [
@@ -125,7 +125,6 @@ module.exports = {
   ],
   dependencies: {
     execute: 'action:product/offers/execute',
-    paginate: 'action:navigation/paginate',
     extract: 'action:product/offers/extract',
   },
   path: './offers/stores/${store[0:1]}/${store}/${country}/offers',

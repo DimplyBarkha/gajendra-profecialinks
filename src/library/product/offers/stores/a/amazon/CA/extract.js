@@ -1,4 +1,5 @@
 const { transform } = require('../../../../shared');
+const { appendOffers } = require('../sharedExtract');
 
 module.exports = {
   implements: 'product/offers/extract',
@@ -6,6 +7,7 @@ module.exports = {
     country: 'CA',
     store: 'amazon',
     transform,
+    appendOffers,
     domain: 'amazon.ca',
     zipcode: '',
   },

@@ -5,9 +5,9 @@ module.exports = {
     country: 'UK',
     store: 'amazon',
     domain: 'amazon.co.uk',
-    loadedSelector: '.olpOffer',
-    noResultsXPath: '//div[@id="olpOfferList"]/div/p | //*[@id="be"]//*[not(contains(text(), "OfferListing")) and contains(text(), "ue_pty")]',
-    offerUrl: 'https://www.amazon.co.uk/gp/offer-listing/{id}/ref=olp_f_new?ie=UTF8&overridePriceSuppression=10&f_new=true',
+    loadedSelector:'[id*=title]',
+    noResultsXPath: '//body[not(//div)]',
+    offerUrl: 'http://amazon.co.uk/gp/aod/ajax/ref=aod_page_1?asin={id}&m=&pinnedofferhash=&qid=&smid=&sourcecustomerorglistid=&sourcecustomerorglistitemid=&sr=&pc=dp&filters=%257B%2522all%2522%253Atrue%252C%2522new%2522%253Atrue%257D&isonlyrenderofferlist=false',
     zipcode: '',
   },
 };

@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-// this file is kept for backward compatibility puproses
-// when possible and redeploying a search extractor, migrate to the new pagination by:
-// in the file paginate.js
-// replace the line: implements: 'product/search/paginate',
-// by the line:  implements: 'navigation/paginate',
-
-module.exports = require('../../../navigation/paginate/action');
-=======
 /**
  *
  * @param {{
@@ -137,4 +128,3 @@ module.exports = {
   },
   implementation,
 };
->>>>>>> 04631a5eecdd82c5cf6541b852802c54e2201e92

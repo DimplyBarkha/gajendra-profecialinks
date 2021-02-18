@@ -1,6 +1,6 @@
 /**
  *
- * @param { { assign_quantity: any, collected: any } } inputs
+ * @param { { id?: string, assign_quantity: any, collected: any } } inputs
  * @param { Record<string, any> } parameters
  * @param { ImportIO.IContext } context
  * @param { Record<string, any> } dependencies
@@ -11,7 +11,7 @@ async function implementation (
   context,
   dependencies,
 ) {
-  const { transform } = parameters;
+  const { transform, domain } = parameters;
   const { productOffers } = dependencies;
   const assignQuantity = inputs.assign_quantity || 0;
   const collected = inputs.collected
@@ -43,7 +43,8 @@ async function implementation (
     const currentPageDiv = document.querySelector('#currentPageUrl');
     currentPageDiv ? currentPageDiv.textContent = currentPageUrl : addElementToDocument('currentPageUrl', currentPageUrl);
   }, collected, assignQuantity);
-
+  console.log('test', inputs.id)
+  await parameters.appendOffers({ context, domain: domain, id: inputs.id});
   return await context.extract(productOffers, { transform });
 }
 
@@ -62,6 +63,11 @@ module.exports = {
       description: 'transform function for the extraction',
       optional: true,
     },
+    {
+      name: 'appendOffers',
+      description: 'function to get stock',
+      optional: true,
+    }
   ],
   inputs: [
     {
@@ -73,6 +79,12 @@ module.exports = {
       name: 'collected',
       description: 'number of rows collected already',
       type: 'string',
+    },
+    {
+      name: 'id',
+      description: 'unique identifier for seller',
+      type: 'string',
+      optional: true,
     },
   ],
   dependencies: {

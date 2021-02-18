@@ -1,1 +1,4 @@
 extends: ../shared
+fields:
+  - name: resellerLink
+    xpath: concat('https://www.amazon.com', .//*[@id='aod-offer-soldBy']//a[@rel='noopener']/@href)

@@ -1,92 +1,47 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="a-row a-spacing-mini olpOffer"]
+recordXPath: //*[@id="aod-offer"] | (//html[not(//*[@id="aod-offer"])]//*)[1]
 fields:
+  - name: name
+    xpath: (ancestor::html//h5[@id='aod-asin-title-text'])[1]
   - name: getInventory
     xpath: ./@getinventory
-    description: product_name - Product titles
     defaultValue: 'false'
-  - name: name
-    xpath: ancestor::html//h1[@role="main"]
-    description: product_name - Product title
   - name: aggregateRating
-    xpath: ancestor::html//*[contains(@data-a-popover, "average-customer")]//span[contains(@class,"a-icon-alt")]
-    regExp: ^([0-9\.]{3,})
-    regExpReplace: $1
-    description: "product_reviews - Product reviews, usually out of 5, 
-      if not append the amount its out of. ex: 4.5/10"
+    xpath: translate(substring-after(ancestor::html//*[@id='aod-asin-reviews-star']/@class, 'a-star-'), '-', '.')
   - name: reviewCount
-    xpath: ancestor::html//*[contains(@data-a-popover, "average-customer")]/following-sibling::span/a[contains(@href,"product-reviews")]
+    xpath: translate(substring-before(ancestor::html//*[@id='aod-asin-reviews-count-title'], ' '), ',.', '')
     regExp: ^[^a-zA-Z]+
-    description: "product_review_count - # of reviews the product has"
   - name: image
-    xpath: ancestor::html//img[@alt="Return to product information"]/@src
-    regExp: (.+)\.[^\.]*(\.[^\.]+$)
-    regExpReplace: $1$2
-    description: product_images - First image on the product listing, dont assign
-      'src, img' attribute only select the class that contains it and import
-      will scrape the image properly
+    xpath: ancestor::html//img[@id='aod-asin-image-id']/@src
   - name: resellerName
-    xpath: //*[contains(@class,"olpSellerName")]//a | //*[contains(@class,"olpSellerName")]/img/@alt
-    description: reseller_name - Seller Name, if the website does not have sellers,
-      put the website name as seller
+    xpath: .//*[@id='aod-offer-soldBy']//a[@rel='noopener']
   - name: resellerId
-    xpath: //*[contains(@class,"olpSellerName")]//a/@href
+    xpath: .//*[@id='aod-offer-soldBy']//a[@rel='noopener']/@href
     regExp: seller=(\w+)
     regExpReplace: $1
-    description: reseller_id - Unique seller ID
   - name: resellerLink
-    xpath: //*[contains(@class,"olpSellerName")]//a
-    type: LINK
-    description: reseller_link - Link to the seller page
+    xpath: .//*[@id='aod-offer-soldBy']//a[@rel='noopener']/@href
   - name: resellerReviewCount
-    xpath: //i[contains(@class," a-icon-star ")]/following-sibling::text()
+    xpath: translate(substring-before(substring-after(.//*[@id='seller-rating-count-{iter}']/span/text()[1],'('), ' '), ',', ' ')
     regExp: \(([^\s]+)
     regExpReplace: $1
-    description: reseller_reviews - Number of reviews the seller has
   - name: resellerAggregateRating
-    xpath: //i[contains(@class," a-icon-star ")]
-    regExp: ^([0-9\.]{3,})
-    regExpReplace: $1
-    description: Aggregate rating of seller (stars)
+    xpath: translate(substring-before(substring-after(.//*[@id='seller-rating-count-{iter}']/preceding-sibling::i[1]/@class, 'a-star-mini-'), ' '), '-', '.')
   - name: resellerFeedbackPercent
-    regExp: ([^%]+)
-    regExpReplace: $1
-    xpath: //i[contains(@class," a-icon-star ")]/following-sibling::a/b
-    description: reseller_feedback_% - Seller feedback percentage poisitive or
-      negative dont include percent if possible
+    xpath: substring-before(.//*[@id='seller-rating-count-{iter}']/span/br/following-sibling::text(), '%')
   - name: fulfillmentBy
-    xpath: //*[@data-a-popover='{"name":"fbaPopover","activate":"onclick"}']
-    description: fullfillment_by - Typically only seen on marketplaces not websites,
-      if the product can be fulfilled by the seller or the marketplace scrape
-      this info
+    xpath: concat(substring-after(substring-before(.//*[@id='aod-offer-soldBy']//a[@rel='noopener' and contains(@href,'isAmazonFulfilled=1')]/@href, 'Fulfilled'), 'is') , .//*[@id='aod-offer-soldBy']//a[@rel='noopener' and contains(@href,'isAmazonFulfilled=0')])
   - name: shippingCost
-    xpath: //*[contains(@class,"olpShippingPrice") and not(contains(@class,"olpShippingPriceText"))]
-    description: shipping_cost - Product shipping cost
+    xpath: concat(translate(.//*[contains(@id, "elivery") and contains(@id, "essage")]//b/preceding-sibling::text()[1], translate(.,'0123456789.,',''), '') , translate(.//*[contains(@class, 'aod-delivery-promise')]/preceding-sibling::span[1]/span//text(), translate(.,'0123456789.,',''), ''))
+    defaultValue: '0.00'
   - name: productId
-    xpath: ancestor::html//a[@id="olpDetailPageLink"]/@href
-    regExp: dp/(\w+)
-    regExpReplace: $1
-    description: product_id - Unique Page ID for the product listing (NOT AMAZON
-      SPECIFIC, ALL SITES SHOULD INCLUDE EXCEPT EBAY)
+    xpath: substring-after(.//input[contains(@name,"metric-asin")]/@name, 'metric-asin.')
   - name: price
-    xpath: //*[contains(@class,"olpOfferPrice")]
-    description: price - Product Price
-  - name: productStock
+    xpath: concat(concat(.//span[@class="a-price-whole"]/text()[1], .//span[@class="a-price-decimal"]), .//span[@class="a-price-fraction"]/text()[1])
     description: price - Product Price
   - name: brandText
     xpath: ancestor::html//div[@id="olpProductByline"]
-    description: brand_user_input - Brand the product is associated with
-  - name: country
-    regExp: language:\s*"[^_]+_([^"]+)
-    regExpReplace: $1
-    description: country - Country of the website scraped (US, DE, UK, ES, IT, FR,
-      NL,). Could be handled in workbench too.
-    xpath: >-
-      ancestor::html//script[contains(text(),'pageType: "OfferListing"')][contains(text(),"language")]
   - name: deliveryDate
-    xpath: .//div[@class="a-expander-content a-expander-partial-collapse-content"]
-    description: delivery_date - Date the product will be delivered, check the site
-      before extractor setup, if the site provides this info by putting in a zip
-      code, use interaction to get this data
+    xpath: substring-after(.//*[contains(@id, "elivery") and contains(@id, "essage")]//b/text()[1], '-')
