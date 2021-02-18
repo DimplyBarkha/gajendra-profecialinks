@@ -32,16 +32,8 @@ const transform = (data) => {
           row.nameExtended = [{ text: row.nameExtended[0].text + ' - ' + row.variantInformation[0].text }];
         }
       }
-      if (row.listPrice) {
-        row.listPrice = [{ text: row.listPrice[0].text.replace(',', '.') }];
-      }
-      if (row.image) {
-        if (row.image[0].text.match(/(?<=url":).*?(?=",)/g)) {
-          row.image = [{ text: row.image[0].text.match(/(?<=url":).*?(?=",)/g)[0].replace('"', '') }];
-        }
-        if (!row.image[0].text.startsWith('http')) {
-          row.image = [{ text: 'https://www.sephora.fr/dw/image/v2/BCVW_PRD/' + row.image[0].text }];
-        }
+      if (row.price) {
+        row.price = [{ text: row.price[0].text.replace('.', ',') }];
       }
     }
   }
