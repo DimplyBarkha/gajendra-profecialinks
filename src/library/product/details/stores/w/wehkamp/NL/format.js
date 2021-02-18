@@ -99,6 +99,29 @@ const transform = (data) => {
       //     item.text = (item.text * 5) / 10;
       //   });
       // }
+      if (row.packSize) {
+        let pack = [];
+        row.packSize.forEach(item => {
+          pack = item.text.split(' ');
+          if(pack[0]){
+            item.text = pack[0];
+          }else{
+            item.text = '';
+          }
+        });
+      }
+      if (row.variantId) {
+        let varient = '';
+        row.variantId.forEach(item => {
+          varient = item.text.replace(/\D/g, "");
+          if(varient !== ''){
+            item.text = varient;
+          }else{
+            item.text = '';
+          }
+        });
+      }
+
     }
   }
   return cleanUp(data);

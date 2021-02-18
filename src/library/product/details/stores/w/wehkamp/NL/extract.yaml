@@ -11,7 +11,7 @@ fields:
     xpath: //h1[contains(@class,'ProductTitle__ba-product-title')]//span[@class='title font-weight-light']
   - name: image
     singleValue: false
-    xpath: //div[contains(@id,'content')]//div[contains(@aria-hidden,'false')]//img/@src
+    xpath: (//div[contains(@id,'content')]//div[contains(@class,'Image__container')])[1]//img/@src
   - name: imageAlt
     singleValue: false
     xpath: //div[contains(@id,'content')]//div[contains(@aria-hidden,'false')]//img/@alt
@@ -48,7 +48,7 @@ fields:
     xpath: //div[contains(@class,'Specifications')]//tr[th[contains(text(),'materiaal')]]/td[not(contains(@class,'Row__icon'))]
   - name: brandText
     singleValue: false
-    xpath: //div[contains(@class,'Specifications')]//tr[th[contains(text(),'Merk')][not(contains(text(),'Merklijn'))]]/td[not(contains(@class,'Row__icon'))]
+    xpath: //h1[contains(@class,'ProductTitle__ba-product-title')]//span//a
   - name: brandLink
     singleValue: false
     xpath: //div[contains(@class,'Specifications')]//tr[th[(contains(text(),'Merklijn'))]]/td[not(contains(@class,'Row__icon'))]/a/@href
@@ -76,9 +76,9 @@ fields:
     defaultValue: Out Of Stock
   - name: variantId
     singleValue: false
-    xpath: //div[@class='main']/script
-    regExp: \"sku\"\s*:\s*\"(.+?)\"
-    regExpReplace: $1
+    xpath: //div[contains(@class,'Breadcrumb__bc-container')]//a[contains(@class,'UI_Breadcrumb_back')]/@href
+    #regExp: \"sku\"\s*:\s*\"(.+?)\"
+    #regExpReplace: $1
   - name: imageZoomFeaturePresent
     singleValue: false
     defaultValue: Yes
@@ -100,3 +100,9 @@ fields:
   - name: videos
     singleValue: false
     xpath: //div[contains(@class,'Video__container___2-p20 Video__square___1bqTx')]//iframe/@id
+  - name: packSize
+    singleValue: false
+    xpath: //h1[contains(@class,'ProductTitle__ba-product-title')]//span[contains(@class,'font-weight-light')]
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class,'Specifications')]//tr[th[contains(text(),'Maat')][not(contains(text(),'Merklijn'))]]/td[not(contains(@class,'Row__icon'))]
