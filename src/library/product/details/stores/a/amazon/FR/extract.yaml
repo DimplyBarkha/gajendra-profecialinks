@@ -14,7 +14,7 @@ fields:
     type: LINK
   - name: quantity
     singleValue: false
-    xpath: //tr[contains(.,'Volume')]//td | //label[contains(text(), 'Taille')]/following-sibling::*[1]
+    xpath: //td[contains(.,'Volume')]/following-sibling::td | //label[contains(text(), 'Taille')]/following-sibling::*[1]
   - name: weightNet
     singleValue: false
     xpath: //*[contains(normalize-space(text()),"Dimensions")]/following-sibling::*[1][contains(.,';')] | //*[normalize-space(text())="Item Weight"]/following-sibling::*[1]
@@ -51,7 +51,19 @@ fields:
     regExpReplace: $2
   - name: mpc
     singleValue: false
-    xpath: //*[contains(text(),"modèle de")]/following-sibling::*[1] | //tr[contains(.,'RÃ©fÃ©rence fabricant')]//td
-    # xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li/b[contains(text(),'odel')]/../text() | //table[contains(@id,"productDetails")]//tr/th[contains(text(),"odel")]/following-sibling::td[1]/text() | //div[contains(@id,"prodDetails")]//*[contains(text(),"odel")]/following-sibling::td[1]/text() | //table[@id="product-specification-table"]//th[contains(text(),  "Manufacturer") and contains(text(), "Number")]/following-sibling::td/text()
+    xpath: //*[contains(text(),"modèle de")]/following-sibling::*[1] | //th[contains(.,'RÃ©fÃ©rence fabricant')]/following-sibling::*[1] | //th[contains(.,'Référence constructeur')]/following-sibling::*[1]
   - name: imageZoomFeaturePresent
     defaultValue: true
+  - name: ingredientsList
+    xpath: //p[preceding-sibling::*[not(name()=p)][1][contains(normalize-space(text()),"Ingrédients")]]
+  - name: warnings
+    xpath: //p[preceding-sibling::h3[1][normalize-space(text())="Avertissement De Sûreté"]]
+  - name: directions
+    xpath: //p[preceding-sibling::h3[1][normalize-space(text())="Conseils d'utilisation"]] | //div[@id='importantInformation_feature_div']//div[contains(.,"Conseils d'utilisation")]/p[not(normalize-space(.)="")] | //div[@id='importantInformation_feature_div']//div[contains(.,"Conseils d'utilisation")]/div[@class="TabPanel"]
+  - name: legalDisclaimer
+    singleValue: false
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Mentions Légales')]/p
+  - name: price
+    singleValue: false
+    xpath: (//span[contains(@id,"priceblock_dealprice")] | //*[@id="priceblock_ourprice"][not(contains(@class,"a-text-strike"))] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1] | //span[@id="priceblock_saleprice"] | //li[contains(@class,selected) and contains(@class,"swatchElement")]//span[contains(@class,"a-size-base a-color-price")] | //span[contains(@class,"header-price")][not(@id="subscriptionPrice")] | //li[@class="swatchSelect"]//span[@class="olp-message a-color-price"]/span/text()[last()] | //div[@id="buyNew_noncbb"]/span
+    regExp: ([^\s]+)\s*€

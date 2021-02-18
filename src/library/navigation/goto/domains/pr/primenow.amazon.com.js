@@ -375,6 +375,7 @@ module.exports = {
 
         console.log('Going back to desired page');
         lastResponseData = await context.goto(gotoInput.url, {
+          firstRequestTimeout: 90000,
           checkBlocked: true,
         });
         lastResponseCode = lastResponseData.status;
@@ -417,6 +418,7 @@ module.exports = {
       await context.setCssEnabled(false);
 
       lastResponseData = await context.goto(gotoInput.url, {
+        firstRequestTimeout: 90000,
         checkBlocked: false,
       });
       console.log('lastResponseData: ', lastResponseData);

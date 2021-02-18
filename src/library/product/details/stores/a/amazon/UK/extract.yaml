@@ -1,1 +1,30 @@
 extends: ../../../../sharedAmazon/shared
+fields:
+- name: alternateImagesFromScript
+  singleValue: false
+  xpath: (//div[@id="imageBlock_feature_div"]/script)[position()=1]
+  regExp: >-
+    ("hiRes":")(http[^"]+)(\")
+  regExpReplace: $2
+
+- name: availabilityText
+  singleValue: false
+  xpath: (//*[@id='availability']/span | //*[normalize-space(@id)='availability']/span/span[last()] | //*[@id='availability-string']/span[not(span)])[1]
+- name: caloriesPerServing
+  xpath: //th[contains(text(),"Energy (kJ)")]//following-sibling::td
+- name: totalFatPerServing
+  xpath: //th[contains(text(),"Fat")]//following-sibling::td
+  regExp: >-
+    [0-9,.]+
+- name: totalFatPerServingUom
+  xpath: //th[contains(text(),"Fat")]//following-sibling::td
+  regExp: >-
+    [^0-9,.]+
+- name: totalSugarsPerServing
+  xpath: //th[contains(text(),"Sugar")]//following-sibling::td
+  regExp: >-
+    [0-9,.]+
+- name: totalSugarsPerServingUom
+  xpath: //th[contains(text(),"Sugar")]//following-sibling::td
+  regExp: >-
+    [^0-9,.]+

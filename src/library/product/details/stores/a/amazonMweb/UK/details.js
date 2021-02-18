@@ -1,8 +1,8 @@
 module.exports = {
-    implements: 'product/details',
-    parameterValues: {
-        country: 'UK',
-        store: 'amazon',
-        domain: 'amazon.co.uk',
-    },
+  implements: 'product/details',
+  parameterValues: {
+    country: 'UK',
+    store: 'amazon',
+    domain: 'amazon.co.uk',
+  },
 };

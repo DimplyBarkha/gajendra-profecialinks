@@ -12,6 +12,6 @@ module.exports = {
     openSearchDefinition: {
       template: 'https://www.amazon.ca/s?k={searchTerms}&ref=nb_sb_noss_2&page={page}',
     },
-    noResultsXPath: '//div[contains(@class, "s-result-list")]/div[@data-asin]/span[contains(@class,"no-results")]'
+    noResultsXPath: '//div[contains(@class, "s-result-list")]/div[@data-asin]/span[contains(@class,"no-results")]',
   },
 };

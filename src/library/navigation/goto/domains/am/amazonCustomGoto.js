@@ -1,5 +1,5 @@
 async function goto (gotoInput, parameterValues, context, dependencies) {
-  const zipcode = gotoInput.zipcode;
+  const zipcode = gotoInput.zipcode || parameterValues.zipcode;
 
   // strategies can  be  turned on and off
   const fillRateStrategies = {
@@ -119,15 +119,15 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     const apiZipChange = await context.evaluate(async (zipcode, csrf) => {
       const country = document.querySelector('[lang]').lang.match(/[^-]+$/)[0].toUpperCase();
       let body;
-      if(zipcode) {
+      if (zipcode) {
         body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
       } else {
         body = `locationType=COUNTRY&countryCode=${country}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
       }
       const response = await fetch('/gp/delivery/ajax/address-change.html', {
         headers: {
-          "accept": "*/*",
-          "accept-language": "en-US,en;q=0.9",
+          accept: '*/*',
+          'accept-language': 'en-US,en;q=0.9',
           'anti-csrftoken-a2z': csrf,
           'content-type': 'application/x-www-form-urlencoded',
           contenttype: 'application/x-www-form-urlencoded;charset=utf-8',
@@ -140,7 +140,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       });
       return response.status === 200;
     }, zipcode, csrf);
-    if(zipcode) {
+    if (zipcode) {
       const onCorrectZip = await context.evaluate((zipcode) => {
         const zipText = document.querySelector('div#glow-ingress-block');
         return zipText ? zipText.textContent.includes(zipcode) : false;
@@ -173,59 +173,59 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
   // calls refresh API and appends data to the page that doesnt already exist
   const appendData = async (page) => {
     return await context.evaluate(async () => {
-        try {
-          const asin = document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] ? document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] : (document.querySelector('#all-offers-display-params') ? document.querySelector('#all-offers-display-params').getAttribute('data-asin') : '');
-          const pgid = document.querySelector('html').innerHTML.match(/productGroupID=([\w]+)|productGroupID":"([^"]+)/)[1] || document.querySelector('html').innerHTML.match(/productGroupID=([\w]+)|productGroupID":"([^"]+)/)[2] || ''
-          const params = {
-            asinList: asin,
-            id: asin,
-            parentAsin: window.isTwisterPage ? window.twisterController.twisterJSInitData.parent_asin : asin,
-            pgid,
-            psc: 1,
-            triggerEvent: 'twister',
-            isUDPFlag: 1,
-            json: 1,
-            ptd:document.querySelector('html').innerHTML.match(/productTypeName=([\w]+)|productTypeName":"([^"]+)/) && (document.querySelector('html').innerHTML.match(/productTypeName=([\w]+)|productTypeName":"([^"]+)/)[1] || document.querySelector('html').innerHTML.match(/productTypeName=([\w]+)|productTypeName":"([^"]+)/)[2]) || pgid.match(/^[^_]+/)[1],
-            dpEnvironment: 'hardlines'
-          }
-          const query = Object.entries(params).map(elm => `${elm[0]}=${elm[1]}`)
-    
-          const parseResponse = (blob) => {
-            const dataBlobs = blob.split('&&&').map(part => part.replace(/\n/g, '').trim()).filter(part => part.length > 0).map(part => JSON.parse(part));
-            return dataBlobs;
-          };
-          const api = `/gp/page/refresh?sCac=1&twisterView=glance&auiAjax=1&json=1&dpxAjaxFlag=1&ee=2&enPre=1&dcm=1&ppw=&ppl=&isFlushing=2&dpEnvironment=hardlines&mType=full&psc=1&` + query.join('&');
-          const dataRaw = await fetch(api)
-            .then(response => response.text())
-            .then(blob => parseResponse(blob));
-    
-          console.log('# elements attempting to append: ', dataRaw.length);
-          let appendedCount = 0;
-          dataRaw.forEach(part => {
-            const element = document.getElementById(Object.keys(part.Value.content)[0]);
-            if (element || Object.keys(part.Value.content)[0].match(/^dpx-.+_feature_div$/)) {
-              // element.innerHTML = Object.values(part.Value.content)[0];
+      try {
+        const asin = document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] ? document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] : (document.querySelector('#all-offers-display-params') ? document.querySelector('#all-offers-display-params').getAttribute('data-asin') : '');
+        const pgid = document.querySelector('html').innerHTML.match(/productGroupID=([\w]+)|productGroupID":"([^"]+)/)[1] || document.querySelector('html').innerHTML.match(/productGroupID=([\w]+)|productGroupID":"([^"]+)/)[2] || '';
+        const params = {
+          asinList: asin,
+          id: asin,
+          parentAsin: window.isTwisterPage ? window.twisterController.twisterJSInitData.parent_asin : asin,
+          pgid,
+          psc: 1,
+          triggerEvent: 'twister',
+          isUDPFlag: 1,
+          json: 1,
+          ptd: document.querySelector('html').innerHTML.match(/productTypeName=([\w]+)|productTypeName":"([^"]+)/) && (document.querySelector('html').innerHTML.match(/productTypeName=([\w]+)|productTypeName":"([^"]+)/)[1] || document.querySelector('html').innerHTML.match(/productTypeName=([\w]+)|productTypeName":"([^"]+)/)[2]) || pgid.match(/^[^_]+/)[1],
+          dpEnvironment: 'hardlines',
+        };
+        const query = Object.entries(params).map(elm => `${elm[0]}=${elm[1]}`);
+
+        const parseResponse = (blob) => {
+          const dataBlobs = blob.split('&&&').map(part => part.replace(/\n/g, '').trim()).filter(part => part.length > 0).map(part => JSON.parse(part));
+          return dataBlobs;
+        };
+        const api = '/gp/page/refresh?sCac=1&twisterView=glance&auiAjax=1&json=1&dpxAjaxFlag=1&ee=2&enPre=1&dcm=1&ppw=&ppl=&isFlushing=2&dpEnvironment=hardlines&mType=full&psc=1&' + query.join('&');
+        const dataRaw = await fetch(api)
+          .then(response => response.text())
+          .then(blob => parseResponse(blob));
+
+        console.log('# elements attempting to append: ', dataRaw.length);
+        let appendedCount = 0;
+        dataRaw.forEach(part => {
+          const element = document.getElementById(Object.keys(part.Value.content)[0]);
+          if (element || Object.keys(part.Value.content)[0].match(/^dpx-.+_feature_div$/)) {
+            // element.innerHTML = Object.values(part.Value.content)[0];
+          } else {
+            const div = document.createElement('div');
+            div.setAttribute('id', Object.keys(part.Value.content)[0]);
+            div.innerHTML = Object.values(part.Value.content)[0];
+            const appendAtBottom = document.getElementById('a-page');
+            if (appendAtBottom) {
+              appendAtBottom.insertBefore(div, document.getElementById('navFooter'));
+              appendedCount++;
             } else {
-              const div = document.createElement('div');
-              div.setAttribute('id', Object.keys(part.Value.content)[0]);
-              div.innerHTML = Object.values(part.Value.content)[0];
-              const appendAtBottom = document.getElementById('a-page');
-              if (appendAtBottom) {
-                appendAtBottom.insertBefore(div, document.getElementById('navFooter'));
-                appendedCount++;
-              } else {
-                console.log('couldnt find a good place to append data');
-              }
+              console.log('couldnt find a good place to append data');
             }
-          });
-          
+          }
+        });
+
         console.log('Total divs appended: ', appendedCount);
-          return true;
-        } catch (err) {
-          console.log('append data try  catch fail', err);
-          return false;
-        }
-      });
+        return true;
+      } catch (err) {
+        console.log('append data try  catch fail', err);
+        return false;
+      }
+    });
   };
 
   // checks internal expected API
@@ -513,7 +513,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         console.log('reload ------>', 'Missing prodDetails when API history says it is expected, and variants exist.');
         inSessionRetries += 1;
         context.counter.set('refresh', 1);
-        await context.reload({ waitUntil: ["networkidle0", "domcontentloaded"] });
+        await context.reload({ waitUntil: ['networkidle0', 'domcontentloaded'] });
         console.log('Waiting for page to reload');
         await new Promise(r => setTimeout(r, 5000));
         console.log('Waited 5 seconds for page to reload');
@@ -525,7 +525,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       if (!page.hasVariants && fillRateStrategies.nonVariantReload) {
         console.log('reload ------>', 'Missing prodDetails when API history says it is expected, and variants  do not exist.');
         context.counter.set('refresh', 1);
-        await context.reload({ waitUntil: ["networkidle0", "domcontentloaded"] });
+        await context.reload({ waitUntil: ['networkidle0', 'domcontentloaded'] });
         console.log('Waiting for page to reload');
         await new Promise(r => setTimeout(r, 5000));
         console.log('Waited 5 seconds for page to reload');

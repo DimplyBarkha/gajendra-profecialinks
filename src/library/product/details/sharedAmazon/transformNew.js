@@ -319,22 +319,24 @@ const transform = (data, context) => {
       }
       if (row.availabilityText) {
         // Added the regex for different locale which say Usually ships in etc.
-        const usuallyShipsRegex = /(Usually|Genellikle|Generalmente|Habituellement)/gi;
+        const usuallyShipsRegex = /(Usually|Genellikle|Generalmente|Habituellement|Gewöhnlich)/gi;
         const availabilityMap = {
           usually: 'In Stock',
           genellikle: 'Stokta var',
           generalmente: 'Disponibile',
           habituellement: 'En stock',
+          gewöhnlich: 'Auf Lager',
         };
         const match = row.availabilityText[0].text.match(usuallyShipsRegex);
         if (match) {
           row.availabilityText[0].text = availabilityMap[match[0].toLowerCase()];
         }
-        row.availabilityText[0].text = row.availabilityText[0].text.trim().replace(/\.$/, '');
+        // row.availabilityText[0].text = row.availabilityText[0].text.trim().replace(/\.$/, '');
       }
       if (row.gtin) {
         // Getting only 10 UPCs.
-        const text = row.gtin.slice(0, 10).map(elm => elm.text).join(' ');
+        const gtins = row.gtin.map(elm => elm.text.trim());
+        const text = Array.from(new Set(gtins.slice(0, 10))).join(' ');
         row.gtin = [{ text }];
       }
       if (!row.image && row.imageFallback) {
@@ -378,8 +380,19 @@ const transform = (data, context) => {
         const updpLength = text.split(' || ').length;
         console.log(updpLength);
       }
+
+      if (row.alternateImagesFromScript) {
+        row.alternateImages = row.alternateImagesFromScript;
+        delete row.alternateImagesFromScript;
+      }
+
       if (row.alternateImages) {
         row.secondaryImageTotal = [{ text: row.alternateImages.length }];
+      }
+      if (!row.warnings && row.warningsFallback) {
+        const text = row.warningsFallback[0].text;
+        row.warnings = [{ text }];
+        delete row.warningsFallback;
       }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {

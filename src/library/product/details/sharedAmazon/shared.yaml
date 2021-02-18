@@ -50,7 +50,7 @@ fields:
     xpath: (//span[contains(@id,"priceblock_dealprice")] | //*[@id="priceblock_ourprice"][not(contains(@class,"a-text-strike"))] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1] | //span[@id="priceblock_saleprice"] | //li[contains(@class,selected) and contains(@class,"swatchElement")]//span[contains(@class,"a-size-base a-color-price")] | //span[contains(@class,"header-price")][not(@id="subscriptionPrice")] | //li[@class="swatchSelect"]//span[@class="olp-message a-color-price"]/span/text()[last()] | //div[@id="buyNew_noncbb"]/span
   - name: availabilityText
     singleValue: false
-    xpath: (//*[normalize-space(@id)='availability']/span[not(span)] | //*[normalize-space(@id)='availability']/span/span[last()] | //*[normalize-space(@id)='availability-string']/span[not(span)])[1]
+    xpath: (//*[normalize-space(@id)='availability']/span[not(span[normalize-space(text())!=""])] | //*[normalize-space(@id)='availability']/span/span[last()] | //*[normalize-space(@id)='availability-string']/span[not(span)])[1]
     defaultValue: 'Out of Stock'
   # - name: unavailableMsg
   #   singleValue: false
@@ -92,6 +92,7 @@ fields:
   - name: gtin
     singleValue: false
     xpath: //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'UPC')]/following-sibling::text()[1] | //span[contains(text(),"UPC") and contains(@class,"a-text")]//following-sibling::span | //*[normalize-space(text())="UPC"]/following-sibling::*[1]
+    regExp: \w+
   - name: variantId
     singleValue: false
     # xpath: //script[contains(@type,"a-state") and contains(text(), "parentAsin")]
@@ -113,10 +114,12 @@ fields:
     xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), "Legal Disclaimer")]/../p[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/span[contains(text(), "Legal Disclaimer")]/../p[text()]/text()
   - name: directions
     singleValue: false
-    xpath: //*[contains(text(), "Directions")][not(ancestor::*[@id="aplus" or @class="aplus"])]/following-sibling::*[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
+    xpath: //*[contains(text(), 'Directions')][not(ancestor::*[@id='aplus' or @class='aplus'])]/following-sibling::*[text()]/text() | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
   - name: warnings
     singleValue: false
     xpath: (//*[contains(@class, 'a-alert-heading') and contains(text(), 'WARNING')]/following-sibling::div[contains(@class, 'a-alert-content')] | //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Safety Information')]/../p[text()]/text() | //div[contains(@id, "important-information")]/div[contains(@class, "a-section content") and contains(., "Warning")])[1] | (//div[@id='importantInformation_feature_div']//div[contains(.,'Safety Information')]/p)
+  - name: warningsFallback
+    xpath: //td[@class="warningAlertImageColumn"]/following-sibling::td[1]
   - name: ratingCount
     singleValue: false
     # xpath: //div[@id="averageCustomerReviews_feature_div"]//*[@id="acrCustomerReviewText"]/text()
@@ -183,7 +186,7 @@ fields:
     xpath: //div[@id='added-url']
   - name: asin
     #singleValue: true
-    xpath: //div[@id='added-asin'] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text() | //*[normalize-space(text())="ASIN"]/following-sibling::*[1] | //*[normalize-space(text())="ASIN :"]/following-sibling::*[1]
+    xpath: //div[@id='added-asin'] | //div[contains(@id, 'detail-bullets')]//div[contains(@class, 'content')]//ul/li//*[contains(text(), 'ASIN')]/../../text() | //*[normalize-space(text())="ASIN"]/following-sibling::*[1] | //*[normalize-space(text())="ASIN :"]/following-sibling::*[1] | //*[normalize-space(text())="ISBN-10 :"]/following-sibling::*[1]
     regExp: ^\w+
   - name: sku
   - name: coupon
@@ -303,18 +306,14 @@ fields:
     singleValue: false
     xpath: //div[contains(@id, "package_quantity")]//span[contains(@class, "selection")] | //*[contains(text(), "Number of Items")]/following-sibling::td[1]
   - name: caloriesPerServing
-    #singleValue: true
     xpath: 
   - name: caloriesFromFatPerServing
-    #singleValue: true
     xpath: 
   - name: totalFatPerServing
-    #singleValue: true
     xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
     regExp: Crude Fat\s+([^%]+)
     regExpReplace: $1
   - name: totalFatPerServingUom
-    #singleValue: true
     xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Indications')]/p[not(text()="")]
     regExp: Crude Fat\s+([^%]+)
     regExpReplace: '%'
@@ -493,16 +492,18 @@ fields:
     regExpReplace: Yes
     defaultValue: No
   - name: termsAndConditions
-    #singleValue: true
     defaultValue: No
   - name: privacyPolicy
-    #singleValue: true
     defaultValue: No
+    xpath: //*[contains(text(),"Privacy Notice")]
+    regExp: (.+)
+    regExpReplace: Yes
   - name: customerServiceAvailability
-    #singleValue: true
     defaultValue: No
+    xpath: //*[contains(text(),"Customer Service")]
+    regExp: (.+)
+    regExpReplace: Yes
   - name: materials
-    #singleValue: true
     xpath: //div[contains(@id, "prodDetails")]//tr[contains(., "Material") or (contains(., "material"))]/td[contains(@class,'value')] | //*[normalize-space(text())="materials" or normalize-space(text())="Material"]/following-sibling::*[1]
   - name: Image360Present
     #singleValue: true
