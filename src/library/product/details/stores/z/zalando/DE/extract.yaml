@@ -125,6 +125,7 @@ fields:
 - name: shippingInfo
   singleValue: true
   description: Shipping information for the product
+  xpath: ancestor::html //span[contains(., 'Verkauft und versandt durch')]/following-sibling::span
 - name: shippingDimensions
   singleValue: true
   description: Stated shipping dimensions
