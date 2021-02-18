@@ -27,6 +27,7 @@ module.exports = {
         document.body.appendChild(catElement);
 
       }
+      //@ts-ignore
       const rawdata = document.querySelectorAll('script[type="application/ld+json"]')[0].innerText;
       const abc = rawdata.replace(/(\r\n|\n|\r)/gm, "")
       // try {

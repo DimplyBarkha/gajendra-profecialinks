@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'Sainsburys',
     domain: 'sainsburys.co.uk',
-    loadedXpath: '//img[@class="pd__image"]/@srcset',
+    loadedSelector: 'h1[class="pd__header"]',
     noResultsXPath: null,
     zipcode: '',
   },
