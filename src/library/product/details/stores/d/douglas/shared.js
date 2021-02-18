@@ -37,16 +37,16 @@ const transform = (data) => {
         });
       }
 
-      if (row.nameExtended) {
-        let qunatityTxt = '';
-        if (row.quantity && row.quantity.length > 0) {
-          qunatityTxt = row.quantity[0].text;
-        }
-        row.nameExtended.forEach(item => {
-          item.text = `${item.text} ${qunatityTxt}`;
-        });
-        row.nameExtended[0].text = row.nameExtended[0].text.trim();
-      }
+      // if (row.nameExtended) {
+      //   let qunatityTxt = '';
+      //   if (row.quantity && row.quantity.length > 0) {
+      //     qunatityTxt = row.quantity[0].text;
+      //   }
+      //   row.nameExtended.forEach(item => {
+      //     item.text = `${item.text} ${qunatityTxt}`;
+      //   });
+      //   row.nameExtended[0].text = row.nameExtended[0].text.trim();
+      // }
       if (!row.quantity && row.quantity1 && row.quantity1.length) {
         const text = row.quantity1[0].text;
         row.quantity = [{ text }];
@@ -124,14 +124,18 @@ const transform = (data) => {
       if (row.brandText && row.nameExtended) {
         if (row.variantInformation) {
           if (row.variantInformation[0].text.includes(row.nameExtended[0].text)) {
-            let text = row.variantInformation[0].text.split(row.nameExtended[0].text)[1];
-            text = row.brandText[0].text + ' ' + row.nameExtended[0].text + ' ' + text;
-            text = text.trim();
+            const text = row.brandText[0].text + ' ' + row.variantInformation[0].text;
+            row.imNameExtended = [{ text }];
+          } else if (row.nameExtended[0].text.includes(row.variantInformation[0].text)) {
+            const text = row.brandText[0].text + ' ' + row.nameExtended[0].text;
             row.imNameExtended = [{ text }];
           } else {
             const text = row.brandText[0].text + ' ' + row.nameExtended[0].text + ' ' + row.variantInformation[0].text;
             row.imNameExtended = [{ text }];
           }
+        } else {
+          const text = row.brandText[0].text + ' ' + row.nameExtended[0].text;
+          row.imNameExtended = [{ text }];
         }
       }
     }
