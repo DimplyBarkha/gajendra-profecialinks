@@ -22,6 +22,10 @@ async function implementation (
       const originalDiv = document.querySelectorAll('.product-tile__product-info')[index];
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
+    let cookieButton = document.querySelector('button.button.button__primary');
+    if(cookieButton){
+      cookieButton.click();
+    }
 
     
     await new Promise((resolve, reject) => setTimeout(resolve, 6000));

@@ -24,7 +24,7 @@ fields:
     regExpReplace: https://www.douglas.de$1
   - name: thumbnail
     singleValue: false
-    xpath: //div[contains(@class,'product-grid-column')]//img/@src
+    xpath: //div[contains(@class,"product-tile__image")]//img/@data-lazy-src
     # xpath: //script[@type="application/ld+json"]
     # regExp: ("image":\s")(.+)(",\s"brand)
     # regExpReplace: $2
