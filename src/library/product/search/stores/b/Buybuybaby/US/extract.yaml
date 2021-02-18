@@ -1,0 +1,26 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="ProductGrid-inline_7ebuPJ ProductGrid-inline_2pGiYx"]
+fields:
+  - name: productUrl
+    xpath: //a[@class="PrimaryLink_1VcYl4 inline-block"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.buybuybaby.com/$1
+  - name: thumbnail
+    xpath: //div[@class="Thumbnail_4q2qnF block overflow-hidden relative"]/img/@srcset
+  - name: name
+    xpath: //a[@class="PrimaryLink_1VcYl4 inline-block"]//text()
+  - name: id
+    xpath: //article/@id
+  - name: reviewCount
+    xpath: //span[@class="Rating_5JeWqV Rating-inline_4hNgNh"]//text()
+  - name: ratingCount
+  - name: price
+    singleValue: false
+    type: CURRENCY
+    xpath: //span[starts-with(@class,'Price_3HnIBb block')]
+  - name: manufacturer
+  - name: aggregateRating2
+  - name: rankOrganic
+  - name: rank
