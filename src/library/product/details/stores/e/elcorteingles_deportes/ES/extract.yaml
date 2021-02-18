@@ -87,7 +87,7 @@ fields:
     singleValue: false
     xpath: ancestor::html //div[@id='directions']
   - name: directionsFromPTag
-    xpath: ancestor::html //p[contains(text(),"Modo de empleo:")]
+    xpath: ancestor::html //p[contains(text(),"Modo de empleo:")] | ancestor::html //p[contains(text(), 'Modo de uso')]
   - name: warnings 
     singleValue: true
     xpath:   
@@ -177,3 +177,6 @@ fields:
     xpath : ancestor::html //dt[contains(text(),"Clasificación energética")]/following-sibling::dd[1] 
   - name: imageZoomFeaturePresent
     xpath : count(ancestor::html //img/@data-zoom )>0  
+  - name: isSizeDropDownPresent
+    xpath : ancestor::html //div[contains(@id,'variants_container')]//select/option
+   

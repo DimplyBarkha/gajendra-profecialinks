@@ -32,12 +32,18 @@ const transform = (data, context) => {
       if (!row.directions && row.directionsFromPTag) {
         let directionsInfo = row.directionsFromPTag[0].text;
         directionsInfo = directionsInfo.replace('Modo de empleo:', '');
+        directionsInfo = directionsInfo.replace('Modo de uso:', '');
         row.directions = [{ text: directionsInfo.trim() }];
       }
 
       if (!row.quantity && row.quantityFromSingleVariant) {
         row.quantity = row.quantityFromSingleVariant;
       }
+
+      if (!row.quantity && row.variantInformation && row.isSizeDropDownPresent) {
+        row.quantity = row.variantInformation;
+      }
+
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
