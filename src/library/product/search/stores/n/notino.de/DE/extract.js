@@ -21,19 +21,19 @@ module.exports = {
       addHiddenDiv('added-searchurl', url);
     }
     await context.evaluate(addUrl);
-    await context.evaluate(async function () {
-      let count = document.querySelectorAll('ul[id="productsList"] li[data-product-code]').length;
-      while (count <= 150) {
-        if (document.querySelector('a[class="btn btn--secondary"]')) {
-          // @ts-ignore
-          document.querySelector('a[class="btn btn--secondary"]').click();
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          count = document.querySelectorAll('ul[id="productsList"] li[data-product-code]').length;   
-        } else {
-          break;
-        }      
-      }
-    });
+    // await context.evaluate(async function () {
+    //   let count = document.querySelectorAll('ul[id="productsList"] li[data-product-code]').length;
+    //   while (count <= 150) {
+    //     if (document.querySelector('a[class="btn btn--secondary"]')) {
+    //       // @ts-ignore
+    //       document.querySelector('a[class="btn btn--secondary"]').click();
+    //       await new Promise(resolve => setTimeout(resolve, 1000));
+    //       count = document.querySelectorAll('ul[id="productsList"] li[data-product-code]').length;   
+    //     } else {
+    //       break;
+    //     }      
+    //   }
+    // });
     return await context.extract(productDetails, { transform: transformParam });
   },
 };
