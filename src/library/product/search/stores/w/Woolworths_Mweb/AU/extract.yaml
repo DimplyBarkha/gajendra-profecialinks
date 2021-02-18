@@ -1,0 +1,38 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,'product-grid--tile')]
+fields:
+  - name: id
+    singleValue: false
+    xpath: //a[@class="shelfProductTile-imageWrapper"]/@href
+    # www.woolworths.com.au/shop/productdetails/855572/sunbites-crackers-with-quinoa-cheddar-chives
+    regExp: productdetails\/(.+?)\/
+    regExpReplace: $1
+  - name: name
+    singleValue: false
+    xpath: //a[@class="shelfProductTile-imageWrapper"]/img/@title
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class="shelfProductTile-imageWrapper"]/@href 
+    regExp: (.+)
+    regExpReplace: https://www.woolworths.com.au$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //a[@class="shelfProductTile-imageWrapper"]/img/@src
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[contains(@class,'shelfProductTile-ratingBlock')]//wow-rating//span[@class="sr-only"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="shelfProductTile-ratingBlock"]//span[@class='rating-count']
+  - name: price
+    singleValue: false
+    xpath: //shared-price//div[contains(@class,'price price--large')]//text()
+  - name: rankOrganic
+    SingleValue: false
+  - name: rank
+    singleValue: false
+  - name: sponsored
+    singleValue: false
+    xpath: //div[contains(@class,'product-grid--tile')]//section[@class="shelfProductTile tile has-header"]//div[@class="shelfProductTileOffer"]/p[starts-with(text(),"Save $")] | //div[contains(@class,'product-grid--tile')]//section[@class="shelfProductTile tile"]/div[@class="shelfProductTile-content"]/div[contains(@class,"shelfProductTile-sponsored")]
