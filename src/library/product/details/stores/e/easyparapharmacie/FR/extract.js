@@ -52,6 +52,17 @@ async function implementation (inputs, parameters, context, dependencies) {
         }
         addElementToDom(quantity, 'quantity');
 
+        let weight = document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)")
+          ? document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)").innerText
+          : '';
+        const weightRegex = /\d*?.?\d+k?g/g;
+        if (weight && weightRegex.test(weight)) {
+          weight = weight.match(weightRegex)[0];
+        } else {
+          weight = '';
+        }
+        addElementToDom(weight, 'weight');
+
         const warningText = document.querySelector('.descr .product-tabs:nth-of-type(3) div hr')
           ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:last-of-type')
             ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:last-of-type').innerText
@@ -172,6 +183,17 @@ async function implementation (inputs, parameters, context, dependencies) {
         quantity = '1';
       }
       addElementToDom(quantity, 'quantity');
+
+      let weight = document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)")
+        ? document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)").innerText
+        : '';
+      const weightRegex = /\d*?.?\d+k?g/g;
+      if (weight && weightRegex.test(weight)) {
+        weight = weight.match(weightRegex)[0];
+      } else {
+        weight = '';
+      }
+      addElementToDom(weight, 'weight');
 
       const warningText = document.querySelector('.descr .product-tabs:nth-of-type(3) div hr')
         ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:last-of-type')
