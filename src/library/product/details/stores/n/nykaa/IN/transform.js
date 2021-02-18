@@ -72,6 +72,7 @@ const cleanUp = (data, context) => {
         }
         row.description = [{ text: text.trim() }];
       }
+
       if (row.inTheBoxText) {
         for (let i = 0; i < row.inTheBoxText.length; i++) {
           row.inTheBoxText[i].text = row.inTheBoxText[i].text.replace('-', '');
@@ -100,6 +101,10 @@ const cleanUp = (data, context) => {
 
       if (!row.manufacturerImages && row.manufacturerDescription) {
         delete row.manufacturerDescription;
+      }
+
+      if (row.manufacturerImages && row.manufacturerDescription) {
+        row.description = row.manufacturerDescription;
       }
     }
   }
