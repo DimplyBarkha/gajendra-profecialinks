@@ -508,10 +508,10 @@ fields:
       https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
     example: 4 - 99 years
   - name: energyEfficiency
-    singleValue: true
     description: Energy rating of a product.
       https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
     example: A+, A+++, B
+    xpath: //th[contains(@class,"con-normal")][contains(.,"Energijski razred")]/following-sibling::td/text()
   - name: technicalInformationPdfPresent
     singleValue: true
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
