@@ -23,9 +23,10 @@ fields:
     description: The categories (e.g. from breadcrumbs)
     xpath: //div[@class="breadcrumbs"]//a[not(@class="first")][not(contains(@class,"last"))]
   - name: nameExtended
-    description: The product name, prefixing "${brand} - " if not included in "name"
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath:  //div[@class="title-cnt"]//h1[@itemprop="name"]
+    xpath: normalize-space(//h1[@itemprop="name"])
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: //span[contains(@class,"price_compare")] | //tr[@class="priceCompare"]/td[@class="c2"]
@@ -46,7 +47,8 @@ fields:
   - name: description
     xpath: //div[@class="nameextc"] | //div[@id="desc"]//div[@id="celek"]
   - name: brandText
-    description: Product brand shown - this may actually NOT be just a brand name,
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: //div[@id="content0"]//script[@type="text/javascript"]
     regExp: '"brand":"(.+?)"'
@@ -77,12 +79,11 @@ fields:
     xpath: //span[@class="moreInfo"]//span[contains(.,"Kód:")]/following-sibling::*
   - name: mpc
     description: The manufacturer model code (unique) of the product
-    xpath: //span[@class="moreInfo"]//span[contains(.,"Prod. číslo:")]/following-sibling::* | //span[@class="moreInfo"]//span[contains(.,"Kód:")]/following-sibling::*
+    xpath: //body/@import-mpc
   - name: ratingCount
     description: The number of ratings
     type: NUMBER
-    xpath: //span[@class="ratingCount"]
-    regExp: '[0-9]+'
+    xpath: //a[@id="reviews-tab"]/span
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
     xpath: //div[@id="popis"]//div[contains(@class,"c12")]

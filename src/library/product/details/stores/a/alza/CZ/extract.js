@@ -109,6 +109,18 @@ module.exports = {
     } catch (e) {
       console.log('No such product exists');
     }
+
+    await context.evaluate(async() => {
+      console.log('Fetching and appending MPC to DOM');
+      const itemEl = document.evaluate(`//div[@class='detail-page articleLab']/script[1]`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+
+      if (itemEl.snapshotLength) {
+        let itemID = itemEl.snapshotItem(0).innerText;
+        itemID = itemID.split('"itemID":"');
+        itemID = itemID.length > 1 ? itemID[1].split('"')[0] : '';
+        document.body.setAttribute('import-mpc', itemID);
+      }
+    });
     return await context.extract(productDetails, { transform });
   },
 };
