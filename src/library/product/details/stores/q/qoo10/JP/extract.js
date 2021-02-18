@@ -1,7 +1,7 @@
-const {transform} = require('./../../../../shared');
+const {transform} = require('./shared');
 
 module.exports = {
-  implements: 'product/reviews/extract',
+  implements: 'product/details/extract',
   parameterValues: {
     country: 'JP',
     store: 'qoo10',

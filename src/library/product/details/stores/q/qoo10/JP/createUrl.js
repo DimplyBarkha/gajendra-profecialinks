@@ -6,7 +6,7 @@ module.exports = {
     prefix: null,
     url: null,
     country: 'JP',
-    store: 'qoo10.jp',
+    store: 'qoo10',
     zipcode: '',
   },
 };

@@ -1,15 +1,15 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="review_summary"]//ul[@id='reviews_wrapper']/li
+recordXPath: null
 fields:
-  - name: manufacturer
+  - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
     xpath: //h2[@id="goods_name"]//a[@id='btn_brand']/@title
-  - name: colour
+  - name: color
     singleValue: false
-    xpath: ancestor::html//ul[@class='select_chip big']//li//span/@title
+    xpath: //ul[@class='select_chip big']//li//span/@title
   - name: flavour
     singleValue: false
   - name: image
@@ -23,10 +23,9 @@ fields:
     xpath: //ul[@class="category_depth_list"]/li
   - name: subCategory
     singleValue: false
-    description: Product range 
-    xpath: //ul[@class="category_depth_list"]/li
+    description: Product range
+    xpath: //ul[@class="category_depth_list"]/li[position()=count(//ul[@class="category_depth_list"]/li)-1]
   - name: reviewCount
-    type: NUMBER
     description: Number of comments on the review
     xpath: //li[@id="tab_review"]//em[@id="opinion_count"]
   - name: sku
@@ -35,4 +34,3 @@ fields:
     xpath: //div[@class="code"]/text()
     regExp: ([0-9]{1,})
     regExpReplace: $1
-  - name: pageOffset

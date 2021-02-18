@@ -3,17 +3,20 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@class='bd_lst_item']//tbody[@id='search_result_item_list']//tr
 fields:
-  - name: manufacturer
+  - name: brandText
     description: The manufacturer of product
-    xpath: //td[@class='td_item']//div[@class='sbj']//a[1]/@title
+    xpath: //td[@class='td_item']//div[@class='sbj']//a[@class="tag_brd"]/@title
   - name: name
     description: The title of the product
-    xpath: //td[@class='td_item']//div[@class='sbj']//a[2]/@title
+    xpath: //td[@class='td_item']//div[@class='sbj']//a[@data-type="goods_url"]/@title
   - name: productUrl
     description: The url of the product
-    xpath: //td[@class='td_thmb']//div[@class='inner']//a//img/ancestor::a/@href
+    xpath: //td[@class='td_item']//div[@class='sbj']//a[@data-type="goods_url"]/@href
   - name: reviewCount
     xpath: //span[@class="review_total_count"]
     regExp: ([^()]+)
     regExpReplace: $1
   - name: sku
+    xpath: //a[@class='lnk_sh']/@href
+    regExp: cit=(.*)
+    regExpReplace: $1

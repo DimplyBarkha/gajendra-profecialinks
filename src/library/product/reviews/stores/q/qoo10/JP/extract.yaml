@@ -4,9 +4,8 @@ recordSelector: null
 recordXPath: //div[@class="review_summary"]//ul[@id='reviews_wrapper']/li
 fields:
   - name: helpfulCount
-    type: NUMBER
     description: Number of people who said the review was helpful
-    xpath: //div[@class='review_button ']//span[@class='count']
+    xpath: //div[contains(@class,'review_button')]//span[@class='count']
   - name: reviewRating
     description: The product rating
     xpath: //div[@class='review_score']//span[@class='score']
@@ -21,4 +20,3 @@ fields:
   - name: reviewTitle
     singleValue: false
     description: The title of the review
-    xpath: //div[@class='review_user_info']//span[3]
