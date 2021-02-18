@@ -2,7 +2,7 @@ input:
   _url: http://bol.com
   URL: https://www.bol.com/nl/p/krups-nescafe-dolce-gusto-piccolo-xs-kp1a0110-koffiecupmachine-wit/9200000119890739/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ea661289-8ef3-43dc-a4d9-59793a067f95/task=5b7b1158-f110-4a8c-9336-cc0f59894b0d/42a8540f-629c-491e-80d1-aa0c682c3fab.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9f8e6e09-6790-4865-94d9-9b4801d45e60/task=afd4456e-cfd5-4f27-badb-a316e9d311c1/92363e71-a004-4920-b409-173727c3aac2.html
     extractionConfigId: product/details/stores/b/bol/NL/extract
     data:
       - group:
@@ -26,17 +26,17 @@ extractions:
                 xpath: /html/body/ol[1]/li[5]/@src
               - text: https://media.s-bol.com/BrNz7rYBqOnX/550x464.jpg
                 xpath: /html/body/ol[1]/li[6]/@src
-              - text: https://media.s-bol.com/ojn8WoDVnl7A/550x459.jpg
-                xpath: /html/body/ol[1]/li[7]/@src
               - text: https://media.s-bol.com/3yrEmq0mJE9r/550x436.jpg
+                xpath: /html/body/ol[1]/li[7]/@src
+              - text: https://media.s-bol.com/ojn8WoDVnl7A/550x459.jpg
                 xpath: /html/body/ol[1]/li[8]/@src
-              - text: https://media.s-bol.com/YyYrDJB9V680/550x471.jpg
-                xpath: /html/body/ol[1]/li[9]/@src
               - text: https://media.s-bol.com/8MzWrnPOBW9g/550x513.jpg
-                xpath: /html/body/ol[1]/li[10]/@src
-              - text: https://media.s-bol.com/z74QgJKrMA02/550x459.jpg
-                xpath: /html/body/ol[1]/li[11]/@src
+                xpath: /html/body/ol[1]/li[9]/@src
               - text: https://media.s-bol.com/E0X1LErBZZR0/550x471.jpg
+                xpath: /html/body/ol[1]/li[10]/@src
+              - text: https://media.s-bol.com/YyYrDJB9V680/550x471.jpg
+                xpath: /html/body/ol[1]/li[11]/@src
+              - text: https://media.s-bol.com/z74QgJKrMA02/550x459.jpg
                 xpath: /html/body/ol[1]/li[12]/@src
             category:
               - text: Elektronica
@@ -54,7 +54,7 @@ extractions:
               - text: € 79,49
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/wsp-visibility-switch[1]/section[1]/div[1]/del[1]
             price:
-              - text: € 58,95
+              - text: € 67,99
                 xpath: /html/body/div[4]
             availabilityText:
               - text: In Stock
@@ -95,9 +95,6 @@ extractions:
                   latte macchiato. Zelfs warme chocolademelk, thee en koude
                   dranken zijn mogelijk."
                 xpath: /html/body/div[7]
-            brandText:
-              - text: Krups
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]
             weightNet:
               - text: 2637 g
                 xpath: /html/body/div[14]
@@ -105,13 +102,13 @@ extractions:
               - text: "9200000119890739"
                 xpath: /html/body/ol[3]/@selected_variant_id
             ratingCount:
-              - text: "106"
+              - text: "110"
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[7]/div[1]/div[2]/div[2]/div[1]/div[2]/strong[1]
             aggregateRating:
               - text: 4,1
                 xpath: /html/body/div[13]
             shippingInfo:
-              - text: ACR Reijnders B.V. 9.1
+              - text: bol.com
                 xpath: /html/body/div[15]
             color:
               - text: Wit
@@ -148,14 +145,14 @@ extractions:
               - text: Krups NESCAFÉ Dolce Gusto PICCOLO XS KP1A0110 - Koffiecupmachine - Wit
                 xpath: /html/body/div[18]/@product-name
             inStorePrice:
-              - text: € 58,95
+              - text: € 67,99
                 xpath: /html/body/div[4]
             specifications:
               - text: "Verpakking breedte: 294 mm | Verpakking hoogte: 317 mm | Verpakking
                   lengte: 178 mm"
                 xpath: /html/body/div[9]
             promotion:
-              - text: Je bespaart 26%
+              - text: Je bespaart 14%
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/wsp-visibility-switch[1]/section[1]/div[2]
             variantInformation:
               - text: Wit
@@ -178,36 +175,48 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[1]/div[1]/div[2]/a[1]
               - text: Krups KP1208 Nescafé Dolce Gusto MiniMe - Antraciet / zwart
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[1]
-              - text: Krups NESCAFÉ Dolce Gusto Lumio KP1301 - Koffiecupmachine - Wit
+              - text: Krups Nescafé® Dolce Gusto® GENIO S Basic KP2401 - Koffiecupmachine - Wit
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[3]/div[1]/div[2]/a[1]
-              - text: Krups NESCAFÉ Dolce Gusto Lumio KP1308 - Koffiecupmachine - Zwart
+              - text: Krups Nescafé® Dolce Gusto® GENIO S Plus KP3408 - Koffiecupmachine - Zwart
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/div[1]/div[2]/a[1]
-              - text: KRUPS NESCAFÉ Dolce Gusto INFINISSIMA KP170110 - Koffiecupmachine - Wit
+              - text: Krups NESCAFÉ Dolce Gusto Lumio KP1308 - Koffiecupmachine - Zwart
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/div[1]/div[2]/a[1]
-              - text: Krups Nescafé® Dolce Gusto® GENIO S Plus KP3405 - Koffiecupmachine - Rood
+              - text: Krups NESCAFÉ Dolce Gusto Lumio KP1301 - Koffiecupmachine - Wit
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/div[1]/div[2]/a[1]
-              - text: Krups NESCAFÉ Dolce Gusto Mini Me KP1201 - Koffiecupmachine - Grijs
+              - text: KRUPS NESCAFÉ Dolce Gusto INFINISSIMA KP170110 - Koffiecupmachine - Wit
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[7]/div[1]/div[2]/a[1]
-              - text: Krups NESCAFÉ Dolce Gusto Lumio KP1305 - Koffiecupmachine - Rood
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/div[1]/div[2]/a[1]
               - text: Krups Nescafé Dolce Gusto Piccolo KP100B - inclusief 40 gratis koppen
                   koffie - Koffiecupmachine
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[8]/div[1]/div[2]/a[1]
+              - text: NESCAFÉ® DOLCE GUSTO® MINI ME KP123B AUTOMATISCHE KOFFIEMACHINE -
+                  GRIJS/ZWART
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[9]/div[1]/div[2]/a[1]
-              - text: Nescafé Dolce Gusto capsules Lungo Intenso - 48 koffiecups - geschikt voor
-                  48 koppen koffie
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[7]/ul[1]/li[1]/div[1]/div[2]/a[1]
+              - text: NESCAFÉ® DOLCE GUSTO® MINI ME KP123B AUTOMATISCHE KOFFIEMACHINE -
+                  GRIJS/ZWART
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[1]/div[2]/a[1]
+              - text: Krups Nescafé® Dolce Gusto® GENIO S Basic KP2401 - Koffiecupmachine - Wit
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[2]/div[2]/a[1]
+              - text: Krups Nescafé® Dolce Gusto® GENIO S Plus KP3408 - Koffiecupmachine - Zwart
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[3]/div[2]/a[1]
+              - text: Krups Nescafé® Dolce Gusto® GENIO S Plus KP3405 - Koffiecupmachine - Rood
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[4]/div[2]/a[1]
+              - text: Krups NESCAFÉ® Dolce Gusto® Piccolo XS KP1A3B - Koffiecupmachine - Zwart
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[5]/div[2]/a[1]
+              - text: Krups Nescafé Dolce Gusto® Infinissima KP173B - Koffiecupmachine -
+                  Donkergrijs
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[5]/wsp-sponsored-products-slot[1]/div[1]/ul[1]/li[6]/div[2]/a[1]
               - text: Nescafé Dolce Gusto capsules Nesquik - chocolademelk - 48 cups - geschikt
                   voor 24 koppen
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[7]/ul[1]/li[2]/div[1]/div[2]/a[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[7]/ul[1]/li[1]/div[1]/div[2]/a[1]
               - text: Nescafé Dolce Gusto capsules Cappuccino - voordeelverpakking - 90
                   koffiecups - geschikt voor 45 koppen koffie
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[7]/ul[1]/li[3]/div[1]/div[2]/a[1]
-              - text: Starbucks by Dolce Gusto capsules Latte Macchiato - 36 koffiecups -
-                  geschikt voor 18 koppen koffie
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[7]/ul[1]/li[4]/div[1]/div[2]/a[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[7]/ul[1]/li[2]/div[1]/div[2]/a[1]
               - text: Nescafé Dolce Gusto capsules Lungo decafé - 48 koffiecups - geschikt voor
                   48 koppen koffie
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[7]/ul[1]/li[5]/div[1]/div[2]/a[1]
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[7]/ul[1]/li[3]/div[1]/div[2]/a[1]
+            brandText:
+              - text: Krups
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]
             gtin:
               - text: "3016661155581"
             sku:
@@ -228,4 +237,4 @@ extractions:
             hasComparisonTable:
               - text: No
         xpath: /html
-    timestamp: 1612353561458
+    timestamp: 1613460522765

@@ -463,6 +463,11 @@ module.exports = {
           if (!selectedVariantName) {
             selectedVariantName = variant.querySelector('img') ? variant.querySelector('img').alt : '';
           }
+          if (!selectedVariantName) {
+            selectedVariantName = variant.querySelector('div[data-test="label"] > span')
+              ? variant.querySelector('div[data-test="label"] > span').textContent.trim()
+              : '';
+          }
         }
         listItem.setAttribute('variant_id', variantId);
         variantsList.appendChild(listItem);

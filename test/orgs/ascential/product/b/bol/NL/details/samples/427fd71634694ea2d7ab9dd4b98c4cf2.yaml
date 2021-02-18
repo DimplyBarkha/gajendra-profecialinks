@@ -2,7 +2,7 @@ input:
   _url: http://bol.com
   URL: https://www.bol.com/nl/p/andrelon-oil-care-3-x-180-ml-1-minuut-haarmasker-voordeelverpakking/9200000077019379/
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ea661289-8ef3-43dc-a4d9-59793a067f95/task=905fa442-ec7c-43fc-a70b-5480b00fb844/4b55d46d-0706-4c0b-ae9f-f47695b1399f.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=9f8e6e09-6790-4865-94d9-9b4801d45e60/task=09702657-ee3c-444a-bb4e-db51a1b8e428/823d133a-9c30-4f85-8704-7e82facad564.html
     extractionConfigId: product/details/stores/b/bol/NL/extract
     data:
       - group:
@@ -78,9 +78,6 @@ extractions:
             descriptionBullets:
               - text: "6"
                 xpath: /html/body/div[5]
-            brandText:
-              - text: Andrélon
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]
             quantity:
               - text: 540 ml
                 xpath: /html/body/div[15]
@@ -105,9 +102,6 @@ extractions:
                   geschikt voor lang, dun of krullend haar. {rosettext.tooltip}}
                   || 540 ml
                 xpath: /html/body/div[11]
-            manufacturerImages:
-              - text: https://media.s-bol.com/Y7Q6KRJB6EN2/130x82.jpg
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]/a[1]/img[1]/@src
             name:
               - text: Andrélon Oil & Care - 3 x 180 ml - 1-Minuut Haarmasker -
                   Voordeelverpakking
@@ -134,13 +128,13 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[2]/div[1]/div[2]/a[1]
               - text: Andrélon Oil & Care - 3 x 300 ml - Shampoo - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[3]/div[1]/div[2]/a[1]
-              - text: Andrélon Deluxe Repair & Shine Intensief Haarsmasker - 200 ml
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/div[1]/div[2]/a[1]
               - text: Andrélon Special Oil & Care Shampoo - 6 x 300 ml - Voordeelverpakking
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[4]/div[1]/div[2]/a[1]
+              - text: Andrélon Deluxe Repair & Shine Intensief Haarsmasker - 200 ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[5]/div[1]/div[2]/a[1]
-              - text: Organix Moroccan Argan Olie Haarserum - 100 ml
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/div[1]/div[2]/a[1]
               - text: Andrélon Classic Perfecte Krul Shampoo 6 x 300 ml - Voordeelverpakking
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[6]/div[1]/div[2]/a[1]
+              - text: Organix Moroccan Argan Olie Haarserum - 100 ml
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[2]/ul[1]/li[7]/div[1]/div[2]/a[1]
               - text: Andrélon Perfecte Krul - 180 ml - 1-Minuut Haarmasker - 6 stuks -
                   Voordeelverpakking
@@ -153,12 +147,15 @@ extractions:
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[6]/ul[1]/li[2]/div[1]/div[2]/a[1]
               - text: Andrélon Oil & Care - 3 x 300 ml - Shampoo - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[6]/ul[1]/li[3]/div[1]/div[2]/a[1]
-              - text: Andrélon Classic Perfecte Krul Shampoo 6 x 300 ml - Voordeelverpakking
-                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[6]/ul[1]/li[4]/div[1]/div[2]/a[1]
               - text: Andrélon Special Oil & Care Shampoo - 6 x 300 ml - Voordeelverpakking
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[6]/ul[1]/li[4]/div[1]/div[2]/a[1]
+              - text: Andrélon Classic Perfecte Krul Shampoo 6 x 300 ml - Voordeelverpakking
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[6]/ul[1]/li[5]/div[1]/div[2]/a[1]
-              - text: Oral-B Pro-Expert Professionele Bescherming - 4x75 ml - Tandpasta
+              - text: NIVEA Zuiverende Clear-Up Strips - 6 stuks
                 xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[3]/div[2]/div[6]/ul[1]/li[6]/div[1]/div[2]/a[1]
+            brandText:
+              - text: Andrélon
+                xpath: /html/body/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/a[1]
             gtin:
               - text: "8710447182215"
             sku:
@@ -181,4 +178,4 @@ extractions:
             hasComparisonTable:
               - text: No
         xpath: /html
-    timestamp: 1612353544135
+    timestamp: 1613460504781
