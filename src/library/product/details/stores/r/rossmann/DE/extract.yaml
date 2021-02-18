@@ -1,3 +1,5 @@
+# @format
+
 singleRecord: false
 regionsSelector: null
 recordSelector: null
@@ -20,7 +22,7 @@ fields:
   - name: description
     xpath: //article[contains(@itemprop,"description")]//h2[contains(., 'Produktbeschreibung') or contains(., 'Produktdetails')]/following-sibling::div[contains(@class, 'rm-accordion__detail-info')]
   - name: ingredientsList
-    xpath: //article[contains(@itemprop,"description")]//h2[contains(., 'Inhaltsstoffe')]/following-sibling::div[contains(@class, 'rm-accordion__detail-info')]
+    xpath: //article[contains(@itemprop,"description")]//h2[contains(., 'Inhaltsstoffe')]/following-sibling::div[contains(@class, 'rm-accordion__detail-info')] | //span[contains(text(),"Zutaten")][contains(@class,"accordion")]/../following-sibling::div[1]
   - name: brandText
     xpath: //div[contains(@class, 'rm-product__brand')]
   - name: manufacturer
@@ -121,7 +123,7 @@ fields:
     regExpReplace: $1width=600&height=600&canvas=600
   - name: secondaryImageTotal
     xpath: count(//div[contains(@class, 'rm-productdetail__image-thumbs')]//div[contains(@class, 'swiper-slide') and not(contains(@class, 'active'))])
-  - name: ratingCount 
+  - name: ratingCount
     xpath: //div[contains(@class, 'bv_numReviews_text')]
     regExp: \d+
   - name: aggregateRating
