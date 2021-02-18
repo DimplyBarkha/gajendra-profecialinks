@@ -33,6 +33,40 @@ const transform = (data) => {
               console.log("error, ",e);
             }
           } */
+          if(row.servingSize){
+            try{
+              let servingSizeText=row.servingSize[0].text;
+              let pattTOEx=/(\d+)\s*g/;
+              if(pattTOEx.test(servingSizeText)){
+              let servingSizeWithUom=pattTOEx.exec(servingSizeText)[0];
+              let servingSizeNumber=servingSizeWithUom.replace(/[^0-9]+/g, '');  
+              row.servingSize = [{ text: servingSizeNumber}];}
+              else{
+                row.servingSize = [{ text: ''}];
+              }
+              }
+              
+              catch(e){
+                console.log("error ",e);
+              }
+          }
+          if(row.servingSizeUom){
+            try{
+              let servingSizeText=row.servingSizeUom[0].text;
+              let pattTOEx=/(\d+)\s*g/;
+              if(pattTOEx.test(servingSizeText)){
+              let servingSizeWithUom=pattTOEx.exec(servingSizeText)[0];
+              let servingSizeParameter=servingSizeWithUom.replace(/[0-9\s]+/g, '');  
+              row.servingSizeUom = [{ text: servingSizeParameter}];}
+              else{
+                row.servingSizeUom = [{ text: ''}]; 
+              }
+              }
+              catch(e){
+                console.log("error ",e);
+              }
+          }
+
           if(row.quantity){
             try{
             let stringForQuant=(row.quantity[0].text)?(row.quantity[0].text):'';

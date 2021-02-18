@@ -28,8 +28,9 @@ fields:
     regExp: (.+)
     regExpReplace: https://www.carrefour.it$
   - name: category
-    xpath: (//div/div/div[contains(@class,"glide")]/div[contains(@class,"glide__track")]/ul[contains(@class,"glide__slides")]/li[contains(@class,"selected")])[1]
-    singleValue: false 
+    xpath: //li[@class="breadcrumb-item"]/a/span[@itemprop="name"]
+    #(//div/div/div[contains(@class,"glide")]/div[contains(@class,"glide__track")]/ul[contains(@class,"glide__slides")]/li[contains(@class,"selected")])[1]
+    singleValue: false  
   - name: name
     xpath: //h1[@class="product-description"]
     singleValue: false 
@@ -71,9 +72,13 @@ fields:
     xpath: //h1[@class="product-description"]
     #regExp: '([^0-9,]*)'
     #regExpReplace: '$1'
-    #3270name: servingSize
-    #singleValue: false
-    #xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"er")])[1]
+  - name: servingSize
+    singleValue: false
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div)[1]
+    #(//div[contains(@id,"panel-nutritionInfo")]/div/div/*[contains(text(),"orzione")])[1]
+  - name: servingSizeUom
+    singleValue: false
+    xpath: (//div[contains(@id,"panel-nutritionInfo")]/div/div)[1] 
     #regExp: '([\d]+\s*(.+))'
     #regExpReplace: '$1'
   - name: caloriesPerServing
@@ -184,7 +189,24 @@ fields:
     #regExp: (.+)
     #regExpReplace: In Stock
     #defaultValue: Out of Stock    
-
+  - name: sku
+    singleValue: false
+    xpath: //div[contains(@class,"product-detail-page")]/div/@data-pid
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@class,"product-detail-page")]/div/@data-pid  
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name,"keywords")]/@content  
+  - name: variantCount
+    singleValue: false
+    defaultValue: '0'
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    xpath: //div[@class="product-images"]/div[@data-component="zoomComponent"]/@data-component
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: 'No'  
 
 
   
