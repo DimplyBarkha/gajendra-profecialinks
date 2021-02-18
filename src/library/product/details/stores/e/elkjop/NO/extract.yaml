@@ -100,7 +100,7 @@ fields:
     xpath: //meta[@itemprop='productID']/@content
   - name: mpc
     description: The manufacturer model code (unique) of the product
-    xpath: //script/@data-eky-mpn
+    xpath: (//div[contains(@class,"product-detai")]//p[contains(@class,"sku")]/@data-product-sku | //script/@data-eky-mpn)[1]
   - name: mpcFromDescription
     xpath: //div[contains(@class,"spec-wrap")]//table[contains(@class,"spec-table")]//tr//td[contains(text(),"Modellnavn")]/following-sibling::td
   - name: warnings
