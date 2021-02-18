@@ -121,7 +121,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   await context.evaluate(() => {
     if (!document.querySelector('meta[property="og:type"]') || document.querySelector('meta[property="og:type"]') &&
-        document.querySelector('meta[property="og:type"]').getAttribute('content') !== 'product') {
+      document.querySelector('meta[property="og:type"]').getAttribute('content') !== 'product') {
       throw new Error('Not a product Page');
     }
   });
@@ -195,64 +195,96 @@ async function implementation (inputs, parameters, context, dependencies) {
   }
 
   // For the Additional Fields
-  await context.evaluate(() => {
-    const syndiPowerpage = document.querySelector('.syndi_powerpage');
+  // await context.evaluate(() => {
+  //   const syndiPowerpage = document.querySelector('.syndi_powerpage');
+  //   let inTheBoxText = '';
+  //   let inTheBoxUrl = '';
+  //   let hasComparisonTable = 'No';
+  //   if (syndiPowerpage) {
+  //     const headings = Array.from(syndiPowerpage.shadowRoot.querySelectorAll('h2'));
+  //     headings.forEach(h2 => {
+  //       if (h2.innerText.includes('In the box') || h2.innerText.includes('In The Box') || h2.innerText.includes('in the box') || h2.innerText.includes("What's Included")) {
+  //         const parent = h2.parentElement;
+  //         const inTheBoxEls = parent.querySelectorAll('.syndigo-featureset-feature');
+  //         inTheBoxEls.forEach(el => {
+  //           const imgs = el.querySelector('img').getAttribute('srcset').split(',');
+  //           let images = '';
+  //           if (imgs.length === 1) {
+  //             images = imgs[0];
+  //           } else {
+  //             images = imgs[imgs.length - 1];
+  //           }
+  //           images = images.replace(/(.+)(\s.+)/, '$1');
+  //           inTheBoxUrl = inTheBoxUrl + (inTheBoxUrl ? ' || ' : '') + images;
+  //           // @ts-ignore
+  //           inTheBoxText = inTheBoxText + (inTheBoxText ? ' || ' : '') + el.innerText;
+  //         });
+  //       }
+  //     });
+  //     const table = syndiPowerpage.shadowRoot.querySelector('div[class*="comparison-table"] table');
+  //     if (table) {
+  //       hasComparisonTable = 'Yes';
+  //     }
+  //   } else {
+  //     const table = document.querySelector('div[class*="comparison-table"] table');
+  //     if (table) {
+  //       hasComparisonTable = 'Yes';
+  //     }
+  //     const inTheBoxEls1 = Array.from(document.querySelectorAll('[data-section-tag*="in-the-box"] > div> div> ul >li,[data-section-caption*="In the box"] > div> div> ul >li , [data-section-caption*="In The Box"] > div> div> ul >li, '));
+
+  //     const inTheBoxEls2 = Array.from(document.querySelectorAll('div[data-section-caption="In the box"] ul>li , div[data-section-caption="In The Box"] ul>li'));
+
+  //     let inTheBoxEls = [];
+  //     if (inTheBoxEls1) {
+  //       inTheBoxEls = inTheBoxEls1;
+  //     } else {
+  //       inTheBoxEls = inTheBoxEls2;
+  //     }
+  //     inTheBoxEls.forEach(el => {
+  //       const image = el.querySelector('img').getAttribute('src');
+  //       // @ts-ignore
+  //       const text = el.innerText;
+  //       inTheBoxUrl = inTheBoxUrl + (inTheBoxUrl ? ' || ' : '') + image;
+  //       inTheBoxText = inTheBoxText + (inTheBoxText ? ' || ' : '') + text;
+  //     });
+  //   }
+  //   document.body.setAttribute('has-comparison-table', hasComparisonTable);
+  //   document.body.setAttribute('in-the-box-text', inTheBoxText);
+  //   document.body.setAttribute('in-the-box-url', inTheBoxUrl);
+  // });
+  // const delay = async function delayfunc (time) {
+  //   await new Promise(r => setTimeout(r, time));
+  // };
+  // new WITB
+  await context.evaluate(async function () {
+    // const syndiPowerpage = document.querySelector('div.syndi_powerpage.syndigo-shadowed-powerpage');
     let inTheBoxText = '';
     let inTheBoxUrl = '';
-    let hasComparisonTable = 'No';
-    if (syndiPowerpage) {
-      const headings = Array.from(syndiPowerpage.shadowRoot.querySelectorAll('h2'));
-      headings.forEach(h2 => {
-        if (h2.innerText.includes('In the box') || h2.innerText.includes('In The Box') || h2.innerText.includes('in the box') || h2.innerText.includes("What's Included")) {
-          const parent = h2.parentElement;
-          const inTheBoxEls = parent.querySelectorAll('.syndigo-featureset-feature');
-          inTheBoxEls.forEach(el => {
-            const imgs = el.querySelector('img').getAttribute('srcset').split(',');
-            let images = '';
-            if (imgs.length === 1) {
-              images = imgs[0];
-            } else {
-              images = imgs[imgs.length - 1];
-            }
-            images = images.replace(/(.+)(\s.+)/, '$1');
-            inTheBoxUrl = inTheBoxUrl + (inTheBoxUrl ? ' || ' : '') + images;
-            // @ts-ignore
-            inTheBoxText = inTheBoxText + (inTheBoxText ? ' || ' : '') + el.innerText;
-          });
-        }
-      });
-      const table = syndiPowerpage.shadowRoot.querySelector('div[class*="comparison-table"] table');
-      if (table) {
-        hasComparisonTable = 'Yes';
-      }
-    } else {
-      const table = document.querySelector('div[class*="comparison-table"] table');
-      if (table) {
-        hasComparisonTable = 'Yes';
-      }
-
-      const inTheBoxEls1 = Array.from(document.querySelectorAll('[data-section-tag*="in-the-box"] > div> div> ul >li,[data-section-caption*="In the box"] > div> div> ul >li , [data-section-caption*="In The Box"] > div> div> ul >li'));
-
-      const inTheBoxEls2 = Array.from(document.querySelectorAll('div[data-section-caption="In the box"] ul>li , div[data-section-caption="In The Box"] ul>li'));
-
-      let inTheBoxEls = [];
-      if (inTheBoxEls1) {
-        inTheBoxEls = inTheBoxEls1;
-      } else {
-        inTheBoxEls = inTheBoxEls2;
-      }
-      inTheBoxEls.forEach(el => {
-        const image = el.querySelector('img').getAttribute('src');
-        // @ts-ignore
-        const text = el.innerText;
-        inTheBoxUrl = inTheBoxUrl + (inTheBoxUrl ? ' || ' : '') + image;
-        inTheBoxText = inTheBoxText + (inTheBoxText ? ' || ' : '') + text;
-      });
+    var witb = document.querySelector('div.syndi_powerpage.syndigo-shadowed-powerpage');
+    witb.scrollIntoView();
+    var new1 = [...witb.shadowRoot.querySelectorAll('div.syndigo-powerpage-grid-widget')].filter(el => !!el.querySelector('h2').innerText.includes('In the box'));
+    new1[0].scrollIntoView();
+    if (new1) {
+      console.log('new1: present' + new1.length);
     }
-    document.body.setAttribute('has-comparison-table', hasComparisonTable);
+
+    var retry = 0;
+    while (new1[0].querySelectorAll('h3').length === 0 && retry < 3) {
+      console.log('264 Texts:' + new1[0].querySelectorAll('h3').length);
+      // delay(5000);
+      await new Promise(resolve => setTimeout(resolve, 5000));
+      retry += 1;
+    }
+    new1[0].querySelectorAll('h3').forEach(el => {
+      inTheBoxText = inTheBoxText + (inTheBoxText ? ' || ' : '') + el.innerText;
+    });
+    new1[0].querySelectorAll('img').forEach(el => {
+      inTheBoxUrl = inTheBoxUrl + (inTheBoxUrl ? ' || ' : '') + el.getAttribute('src');
+    });
     document.body.setAttribute('in-the-box-text', inTheBoxText);
     document.body.setAttribute('in-the-box-url', inTheBoxUrl);
   });
+  console.log('working till here');
 
   const carrouselSelector = '[certonaidentifier="recommendation_pdp_cav"] [data-locator="certona_rightnavigationicon"]';
   await helper.ifThereClickOnIt(`${carrouselSelector} > button`);
@@ -274,7 +306,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
       // monkey patch ajax calls
       const originalRequestOpen = XMLHttpRequest.prototype.open;
-      let response = [];
+      const response = [];
       XMLHttpRequest.prototype.open = function () {
         if (arguments[0] === 'GET' && arguments[1].includes('https://content.syndigo.com/asset/') && arguments[1].endsWith('.ts')) {
           response.push(arguments[1]);
@@ -307,7 +339,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { transform: transformParam } = parameters;
   const { productDetails } = dependencies;
   return await context.extract(productDetails, { transform: transformParam });
-}w
+}
 
 module.exports = {
   implements: 'product/details/extract',
