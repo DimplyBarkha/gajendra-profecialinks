@@ -63,6 +63,7 @@ fields:
       multiple places; specifically not the manufacturer description
   - name: descriptionBullets
     singleValue: true
+    # xpath: count(//div[@id="tab-description"]//li)
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
