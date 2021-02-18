@@ -4,9 +4,8 @@ fields:
   singleValue: false
   xpath: (//div[@id="imageBlock_feature_div"]/script)[position()=1]
   regExp: >-
-    ("hiRes":")(http[^"]+)(\")
+    ("large":")(http[^"]+)(\")
   regExpReplace: $2
-
 - name: availabilityText
   singleValue: false
   xpath: (//*[@id='availability']/span | //*[normalize-space(@id)='availability']/span/span[last()] | //*[@id='availability-string']/span[not(span)])[1]

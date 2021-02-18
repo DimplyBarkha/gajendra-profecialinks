@@ -382,8 +382,8 @@ const transform = (data, context) => {
       }
 
       if (row.alternateImagesFromScript) {
-        row.alternateImages = row.alternateImagesFromScript;
-        delete row.alternateImagesFromScript;
+        row.alternateImages = row.alternateImagesFromScript.slice(1);
+        // delete row.alternateImagesFromScript;
       }
 
       if (row.alternateImages) {
