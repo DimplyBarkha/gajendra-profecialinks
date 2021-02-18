@@ -25,14 +25,14 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: ancestor::html//div[@class="galleryimages-gallery-inner gallery-video"]/a[position()>=2]/@href
+    xpath: ancestor::html//div[@class="galleryimages-gallery-inner gallery-video"]/a[not(contains(@class,"productpage-gallery-video"))][position()>=2]/@href
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: ancestor::html//div[@id="breadcrumbs"]//li[position()>=2 and position()<4]
+    xpath: ancestor::html//div[@id="breadcrumbs"]//li[position()>=2]/a
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -66,7 +66,7 @@ fields:
     description: Number of ul > li tags in the description
     type: NUMBER
   - name: brandText
-    singleValue: true
+    singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: ancestor::html//p[@class="u-flush-v"]/strong
@@ -76,7 +76,7 @@ fields:
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
-    xpath: (ancestor::html//select[@name="quantity"]/option)[1]
+    # xpath: (ancestor::html//select[@name="quantity"]/option)[1])
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
@@ -93,7 +93,7 @@ fields:
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //div[@class='variants']/div[@id="SKU_ID"]
+    xpath: ancestor::html//input[@name="productSku"]/@value
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
@@ -106,7 +106,7 @@ fields:
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
-    singleValue: true
+    singleValue: false
     description: Content under "directions" header
     xpath: ancestor::html//p[@class="productpage-directions-content"]
   - name: warnings
@@ -114,16 +114,16 @@ fields:
     description: Content under "warnings" header
     xpath: ancestor::html//b[text()="Warnings"]//following-sibling::text()
   - name: ratingCount
-    singleValue: true
+    singleValue: false
     description: The number of ratings
     type: NUMBER
     xpath: ancestor::html//span[@class="Rating-count"]/span
   - name: aggregateRatingText
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating
     xpath: (ancestor::html//span[@class="Rating-average"]/@data-aggregate-rating)[1]
   - name: aggregateRating
-    singleValue: true
+    singleValue: false
     description: The stated aggregate rating normalized to be out of 5
     type: NUMBER
     xpath: (ancestor::html//span[@class="Rating-average"]/@data-aggregate-rating)[1]
@@ -137,8 +137,9 @@ fields:
     singleValue: true
     description: Stated shipping weight
   - name: variantCount
-    singleValue: true
-    description: Number of variants listed
+    singleValue: false
+    description: Number of variants 
+    xpath: count(ancestor::html//div[@class="sub-products h-push-v"]/div[@class="option-item option-item-swatch"]/label/@data-sub-sku)
     type: NUMBER
   - name: color
     singleValue: true
@@ -155,6 +156,7 @@ fields:
   - name: videos
     singleValue: false
     description: URLs of videos on page
+    xpath: //a[@class="productpage-gallery-video"]/@href
   - name: name
     singleValue: true
     description: The product name
@@ -250,10 +252,10 @@ fields:
     singleValue: false
     description: null
   - name: secondaryImageTotal
-    singleValue: true
+    singleValue: false
     description: null
     type: NUMBER
-    xpath: count(ancestor::html//div[@class="galleryimages-gallery-inner gallery-video"]/a[position()>=2]/@href)
+    xpath: count(ancestor::html//div[@class="galleryimages-gallery-inner gallery-video"]/a[not(contains(@class,"productpage-gallery-video"))][position()>=2]/@href)
   - name: news
     singleValue: true
     description: null
@@ -264,10 +266,10 @@ fields:
     singleValue: true
     description: null
   - name: ingredientsList
-    singleValue: true
+    singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: ancestor::html//p[@class="productpage-ingredients-content"]
+    xpath: ancestor::html//p[@class="productpage-ingredients-content"]/text()
   - name: servingSize
     singleValue: true
     description: The size of serving Nutritional information is based on.
@@ -441,20 +443,21 @@ fields:
     singleValue: true
     description: List of additives in the product
   - name: pricePerUnit
-    singleValue: true
+    singleValue: false
     description: Price of the product split into certain units
     xpath: ancestor::html//span[@class="price-per-ml"]
     regExp: \((.\d+\.*\d*).*
     regExpReplace: $1
   - name: pricePerUnitUom
-    singleValue: true
+    singleValue: false
     description: The unit of measurement used in price_per_unit
     xpath: ancestor::html//span[@class="price-per-ml"]
     regExp: .*\s(\w*)\)
     regExpReplace: $1
   - name: promotion
-    singleValue: true
+    singleValue: false
     description: promotion text on product page
+    xpath: ancestor::html//span[@class="Badge Badge--discount"]
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -471,12 +474,12 @@ fields:
     description: In product page, information about a new version of the product -
       new desription info
   - name: variantInformation
-    singleValue: true
+    singleValue: false
     description: colour / scent / flavour / other
     # xpath: //span[@class="product-options-identifier"]
     xpath: (ancestor::html//div[@class="sub-products h-push-v"]/div/input/@value)[1]
   - name: firstVariant
-    singleValue: true
+    singleValue: false
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
       common code to link all variants for a product. method 1 (Preferred) = use
@@ -491,7 +494,7 @@ fields:
     singleValue: false
     description: null
     # xpath: //div[@class="sub-products h-push-v"]/div/input/@value
-    xpath: ancestor::html//div[@class="sub-products h-push-v"]/div[position()>=2]/input/@value
+    xpath: ancestor::html//div[@class="sub-products h-push-v"]/div/input/@value
   - name: additionalDescBulletInfo
     singleValue: false
     description: null

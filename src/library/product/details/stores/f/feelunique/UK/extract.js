@@ -68,17 +68,18 @@ async function implementation(
       const imagealt = getAllXpath('(//div[@class="productpage-image galleryimages-main"]/img/@alt)[1]|(//div[@class="productpage-image productpage-image--fill galleryimages-main"]/img/@alt)[1]', 'nodeValue')
       const sku = getAllXpath('//input[@name="productSku"]/@value', 'nodeValue')
       const variant_sku = getAllXpath('//div[@class="sub-products h-push-v"]/div[@class="option-item option-item-swatch"]/label/@data-sub-sku', 'nodeValue')
+      const variant_price = [getAllXpath('//p[@class="price-info"]//span[@class="Price"]/text()', 'nodeValue')[0].replace(/\s/g, '')]
       if (variant_sku.length >= 1){
-        var variant_price = ""
-        if (variant_sku.length == 1){
-           // @ts-ignore
-           variant_price = [getAllXpath('//p[@class="price-info"]//span[@class="Price"]/text()', 'nodeValue')[0].replace(/\s/g, '')]
-        }
-        else
-        {
-           // @ts-ignore
-           variant_price = getAllXpath('//div[@class="sub-products h-push-v"]/div[@class="option-item option-item-swatch"]/label/@data-subprice', 'nodeValue')  
-        }
+        // var variant_price = ""
+        // if (variant_sku.length == 2){
+        //    // @ts-ignore
+        //    variant_price = [getAllXpath('//p[@class="price-info"]//span[@class="Price"]/text()', 'nodeValue')[0].replace(/\s/g, '')]
+        // }
+        // else
+        // {
+        //    // @ts-ignore
+        //    variant_price = getAllXpath('//div[@class="sub-products h-push-v"]/div[@class="option-item option-item-swatch"]/label/@data-subprice', 'nodeValue')  
+        // }
       const variant_availability = getAllXpath('//div[@class="sub-products h-push-v"]/div[@class="option-item option-item-swatch"]/label/@data-is-in-stock', 'nodeValue')
 
       for (let increment = 0; increment < variant_sku.length; increment++) {
@@ -87,7 +88,7 @@ async function implementation(
           addHiddenDiv("SKU_ID", sku[0]+"-"+variant_sku[increment], increment)
           addHiddenDiv("IMAGE", image[0], increment)
           addHiddenDiv("IMAGEALT", imagealt[0], increment)
-          addHiddenDiv('PRICE', variant_price[increment], increment);
+          addHiddenDiv('PRICE', variant_price[0], increment);
           addHiddenDiv('AVAILABILITY', variant_availability[increment], increment);
         } catch (error) {
           continue;       
@@ -97,7 +98,7 @@ async function implementation(
       }
       else
       {
-        const availability = getAllXpath('//div[@class="stock-level h-display-ib u-nudge-top h-third-l"]/text()', 'nodeValue')
+        const availability = getAllXpath('//div[contains(@class,"stock-level h-display-ib")]/text()', 'nodeValue')
         const price = getAllXpath('//p[@class="price-info"]//span[@class="Price"]/text()', 'nodeValue')[0].replace(/\s/g, '')
         try {
           addEmptyDiv();
