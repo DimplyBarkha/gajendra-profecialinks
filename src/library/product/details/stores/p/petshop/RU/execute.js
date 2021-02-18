@@ -6,7 +6,7 @@ module.exports = {
     store: 'petshop',
     domain: 'petshop.ru',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[@class="search-result-items"]//p[@class="errortext" and contains(. , "ничего не найдено")]',
     zipcode: '',
   },
 };
