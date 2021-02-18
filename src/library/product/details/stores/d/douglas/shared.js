@@ -113,10 +113,6 @@ const transform = (data) => {
       if (row.directions && row.directions.length > 1) {
         row.directions = row.directions.filter((thing, index, self) => self.findIndex(t => t.text === thing.text) === index);
       };
-      if (row.brandText && row.nameExtended) {
-        const text = row.brandText[0].text + ' ' + row.nameExtended[0].text;
-        row.imNameExtended = [{ text }];
-      }
       if (!row.variantInformation && row.variantInformation1 && row.variantInformation1.length) {
         const text = row.variantInformation1[0].text;
         row.variantInformation = [{ text }];
@@ -124,6 +120,19 @@ const transform = (data) => {
       if (!row.image && row.image1 && row.image1.length) {
         const text = row.image1[0].text;
         row.image = [{ text }];
+      }
+      if (row.brandText && row.nameExtended) {
+        if (row.variantInformation) {
+          if (row.variantInformation[0].text.includes(row.nameExtended[0].text)) {
+            let text = row.variantInformation[0].text.split(row.nameExtended[0].text)[1];
+            text = row.brandText[0].text + ' ' + row.nameExtended[0].text + ' ' + text;
+            text = text.trim();
+            row.imNameExtended = [{ text }];
+          } else {
+            const text = row.brandText[0].text + ' ' + row.nameExtended[0].text + ' ' + row.variantInformation[0].text;
+            row.imNameExtended = [{ text }];
+          }
+        }
       }
     }
   }
