@@ -39,7 +39,7 @@ module.exports = {
       // Page Not Found
       if (getXpath('//img[@id="imagerror"]/@id', 'nodeValue') != null) {
         addElementToDocument('nopageurl', window.document.URL);
-        return;
+        // return;
       } else {
         addElementToDocument('pgurl', getXpath('//div[@id="breadcrumb"]/ol/li[@class="last"]/a/@href', 'nodeValue'));
       }
@@ -170,7 +170,7 @@ module.exports = {
         //   let json = await response.json()
         //   addElementToDocument('ratingCount',json.length);
         // }
-        fetch('https://cl.avis-verifies.com/pt/cache/a/e/a/aea5d810-72dc-eaa4-5d4d-d752dc9b21fe/AWS/PRODUCT_API/REVIEWS/10012.json').then(res => res.json()).then(res => addElementToDocument('ratingCount',res.length));
+        fetch('https://cl.avis-verifies.com/pt/cache/a/e/a/aea5d810-72dc-eaa4-5d4d-d752dc9b21fe/AWS/PRODUCT_API/REVIEWS/'+sku+'.json').then(res => res.json()).then(res => addElementToDocument('ratingCount',res.length));
       } catch (error) { }
 
     });
