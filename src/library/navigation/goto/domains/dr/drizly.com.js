@@ -52,7 +52,6 @@ module.exports = {
     const storeInfo = await getJsonDataFetch(`https://drizly.com/modal/resolve_stores.json?latitude=${foundLatLong[2]}&longitude=${foundLatLong[1]}&zip=${zipcode}`);
     const { address, city, state, zip, delivery_type, latitude, longitude} = storeInfo.stores[0];
 
-    // await context.goto('https://drizly.com/home', { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
     await context.evaluate(async function (address, city, state, zip, delivery_type, latitude, longitude) {
       const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
@@ -74,8 +73,6 @@ module.exports = {
         referrer: window.location.href,
         referrerPolicy: 'strict-origin-when-cross-origin',
         body: `{"persist":false,"address":{"address1":"${address}","city":"${city}","state":"${state}","zip":"${zip}","country_code":"US","latitude":${latitude},"longitude":${longitude}},"delivery_types":${delivery_type},"is_gift_browse_experience":false}`,
-
-        // body: '{"persist":false,"address":{"address1":"6620 Bollinger Road","city":"San Jose","state":"CA","stateLong":"California","zip":"95129","country_code":"US","latitude":37.3095185,"longitude":-122.0203899},"delivery_types":20,"is_gift_browse_experience":false}',
         method: 'POST',
         mode: 'cors',
         credentials: 'include',
@@ -95,13 +92,8 @@ module.exports = {
         return json;
       }
     }, address, city, state, zip, delivery_type, latitude, longitude);
-    // const data = await context.evaluate(gotoLocation);
-    // console.log('aadad ');
-    // console.log(data);
 
-    // await context.goto('https://drizly.com/home', { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
-    // await context.goto(url, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
-    await context.goto('https://drizly.com/liquor/whiskey/american-whiskey/jack-daniels-gentleman-jack-tennessee-whiskey/p3473?variant=4606', { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
-
+    await context.goto(url, { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
+    // await context.goto('https://drizly.com/liquor/whiskey/american-whiskey/jack-daniels-gentleman-jack-tennessee-whiskey/p3473?variant=4606', { timeout: 60000, waitUntil: 'networkidle0', checkBlocked: false });
   },
 };
