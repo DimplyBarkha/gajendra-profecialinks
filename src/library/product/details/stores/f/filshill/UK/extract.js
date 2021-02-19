@@ -9,7 +9,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ( inputs , { country, domain, transform: transformParam }, context, { productDetails }) => {
-    const productUrl = await context.evaluate(async (inputs) => {
+    const availability = await context.evaluate(async (inputs) => {
       const getXpath = (xpath, prop) => {
         const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -23,21 +23,22 @@ module.exports = {
         catElement.id = key;
         catElement.textContent = value;
         catElement.style.display = 'none';
-        document.body.appendChild(catElement);
+        return document.body.appendChild(catElement);
       }
 
-      const availabilityTextValue = getXpath("//div[@id='ProdGridBlock']/table/tbody/tr/td/div[contains(text(),'"+inputs.id+"')]/preceding-sibling::div", 'nodeValue');
+      const availabilityTextValue = getXpath("//table[@class='ProductBox']/tbody/tr/td/div[contains(text(),"+inputs.id+")]/preceding-sibling::div/span/text()", 'nodeValue');
       console.log('inputId2',inputs.id);
+      console.log('availability',availabilityTextValue);
       if(availabilityTextValue == 'In Stock'){
-        addElementToDocument('availability_added','In Stock');
+        return 'In Stock';
       } else {
-        addElementToDocument('availability_added','Out of Stock');
-      }
-        addElementToDocument('product_url','https://sales.filshill.co.uk/products/ProdDetails.asp?product_code='+inputs.id+'&list=undefined');
-      return 'https://sales.filshill.co.uk/products/ProdDetails.asp?product_code='+inputs.id+'&list=undefined';
+        return 'Out of Stock';
+      } 
+    //  return 'https://sales.filshill.co.uk/products/ProdDetails.asp?product_code='+inputs.id+'&list=undefined';
     },inputs);
 
-    console.log(productUrl);
+    const productUrl = 'https://sales.filshill.co.uk/products/ProdDetails.asp?product_code='+inputs.id+'&list=undefined';
+    console.log(availability);
     try {
       await context.goto(productUrl);
     } catch (error) {
@@ -50,7 +51,7 @@ module.exports = {
     }
     await loadResources();
    
-    await context.evaluate(async function () {
+    await context.evaluate(async (availability,productUrl) => {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -84,6 +85,9 @@ module.exports = {
         }
         return result;
       };
+
+      addElementToDocument('availability_added',availability);
+      addElementToDocument('product_url',productUrl);
 
       const saturatedUOM = getXpath("//table[@class='detailsTable']/tbody/tr/td/table/tbody/tr/td[contains(.,'saturates')]/following-sibling::td[1]",'innerText');
       console.log("saturatedfatuom: ", saturatedUOM);
@@ -176,7 +180,7 @@ module.exports = {
             addElementToDocument('product_name',prodName);
             }
   
-   });
+   },availability,productUrl);
   await context.extract(productDetails, { transform: transformParam });
   },
 };
