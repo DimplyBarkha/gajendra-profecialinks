@@ -29,9 +29,49 @@ module.exports = {
       document.body.append(packagingElem);
     })
 
+    let thisTime = 0;
+    const maxTime = 120000;
+    const skuFromScriptXpath = '//script[contains(text(),"sku_id")]';
+    let skuLoaded = await context.evaluate(async (skuFromScriptXpath) => {
+      console.log('skuFromScriptXpath', skuFromScriptXpath);
+      let elm = document.evaluate(skuFromScriptXpath, document, null, 7, null);
+      if(elm && elm.snapshotLength > 0) {
+        return true;
+      }
+      return false;
+    }, skuFromScriptXpath);
+
+    while((!skuLoaded) && (thisTime < maxTime)) {
+      skuLoaded = await context.evaluate(async (skuFromScriptXpath) => {
+        console.log('skuFromScriptXpath', skuFromScriptXpath);
+        let elm = document.evaluate(skuFromScriptXpath, document, null, 7, null);
+        if(elm && elm.snapshotLength > 0) {
+          return true;
+        }
+        return false;
+      }, skuFromScriptXpath);
+      console.log('waiting for 10 secs');
+      await new Promise(resolve => setTimeout(resolve, 10000));
+      thisTime += 10000;
+    }
+
+    skuLoaded = await context.evaluate(async (skuFromScriptXpath) => {
+      console.log('skuFromScriptXpath', skuFromScriptXpath);
+      let elm = document.evaluate(skuFromScriptXpath, document, null, 7, null);
+      if(elm && elm.snapshotLength > 0) {
+        return true;
+      }
+      return false;
+    }, skuFromScriptXpath);
+
+    console.log('skuLoaded',skuLoaded);
+    console.log('waited for', thisTime);
+
     const { transform } = parameters;
     const { productDetails } = dependencies;
-    await new Promise(resolve => setTimeout(resolve, 10000));
+    if(thisTime == 0) {
+      await new Promise(resolve => setTimeout(resolve, 10000));
+    }
     await context.extract(productDetails, { transform });
   },
 };

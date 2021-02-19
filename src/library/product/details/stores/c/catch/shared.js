@@ -50,7 +50,7 @@ const transform = (data) => {
         if (data.length > 1) {
           row.sku[0].text = data[1].replace('"', '').replace('\"', '');
         } else {
-          row.sku[0].text = "";
+          // row.sku[0].text = "";
         }
       }
      /*  if (row.variantId) {
