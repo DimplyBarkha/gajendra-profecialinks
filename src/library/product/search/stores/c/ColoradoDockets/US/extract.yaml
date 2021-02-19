@@ -3,7 +3,7 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //div[@id="docketresults"]//table[@id="dockettable"]//tbody//tr[position()>1]
 fields:
-  - name: JurisdictionURL
+  - name: jurisdictionUrl
     singleValue: false
   - name: sourceName
     singleValue: false
@@ -11,26 +11,26 @@ fields:
   - name: sourceState
     singleValue: false
     xpath: //div[@id="docketresults"]//span[@class="SubTitle"]
-  - name: caseno
+  - name: caseNo
     singleValue: false
     xpath: //table[@id="dockettable"]//tbody//tr[position()>1]//td[position()=5]
-  - name: HearingType
+  - name: hearingType
     singleValue: false
     xpath: //table[@id="dockettable"]//tbody//tr[position()>1]//td[position()=4]
-  - name: FirstName
+  - name: firstName
     singleValue: false
     xpath: //table[@id="dockettable"]//tbody//tr[position()>1]//td[position()=3]
-  - name: LastName
+  - name: lastName
     singleValue: false
     xpath: //table[@id="dockettable"]//tbody//tr[position()>1]//td[position()=3]
-  - name: MiddleName
+  - name: middleName
     singleValue: false
-  - name: Location
+  - name: location
     singleValue: false
     xpath: //table[@id="dockettable"]//tbody//tr[position()>1]//td[position()=6]
-  - name: Division
+  - name: division
     singleValue: false
     xpath: //table[@id="dockettable"]//tbody//tr[position()>1]//td[position()=7]
-  - name: HearingDate
+  - name: hearingDate
     singleValue: false
     xpath: //table[@id="dockettable"]//tbody//tr[position()>1]//td[position()=1]

@@ -24,15 +24,15 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (let row of group) {
-        if (row.LastName) {
-            row.LastName.forEach(item => {
+        if (row.lastName) {
+            row.lastName.forEach(item => {
               item.text = item.text.split(",").pop();
               item.text = item.text.replace(',', '').trim();
               item.text = item.text.split(" ").pop();
             });
           }
-          if (row.DOB) {
-            row.DOB.forEach(item => {
+          if (row.dob) {
+            row.dob.forEach(item => {
               item.text = item.text.replace(/\s*/g, '').trim();
               item.text = item.text.replace('DOB', '').trim();
             });
@@ -42,8 +42,8 @@ const transform = (data) => {
               item.text = item.text.replace('Court', '').trim();
             });
           }
-          if (row.Court) {
-            row.Court.forEach(item => {
+          if (row.court) {
+            row.court.forEach(item => {
               item.text = item.text.replace('Court', '').trim();
             });
           }
@@ -53,13 +53,13 @@ const transform = (data) => {
               item.text = item.text.split("State of ").pop();
             });
           }
-          if (row.JudicialOfficer) {
-            row.JudicialOfficer.forEach(item => {
+          if (row.judicialOfficer) {
+            row.judicialOfficer.forEach(item => {
               item.text = item.text.replace('Judicial Officer', '').trim();
             });
           }
-          if (row.CaseStatus) {
-            row.CaseStatus.forEach(item => {
+          if (row.caseStatus) {
+            row.caseStatus.forEach(item => {
               item.text = item.text.replace('Judicial Officer', '').trim();
             });
           }
@@ -68,23 +68,23 @@ const transform = (data) => {
               item.text = item.text.replace('Case Type', '').trim();
             });
           }
-          if (row.SentenceYYYMMDDD) {
-            row.SentenceYYYMMDDD.forEach(item => {
+          if (row.sentenceDate) {
+            row.sentenceDate.forEach(item => {
               item.text = item.text.replace('Start Date:', '').trim();
             });
           }
-          if (row.ProbationYYYMMDDD) {
-            row.ProbationYYYMMDDD.forEach(item => {
+          if (row.probationDate) {
+            row.probationDate.forEach(item => {
               item.text = item.text.replace('Start Date:', '').trim();
             });
           }
-          if (row.Address1) {
-            row.Address1.forEach(item => {
+          if (row.address1) {
+            row.address1.forEach(item => {
               item.text = item.text.replace('Plaintiff', '').trim();
             });
           }
-          if (row.FirstName) {
-            row.FirstName.forEach(item => {
+          if (row.firstName) {
+            row.firstName.forEach(item => {
               item.text = item.text.split(",").pop();
               item.text = item.text.replace(',', '').trim();
               item.text = item.text.replace(/\/s.*/, '').trim();

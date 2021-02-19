@@ -24,15 +24,15 @@ const transform = (data) => {
     };
     for (const { group } of data) {
       for (let row of group) {
-        if (row.LastName) {
-            row.LastName.forEach(item => {
+        if (row.lastName) {
+            row.lastName.forEach(item => {
               item.text = item.text.split(",").pop();
               item.text = item.text.replace(',', '').trim();
               item.text = item.text.split(" ").pop();
             });
           }
-          if (row.FirstName) {
-            row.FirstName.forEach(item => {
+          if (row.firstName) {
+            row.firstName.forEach(item => {
               item.text = item.text.replace(/,.*/, '').trim();
             });
           }

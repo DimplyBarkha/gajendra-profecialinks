@@ -3,30 +3,30 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: JurisdictionURL
+  - name: jurisdictionUrl
     singleValue: true
     xpath: //table[@class="kgrid-card-table"]//tbody//td[contains(@class,"card-heading party-case-caseid owa-break-all")]//a/@data-url
-  - name: UniqueRecordNumber
+  - name: uniqueRecordNumber
     singleValue: false
     xpath: //table[@class="kgrid-card-table"]//tbody//td[contains(@class,"card-heading party-case-caseid owa-break-all")]//a/@title
-  - name: CaseTitle
+  - name: caseTitle
     singleValue: false
     xpath: //div[@id="divCaseInformation_body"]//div[@class="col-md-12"]//p[@class="text-primary"]
-  - name: LastName
+  - name: lastName
     singleValue: false
     xpath: //div[@id="divCaseInformation_body"]//div[@class="col-md-12"]//p[@class="text-primary"]
-  - name: FirstName
+  - name: firstName
     singleValue: false
     xpath: //div[@id="divCaseInformation_body"]//div[@class="col-md-12"]//p[@class="text-primary"]
-  - name: MiddleName
+  - name: middleName
     singleValue: false
-  - name: DOB
+  - name: dob
     singleValue: false
     xpath:  //div[@id="partyInformationDiv"]//div[@class="col-md-8"]//p//span[contains(text(),"DOB")]/parent::*
-  - name: Address1
+  - name: address1
     singleValue: true
     xpath: //div[@id="partyInformationDiv"]//div[@class="col-md-8"]//p//span[contains(text(),"Plaintiff")]/parent::*
-  - name: SSN
+  - name: ssn
     singleValue: false
   - name: sourceName
     singleValue: false
@@ -34,55 +34,55 @@ fields:
   - name: sourceState
     singleValue: false
     xpath:  //div[@id="partyInformationDiv"]//div[@class="col-md-8"]//p//span[contains(text(),"Plaintiff")]/parent::*
-  - name: caseno
+  - name: caseNo
     singleValue: true
     xpath: //table[@class="kgrid-card-table"]//tbody//td[contains(@class,"card-heading party-case-caseid owa-break-all")]//a/@title
   - name: caseType
     singleValue: false
     xpath: //div[@id="divCaseInformation_body"]//div[@class="col-md-4"]//p//span[contains(text(),"Case Type")]/parent::*
-  - name: ChargesFiledDate
+  - name: chargesFiledDate
     singleValue: false
     xpath: //div[@id="chargeInformationDiv"]//tr[@class="k-master-row"][1]//td[position()="6"]
-  - name: OffenseDate
+  - name: offenseDate
     singleValue: false
     xpath: //div[@id="chargeInformationDiv"]//tr[@class="k-master-row"][1]//td[position()="6"]
-  - name: OffenseCode
+  - name: offenseCode
     singleValue: false
     xpath: //div[@id="chargeInformationDiv"]//tr[@class="k-master-row"][1]//td[position()="2"]
   - name: NCICCode
     singleValue: false
     xpath: //div[@id="chargeInformationDiv"]//tr[@class="k-master-row"][1]//td[position()="4"]
-  - name: OffenseDesc1
+  - name: offenseDesc1
     singleValue: false
     xpath: //div[@id="chargeInformationDiv"]//tr[@class="k-master-row"][1]//td[position()="3"]
-  - name: OffenseDesc2
+  - name: offenseDesc2
     singleValue: false
     xpath: //div[@id="chargeInformationDiv"]//tr[@class="k-master-row"][2]//td[position()="3"]
-  - name: Counts
+  - name: counts
     singleValue: false
     xpath: count(//div[@id="chargeInformationDiv"]//tr[contains(@class,"k-master-row")]//td[position()="2"])
-  - name: Plea
+  - name: plea
     singleValue: false
-  - name: ConvictionDate
+  - name: convictionDate
     singleValue: false
     xpath: //div[@id="chargeInformationDiv"]//tr[@class="k-master-row"][1]//td[position()="6"]
-  - name: SentenceYYYMMDDD
+  - name: sentenceDate
     singleValue: true
     xpath: //p[contains(@class,"text-primary") and contains(text(),"Adult Confinement")]/following::div[1]//p//span[contains(text(),"Start Date:")]//parent::*
-  - name: ProbationYYYMMDDD
+  - name: probationDate
     singleValue: true
     xpath: //p[contains(@class,"text-primary") and contains(text(),"Probation")]/following::div[1]//p//span[contains(text(),"Start Date:")]//parent::*
-  - name: Court
+  - name: court
     singleValue: false
     xpath: //div[@id="divCaseInformation_body"]//div[@class="col-md-4"]//p//span[contains(text(),"Court")]/parent::*
-  - name: CourtCosts
+  - name: courtCosts
     singleValue: false
-  - name: Fines
+  - name: fines
     singleValue: true
     xpath: //p[contains(@class,"text-primary") and contains(text(),"Comment")]/following::div[1]//p//span[contains(text(),"Comment ")]//parent::*
-  - name: JudicialOfficer
+  - name: judicialOfficer
     singleValue: false
     xpath: //div[@id="caseInformationDiv"]//div[@class="col-md-4"]//p//span[contains(text(),"Judicial Officer")]/parent::*
-  - name: CaseStatus
+  - name: caseStatus
     singleValue: false
     xpath: //div[@id="caseInformationDiv"]//div[@class="col-md-4"]//p//span[contains(text(),"Case Status")]/parent::*
