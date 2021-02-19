@@ -20,11 +20,11 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     let scrollTop = 0;
     while (scrollTop !== 15000) {
-      await stall(1000);
+      await stall(100);
       scrollTop += 1000;
       window.scroll(0, scrollTop);
       if (scrollTop === 15000) {
-        await stall(1000);
+        await stall(100);
         break;
       }
     }
@@ -36,7 +36,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     sku = sku[1].replace('/', '');
     const brandLink = document.querySelector('div.disclaimer-section>p>a');
 
-    brandLink.setAttribute('sku', sku);
+    brandLink.setAttribute('sku', String(sku));
     brandLink.setAttribute('brandlink', brandLink.href);
     brandLink.setAttribute('url', url);
   });
