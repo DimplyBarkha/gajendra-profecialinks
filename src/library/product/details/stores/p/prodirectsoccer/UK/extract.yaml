@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, 'product-filters js-product-filters')][count(//div[contains(@class, 'select-size')])>0]//div[contains(@class, 'tabs__panels-item--active')]/div[contains(@class, 'product-sizes-list')]/button | //div[contains(@class, 'product-filters js-product-filters')][count(//div[contains(@class, 'select-size')])=0]//div[contains(@class, 'action-dropdown js-action-dropdown js-size-chart-dropdown')]//button
+recordXPath: (//div[contains(@class,"product-container--with-messages")])[1]//div[contains(@class,'select-size')]//div[contains(@class,"size-chart")]//div[contains(@class,"size-chart__panel")][1]//button | (//div[contains(@class,"product-details-container js-product-details")])[1]//div[contains(@class,'select-size')]//div[contains(@class,"size-chart")]//div[contains(@class,"size-chart__panel")][1]//button
 fields: 
   - name: productUrl
     xpath: ancestor::html//link[@rel='canonical']/@href
@@ -21,30 +21,27 @@ fields:
   - name: nameExtended
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: ancestor::html//ol[contains(@class, 'breadcrumbs js-breadcrumbs')]/li[last()]
+    xpath: ancestor::html//ol[contains(@class, 'breadcrumbs js-breadcrumbs')]/li[last()] | //span[contains(@class,"bulk-size-item__value")]
   - name: listPrice
     description: The stated undiscounted price for the product
-    xpath: ancestor::html//div[@class="product-title"]/following-sibling::div[1]//span[contains(@class,"item")][2]
+    xpath: ancestor::html//main[@class="container"]//div[contains(@class,"product-details-container js-product-details")][position()=1]//div[@class="product-title"]/following-sibling::div[1]//span[contains(@class,"item--original")]
   - name: price
     description: The offered price for the selected product variant - if a user
       clicks add to basket this is the price they would be charged
     xpath: ancestor::html//div[@class="product-title"]/following-sibling::div[1]//span[contains(@class,"item")][1]  
   - name: availabilityText
-    xpath: //span[contains(@class, 'product-sizes-list__item--out-stock')]
-    defaultValue: In Stock
-    regExp: (.+)
-    regExpReplace: Out of Stock
+    xpath: //span[contains(@class, '-size-item-value')]/parent::div/@class | //span[contains(@class, 'product-sizes-list__value')]/parent::button/@class
   - name: quantity
-    xpath: //span[contains(@class, 'product-sizes-list__value')]
+    xpath: //span[contains(@class, '-size-item-value')]  | //span[contains(@class,'product-sizes-list_')]
   - name: variantInformation
-    xpath: //span[contains(@class, 'product-sizes-list__value')]
+    xpath: (//span[contains(@class, 'product-sizes-list__value')])[1]
   - name: description
     description: Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     xpath: ancestor::html//button[contains(@aria-label, 'Description')]/following-sibling::div[contains(@class, 'accordion__content')] | //div[contains(@class, 'js-seo-description')]
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
-    xpath: //span[contains(@class, 'product-sizes-list__value')]/../../button/@data-variant-id
+    xpath: //@data-variant-id
   - name: mpc
     description: The manufacturer model code (unique) of the product
     xpath: ancestor::html//li[@class="product-details__list-item"]/span[contains(.,"Man. Ref")]/following-sibling::span
@@ -56,7 +53,7 @@ fields:
     xpath: ancestor::html//li[contains(@class,"breadcrumbs")][2]//a/@title
   - name: promotion
     description: promotion text on product page
-    xpath: ancestor::html//div[@class="product-title"]/following-sibling::div[1]//span[contains(@class,"item")][3]
+    xpath: ancestor::html//main[@class="container"]//div[contains(@class,"product-details-container js-product-details")][position()=1]//div[@class="product-title"]/following-sibling::div[1]//span[contains(@class,"item")][contains(.,'Save')]
   - name: technicalInformationPdfPresent
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
@@ -80,21 +77,21 @@ fields:
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
     defaultValue: No
   - name: variants
-    xpath: ancestor::html//div[contains(@class, 'product-filters js-product-filters')][count(//div[contains(@class, 'select-size')])>0]//div[contains(@class, 'tabs__panels-item--active')]/div[contains(@class, 'product-sizes-list')]/button//span[contains(@class, 'product-sizes-list__value')]/../../button/@data-variant-id | ancestor::html//div[contains(@class, 'product-filters js-product-filters')][count(//div[contains(@class, 'select-size')])=0]//div[contains(@class, 'action-dropdown js-action-dropdown js-size-chart-dropdown')]//button//span[contains(@class, 'product-sizes-list__value')]/../../button/@data-variant-id
+    xpath: ancestor::html//h1/@variants
   - name: firstVariant
-    xpath: ancestor::html//div[contains(@class, 'product-filters js-product-filters')][count(//div[contains(@class, 'select-size')])>0]//div[contains(@class, 'tabs__panels-item--active')]/div[contains(@class, 'product-sizes-list')]/button//span[contains(@class, 'product-sizes-list__value')]/../../button[1]/@data-variant-id | ancestor::html//div[contains(@class, 'product-filters js-product-filters')][count(//div[contains(@class, 'select-size')])=0]//div[contains(@class, 'action-dropdown js-action-dropdown js-size-chart-dropdown')]//button//span[contains(@class, 'product-sizes-list__value')]/../../button/@data-variant-id
+    xpath: (//@data-variant-id)[1]
   - name: variantCount
-    xpath: count(ancestor::html//div[contains(@class, 'product-filters js-product-filters')][count(//div[contains(@class, 'select-size')])>0]//div[contains(@class, 'tabs__panels-item--active')]/div[contains(@class, 'product-sizes-list')]/button//span[contains(@class, 'product-sizes-list__value')]/../../button/@data-variant-id | ancestor::html//div[contains(@class, 'product-filters js-product-filters')][count(//div[contains(@class, 'select-size')])=0]//div[contains(@class, 'action-dropdown js-action-dropdown js-size-chart-dropdown')]//button//span[contains(@class, 'product-sizes-list__value')]/../../button/@data-variant-id)
+    xpath: count((//div[contains(@class,"product-container--with-messages")])[1]//div[contains(@class,'select-size')]//div[contains(@class,"size-chart")]//div[contains(@class,"size-chart__panel")][1]//button)
     defaultValue: 0
   - name: singleProdRpc
     xpath: ancestor::html//script[contains(@type, 'application/ld+json')]
   - name: singleProdAvailability
     xpath: ancestor::html//button[contains(@class, 'button--out-of-stock-submit')]
-    defaultValue: In stock
+    defaultValue: In Stock
     regExp: (.+)
-    regExpReplace: Out of stock
+    regExpReplace: Out of Stock
   - name: singleProdSize
-    xpath: ancestor::html//div[contains(@class, 'js-size-chart-dropdown')]//button[@aria-label="Size"]/span
+    xpath: ancestor::html//div[contains(@class, 'js-size-chart-dropdown')]//button[@aria-label="Size"]/span | (//span[contains(@class, 'product-sizes-list__value')])[1]
   - name: descriptionBullets
     xpath: count(ancestor::html//div[contains(@class, 'product-details__description')]//ul/li)
     defaultValue: 0

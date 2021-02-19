@@ -26,11 +26,11 @@ const transform = (data) => {
         row.secondaryImageTotal = [{ text: row.alternateImages.length }];
       }
 
-      if (row.variantCount) {
-        if (row.variantCount[0].text > 0) {
-          row.variantCount = [{ text: row.variantCount[0].text - 1 }];
-        }
-      }
+      // if (row.variantCount) {
+      //   if (row.variantCount[0].text > 0) {
+      //     row.variantCount = [{ text: row.variantCount[0].text - 1 }];
+      //   }
+      // }
 
       if (!row.variantId && row.singleProdRpc) {
         try {
@@ -44,22 +44,32 @@ const transform = (data) => {
         }
       }
 
-      if (!row.availabilityText && row.singleProdAvailability) {
-        row.availabilityText = row.singleProdAvailability;
+      // if (!row.availabilityText && row.singleProdAvailability) {
+      //   row.availabilityText = row.singleProdAvailability;
+      // }
+      if (row.availabilityText) {
+        row.availabilityText.forEach(item => {
+          if(item.text.includes('out-of-stock') ||item.text.includes('out-stock') ) {
+            item.text = 'Out of Stock'
+          }else{
+            item.text = 'In Stock'
+          }
+         
+        });
       }
 
       if (!row.quantity && row.singleProdSize) {
-        row.quantity = row.singleProdSize;
-        row.variantInformation = row.singleProdSize;
+        // row.quantity = row.singleProdSize;
+        // row.variantInformation = row.singleProdSize;
       }
 
       if (row.nameExtended && row.quantity) {
-        row.nameExtended = [{ text: `${row.nameExtended[0].text} ${row.quantity[0].text}` }];
+        row.nameExtended = [{ text: `${row.nameExtended[0].text} - ${row.quantity[0].text}` }];
       }
 
-      if (row.variantCount && row.variantCount[0].text == 0 && row.singleProdAvailability) {
-        row.availabilityText = row.singleProdAvailability;
-      }
+      // if (row.variantCount && row.variantCount[0].text == 0 && row.singleProdAvailability) {
+      //   row.availabilityText = row.singleProdAvailability;
+      // }
     }
   }
 
