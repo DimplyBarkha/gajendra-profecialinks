@@ -18,7 +18,7 @@ module.exports = {
 
 
     // delay
-    await context.waitForSelector(' div.product-image-list > div > div > div > div > div > div > img', 5000)
+    // await context.waitForSelector('div.product-image-list > div > div > div > div > div > div > img', 5000)
     await context.evaluate(() => {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
