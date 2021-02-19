@@ -15,6 +15,9 @@ fields:
 - name: nameExtended
   singleValue: false
   xpath: //div[contains(@id,"product-info")]/h1[contains(@id,"product-name")]
+- name: imNameExtended
+  singleValue: false
+  xpath: concat(//div[contains(@class,"product-facts")]/div[2]/div[2]," ", //div[contains(@id,"product-info")]/h1[contains(@id,"product-name")])    
 - name: price
   singleValue: false
   xpath: //div[contains(@id,"price-info")]/span
