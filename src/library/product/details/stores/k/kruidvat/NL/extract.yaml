@@ -15,9 +15,11 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //div[@class="product-thumbnails__preview"]/img[position()>1]/@src
-    regExp: (.+)
-    regExpReplace: https://www.kruidvat.nl$1
+    # xpath: //div[@class="product-thumbnails__preview"]/img[position()>1]/@src
+    # xpath: //div[@class="thumbnail-item "][position()>1]/img/@src
+    # regExp: (.+)
+    # regExpReplace: https://www.kruidvat.nl$1
+    xpath: //div[@id="xyz"]
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -30,11 +32,11 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1//text()
+    xpath: concat(//h1,' ',//div[@class="description"]/p)
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //div[@id="price"]
+    # xpath: //div[@id="price"]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -133,6 +135,7 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
+    xpath: //div[@id="total"]
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -416,14 +419,14 @@ fields:
   - name: storage
     singleValue: true
     description: Suggested storage location for product
-    xpath: //h5[contains(text(),'Bereidingsinstructies')]/following::p[1]
+    # xpath: //h5[contains(text(),'Bereidingsinstructies')]/following::p[1]
   - name: countryOfOrigin
     singleValue: true
     description: The country from which the product originates
   - name: allergyAdvice
     singleValue: true
     description: Allergy information associated with the product
-    xpath: //h3[contains(text(),'Allergenen')]/following::h5[1]
+    xpath: concat(//h3[contains(text(),'Allergenen')]/following::h5[1],' ',//h3[contains(text(),'Allergenen')]/following::p[1])
   - name: recyclingInformation
     singleValue: true
     description: Recycling information associated with the product
@@ -508,11 +511,11 @@ fields:
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: materials
     singleValue: true
     description: Materials used to make the product

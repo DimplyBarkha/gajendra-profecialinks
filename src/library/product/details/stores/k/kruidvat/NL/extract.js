@@ -18,10 +18,25 @@ module.exports = {
     catch (error) {
 
     }
-    // await context.waitForSelector('div[class="tile__product-slide-image-container"] a', 3000);
-    // await context.click('div[class="tile__product-slide-image-container"] a');
-    // await new Promise((resolve) => setTimeout(resolve, 5000));
-    await context.evaluate(() => {
+    await context.evaluate(async function () {
+      let scrollTop = 0;
+      while (scrollTop !== 2000) {
+        await stall(500);
+        scrollTop += 500;
+        window.scroll(0, scrollTop);
+        if (scrollTop === 1000) {
+          await stall(500);
+          break;
+        }
+      }
+      function stall(ms) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve();
+          }, ms);
+        });
+      }
+
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
@@ -33,23 +48,43 @@ module.exports = {
         const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
         const result = [];
         for (let index = 0; index < nodeSet.snapshotLength; index++) {
-        const element = nodeSet.snapshotItem(index);
-        if (element) result.push(prop ? element[prop] : element.nodeValue);
+          const element = nodeSet.snapshotItem(index);
+          if (element) result.push(prop ? element[prop] : element.nodeValue);
         }
         return result;
-        };
+      };
+      var image = getAllXpath('//div[@class="product-thumbnails__preview"]/img[position()>1]/@src', 'nodeValue');
+      console.log(image,'image-------------------')
+      var productperpage = getAllXpath('//div[@class="select__options-container"]//ul/li//text()','nodeValue');
+      console.log(productperpage,'productperpage-------------------')
+      var totalproduct=0
+      if (productperpage != null && productperpage.length != 0){
+        totalproduct=(productperpage.length)+1
+      }
+      else{
+        totalproduct=0
+      }      
+      var xyz = []
+      var v1=''
+      for (var i = 0; i < image.length; i++) {
+        if(image[i].length > 1){
+          v1="https://www.kruidvat.nl"+image[i]
+          xyz.push(v1);
+          } 
+        }
+       var v =  xyz.join(" | ");
+      addElementToDocument('xyz', v);
       var bullet = getAllXpath('//div[@class="product-information__wrapper"]/p//text()', 'nodeValue');
-      var count=0
-      for (var i = 0; i < bullet.length; i++)
-    {
-      if(bullet[i].includes('•'))
-      {
-        var z = bullet[i].toString()
-        count = count + 1
-              }
-    }
-    console.log(count,'-------------------count')
-    addElementToDocument('count', count);
+      var count = 0
+      for (var i = 0; i < bullet.length; i++) {
+        if (bullet[i].includes('•')) {
+          var z = bullet[i].toString()
+          count = count + 1
+        }
+      }
+      addElementToDocument('total', totalproduct);
+      console.log(count, '-------------------count')
+      addElementToDocument('count', count);
       var getXpath = (xpath, prop) => {
         var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -101,7 +136,7 @@ module.exports = {
       addElementToDocument('availabilty', availabilty);
       addElementToDocument('upc', upc);
 
-      
+
 
     });
 
@@ -111,7 +146,7 @@ module.exports = {
 
 
     await context.extract(productDetails);
-    
-    },
-    
-    };
+
+  },
+
+};
