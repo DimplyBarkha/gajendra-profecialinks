@@ -2,6 +2,7 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: //*[@id="DropdownList"]//li
+# recordXPath: //pdp-product-container
 fields:
   - name: image
     description: URL of the main product image
@@ -47,7 +48,9 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: //ul[@id="DropdownList"]/li/@Availability | ancestor::html//button[@id="add-to-cart"]
+    # xpath: //ul[@id="DropdownList"]/li/@Availability | ancestor::html//button[@id="add-to-cart"]
+    xpath: //ul[@id="DropdownList"]/li/@Availability | //button[@id="add-to-cart" and contains(text(),'ADD TO')]
+    # xpath: //button[@id="add-to-cart" and contains(text(),'ADD TO')]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out Of Stock
@@ -71,8 +74,13 @@ fields:
       e.g. "Visit the Gillette Store"
     xpath: ancestor::html//div[@class="description-text-wrapper"]/ul/li[1]/span/span
 
-
-
+  - name: promotion
+    # xpath: //div[contains(@class,'price-list')]//span[contains(text(),'Was')]/..
+    # xpath: concat(//div[contains(@class,'product-price-summary')]//div[@itemprop='offers']/div[1],' ',//div[contains(@class,'product-price-summary')]//div[@itemprop='offers']/div[2])
+    xpath: //ul[@id="DropdownList"]/li/@promos
+    regExp: (.+)(Was)(.+)
+    regExpReplace: $1 $2$3
+    
   - name: weightNet
     singleValue: true
     description: Net weight as described on the page
