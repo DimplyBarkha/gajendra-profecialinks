@@ -44,6 +44,12 @@ async function implementation (
       }
     };
 
+    const notAValidId = (str) => {
+      // id should only contains numbers and dashes
+      // and be of 5 or more length
+      return /[^\d-]/.test(str) || str.length <= 4;
+    };
+
     const prepareData = async (dataArr) => {
       let count = 0;
       let itemIndex = 0;
@@ -58,7 +64,7 @@ async function implementation (
           const url = el.querySelector('a').getAttribute('href');
           const idFromUrl = url.split('-').slice(-2).join('-');
           let idFromDom;
-          if (/[^\d-]/.test(idFromUrl)) { // id should only contains numbers and dashes
+          if (notAValidId(idFromUrl)) {
             const { dom: detailPage, text } = await getPageDOM(url);
             idFromDom = (detailPage.querySelector('meta[itemprop = "productID sku"]') &&
             detailPage.querySelector('meta[itemprop = "productID sku"]').content) ||
@@ -68,7 +74,7 @@ async function implementation (
               const reg = /data-bv-product-id=\\"([^"]*)\\"/;
               const match = reg.exec(text);
               idFromDom = match[1];
-              if (!idFromDom || /[^\d-]/.test(idFromDom)) continue; // does not populate if it failed to load the id
+              if (!idFromDom || notAValidId(idFromDom)) continue; // does not populate if it failed to load the id
             }
           }
           const id = idFromDom || idFromUrl;
