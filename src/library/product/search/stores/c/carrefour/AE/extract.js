@@ -10,7 +10,7 @@ module.exports = {
     zipcode: "''",
   },
   implementation: async ({ url }, { country, domain, transform }, context, { productDetails }) => {
-    await new Promise((resolve, reject) => setTimeout(resolve, 4000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     await context.evaluate(async () => {
 
       function addHiddenDiv (el, myClass, content) {
@@ -28,9 +28,6 @@ module.exports = {
       if (serachTermSel) {
         searchTerm = serachTermSel.getAttribute('value')
       }
-      const pageNum = 0;
-      const apiUrl = `https://www.carrefouruae.com/api/v3/zones/072/search/advance?keyword=${searchTerm}&filter=&sortBy=relevance&currentPage=0&pageSize=60&maxPrice=&minPrice=&areaCode=Dubai%20Festival%20City%20-%20Dubai&lang=en&nextOffset=0&expressPos=003&disableSpellCheck=&displayCurr=AED`;
-
       async function fetchProducts (fetchURL) {
         console.log('fetchURL: ', fetchURL);
   
@@ -54,13 +51,16 @@ module.exports = {
         }
       }
 
-      // const firstPageData = await fetchProducts(apiUrl);
-      // console.log('firstPage data ====', JSON.stringify(firstPageData));
-      // if (firstPageData && firstPageData.products) {
-      //   firstPageData.products.forEach(element => {
-      //     apiData.push(element);
-      //   });
-      // }
+      const pageNum = 0;
+      const apiUrl = `https://www.carrefouruae.com/api/v3/zones/072/search/advance?keyword=${searchTerm}&filter=&sortBy=relevance&currentPage=0&pageSize=60&maxPrice=&minPrice=&areaCode=Dubai%20Festival%20City%20-%20Dubai&lang=en&nextOffset=0&expressPos=003&disableSpellCheck=&displayCurr=AED`;
+
+      const firstPageData = await fetchProducts(apiUrl);
+      console.log('firstPage data ====', JSON.stringify(firstPageData));
+      if (firstPageData && firstPageData.products) {
+        firstPageData.products.forEach(element => {
+          apiData.push(element);
+        });
+      }
 
       function stall (ms) {
         return new Promise((resolve, reject) => {
@@ -83,10 +83,11 @@ module.exports = {
 
       const moreButtonSelector = document.querySelector('button.ltr-1upsixo');
       if (moreButtonSelector) {
-        for (let index = 0; index < 3; index++) {
+        for (let index = 1; index < 3; index++) {
 
           const pageNum = index;
           const apiUrl = `https://www.carrefouruae.com/api/v3/zones/072/search/advance?keyword=${searchTerm}&filter=&sortBy=relevance&currentPage=${pageNum}&pageSize=60&maxPrice=&minPrice=&areaCode=Dubai%20Festival%20City%20-%20Dubai&lang=en&nextOffset=0&expressPos=003&disableSpellCheck=&displayCurr=AED`;
+          console.log('apiUrl === ', apiUrl);
           const pageData = await fetchProducts(apiUrl);
           console.log('pageData === ', pageData);
           if (pageData && pageData.products) {
