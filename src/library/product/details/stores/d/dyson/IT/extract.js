@@ -49,7 +49,10 @@ async function implementation (
       const result = [];
       for (let index = 0; index < nodeSet.snapshotLength; index++) {
         const element = nodeSet.snapshotItem(index);
-        if (element) result.push(prop ? element[prop] : element.nodeValue);
+        if (element) {
+          if (prop === 'node') result.push(element);
+          else result.push(prop ? element[prop] : element.nodeValue);
+        }
       }
       return result;
     };
@@ -270,8 +273,32 @@ async function implementation (
     addElementToDocument('added_descBullets', descBullets);
 
     // get the videos
-    const videos = " (//div[contains(concat(' ',normalize-space(@class),' '),' s7videoviewer ')])[1]/@data-video-src";
-    addElementToDocument('added_videos', getAllXpath(videos, 'nodeValue').map(v => `${window.location.hostname}${v}`));
+    // const videos = ' (//div[contains(concat(\' \',normalize-space(@class),\' \'),\' s7videoviewer \') and boolean(//div[contains(@class,"product-hero__button-container")]/a)])[1]/@data-video-src';
+    const videosXpath = '(//div[contains(concat(" ",normalize-space(@class)," "),"s7videoviewer") and boolean(//div[contains(@class,"product-hero__button-container")]/a)])[1]/@data-video-src | //section//li//div[contains(@class,"s7videoviewer")][@data-autoplay]/@data-video-src';
+    const videoAncestorClasses = [
+      { needed: 'product-hero' },
+      { needed: 'full-width-image' },
+      { blackListed: 'product-hero__desktop-1-col' },
+      { blackListed: 'parbase' },
+    ];
+    const videosXpathSku = videoAncestorClasses.reduce(([acc], { needed, blackListed }) => {
+      const classHack = 'concat(" ",normalize-space(@class)," ")';
+      if (needed) acc.need.push(`contains(${classHack}," ${needed} ")`);
+      if (blackListed) acc.blackList.push(`contains(${classHack}," ${blackListed} ")`);
+      return [acc];
+    }, [{ need: [], blackList: [] }])
+      .reduce((acc, { need, blackList }) => {
+        const needXpath = `[${need.join(' or ')}]`;
+        const blackListXpath = `[not(${blackList.join(' or ')})]`;
+        return `${acc}${needXpath}${blackListXpath}`;
+      }, '//div') + '//div[@id][contains(concat(" ",normalize-space(@class)," "),"s7videoviewer")]';
+    // '//div[contains(@class,"product-hero") or contains(@class,"full-width")][not(contains(@class,"product-hero__desktop-1-col"))]//div[@id][contains(concat(" ",normalize-space(@class)," "),"s7videoviewer")]/@data-video-src';
+    console.log(videosXpathSku);
+    const videos = getAllXpath(videosXpathSku, 'node')
+      .map(v => `${window.location.hostname}${v.dataset.videoSrc}`);
+      // @ts-ignore
+    addElementToDocument('added_videos', [...new Set(videos)]);
+    // addElementToDocument('added_videos', getAllXpath(videosXpath, 'nodeValue').map(v => `${window.location.hostname}${v}`));
   });
   return await context.extract(productDetails, { transform: parameters.transform });
 };
