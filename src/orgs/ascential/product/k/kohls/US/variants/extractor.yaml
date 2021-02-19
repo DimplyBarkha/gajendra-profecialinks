@@ -1,0 +1,16 @@
+robot: product/details/variants
+parameters:
+  country: US
+  domain: kohls.com
+  store: kohls
+  zipcode: ""
+proxy:
+  zone: ZUK
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
+  queryGapInMs: 5000
