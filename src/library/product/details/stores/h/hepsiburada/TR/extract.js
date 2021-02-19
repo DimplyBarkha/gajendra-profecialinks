@@ -19,22 +19,15 @@ module.exports = {
       if (popupButton) {
         document.querySelector('#adultwrapper > div > div > button:nth-child(2)').click();
       }
-      let upc = window.utagData ? window.utagData.product_barcode : '';
-      if (upc) {
-        document.body.setAttribute('upc', upc);
-      } else {
-        try {
-          await context.waitForFunction(function (sel) {
-            return Boolean(window.utagData.product_barcode);
-          }, { timeout: 10000 });
-          upc = window.utagData ? window.utagData.product_barcode : '';
-          if (upc) {
-            document.body.setAttribute('upc', upc);
-          }
-        } catch (error) {
-          console.log('UPC not loaded');
+      try {
+        const upc = window.utagData._utagData.product_barcode ? window.utagData._utagData.product_barcode : window.utagData.product_barcode;
+        if (upc) {
+          document.body.setAttribute('upc', upc);
         }
+      } catch (error) {
+        console.log('UPC data not loaded');
       }
+
       const data = document.querySelector('#productDescriptionContent') ? document.querySelector('#productDescriptionContent').textContent.trim() : '';
       var bullets = JSON.stringify(data.match(/•|\*/gi) ? data.match(/•|\*/gi).length : 0);
       document.body.setAttribute('bullet_count', bullets);
