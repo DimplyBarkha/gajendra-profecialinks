@@ -7,7 +7,6 @@ parameters:
 proxy:
   zone: ZFR
   type: DATA_CENTER
-#   type: RESIDENTIAL
 policy:
   numberRetries: 3
   priority: MEDIUM
@@ -18,4 +17,7 @@ meta:
   branches:
     dev:
       extractor: 6370c296-bf6d-46f9-9902-ab7a0e2f21de
+      legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
+    im-core:
+      extractor: cf55fe81-701f-419b-aa51-90acd96d4216
       legacyAccountId: 0e78a773-3cff-48d2-902d-473fb46c535b
