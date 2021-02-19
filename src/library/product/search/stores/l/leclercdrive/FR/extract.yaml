@@ -1,18 +1,19 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //ul[@id="ulListeProduits"]/li[contains(@data-vignette,'disponible') or contains(@data-vignette,'Disponible')]
 fields: 
   - name: id
-    singleValue: true
-    xpath: //div[contains(@class,'v-produit')]
-    regExp: v-produit-(\d+)
-    regExpReplace: $1
+    singleValue: false
+    xpath: //html//div[@id='ProductIDs']
+  - name: productUrl
+    singleValue: false
+    xpath: //html//div[@id='ProductURLs']
   - name: name
     singleValue: false
     xpath: //p[@class="pWCRS310_Desc"]
   - name: thumbnail
-    singleValue: true
+    singleValue: false
     xpath: //div[@class="divWCRS310_Content"]/a/img/@src
   - name: price
     singleValue: false

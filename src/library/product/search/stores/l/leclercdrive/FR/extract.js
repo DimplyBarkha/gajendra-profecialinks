@@ -1,37 +1,4 @@
 const { transform } = require('../../../../shared');
-async function implementation(
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  const { transform } = parameters;
-  const { productDetails } = dependencies;
-
-  await context.evaluate(() => {
-    // Method to Retrieve Xpath content of a Single Node
-    const getXpath = (xpath, prop) => {
-      const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
-      let result;
-      if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
-      else result = elem ? elem.singleNodeValue : '';
-      return result && result.trim ? result.trim() : result;
-    };
-    // @ts-ignore
-    //var data = getXpath('(//*[contains(text(),"lstEnfants")]/text()', 'nodeValue');
-    let abc = $('script:contains("lstEnfants")')[0].innerText
-    console.log("abc::::::::" + abc);
-    // var images = jsondata.image;
-    // images.shift();
-    // var imglength = images.length;
-    // addElementToDocument('imglength', imglength);
-    // var secimg = images.join(' | ');
-    // addElementToDocument('AltImg', secimg);
-  //}
-  });
-
-return await context.extract(productDetails, { transform });
-}
 module.exports = {
   implements: 'product/search/extract',
   parameterValues: {
@@ -43,3 +10,42 @@ module.exports = {
   },
   implementation,
 };
+
+async function implementation(
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { transform } = parameters;
+  const { productDetails } = dependencies;
+  await context.evaluate(() => {
+    function addHiddenDiv(id, content, index) {
+      const newDiv = document.createElement('div');
+      newDiv.id = id;
+      newDiv.textContent = content;
+      newDiv.style.display = 'none';
+      const originalDiv = document.querySelectorAll("div[class='divWCRS310_Content']")[index];
+      originalDiv.parentNode.insertBefore(newDiv, originalDiv);
+    }
+    // @ts-ignore
+    let scriptDataRaw = $('script:contains("lstEnfants")')[0].innerText;
+    var ProductURLs = [], ProductIDs = [];
+    let tempURL;
+    let scriptData = scriptDataRaw.split('sUrlPageProduit":"');
+    for (let i = 1; i < scriptData.length; i++) {
+      if (scriptData[i].includes('fiche-produits-')) {
+        ProductURLs.push(scriptData[i].split('"')[0]);
+        tempURL = scriptData[i].split('"')[0];
+        tempURL = tempURL.split('fiche-produits-')[1];
+        ProductIDs.push(tempURL.split('-')[0]);
+      }
+    }
+    for (let j = 0; j < ProductIDs.length; j++) {
+      addHiddenDiv('ProductIDs', ProductIDs[j], j);
+      addHiddenDiv('ProductURLs', ProductURLs[j], j);
+    }
+  });
+  return await context.extract(productDetails, { transform });
+}
+
