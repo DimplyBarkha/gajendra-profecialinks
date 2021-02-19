@@ -90,7 +90,7 @@ fields:
     description: warnings       
   - name: sku
     singleValue: true
-    xpath: //div[@class="l-layout l-layout__ml--8 l-layout__tt--8"]//button/@data-id
+    xpath: //div[@class="l-layout l-layout__ml--8 l-layout__tt--8"]//button/@data-id | //*[@id="j-product-full__content"]/div[1]/div[2]/div/div[2]/script/@data-id
     description: The store-specific product identifier
   - name: variantId
     singleValue: true
