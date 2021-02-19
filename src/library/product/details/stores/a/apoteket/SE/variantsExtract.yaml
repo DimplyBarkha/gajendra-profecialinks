@@ -1,18 +1,19 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //select[@id="variants"]/option | //head[contains(@id, "customId")]
+recordXPath: null
+#//select[@id="variants"]/option | //head[contains(@id, "customId")] | //div[contains(@class,"nosto_product")]
 # | //div[contains(@class,"nosto_product")]
 fields:
   - name: variantId
     singleValue: false
     description: variant id, to uniquely identify variant 
-    xpath: //@value | //link[@rel="canonical"]/@href
+    xpath: //select[@id='variants']//option/@value | (//div[@id='apoteket-body']//script)[2]
     # | //span[@class="url"] 
   - name: variantUrl
     singleValue: false
     description: variant Url
-    xpath: //@value | //link[@rel="canonical"]/@href
+    xpath: //select[@id='variants']//option/@value |(//div[@id='apoteket-body']//script)[2]
     # | //span[@class="url"] 
 
     # No variant: 561937

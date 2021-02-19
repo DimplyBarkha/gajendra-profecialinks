@@ -17,6 +17,8 @@ const transform = (data, context) => {
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   
+    const Set1 = new Set()
+
     for (const { group } of data) {
       for (const row of group) {
         if (row.image) {
@@ -52,10 +54,7 @@ const transform = (data, context) => {
           if (row.description) {
             row.description.forEach(item => {
               item.text = item.text.trim();
-              if(item.text[0]==='|' &&item.text[1]==='|'){
-                item.text=item.text.substring(2,item.text.length-1)
-                item.text = item.text.trim();
-              }
+              
             })
           }
           if (row.name) {
@@ -118,19 +117,50 @@ const transform = (data, context) => {
             });
           }
           if (row.variantUrl) {
+            
             row.variantUrl.forEach(item => {
-              if((item.text.includes('http')) ||(item.text.includes('https'))){
+              if(item.text.includes('{')&&item.text.includes('url'))
+              {
+                let str=item.text.substr(item.text.indexOf('url')+7,item.text.length-1)
+                    str=str.substr(0,str.indexOf('"'))
+                    item.text=str
+
+              }
+              if((item.text.includes('http')) || (item.text.includes('https'))){
                   item.text = item.text;
               }else{
                 item.text = 'https://www.apoteket.se'+item.text;
               }
+              if(Set1.has(item.text))
+                {
+                  delete row.variantUrl
+                }
+                else
+                Set1.add(item.text)
+                
+
             });
           }
           if (row.variantId) {
             row.variantId.forEach(item => {
+              if(item.text.includes('{')&&item.text.includes('url'))
+              {
+                let str=item.text.substr(item.text.indexOf('url')+7,item.text.length-1)
+                    str=str.substr(0,str.indexOf('"'))
+                    item.text=str
+
+              }
+              
                 let arr = item.text.split('-');
                 let length = arr ? arr.length : 0;
                 item.text = arr[length-1].replace(/\//,'');
+                if(Set1.has(item.text))
+                {
+                  delete row.variantId
+                }
+                else
+                Set1.add(item.text)
+                
             });
           }
           if (row.firstVariant) {
@@ -147,8 +177,10 @@ const transform = (data, context) => {
                 item.text = arr[length-1].replace(/\//,'');
             });
           }
+
+
       }
-    }
+  }
     data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
       el.text = clean(el.text);
     }))));

@@ -25,7 +25,7 @@ fields:
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: concat(//div[contains(@class, "product-name")]/h1," ",//div[contains(@class, "product-name")]/p)
+    xpath: (//div[contains(@class, "product-name")]/h1)[1]
     # xpath: //div[contains(@class, "product-name")]/h1
   - name: listPrice
     singleValue: false

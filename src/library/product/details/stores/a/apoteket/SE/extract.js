@@ -24,32 +24,32 @@ async function implementation(
   const { transform } = parameters;
   // @ts-ignore
   const { productDetails } = dependencies;
-  let list = await context.evaluate(() => !document.querySelector('div[class="product-grid__items"]'))
-  if (!list) {
-    async function firstItemLink() {
-      return await context.evaluate(function () {
-        let firstItem = document.querySelector('div.grid-product__content.grid-item__content a')
-        // @ts-ignore
-        firstItem = firstItem ? firstItem.href : '';
-        let finalLink
-        // @ts-ignore
-        if (firstItem.includes('http') & firstItem !== '') {
-          finalLink = firstItem
-          // @ts-ignore
-        } else if (firstItem !== '') {
-          finalLink = 'https://www.apoteket.se' + firstItem;
-        }
-        return finalLink;
-      });
-    }
-    const url = await firstItemLink();
-    if (url !== null) {
-      await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
-    }
-    await context.waitForNavigation();
-  }
-  await new Promise((resolve, reject) => setTimeout(resolve, 8000));
-  //-------------------------
+  // let list = await context.evaluate(() => !document.querySelector('div[class="product-grid__items"]'))
+  // if (!list) {
+  //   async function firstItemLink() {
+  //     return await context.evaluate(function () {
+  //       let firstItem = document.querySelector('div.grid-product__content.grid-item__content a')
+  //       // @ts-ignore
+  //       firstItem = firstItem ? firstItem.href : '';
+  //       let finalLink
+  //       // @ts-ignore
+  //       if (firstItem.includes('http') & firstItem !== '') {
+  //         finalLink = firstItem
+  //         // @ts-ignore
+  //       } else if (firstItem !== '') {
+  //         finalLink = 'https://www.apoteket.se' + firstItem;
+  //       }
+  //       return finalLink;
+  //     });
+  //   }
+  //   const url = await firstItemLink();
+  //   if (url !== null) {
+  //     await context.goto(url, { timeout: 10000, waitUntil: 'load', checkBlocked: true });
+  //   }
+  //   await context.waitForNavigation();
+  // }
+  // await new Promise((resolve, reject) => setTimeout(resolve, 8000));
+  // //-------------------------
   await context.evaluate(async (parentInput) => {
 
     function addElementToDocument(key, value) {
@@ -82,7 +82,7 @@ async function implementation(
 let descArr = [];
 
 let descElement2;
-let description2 = document.querySelector('div[data-tab-heading="Beskrivning"] p');
+let description2 = document.querySelector('div[data-tab-heading="Beskrivning"] p')?document.querySelector('div[data-tab-heading="Beskrivning"] p'):document.querySelector('div[data-tab-heading="Beskrivning"]')
 descElement2 = description2 ? description2.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/gm, ' ').replace(/\&nbsp;/gm, '').trim() : '';
 if(description2){
   descArr.push(descElement2);
@@ -92,6 +92,10 @@ let descElement1;
 let description1 = document.querySelector('div.product-page-info');
 descElement1 = description1 ? description1.innerHTML.replace(/<li.*?>/gm, ' || ').replace(/\n/gm, ' ').replace(/<script>.*?<\/script>/gm, '').replace(/<style.*?<\/style>/gm, '').replace(/<.*?>/gm, ' ').replace(/•/gm, ' ||').replace(/\s{2,}/gm, ' ').replace(/\&nbsp;/gm, '').trim() : '';
 if(description1){
+  if(descElement1[0]==='|' && descElement1[1]==='|'){
+    descElement1=descElement1.substring(2,descElement1.length-1)
+    descElement1 = descElement1.trim();
+  }
   descArr.push(descElement1);
   console.log('descElement1: ', descElement1);
 }
