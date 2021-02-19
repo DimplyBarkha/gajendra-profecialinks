@@ -68,19 +68,19 @@ const transform = (data, context) => {
           element.text = element.text.replace('Производитель: ', '').trim();
         });
       }
-      if (row.ingredientsList) {
-        let text = '';
-        row.ingredientsList.forEach((item) => {
-          if (text.includes(item.text)) {
-            text = text + item.text;
-          }
-        });
-        row.ingredientsList = [
-          {
-            text: text,
-          },
-        ];
-      }
+      // if (row.ingredientsList) {
+      //   let text = '';
+      //   row.ingredientsList.forEach((item) => {
+      //     if (text.includes(item.text)) {
+      //       text = text + item.text;
+      //     }
+      //   });
+      //   row.ingredientsList = [
+      //     {
+      //       text: text,
+      //     },
+      //   ];
+      // }
       if (row.directions) {
         let text = '';
         row.directions.forEach((item) => {
