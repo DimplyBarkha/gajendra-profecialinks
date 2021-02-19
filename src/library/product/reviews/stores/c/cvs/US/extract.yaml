@@ -22,6 +22,9 @@ fields:
     singleValue: false
     description: The store-specific product identifier
     xpath: ancestor::html//div[@id="ii_sku"]
+  - name: variantId
+    singleValue: false
+    xpath: ancestor::html//div[@id="ii_sku"]
   - name: reviewDate
     singleValue: false
     type: DATETIME
