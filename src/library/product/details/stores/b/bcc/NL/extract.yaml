@@ -116,7 +116,8 @@ fields:
     xpath: //section//a[contains(@class, 'gallerybar__video')]/@data-videourl
   - name: name
     description: The product name
-    xpath: //a[contains(@class, 'brandlogo')]/following-sibling::h1
+    xpath: //h1[@id='page_title']
+    # xpath: //a[contains(@class, 'brandlogo')]/following-sibling::h1
   - name: inStorePrice
     description: Price in the selected store
   - name: asin
