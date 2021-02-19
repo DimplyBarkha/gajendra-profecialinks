@@ -5,7 +5,7 @@ module.exports = {
     template: null,
     country: 'UK',
     store: 'argos',
-    nextLinkSelector: null,
+    nextLinkSelector: '',
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,

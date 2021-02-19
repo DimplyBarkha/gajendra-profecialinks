@@ -38,7 +38,7 @@ fields:
   - name: user
     singleValue: false
     description: The user name of the reviewer
-    xpath: //p[contains(@class,'iCkecS')]
+    xpath: //p[contains(@class,'bgdUvF')]
     regExp: ^(.+?),
     regExpReplace: $1
   - name: aggregateRating
@@ -49,9 +49,9 @@ fields:
     xpath: //div[contains(@data-test,'review-item-cross-review')]/a[contains(text(),'.')]
   - name: gtin
     singleValue: false
-    xpath: ancestor::html//div[contains(@itemprop,'description')]//li[contains(text(),'EAN:')]
-    regExp: ^EAN:?(.*).
-    regExpReplace: $1
+    xpath: ancestor::html//div[contains(@itemprop,'description')]//li[contains(text(),'EAN:')] | ancestor::html//div[contains(@itemprop,'description')]//li[contains(text(),'EAN ')]
+    regExp: \d+
+    # regExpReplace: $1
   # description: GTIN code (includes UPC/EAN)
   # - name: reviewUrl
   #   singleValue: false

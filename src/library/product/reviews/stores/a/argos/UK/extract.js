@@ -9,6 +9,7 @@ module.exports = {
     zipcode: '',
   },
   implementation: async (
+    // @ts-ignore
     inputs,
     parameters,
     context,
@@ -18,6 +19,7 @@ module.exports = {
       console.log('Clicking on cookies button.');
       await context.waitForSelector('button[id*="consent_prompt_submit"]', { timeout: 10000 });
       await context.evaluate(function () {
+        // @ts-ignore
         document.querySelector('button[id*="consent_prompt_submit"]').click();
       });
     } catch (err) {
@@ -27,6 +29,7 @@ module.exports = {
     try {
       await context.waitForSelector('a[data-test*="reviews-flag-link"]', { timeout: 10000 });
       await context.evaluate(function () {
+        // @ts-ignore
         document.querySelector('a[data-test*="reviews-flag-link"]').click();
       });
       await context.waitForSelector('div[id*="reviews"]');
@@ -56,6 +59,7 @@ module.exports = {
         const reviewDateElement = reviewElements[0].querySelector('time[class*="flXZaC"][datetime]');
         if (reviewDateElement) {
           const pattern = /([0-9]+-[0-9]+-[0-9]+)/i;
+          // @ts-ignore
           const results = reviewDateElement.dateTime.match(pattern);
           if (results && results.length > 0) {
             reviewDate = results[1];
@@ -74,6 +78,7 @@ module.exports = {
           const reviewDateElement = reviewElements[reviewElements.length - 1].querySelector('time[class*="flXZaC"][datetime]');
           if (reviewDateElement) {
             const pattern = /([0-9]+-[0-9]+-[0-9]+)/i;
+            // @ts-ignore
             const results = reviewDateElement.dateTime.match(pattern);
             if (results && results.length > 0) {
               reviewDate = results[1];
