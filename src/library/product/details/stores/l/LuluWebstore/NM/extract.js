@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
     await context.evaluate(async function () {
-      function addElementToDocument (key, value) {
+      function addElementToDocument(key, value) {
         const catElement = document.createElement('div');
         catElement.id = key;
         catElement.textContent = value;
@@ -18,7 +18,7 @@ module.exports = {
         document.body.appendChild(catElement);
       }
 
-      function stall (ms) {
+      function stall(ms) {
         return new Promise((resolve, reject) => {
           setTimeout(() => {
             resolve();
@@ -134,17 +134,24 @@ module.exports = {
       // addElementToDocument('Ingredientlist',head);
       var head1 = getXpath("//div[@class='tab-details']//p/text()[contains(.,'Ingredients')]//following-sibling::br[1]/following::text()[1]", 'nodeValue');
       var head2 = getXpath("//div[@class='tab-details']//p/text()[contains(.,'Ingredients')]//following-sibling::br[1]/following::text()[2]", 'nodeValue');
-      if(head != null){
+      var head3 = getXpath("//div[@class='tab-container']//div[@class='col-md-6 col-sm-6 pd-features-section']//div[@class='features-ul'][2]",'nodeValue')
+      if (head != null) {
         addElementToDocument('Ingredientlist', head);
-      }else if(head1 !=null ){
-        if(head1.length>50){
-          addElementToDocument('Ingredientlist',head1);
+      } else if (head1 != null) {
+        if (head1.length > 50) {
+          addElementToDocument('Ingredientlist', head1);
         }
-        
-      }else{
-        addElementToDocument('Ingredientlist',head2);
+        else if (head2 != null) {
+          if (head2.length > 50) {
+            addElementToDocument('Ingredientlist', head2);
+          }
+
+        }
       }
-      });
+      else {
+        // addElementToDocument('Ingredientlist', head3);
+      }
+    });
     await context.extract(productDetails, { transform: transformParam });
   },
 };
