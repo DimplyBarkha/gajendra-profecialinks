@@ -126,19 +126,13 @@ fields:
     regExpReplace: $1
   - name: caloriesPerServing
     singleValue: false
-    xpath: //div//*[contains(text(),'Nährwerte:')]//following::div[1]//span
-    regExp: (\Brennwert:\s(\d+)\D+(\/\d+))
-    regExpReplace: $2$3
+    xpath: //*[contains(text(),'Brennwert in kcal:')]/following::div[1]/span
   - name: caloriesFromFatPerServing
     singleValue: false
-    xpath: //div//*[contains(text(),'Nährwerte:')]//following::div[1]//span
-    regExp: (?<=Brennwert:)([^,]*)(kcal)
-    regExpReplace: $2
+    xpath: //div//*[contains(text(),'Nährwerte:')]//following::div[1]//span | //div//*[contains(text(),'Fett in g:')]//following::div[1]//span
   - name: totalSugarsPerServing
     singleValue: false
-    xpath: //div//*[contains(text(),'Nährwerte:')]//following::div[1]//span
-    regExp: \bZucker\b:(.\S{1,})
-    regExpReplace: $1
+    xpath: //div//*[contains(text(),'Zucker')]//following::div[1]//span
   - name: totalSugarsPerServingUom
     singleValue: false
     xpath: //div//*[contains(text(),'Nährwerte:')]//following::div[1]//span
@@ -146,9 +140,7 @@ fields:
     regExpReplace: $1
   - name: proteinPerServing
     singleValue: false
-    xpath: //div//*[contains(text(),'Nährwerte:')]//following::div[1]//span
-    regExp: \bEiwei\bß:(.\S{1,})
-    regExpReplace: $1
+    xpath: //div//*[contains(text(),'Eiwei')]//following::div[1]//span
   - name: proteinPerServingUom
     singleValue: false
     xpath: //div//*[contains(text(),'Nährwerte:')]//following::div[1]//span
@@ -156,19 +148,13 @@ fields:
     regExpReplace: $1
   - name: saltPerServing
     singleValue: false
-    xpath: //div//*[contains(text(),'Nährwerte:')]//following::div[1]//span
-    regExp: \bSalz\b:(.\S{1,})
-    regExpReplace: $1
+    xpath: //*[contains(text(),'Salz in g:')]/following::div[1]/span
   - name: saltPerServingUom
     singleValue: false
-    xpath: //div//*[contains(text(),'Nährwerte:')]//following::div[1]//span
-    regExp: ([g|mg]+$)
-    regExpReplace: $1
+    xpath: //*[contains(text(),'Salz')]/following::div[1]/span
   - name: saturatedFatPerServing
     singleValue: false
-    xpath: //div//*[contains(text(),'Nährwerte:')]//following::div[1]//span
-    regExp: \bFettsäuren\b:(.\S{1,})
-    regExpReplace: $1
+    xpath: //div//*[contains(text(),'Fettsäuren')]//following::div[1]//span
   - name: saturatedFatPerServingUom
     singleValue: false
     xpath: //div//*[contains(text(),'Nährwerte:')]//following::div[1]//span
@@ -176,9 +162,7 @@ fields:
     regExpReplace: $1
   - name: dietaryFibrePerServing
     singleValue: false
-    xpath: //div//*[contains(text(),'Nährwerte:')]//following::div[1]//span
-    regExp: \bBallaststoffe\b:(.\S{1,})
-    regExpReplace: $1
+    xpath: //div//*[contains(text(),'bBallaststoffe')]//following::div[1]//span
   - name: dietaryFibrePerServingUom
     singleValue: false
     xpath: //div//*[contains(text(),'Nährwerte:')]//following::div[1]//span
