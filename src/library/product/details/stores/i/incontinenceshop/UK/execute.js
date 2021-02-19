@@ -6,7 +6,7 @@ module.exports = {
     store: 'incontinenceshop',
     domain: 'incontinenceshop.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: '//div[contains(text(),"no results")]',
     zipcode: '',
   },
 };
