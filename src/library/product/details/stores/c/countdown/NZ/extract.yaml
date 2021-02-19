@@ -12,6 +12,9 @@ fields:
   - name: nameExtended
     singleValue: false
     xpath: //div[@id="product-details"]//h1[@class="product-title"] | //product-price-meta//span[contains(@class,"size ng-star-inserted")]
+  - name: name
+    singleValue: false
+    xpath: //div[@id="product-details"]//h1[@class="product-title"] | //product-price-meta//span[contains(@class,"size ng-star-inserted")]
   - name: availabilityText
     singleValue: true
     xpath: //div[@class="product-controls"]//cdx-notification/@colour | //div[@class="product-controls"]//cdx-alert/@title

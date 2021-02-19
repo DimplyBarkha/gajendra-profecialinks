@@ -216,6 +216,15 @@ row.proteinPerServingUom.forEach(item => {
             }
           })
         }
+        if (row.name) {
+          let info = [];
+          row.name.forEach(item => {
+            info.push(item.text);
+          });
+          if (info.length) {
+            row.name = [{ "text": info.join(" ").replace('Package type','').replace('Volume size',''), 'xpath': row.name[0].xpath }];
+          }
+      }
         if (row.nameExtended) {
           let info = [];
           row.nameExtended.forEach(item => {
