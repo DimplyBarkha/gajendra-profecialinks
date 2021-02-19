@@ -6,17 +6,16 @@ async function implementation (
   context,
   dependencies,
 ) {
-  // const { transform } = parameters;
   const { productDetails } = dependencies;
   const applyScroll = async function (context) {
     await context.evaluate(async function () {
       let scrollTop = 0;
-      while (scrollTop !== 30000) {
-        await stall(500);
+      while (scrollTop !== 50000) {
+        await stall(1000);
         scrollTop += 1000;
         window.scroll(0, scrollTop);
-        if (scrollTop === 30000) {
-          await stall(6000);
+        if (scrollTop === 50000) {
+          await stall(5000);
           break;
         }
       }
