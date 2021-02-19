@@ -25,7 +25,8 @@ fields:
     xpath: //div[@class='a1y6 a1z0']/@title
   - name: reviewCount
     description: The number of reviews
-    xpath: //div[contains(@class,"itemasdasda")]//a
+    xpath: //div[contains(@class,"item")]//a
+    regExp: (\d+)
   - name: price
     xpath: //span[contains(@class, "b5v6")]
   - name: soldBy
