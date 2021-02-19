@@ -26,11 +26,13 @@ module.exports = {
         ? document.querySelector('span[itemprop="ratingValue"]').textContent
         : '';
 
-      const containers = document.querySelectorAll('ol div.bv-content-summary-body-text');
+      const containers = document.querySelectorAll('ol li[itemprop="review"]');
       containers.forEach(container => {
         container.setAttribute('addedName', name);
         container.setAttribute('productUrl', window.location.href);
         container.setAttribute('addedAggregateRating', rating);
+
+        container.setAttribute('commentCount', container.querySelectorAll('div[class="bv-secondary-content-list"] li').length.toString());
       });
     });
     var data = await context.extract(productReviews, { transform });
