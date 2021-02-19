@@ -151,7 +151,8 @@ fields:
   - name: manufacturerDescription
     singleValue: false
     description: The extended description of the product supplied by the lister
-    xpath: //html//div[@id="final_manufacturerDesc"]
+    selector: div[id="wc-power-page"]
+    # //html//div[@id="final_manufacturerDesc"]
     # //div[@class='wc-rich-content-description']//text()
   - name: manufacturerImages
     singleValue: false
