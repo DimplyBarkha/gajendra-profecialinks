@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@data-comp, "Review StyledComponent BaseComponent")]
 fields:
   - name: helpfulCount
     singleValue: true
@@ -30,11 +30,13 @@ fields:
     singleValue: true
     description: Rating normalized to be out of 5
   - name: reviewText
-    singleValue: true
+    singleValue: false
     description: The text of the review
+    xpath: //div//div[contains(@data-comp, "Flex StyledComponent BaseComponent")]//div[contains(@data-comp, "StyledComponent BaseComponent")]/text()
   - name: reviewTitle
-    singleValue: true
+    singleValue: false
     description: The title of the review
+    xpath: //h3
   - name: reviewerTags
     singleValue: false
     description: The tags a reviewer has
