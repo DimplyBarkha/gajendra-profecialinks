@@ -1,43 +1,74 @@
+// @ts-nocheck
 const { cleanUp } = require('../../../../shared');
 
-async function implementation (inputs, parameters, context, dependencies) {
+const implementation = async (inputs, parameters, context, dependencies) => {
   const { transform } = parameters;
   const { productDetails } = dependencies;
   const data = [];
 
   const variantCount = await context.evaluate(async function () {
-    return document.querySelector('.product-options') ? document.querySelectorAll('.product-options .option').length : 0;
+    return document.querySelector('.product-options')
+      ? document.querySelectorAll('.product-options .option').length
+      : 0;
   });
 
-  const variants = await context.evaluate(async function () {
-    return document.querySelectorAll('div.wrap div.pict img');
-  });
+  // const variants = await context.evaluate(async function () {
+  //   return document.querySelectorAll('div.wrap div.pict img');
+  // });
 
   if (variantCount !== 0) {
     for (let i = 0; i < variantCount; i++) {
       await context.click(`.product-options .option:nth-of-type(${i + 1})`);
-      await context.evaluate(async function () {
-        function addElementToDom (element, id) {
+      await context.evaluate(async function (i) {
+        const addElementToDom = (element, id) => {
           const div = document.createElement('div');
           div.id = id;
           div.innerHTML = element;
           document.querySelector('body').appendChild(div);
+        };
+
+        const allVariantElemensts = document.querySelectorAll(
+          'div.product-view div.owl-wrapper > div.owl-item > div.pict img[class^="product"]',
+        );
+        let variantElem = allVariantElemensts[i];
+        let variantId =
+          variantElem &&
+          variantElem.getAttribute('class') &&
+          variantElem.getAttribute('class').match(/product-(.+)-image/)
+            ? variantElem.getAttribute('class').match(/product-(.+)-image/)[1]
+            : '';
+        if (!variantId) {
+          const optionElements = document.querySelectorAll('.product-options .option');
+          variantElem = optionElements[i];
+          variantId =
+            variantElem && variantElem.getAttribute('id')
+              ? variantElem &&
+                variantElem.getAttribute('id').match(/(\d+)$/) &&
+                variantElem.getAttribute('id').match(/(\d+)$/)[1]
+              : '';
         }
+        addElementToDom(variantId, 'variantId');
+        if (i === 0) addElementToDom(variantId, 'firstVariantId');
+        const sku = window.algoliaConfig ? window.algoliaConfig.productId : '';
+        addElementToDom(sku, 'sku');
+
         const brandText = document.querySelector('.product-shop .product-name .product-brand')
           ? document.querySelector('.product-shop .product-name .product-brand').innerText
           : '';
-        const shortName = document.querySelector('.product-shop .product-name .h1') ? document.querySelector('.product-shop .product-name .h1').innerText : '';
-        
-        const arr = [];
-        //@ts-ignore
-        variants.forEach((variant) => {
-          if(variant.className) {
-            const variantRegex = /\d+/;
-            arr.push(variant.className.match(variantRegex));
-          }
-        })
-        let variantId = arr[i + 1][0];
-        addElementToDom(variantId, 'variantId');               
+        const shortName = document.querySelector('.product-shop .product-name .h1')
+          ? document.querySelector('.product-shop .product-name .h1').innerText
+          : '';
+
+        // const arr = [];
+
+        // variants.forEach((variant) => {
+        //   if (variant.className) {
+        //     const variantRegex = /\d+/;
+        //     arr.push(variant.className.match(variantRegex));
+        //   }
+        // });
+        // let variantId = arr[i + 1][0];
+        // addElementToDom(variantId, 'variantId');
 
         let nameExtended = shortName;
         if (brandText && shortName && !shortName.toLowerCase().includes(brandText.toLowerCase())) {
@@ -46,12 +77,15 @@ async function implementation (inputs, parameters, context, dependencies) {
         addElementToDom(nameExtended, 'nameExtended');
         addElementToDom(brandText, 'brandText');
 
-        let quantity = document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)")
-          ? document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)").innerText
+        let quantity = document.querySelector(
+          ".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)",
+        )
+          ? document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)")
+              .innerText
           : '';
         const quantityRegex = /\d*x\d*.*$/g;
         const arrayOfSpans = Array.from(document.querySelectorAll('div[itemprop="description"] span'));
-        function isUnderline (element) {
+        function isUnderline(element) {
           return element.style['text-decoration'] === 'underline';
         }
         const namesWithUnderline = arrayOfSpans.filter(isUnderline);
@@ -66,8 +100,11 @@ async function implementation (inputs, parameters, context, dependencies) {
         }
         addElementToDom(quantity, 'quantity');
 
-        let weight = document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)")
-          ? document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)").innerText
+        let weight = document.querySelector(
+          ".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)",
+        )
+          ? document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)")
+              .innerText
           : '';
         const weightRegex = /\d*?.?\d+k?g/g;
         if (weight && weightRegex.test(weight)) {
@@ -82,14 +119,18 @@ async function implementation (inputs, parameters, context, dependencies) {
             ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:last-of-type').innerText
             : ''
           : document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)')
-            ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)').innerText
-            : '';
+          ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)').innerText
+          : '';
         addElementToDom(warningText, 'warningText');
 
-        const variantCount = document.querySelector('.product-options') ? document.querySelectorAll('.product-options .option').length : 0;
+        const variantCount = document.querySelector('.product-options')
+          ? document.querySelectorAll('.product-options .option').length
+          : 0;
         addElementToDom(variantCount, 'variantCount');
 
-        const variants = document.querySelector('.product-options') ? document.querySelectorAll('.product-options .option') : [];
+        const variants = document.querySelector('.product-options')
+          ? document.querySelectorAll('.product-options .option')
+          : [];
         const variantsTable = [];
         variants.forEach((variant) => {
           const varInfo = variant.querySelector('.info-bulle .legend').innerHTML.split('&nbsp;')[1];
@@ -97,15 +138,21 @@ async function implementation (inputs, parameters, context, dependencies) {
         });
         addElementToDom(variantsTable.join(','), 'variants');
 
-        const variantInfo = document.querySelector('.product-options h3') ? document.querySelector('.product-options h3').innerText.trim().replace(':', '') : '';
+        const variantInfo = document.querySelector('.product-options h3')
+          ? document.querySelector('.product-options h3').innerText.trim().replace(':', '')
+          : '';
         addElementToDom(variantInfo, 'variantInfo');
 
         if (variantCount !== 0 && variantInfo.toLowerCase().includes('couleur')) {
-          const color = document.querySelector('.product-options .option.active .info-bulle .legend').innerHTML.split('&nbsp;')[1];
+          const color = document
+            .querySelector('.product-options .option.active .info-bulle .legend')
+            .innerHTML.split('&nbsp;')[1];
           addElementToDom(color, 'color');
         }
 
-        const productOtherInfoTable = document.querySelector('.descr .product-tabs:nth-of-type(2) p') ? document.querySelectorAll('.descr .product-tabs:nth-of-type(2) p') : [];
+        const productOtherInfoTable = document.querySelector('.descr .product-tabs:nth-of-type(2) p')
+          ? document.querySelectorAll('.descr .product-tabs:nth-of-type(2) p')
+          : [];
         const productOtherInfoTableText = [];
         productOtherInfoTable.forEach((item) => {
           productOtherInfoTableText.push(item.innerText);
@@ -116,23 +163,30 @@ async function implementation (inputs, parameters, context, dependencies) {
         const compositionWithHr = document.querySelector('.descr .product-tabs:nth-of-type(3) div hr');
         const compositionWithoutHr = document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)');
         if (compositionWithHr) {
-          const ingredientsLists = document.querySelectorAll('.descr .product-tabs:nth-of-type(3) div p:not(:last-of-type)');
+          const ingredientsLists = document.querySelectorAll(
+            '.descr .product-tabs:nth-of-type(3) div p:not(:last-of-type)',
+          );
           // @ts-ignore
           ingredientsLists.forEach((ingredientList) => {
             productComposition.push(ingredientList.innerText);
           });
         } else if (compositionWithoutHr) {
-          productComposition = document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)').innerText;
+          productComposition = document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)')
+            .innerText;
         } else {
           productComposition = [];
         }
         addElementToDom(productComposition, 'productComposition');
 
-        const aggregateRating = document.querySelector(".product-shop .rates #ratings-summary div[itemprop='ratingValue']")
-          ? document.querySelector(".product-shop .rates #ratings-summary div[itemprop='ratingValue']").innerText.replace('.', ',')
+        const aggregateRating = document.querySelector(
+          ".product-shop .rates #ratings-summary div[itemprop='ratingValue']",
+        )
+          ? document
+              .querySelector(".product-shop .rates #ratings-summary div[itemprop='ratingValue']")
+              .innerText.replace('.', ',')
           : '';
         addElementToDom(aggregateRating, 'aggregateRating');
-      });
+      }, i);
       const extract = await context.extract(productDetails, { transform });
       data.push(extract);
       await context.evaluate(async function () {
@@ -149,7 +203,8 @@ async function implementation (inputs, parameters, context, dependencies) {
           'variants',
           'aggregateRating',
           'variantId',
-          'weight'
+          'weight',
+          'variantId',
         ];
 
         elementsIds.forEach((elemId) => {
@@ -163,15 +218,23 @@ async function implementation (inputs, parameters, context, dependencies) {
     return data;
   } else {
     await context.evaluate(async function () {
-      function addElementToDom (element, id) {
+      const addElementToDom = (element, id) => {
         const div = document.createElement('div');
         div.id = id;
         div.innerHTML = element;
         document.querySelector('body').appendChild(div);
-      }
+      };
 
-      const brandText = document.querySelector('.product-shop .product-name .product-brand') ? document.querySelector('.product-shop .product-name .product-brand').innerText : '';
-      const shortName = document.querySelector('.product-shop .product-name .h1') ? document.querySelector('.product-shop .product-name .h1').innerText : '';
+      const sku = window.algoliaConfig ? window.algoliaConfig.productId : '';
+      addElementToDom(sku, 'sku');
+      addElementToDom(sku, 'variantId');
+
+      const brandText = document.querySelector('.product-shop .product-name .product-brand')
+        ? document.querySelector('.product-shop .product-name .product-brand').innerText
+        : '';
+      const shortName = document.querySelector('.product-shop .product-name .h1')
+        ? document.querySelector('.product-shop .product-name .h1').innerText
+        : '';
 
       let nameExtended = shortName;
       if (brandText && shortName && !shortName.toLowerCase().includes(brandText.toLowerCase())) {
@@ -180,12 +243,15 @@ async function implementation (inputs, parameters, context, dependencies) {
       addElementToDom(nameExtended, 'nameExtended');
       addElementToDom(brandText, 'brandText');
 
-      let quantity = document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)")
-        ? document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)").innerText
+      let quantity = document.querySelector(
+        ".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)",
+      )
+        ? document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)")
+            .innerText
         : '';
       const quantityRegex = /\d*x\d*.*$/g;
       const arrayOfSpans = Array.from(document.querySelectorAll('div[itemprop="description"] span'));
-      function isUnderline (element) {
+      function isUnderline(element) {
         return element.style['text-decoration'] === 'underline';
       }
       const namesWithUnderline = arrayOfSpans.filter(isUnderline);
@@ -200,8 +266,11 @@ async function implementation (inputs, parameters, context, dependencies) {
       }
       addElementToDom(quantity, 'quantity');
 
-      let weight = document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)")
-        ? document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)").innerText
+      let weight = document.querySelector(
+        ".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)",
+      )
+        ? document.querySelector(".descr .product-tabs:nth-of-type(1) div[itemprop='description'] p:nth-of-type(1)")
+            .innerText
         : '';
       const weightRegex = /\d*?.?\d+k?g/g;
       if (weight && weightRegex.test(weight)) {
@@ -216,14 +285,15 @@ async function implementation (inputs, parameters, context, dependencies) {
           ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:last-of-type').innerText
           : ''
         : document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)')
-          ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)').innerText
-          : '';
+        ? document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)').innerText
+        : '';
       addElementToDom(warningText, 'warningText');
 
-      const variantCount = document.querySelector('.product-options') ? document.querySelectorAll('.product-options .option').length : 0;
-      addElementToDom(variantCount, 'variantCount');
+      addElementToDom(1, 'variantCount');
 
-      const productOtherInfoTable = document.querySelector('.descr .product-tabs:nth-of-type(2) p') ? document.querySelectorAll('.descr .product-tabs:nth-of-type(2) p') : [];
+      const productOtherInfoTable = document.querySelector('.descr .product-tabs:nth-of-type(2) p')
+        ? document.querySelectorAll('.descr .product-tabs:nth-of-type(2) p')
+        : [];
       const productOtherInfoTableText = [];
       productOtherInfoTable.forEach((item) => {
         productOtherInfoTableText.push(item.innerText);
@@ -234,27 +304,34 @@ async function implementation (inputs, parameters, context, dependencies) {
       const compositionWithHr = document.querySelector('.descr .product-tabs:nth-of-type(3) div hr');
       const compositionWithoutHr = document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)');
       if (compositionWithHr) {
-        const ingredientsLists = document.querySelectorAll('.descr .product-tabs:nth-of-type(3) div p:not(:last-of-type)');
+        const ingredientsLists = document.querySelectorAll(
+          '.descr .product-tabs:nth-of-type(3) div p:not(:last-of-type)',
+        );
         // @ts-ignore
         ingredientsLists.forEach((ingredientList) => {
           productComposition.push(ingredientList.innerText);
         });
       } else if (compositionWithoutHr) {
-        productComposition = document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)').innerText;
+        productComposition = document.querySelector('.descr .product-tabs:nth-of-type(3) div p:nth-of-type(1)')
+          .innerText;
       } else {
         productComposition = [];
       }
       addElementToDom(productComposition, 'productComposition');
 
-      const aggregateRating = document.querySelector(".product-shop .rates #ratings-summary div[itemprop='ratingValue']")
-        ? document.querySelector(".product-shop .rates #ratings-summary div[itemprop='ratingValue']").innerText.replace('.', ',')
+      const aggregateRating = document.querySelector(
+        ".product-shop .rates #ratings-summary div[itemprop='ratingValue']",
+      )
+        ? document
+            .querySelector(".product-shop .rates #ratings-summary div[itemprop='ratingValue']")
+            .innerText.replace('.', ',')
         : '';
       addElementToDom(aggregateRating, 'aggregateRating');
     });
 
     return await context.extract(productDetails, { transform });
   }
-}
+};
 
 module.exports = {
   implements: 'product/details/extract',

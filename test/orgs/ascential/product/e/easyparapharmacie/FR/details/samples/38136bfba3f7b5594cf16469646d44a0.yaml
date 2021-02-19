@@ -2,7 +2,7 @@ input:
   _url: http://easyparapharmacie.com
   URL: https://www.easyparapharmacie.com/estipharm-masque-de-relaxation.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=90061417-fc09-4314-8787-7446d878d8fe/task=38d49b8c-008a-4d18-9029-0a340607d310/df8ff563-0a41-4c94-a98c-f090ec408752.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=48a1adf1-6c2f-4a53-8ea6-440865aa6154/task=a7024948-c772-4db3-a697-977f0ceed217/711a67cc-5356-4640-a38a-22443aaefb70.html
     extractionConfigId: product/details/stores/e/easyparapharmacie/FR/extract
     data:
       - group:
@@ -17,7 +17,7 @@ extractions:
                 xpath: /html/head[1]/meta[19]/@content
             nameExtended:
               - text: MASQUE DE RELAXATION ESTIPHARM
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[17]
             price:
               - text: 3,59 €
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[2]/p[1]/span[1]/span[1]
@@ -40,22 +40,22 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[3]/div[2]/section[1]/div[1]/div[1]
             brandText:
               - text: ESTIPHARM
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[18]
             manufacturer:
               - text: ESTIPHARM
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[18]
             quantity:
               - text: "1"
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[19]
             gtin:
               - text: "3401544363847"
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/@data-ean
             sku:
               - text: "48521"
-                xpath: /html/head[1]/script[10]
+                xpath: /html/body/div[15]
             variantId:
               - text: "48521"
-                xpath: /html/head[1]/script[10]
+                xpath: /html/body/div[16]
             directions:
               - text: Le masque de relaxation se lave en machine à laver, à basse température.
                 xpath: /html/body/main[1]/div[1]/div[3]/div[2]/section[1]/div[2]/div[1]
@@ -63,7 +63,7 @@ extractions:
               - text: La liste des ingrédients peut être soumise à des variations, nous vous
                   conseillons de toujours vérifier la liste figurant sur le
                   produit acheté.
-                xpath: /html/body/div[19]
+                xpath: /html/body/div[21]
             ratingCount:
               - text: "4"
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/button[1]/div[3]/meta[1]/@content
@@ -72,24 +72,21 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/button[1]/div[2]
             aggregateRating:
               - text: 2,8
-                xpath: /html/body/div[23]
+                xpath: /html/body/div[25]
             variantCount:
-              - text: "0"
-                xpath: /html/body/div[20]
+              - text: "1"
+                xpath: /html/body/div[22]
             name:
               - text: Masque De Relaxation Estipharm
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/span[1]
             ingredientsList:
               - text: "Composition : Satin + velours"
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[24]
             productOtherInformation:
               - text: Le masque de relaxation se lave en machine à laver, à basse température.
-                xpath: /html/body/div[21]
-            firstVariant:
-              - text: "3401544363847"
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
+                xpath: /html/body/div[23]
             materials:
               - text: "Composition : Satin + velours"
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[24]
         xpath: /
-    timestamp: 1613671840542
+    timestamp: 1613711731996

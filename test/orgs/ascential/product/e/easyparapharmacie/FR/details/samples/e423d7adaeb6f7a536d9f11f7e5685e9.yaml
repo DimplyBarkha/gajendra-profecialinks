@@ -2,7 +2,7 @@ input:
   _url: http://easyparapharmacie.com
   URL: https://www.easyparapharmacie.com/quies-optik-masque-occultant.html
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=90061417-fc09-4314-8787-7446d878d8fe/task=94b5a48c-5631-4da6-96a4-b5f6347406d3/93fdbdaf-1b4e-4ac4-a3d2-d2f63e9a4b80.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=48a1adf1-6c2f-4a53-8ea6-440865aa6154/task=9dc38366-8e15-4433-885d-0763b5119c4d/1a2f60ea-3ea1-48e7-b62d-d06fce133772.html
     extractionConfigId: product/details/stores/e/easyparapharmacie/FR/extract
     data:
       - group:
@@ -17,7 +17,7 @@ extractions:
                 xpath: /html/head[1]/meta[19]/@content
             nameExtended:
               - text: OPTIK MASQUE OCCULTANT QUIES
-                xpath: /html/body/div[15]
+                xpath: /html/body/div[17]
             price:
               - text: 9,89 €
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[2]/div[1]/div[2]/p[1]/span[1]/span[1]
@@ -46,22 +46,22 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[3]/div[2]/section[1]/div[1]/div[1]
             brandText:
               - text: QUIES
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[18]
             manufacturer:
               - text: QUIES
-                xpath: /html/body/div[16]
+                xpath: /html/body/div[18]
             quantity:
               - text: "1"
-                xpath: /html/body/div[17]
+                xpath: /html/body/div[19]
             gtin:
               - text: "3435170200016"
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/@data-ean
             sku:
               - text: "28975"
-                xpath: /html/head[1]/script[10]
+                xpath: /html/body/div[15]
             variantId:
               - text: "28975"
-                xpath: /html/head[1]/script[10]
+                xpath: /html/body/div[16]
             directions:
               - text: >-
                   - Régler l'élastique de façon à passer le masque autour de la
@@ -72,7 +72,7 @@ extractions:
             warnings:
               - text: La composition peut être soumise à des variations, nous vous conseillons
                   de toujours vérifier la liste figurant sur le produit acheté.
-                xpath: /html/body/div[19]
+                xpath: /html/body/div[21]
             ratingCount:
               - text: "8"
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/button[1]/div[3]/meta[1]/@content
@@ -81,27 +81,24 @@ extractions:
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[1]/button[1]/div[2]
             aggregateRating:
               - text: 4,5
-                xpath: /html/body/div[23]
+                xpath: /html/body/div[25]
             variantCount:
-              - text: "0"
-                xpath: /html/body/div[20]
+              - text: "1"
+                xpath: /html/body/div[22]
             name:
               - text: Optik Masque Occultant Quies
                 xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[1]/div[1]/span[1]
             ingredientsList:
               - text: "Composition : Fibres naturelles de coton et satin.,Ne pas laver à
                   l'eau.Brossage à sec uniquement."
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[24]
             productOtherInformation:
               - text: "- Régler l'élastique de façon à passer le masque autour de la tête.-
                   Mettre le masque sur les yeux puis régler à sa taille."
-                xpath: /html/body/div[21]
-            firstVariant:
-              - text: "6026704"
-                xpath: /html/body/main[1]/div[1]/div[3]/div[1]/div[2]/form[1]/div[5]/p[1]/span[1]
+                xpath: /html/body/div[23]
             materials:
               - text: "Composition : Fibres naturelles de coton et satin.,Ne pas laver à
                   l'eau.Brossage à sec uniquement."
-                xpath: /html/body/div[22]
+                xpath: /html/body/div[24]
         xpath: /
-    timestamp: 1613671841841
+    timestamp: 1613711731169
