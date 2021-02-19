@@ -24,7 +24,8 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     # xpath: ancestor::html//h1[@class="productHeading"]
-    xpath: normalize-space(concat(ancestor::html//h1[@class="productHeading"], " ", ancestor::html//ul[contains(@class,"ppOption")]/li/label/@rel))
+    # xpath: normalize-space(concat(ancestor::html//h1[@class="productHeading"], " ", //@variant_name))
+    xpath: //@name_extended
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)

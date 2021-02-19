@@ -1,6 +1,6 @@
 const { transform } = require('./shared');
 
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
@@ -19,32 +19,41 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   try {
     await context.waitForXPath('//div[@class="amp-anim-container"]/li[position()>1]/img/@src', { timeout: 60000 });
-    await context.waitForXPath('//li[1]//div[@class="amp-zoom-overflow"]/img/@data-pin-media | //li[contains(@class, "selected")]//img/@data-pin-media', { timeout: 30000 });
+    await context.waitForXPath(
+      '//li[1]//div[@class="amp-zoom-overflow"]/img/@data-pin-media | //li[contains(@class, "selected")]//img/@data-pin-media',
+      { timeout: 30000 },
+    );
   } catch (e) {
     console.log(`There was an error while running the loading images ${e}`);
   }
 
   // @ts-ignore
-  const variantsArr = await context.evaluate(async () => [...document.querySelectorAll('div[itemprop=offers]')].map(el => {
-    const variantObj = {};
-    variantObj.sku = el.querySelector('meta[itemprop=sku]').getAttribute('content');
-    variantObj.availability = el.querySelector('link[itemprop=availability]').getAttribute('href');
-    variantObj.price = el.querySelector('meta[itemprop=price]').getAttribute('content');
-    return variantObj;
-  }));
+  const variantsArr = await context.evaluate(async () =>
+    [...document.querySelectorAll('div[itemprop=offers]')].map((el) => {
+      const variantObj = {};
+      variantObj.sku = el.querySelector('meta[itemprop=sku]').getAttribute('content');
+      variantObj.availability = el.querySelector('link[itemprop=availability]').getAttribute('href');
+      variantObj.price = el.querySelector('meta[itemprop=price]').getAttribute('content');
+      return variantObj;
+    }),
+  );
   const numOfVariants = variantsArr.length;
 
   for (let i = 0; i < numOfVariants; i++) {
     await context.evaluate(
       async ({ i, variantsArr }) => {
         // @ts-ignore
-        const colors = [...document.querySelectorAll('ul.ppOption--colour li label, ul.customerSelection label[rel]')].map((ele) => ele.getAttribute('rel'));
+        const colors = [
+          ...document.querySelectorAll('ul.ppOption--colour li label, ul.customerSelection label[rel]'),
+        ].map((ele) => ele.getAttribute('rel'));
         const addedVariant = document.createElement('div');
         addedVariant.id = `addedVariant${i}`;
         addedVariant.id = `added_variant${i}`;
         addedVariant.style.display = 'none';
         const sku = variantsArr[i].sku;
-        const availability = variantsArr[i].availability ? variantsArr[i].availability.replace('https://schema.org/', '') : null;
+        const availability = variantsArr[i].availability
+          ? variantsArr[i].availability.replace('https://schema.org/', '')
+          : null;
         let availability2;
         if (availability === 'InStock') {
           availability2 = 'In Stock';
@@ -58,7 +67,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         const price = variantsArr[i].price;
         if (document.querySelectorAll('li.ppOption__item label').length > 0) {
           // @ts-ignore
-          const variantLi = [...document.querySelectorAll('li.ppOption__item label')].map(el => {
+          const variantLi = [...document.querySelectorAll('li.ppOption__item label')].map((el) => {
             const variantLis = {};
             variantLis.size = el.getAttribute('rel');
             return variantLis;
@@ -74,6 +83,20 @@ async function implementation (inputs, parameters, context, dependencies) {
         addedVariant.setAttribute('sku', sku);
         addedVariant.setAttribute('availability', availability2);
         addedVariant.setAttribute('price', price);
+
+        const productName = document.querySelector('h1.productHeading')
+          ? document.querySelector('h1.productHeading').textContent.trim()
+          : '';
+        const optionElem =
+          document.querySelectorAll('ul > li.ppOption__item span').length === variantsArr.length
+            ? document.querySelectorAll('ul > li.ppOption__item span')[i]
+            : null;
+        let optionName = optionElem ? optionElem.getAttribute('rel') : '';
+        if (!optionName) optionName = optionElem ? optionElem.textContent : '';
+        addedVariant.setAttribute('variant_name', optionName.trim());
+        const nameExtended = optionName ? `${productName} - ${optionName}` : productName;
+        addedVariant.setAttribute('name_extended', nameExtended);
+
         document.body.appendChild(addedVariant);
       },
       { i, variantsArr },
@@ -112,14 +135,14 @@ async function implementation (inputs, parameters, context, dependencies) {
   //     document.querySelector('#description').remove();
   //   }
   await context.evaluate(async function () {
-    async function addElementToDocument (id, value, key) {
+    async function addElementToDocument(id, value, key) {
       const catElement = document.createElement('div');
       catElement.id = id;
       catElement.innerText = value;
       catElement.setAttribute('content', key);
       catElement.style.display = 'none';
       document.body.appendChild(catElement);
-    };
+    }
 
     // const availability = prod.availability.replace('https://schema.org/', '');
 
@@ -136,27 +159,35 @@ async function implementation (inputs, parameters, context, dependencies) {
     }
 
     const ratingCount = document.querySelector('div.bvReviewsNumber a.productRating')
-      ? document.querySelector('div.bvReviewsNumber a.productRating').textContent : '';
+      ? document.querySelector('div.bvReviewsNumber a.productRating').textContent
+      : '';
     const regex = /(\d+)/;
     // @ts-ignore
     if (ratingCount.match(regex)) addElementToDocument('ratingcount', ratingCount.match(regex)[1]);
 
     const color = document.querySelector('h1.productHeading span')
-      ? document.querySelector('h1.productHeading span').textContent : '';
+      ? document.querySelector('h1.productHeading span').textContent
+      : '';
     const regexColor = /- (.+)$/;
     // @ts-ignore
     if (color.match(regexColor)) addElementToDocument('color', color.match(regexColor)[1]);
 
-    const description1 = document.querySelector('span[itemprop="description"]') ? document.querySelector('span[itemprop="description"]').innerText : '';
-    const description2 = document.querySelectorAll('span[itemprop="description"] ul li') ? document.querySelectorAll('span[itemprop="description"] ul li') : null;
+    const description1 = document.querySelector('span[itemprop="description"]')
+      ? document.querySelector('span[itemprop="description"]').innerText
+      : '';
+    const description2 = document.querySelectorAll('span[itemprop="description"] ul li')
+      ? document.querySelectorAll('span[itemprop="description"] ul li')
+      : null;
     if (description2) {
       console.log(description2);
       const bulletsArr = [description2];
       const bulletsArrSliced = bulletsArr.slice(1);
       // @ts-ignore
-      description2.forEach(e => bulletsArrSliced.push(e.textContent));
+      description2.forEach((e) => bulletsArrSliced.push(e.textContent));
       let concatDesc = bulletsArrSliced.join(' || ');
-      if (concatDesc) { concatDesc = '|| ' + concatDesc; }
+      if (concatDesc) {
+        concatDesc = '|| ' + concatDesc;
+      }
       // addElementToDocument('descriptionBull', concatDesc);
       console.log(concatDesc);
     } else if (description1) {
