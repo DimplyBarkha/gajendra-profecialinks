@@ -3,7 +3,7 @@ module.exports = {
   implements: 'product/search/paginate',
   parameterValues: {
     country: 'US',
-    store: 'ColoradoDockets',
+    store: 'coloradodockets',
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,

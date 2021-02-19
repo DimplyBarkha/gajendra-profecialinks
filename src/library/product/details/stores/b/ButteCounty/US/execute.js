@@ -3,9 +3,9 @@ module.exports = {
   implements: 'product/details/execute',
   parameterValues: {
     country: 'US',
-    store: 'ButteCounty',
+    store: 'buttecounty',
     domain: 'cabutteodyprod.tylerhost.net',
-    loadedSelector: 'form#frmHS',
+    loadedSelector: null,
     noResultsXPath: null,
     zipcode: "''",
   },
