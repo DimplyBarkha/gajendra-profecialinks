@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@id='customer-reviews']//div[@class='b_review']
+fields:
+  - name: helpfulCount
+    xpath: //span[@class="comment-rating-current"][position()=1]
+  - name: reviewRating
+    xpath: //div[contains(@class,'b_review__rating_title--general')]//following-sibling::div/div/@custom_rating
+  - name: reviewDate
+    xpath: //meta[@itemprop="datePublished"]//@content
+  - name: reviewText
+    xpath: //div[@itemprop="reviewBody"]

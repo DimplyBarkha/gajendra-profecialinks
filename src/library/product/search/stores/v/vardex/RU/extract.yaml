@@ -1,0 +1,16 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[@class='b_product_list__item']
+fields:
+  - name: brandText
+    xpath: ancestor::html//span[@class='last']//span
+  - name: name
+    singleValue: false
+    xpath: //a[contains(@class,"b_product_list__item__title__link")]
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class,"b_product_list__item__title__link")]/@href
+  - name: reviewCount
+    singleValue: false
+    xpath: //a[contains(@class,'hidden-xs')]//span[contains(@class,"b_product_list__item__review__count")]

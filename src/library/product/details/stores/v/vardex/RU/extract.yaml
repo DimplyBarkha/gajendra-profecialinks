@@ -1,0 +1,27 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: color
+    singleValue: false
+    xpath: //div[contains(@class,'b_product_detail__sku')]//span[@class='value']
+  - name: image
+    xpath: //div[@class='b_gallery__wrap']//a[@tabindex='0']//img/@src
+  - name: pageTitle
+    singleValue: true
+    xpath: //title
+  - name: category
+    xpath: //div[@id='breadcrumb']//span[contains(@itemprop,"name")]
+  - name: subCategory
+    xpath: //div[@id='breadcrumb']//span[@itemprop='itemListElement'][position() = count(//div[@id='breadcrumb']//span[@itemprop='itemListElement'])-1]//span[contains(@itemprop,"name")]
+  - name: reviewCount
+    xpath: //span[contains(@class,"b_product_detail__rating__review__count")]
+    regExp: (\d)+
+  - name: name
+    xpath: //div[@class='b_product_detail__title']//h1
+  - name: sku
+    xpath: //div[@class='b_product_detail__one_option']//div[contains(@class,'b_product_detail__one_option--articul')]
+    regExp: (\d)+
+  - name: brandText
+    xpath: //div[@id='breadcrumb']//span[@itemprop='itemListElement'][position() = 3]//span[contains(@itemprop,"name")]
