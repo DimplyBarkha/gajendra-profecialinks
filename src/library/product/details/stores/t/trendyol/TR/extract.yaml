@@ -1,3 +1,5 @@
+# @format
+
 singleRecord: false
 regionsSelector: null
 recordSelector: null
@@ -23,14 +25,15 @@ fields:
   - name: price
     singleValue: true
     xpath: //div[@class="pr-in-w"]//span[@class="prc-slg"] | //div[@class="pr-in-w"]//span[@class="prc-dsc"]
-    defaultValue: "0"
+    defaultValue: '0'
   - name: availabilityText
     xpath: //div[@id="product-detail-app"]//div[@class="add-to-bs-tx"]
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: Out of Stock
   - name: description
-    description: Product description supplied by website - may be concatenanted from
+    description:
+      Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
     # xpath: //script[@type="application/javascript" and contains(text(), "window.__PRODUCT_DETAIL_APP_INITIAL_STATE__")]/text()
     xpath: //h1[contains(@class,"pr-new-br")]
@@ -56,18 +59,17 @@ fields:
     xpath: //a[@class="rvw-cnt-tx"]
     regExp: (\d+)
   - name: aggregateRating
-    singleValue: true
     xpath: //script[@type="application/javascript" and contains(text(), "window.__PRODUCT_DETAIL_APP_INITIAL_STATE__")]/text()
     #xpath:
     # regExp: (\d+)(\.)(\d+)
     # regExpReplace: $1,$3
     regExp: (.+)("averageRating"):(\d+.?(\d+)?),(.+)
     regExpReplace: $3
-    defaultValue: "0"
+    defaultValue: '0'
   - name: shippingInfo
     xpath: //div[@class="pr-in-sl-bx"]//div[@class="sl-nm"]/@title
   - name: variantCount
-    defaultValue: "0"
+    defaultValue: '0'
   - name: color
     xpath: //th[contains(.,'Renk')]/following-sibling::td | //div[@class="item-key"][contains(.,'Renk')]/following-sibling::div | //ul//li[contains(.,'reng')]
     regExp: ([A-Z])\w+
