@@ -1,0 +1,9 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@id="variantsadd" and count(li) >= 1]/li | //ul[@id="variantsadd" and count(li) < 1]
+fields:
+  - name: variantUrl
+    # singleValue: true
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //*/@variant_url
