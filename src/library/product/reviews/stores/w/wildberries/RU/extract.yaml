@@ -1,37 +1,38 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: //div[contains(@class, 'comment j-b-comment')]
 fields:
   - name: helpfulCount
-    singleValue: true
-    type: NUMBER
-    description: Number of people who said the review was helpful
+    xpath: //span[@class='yescnt']
   - name: commentCount
     singleValue: true
-    type: NUMBER
-    description: Number of comments on the review
+    xpath: //@wd-comments-count
   - name: brandText
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
+    xpath: //@wd-brand-text
   - name: name
     singleValue: true
     description: The product name
+    xpath: //@wd-productName
   - name: sku
     singleValue: true
     description: The store-specific product identifier
+    xpath: //@wd-sku
   - name: reviewDate
-    singleValue: true
     type: DATETIME
     description: Date the review was made
+    xpath: //div[@class='time']/@content
   - name: reviewRating
     type: NUMBER
     singleValue: true
     description: Rating normalized to be out of 5
+    xpath: //div[@itemprop="ratingValue"]
   - name: reviewText
-    singleValue: true
     description: The text of the review
+    xpath: //@wd-comments-text
   - name: reviewTitle
     singleValue: true
     description: The title of the review
@@ -44,13 +45,18 @@ fields:
   - name: productUrl
     singleValue: true
     description: The url of the product details page
-  - name: verifiedPurchase
-    singleValue: true
-    type: BOOLEAN
-    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+    xpath: //@wd-url
+  # - name: verifiedPurchase
+  #   singleValue: true
+  #   type: BOOLEAN
+  #   regExp: (.+)
+  #   regExpReplace: In Stock
+  #   defaultValue: Out of Stock
+  #   description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  #   xpath: //img[@class='avatar']
   - name: manufacturerResponse
-    singleValue: true
     description: The response of the manufacturer (if any)
+    xpath: //div[@class='reply-block-layout']//div[@class='body']//p
   - name: syndicatedFrom
     singleValue: true
     description: Stated place the review was syndicated from
@@ -65,5 +71,7 @@ fields:
   - name: user
     description: The user name of the reviewer
     type: TEXT
+    xpath: //div[@class='author']//a[@class='text-base-bold']
   - name: aggregateRating
     description: The product rating
+    xpath: //@wd-aggr-rating
