@@ -101,9 +101,6 @@ fields:
     xpath: //div[@class="params"]//div[@class="pp"]//span/b[text()="Объем товара"]/parent::*/parent::*/span[2]
   - name: promotion
     singleValue: false
-    xpath: //script[contains(@type,'text/javascript') and contains(text(), "Discount")][1]/text()
-    regExp: Discount":([^,]+)
-    regExpReplace: $1
   - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@class, "i-composition-v1")]/span
