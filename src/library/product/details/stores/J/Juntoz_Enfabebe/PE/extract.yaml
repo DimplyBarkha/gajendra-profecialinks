@@ -22,7 +22,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="row ng-scope"]/ol/li/breadcrumb//a  
+    xpath: //ol[@class="list-inline list-unstyled breadcrumb-detail"]/li//a 
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
