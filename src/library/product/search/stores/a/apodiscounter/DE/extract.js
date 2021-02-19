@@ -62,7 +62,11 @@ async function implementation(
     else {
       searchUrl = mainUrl;
     }
-    await context.goto(searchUrl, { timeout: 1000000, waitUntil: 'load', checkBlocked: true });
+    try {
+      await context.goto(searchUrl, { timeout: 10000000, waitUntil: 'load', checkBlocked: true });
+    } catch (error) {
+      console.error('Error while goto to the following URL =>', searchUrl, error);
+    }
     await context.evaluate(async () => {
       //@ts-ignore
       function addHiddenDiv(id, content, index) {
