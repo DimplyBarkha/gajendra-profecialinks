@@ -33,7 +33,9 @@ fields:
     xpath: //div[@class="rating"]/span/a
   - name: aggregateRating 
     singleValue: false
-    xpath: //div[@id="rating"]
+    xpath: //div[@class="rating"]//a/@class
+    regExp: .{1}$
+    type: NUMBER
   - name: searchUrl
     singleValue: true
     xpath: ancestor::html//div[@id="pd_url"]
