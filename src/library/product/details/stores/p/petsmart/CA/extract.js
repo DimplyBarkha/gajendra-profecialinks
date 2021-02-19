@@ -55,28 +55,6 @@ module.exports = {
           }
         }
 
-        // getting data from directions tab
-        const directionsTab = document
-          .evaluate(
-            '//li[contains(@class, "react-tabs__tab")]/div[contains(text(), "Directions")]',
-            document,
-            null,
-            XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
-            null,
-          )
-          .iterateNext();
-        if (directionsTab) {
-          // @ts-ignore
-          directionsTab.click();
-          const directions = document.querySelector('div.react-tabs__tab-content')
-            ? document
-              .querySelector('div.react-tabs__tab-content')
-            // @ts-ignore
-              .innerText.split('\n').slice(1).join('\n')
-            : '';
-          body.setAttribute('directions', directions);
-        }
-
         // getting data from ingredients tab
         const ingredientsTab = document
           .evaluate(
@@ -90,7 +68,7 @@ module.exports = {
         if (ingredientsTab) {
           // @ts-ignore
           ingredientsTab.click();
-          const ingredientsXpath = '//p[b[contains(text(), "Ingredients")]]/ancestor::div[@class="react-tabs__tab-content"]';
+          const ingredientsXpath = '//p[b[contains(text(), "Ingredients")]]/ancestor::div[contains(@class, "react-tabs__tab-content")] | //div[b[contains(text(), "Ingredients")]]';
           const ingredients = document
             .evaluate(ingredientsXpath, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null)
             .iterateNext()
@@ -115,10 +93,62 @@ module.exports = {
           body.setAttribute('nutritional', nutritionalInfo);
         }
 
+        // getting data from directions tab
+        const directionsTab = document
+          .evaluate(
+            '//li[contains(@class, "react-tabs__tab")]/div[contains(text(), "Directions")]',
+            document,
+            null,
+            XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
+            null,
+          )
+          .iterateNext();
+        if (directionsTab) {
+          // @ts-ignore
+          directionsTab.click();
+          const directions = document.querySelector('div.react-tabs__tab-content')
+            ? document
+              .querySelector('div.react-tabs__tab-content')
+            // @ts-ignore
+              .innerText.split('\n').slice(1).join('\n')
+            : '';
+          body.setAttribute('directions', directions);
+          // nutritional info from directions tab
+          if (!body.getAttribute('nutritional')) {
+            const analysis = document
+              .evaluate(
+                '//div[contains(@class, "react-tabs__tab-content")]//*[contains(*, "Guaranteed Analysis")]',
+                document,
+                null,
+                XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
+                null,
+              )
+              .iterateNext();
+            if (analysis) {
+              body.setAttribute('nutritional', analysis.textContent);
+            }
+          }
+          // ingredeints from directions tab
+          if (!body.getAttribute('ingredients')) {
+            const ingredients = document
+              .evaluate(
+                '//div[contains(@class, "react-tabs__tab-content")]//*[contains(*, "Ingredients")]',
+                document,
+                null,
+                XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
+                null,
+              )
+              .iterateNext();
+            if (ingredients) {
+              body.setAttribute('ingredients', ingredients.textContent);
+            }
+          }
+        }
+
         // getting data from description tab
         const descriptionTab = document
           .evaluate(
-            '//li[contains(@class, "react-tabs__tab")]/div[contains(text(), "Description")]',
+            '//li[contains(@class, "react-tabs__tab")]/div[contains(text(), "Description")] | //li[contains(@class, "react-tabs__tab") and contains(text(), "Description")]',
             document,
             null,
             XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
@@ -147,9 +177,7 @@ module.exports = {
               null,
             )
             .iterateNext();
-          const mainDescriptionElement = mainDescXPath && mainDescXPath.textContent !== ''
-            ? mainDescXPath
-            : mainDescAlternateXPath;
+          const mainDescriptionElement = mainDescAlternateXPath || mainDescXPath;
 
           const additionalDescElement = document
             .evaluate(
@@ -179,17 +207,62 @@ module.exports = {
           if (mainDescriptionElement) {
             descriptionData += mainDescriptionElement.textContent;
           }
-          if (additionalDescElement) {
+          if (additionalDescElement && !additionalDescElement.textContent.includes('Analysis')) {
             descriptionData += ' ' + additionalDescElement.textContent;
           }
           if (descriptionLiElements.length > 0) {
             descriptionLiElements.forEach(element => {
-              if (!element.textContent.includes('Guaranteed Analysis')) {
+              if (!element.textContent.includes('Guaranteed Analysis') && !element.textContent.includes('Ingredients:') && !element.textContent.trim().endsWith('%')) {
                 descriptionData += ' || ' + element.textContent;
               }
             });
           }
           body.setAttribute('description', descriptionData);
+          // nutritional info from description tab (if is present as a set of <li> tags)
+          if (!body.getAttribute('nutritional')) {
+            const analysisAsUl = document
+              .evaluate(
+                '//p[b[contains(text(), "Guaranteed Analysis")]]/following-sibling::ul',
+                document,
+                null,
+                XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
+                null,
+              )
+              .iterateNext();
+            if (analysisAsUl && analysisAsUl.textContent.includes('Protein')) {
+              body.setAttribute('nutritional', analysisAsUl.textContent);
+            }
+          }
+          // nutritional info from description tab (if is present in one tag)
+          if (!body.getAttribute('nutritional')) {
+            const analysis = document
+              .evaluate(
+                '//div[contains(@class, "react-tabs__tab-content")]//*[contains(*, "Guaranteed Analysis") or contains(text(), "Guaranteed Analysis")]',
+                document,
+                null,
+                XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
+                null,
+              )
+              .iterateNext();
+            if (analysis) {
+              body.setAttribute('nutritional', analysis.textContent);
+            }
+          }
+          // ingredeints from description tab (if is present in one tag)
+          if (!body.getAttribute('ingredients')) {
+            const ingredients = document
+              .evaluate(
+                '//div[contains(@class, "react-tabs__tab-content")]//*[contains(*, "Ingredients") or contains(text(), "Ingredients")]',
+                document,
+                null,
+                XPathResult.UNORDERED_NODE_ITERATOR_TYPE,
+                null,
+              )
+              .iterateNext();
+            if (ingredients) {
+              body.setAttribute('ingredients', ingredients.textContent);
+            }
+          }
         }
 
         // gtin
@@ -266,9 +339,9 @@ module.exports = {
         directions[0].text = directions[0].text.slice(0, endCharIndex).trim();
       }
       const ingredients = row.group[0].ingredientsList;
-      if (ingredients && (ingredients[0].text.includes('Directions') || ingredients[0].text.includes('Instructions') || ingredients[0].text.includes('Guaranteed Analysis'))) {
+      if (ingredients) {
         const startCharIndex = ingredients[0].text.includes('Ingredients') ? ingredients[0].text.indexOf('Ingredients') + 12 : 0;
-        const endCharIndex = ingredients[0].text.indexOf('Guaranteed Analysis') || -1;
+        const endCharIndex = ingredients[0].text.includes('Guaranteed Analysis') ? ingredients[0].text.indexOf('Guaranteed Analysis') : ingredients[0].text.length;
         ingredients[0].text = ingredients[0].text.slice(startCharIndex, endCharIndex).trim();
       }
     });

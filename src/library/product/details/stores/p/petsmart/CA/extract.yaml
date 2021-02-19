@@ -94,7 +94,7 @@ fields:
     singleValue: true
     description: Content under "legal disclaimer" header
   - name: directions
-    xpath: //p[b[contains(text(), "Instructions")]]/ancestor::div[@class="react-tabs__tab-content"] | //div[@class="react-tabs__tab-content" and b[contains(text(), "Instructions")]] | //body[not(//div[@class="react-tabs__tab-content" and b[contains(text(), "Instructions")]])]/@directions
+    xpath: //p[b[contains(text(), "Instructions")]]/ancestor::div[@class="react-tabs__tab-content"] | //div[@class="react-tabs__tab-content" and b[contains(text(), "Instructions")]] | //p[b[contains(text(), "Feeding Guidelines")]] | //body[not(//div[@class="react-tabs__tab-content" and b[contains(text(), "Instructions")]])]/@directions
     singleValue: true
   - name: warnings
     singleValue: true
@@ -289,12 +289,12 @@ fields:
       per 100g serving
     type: STRING
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Fat[ :].+
+    regExp: ([Ff]at.+)
   - name: totalFatPerServingUom
     singleValue: true
     description: Unit of Measure Data for Total Fat content
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Fat[ :].+
+    regExp: ([Ff]at.+?)(\n|, |$|%)
   - name: saturatedFatPerServing
     singleValue: true
     description:
@@ -347,12 +347,12 @@ fields:
       on per 100g serving
     type: STRING
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Fib[re]{2}[ :].+
+    regExp: ([Ff]ib[re]{2}.+)
   - name: dietaryFibrePerServingUom
     singleValue: true
     description: Unit of Measure Data for Dietary Fibre content
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Fib[re]{2}[ :].+
+    regExp: ([Ff]ib[re]{2}.+?)(\n|, |$|%)
   - name: totalSugarsPerServing
     singleValue: true
     description:
@@ -369,12 +369,12 @@ fields:
       100g serving
     type: STRING
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Protein[ :].+
+    regExp: ([Pp]rotein.+)
   - name: proteinPerServingUom
     singleValue: true
     description: Unit of Measure Data for Protein
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Protein[ :].+
+    regExp: ([Pp]rotein.+?)(\n|, |$|%)
   - name: vitaminAPerServing
     singleValue: true
     description:
@@ -382,12 +382,12 @@ fields:
       per 100g serving
     type: STRING
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Vitamin A[ :].+
+    regExp: ([Vv]itamin A.+)
   - name: vitaminAPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin A
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Vitamin A[ :].+
+    regExp: ([Vv]itamin A.+?)(\n|, |$|%)
   - name: vitaminCPerServing
     singleValue: true
     description:
@@ -395,12 +395,12 @@ fields:
       per 100g serving
     type: STRING
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Vitamin C[ :].+
+    regExp: ([Vv]itamin C.+)
   - name: vitaminCPerServingUom
     singleValue: true
     description: Unit of Measure Data for Vitamin C
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Vitamin C[ :].+
+    regExp: ([Vv]itamin C.+?)(\n|, |$|%)
   - name: calciumPerServing
     singleValue: true
     description:
@@ -408,24 +408,24 @@ fields:
       100g serving
     type: STRING
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Calcium[ :].+
+    regExp: ([Cc]alcium.+)
   - name: calciumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Calcium
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Calcium[ :].+
+    regExp: ([Cc]alcium.+?)(\n|, |$|%)
   - name: ironPerServing
     singleValue: true
     description: Nutritional Information for Iron content - Usually based on per
       100g serving
     type: STRING
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Iron[ :].+
+    regExp: ([Ii]ron.+)
   - name: ironPerServingUom
     singleValue: true
     description: Unit of Measure Data for Iron
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Iron[ :].+
+    regExp: ([Ii]ron.+?)(\n|, |$|%)
   - name: dietarySymbols
     singleValue: true
     description: Information related to the dietary symbols of a specific product
@@ -436,12 +436,12 @@ fields:
       per 100g serving
     type: STRING
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Magnesium[ :].+
+    regExp: ([Mm]agnesium.+)
   - name: magnesiumPerServingUom
     singleValue: true
     description: Unit of Measure Data for Magnesium
     xpath: //body/@nutritional | //p[b[contains(text(), "Analysis")]]
-    regExp: Magnesium[ :].+
+    regExp: ([Mm]agnesium.+?)(\n|, |$|%)
   - name: saltPerServing
     singleValue: true
     description: Nutritional Information for Salt content - Usually based on per
