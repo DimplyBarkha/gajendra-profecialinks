@@ -113,12 +113,45 @@ module.exports = {
     await context.evaluate(async() => {
       console.log('Fetching and appending MPC to DOM');
       const itemEl = document.evaluate(`//div[@class='detail-page articleLab']/script[1]`, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      let itemID;
 
       if (itemEl.snapshotLength) {
-        let itemID = itemEl.snapshotItem(0).innerText;
+        itemID = itemEl.snapshotItem(0).innerText;
         itemID = itemID.split('"itemID":"');
         itemID = itemID.length > 1 ? itemID[1].split('"')[0] : '';
         document.body.setAttribute('import-mpc', itemID);
+      }
+
+      const prodUrl = document.querySelector(`meta[property='og:url']`) ? document.querySelector(`meta[property='og:url']`).content : null;
+      console.log('Fetched URL');
+      if (prodUrl && itemID) {
+        const request = await fetch("https://www.alza.cz/Services/EShopService.svc/GetCommodityDetailLegend", {
+          "headers": {
+            "accept": "application/json, text/javascript, */*; q=0.01",
+            "accept-language": "cs-CZ",
+            "cache-control": "no-cache",
+            "content-type": "application/json; charset=UTF-8",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin",
+            "x-requested-with": "XMLHttpRequest"
+          },
+          "referrer": prodUrl,
+          "referrerPolicy": "strict-origin-when-cross-origin",
+          "body": `{\"code\":\"${itemID}\",\"id\":-1,\"showParentLegend\":false}`,
+          "method": "POST",
+          "mode": "cors",
+          "credentials": "include"
+        });
+        
+        if (request.status === 200) {
+          console.log('Request success for fetching enhanced content');
+          const descData = await request.json();
+          console.log(JSON.stringify(descData));
+          const newEl = document.createElement('import-enhanced');
+          newEl.innerHTML = descData.d.Value;
+          document.body.appendChild(newEl);
+        }
       }
     });
     return await context.extract(productDetails, { transform });

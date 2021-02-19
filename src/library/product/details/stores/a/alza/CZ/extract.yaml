@@ -26,7 +26,7 @@ fields:
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: normalize-space(//h1[@itemprop="name"])
+    xpath: //h1[@itemprop="name"]
   - name: listPrice
     description: The stated undiscounted price for the product
     xpath: //span[contains(@class,"price_compare")] | //tr[@class="priceCompare"]/td[@class="c2"]
@@ -90,10 +90,10 @@ fields:
     type: NUMBER
   - name: manufacturerDescription
     description: The extended description of the product supplied by the lister
-    xpath: //div[@id="celek"]
+    xpath: //import-enhanced
   - name: manufacturerImages
     description: Images within the third party description
-    xpath: //div[@id="celek"]//img/@data-src
+    xpath: //import-enhanced//img/@data-src
   - name: videos
     description: URLs of videos on page
     xpath: //div[@class="youtube articleVideoWrapper"]//iframe/@src
