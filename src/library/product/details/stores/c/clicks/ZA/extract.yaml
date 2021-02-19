@@ -74,9 +74,11 @@ fields:
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,"product-code")]/text()
+    regExp: \d{3,}
   - name: variantId
     singleValue: false
     xpath: //div[contains(@class,"product-code")]/text()
+    regExp: \d{3,}
   - name: mpc
     singleValue: false
     description: The manufacturer model code (unique) of the product
