@@ -6,7 +6,7 @@ module.exports = {
     store: 'mall',
     domain: 'mall.sk',
     url: 'https://www.mall.sk/hladaj?s={searchTerms}',
-    loadedSelector: null,
+    loadedSelector: 'body',
     noResultsXPath: null,
     zipcode: '',
   },
