@@ -1,4 +1,4 @@
-const { cleanUp } = require('./format');
+const { cleanUp } = require('../shared');
 module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
@@ -107,6 +107,12 @@ module.exports = {
         await context.waitForSelector('div.bv_numReviews_component_container div.bv_numReviews_text', { timeout: 20000 });
       } catch (error) {
         console.log('error loading enhanced content' + error);
+      }
+    });
+    await context.evaluate(async () => {
+      const descEl = document.querySelector('div[id="wc-power-page"] div[class="wc-json-data"]');
+      if (descEl) {
+        descEl.remove();
       }
     });
     return await context.extract(productDetails, { transform });
