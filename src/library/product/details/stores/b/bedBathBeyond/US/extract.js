@@ -261,13 +261,20 @@ async function implementation (inputs, parameters, context, dependencies) {
     let inTheBoxText = '';
     let inTheBoxUrl = '';
     var witb = document.querySelector('div.syndi_powerpage.syndigo-shadowed-powerpage');
-    witb.scrollIntoView();
+    try {
+      witb.scrollIntoView();
+    } catch (err) {
+      console.log('cannot scroll');
+    }
     var new1 = [...witb.shadowRoot.querySelectorAll('div.syndigo-powerpage-grid-widget')].filter(el => !!el.querySelector('h2').innerText.includes('In the box'));
-    new1[0].scrollIntoView();
+    try {
+      new1[0].scrollIntoView();
+    } catch (err) {
+      console.log('cannot scroll');
+    }
     if (new1) {
       console.log('new1: present' + new1.length);
     }
-
     var retry = 0;
     while (new1[0].querySelectorAll('h3').length === 0 && retry < 3) {
       console.log('264 Texts:' + new1[0].querySelectorAll('h3').length);
