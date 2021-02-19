@@ -20,21 +20,6 @@ module.exports = {
       }, selector);
     };
 
-    try {
-      await context.waitForSelector('div#productCmsGrid div.item-content>div.picture_grid>a');
-    } catch (err) {
-      console.log('Search result did not load');
-    }
-    // checkExistance of Search result of input
-    if (await checkExistance('div#productCmsGrid div.item-content>div.picture_grid>a')) {
-      try {
-        await context.click('div#productCmsGrid div.item-content>div.picture_grid>a');
-        await context.waitForSelector('.s7staticimage');
-      } catch (err) {
-        console.log('Unable to direct to product page');
-      }
-    }
-    // checkExistance of skuSelector
     if (await checkExistance('div[class*="reference_cms"]')) {
       await context.evaluate(() => {
         // @ts-ignore
@@ -63,7 +48,7 @@ module.exports = {
     // checkExistance of alternate image
     if (await checkExistance('li[class*="jcarousel-item"] div:not([class*="video"])')) {
       await context.evaluate(() => {
-      // @ts-ignore
+        // @ts-ignore
         const alternateImage = [...document.querySelectorAll('div[class*=jcarousel-clip] li div:not([class*=video])')];
         const alternateImagearr = [];
         for (let i = 0; i < alternateImage.length; i++) {
