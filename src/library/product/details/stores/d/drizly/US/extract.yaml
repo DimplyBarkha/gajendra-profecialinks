@@ -9,3 +9,157 @@ fields:
   xpath: (//button/@data-store-id)[1]
 - name: online_store
   xpath: (//button/@data-store-name)[1]
+- name: image
+  #singleValue: true
+  xpath: //div[contains(@class,'PackagingImageContainer')]//img/@src
+- name: imageAlt
+  #singleValue: true
+  xpath: //div[contains(@class,'PackagingImageContainer')]//img/@alt
+- name: metaKeywords
+  #singleValue: true
+  xpath: //meta[contains(@name, "keywords")]/@content
+- name: _pageTimestamp
+  #singleValue: true
+- name: _url
+  #singleValue: true
+  xpath: //link[@rel='canonical']/@href
+- name: category
+  singleValue: false
+  xpath: //div[contains(@id, 'breadcrumbs')]//ul/li//a
+- name: breadcrumbs
+  singleValue: false
+  xpath: //li[@property="itemListElement"][position()>1][position()<last()]//span[@property="name"]
+- name: nameExtended
+  #singleValue: true
+  xpath: //h1[contains(@class,'ItemName')]
+- name: price
+  singleValue: false
+  xpath: //p[contains(@class,'Price')]
+- name: availabilityText
+  singleValue: false
+  xpath: //span[contains(.,'Add to cart')]
+  regExp: (.*)
+  regExpReplace: 'In Stock'
+  defaultValue: 'Out of Stock'
+  # - name: unavailableMsg
+  #   singleValue: false
+  #   xpath: //span[contains(text(),"Currently unavailable")] | //span[contains(text(),"out of stock")]
+- name: description
+  singleValue: false
+  xpath: //section[contains(@class,'ProductDescription')]//p
+- name: extraDescription
+  xpath: //div[@id="productDescription"][not(h3)]/*[not(@class="disclaim")] | //div[@id="productDescription"]/h3[1]/following-sibling::*[count(preceding-sibling::h3)=1][not(name()="h3")]
+  # xpath: //div[@id="productDescription"]/*[not(@class="disclaim")]
+  html: true
+- name: brandText
+  singleValue: false
+  xpath: //script[contains(.,'brand":')]
+  regExp: (.*)brand":"(.*?)"(.*)
+  regExpReplace: $2
+- name: quantity
+  singleValue: true
+  xpath: //h3[contains(@class,'ProductMetaInformation')]
+- name: weightNet
+  singleValue: false
+  xpath: //h3[contains(@class,'ProductMetaInformation')]
+- name: weightGross
+  singleValue: false
+- name: variantId
+  singleValue: false
+  xpath: //button/@data-variant-id
+- name: packSize
+  singleValue: false
+  xpath: //h3[contains(@class,'ProductMetaInformation')]
+- name: ratingCount
+  singleValue: false
+  xpath: //span[contains(@class,'RatingStars__ReviewCount')]
+  regExp: \d+
+- name: reviewCount
+  singleValue: false
+  xpath: //span[contains(@class,'RatingStars__ReviewCount')]
+  regExp: \d+
+- name: aggregateRatingText
+  #singleValue: true
+  xpath: //span[contains(@class,'RatingStars__ScoreText')]
+- name: aggregateRating
+  #singleValue: true
+  xpath: //span[contains(@class,'RatingStars__ScoreText')]
+- name: name
+  #singleValue: true
+  xpath: //h1[contains(@class,'ItemName')]
+- name: inStorePrice
+  #singleValue: true
+  xpath: 
+- name: productUrl
+  #singleValue: true
+  xpath: //meta[@property="og:url"]/@content
+- name: ingredientImagePresent
+  #singleValue: true
+  xpath: //script[contains(@type,"text/javascript") and contains(text(), "colorImages") and contains(text(), "INGR")]
+  regExp: (.+)
+  regExpReplace: 'YES'
+  defaultValue: 'NO'
+- name: secondaryImageTotal
+  singleValue: false
+  xpath: count(//div[@id="altImages"]//ul/li[contains(@class,  "image")][position()>1])
+- name: ingredientsList
+  #singleValue: true
+  xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p | //td[contains(.,"Ingredients")]/following-sibling::td//span[@class="a-truncate-full a-offscreen"]
+- name: servingSize
+  xpath: //*[contains(text(),"Serving Size")]/following-sibling::*[1]
+  regExp: '^[^\s]+'
+- name: servingSizeUom
+  xpath: //*[contains(text(),"Serving Size")]/following-sibling::*[1]
+  regExp: '[^\s]+$'
+- name: numberOfServingsInPackage
+  singleValue: false
+  xpath: //div[contains(@id, "package_quantity")]//span[contains(@class, "selection")] | //*[contains(text(), "Number of Items")]/following-sibling::td[1]
+- name: totalCarbPerServing
+  xpath: //dl[contains(.,'Carbs per Serving')]//dd
+- name: caloriesPerServing
+  #singleValue: true
+  xpath: //dl[contains(.,'Calories per Serving')]//dd
+- name: totalCarbPerServingUom
+  xpath: //dl[contains(.,'Carbs per Serving')]//dd
+  regExp: '[^\s]+$'
+- name: countryOfOrigin
+  #singleValue: true
+  xpath: //dt[@title="Region"]/..//dd
+- name: allergyAdvice
+  #singleValue: true
+  xpath: //*[normalize-space(.)="Sensitive Ingredient Information"]/following-sibling::*[1] | //span[starts-with(normalize-space(text()),"Allergen Information")] | //div[@id='important-information']//span[contains(text(),  "Safety Information")]/following-sibling::p[contains(text(),  "May Contain")]/text()
+- name: productOtherInformation
+  singleValue: false
+  xpath: //div[@id='aplus_feature_div' and(contains(.,"From"))]//p[contains(.,"") and not(img) and not(contains(@class, "a-color-secondary"))]
+- name: packaging
+  #singleValue: true
+  xpath:
+- name: alcoholContent
+  xpath: //dt[@title="ABV"]/..//dd
+- name: ageSuitability
+  #singleValue: true
+  xpath: (//th[contains(text(),  "ecommended age")]/following-sibling::td/text())[1]
+- name: technicalInformationPdfPresent
+  #singleValue: true
+  xpath: //div[contains(., 'Specification')]//span[contains(., 'pdf') or contains(., 'PDF')]
+  regExp: (.+)
+  regExpReplace: Yes
+  defaultValue: No
+- name: termsAndConditions
+  #singleValue: true
+  defaultValue: No
+- name: privacyPolicy
+  #singleValue: true
+  defaultValue: No
+- name: customerServiceAvailability
+  #singleValue: true
+  defaultValue: No
+- name: Image360Present
+  #singleValue: true
+  #xpath: //li[contains(@class, "pos-360") and not(contains(@class,'aok-hidden'))]//img/@src
+  xpath: //div[@id='added-image360Present']
+  defaultValue: No
+- name: imageZoomFeaturePresent
+  #singleValue: true
+  xpath: //span[@id="canvasCaption" and contains(text(),  "Roll over")]
+  defaultValue: Yes
