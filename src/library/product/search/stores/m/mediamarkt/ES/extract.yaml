@@ -12,8 +12,6 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[contains(@class,"ProductImage__StyledPictureWrapper")]//img/@src
-    # regExp: (.+)
-    # regExpReplace: https:$1
     description: The URL for the product thumbnail image
   - name: name
     singleValue: false
@@ -45,6 +43,11 @@ fields:
     regExp: (\d+)(.html)
     regExpReplace: $1
     description: Unique id (within this extractor)
+  - name: gtin
+    singleValue: false
+    xpath: //a/@href
+    regExp: (\d+)(.html)
+    regExpReplace: $1  
   - name: aggregateRating2
     singleValue: false
     # xpath: //footer//ul//div[contains(@class, "rating")]//div/@class
@@ -53,3 +56,6 @@ fields:
     regExp: (.+:) (.+) de 5 estrellas
     regExpReplace: $2
     description: The stated aggregate rating normalized to be out of 5
+  - name: searchUrl
+    xpath: ancestor::html//link[@rel="canonical"]/@href
+
