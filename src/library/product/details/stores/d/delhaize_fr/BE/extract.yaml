@@ -32,7 +32,7 @@ fields:
     xpath: //script[@type="application/ld+json"]/text()
   - name: description
     singleValue: false
-    xpath: //div[@data-testid="product-block-supplementary-price-2"]/parent::*/parent::div/following-sibling::div/p
+    xpath: //h1[@data-testid="product-common-header-title"]/following::*//p[@class="e3oax-29 bYbjEW"]
   - name: brandText
     singleValue: false
     xpath: //div[contains(@class,"product-details")]//div[contains(@class,"ProductPageHeader")]//p[@class="page-title-info"]
