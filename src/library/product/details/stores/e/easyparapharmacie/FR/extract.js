@@ -49,7 +49,12 @@ const implementation = async (inputs, parameters, context, dependencies) => {
         }
         addElementToDom(variantId, 'variantId');
         if (i === 0) addElementToDom(variantId, 'firstVariantId');
-        const sku = window.algoliaConfig ? window.algoliaConfig.productId : '';
+
+        const sku =
+          document.querySelector('span[itemprop="sku"]') &&
+          document.querySelector('meta[itemprop="productID"]').getAttribute('content')
+            ? document.querySelector('meta[itemprop="productID"]').getAttribute('content').trim()
+            : '';
         addElementToDom(sku, 'sku');
 
         const brandText = document.querySelector('.product-shop .product-name .product-brand')
@@ -58,17 +63,6 @@ const implementation = async (inputs, parameters, context, dependencies) => {
         const shortName = document.querySelector('.product-shop .product-name .h1')
           ? document.querySelector('.product-shop .product-name .h1').innerText
           : '';
-
-        // const arr = [];
-
-        // variants.forEach((variant) => {
-        //   if (variant.className) {
-        //     const variantRegex = /\d+/;
-        //     arr.push(variant.className.match(variantRegex));
-        //   }
-        // });
-        // let variantId = arr[i + 1][0];
-        // addElementToDom(variantId, 'variantId');
 
         let nameExtended = shortName;
         if (brandText && shortName && !shortName.toLowerCase().includes(brandText.toLowerCase())) {
@@ -204,7 +198,6 @@ const implementation = async (inputs, parameters, context, dependencies) => {
           'aggregateRating',
           'variantId',
           'weight',
-          'variantId',
         ];
 
         elementsIds.forEach((elemId) => {
@@ -225,9 +218,15 @@ const implementation = async (inputs, parameters, context, dependencies) => {
         document.querySelector('body').appendChild(div);
       };
 
-      const sku = window.algoliaConfig ? window.algoliaConfig.productId : '';
+      const variantId = window.algoliaConfig ? window.algoliaConfig.productId : '';
+      addElementToDom(variantId, 'variantId');
+
+      const sku =
+        document.querySelector('span[itemprop="sku"]') &&
+        document.querySelector('meta[itemprop="productID"]').getAttribute('content')
+          ? document.querySelector('meta[itemprop="productID"]').getAttribute('content').trim()
+          : '';
       addElementToDom(sku, 'sku');
-      addElementToDom(sku, 'variantId');
 
       const brandText = document.querySelector('.product-shop .product-name .product-brand')
         ? document.querySelector('.product-shop .product-name .product-brand').innerText
