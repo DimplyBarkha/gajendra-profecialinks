@@ -42,11 +42,11 @@ const transform = (data) => {
       if (row.firstVariant) {
         row.firstVariant[0].text = row.firstVariant[0].text.replace(/\n/g, ' ');
       }
-      if (row.specifications) {
-        row.specifications.forEach(item => {
-          item.text = item.text.replace('More Information \n \n \n', '').replace(/\n \n \n \n/g, ' || ').replace(/\n \n/g, ' : ');
-        });
-      }
+      // if (row.specifications) {
+      //   row.specifications.forEach(item => {
+      //     item.text = item.text.replace('More Information \n \n \n', '').replace(/\n \n \n \n/g, ' || ').replace(/\n \n/g, ' : ');
+      //   });
+      // }
       if (row.warranty) {
         row.warranty.forEach(item => {
           item.text = item.text.replace(/\n/g, ' | ');
