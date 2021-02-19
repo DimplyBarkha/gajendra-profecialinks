@@ -48,13 +48,21 @@ async function implementation(
       originalDiv.parentNode.insertBefore(newDiv, originalDiv);
     }
     //custom code to concatenate
-    var manufacturerDesc = getAllXpath("//div[@class='wc-rich-content-description']//text()", "nodeValue");
-    let final_manufacturerDesc = '';
-    for (let index = 0; index < manufacturerDesc.length; index++) {
-      final_manufacturerDesc += manufacturerDesc[index];
+    try {
+      // @ts-ignore
+      var manufacturerDesc = document.querySelector('div[id="wc-power-page"]').innerText;
+      console.log('raghavmanu' + manufacturerDesc);
+      addHiddenDiv('final_manufacturerDesc', manufacturerDesc);
+    } catch (error) {
+      
     }
-    console.log('Saipavan' + final_manufacturerDesc);
-    addHiddenDiv('final_manufacturerDesc', final_manufacturerDesc);
+    // @ts-ignore
+    // var manufacturerDesc = getAllXpath("//div[@class='wc-rich-content-description']//text()", "nodeValue");
+    // let final_manufacturerDesc = '';
+    // for (let index = 0; index < manufacturerDesc.length; index++) {
+    //   final_manufacturerDesc += manufacturerDesc[index];
+    // }
+    // console.log('Saipavan' + final_manufacturerDesc)
   });
   return await context.extract(productDetails, { transform });
 }
