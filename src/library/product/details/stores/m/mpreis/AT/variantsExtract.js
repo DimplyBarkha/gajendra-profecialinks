@@ -15,6 +15,7 @@ module.exports = {
     await context.evaluate(function () {
       const variantsLinks = document.querySelectorAll('.panel-title a');
       const variantsArr = [];
+      let variantCount = 0;
       variantsLinks.forEach(variantsLink => {
           const variantText = variantsLink.textContent.trim();
           if(!variantsArr.includes(`${variantText}`)){
@@ -33,9 +34,11 @@ module.exports = {
             variantsLink.append(variantNode);
 
             variantsArr.push(variantText);
+            variantCount++;
           }
       });
       console.log(variantsArr);
+      document.body.setAttribute('mp-var-count', `${variantCount > 0 ? variantCount : ''}`);
 
     }, createUrl);
   return await context.extract(variants);

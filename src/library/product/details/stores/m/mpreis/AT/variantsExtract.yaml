@@ -3,11 +3,9 @@ regionsSelector: null
 recordSelector: null
 recordXPath: null
 fields:
-  - name: variantId
-    singleValue: true
-    description: variant id, to uniquely identify variant
-    xpath: //a[contains(@class, 'mp-variant-link')]//i
   - name: variantUrl
     singleValue: true
     description: variant Url
     xpath: //a[contains(@class, 'mp-variant-link')]//span
+  - name: variantCount
+    xpath: //body/@mp-var-count
