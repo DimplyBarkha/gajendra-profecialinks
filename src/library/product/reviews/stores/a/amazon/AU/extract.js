@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'AU',
     store: 'amazon',
-    transform: transform,
+    transform,
     filterReviews: true,
     mergeType: null,
     domain: 'amazon.com.au',
