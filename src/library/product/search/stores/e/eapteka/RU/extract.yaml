@@ -3,21 +3,22 @@ regionsSelector: null
 recordSelector: null
 recordXPath: //section[@class="cc-item"]
 fields:
-  - name: id
-    xpath: //section[@class="cc-item"]/@data-id
-  - name: name
-    singleValue: false
-    xpath: //a[@class="cc-item--title"]
-  - name: productUrl
-    xpath: //meta[@itemprop="url"]/@content
+  # - name: id
+  #   xpath: //section[@class="cc-item"]/@data-id
+  # - name: name
+  #   singleValue: false
+  #   xpath: //a[@class="cc-item--title"]
+  # - name: productUrl
+  #   xpath: //meta[@itemprop="url"]/@content
   - name: searchUrl
+    singleValue: true
     xpath: //@searchurl
-  - name: thumbnail
-    xpath: //div[@class="cc-item--img"]//img/@data-src
-  - name: aggregateRating2
-    xpath: //meta[@itemprop="ratingValue"]/@content
-  - name: reviewCount
-    xpath: //meta[@itemprop="reviewCount"]/@content
+  # - name: thumbnail
+  #   xpath: //div[@class="cc-item--img"]//img/@data-src
+  # - name: aggregateRating2
+  #   xpath: //meta[@itemprop="ratingValue"]/@content
+  # - name: reviewCount
+  #   xpath: //meta[@itemprop="reviewCount"]/@content
   - name: price
     xpath: //span[@class="price--num"]/text()
   - name: rank
