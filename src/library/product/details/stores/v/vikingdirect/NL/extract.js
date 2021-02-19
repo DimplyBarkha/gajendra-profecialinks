@@ -41,7 +41,9 @@ async function implementation (inputs, parameters, context, dependencies) {
 
     // if product is not available set availabilityText to Out of Stock
     const availabilityText = document.querySelector('span[class="product-stock-message__title"]') ? document.querySelector('span[class="product-stock-message__title"]').innerText : null;
-    if (availabilityText === null && document.querySelector('div[role="alertdialog"]').innerText === 'Helaas is dit product niet langer beschikbaar') {
+    if (document.querySelector('div#productDetailsPanel div.product-add-to-cart-panel') !== null && document.querySelector('div#productDetailsPanel div.product-add-to-cart-panel').getAttribute('data-stock-status') === 'outOfStock') {
+      addElementToDocument('availabilityText', 'Out Of Stock');
+    } else if (availabilityText === null && document.querySelector('div[role="alertdialog"]').innerText === 'Helaas is dit product niet langer beschikbaar') {
       addElementToDocument('availabilityText', 'Out Of Stock');
     } else if (availabilityText === 'Tijdelijk uitverkocht') {
       addElementToDocument('availabilityText', 'Out Of Stock');
