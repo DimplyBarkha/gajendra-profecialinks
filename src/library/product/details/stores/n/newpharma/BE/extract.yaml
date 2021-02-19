@@ -27,7 +27,7 @@ fields:
 - name: category
   singleValue: false
   description: The categories (e.g. from breadcrumbs)
-  xpath: //ul[contains(@class, "breadcrumb-list")]/li[position() < last()]
+  xpath: //ul[contains(@class, "breadcrumb-list")]/li[position() < last()][not(contains(., 'Home'))]
 - name: nameExtended
   singleValue: true
   description: The product name, prefixing "${brand} - " if not included in "name"
@@ -48,7 +48,7 @@ fields:
     is no availability but the product can be added to cart, this field should be
     "In Stock"
   defaultValue: "In Stock"
-  xpath: //div[@class="c-addToCart__product-unavailable"]
+  xpath: //div[@class="c-addToCart__product-unavailable"] | //div[@class="product-details__unavailable-title"]
   regExp: '(.+)'
   regExpReplace: 'Out Of Stock'
 - name: description
@@ -74,9 +74,9 @@ fields:
   description: Quantity as described on the page
   xpath: //div[@id="product-quantity"]
 - name: weightNet
-  singleValue: true
+  singleValue: false
   description: Net weight as described on the page
-  xpath: //div[@class="product-properties"]//th[text()="Poids"]/following-sibling::td
+  xpath:  //div[@class="product-properties"]//th[text()="Poids"]/following-sibling::td |  //div[@class="product-properties"]//th[text()="Gewicht"]/following-sibling::td
 - name: weightGross
   singleValue: true
   description: Gross weight as described on the page
