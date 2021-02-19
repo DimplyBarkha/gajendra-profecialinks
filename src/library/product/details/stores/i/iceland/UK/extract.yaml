@@ -87,6 +87,24 @@ fields:
   - name: saltPerServing
     singleValue: true
     xpath: (//td[contains(text(),"Protein")]/following::td)[1]/text()
+  - name: legalDisclaimer
+    singleValue: true
+    xpath: //div[@class="content-asset "]/p/text()
+  - name: totalFatPerServing
+    singleValue: true
+    xpath: (//td[contains(text(),"Fat")]/following::td)[1]/text()
+  - name: saturatedFatPerServing
+    singleValue: true
+    xpath: (//td[contains(text(),"of which saturates")]/following::td)[1]/text()
+  - name: mpc
+    singleValue: true
+    xpath: //html//div[@id="mp"]
+    
+    
+
+    
+
+    
     
 
 

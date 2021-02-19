@@ -97,6 +97,13 @@ module.exports = {
       }
       }
 
+      //mpc
+      var mpc = getXpath('//script[@type="application/ld+json"][3]/text()', 'nodeValue');
+      if(mpc.includes("mpn")){
+        var mp = mpc.split('mpn": "')[1];
+        mp = mp.split('"')[0];
+        addElementToDocument('mp', mp);
+        }
 
     });
     await context.extract(productDetails);
