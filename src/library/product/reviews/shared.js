@@ -24,8 +24,8 @@ const transform = (data, context) => {
       }));
     }
   }
-  function checkIfReviewIsFromLast30Days (lastDate, reviewDate) {
-    const timestamp = new Date(lastDate).getTime() - (30 * 24 * 60 * 60 * 1000);
+  function checkIfReviewIsFromLast30Days (reviewDate, maxDays = 30) {
+    const timestamp = new Date().getTime() - (maxDays * 24 * 60 * 60 * 1000);
     if (new Date(reviewDate).getTime() >= timestamp) {
       return true;
     }
@@ -34,7 +34,7 @@ const transform = (data, context) => {
   data = data.filter(function (item) {
     console.log('group length before' + item.group.length);
     item.group = item.group.filter(function (row) {
-      if (checkIfReviewIsFromLast30Days(row.reviewDate[0].text)) {
+      if (row.reviewDate.length && checkIfReviewIsFromLast30Days(row.reviewDate[0].text)) {
         return true;
       }
       return false;
