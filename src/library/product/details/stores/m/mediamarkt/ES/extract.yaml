@@ -30,3 +30,19 @@ fields:
     xpath: //div[@class="inpage_selector_comparison"]//div[contains(@class,'h2')]
     regExp: (.+)
     regExpReplace: Yes
+  - name: variantId
+    xpath: (//script[@type="application/ld+json"])[1]
+    regExp: (.+)("sku":")(\d+)"(.+)
+    regExpReplace: $3
+  # - name: availabilityText
+  #   xpath: //div[contains(@class,"CTACartWishliststyled")]//button[contains(@id,"pdp-add-to-cart-button")]
+  - name: nameExtended
+    xpath: (//div[contains(@data-test,"mms-select-details-header")]//h1)[1]
+  - name: name
+    xpath: (//div[contains(@data-test,"mms-select-details-header")]//h1)[1]
+  - name: price
+    xpath: (//div[contains(@class,"Pricestyled__BrandedPrice")]//span[@font-family="price"])[1]
+  - name: sku
+    xpath: (//script[@type="application/ld+json"])[1]
+    regExp: (.+)("sku":")(\d+)"(.+)
+    regExpReplace: $3
