@@ -75,7 +75,7 @@ async function implementation(inputs, parameters, context, dependencies) {
         let prevScroll = document.documentElement.scrollTop;
         while (true) {
           window.scrollBy(0, document.documentElement.clientHeight);
-          await new Promise(resolve => setTimeout(resolve, 2000));
+          await new Promise(resolve => setTimeout(resolve, 20000));
           const currentScroll = document.documentElement.scrollTop;
           if (currentScroll === prevScroll) {
             break;
@@ -119,7 +119,7 @@ async function implementation(inputs, parameters, context, dependencies) {
           console.log(thisUrl);
           allVidArr.push(thisUrl);
         }
-  
+
       } else {
         console.log('we do not have the video info element', videoDivInfoElmXpath);
       }
@@ -141,7 +141,7 @@ async function implementation(inputs, parameters, context, dependencies) {
 
       console.log(allVideos.join(' || '));
       // await addElementToDocumentAsync('galleryvideos', allVideos.join(' | '));
-      // 18723 - client says they want only one video - 
+      // 18723 - client says they want only one video -
       // for one url - we have multiple distinct video urls - which are redirecting going to the same video
       // not sure which one to discard - so getting the first one only
       await addElementToDocumentAsync('galleryvideos', allVideos[0]);

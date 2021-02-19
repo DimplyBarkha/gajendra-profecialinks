@@ -130,7 +130,7 @@ const implementation = async (
 
         if (statusCode === 403) {
             // waiting to load captcha
-            await context.waitForSelector(captchaFrame, { timeout: 10000 }).catch(error => console.log(error));
+            await context.waitForSelector(captchaFrame, { timeout: 1000000 }).catch(error => console.log(error));
             if (await isHardBlocked(hardBlockedParam)) {
                 return await context.reportBlocked(statusCode, 'Hard Blocked');
                 // throw new Error('Hard blocked')

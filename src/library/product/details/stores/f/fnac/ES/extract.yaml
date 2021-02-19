@@ -86,7 +86,7 @@ fields:
     xpath: (//div[contains(@class, "js-articleView")]/@data-ean13 | //script/@data-flix-ean | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'EAN')]//parent::div/dd/p | //dl[contains(.,'EAN')]//dd//p)[1]
   - name: mpc
     singleValue: false
-    # xpath: (//script/@data-flix-mpn | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Modelo')]//parent::div/dd/p)[1] | //h1[contains(@class, "f-productHeader-Title")] 
+    # xpath: (//script/@data-flix-mpn | //div[@class="characteristicsStrate__item"]/dt[contains(text(),'Modelo')]//parent::div/dd/p)[1] | //h1[contains(@class, "f-productHeader-Title")]
     # regExp: (\s\d+-?\d+)
     # regExpReplace: $1
     xpath: //dl[contains(.,'Modelo')]//dd
@@ -96,7 +96,7 @@ fields:
     type: NUMBER
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-star--large")]    
+    xpath: //div[contains(@class,"f-productHeader-review")]//span[contains(@class, "f-star--large")]
   - name: variantCount
     singleValue: false
     defaultValue: "0"
@@ -148,9 +148,11 @@ fields:
   - name: hasComparisonTable
     defaultValue: No
   - name: manufacturerDescription
-    xpath: //div[@id='manufacturerDescription']
+    singleValue: false
+    xpath: //div[@id='manufacturerDescription'] | //div[@class='flix-std-desc flix-Body flix-d-p']
   - name: manufacturerImages
-    xpath: //div[@class='da-premium-main']//img/@src
+    singleValue: false
+    xpath: //div[@class='da-premium-main']//img/@src | //div[contains(@class,'flix-background-image inpage_wowimg')]/img/@data-flixsrcset
 #name: manufacturerDescription
     #xpath: //div[contains(@class,"inpage_selector_info dyson_introduction") or contains(@class,"inpage_block inpage_selector_feature")]
 #name: manufacturerImages

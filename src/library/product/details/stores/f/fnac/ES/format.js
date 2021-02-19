@@ -16,7 +16,7 @@ const transform = (data) => {
     // eslint-disable-next-line no-control-regex
       .replace(/[\x00-\x1F]/g, '')
       .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
-  
+
     for (const { group }
       of data) {
       for (const row of group) {
@@ -24,34 +24,34 @@ const transform = (data) => {
           console.log('#########Checking transform#########');
           row.description[0].text = cleanUp(row.description[0].text);
         }
-  
+
         if (row.specifications) {
           row.specifications = row.specifications.map((specification) => {
             return { text: specification.text.replace(/(\n\s*){5,}/g, ' || ').replace(/(\n\s*){4,}/g, ' || ').replace(/(\n\s*){3,}/g, ' : ').replace(/(\n\s*){1,}/g, ' : ') };
           });
         }
-  
+
         if (row.imageZoomFeaturePresent) {
           row.imageZoomFeaturePresent[0].text = 'Yes';
         } else {
           row.imageZoomFeaturePresent[0].text = 'No';
         }
-  
+
         /* if (row.brandText && row.name) {
           if (row.name[0].text.split(' ')[0] !== row.brandText[0].text) {
             // row.nameExtended[0].text = row.brandText[0].text + ' - ' + row.name[0].text;
             row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.name[0].text }];
           }
         } */
-  
+
         if (!row.brandText) {
           row.brandText = [{ text: row.name[0].text.split(' ')[0] }];
         }
-  
+
         if (row.mpc) {
           row.mpc[0].text = row.mpc[0].text.trim();
         }
-  
+
         if (row.attributes) {
           row.attributes.forEach(elm => { elm.text = elm.text.replace(/[\n\s]+/, ' : '); });
         }
@@ -73,8 +73,17 @@ const transform = (data) => {
           row.productDescriptionWordCount = [{ text: row.description[0].text.split(' ').length }];
         }
       }
+      if (row.manufacturerImages) {
+        row.manufacturerImages.forEach (item => {
+          if (item.text.includes (' 200w')) {
+            const imgUrl = item.text.split (' 200w, ')[0];
+            if (!item.text.includes ('http')) {
+              item.text = 'https:' + imgUrl;
+            }
+          }
+        });
+      }
     }
     return data;
   };
   module.exports = { transform };
-  
