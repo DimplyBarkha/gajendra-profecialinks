@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 const { transform } = require('../shared');
 
 module.exports = {
