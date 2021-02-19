@@ -37,7 +37,7 @@ const transform = (data) => {
         });
         row.price = [{ text: row.price1[0].text + row.price2[0].text }];
         if (row.price3) {
-          row.price = [{ text: row.price[0].text + ',' + row.price3[0].text }];
+          row.price = [{ text: row.price[0].text + '.' + row.price3[0].text }];
           delete row.price3;
         }
         delete row.price1;
@@ -47,7 +47,7 @@ const transform = (data) => {
         row.listPrice1.forEach(item => {
           item.text = item.text.replace(',', '');
         });
-        row.listPrice = [{ text: row.listPrice1[0].text + ',' + row.listPrice2[0].text }];
+        row.listPrice = [{ text: row.listPrice1[0].text + '.' + row.listPrice2[0].text }];
         delete row.listPrice1;
         delete row.listPrice2;
       }

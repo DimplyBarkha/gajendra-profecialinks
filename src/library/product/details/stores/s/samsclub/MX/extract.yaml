@@ -41,7 +41,8 @@ fields:
     # create price like price1+price2 if price3 is not blank then price1+price2+"."+price3
     xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='prod-price-special']//sup[not(@itemprop='priceCurrency')]
   - name: price
-    singleValue: false
+    singleValue: true
+    xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='prod-price-special']//sup[@itemprop='priceCurrency']
   - name: listPrice1
     singleValue: false
     xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='price-before-label']//span[@class='price-before-value']
