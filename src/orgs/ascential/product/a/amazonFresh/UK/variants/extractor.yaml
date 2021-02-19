@@ -1,11 +1,14 @@
-robot: product/details
+robot: product/details/variants
 parameters:
   country: UK
   domain: amazon.co.uk
   store: amazonFresh
-  zipcode: "NW1 8AA"
+  zipcode: NW1 8AA
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
 meta:
   branches:
     dev:
-      extractor: d7fbda90-506b-4fef-b2ce-cde341cd52d0
+      extractor: ec420610-c4bc-44d3-a59a-014b8ac5049a
       legacyAccountId: 3bdc37aa-6cbf-4ef3-ab79-80ebff9e4671
