@@ -42,6 +42,10 @@ await context.evaluate(async function () {
   }
   addElementToDocument('a', a);
   addElementToDocument('b', gtin);
+  // @ts-ignore
+  const d = document.querySelector('div[id="pd-price"]').innerText;
+  var v=d.replace(',','.')
+  addElementToDocument('price', v);
 
 
 });
