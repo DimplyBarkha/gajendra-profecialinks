@@ -20,19 +20,27 @@ module.exports = {
     productDetails,
   }) => {
     try {
-      await context.waitForSelector('div.rd__product-details__description', {timeout: 15000});
+      await context.waitForSelector('div.rd__product-details__description', { timeout: 15000 });
     } catch (error) {
       console.log('Not loading product details section');
     }
+    // await context.evaluate(async () => {
+    //   const accCookie = document.querySelector('button#uc-btn-accept-banner');
+    //   if (accCookie) {
+    //     // @ts-ignore
+    //     accCookie.click();
+    //   }
+    // });
     await context.evaluate(async () => {
-      const accCookie = document.querySelector('button#uc-btn-accept-banner');
-      if (accCookie) {
+      let cookiesXpath = '//button[contains(text(),"Alle erlauben")]';
+      const cookiesPresent = document.evaluate(cookiesXpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if (cookiesPresent) {
         // @ts-ignore
-        accCookie.click();
+        cookiesPresent.click();
       }
     });
 
-    async function scrollToRec (node) {
+    async function scrollToRec(node) {
       await context.evaluate(async (node) => {
         const element = document.querySelector(node) || null;
         if (element) {
@@ -65,7 +73,7 @@ module.exports = {
       // if (videoEle) {
       //   videoEle.click();
       // }
-      
+
 
       function addHiddenDiv(id, content) {
         const newDiv = document.createElement('div');
@@ -159,7 +167,7 @@ module.exports = {
         videoEle.click();
       }
 
-      function addUnInterruptedPDPNames (id, content, index) {
+      function addUnInterruptedPDPNames(id, content, index) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -167,7 +175,7 @@ module.exports = {
         const originalDiv = document.querySelectorAll('div.rd__productinfo')[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-  
+
       // await new Promise((resolve, reject) => setTimeout(resolve, 6000));
       const product = document.querySelectorAll('div.rd__productinfo');
       for (let i = 0; i < product.length; i++) {

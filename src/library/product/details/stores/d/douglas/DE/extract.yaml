@@ -12,13 +12,16 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"rd__breadcrumbs__item rd__breadcrumbs__item--back")]//following-sibling::a
   - name: nameExtended
-    xpath: concat(//span[@class='rd__product-header__title__name'], ' ', //span[@class='rd__product-header__title__classification'])
+    # xpath: concat(//span[@class='rd__product-header__title__name'], ' ', //span[@class='rd__product-header__title__classification'])
+    xpath: concat(//span[contains(@class,"product-detail-header__brand-logo-text")]," ",//div[contains(@class,"product-detail-header__second")])
   - name: nameExtendedPrefix
     xpath: //h1//span[@class='rd__copytext rd__copytext--90' or contains(@class, 'rd__product-header__title__brand')]
   - name: price
-    xpath: //div[contains(@class,"rd__product-details__options__price__item__amount__new-price")]/span[1]
+    # xpath: //div[contains(@class,"rd__product-details__options__price__item__amount__new-price")]/span[1]
+    xpath: (//div[contains(@class,"product-price__base")])[1]
   - name: availabilityText
-    xpath: //div[contains(@class,"rd__product-details__options__availability")]/span[contains(@class,'rd__copytext')][1]
+    # xpath: //div[contains(@class,"rd__product-details__options__availability")]/span[contains(@class,'rd__copytext')][1]
+    xpath: //div[contains(@class,"product-detail__cta")]//button
   - name: description
     singleValue: false
     xpath: //ul[contains(@class,'rd__list rd__list--disc')]/li
@@ -53,13 +56,17 @@ fields:
   #   xpath: //head//script[contains(., 'dglDataLayer')]
   - name: sku
     xpath: //link[@rel='canonical']/@href
-    regExp: (.+)productbrand_(.+)(\.html)
+    # regExp: (.+)productbrand_(.+)(\.html)
+    regExp: (.+\/p\/)(.+)
     regExpReplace: $2
   - name: variantId
     singleValue: true
-    xpath: //ul[contains(@class, "rd__list")]//*[contains(text(), "Art-Nr.")]/ancestor::span|//script[contains(.,"customExactagConfig")]
+    # xpath: //ul[contains(@class, "rd__list")]//*[contains(text(), "Art-Nr.")]/ancestor::span|//script[contains(.,"customExactagConfig")]
     # regExp: \"product_id\"\s*:\s*\"(.+?)\"
     # regExpReplace: $1
+    xpath: //script[@type="application/ld+json"]
+    regExp: ("sku":\s")(\d+)"
+    regExpReplace: $2
   - name: directions
     singleValue: true
     xpath: //div[contains(.,"Anwendung")]/following-sibling::div[1]/span
