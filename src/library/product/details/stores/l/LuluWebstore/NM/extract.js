@@ -134,7 +134,8 @@ module.exports = {
       // addElementToDocument('Ingredientlist',head);
       var head1 = getXpath("//div[@class='tab-details']//p/text()[contains(.,'Ingredients')]//following-sibling::br[1]/following::text()[1]", 'nodeValue');
       var head2 = getXpath("//div[@class='tab-details']//p/text()[contains(.,'Ingredients')]//following-sibling::br[1]/following::text()[2]", 'nodeValue');
-      var head3 = getXpath("//div[@class='tab-container']//div[@class='col-md-6 col-sm-6 pd-features-section']//div[@class='features-ul'][2]",'nodeValue')
+      var head3 = getXpath("//p[contains(text(),'Ingredients')]/following-sibling::p/text()", 'nodeValue');
+      // console.log(test11)
       if (head != null) {
         addElementToDocument('Ingredientlist', head);
       } else if (head1 != null) {
@@ -147,9 +148,10 @@ module.exports = {
           }
 
         }
+        
       }
-      else {
-        // addElementToDocument('Ingredientlist', head3);
+      else{
+        addElementToDocument('Ingredientlist', head3);
       }
     });
     await context.extract(productDetails, { transform: transformParam });
