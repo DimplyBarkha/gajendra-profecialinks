@@ -1,3 +1,5 @@
+# @format
+
 singleRecord: false
 regionsSelector: null
 recordSelector: null
@@ -36,9 +38,11 @@ fields:
   - name: listPrice
     singleValue: false
     xpath: //div[contains(@class,'product-info-price')]//span[@class='old-price']//span[@class='price']
-  - name:  description
+  - name: description
     singleValue: false
     xpath: //div[contains(@class,'cs-product-details-main__content')]//p
+  - name: specifications
+    xpath: //strong[contains(text(),"Produktdaten:")]/../following-sibling::div[1]//ul/li|//strong[contains(text(),"Logistikdaten:")]/../following-sibling::div/ul/li | //strong[contains(text(),"Produktdaten:")]/../following-sibling::ul[1]/li
   - name: descriptionBullets
     singleValue: false
     xpath: //div[contains(@class,'cs-product-details-main__content')]//ul//li
@@ -87,8 +91,8 @@ fields:
   - name: directions
     singleValue: false
     xpath: //div[@class='cs-container__inner']//h2[@class='cs-product-details__headline-title' and contains(text(),'Anwendung')]//parent::*/following-sibling::div[@class='cs-product-details__content']
-  
-  # Custom Fields 
+
+  # Custom Fields
   - name: inTheBoxUrl
     xpath: //*[@id="inpage_container"]//div[@class="inpage_selector_InTheBox"]//div[@class="flix-background-image"]/img[@class="flix-img-responsive"]/@srcset
     regExp: (.+)
