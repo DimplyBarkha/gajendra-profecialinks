@@ -17,7 +17,7 @@ fields:
     xpath:  concat(//meta[@property="og:brand"]/@content,' ',//meta[@property="og:title"]/@content)
   - name: category
     singleValue: false
-    xpath:  //span[contains(@class,"Z1")]//div[contains(@class,"Z1")]//div[contains(@class,"Z1")]//a
+    xpath:  //span[contains(@class,"Z1")]//div[contains(@class,"Z1")]//div[contains(@class,"Z1")]//a | //div[contains(@class,'ZZcj')]/div
   - name: alternateImages
     singleValue: false
     xpath: //div[contains(@id, 'slide-')]//picture[contains(@class,'mediaPicture')]/source[1]/@srcset
@@ -52,16 +52,16 @@ fields:
     regExpReplace: $1
   - name: price
     singleValue: true
-    xpath: //div[contains(@class,"productDetail")]//div[contains(@class,"Z1")]//strong[not(@class)] | //div[contains(@class,"productDetail")]//div[contains(@class,"Z1")][1]//strong
+    xpath: //div[contains(@class,"productDetail")]//div[contains(@class,"Z1")]//strong[not(@class)] | //div[contains(@class,"productDetail")]//div[contains(@class,"Z1")][1]//strong | (//div[contains(@class,'productDetail')]//strong)[1]
   - name: weightNet
     singleValue: false
     xpath: //table[contains(@class,"Z1")]//th//h4[text()="Produktdimensionen"]//parent::*/parent::*/parent::*/parent::*/tbody//td[contains(text(),"Gewicht")]/parent::tr/td[2]
   - name: weightGross
     singleValue: false
-    xpath: //table[contains(@class,"Z1")]//th//h4[text()="Verpackungsdimensionen"]//parent::*/parent::*/parent::*/parent::*/tbody//td[contains(text(),"Gewicht")]/parent::tr/td[2]
+    xpath: //table[contains(@class,"Z1")]//th//h4[text()="Verpackungsdimensionen"]//parent::*/parent::*/parent::*/parent::*/tbody//td[contains(text(),"Gewicht")]/parent::tr/td[2] | (//*[text()="Gewicht"]/following::*[1])[1]
   - name: mpc
     singleValue: false
-    xpath: //table[contains(@class,"Z1")]//th//h4[text()="Allgemeine Informationen"]//parent::*/parent::*/parent::*/parent::*/tbody//td[contains(text(),"Herstellernr.")]/parent::tr/td[2]
+    xpath: //table[contains(@class,"Z1")]//th//h4[text()="Allgemeine Informationen"]//parent::*/parent::*/parent::*/parent::*/tbody//td[contains(text(),"Herstellernr.")]/parent::tr/td[2] | //*[contains(text(), 'Herstellernr.')]/following::*[1]
   - name: ratingCount
     singleValue: false
     xpath: //meta[@property="og:rating_count"]/@content
