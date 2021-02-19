@@ -85,7 +85,7 @@ fields:
     singleValue: true
     description: The store-specific product identifier
     # xpath: //input[@name="code"]/@value
-    xpath: (//div[@class="size-box-wrapper"]/a/span)[1]/@id | //div[@id="buttonClickshow"]/ul/li[1]/a/@id
+    xpath: (//div[@class="size-box-wrapper"]/a/span)[1]/@id | //div[@id="buttonClickshow"]/ul/li[1]/a/@id | //div[@class="grid__brick_outer"]/a/@id
     regExp: \d+
   - name: variantId
     singleValue: false
