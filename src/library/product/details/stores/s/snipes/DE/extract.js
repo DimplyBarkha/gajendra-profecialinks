@@ -101,13 +101,14 @@ module.exports = {
         addElementToDocument('aval', aval);
       }
       // aggregateRating
-      var str = getXpath('(//div[@class="b-rating-value"]/@style)[1]', 'nodeValue');
+      var str = getXpath('//div[@class="b-product-reviews-header"]/div[@class="b-product-reviews-total-mark"]/div/div/@style', 'nodeValue');
       if (str != null) {
         // for (var i = 0; i < str.length; i++) {
         var abc = str.split(': ')[1];
         abc = abc.slice(0, -1);
         abc = (abc) / 20;
-        console.log('amol' + abc);
+        abc = abc.toString().replace('.', ',');
+        console.log('amolagg' + abc);
         addElementToDocument('agg', abc);
         // }
       }
@@ -124,7 +125,7 @@ module.exports = {
       var name = document.querySelector("div[class='js-target']").innerText;
       var name1 = document.querySelector("div[class='js-pdp-color-label']").innerText;
       var sku = getXpath("(//td[@class='b-fact-value js-fact-value']/text())[5]", 'nodeValue');
-      console.log('amol' + name);
+      // console.log('amol' + name);
       if (qq != null) {
         for (var i = 0; i < qq.length; i++) {
           var colorVar = color1 + ' - ' + qq[i];

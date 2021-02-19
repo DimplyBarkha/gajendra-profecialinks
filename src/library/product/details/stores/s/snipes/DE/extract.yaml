@@ -46,10 +46,12 @@ fields:
   # - name: aggregateRatingText
   #   singleValue: true
   #   xpath: 
-  - name: aggregateRating2
+  - name: aggregateRating
     singleValue: false
     # xpath: //html//div[@id='agg']
     xpath: ancestor::html//div[@id='agg']
+    # regExp: (\d)\.?(\d+)?
+    # regExpReplace: $1,$2
   - name: alternateImages
     singleValue: false
     xpath: ancestor::html//div[@id='AltImg']

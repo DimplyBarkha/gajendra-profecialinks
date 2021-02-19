@@ -87,7 +87,7 @@ module.exports = {
     });
 
     let productsCount = 0;
-    while (productsCount < 150) {
+    while (productsCount < 1000) {
       const doesLoadMoreExists = await context.evaluate(function () {
         return Boolean(document.querySelector('a[class="f-button f-button--primary js-show-more-products"]'));
       });
@@ -100,7 +100,7 @@ module.exports = {
         });
         productsCount = await getProductsCount(context);
         console.log('productsCount' + productsCount);
-        if (productsCount >= 150) {
+        if (productsCount >= 1000) {
           break;
         }
         await applyScroll(context);
