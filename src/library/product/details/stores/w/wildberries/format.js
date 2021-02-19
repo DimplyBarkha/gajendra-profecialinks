@@ -35,6 +35,11 @@ const transform = (data) => {
                 item.text = "https:" + item.text;
             });
         }
+        if (row.promotion) {
+          row.promotion.forEach(item => {
+              item.text =item.text.slice(2,-1);
+          });
+      }
         if (row.brandLink) {
             row.brandLink.forEach(item => {
                 item.text = "https://www.wildberries.ru" + item.text;
