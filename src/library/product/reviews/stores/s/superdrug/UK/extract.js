@@ -60,7 +60,7 @@ module.exports = {
       const lastReviewDateStr = await context.evaluate(async () => {
         const allReviews = document.querySelectorAll('ol > li[itemprop="review"]');
         const lastReview = allReviews[allReviews.length - 1];
-        const dateElem = lastReview.querySelector('meta[itemprop="datePublished"]');
+        const dateElem = lastReview.querySelector('meta[itemprop="dateCreated"]');
         return dateElem ? dateElem.getAttribute('content') : '';
       });
 
@@ -132,9 +132,12 @@ module.exports = {
       for (let i = 0; i < allReviews.length; i++) {
         const review = allReviews[i];
 
-        const dateStr = review.querySelector('meta[itemprop="datePublished"]')
-          ? review.querySelector('meta[itemprop="datePublished"]').getAttribute('content')
+        const dateStr = review.querySelector('meta[itemprop="dateCreated"]')
+          ? review.querySelector('meta[itemprop="dateCreated"]').getAttribute('content')
           : '';
+          console.log('!!!!!!');
+          console.log(dateStr);
+          console.log(getDate(dateStr));
         const reviewDate = formatDate(getDate(dateStr));
         if (reviewDate) review.setAttribute('review_date', reviewDate);
         const reviewRating = review.querySelector('div[class="bv-content-header-meta"] meta[itemprop="ratingValue"]')
