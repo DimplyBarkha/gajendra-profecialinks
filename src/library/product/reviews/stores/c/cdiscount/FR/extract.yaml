@@ -76,12 +76,13 @@ fields:
     description: A direct link to the review
   - name: reviewedSku
     singleValue: false
-    description: The SKU of the item that was reviewed (may be different from the
-      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
-      value, transform will handle the value.
   - name: user
     description: The user name of the reviewer
     xpath: //div[contains(@class,"ratingPublishBy")]//span[contains(@itemprop,"author")]
   - name: aggregateRating
     description: The product rating
     xpath: ancestor::html//div[@class="topMainRating"]//span[@class="mainTit"]
+  - name: reviewCount
+    xpath: //a[@class="fpCusto"]
+    regExp: (\d*).*
+    regExpReplace: $1

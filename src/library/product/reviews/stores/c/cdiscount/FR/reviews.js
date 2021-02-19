@@ -1,11 +1,4 @@
 
-/**
- *
- * @param { { URL: string, id: any, RPC: string, SKU: string, date: any, days: number, results} } inputs
- * @param { { store: any, domain: any, country: any, zipcode: any, mergeType: any } } parameters
- * @param { ImportIO.IContext } context
- * @param { { execute: ImportIO.Action, extract: ImportIO.Action, paginate: ImportIO.Action } } dependencies
- */
 async function implementation (
   inputs,
   { mergeType, zipcode },
@@ -21,31 +14,50 @@ async function implementation (
 
   const resultsReturned = await execute({ url, id, zipcode, date, days });
 
-  const getReviewDate = async () => {
-    return context.evaluate(async () => {
-      let reviewDate = '';
-      const reviewSelector = '//*[@id="fpRating"]//div[contains(@class,"jsDetRating")][last()]//span[contains(@class,"ratingPublishDetails")]';
-      const reviewElement = document.evaluate(reviewSelector, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      if (reviewElement) {
-        const pattern = /(\d{1,2}\/\d{1,2}\/\d{4})/i;
-        const results = reviewElement.innerText.match(pattern);
-        if (results && results.length > 0) {
-          reviewDate = results[1];
-        }
-      }
-      return reviewDate;
-    });
-  };
-
-  const checkIfReviewIsFromLast30Days = async (lastDate, reviewDate) => {
-    const timestamp = new Date(lastDate).getTime();
-    return (new Date(reviewDate).getTime() < timestamp);
-  };
-
   if (!resultsReturned) {
     console.log('No results were returned');
     return;
   }
+
+  async function customizedPagination(nextLinkSelector, loadedSelector){
+    if (nextLinkSelector) {
+      console.log('Clicking', nextLinkSelector);
+      await context.evaluate(async function(nextLinkSelector){
+        document.querySelector(nextLinkSelector)&&document.querySelector(nextLinkSelector).click(); 
+      }, nextLinkSelector); 
+      //await context.clickAndWaitForNavigation(nextLinkSelector, {}, { timeout: 20000 });
+      await context.waitForNavigation({ timeout: 20000 });
+      if (loadedSelector) {
+        await context.waitForSelector(loadedSelector, { timeout: 20000 });
+      }
+      // if (loadedXpath) {
+      //   await context.waitForXPath(loadedXpath, { timeout: 20000 });
+      // }
+      return true;
+    }
+  }
+
+  async function checkStopCondition(stopConditionSelectorOrXpath) {
+    return await context.evaluate(async function (stopConditionSelectorOrXpath) {
+      const isDisabled = document.querySelector('div[class*="BvPagination"] a[class*="next btdisable"]');
+      if (isDisabled){
+        return !isDisabled;
+      }
+      const isThere = document.querySelector(stopConditionSelectorOrXpath);
+      let pageNumber = 0;
+      if(isThere) {
+        pageNumber = isThere.getAttribute('data-currentPage');
+      }
+      else{ pageNumber = 10000; }
+      // console.log('check paginate', !!isThere);
+       console.log('pageNumber', pageNumber);
+      return Number(pageNumber)>30?false:true;
+    }, stopConditionSelectorOrXpath)
+  }
+  let IS_PAGINATION = await checkStopCondition('div.jsBvPagination');
+  
+  
+  console.log('is pagination', IS_PAGINATION);
 
   const pageOne = await extract({});
   let collected = length(pageOne);
@@ -56,22 +68,21 @@ async function implementation (
   if (collected === 0) return;
 
   let page = 2;
-  while (results > collected && await paginate({ id, page, offset: collected, date })) {
+  // while (results > collected  && await paginate({ id, page, offset: collected, date })) {
+    const nextLinkSelector = 'div[class*="BvPagination"] a[class*="next"]:not(.btdisable)';
+    const loadedSelector = 'div[id="fpFAQRatings"]';
+    
+    while (results > collected  && IS_PAGINATION  && await customizedPagination(nextLinkSelector, loadedSelector)) {
     const data = await extract({});
     const count = length(data);
-    const reviewDate = await getReviewDate();
-    const nlBEFormatter = new Intl.DateTimeFormat('nl-BE');
-    const lastDate = nlBEFormatter.format(new Date(new Date().setDate(new Date().getDate() - days)));
-    if (await checkIfReviewIsFromLast30Days(lastDate, reviewDate)) {
-      break;
-    }
     if (count === 0) break; // no results
     collected = (mergeType && (mergeType === 'MERGE_ROWS') && count) || (collected + count);
     console.log('Got more results', collected);
+    IS_PAGINATION = await checkStopCondition('div.jsBvPagination');
+    //console.log('inside while ');
     page++;
   }
 }
-
 module.exports = {
   implements: 'product/reviews',
   parameterValues: {
