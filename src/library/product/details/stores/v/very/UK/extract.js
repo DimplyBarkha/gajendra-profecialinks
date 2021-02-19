@@ -1,6 +1,6 @@
 const { transform } = require('./shared');
 
-async function implementation(inputs, parameters, context, dependencies) {
+async function implementation (inputs, parameters, context, dependencies) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
 
@@ -28,14 +28,13 @@ async function implementation(inputs, parameters, context, dependencies) {
   }
 
   // @ts-ignore
-  const variantsArr = await context.evaluate(async () =>
-    [...document.querySelectorAll('div[itemprop=offers]')].map((el) => {
-      const variantObj = {};
-      variantObj.sku = el.querySelector('meta[itemprop=sku]').getAttribute('content');
-      variantObj.availability = el.querySelector('link[itemprop=availability]').getAttribute('href');
-      variantObj.price = el.querySelector('meta[itemprop=price]').getAttribute('content');
-      return variantObj;
-    }),
+  const variantsArr = await context.evaluate(async () => [...document.querySelectorAll('div[itemprop=offers]')].map((el) => {
+    const variantObj = {};
+    variantObj.sku = el.querySelector('meta[itemprop=sku]').getAttribute('content');
+    variantObj.availability = el.querySelector('link[itemprop=availability]').getAttribute('href');
+    variantObj.price = el.querySelector('meta[itemprop=price]').getAttribute('content');
+    return variantObj;
+  }),
   );
   const numOfVariants = variantsArr.length;
 
@@ -43,8 +42,7 @@ async function implementation(inputs, parameters, context, dependencies) {
     await context.evaluate(
       async ({ i, variantsArr }) => {
         // @ts-ignore
-        const colors = [
-          ...document.querySelectorAll('ul.ppOption--colour li label, ul.customerSelection label[rel]'),
+        const colors = [...document.querySelectorAll('ul.ppOption--colour li label, ul.customerSelection label[rel]'),
         ].map((ele) => ele.getAttribute('rel'));
         const addedVariant = document.createElement('div');
         addedVariant.id = `addedVariant${i}`;
@@ -135,7 +133,7 @@ async function implementation(inputs, parameters, context, dependencies) {
   //     document.querySelector('#description').remove();
   //   }
   await context.evaluate(async function () {
-    async function addElementToDocument(id, value, key) {
+    async function addElementToDocument (id, value, key) {
       const catElement = document.createElement('div');
       catElement.id = id;
       catElement.innerText = value;
