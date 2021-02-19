@@ -177,6 +177,7 @@ module.exports = {
 			// 	});
 			// }
 			console.log('alternateImages fetched ' + finalArray.join(' | '));
+			addElementToDocument('alternateimagestotal', finalArray.length);
 			addElementToDocument('added_alternateImages', finalArray.join(' | '));
 
 			const inTheBoxUrl = getAllXpath(
