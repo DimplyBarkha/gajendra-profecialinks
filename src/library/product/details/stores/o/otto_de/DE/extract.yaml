@@ -28,7 +28,8 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //div[@class='prd_shortInfo__text']/h1  
+    xpath: //html//div[@id='newnameext']
+    # xpath: //div[@class='prd_shortInfo__text']/h1
   - name: listPrice
     singleValue: true
     description: The stated undiscounted price for the product
@@ -91,12 +92,19 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: //html//div[@id='gtin']
-    #xpath: //meta[@itemprop='gtin13']/@content
+    xpath: //meta[@itemprop='gtin13']/@content
+    # xpath: //html//div[@id='gtin']
+    
+  # - name: eangtin
+  #   singleValue: true
+  #   description: GTIN code (includes UPC/EAN)
+    # xpath: //html//div[@id='gtin']
+    # xpath: //meta[@itemprop='gtin13']/@content
   - name: sku
     singleValue: true
     description: The store-specific product identifier
-    xpath: //html//div[@id='sku']
+    xpath: //meta[@itemprop='sku']/@content
+    # xpath: //html//div[@id='sku']
   - name: variantId
     singleValue: false
     description: Identifier for a variant from a store where variants share the same sku
@@ -138,7 +146,10 @@ fields:
   - name: shippingInfo
     singleValue: true
     description: Shipping information for the product
-    xpath: //div[@class='prd_module prd_module--noLine prd_deliveryInfo']
+    # xpath: //a[@class='prd_seller__nameLink prd_seller__nameLink--otto js_openInPaliLayer']
+    defaultValue: OTTO
+    # regExp: m
+    # regExpReplace: OTTO
   - name: shippingDimensions
     singleValue: true
     description: Stated shipping dimensions
@@ -150,6 +161,7 @@ fields:
     description: Number of variants listed
     xpath: //html//div[@id='cts']
     #xpath: count(//ul[@class='p_selTiles50 prd_clearfix']/li)
+    defaultValue: 0
     type: NUMBER
   - name: color
     singleValue: true
