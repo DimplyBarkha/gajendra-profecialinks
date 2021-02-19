@@ -5,8 +5,8 @@ module.exports = {
     country: 'JP',
     store: 'wowma',
     domain: 'wowma.jp',
-    loadedSelector: null,
-    noResultsXPath: null,
+    loadedSelector: 'div#contents',
+    noResultsXPath: '//body[@class="error"]',
     zipcode: '',
   },
 };

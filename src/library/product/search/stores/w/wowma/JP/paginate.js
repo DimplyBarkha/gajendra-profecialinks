@@ -12,7 +12,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: 'div.searchListingItems',
     loadedXpath: null,
-    noResultsXPath: '//div[@id="itemNotFound"]',
+    noResultsXPath: '//div[@class="notFoundMessageArea"]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,

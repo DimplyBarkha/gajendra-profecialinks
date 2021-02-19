@@ -7,7 +7,7 @@ module.exports = {
     domain: 'wowma.jp',
     url: 'https://wowma.jp/itemlist?keyword={searchTerms}',
     loadedSelector: 'div.searchListingItems',
-    noResultsXPath: '//div[@id="itemNotFound"]',
+    noResultsXPath: '//div[@class="notFoundMessageArea"]',
     zipcode: '',
   },
 };
