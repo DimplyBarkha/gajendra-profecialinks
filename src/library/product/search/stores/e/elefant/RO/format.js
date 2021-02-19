@@ -37,14 +37,14 @@ const transform = (data, context) => {
                 });
             }
 
-            if (row.price) {
-                let priceText = '';
-                row.price.forEach(item => {
-                    console.log("item.text", item.text);
-                    priceText = item.text;
-                });
-                row.price = [{ 'text': priceText, 'xpath': row.price[0].xpath }];
-            }
+            // if (row.price) {
+            //     let priceText = '';
+            //     row.price.forEach(item => {
+            //         console.log("item.text", item.text);
+            //         priceText = item.text;
+            //     });
+            //     row.price = [{ 'text': priceText, 'xpath': row.price[0].xpath }];
+            // }
 
             if (row.aggregateRating) {
                 let count = 0;
