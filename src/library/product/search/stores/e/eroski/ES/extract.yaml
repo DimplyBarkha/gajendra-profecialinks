@@ -33,7 +33,7 @@ fields:
     xpath: //div[contains(@class,"starbar-container")]//div[contains(@class,"starbar ")]
   - name: productUrl
     singleValue: false
-    xpath: //a[contains(@class,"product-image-resp")]/@href
+    xpath: //h2[@class="product-title"]/a/@href | //a[contains(@class,"product-image-resp")]/@href
     regExp: (.+)
     regExpReplace: https://supermercado.eroski.es$1
   - name: aggregateRating
