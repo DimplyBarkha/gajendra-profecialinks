@@ -35,11 +35,12 @@ fields:
     singleValue: true
     xpath: //meta[@itemprop='availability']//@content
   - name: description
-    singleValue: true
-    xpath: //div[@class="sc-full-description-long"]
+    singleValue: false
+    xpath: //div[@class="sc-pc-why-we-love-it"] | //div[@class="sc-pc-about-this-item"]//div[1]//text() | //div[@class="sc-full-description-long"] 
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[@class="sc-short-description-content"]/ul/li)
+    xpath: count(//div[@class="sc-pc-about-this-item"]//li | //h4[contains(text(),'Specifications')]/following-sibling::div//li/text()[1])
+    # count(//div[@class="sc-short-description-content"]/ul/li)
   - name: brandText
     singleValue: true
     xpath: //span[@class="sc-product-header-item-number"][1]
@@ -57,7 +58,10 @@ fields:
     singleValue: true
   - name: sku
     singleValue: false
-    xpath: (//span[@class="sc-product-header-item-number"])[2]
+    xpath: //script[contains(text(), "stockId")]/text()
+    regExp: stockId":([^,]+)
+    regExpReplace: $1 
+      #(//span[@class="sc-product-header-item-number"])[2]
   - name: variantId
     singleValue: false
     xpath: //div[@class='sc-product-header-item-number']
@@ -76,7 +80,7 @@ fields:
     xpath: //div[@class='sc-manufacturing-element-content']//p[contains(.,'GOVERNMENT WARNING:')] | //div[@class='sc-disclaimers-item']//p[contains(.,'GOVERNMENT WARNING:')]
   - name: ratingCount
     singleValue: true
-    xpath: //div[@class="bv_numReviews_component_container"]/meta/@content
+    xpath: div[@class="bv_numReviews_text"] | //div[@class="bv_numReviews_component_container"]/meta/@content
   - name: aggregateRatingText
     singleValue: true
   - name: aggregateRating
@@ -112,4 +116,3 @@ fields:
   - name: secondaryImagesTotal
     singleValue: true
     xpath: count((//button[contains(@class,'sc-image-viewer-thumb-wrapper')])[position()>1]//img//@src)
-

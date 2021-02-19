@@ -59,7 +59,7 @@ const transform = (data) => {
                         let split1 = item.text.split('/');
                         console.log("item.text", item.text);
                         item.text = split1[split1.length - 1]
-                        item.text = item.text.slice('_A', '').trim();
+                        item.text = item.text.replace('_A', '').trim();
                     }
                 });
             }
@@ -106,6 +106,17 @@ const transform = (data) => {
                     }
                 });
             }
+            if (row.description) {
+                let text = '';
+                row.description.forEach((element) => {
+                    if (element.xpath.includes('li')) {
+                        text += `|| ${element.text}`;
+                      } else {
+                        text += ` ${element.text}`;
+                      }
+                });
+                row.description = [{ text: text.trim() }];
+              }
         }
     }
     return cleanUp(data);
