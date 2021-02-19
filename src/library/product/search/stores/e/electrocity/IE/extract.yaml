@@ -17,7 +17,8 @@ fields:
     xpath: //div[@class='astra-shop-thumbnail-wrap']//picture[contains(@class,'thumbnail')]//img/@src | //div[@class='astra-shop-thumbnail-wrap']//img[contains(@class,'attachment-woocommerce_thumbnail')]/@src
   - name: id
     singleValue: false
-    xpath: //p[@class='sku']/text()
+    xpath: //*[@data-gtm4wp_product_id]//@data-gtm4wp_product_id
+    # xpath: //p[@class='sku']/text()
   - name: brand
     singleValue: false
     xpath: //div[@class='sku-brand']//a/@data-attribute-value
