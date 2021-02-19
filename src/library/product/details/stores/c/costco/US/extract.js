@@ -63,26 +63,6 @@ module.exports = {
         // @ts-ignore
         detailsDesc = detailsNode.innerText;
       }
-      // if (featuresNode.length) {
-      //   var index = -1;
-      //   if (detailsDesc) {
-      //     detailsDesc = detailsDesc.replace(/(\r\n|\n|\r)/gm, '');
-      //     // @ts-ignore
-      //     index = detailsDesc.indexOf(featuresNode[0].innerText);
-      //   }
-      //   featuresNode.forEach((ele) => {
-      //     // @ts-ignore
-      //     if (ele.innerText) {
-      //       // @ts-ignore
-      //       featureText += ' ' + '||' + ele.innerText;
-      //       // @ts-ignore
-      //       detailsDesc = detailsDesc.replace(ele.innerText, '');
-      //     }
-      //   });
-      //   if (index !== -1) {
-      //     detailsDesc = [detailsDesc.slice(0, index), featureText, detailsDesc.slice(index)].join('');
-      //   }
-      // }
       if (detailsDesc || descText) {
         addHiddenDiv('costco-product-desc', descText.concat(' ' + detailsDesc));
       };
@@ -140,60 +120,26 @@ module.exports = {
       if (moreBtn && moreBtn.length > 0) {
         for (let cnt = 0; cnt < moreBtn.length; cnt++) {
           try {
-            // await context.setBlockAds(false);
-            // await context.setLoadAllResources(true);
-            // await context.setLoadImages(true);
-            // await context.setJavaScriptEnabled(true);
             // @ts-ignore
             moreBtn[cnt].click();
-            // await context.setBlockAds(false);
-            // await context.setLoadAllResources(true);
-            // await context.setLoadImages(true);
             await new Promise(resolve => setTimeout(resolve, 2000));
           } catch (err) { }
         }
       }
-      // try {
-      //   const vidImage = Array.from(document.querySelectorAll('img[id*="videoOverlay"]'));
-      //   console.log('vidImage--->', vidImage);
-      //   const vidArray = [];
-      //   for (let item = 0; item < vidImage.length; item++) {
-      //     vidImage[item].click();
-      //     await new Promise(resolve => setTimeout(resolve, 3000));
-      //   }
-      // } catch (err) {}
     });
-    await context.evaluate(async () => {
-      const parentNode1 = document.querySelector('div.syndi_powerpage');
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      if (parentNode1 && parentNode1.shadowRoot) {
-        const fetchNode = parentNode1.shadowRoot.firstChild;
-        // @ts-ignore
-        const allVideos = Array.from(fetchNode.querySelectorAll('video'));
-        for (let item = 0; item < allVideos.length; item++) {
-          allVideos[item].click();
-          await new Promise(resolve => setTimeout(resolve, 1000));
-        }
-      }
-      // @ts-ignore
-      // function addHiddenDiv (id, content) {
-      //   const newDiv = document.createElement('div');
-      //   newDiv.id = id;
-      //   newDiv.textContent = content;
-      //   newDiv.style.display = 'none';
-      //   document.body.appendChild(newDiv);
-      // }
-    });
-    // await context.captureRequests(async function () {
-    //   const videoRequest = context.searchForRequest('https://content.syndigo.com/asset/', 'GET', undefined, 3000);
-    //   console.log('videos-------->', videoRequest);
+    // await context.evaluate(async () => {
+    //   const parentNode1 = document.querySelector('div.syndi_powerpage');
+    //   await new Promise(resolve => setTimeout(resolve, 1000));
+    //   if (parentNode1 && parentNode1.shadowRoot) {
+    //     const fetchNode = parentNode1.shadowRoot.firstChild;
+    //     // @ts-ignore
+    //     const allVideos = Array.from(fetchNode.querySelectorAll('video'));
+    //     for (let item = 0; item < allVideos.length; item++) {
+    //       allVideos[item].click();
+    //       await new Promise(resolve => setTimeout(resolve, 1000));
+    //     }
+    //   }
     // });
-
-    // const videoRequest1 = await context.searchForRequest('.*.ts', 'GET');
-    // const videoRequest = await context.searchForRequest(/https:\/\/content.syndigo.com\/asset\/803bf9f8-94fb-4a78-b2be-ff643d761c67\/8500k\/803bf9f8-94fb-4a78-b2be-ff643d761c67.ts/g, 'GET', undefined, 2000);
-    // console.log('videos-------->', videoRequest1);
-    // captureRequests(): Promise<void>
-    // searchForRequest(urlPattern: string, method: string, pastTimestamp: number, timeout: number): Promise<any>
     await context.evaluate(async function () {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
@@ -236,19 +182,8 @@ module.exports = {
       } catch (err) {}
     });
     await context.evaluate(async function () {
-      // @ts-ignore
-      // function addHiddenDiv (id, content) {
-      //   const newDiv = document.createElement('div');
-      //   newDiv.id = id;
-      //   newDiv.textContent = content;
-      //   newDiv.style.display = 'none';
-      //   document.body.appendChild(newDiv);
-      // }
       try {
         const vidImage = Array.from(document.querySelectorAll('img[id*="videoOverlay"]'));
-        // console.log('vidImage--->', vidImage);
-        // @ts-ignore
-        // const vidArray = [];
         for (let item = 0; item < vidImage.length; item++) {
           // @ts-ignore
           vidImage[item].click();
@@ -256,23 +191,6 @@ module.exports = {
         }
       } catch (err) {}
     });
-    // await context.evaluate(function () {
-    //   const iframe = document.querySelector('div.wc-mb-overlay-content > iframe') ? document.querySelector('div.wc-mb-overlay-content > iframe') : '';
-    //   if (iframe !== '') {
-    //     // @ts-ignore
-    //     const videoSpan = document.evaluate('//video//@src', iframe.contentDocument, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-    //     document.body.setAttribute('videospan', videoSpan.textContent);
-    //   }
-    // });
-
-    // await context.evaluateInFrame('iframe[id="wcframable1-0"]', function () {
-    //   const videoLink = document.querySelector('video[aria-label="video player"]').getAttribute('src');
-    //   // @ts-ignore
-    //   // videoLink && videoLink.textContent && document.body.setAttribute('videospan', videoLink.textContent);
-    //   if (videoLink && videoLink.textContent) {
-    //     document.body.setAttribute('videospan', videoLink.textContent);
-    //   }
-    // });
     var videoRequest = await context.searchForRequest('https://content.syndigo.com/asset/.*ts', 'GET');
     // videoRequest = videoRequest.JSON.stringify();
     // const data = (videoRequest && videoRequest.responseBody && videoRequest.responseBody.body) ? JSON.parse(videoRequest) : null;
@@ -289,6 +207,30 @@ module.exports = {
         addHiddenDiv('videos1', videoRequest.url);
       }, videoRequest);
     }
+
+    var allVariants = await context.evaluate(async function () {
+      const scriptEl = document.evaluate("//script[contains(., 'pricePerUnit')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+      if (scriptEl) {
+        const scriptText = scriptEl.innerText;
+        allVariants = JSON.parse(scriptText.split('var products =')[1].split('var options = ')[0].split('\n').join('').trim().slice(0, -1));
+
+        if (allVariants[0].length > 1) {
+          for (const product of allVariants[0]) {
+            const variantSku = product.partNumber;
+            const variantEl = document.createElement('import-variant-sku');
+            variantEl.setAttribute('data', variantSku);
+            document.body.appendChild(variantEl);
+          }
+        }
+      }
+      return allVariants;
+    });
+    if (allVariants[0].length > 1) {
+      for (const product of allVariants[0]) {
+        await context.extract(productDetails, { transform });
+      }
+    }
+    console.log('------>', allVariants);
 
     return await context.extract(productDetails, { transform });
   },
