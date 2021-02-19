@@ -63,13 +63,13 @@ fields:
     singleValue: true
   - name: gtin
     singleValue: true
-    xpath: //meta[@itemprop='gtin13']/@content
+    xpath: //li[@class="product-container variant visible"]//meta[@itemprop="gtin13"]
   - name: sku
     singleValue: true
-    xpath: //meta[@itemprop='sku']/@content
+    xpath: //li[@class="product-container variant visible"]/@data-sku
   - name: variantId
     singleValue: true
-    xpath: //html//div[@id="rpc"]
+    xpath: //li[@class="product-container variant visible"]/@data-sku
   - name: warnings
     singleValue: true
   - name: ratingCount
