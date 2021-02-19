@@ -65,7 +65,7 @@ fields:
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //form[@id="addToCartForm"]//input[@name="productId"]//@value
   - name: variantInformation
-    xpath: //div[@class="variants-wrapper"]
+    xpath: //div[contains(@class,"variant-container")]/div//label[contains(@class,"checked")]
   - name: ratingCount
     description: The number of ratings
     xpath: //div[@id="comments-container"]//span
