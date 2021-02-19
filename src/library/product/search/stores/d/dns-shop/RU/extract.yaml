@@ -13,17 +13,17 @@ fields:
   - name: productUrl
     singleValue: false
     description: The URL for the product details page
-    xpath: //div[contains(@class, 'product-info__title-link')]/a/@href
+    xpath: //div[contains(@class, 'product-info__title-link')]/a/@href | //a[contains(@class, 'catalog-product__name')]/@href
     regExp: (.+)
     regExpReplace: https://www.dns-shop.ru/$1
   - name: thumbnail
     singleValue: false
     description: The URL for the product thumbnail image
-    xpath: //div[contains(@class, 'product-info')]//picture/img/@src
+    xpath: //div[contains(@class, 'product-info')]//picture/img/@src | //div[contains(@class, 'catalog-product__image')]//picture/img/@src
   - name: name
     singleValue: false
     description: The product name
-    xpath: //div[contains(@class, 'product-info__title-link')]
+    xpath: //div[contains(@class, 'product-info__title-link')] | //a[contains(@class, 'catalog-product__name')]
   - name: sku
     singleValue: false
     description: The store-specific product identifier
@@ -36,15 +36,15 @@ fields:
   - name: ratingCount
     singleValue: false
     description: The number of ratings
-    xpath: //a[contains(@class, 'product-info__opinions-count')]
+    xpath: //a[contains(@class, 'product-info__opinions-count')] |  //a[contains(@class, 'catalog-product__rating')]
   - name: reviewCount
     singleValue: false
     description: The number of reviews
-    xpath: //a[contains(@class, 'product-info__opinions-count')]
+    xpath: //a[contains(@class, 'product-info__opinions-count')] |  //a[contains(@class, 'catalog-product__rating')]
   - name: price
     singleValue: false
     description: The offered price for the product
-    xpath: //div[contains(@class, 'product-min-price__current')]
+    xpath: //div[contains(@class, 'product-min-price__current')] | //div[@class='product-buy__price']
   - name: rank
     singleValue: false
     description: search/listing rank
@@ -56,13 +56,15 @@ fields:
   - name: id
     singleValue: false
     description: Unique id (within this extractor)
-    xpath: //div[contains(@class, 'product-info__code')]
+    xpath: //div[contains(@class, 'product-info__code')] | //a[contains(@class, 'catalog-product__name')]/@href
+    regExp: (.+)(product\/)(.+)\/(.+)
+    regExpReplace: $3
   - name: nameExtended
     singleValue: false
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per extractor)
-    xpath: //div[contains(@class, 'product-info__title-link')]
+    xpath: //div[contains(@class, 'product-info__title-link')] | //a[contains(@class, 'catalog-product__name')]/span
   - name: aggregateRating
     singleValue: false
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //div[contains(@class, 'product-info__rating')]/@data-rating
+    xpath: //div[contains(@class, 'product-info__rating')]/@data-rating | //a[contains(@class, 'catalog-product__rating')]/@data-rating

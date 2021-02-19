@@ -45,7 +45,7 @@ module.exports = {
       }
 
       const searchUrl = window.location.href;
-      const productList = document.querySelectorAll('div.catalog-item');
+      const productList = document.querySelectorAll('div.catalog-products');
 
       productList && productList.forEach((item1) => {
         const doc = item1;
