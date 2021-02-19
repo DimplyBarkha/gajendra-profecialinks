@@ -55,7 +55,7 @@ fields:
   - name: videos
     singleValue: false
     # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
-    xpath: //div[@class="image-layout-slides-group"]//img/@data-url | //div[@id="video"] | //div[@id="allVidLinks"]|//div[@id="flix_hotspots"]/*[@id='flix_product_video']/@src
+    xpath: //div[@class="image-layout-slides-group"]//img/@data-url | //div[@id="video"] | //div[@id="allVidLinks"]|//div[@id="flix_hotspots"]/*[@id='flix_product_video']/@src | //body/@video | //*[@id='flix-iframe0']/@src
     # xpath: //div[contains(@class,'video-slides')]/@data-url
   - name: name
     xpath : //meta[@name="twitter:title"]/@content

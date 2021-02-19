@@ -374,7 +374,19 @@ module.exports = {
       }
       textContent(document.querySelectorAll('div.pdp-info-container div.info')[1], 'ingredient');
     });
+    // iframe
+    try{
+      await context.evaluate(async function () {
+        document.querySelector('div#tab-header-1').click();
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        var video = document.querySelector('#flix-iframe0').getAttribute('src');
+        document.querySelector('body').setAttribute('video', video);
+      });
+    } catch (error) {
+      console.log('error during Video extract' + error);
+    }
 
+    // iframe
     await context.extract(productDetails, { transform });
   },
 };

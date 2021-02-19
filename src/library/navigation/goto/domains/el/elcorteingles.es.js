@@ -12,6 +12,7 @@ module.exports = {
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     await context.setFirstRequestTimeout(90000);
+    await context.setBypassCSP(true);
     url = url.replace(/^http:\/\//i, 'https://');
     console.log(`url after adding https is - ${url}`);
 
