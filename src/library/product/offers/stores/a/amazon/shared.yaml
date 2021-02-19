@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //*[@id="aod-offer"] | (//html[not(//*[@id="aod-offer"])]//*)[1] | //*[@id="aod-sticky-pinned-offer"] | //*[@id='aod-pinned-offer']
+recordXPath: //*[@id="aod-offer"] | (//html[not(//*[@id="aod-offer"])]//*)[1] | (//*[@id="aod-sticky-pinned-offer"] | //*[@id='aod-pinned-offer'])[1]
 fields:
   - name: name
     xpath: (ancestor::html//h5[@id='aod-asin-title-text'])[1]

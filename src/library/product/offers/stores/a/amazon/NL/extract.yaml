@@ -2,3 +2,5 @@ extends: ../shared
 fields:
   - name: resellerLink
     xpath: concat('https://www.amazon.nl', .//*[@id='aod-offer-soldBy']//a[@rel='noopener']/@href)
+  - name: aggregateRating
+    xpath: translate(substring-after(ancestor::html//*[@id='aod-asin-reviews-star']/@class, 'a-star-'), '-', ',')
