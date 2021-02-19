@@ -54,7 +54,7 @@ module.exports = {
     }
     await navigateWithProductId();
 
-    console.log("product url", productDetailsLink);
+    console.log('product url', productDetailsLink);
     if (productDetailsLink) {
       // const url = `https:${productDetailsLink}`;
       const finalUrl = `${productDetailsLink}`;

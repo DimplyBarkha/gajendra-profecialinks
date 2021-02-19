@@ -7,28 +7,28 @@
 const transform = (data) => {
   for (const { group } of data) {
     for (const row of group) {
-      // if (row.name && row.brandText) {
-      //   let nameExtended = `${row.brandText[0].text} - ${row.name[0].text}`;
-      //   if (row.variantInformation) {
-      //     nameExtended = `${nameExtended} - ${row.variantInformation[0].text}`;
-      //   } else if (row.singleProductVariantInformation) {
-      //     nameExtended = `${nameExtended} - ${row.singleProductVariantInformation[0].text}`;
-      //   }
-      //   row.nameExtended = [{ text: nameExtended }];
-      // }
       if (row.brandText) {
         let nameExtended = `${row.brandText[0].text}`;
         if (row.nameSuffix) {
           nameExtended = `${nameExtended} ${row.nameSuffix[0].text}`;
         }
+        let imNameExtended = nameExtended;
+        if (row.name) {
+          // This is only true for im
+          imNameExtended = `${imNameExtended} ${row.name[0].text}`.trim();
+        }
         if (row.variantInformationFromMatt) {
           nameExtended = `${nameExtended}  ${row.variantInformationFromMatt[0].text}`;
+          imNameExtended = `${imNameExtended}  ${row.variantInformationFromMatt[0].text}`;
         } else if (row.variantInformation) {
           nameExtended = `${nameExtended}  ${row.variantInformation[0].text}`;
+          imNameExtended = `${imNameExtended}  ${row.variantInformation[0].text}`;
         } else if (row.singleProductVariantInformation) {
           nameExtended = `${nameExtended}  ${row.singleProductVariantInformation[0].text}`;
+          imNameExtended = `${imNameExtended}  ${row.singleProductVariantInformation[0].text}`;
         }
         row.nameExtended = [{ text: nameExtended }];
+        row.imNameExtended = [{ text: imNameExtended }];
       }
 
       if (row.directions) {
@@ -130,12 +130,8 @@ const transform = (data) => {
         row.quantity = row.variantInformationFromMatt;
       }
 
-      if (!row.quantity && row.variantInformation) {
-        row.quantity = [{ text: row.variantInformation[0].text }];
-      }
-
-      if (!row.quantity && row.singleProductVariantInformation) {
-        row.quantity = [{ text: row.singleProductVariantInformation[0].text }];
+      if (row.quantity && row.quantity[0].text.indexOf('(online') > -1) {
+        row.quantity = [{ text: row.quantity[0].text.slice(0, row.quantity[0].text.indexOf('(online')).trim() }];
       }
 
       if (row.unInterruptedPDP) {
