@@ -11,7 +11,8 @@ fields:
     defaultValue: 'No'
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'swiper-wrapper')]//div[not(contains(@class,'swiper-slide-duplicate'))]/img/@src
+    #xpath: //div[contains(@class,'swiper-wrapper')]//div[not(contains(@class,'swiper-slide-duplicate'))]/img/@src
+    xpath: //div[contains(@class,"modal-content")]/div[position()>1]/img/@src
   - name: metaKeywords
     singleValue: false
     xpath: //meta[contains(@name, "keywords")]/@content

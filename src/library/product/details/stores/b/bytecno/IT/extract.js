@@ -229,6 +229,11 @@ module.exports = {
         newDiv.style.display = 'none';
         document.body.appendChild(newDiv);
       }
+      try{
+        document.querySelectorAll(".product-box-customs img")[1].click();
+      }catch(error){
+        console.log('Image not clicked')
+      }
     });
     context.click('body');
     return await context.extract(productDetails, { transform });
