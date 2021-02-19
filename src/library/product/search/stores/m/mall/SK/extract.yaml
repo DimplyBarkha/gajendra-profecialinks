@@ -9,6 +9,7 @@ fields:
   - name: name
     singleValue: false
     xpath: //div[@class="product-list lst-product lst-product--verbose lst-product--large-media"]/article//h3[@class="lst-product-item-title"]/a/text()
+    # xpath: //div[@class="product-list lst-product lst-product--verbose lst-product--large-media"]//div[@class="lst-product-item-body"]//h3/a/text()
   - name: id
     singleValue: false
     xpath: //div[@class="product-list lst-product lst-product--verbose lst-product--large-media"]/article/div/a/@id
