@@ -27,7 +27,7 @@ fields:
   - name: variantId
     xpath: //html//div[@id="rpc"]
   - name: variantInformation
-    xpath: //div[@class="fp-productList_bottleInfo"]/text()
+    xpath: concat(//html//div[@id="rpc"],'-',//div[@class='fp_product_details']/h5[@class='fp_product_name']/text(),'-',//div[@class="fp_article_bottleInfo"]/text())
   - name: variantCount
     type: NUMBER
     xpath: count(//div[@class='fp-productList_bottleDetails'])
