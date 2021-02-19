@@ -117,6 +117,7 @@ const transform = (data) => {
         if(bText!=''){
           row.nameExtended=[{"text":bText+" - "+nText}];
         }
+        console.log(row.imageAlt)
       }
     }
     return cleanUp(data);

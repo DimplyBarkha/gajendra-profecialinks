@@ -29,6 +29,7 @@ async function implementation (
     }
 
     var youtube = document.querySelector('iframe.videoly-box');
+    console.log(youtube)
     if(youtube){
       // @ts-ignore
       var video_list = youtube.contentDocument.getElementsByClassName('b-video-item-tile');
@@ -36,9 +37,6 @@ async function implementation (
         var video_id = video_list[i].getAttribute('data-videoid');
         addEleToDoc('custom_video_class',video_id);
         }
-    }
-    else{
-      console.log(document.querySelector('iframe.videoly-box'), "not found")
     }
   })
   return await context.extract(productDetails, { transform });
