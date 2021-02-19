@@ -4,8 +4,8 @@
  * @returns {ImportIO.Group[]}
  */
 const transform = (data, context) => {
-  function checkIfReviewIsFromLast30Days (lastDate, reviewDate) {
-    const timestamp = new Date(lastDate).getTime() - (30 * 24 * 60 * 60 * 1000);
+  function checkIfReviewIsFromLast30Days (currentDate, reviewDate) {
+    const timestamp = new Date(currentDate).getTime() - (30 * 24 * 60 * 60 * 1000);
     return new Date(reviewDate).getTime() >= timestamp;
   }
 
