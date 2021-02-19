@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class,"mak-product-tiles-container")]/div[@class="mak-product-tiles-container__product-tile"]
+recordXPath: //div[contains(@class,"product-tiles-container listview")]/div[contains(@class,"product-tile")]
 fields:
   - name: name
     singleValue: false
@@ -31,7 +31,8 @@ fields:
     xpath: //div[contains(@class,"_analytics")]//input/@value
   - name: aggregateRating
     singleValue: false
-    xpath: //div[contains(@class,"rating-stars")]/@data-rating
+    xpath: //div[contains(@class,"averageRating_component")]//*[contains(@class,"text")]
+    # xpath: //div[contains(@class,"rating-stars")]/@data-rating
     regExp: (.+)
     regExpReplace: '0'
   - name: searchUrl

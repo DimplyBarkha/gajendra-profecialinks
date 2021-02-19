@@ -44,7 +44,7 @@ module.exports = {
     domain: 'makro.co.za',
     url: 'https://www.makro.co.za/search/?pageSize=80&text={searchTerms}',
     loadedSelector: 'div#mak-body-content',
-    noResultsXPath: '//div[@class="searchEmpty-title"]/h1[contains(text(),"We couldn\'t find any results for")]',
+    noResultsXPath: `//div[@class="searchEmpty-title"]/*[contains(text(),"We couldn't find any results for")]`,
     zipcode: '',
   },
 };
