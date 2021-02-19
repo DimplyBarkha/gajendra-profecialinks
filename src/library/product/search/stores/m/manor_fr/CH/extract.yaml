@@ -1,0 +1,30 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: '//div[@class="epoq_resultrow epoq_grid o-producttile js-product-tile"]/a'
+fields:
+  - name: thumbnail
+    singleValue: false
+    xpath: //*[@id="epoq_resultrows"]/div/a/div/div/img/@src
+    description: image of the product
+  - name: name
+    singleValue: false
+    xpath: //*[@class="epoq_title o-producttile__title js-product-title"]
+    description : product name  
+  - name : aggregateRating
+    singleValue: false
+    xpath: //*/div/div/div/div/dl/dd/span/span
+  - name: price
+    singleValue: false
+    xpath: //div[@class="m-productpricev-2 m-productpricev-2--tile js-price--tile"]/span
+    description: price of the product 
+  - name: url
+    singleValue: false
+    xpath: //div[@class="epoq_resultrow epoq_grid o-producttile js-product-tile"]/a/@href
+    description : url of the product 
+  - name: id
+    singleValue: false
+    xpath: //div[@class="epoq_resultrow epoq_grid o-producttile js-product-tile"]/a/@href
+    description: product code 
+
+    
