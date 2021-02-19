@@ -114,6 +114,8 @@ module.exports = {
       try {
         var dec = getAllXpath('(//div[@class="variation-alt-images clearfix"]/div/@data-variation-id | //*[@id="schema-offer"]/div[1]/div/input/@value)', 'nodeValue');
         var str = "";
+        var frvar = dec[1]
+        addElementToDocument('frvar', frvar);
         if (dec != null) {
           str = dec.join(" | ");
           addElementToDocument('str', str);
@@ -150,7 +152,7 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
       const allVariants = getAllXpath("//form[@id='formVariatonPost']/div[@id='schema-offer']|//form[@action='/Shared/VariationPost']/div[contains(@class,'variation')]", 'nodeValue');
-      let arrAvailability = [], varprice = [], varpricePerUnit = [], varpriceUOM = [], varvariants = [], varlpr = [], varbrand = [], varnameex = [], varcolor = [], varvariantsids = [], varsku = [];
+      let arrAvailability = [], varprice = [], varpricePerUnit = [], varpriceUOM = [], varvariants = [], varlpr = [], varbrand = [], varnameex = [], varcolor = [], varvariantsids = [], varsku = [], vargtin = [], varmpc = [], varimgg = [];
 
       //AVAILABILITY
       try {
@@ -191,6 +193,16 @@ module.exports = {
       }
       catch (error) {
       }
+
+      //PROD IMAGE
+      // try {
+      //   var imgg = getAllXpath('//*[@id="more-pictures-container"]/div/div/div/div/div[position() < last()]/div/img/@src', 'nodeValue');
+      //   for (var i = 0; i < imgg.length; i++) {
+      //     varimgg.push(imgg[i]);
+      //   }
+
+      // }
+      // catch (error) { }
 
       //VARIANTSINFO
       try {
@@ -289,7 +301,7 @@ module.exports = {
           }
         }
         //var type1 = getAllXpath('//*[@id="schema-offer"]/div[2]/p[1]/span/text()', 'nodeValue');
-        
+
 
         // else{
         //   // @ts-ignore
@@ -318,28 +330,53 @@ module.exports = {
       try {
         var currurl = window.location.href
         addElementToDocument('currurl', currurl);
-        var gtin = currurl.split('index_')[1].split('.aspx')[0]
 
-        addElementToDocument('gtin', gtin);
+        //var gtin = currurl.split('index_')[1].split('.aspx')[0]
+
+        //addElementToDocument('gtin', gtin);
       }
       catch (error) { }
+
+
+      //GTIN
+      try {
+        var gtin13 = getAllXpath("//meta[@itemprop='gtin13']/@content", 'nodeValue');
+        for (var i = 0; i < gtin13.length; i++) {
+          vargtin.push(gtin13[i])
+        }
+      }
+      catch (error) {
+
+      }
+
+      //MPC
+      try {
+        var mpc = getXpath("//div[@id='articlenumberDiv']/text()", 'nodeValue');
+        var nwmpc = mpc.replace('Artnr. ', '')
+        for (var i = 0; i < varvariants.length; i++) {
+          varmpc.push(nwmpc)
+        }
+      }
+      catch (error) {
+
+      }
 
       //SKU
       try {
         var sku = getAllXpath('//div[@id="schema-offer"]/@data-runningnumber|//*[@id="articleId"]/@value', 'nodeValue');
-        for(var i = 0; i < sku.length; i++){
-          if(sku[i].includes('.')){
-            var varnw= sku[i].split('.')[1]
+        for (var i = 0; i < sku.length; i++) {
+          if (sku[i].includes('.')) {
+            var varnw = sku[i].split('.')[1]
             varsku.push(varnw)
           }
           else {
-            var varnw= sku[i];
+            var varnw = sku[i];
             varsku.push(varnw);
           }
         }
-        
 
-        addElementToDocument('gtin', gtin);
+
+        // addElementToDocument('gtin', gtin);
       }
       catch (error) { }
 
@@ -374,6 +411,10 @@ module.exports = {
         appendData('color', varcolor[j], j);
         appendData('varids', varvariantsids[j], j);
         appendData('varsku', varsku[j], j);
+        appendData('vargtin', vargtin[j], j);
+        appendData('varmpc', varmpc[j], j);
+        appendData('varimgg', varimgg[j], j);
+
 
       }
 
