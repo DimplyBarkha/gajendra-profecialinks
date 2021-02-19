@@ -45,10 +45,36 @@ async function implementation (
     } else if (availabilitySelector.length === 0) {
       document.body.setAttribute('availability', 'Out of Stock');
     }
+    // Add Single Pipes
+    const moreBulletSelector = document.querySelector('div#specifications ~div');
+    if (moreBulletSelector) {
+      const ulSelector = moreBulletSelector.querySelector('ul');
+      if (ulSelector) {
+        const liSelector = ulSelector.querySelectorAll('li');
+        liSelector.forEach(element => {
+          // @ts-ignore
+          const text = element.innerText;
+          const fixedText = `${text}|`;
+          // @ts-ignore
+          element.innerText = fixedText;
+        });
+      }
+    }
     // Create Specifiation
     specifiationFunc("//h2[contains(text(), 'Specifications')]//following-sibling::ul/li", 'specadded');
     // Create productOtherInformation
     specifiationFunc("//h2[contains(text(), 'Key Features')]//following-sibling::div/ul/li | //h2[contains(text(), 'What’s in the box')]//following-sibling::div", 'otheradded');
+    // Add Double Pipes
+    const bulletSelector = document.querySelectorAll('div#description ~div > ul > li');
+    if (bulletSelector) {
+      bulletSelector.forEach(element => {
+        // @ts-ignore
+        const text = element.innerText;
+        const fixedText = `${text}||`;
+        // @ts-ignore
+        element.innerText = fixedText;
+      });
+    }
   });
   return await context.extract(productDetails, { transform });
 }

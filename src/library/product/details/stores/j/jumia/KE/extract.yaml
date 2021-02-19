@@ -21,7 +21,7 @@ fields:
   - name: category
     singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class='brcbs col16 -pts -pbm']/a[position() > 1]
+    xpath: //div[@class='brcbs col16 -pts -pbm']/a[position() > 1 and not(position() = last())]
   - name: nameExtended
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -62,10 +62,11 @@ fields:
     description: Product manufacturer
     xpath: //div[contains(text(), 'Brand')]/a[1]
   - name: quantity
-    singleValue: true
+    singleValue: false
     description: Quantity as described on the page
-    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
-    regExpReplace: $1$2$3$4
+    xpath: //h1
+    regExp: ([\dA-z\,\.]+$)
+    regExpReplace: $1
   - name: weightNet
     singleValue: false
     description: Net weight as described on the page
@@ -131,7 +132,6 @@ fields:
     singleValue: true
     description: Number of variants listed
     type: NUMBER
-    xpath: count(//div[@aria-label='Select Variation']/input)
   - name: color
     singleValue: true
     description: A textual description of the colour
@@ -445,8 +445,9 @@ fields:
     singleValue: true
     description: The unit of measurement used in price_per_unit
   - name: promotion
-    singleValue: true
+    singleValue: false
     description: promotion text on product page
+    xpath: //h2[contains(text(), 'Promotions')]//following-sibling::div
   - name: alcoholContent
     singleValue: true
     description: Alcohol content information
@@ -503,11 +504,11 @@ fields:
   - name: termsAndConditions
     singleValue: true
     description: Terms and conditions information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: privacyPolicy
     singleValue: true
     description: Privacy Policy information text ['Yes','No']
-    defaultValue: No
+    defaultValue: Yes
   - name: customerServiceAvailability
     singleValue: true
     description: Information related to customer service availability (text), ['Yes','No']
@@ -526,4 +527,4 @@ fields:
     description: If Zoom feature is available for Main image or images in the
       carousel,['Yes','No']
     example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
-    defaultValue: No
+    defaultValue: Yes
