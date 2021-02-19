@@ -6,7 +6,7 @@ fields:
   - name: image
     singleValue: true
     description: URL of the main product image
-    xpath: //div[@class='jsx-4119626346 ZoomableImageSwitcher']/img/@src
+    xpath: //div[@class='jsx-1831001417 swiper-slide swiper-slide-active']//img/@src
   - name: imageAlt
     singleValue: true
     description: Alt text of the main product image
@@ -80,7 +80,6 @@ fields:
   - name: gtin
     singleValue: true
     description: GTIN code (includes UPC/EAN)
-    xpath: substring(//div[contains(@data-marker-popup, 'Big product card')][not(contains(@data-productkey, 'metro'))]/@data-productkey,2)
   - name: eangtin
     singleValue: true
     xpath: substring(//div[contains(@data-marker-popup, 'Big product card')][not(contains(@data-productkey, 'metro'))]/@data-productkey,2)
