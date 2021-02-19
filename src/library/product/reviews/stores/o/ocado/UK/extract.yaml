@@ -24,6 +24,11 @@ fields:
     xpath: ancestor::html//meta[@property='og:url']/@content
     regExp: (\d+)\?
     regExpReplace: $1
+  - name: variantId
+    description: The store-specific product identifier
+    xpath: ancestor::html//meta[@property='og:url']/@content
+    regExp: (\d+)\?
+    regExpReplace: $1
   - name: reviewDate
     description: Date the review was made
     type: DATETIME
