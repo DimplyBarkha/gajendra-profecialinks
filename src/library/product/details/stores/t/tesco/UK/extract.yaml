@@ -249,3 +249,7 @@ fields:
   - name: dietarySymbols
     singleValue: true
     xpath: //span[contains(.,'Suitable for vegetarians')]
+  - name: drive
+    xpath: //div[@class="product-image--wrapper"]/@zipcode 
+  - name: retailerId
+    xpath: //div[@class="product-image--wrapper"]/@storeId
