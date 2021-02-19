@@ -89,12 +89,12 @@ const transform = (data) => {
             }
             if (row.proteinPerServing) {                    
               row.proteinPerServing.forEach(item => {
-                if(item.text.indexOf(" белок") !== -1){
-                  item.text = item.text.substr(item.text.indexOf(" белок"));
-                  item.text = item.text.replace(" белок ", "");
-                }else{
+                if(item.text.indexOf(" белки") !== -1){
                   item.text = item.text.substr(item.text.indexOf(" белки"));
                   item.text = item.text.replace(" белки ", "");
+                }else{
+                  item.text = item.text.substr(item.text.indexOf(" белок"));
+                  item.text = item.text.replace(" белок ", "");
                 }
                 item.text = item.text.substr(0, 4);
                 item.text = item.text.replace(/[^\d-,]/g, "");
