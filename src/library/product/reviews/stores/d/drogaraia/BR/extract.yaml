@@ -44,7 +44,7 @@ fields:
     description: GTIN code (includes UPC/EAN)
   - name: productUrl
     singleValue: true
-    xpath: //link[contains(@rel,"canonical")]/@href
+    xpath: ancestor::html//*[contains(@rel,"canonical")]/@href
     description: The url of the product details page
   - name: verifiedPurchase
     singleValue: true
@@ -52,7 +52,7 @@ fields:
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
   - name: manufacturerResponse
     singleValue: false
-    xpath: //li[(contains(@itemprop,"review"))]//div[contains(@class,"ts-reply")]
+    xpath: //li[(contains(@itemprop,"review"))]//div[contains(@class,"ts-reply")]/span
     description: The response of the manufacturer (if any)
   - name: user
     singleValue: false
@@ -64,4 +64,9 @@ fields:
     xpath: ancestor::html//*[@id="_sincero_widget"]/div/section[1]/section/div[1]/div[1]/span[1]
     # xpath: //span[contains(@class,"ts-shelf-rate-count")] //span[contains(@itemprop,"ratingValue")]
     description: The product rating
-
+  - name: brandText
+    singleValue: true
+    xpath: ancestor::html//*[@id="product-attribute-specs-table"]/tbody/tr[5]/td
+  - name: reviewUrl
+    singleValue: true
+    xpath: ancestor::html//*[contains(@rel,"canonical")]/@href
