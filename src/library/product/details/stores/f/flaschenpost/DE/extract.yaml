@@ -1,20 +1,20 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="fp-productList_detail"]
+recordXPath: //div[@class="fp_product_details"]/div[contains(@class,"fp_article")]
 fields:
   - name: image 
-    xpath: ancestor::html//div[@class='fp-productList_image']/img/@src
+    xpath: ancestor::html//div[@class='d-flex flex-row']/a/img/@src
   - name: productUrl   
     xpath: ancestor::html/html/head/link[@rel="canonical"]/@href
   - name: imageAlt
-    xpath: ancestor::html//div[@class='fp-productList_image']/img/@alt  
+    xpath: ancestor::html//div[@class='d-flex flex-row']/a/img/@alt
   - name: category
     xpath: ancestor::html//div[@class='fp-pagination']/a[position() >= 2 and position()<last()]/text()
   - name: nameExtended
-    xpath: ancestor::html//div[@class='fp-productList_info']/h5[@class='fp-productList_productName']/text()  
+    xpath: ancestor::html//div[@class='fp_product_details']/h5[@class='fp_product_name']/text()  
   - name: availabilityText
-    xpath: //div[@class="fp-productList_action"]/img/@src
+    xpath: //div[@class="fp_article_basket"]//img/@src
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: OutOfStock
@@ -23,9 +23,10 @@ fields:
   - name: brandText
     xpath: ancestor::html//div[@class="fp-pagination"]/@data-brand-name
   - name: quantity
-    xpath: //div[@class="fp-productList_bottleInfo"]/text()
+    xpath: //div[@class="fp_article_bottleInfo"]/text()
   - name: variantId
-    xpath: //div[@class="fp-productList_content"]/div/@data-article 
+    singleValue: true
+    xpath: //html//div[@id="rpc"]
   - name: variantInformation
     xpath: //div[@class="fp-productList_bottleInfo"]/text()
   - name: variantCount
