@@ -30,6 +30,9 @@ const transform = (data, context) => {
           }
         });
       }
+      if (row.price && row.price[0]) {
+        row.price[0].text = row.price[0].text.replace(',', '.');
+      }
       // if (row.aggregateRating2 && row.aggregateRating2[0]) {
       //   row.aggregateRating2[0].text = row.aggregateRating2[0].text.replace('.', ',');
       // }
