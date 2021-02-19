@@ -48,7 +48,11 @@ module.exports = {
       }
     }
     console.log('jsonlatlongg  ');
-    console.log(jsonLatLong);
+    // console.log(jsonLatLong);
+    console.log(foundLatLong)
+    if (!foundLatLong) {
+      throw new Error('No Zip code found.');
+    }
     const storeInfo = await getJsonDataFetch(`https://drizly.com/modal/resolve_stores.json?latitude=${foundLatLong[2]}&longitude=${foundLatLong[1]}&zip=${zipcode}`);
     const { address, city, state, zip, delivery_type, latitude, longitude} = storeInfo.stores[0];
 
