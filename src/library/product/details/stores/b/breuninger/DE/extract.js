@@ -448,7 +448,7 @@ module.exports = {
     console.log("212121dataRef");
     console.log(dataRef);
 
-    let descInfoElmSel = '//*[@data-module="bewerten/components/vueData/vueData"]';
+    let descInfoElmSel = '//*[contains(@data-module,"bewerten/components/vueData/vueData")]';
     let textValFromElm = '';
     console.log('gotAdditionalDescBulletInfo', gotAdditionalDescBulletInfo);
     if(!gotAdditionalDescBulletInfo) {

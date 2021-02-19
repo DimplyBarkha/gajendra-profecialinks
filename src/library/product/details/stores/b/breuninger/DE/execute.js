@@ -5,7 +5,8 @@ module.exports = {
     store: 'breuninger',
     domain: 'breuninger.de',
     loadedSelector: 'div[class*="active"] img[class="bewerten-bild"][alt*="1"], h1.next-chapter',
-    noResultsXPath: '//p[@class="shop-copytext bewerten-out-of-stock-banner__text"]',
+    noResultsXPath: '//*[contains(.,"Leider konnten wir den gewünschten Artikel nicht finden")]',
+    // noResultsXPath: '//p[@class="shop-copytext bewerten-out-of-stock-banner__text"] | //*[contains(.,"Leider konnten wir den gewünschten Artikel nicht finden")]',
     zipcode: '',
   },
   implementation: async function (
