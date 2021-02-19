@@ -95,7 +95,7 @@ fields:
   description: Identifier for a variant from a store where variants share the same
     sku
   xpath: //div[@id="primary_image"]//img/@src
-  regExp: (\d+)\.[a-z]{3}
+  regExp: (\d+)\.[a-z]{3}$
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
