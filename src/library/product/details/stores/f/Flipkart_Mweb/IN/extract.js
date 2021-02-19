@@ -74,7 +74,6 @@ async function implementation (
       return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
     }
 
-    
     if (document.body.querySelector('#is_script')) {
       const JSstring = document.body.querySelector('#is_script') ? document.body.querySelector('#is_script').innerHTML : '';
       const obj = JSON.parse(JSstring.split('window.__INITIAL_STATE__ = ').slice(-1)[0].trim().slice(0, -1));
@@ -153,7 +152,6 @@ async function implementation (
       }
     }
 
-    
     var a = document.querySelectorAll('div._3k-BhJ table');
     if (a != null) {
       var b = '';
