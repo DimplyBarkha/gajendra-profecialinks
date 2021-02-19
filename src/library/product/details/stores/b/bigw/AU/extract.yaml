@@ -158,8 +158,8 @@ fields:
     singleValue: true
     xpath: //div[@class="priceMeta hide-sm hide-prv"]
   - name: manufacturerDescription
-    singleValue: false,
-    xpath: concat(//span[contains(@itemprop,'description')], ' ',//ul[contains(@class,'inpage_features_grid')]//li//div[contains(@class,'inpage_h4 flix-d-h3')])
+    singleValue: false
+    xpath: //span[contains(@itemprop,'description')] | //div[contains(@class,'flix-d-p')]
   - name: colorCode
     singleValue: true
   #- name: newDescription
