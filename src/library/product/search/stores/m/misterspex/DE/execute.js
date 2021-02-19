@@ -6,8 +6,8 @@ module.exports = {
     store: 'misterspex',
     domain: 'misterspex.de',
     url: 'https://www.misterspex.de/INTERSHOP/web/WFS/MisterSpex-MisterSpexDE-Site/de_DE/-/EUR/ViewParametricSearch-Browse?SearchTerm={searchTerms}',
-    loadedSelector: '.spex-productList__products',
-    noResultsXPath: null,
+    loadedSelector: '.spex-productList__products, div.grid',
+    noResultsXPath: '//div[contains(@data-qa,"no_results_search")] | //div[@class="spex-productImageWithTitle"]',
     zipcode: '',
   },
 };
