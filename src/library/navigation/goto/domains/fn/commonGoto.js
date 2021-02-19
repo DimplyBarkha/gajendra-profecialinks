@@ -142,7 +142,7 @@ const implementation = async (
                 await context.reload();
                 await solveCaptchIfNecessary(cssCaptcha);
             }
-            await context.waitForNavigation({ timeout: 30000 }).catch(error => console.log(error))
+            await context.waitForNavigation({ timeout: 300000 }).catch(error => console.log(error))
             // sometimes after captcha solved, it gets hard blocked
 
             if (await checkExistance('div[class~="f-productVisuals-mainIconZoom"], div.productPageTop')) {

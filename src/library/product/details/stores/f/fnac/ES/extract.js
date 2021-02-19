@@ -12,6 +12,14 @@ async function implementation(inputs, parameters, context, dependencies) {
 
     if (isPopUpAvailable) await context.click(cssBtn);
   };
+  await context.evaluate(async function () {
+      const popUpss = document.querySelector ('a.KameleoonScenarioLayerClose');
+      if (popUpss) popUpss.click();
+    });
+  await context.evaluate(async function () {
+      const popUps = document.querySelector ('button#onetrust-accept-btn-handler');
+      if (popUps) popUps.click();
+    });
   // If cookie pop up appears then clicking on accept button
   await context.evaluate(async function () {
     function addHiddenDiv (id, content) {
