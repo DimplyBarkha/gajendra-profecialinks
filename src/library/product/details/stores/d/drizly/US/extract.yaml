@@ -7,6 +7,7 @@ fields:
   # xpath: //head/@zipcode
   xpath: //script[contains(., "drzAddressZip")]
   regExp: drzAddressZip":"([^"]+)
+  regExpReplace: $1
 - name: retailer_id
   xpath: (//button/@data-store-id)[1]
 - name: online_store
