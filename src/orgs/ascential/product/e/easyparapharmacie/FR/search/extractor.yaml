@@ -6,7 +6,9 @@ parameters:
   zipcode: ""
 meta:
   branches:
-    tdcm_easyparapharmacie_FR_search:
+  # There are 2 extractors here, because IM search needs 1000 results and
+  # there's no way to pass 'results' input to extract.js
+    im_search_easyparapharmacie:
       extractor: b502a89c-6ac8-400c-a1fc-66fe4a1b7d27
       legacyAccountId: 63fd92cf-ba0e-42f9-9361-28797373bac8
     easyparapharmacie:

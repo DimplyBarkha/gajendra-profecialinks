@@ -1,7 +1,11 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, 'product-container')]
+# There are 2 extractors here, because IM search needs 1000 results and
+# there's no way to pass 'results' input to extract.js
+# For IM search uncomment/comment 2 lines below
+# recordXPath: (//div[contains(@class, 'product-container')])[position() <= 1000]
+recordXPath: (//div[contains(@class, 'product-container')])[position() <= 150]
 fields:
   - name: id
     singleValue: false
