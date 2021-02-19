@@ -44,14 +44,30 @@ async function implementation   (
   //   await context.click(btnSel);
   //   await new Promise(resolve => setTimeout(resolve, 3000));
   // }
+  await context.evaluate(async () => {
+    async function infiniteScroll () {
+      let prevScroll = document.documentElement.scrollTop;
+      while (true) {
+        window.scrollBy(0, document.documentElement.clientHeight);
+        await new Promise(resolve => setTimeout(resolve, 8000));
+        const currentScroll = document.documentElement.scrollTop;
+        if (currentScroll === prevScroll) {
+          break;
+        }
+        prevScroll = currentScroll;
+      }
+    }
+    await infiniteScroll();
+  });
+
   try{
-    let node = await context.evaluate(async function () {
-      return document.querySelectorAll(`div[class='H_j8WO position-relative'] button`);
+    const node = await context.evaluate(async function () {
+      return document.querySelector('div[class="H_j8WO position-relative"] button');
     });
 
     if(JSON.stringify(node) !== '{}'){
-      await context.click(`div[class='H_j8WO position-relative'] button`);
-      await new Promise(resolve => setTimeout(resolve, 90000));
+      await context.click('div[class="H_j8WO position-relative"] button');
+      await new Promise(resolve => setTimeout(resolve, 40000));
     }
   }catch(exception){
     console.log("Exception ",exception);
