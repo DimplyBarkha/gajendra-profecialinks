@@ -60,7 +60,10 @@ const transform = (data, context) => {
         for (const row of group) {
             const hostName = row.productUrl && row.productUrl[0] ? row.productUrl[0].text.split('/')[2] : '';
             const websiteName = hostName.split('.').slice(1).join('.');
-            const mappingObject = {
+            try {
+
+            } catch (e) {
+                const mappingObject = {
                 asin: item => matchRegex(/([A-Za-z0-9]{10,})/g, sg(item), ''),
                 warnings: item => sg(item).replace(/Safety Information/g, '').trim(),
                 weightGross: item => sg(item).trim(),
@@ -104,6 +107,7 @@ const transform = (data, context) => {
                     else row[key] = [{ text: result }];
                 }
             });
+            }
             if (!(row.quantity && row.quantity[0] && row.quantity[0].text) && (row.nameExtended && row.nameExtended[0] && row.nameExtended[0].text)) {
                 const quantityText = row.nameExtended[0].text;
                 const quantityRe = /(?:\s?([\d.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][.]?\s?[oO][zZ][.]?|FO|[mM][lL]|[oO][zZ][.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[s,S]ingle-serve K-Cup|[wW]ipe[s]?).?)(?:\s?([\d.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][.]?\s?[oO][zZ][.]?|FO|[mM][lL]|[oO][zZ][.]?|pc|[pP]int|[iI]ce|[pP]ops|[pP]ods|qt|[s,S]ingle-serve K-Cup|[wW]ipe[s]?).?\s)*/;
