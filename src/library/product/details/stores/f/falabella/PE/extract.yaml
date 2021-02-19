@@ -15,7 +15,7 @@ fields:
   - name: image
     singleValue: false
     # xpath: //div[contains(@class,"jsx-3622739909")]/img[@class="jsx-2487856160"]/@src
-    xpath: //meta[@property="og:image"]/@content |//div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_1?') or contains(@src,'_01?')][1]/@src
+    xpath: //meta[@property="og:image"]/@content | //div[contains(@class,'fa--image-gallery-item__desktop')]/div/img[contains(@src,'_1?') or contains(@src,'_01?')][1]/@src
   - name: category
     singleValue: false
     xpath: //ol[contains(@class,'breadcrum')]/li[position() >1 ]
@@ -36,7 +36,7 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: promotion
     singleValue: false
-    xpath: //span[contains(@class,'pod-badges-item')]
+    xpath: //div[@id="cmr-points"]//text() | //span[contains(@class,'pod-badges-item')]
   - name: mpc
     singleValue: false
     xpath: //td[contains(text(),'Modelo')]/following-sibling::td[1]
@@ -60,10 +60,10 @@ fields:
     xpath: concat(//div/@data-brand,' ',//div/@data-name) 
   - name: listPrice
     singleValue: false
-    xpath: //li[contains(@class,'price-1')]//div[contains(@class,'cmr-icon-container')]/span
+    xpath: (//li[@data-normal-price]//div[@data-variant="PDP_MAIN_MOBILE"]/span)[1] | //li[@data-normal-price] | //li[contains(@class,'price-1')]//div[contains(@class,'cmr-icon-container')]/span
   - name: price
     singleValue: false
-    xpath: //li[contains(@class,'price-0')]//div[contains(@class,'cmr-icon-container')]/span
+    xpath: //li[@data-internet-price]//div[@data-variant="PDP_MAIN_MOBILE"]/span/text()[1] | //li[@data-internet-price] | //li[contains(@class,'price-0')]//div[contains(@class,'cmr-icon-container')]/span 
   - name: availabilityText
     singleValue: false
     xpath: concat(substring('Out Of Stock', 1 div boolean(//div[contains(@class,'outofstock-container')])),
