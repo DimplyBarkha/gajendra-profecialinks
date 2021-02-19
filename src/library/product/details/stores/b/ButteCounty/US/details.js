@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details',
   parameterValues: {
-    country: 'CA',
+    country: 'US',
     store: 'ButteCounty',
     domain: 'cabutteodyprod.tylerhost.net',
     zipcode: "''",

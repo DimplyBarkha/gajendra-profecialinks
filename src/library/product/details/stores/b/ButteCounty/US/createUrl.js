@@ -5,7 +5,7 @@ module.exports = {
     domain: 'cabutteodyprod.tylerhost.net',
     prefix: null,
     url: null,
-    country: 'CA',
+    country: 'US',
     store: 'ButteCounty',
     zipcode: "''",
   },
