@@ -26,7 +26,7 @@ fields:
     xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//span[@class="styles__TotalWrap-RC__sc-5hhhh2-4 glgCQP total"] | //div[contains(@class , "ProductDetailsWrapper")]//span[contains(@class,"styles__TotalWrap")] | //div[@class="rating-tooltip"]/div
   - name: price
     singleValue: false
-    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-act-$"] | //div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-rng"] | //span[@class="finalPrice"]/div | //div[@class="prdt-actl-pr"] | //div[@data-selector="splp-prd-rng"]
+    xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-act-$"] | //div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@aria-label="product details"]//div[@data-selector="splp-prd-rng"] | //span[@class="finalPrice"]/div | //div[@class="prdt-actl-pr"] | //div[@data-selector="splp-prd-rng"]| //div[contains(@data-selector,"splp-prd-act-$")] 
   - name: id
     singleValue: false
     xpath: //div[@data-selector="splp-prd-lst-plpo"]//div[contains(@data-selector,"splp-prd-tl-wrp")]//article[@data-selector=" splp-prd-tl-dsktp"]//div[@data-selector="splp-prd-tl-img"]//@id | //div[@id='idDetails'] | //div[@data-selector="splp-prd-tl-img"]/@id | //div[contains(@class , "ProductDetailsWrapper")]//div[@id='idDetails']
