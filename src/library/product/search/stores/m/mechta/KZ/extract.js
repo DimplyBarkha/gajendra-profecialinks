@@ -152,9 +152,10 @@ module.exports = {
             const prodId = prodItem.id;
             const rating = prodItem.rating;
             const review = prodItem.review;
-            console.log(`prodId : ${prodId}, rating : ${rating}, review : ${review}`);
             if (prodId) {
-              const idToUse = prodId.slice(prodItem.length - 5);
+              const idToUse = prodId.slice(prodId.length - 5);
+              console.log(`prodId : ${idToUse}, rating : ${rating}, review : ${review}`);
+
               attrbSelector.setAttribute('my-prodid', idToUse);
               attrbSelector.setAttribute('my-rating', rating);
               attrbSelector.setAttribute('my-review', review);
