@@ -5,7 +5,7 @@ module.exports = {
     template: null,
     country: 'DE',
     store: 'dm',
-    // nextLinkSelector: "span[class='bv-content-btn-pages-next']",
+    nextLinkSelector: "span[class='bv-content-btn-pages-next']",
     nextLinkXpath: null,
     mutationSelector: null,
     spinnerSelector: null,
