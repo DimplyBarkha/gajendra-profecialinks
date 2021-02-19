@@ -28,13 +28,17 @@ async function implementation (
       document.body.appendChild(prodEle);
     }
 
-    var youtube = document.getElementsByClassName('videoly-box');
+    var youtube = document.querySelector('iframe.videoly-box');
     if(youtube){
-      var video_list = youtube[0].contentDocument.getElementsByClassName('b-video-item-tile');
+      // @ts-ignore
+      var video_list = youtube.contentDocument.getElementsByClassName('b-video-item-tile');
       for(var i=0; i<video_list.length; i++){
         var video_id = video_list[i].getAttribute('data-videoid');
         addEleToDoc('custom_video_class',video_id);
         }
+    }
+    else{
+      console.log(document.querySelector('iframe.videoly-box'), "not found")
     }
   })
   return await context.extract(productDetails, { transform });

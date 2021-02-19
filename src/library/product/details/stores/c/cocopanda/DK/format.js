@@ -25,6 +25,7 @@ const transform = (data) => {
     for (const { group } of data) {
       var skuText=''; var bText='';var nText='';
       for (let row of group) {
+        console.log(row.videos)
         if(row.videos){
           //console.log('comming to row.videos');
           var info=[];
@@ -85,6 +86,8 @@ const transform = (data) => {
             
           })
         }
+
+        console.log(row.aggregateRating)
         if(row.aggregateRating){
           row.aggregateRating.forEach(item => {
             let reviewCountData=item.text.split('-');
