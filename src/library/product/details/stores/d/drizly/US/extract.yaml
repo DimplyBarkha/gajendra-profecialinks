@@ -4,7 +4,9 @@ recordSelector: null
 recordXPath: null
 fields:
 - name: drive
-  xpath: //head/@zipcode
+  # xpath: //head/@zipcode
+  xpath: //script[contains(., "drzAddressZip")]
+  regExp: drzAddressZip":"([^"]+)
 - name: retailer_id
   xpath: (//button/@data-store-id)[1]
 - name: online_store
