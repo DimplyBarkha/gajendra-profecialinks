@@ -19,6 +19,37 @@ async function implementation (
     }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
   }
 
+  let cookieBtnXpath = '//*[contains(@id,"acceptCookieButton")]';
+  let cookieBtnPresent = false;
+  try {
+    await context.waitForXPath(cookieBtnXpath);
+    cookieBtnPresent = true;
+  } catch(err) {
+    console.log('we got some error while waiting for cookie btn', err.message);
+    try {
+      await context.waitForXPath(cookieBtnXpath);
+      cookieBtnPresent = true;
+    } catch(error) {
+      console.log('we got some error while waiting for cookie btn', error.message);
+    }
+
+  }
+
+  console.log('cookieBtnPresent', cookieBtnPresent);
+  if(cookieBtnPresent) {
+    await context.evaluate(async (cookieBtnXpath) => {
+      console.log('need to check for cookieBtnXpath',cookieBtnXpath);
+      let elms = document.evaluate(cookieBtnXpath, document, null, 7, null);
+      let btnElm = {};
+      if(elms && elms.snapshotLength > 0) {
+        btnElm = elms.snapshotItem(0);
+        btnElm.click();
+      }
+    }, cookieBtnXpath);
+
+    await new Promise(resolve => setTimeout(resolve, 3000));
+  }
+
   if (id) {
     await context.waitForSelector('.product > div > a');
     const pageLink = await context.evaluate(() => { return document.querySelector('.product > div > a').getAttribute('href'); });

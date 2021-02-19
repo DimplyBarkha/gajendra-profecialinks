@@ -14,6 +14,40 @@ module.exports = {
     context,
     dependencies,
   ) => {
+
+    let cookieBtnXpath = '//*[contains(@id,"acceptCookieButton")]';
+    let cookieBtnPresent = false;
+    try {
+      await context.waitForXPath(cookieBtnXpath);
+      cookieBtnPresent = true;
+    } catch(err) {
+      console.log('we got some error while waiting for cookie btn', err.message);
+      try {
+        await context.waitForXPath(cookieBtnXpath);
+        cookieBtnPresent = true;
+      } catch(error) {
+        console.log('we got some error while waiting for cookie btn', error.message);
+      }
+  
+    }
+
+    console.log('cookieBtnPresent', cookieBtnPresent);
+    if(cookieBtnPresent) {
+      await context.evaluate(async (cookieBtnXpath) => {
+        console.log('need to check for cookieBtnXpath',cookieBtnXpath);
+        let elms = document.evaluate(cookieBtnXpath, document, null, 7, null);
+        let btnElm = {};
+        if(elms && elms.snapshotLength > 0) {
+          btnElm = elms.snapshotItem(0);
+          btnElm.click();
+        }
+      }, cookieBtnXpath);
+
+      await new Promise(resolve => setTimeout(resolve, 3000));
+    }
+
+    
+
     try {
       await context.waitForSelector('#pm-document', { timeout: 10000 });
     } catch (e) {
@@ -96,6 +130,53 @@ module.exports = {
             await createDiv("//div[@id='section']//h2[contains(.,'2. ')]//following-sibling::*", 'warnings');
             await createDiv("//div[@id='section']//h2[contains(.,'5. ')]//following-sibling::*", 'storage');
           }
+
+          let gtinXpath = '//*[contains(text(),"gtin")]';
+          let elm = document.evaluate(gtinXpath, document, null, 7, null);
+          let text = '';
+          if(elm && elm.snapshotLength > 0) {
+            text = elm.snapshotItem(0).textContent;
+          }
+          if(text) {
+            text = text.trim();
+          }
+          let jsonObj = {};
+          try {
+            jsonObj = JSON.parse(text);
+          } catch(err) {
+            console.log('got some error while parsing text to json', err.message);
+          }
+          
+          let gtin = '';
+          let brand = '';
+          if(Object.keys(jsonObj).length > 0) {
+            if(jsonObj.hasOwnProperty('gtin13')) {
+              gtin = jsonObj['gtin13'];
+            } else {
+              console.log('could not get gtin');
+            }
+            if(jsonObj.hasOwnProperty('offers') && jsonObj['offers'].hasOwnProperty('seller') && jsonObj['offers']['seller'].hasOwnProperty('name')) {
+              brand = jsonObj['offers']['seller']['name'];
+              brand = brand ? brand.trim() : '';
+            } else {
+              console.log('was not able to get the brand info');
+            }
+          }
+          
+          if(brand) {
+            console.log('brand', brand);
+            let divBrand = createDivWithID('brand');
+            divBrand.innerText = brand;
+            document.body.append(divBrand);
+          }
+          
+          if(gtin) {
+            console.log('gtin', gtin);
+            let divgtin = createDivWithID('gtin');
+            divgtin.innerText = gtin;
+            document.body.append(divgtin);
+          }
+          
         }
       });
     }

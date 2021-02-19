@@ -60,9 +60,10 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //*[contains(@ng-controller,"richDataController")]
-    regExp: brand([:"\s]+)([\w\d\s-\W]+)(")
-    regExpReplace: $2
+    xpath: //div[@id="brand"]
+    # xpath: //*[contains(@ng-controller,"richDataController")]
+    # regExp: brand([:"\s]+)([\w\d\s-\W]+)(")
+    # regExpReplace: $2
   - name: manufacturer
     singleValue: false
   - name: quantity
@@ -79,9 +80,10 @@ fields:
   - name: gtin
     singleValue: false
     description: GTIN code (includes UPC/EAN)
-    xpath: //*[contains(@ng-controller,"richDataController")]
-    regExp: gtin13([:"\s]+)(\d+)(",)
-    regExpReplace: $2
+    xpath: //div[@id="gtin"]
+    # xpath: //*[contains(@ng-controller,"richDataController")]
+    # regExp: gtin13([:"\s]+)(\d+)(",)
+    # regExpReplace: $2
   - name: sku
     singleValue: false
     description: The store-specific product identifier
