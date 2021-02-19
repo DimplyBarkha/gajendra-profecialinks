@@ -2,7 +2,7 @@ input:
   id: 134444782
   _url: http://americanas.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=ebdb3f2e-916d-4ed6-8f20-96961e60ece1/task=764a14e4-1fad-489c-a236-d4748f6c733e/a4a17e46-4a40-4ae5-ba89-51d2bba52b05.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3bb44d5c-2ee9-47e6-9672-ffcf2548bd56/task=52501833-1815-437d-ae23-986960bb2f99/25f4f291-e665-477b-b43c-b94f06419776.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
@@ -41,34 +41,34 @@ extractions:
                   Verifique com os fabricantes do produto e de seus componentes eventuais limitações à utilização de todos os recursos e funcionalidades.
 
                   Imagens Meramente Ilustrativas.
-                xpath: /html/body/div[1]/div[1]/div[6]/div[1]/div[1]/div[2]/div[1]
-            variantId:
-              - text: "134444782"
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]
-            gtin:
-              - text: "7893299911507"
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[2]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[7]/div[1]/div[1]/div[2]/div[1]
             brandText:
               - text: LG
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[3]/td[2]
-            color:
-              - text: Preto
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[5]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[3]/td[2]
             quantity:
               - text: "32"
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[7]/td[2]
-            warranty:
-              - text: 12 Meses
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[28]/td[2]
-            shippingDimensions:
-              - text: 47,2x74,2x18cm
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[29]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[7]/td[2]
             weightNet:
               - text: 5kg
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[30]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[30]/td[2]
+            gtin:
+              - text: "7893299911507"
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[2]/td[2]
+            variantId:
+              - text: "134444782"
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[1]/td[2]
             mpc:
               - text: 32LM625BPSB
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[31]/td[2]
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[31]/td[2]
+            shippingDimensions:
+              - text: 47,2x74,2x18cm
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[29]/td[2]
+            color:
+              - text: Preto
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[5]/td[2]
+            warranty:
+              - text: 12 Meses
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[28]/td[2]
             productUrl:
               - text: https://www.americanas.com.br/produto/134444782
                 xpath: /html/body/div[2]
@@ -160,9 +160,19 @@ extractions:
                 xpath: /html/body/div[11]
             variantCount:
               - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
             imageZoomFeaturePresent:
-              - text: true
+              - text: Yes
             descriptionBullets:
               - text: "0"
         xpath: /html
-    timestamp: 1613651693441
+    timestamp: 1613720133282

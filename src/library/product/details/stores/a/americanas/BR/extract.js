@@ -40,7 +40,7 @@ module.exports = {
         const sku = json && json['@graph'] && json['@graph'][4] ? json['@graph'][4].sku : '';
         if (sku) addElementToDom('sku', sku);
       }
-      const availabilityText = document.querySelector('a#buy-button') ? 'In Stock' : 'Out Of Stock';
+      const availabilityText = document.querySelector('a#buy-button') ? 'In Stock' : 'Out of Stock';
       addElementToDom('availabilityText', availabilityText);
 
       const specifications = document.querySelectorAll("table[class^='src__SpecsCell'] td");

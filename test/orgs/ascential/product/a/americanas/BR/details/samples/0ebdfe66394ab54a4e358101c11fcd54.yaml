@@ -2,43 +2,13 @@ input:
   id: 1704351001
   _url: http://americanas.com.br
 extractions:
-  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=854440b5-cfc1-44cc-b6a0-860ef11a767f/task=1ac79cb4-5b43-4be4-b150-b42153fa8033/7f7f41b6-4f7f-4805-b18a-c715255d934b.html
+  - html: https://workbench.import.io/html/default/user=63fd92cf-ba0e-42f9-9361-28797373bac8/run=3bb44d5c-2ee9-47e6-9672-ffcf2548bd56/task=1e3c1622-6f3b-4550-b1b4-54ea3f292898/56b5c57c-2727-4d02-97e5-7bdb33a114b9.html
     extractionConfigId: product/details/stores/a/americanas/BR/extract
     data:
       - group:
-          - variantId:
-              - text: "1704351001"
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[1]/td[2]
-            gtin:
-              - text: "7892509114301"
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[2]/td[2]
-            manufacturer:
-              - text: Samsung
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[3]/td[2]
-            brandText:
-              - text: Samsung
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[4]/td[2]
-            quantity:
-              - text: 40"
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[11]/td[2]
-            color:
-              - text: Preto
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[29]/td[2]
-            warranty:
-              - text: 12 Meses
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[31]/td[2]
-            shippingDimensions:
-              - text: 0,52x0,91x0,77
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[32]/td[2]
-            weightNet:
-              - text: "7"
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[33]/td[2]
-            mpc:
-              - text: UN40T5300AGXZD
-                xpath: /html/body/div[1]/div[1]/div[8]/table[1]/tbody[1]/tr[34]/td[2]
-            image:
-              - text: https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_1GG.jpg
-                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
+          - ratingCount:
+              - text: "178"
+                xpath: /html/body/div[1]/div[1]/script[1]
             category:
               - text: TV e Home Theater
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/text()[1]
@@ -46,6 +16,9 @@ extractions:
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[3]/a[1]/text()[1]
               - text: Smart TV
                 xpath: /html/body/div[1]/div[1]/div[2]/div[1]/ul[1]/li[4]/a[1]/text()[1]
+            image:
+              - text: https://images-americanas.b2w.io/produtos/01/00/img/1704351/0/1704351010_1GG.jpg
+                xpath: /html/body/div[1]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/picture[1]/img[1]/@src
             nameExtended:
               - text: Smart TV LED 40'' Samsung Tizen FHD 40T5300 2020 - WIFI, HDR para Brilho e
                   Contraste, Plataforma Tizen
@@ -56,9 +29,6 @@ extractions:
             price:
               - text: R$ 1.614,99
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[2]/div[1]
-            ratingCount:
-              - text: "175"
-                xpath: /html/body/div[1]/div[1]/script[1]
             shippingInfo:
               - text: Americanas
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[4]/p[1]/strong[1]
@@ -69,6 +39,36 @@ extractions:
             promotion:
               - text: 5%
                 xpath: /html/body/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]
+            variantId:
+              - text: "1704351001"
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[1]/td[2]
+            gtin:
+              - text: "7892509114301"
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[2]/td[2]
+            manufacturer:
+              - text: Samsung
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[3]/td[2]
+            brandText:
+              - text: Samsung
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[4]/td[2]
+            quantity:
+              - text: 40"
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[11]/td[2]
+            color:
+              - text: Preto
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[29]/td[2]
+            warranty:
+              - text: 12 Meses
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[31]/td[2]
+            shippingDimensions:
+              - text: 0,52x0,91x0,77
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[32]/td[2]
+            weightNet:
+              - text: "7"
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[33]/td[2]
+            mpc:
+              - text: UN40T5300AGXZD
+                xpath: /html/body/div[1]/div[1]/div[9]/table[1]/tbody[1]/tr[34]/td[2]
             productUrl:
               - text: https://www.americanas.com.br/produto/1704351001
                 xpath: /html/body/div[2]
@@ -169,9 +169,19 @@ extractions:
                 xpath: /html/body/div[11]
             variantCount:
               - text: "0"
+            technicalInformationPdfPresent:
+              - text: No
+            termsAndConditions:
+              - text: No
+            privacyPolicy:
+              - text: No
+            customerServiceAvailability:
+              - text: No
+            Image360Present:
+              - text: No
             imageZoomFeaturePresent:
-              - text: true
+              - text: Yes
             descriptionBullets:
               - text: "0"
         xpath: /html
-    timestamp: 1613651456661
+    timestamp: 1613720165202
