@@ -81,18 +81,6 @@ module.exports = {
         addElementToDocument('size_added', size);
       }
 
-      const altxpath = getXpath("//*[@id='Zoomer']/figure/img/@alt", 'nodeValue');
-      if (altxpath != null) {
-        const altimg = altxpath.split('|');
-        const splittedalt = altimg[1].split('&#034;');
-        if (splittedalt[0] != null) {
-          console.log('altxpath: ', splittedalt[0]);
-          addElementToDocument('alt_added', splittedalt[0]);
-        } else {
-          addElementToDocument('alt_added', splittedalt);
-        }
-      }
-
       const sizeValue = getXpath("//input[contains(@id,'quantity_')]/@value", 'nodeValue');
       if (sizeValue != null) {
         console.log('size: ', sizeValue);
