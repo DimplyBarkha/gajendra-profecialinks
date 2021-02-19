@@ -4,7 +4,7 @@ module.exports = {
     country: 'US',
     domain: 'cvs.com',
     store: 'cvs',
-    nextLinkSelector: 'div.css-1dbjc4n.r-1awozwy.r-14lw9ot.r-rs99b7',
+    nextLinkSelector: 'div.css-1dbjc4n.r-1awozwy.r-14lw9ot.r-rs99b7 , gb-button.load-more.gb-ui',
     // mutationSelector: 'div.css-1dbjc4n.r-13awgt0.r-1wtj0ep',
     spinnerSelector: 'div[role="progressbar"]',
   },
