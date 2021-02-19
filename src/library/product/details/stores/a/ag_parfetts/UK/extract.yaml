@@ -1,0 +1,132 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//img/@src
+  - name: imageAlt
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//img/@alt
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//h1
+  - name: listPrice
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//span[@class="old-price"]
+  - name: price
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[@class="main-price"]
+  - name: availabilityText
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[contains(@class,"mt-4") and contains(text(),"Stock")] | //div[@class="product-page"]//div[contains(@class,"col-12")]//div[contains(@class,"mt-4") and contains(text(),"Low")]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath: //div[@id="mod_description"]
+  - name: quantity
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[contains(@class,"mt-3")]
+    regExp: (Pack Size:\s)(.+)
+    regExpReplace: $2
+  - name: variantId
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//p[contains(text(),"Code")]
+    regExp: (\d+)
+  - name: packSize
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[contains(@class,"mt-3")]
+    regExp: (Pack Size:\s)(.+)
+    regExpReplace: $2
+  - name: variantCount
+    xpath: count(//div[@class="product-page"]//div[contains(@class,"col-12")]//select/option)
+  - name: name
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//h1
+  - name: ingredientsList
+    xpath: //div[@id="mod_ingredientsList"]
+  - name: caloriesPerServing
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[@class="rt-tbody"]//div[contains(text(),'Energy (kcal)')]/following-sibling::div
+  - name: totalFatPerServing
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[@class="rt-tbody"]//div[contains(text(),'Fat')]/following-sibling::div
+  - name: totalFatPerServingUom
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[@class="rt-tbody"]//div[contains(text(),'Fat')]
+    regExp: \((g)
+    regExpReplace: $1
+  - name: saturatedFatPerServing
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[@class="rt-tbody"]//div[contains(text(),'saturates')]/following-sibling::div
+  - name: saturatedFatPerServingUom
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[@class="rt-tbody"]//div[contains(text(),'saturates')]
+    regExp: \((g)
+    regExpReplace: $1
+  - name: totalCarbPerServing
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[@class="rt-tbody"]//div[contains(text(),'Carbohydrate')]/following-sibling::div
+  - name: totalCarbPerServingUom
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[@class="rt-tbody"]//div[contains(text(),'Carbohydrate')]
+    regExp: \((g)
+    regExpReplace: $1
+  - name: totalSugarsPerServing
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[@class="rt-tbody"]//div[contains(text(),'sugars')]/following-sibling::div
+  - name: totalSugarsPerServingUom
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[@class="rt-tbody"]//div[contains(text(),'sugars')]
+    regExp: \((g)
+    regExpReplace: $1
+  - name: proteinPerServing
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[@class="rt-tbody"]//div[contains(text(),'Protein')]/following-sibling::div
+  - name: proteinPerServingUom
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[@class="rt-tbody"]//div[contains(text(),'Protein')]
+    regExp: \((g)
+    regExpReplace: $1
+  - name: saltPerServing
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[@class="rt-tbody"]//div[contains(text(),'Salt')]/following-sibling::div
+  - name: saltPerServingUom
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//div[@class="rt-tbody"]//div[contains(text(),'Salt')]
+    regExp: \((g)
+    regExpReplace: $1
+  - name: specifications
+    xpath: //div[@id="mod_specification"]
+    regExp: (Shelf)(.+)(Shelf)(.+)(Shelf)(.+)
+    regExpReplace: $1$2| $3$4| $5$6
+  - name: promotion
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//span[contains(@class,"save")]
+  - name: variantInformation
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//select/option[1]
+  - name: firstVariant
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//select/option[1]/@value
+  - name: variants
+    xpath: //div[@class="product-page"]//div[contains(@class,"col-12")]//select/option/@value
+  - name: technicalInformationPdfPresent
+    singleValue: true
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: No
+  - name: termsAndConditions
+    xpath: //div[@class="footer--links"]//ul/li/a[contains(text(),'Ts')]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: privacyPolicy
+    xpath: //div[@class="footer--links"]//ul/li/a[contains(text(),'Privacy')]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: customerServiceAvailability
+    singleValue: true
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: materials
+    singleValue: true
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: Image360Present
+    singleValue: true
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    singleValue: true
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: No

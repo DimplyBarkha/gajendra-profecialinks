@@ -1,0 +1,35 @@
+
+module.exports = {
+  implements: 'navigation/goto',
+  parameterValues: {
+    domain: 'online.parfetts.co.uk',
+    timeout: 1000000,
+    jsonToTable: null,
+    country: 'UK',
+    store: 'ag_parfetts',
+    zipcode: '',
+  },
+  implementation: async ({ url }, parameters, context, dependencies) => {
+    url = `${url}#[!opt!]{"first_request_timeout":90000, "force200": true}[/!opt!]`;
+    await context.goto(url, { block_ads: false, timeout: 500000, waitUntil: 'load', load_all_resources: true, images_enabled: true, checkBlocked: false });
+    async function autoScroll(page) {
+      await page.evaluate(async () => {
+        await new Promise((resolve, reject) => {
+          var totalHeight = 0;
+          var distance = 100;
+          var timer = setInterval(() => {
+            var scrollHeight = document.body.scrollHeight;
+            window.scrollBy(0, distance);
+            totalHeight += distance;
+
+            if (totalHeight >= scrollHeight) {
+              clearInterval(timer);
+              resolve();
+            }
+          }, 100);
+        });
+      });
+    }
+    await autoScroll(context);
+  }
+}
