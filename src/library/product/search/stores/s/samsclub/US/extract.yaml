@@ -1,50 +1,33 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-#recordXPath: //div[contains(@class, "sc-infinite-loader")]//ul/li
-#recordXPath: //div[@id="jdCustomDivJSONData"]/div
-recordXPath: //td[@class="records depth_1"]/table/tbody/tr
+recordXPath: //td[contains(@class,"records depth_")]/table/tbody/tr
 fields:
   - name: name
     singleValue: false
     xpath: //td[@class="descriptors depth_2"]//td[@class="name depth_3"]
-    #xpath: //div[@class="sc-pc-title-medium"]/h3
-    #xpath: //div[@id="jdCustomDivJSONData"]/div
   - name: id
     singleValue: false
     xpath: //td[@class="skus depth_2"]//td[@class="onlineOffer depth_3" or @class="clubOffer depth_3"]//td[@class="itemNumber depth_4"]
-    #xpath: //div[contains(@class, "sc-plp-cards-card")]/a/@href
-    #xpath: //div[@id="jdCustomDivJSONData"]/div
   - name: productUrl
     singleValue: false
     xpath: //td[@class="searchAndSeo depth_2"]//td[@class="url depth_3"]
     regExp: (.+)
     regExpReplace: https://www.samsclub.com$1
-    #xpath: //div[@id="jdCustomDivJSONData"]/div
   - name: thumbnail
     singleValue: false
     xpath: //td[@class="skus depth_2"]//td[@class="assets depth_3"]//td[@class="image depth_4"]
     regExp: (.+)
     regExpReplace: https://scene7.samsclub.com/is/image/samsclub/$1
-    #xpath: //img[@class="sc-pc-image-controller"]/@src
-    #xpath: //div[@id="jdCustomDivJSONData"]/div
   - name: price
     singleValue: false
     xpath: //td[@class="skus depth_2"]//td[@class="onlineOffer depth_3" or @class="clubOffer depth_3"]//td[@class="price depth_4"]//td[@class="finalPrice depth_5"]//td[@class="amount depth_6"]
-    #xpath: //span[@class="Price-group"]/span[@class="visuallyhidden"]
-    #xpath: //div[@id="jdCustomDivJSONData"]/div
   - name: aggregateRating
     singleValue: false
     xpath: //td[@class="reviewsAndRatings depth_2"]//td[@class="avgRating depth_3"]
-    #xpath: //span[@class="Price-group"]/span[@class="visuallyhidden"]
-    #xpath: //div[@id="jdCustomDivJSONData"]/div
   - name: reviewCount
     singleValue: false
     xpath: //td[@class="reviewsAndRatings depth_2"]//td[@class="numReviews depth_3"]
-    #xpath: //span[@class="Price-group"]/span[@class="visuallyhidden"]
-    #xpath: //div[@id="jdCustomDivJSONData"]/div
   - name: ratingCount
     singleValue: false
     xpath: //td[@class="reviewsAndRatings depth_2"]//td[@class="numReviews depth_3"]
-    #xpath: //span[@class="Price-group"]/span[@class="visuallyhidden"]
-    #xpath: //div[@id="jdCustomDivJSONData"]/div
