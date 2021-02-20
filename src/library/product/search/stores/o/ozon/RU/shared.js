@@ -84,7 +84,7 @@ const transform = (data, context) => {
 
       // aggregateRating
       if (fieldName.aggregateRating2) {
-        const aggregateRatingValue = fieldName.aggregateRating2[0].text;
+        const aggregateRatingValue = (fieldName.aggregateRating2[0].text)/20.932;
         const fixedNumber = Number(aggregateRatingValue).toFixed(1).toString().replace(/\./, ',');
         fieldName.aggregateRating2[0].text = `${fixedNumber}`;
         // fieldName.aggregateRating2[0].value = +fixedNumber;

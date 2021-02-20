@@ -22,7 +22,10 @@ fields:
     singleValue: true
     xpath: //div/@tilelink | //a/@href | //@oz-tilelink
   - name: aggregateRating2
-    xpath: //div[@class='a1y6 a1z0']/@title
+    # xpath: //div[@class='a1y6 a1z0']/@title
+    xpath: //div[contains(@class,"item a1d a1r3")]//div[@class="_3xol"]/@style
+    regExp: width:(.+)%
+    regExpReplace: $1
   - name: reviewCount
     description: The number of reviews
     xpath: //div[contains(@class,"item")]//a
