@@ -148,11 +148,9 @@ fields:
   - name: hasComparisonTable
     defaultValue: No
   - name: manufacturerDescription
-    singleValue: false
-    xpath: //div[@id='manufacturerDescription'] | //div[@class='flix-std-desc flix-Body flix-d-p']
+    xpath:  //div[@id='manufacturerDescription']
   - name: manufacturerImages
-    singleValue: false
-    xpath: //div[@class='da-premium-main']//img/@src | //div[contains(@class,'flix-background-image inpage_wowimg')]/img/@data-flixsrcset
+    xpath: //div[@class='da-premium-main']//img/@src
 #name: manufacturerDescription
     #xpath: //div[contains(@class,"inpage_selector_info dyson_introduction") or contains(@class,"inpage_block inpage_selector_feature")]
 #name: manufacturerImages
