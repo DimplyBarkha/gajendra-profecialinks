@@ -150,6 +150,46 @@ async function implementation (
     addHiddenDiv('specifications', specifications.join(' | '));
   });
 
+  let aggRatingXpath = '//*[contains(@class,"hero__content")]//*[contains(@class,"rating-summary")]//*[contains(@itemprop,"ratingValue")]';
+  let gotAggRating = false;
+  try {
+    await context.waitForSelector('.bv-off-screen');
+    gotAggRating = true;
+  } catch(err) {
+    console.log('got some error');
+  }
+
+  if(!gotAggRating) {
+    let ratingCount = await context.evaluate(async (aggRatingXpath) => {
+      console.log('aggRatingXpath', aggRatingXpath);
+      let elm = document.evaluate(aggRatingXpath, document, null, 7, null);
+      let ratingCount = '';
+      if(elm && elm.snapshotLength > 0) {
+        let el = elm.snapshotItem(0);
+        if(el) {
+          ratingCount = el.textContent;
+          if(ratingCount) {
+            ratingCount = ratingCount.trim();
+          }
+        }
+      }
+      return ratingCount;
+    }, aggRatingXpath);
+    console.log('ratingCount', ratingCount);
+
+    await context.evaluate(async (ratingCount) => {
+      function addHiddenDiv (id, content) {
+        const newDiv = document.createElement('div');
+        newDiv.id = id;
+        newDiv.textContent = content;
+        newDiv.style.display = 'none';
+        document.body.appendChild(newDiv);
+      }
+      addHiddenDiv('rating', ratingCount);
+    }, ratingCount);
+
+  }
+
   return await context.extract(productDetails, { transform });
 }
 
