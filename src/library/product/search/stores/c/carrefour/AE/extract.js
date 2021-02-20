@@ -17,7 +17,7 @@ module.exports = {
         const newDiv = document.createElement('div');
         newDiv.setAttribute('class', myClass);
         newDiv.textContent = content;
-        // newDiv.style.display = 'none';
+        newDiv.style.display = 'none';
         el.appendChild(newDiv);
       }
 
