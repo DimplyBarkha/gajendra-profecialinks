@@ -24,6 +24,12 @@ module.exports = {
     } catch (e) {
       console.log(e);
     }
+    await context.evaluate(async function(){
+      let specificationButton = document.querySelector('button[data-test="showMoreButton-specifications"]');
+      if(specificationButton){
+        specificationButton.click();
+      }
+    });
 
     const variantSelectorObject = await context.evaluate(() => {
       const variantSelector = document.querySelectorAll('a.styled__StyledButton-sc-1b7q9no-1.hPXcsG');

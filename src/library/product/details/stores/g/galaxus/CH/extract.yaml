@@ -81,7 +81,6 @@ fields:
     regExp: sku":(.*?),
     regExpReplace: $1
   - name: mpc
-    singleValue: false
     description: The manufacturer model code (unique) of the product
     xpath: //td[contains(text(), 'Herstellernr.')]/following-sibling::*
   - name: ratingCount
