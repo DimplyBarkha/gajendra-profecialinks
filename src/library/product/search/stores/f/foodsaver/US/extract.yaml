@@ -1,37 +1,55 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="search-result-content"]//ul//li
+recordXPath: '//div[@id="product-search-results"]//div[contains(@class,"product-search-grid")]//div[contains(@class,"product-grid-wrapper")]//div[@class="product"]'
+  # //div[@class="search-result-content"]//ul//li
 fields:
   - name: thumbnail
     singleValue: false
-    xpath: //div[@class="product-image"]//a/picture/source[1]/@srcset
+    xpath: //div[@class="product-tile"]//img[@class="tile-image"]/@src
+    # //div[@class="product-image"]//a/picture/source[1]/@srcset
   - name: name
-    xpath: //div[@class="product-name"]//a/@title
+    xpath: //div[@class="product-tile"]//a[@class="product-tile-link"]/@aria-label
+    # //div[@class="product-name"]//a/@title
     singleValue: false
     description: The product name 
   - name: price
     singleValue: false
-    xpath: //div[@class="product-price"]//span
+    xpath: //span[@class="price-tag"]//span[contains(@class, "sales")]/span
+    # //div[@class="product-price"]//span
     description: The offered price for the product
   - name: id
     singleValue: false
-    xpath: //div[@class="product-tile"]/@data-itemid
-  #   # regExp: 
-  #   # regExpReplace: $1
-  #   description: Unique id (within this extractor)
+    xpath: //div[@class="product"]/@data-pid
+      # //div[@class="product-tile"]//a[@class="product-tile-link"]/@href
+    regExp: _(.+)
+    # //div[@class="product-tile"]/@data-itemid
+    #   # regExp: 
+    regExpReplace: $1
+    #   description: Unique id (within this extractor)
   - name: rankOrganic
     singleValue: true
   - name: rank
     singleValue: false
   - name: productUrl
     singleValue: false
-    xpath: //div[@class="product-name"]//a/@href
+    xpath: //div[@class="product-tile"]//a[@class="product-tile-link"]/@href
+    # //div[@class="product-name"]//a/@href
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@class="tile-body"]//div[contains(@class,"ratings")]/span
+    regExp: (.+)\sout of 5 Customer Rating
+    regExpReplace: $1
+    # //span[@class="bv-rating"]//span
   - name: aggregateRating2
     singleValue: false
-    xpath: //span[@class="bv-rating"]//span
+    xpath: //div[@class="tile-body"]//div[contains(@class,"ratings")]/span
+    regExp: (.+)\sout of 5 Customer Rating
+    regExpReplace: $1
+    # //span[@class="bv-rating"]//span
   - name: reviewCount
     singleValue: false
-    xpath: //span[@class="bv-rating-label"]    
-    regExp: \W(.+)\W
-    regExpReplace: $1
+    xpath: //div[@class="tile-body"]//div[contains(@class,"ratings")]//div[@class="BVInlineRatings"]//div[contains(@class, "BVInlineRatings-count")]
+    # //span[@class="bv-rating-label"]    
+    # regExp: \W(.+)\W
+    # regExpReplace: $1
