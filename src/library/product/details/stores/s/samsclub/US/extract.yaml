@@ -11,7 +11,7 @@ fields:
     # xpath: /html/body/@imagealt
     xpath: //div[@role="presentation"]/img/@alt
   - name: alternateImages
-    singleValue: true
+    singleValue: false
     xpath: (//button[contains(@class,'sc-image-viewer-thumb-wrapper')])[position()>1]//img//@src
   - name: metaKeywords
     singleValue: true
@@ -30,16 +30,17 @@ fields:
     xpath: //span[@class="sc-channel-savings-list-price"]
   - name: price
     singleValue: true
-    xpath: //span[@class="Price-group"]
+    xpath: //div[@class='sc-pc-large-desktop-layout-content']//span[@class="Price-group"]//@title
   - name: availabilityText
     singleValue: true
     xpath: //meta[@itemprop='availability']//@content
   - name: description
-    singleValue: true
-    xpath: //div[@class="sc-full-description-long"]
+    singleValue: false
+    xpath: //div[@class="sc-pc-why-we-love-it"] | //div[@class="sc-pc-about-this-item"]//div[1]//text() | //div[@class="sc-full-description-long"] 
   - name: descriptionBullets
     singleValue: true
-    xpath: count(//div[@class="sc-short-description-content"]/ul/li)
+    xpath: count(//div[@class="sc-pc-about-this-item"]//li | //h4[contains(text(),'Specifications')]/following-sibling::div//li/text()[1])
+    # count(//div[@class="sc-short-description-content"]/ul/li)
   - name: brandText
     singleValue: true
     xpath: //span[@class="sc-product-header-item-number"][1]
@@ -56,12 +57,18 @@ fields:
     xpath: //meta[@itemprop='image']	//@content
     singleValue: true
   - name: sku
-    singleValue: true
-    xpath: //div[@id="sc-bv-summary-container"]/@data-bv-product-id
+    singleValue: false
+    xpath: //script[contains(text(), "stockId")]/text()
+    regExp: stockId":([^,]+)
+    regExpReplace: $1 
+      #(//span[@class="sc-product-header-item-number"])[2]
   - name: variantId
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class='sc-product-header-item-number']
   - name: mpc
     singleValue: true
+    xpath: //meta[@itemprop="mpn"]//@content
+    # xpath: //script[@type='application/json'][contains(text(),"manufacturingInfo")]
   - name: packSize
     singleValue: true
   - name: legalDisclaimer
@@ -69,10 +76,11 @@ fields:
   - name: directions
     singleValue: true
   - name: warnings
-    singleValue: true
+    singleValue: false
+    xpath: //div[@class='sc-manufacturing-element-content']//p[contains(.,'GOVERNMENT WARNING:')] | //div[@class='sc-disclaimers-item']//p[contains(.,'GOVERNMENT WARNING:')]
   - name: ratingCount
     singleValue: true
-    xpath: //div[@class="bv_numReviews_component_container"]/meta/@content
+    xpath: div[@class="bv_numReviews_text"] | //div[@class="bv_numReviews_component_container"]/meta/@content
   - name: aggregateRatingText
     singleValue: true
   - name: aggregateRating
@@ -95,12 +103,16 @@ fields:
     singleValue: true
   - name: manufacturerDescription
     singleValue: false
-    xpath: //div[contains(@class,'wc-richfeatures-layout-computer')]//h1[@class="wc-ppp-caption"] | //h2[@class="wc-first-header"] | //h2[contains(@class,'wc-rich-features-center-')] | //div[@class="wc-rich-content-description"]//text()
+    xpath: //div[contains(@class,'wc-richfeatures-layout-computer')]//h1[@class="wc-ppp-caption"] | //h2[@class="wc-first-header"] | //h2[contains(@class,'wc-rich-features-center-')] | //*[@id="getManufatureTextArray1"]  |  //*[@id="getManufatureTextFromShadowArray12"]  | //div[@class="wc-rich-content-description"]//text()
   - name: manufacturerImages
     singleValue: true
+    xpath:  //*[@id="getManufatureImageFromShadowArray11"] | //*[@id="getManufatureImageArray1"]
   - name: videos
     singleValue: true
     xpath: //div[@class="wc-media-wrap"]//img//@wcobj
   - name: name
     singleValue: true
     xpath: //div[@class="sc-product-header-title-container"]
+  - name: secondaryImagesTotal
+    singleValue: true
+    xpath: count((//button[contains(@class,'sc-image-viewer-thumb-wrapper')])[position()>1]//img//@src)

@@ -6,5 +6,8 @@ module.exports = {
     prefix: 'p',
     country: 'US',
     store: 'samsclub',
+    url: 'https://www.samsclub.com/s/{id}',
   },
 };
+
+

@@ -31,10 +31,8 @@ const transform = (data) => {
                         let split1 = item.text.split("?");
                         item.text = `${split1[0]}`;
                     }
-
                 });
             }
-
             if (row.image) {
                 row.image.forEach(item => {
                     if (item.text.includes("?")) {
@@ -59,27 +57,66 @@ const transform = (data) => {
                 row.gtin.forEach(item => {
                     if (item.text.includes('/')) {
                         let split1 = item.text.split('/');
-                        console.log("item.text",item.text);
+                        console.log("item.text", item.text);
                         item.text = split1[split1.length - 1]
-                        item.text = item.text.slice('_A','').trim();
+                        item.text = item.text.replace('_A', '').trim();
                     }
                 });
-
             }
             if (row.availabilityText) {
                 row.availabilityText.forEach(item => {
-                    console.log("checked",item.text);
+                    console.log("checked", item.text);
                     if (item.text === 'InStock') {
-                        console.log("item.text",item.text);
+                        console.log("item.text", item.text);
                         item.text = 'In Stock';
                     }
-                    else{
-                        console.log("item.text",item.text);
+                    else {
+                        console.log("item.text", item.text);
                         item.text = 'Out of stock';
                     }
                 });
-
             }
+            if (row.warnings) {
+                row.warnings.forEach(item => {
+                    if (item.text.includes('GOVERNMENT WARNING:')) {
+                        const split1 = item.text.split('GOVERNMENT WARNING:');
+                        item.text = `${split1[1]}`;
+                    }
+                });
+            }
+            if (row.variantId) {
+                row.variantId.forEach(item => {
+                    console.log("item.text",item.text);
+                    if (item.text.includes('Item # ')) {
+                    item.text = item.text.replace('Item # ','').trim();
+                    }
+                });
+            }
+            if (row.price) {
+                row.price.forEach(item => {
+                    if (item.text.includes('current price: ')) {
+                    item.text = item.text.replace('current price: ','').trim();
+                    }
+                });
+            }
+            if (row.sku) {
+                row.sku.forEach(item => {
+                    if (item.text.includes('Model # ')) {
+                    item.text = item.text.replace('Model # ','').trim();
+                    }
+                });
+            }
+            if (row.description) {
+                let text = '';
+                row.description.forEach((element) => {
+                    if (element.xpath.includes('li')) {
+                        text += `|| ${element.text}`;
+                      } else {
+                        text += ` ${element.text}`;
+                      }
+                });
+                row.description = [{ text: text.trim() }];
+              }
         }
     }
     return cleanUp(data);
