@@ -10,7 +10,7 @@ module.exports = {
   },
   implementation: async ({ url }, parameters, context, dependencies) => {
     // url = `${url}#[!opt!]{"first_request_timeout":50000,"force200":true}[/!opt!]`;
-    const timeout = parameters.timeout ? parameters.timeout : 10000;
+    const timeout = parameters.timeout ? parameters.timeout : 5000;
 
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
@@ -19,7 +19,7 @@ module.exports = {
     await context.setAntiFingerprint(false);
 
     const responseStatus = await context.goto(url, {
-      firstRequestTimeout: 60000,
+      firstRequestTimeout: 40000,
       timeout: timeout,
       waitUntil: 'load',
       checkBlocked: false,
@@ -32,7 +32,7 @@ module.exports = {
 
     const ifThereClickOnIt = async (selector) => {
       try {
-        await context.waitForSelector(selector, { timeout: 5000 });
+        await context.waitForSelector(selector, { timeout: 1000 });
       } catch (error) {
         console.log(`The following selector was not found: ${selector}`);
         return false;
@@ -143,6 +143,6 @@ module.exports = {
     } catch (error) {
       console.log('no modal found');
     }
-    await new Promise((resolve, reject) => setTimeout(resolve, 20000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 10000));
   },
 };

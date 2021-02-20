@@ -12,17 +12,17 @@ module.exports = {
     inputs,
     parameters,
     context,
-    { productDetails: data }
+    { productDetails: data },
   ) => {
     const { transform } = parameters;
 
     var variantLength = await context.evaluate(async () => {
       return document.querySelectorAll(
-        'div#purchase-box div#finish-swatches ul.finish-list li'
+        'div#purchase-box div#finish-swatches ul.finish-list li',
       )
         ? document.querySelectorAll(
-            'div#purchase-box div#finish-swatches ul.finish-list li'
-          ).length || 1
+          'div#purchase-box div#finish-swatches ul.finish-list li',
+        ).length || 1
         : 1;
     });
 
@@ -32,13 +32,13 @@ module.exports = {
           await context.evaluate(async (j) => {
             return document
               .querySelectorAll(
-                'div#purchase-box div#finish-swatches ul.finish-list li'
+                'div#purchase-box div#finish-swatches ul.finish-list li',
               )
               [j].click();
           }, j);
         }
         await context.evaluate(async (j) => {
-          function addHiddenDiv(id, content) {
+          function addHiddenDiv (id, content) {
             const newDiv = document.createElement('div');
             newDiv.id = id;
             newDiv.textContent = content;
@@ -59,37 +59,37 @@ module.exports = {
             addHiddenDiv('custom-attr-url-field', window.location.href);
             addHiddenDiv(
               'custom-attr-product-brand-name',
-              dataLayer.brand.name
+              dataLayer.brand.name,
             );
             addHiddenDiv(
               'custom-attr-product-manufacturer-name',
-              dataLayer.manufacturer
+              dataLayer.manufacturer,
             );
             addHiddenDiv('custom-attr-product-sku-number', selectedFinish.sku);
             addHiddenDiv(
               'custom-attr-product-variant-id',
-              selectedFinish.uniqueId
+              selectedFinish.uniqueId,
             );
             addHiddenDiv('custom-attr-product-mpc', selectedFinish.sku);
             addHiddenDiv('custom-attr-product-upc', selectedFinish.upc);
-            
+
             var node = document.evaluate(
               "//div[contains(@class, 'description')]",
               document,
               null,
-              XPathResult.ANY_TYPE
+              XPathResult.ANY_TYPE,
             );
             var data = node.iterateNext();
             if (data) {
-              const liList = data.getElementsByTagName("li");
+              const liList = data.getElementsByTagName('li');
               const str = [];
               for (var item of liList) {
                 str.push(item.innerText.trim());
               }
-              addHiddenDiv("custom-attr-product-description", str.join(" || "));
+              addHiddenDiv('custom-attr-product-description', str.join(' || '));
               addHiddenDiv(
-                "custom-attr-product-description-bullet-count",
-                str.length
+                'custom-attr-product-description-bullet-count',
+                str.length,
               );
             }
 
@@ -98,55 +98,55 @@ module.exports = {
               "//div[@id='product-specs']//div[contains(@class, 'specs')]/..",
               document,
               null,
-              XPathResult.ANY_TYPE
+              XPathResult.ANY_TYPE,
             );
             if (specsIterator) {
               let node = specsIterator.iterateNext();
               while (node) {
-                specsArray.push(node.innerText.replace("\n", " : "));
+                specsArray.push(node.innerText.replace('\n', ' : '));
                 node = specsIterator.iterateNext();
               }
               addHiddenDiv(
-                "custom-attr-product-specifications",
-                specsArray.join(" || ")
+                'custom-attr-product-specifications',
+                specsArray.join(' || '),
               );
             }
             if (specsArray.length) {
               const productWeight =
-                specsArray.find((x) => x.startsWith("Product Weight :")) || "";
+                specsArray.find((x) => x.startsWith('Product Weight :')) || '';
               addHiddenDiv(
-                "custom-attr-product-weight",
-                productWeight.replace("Product Weight :", "").trim()
+                'custom-attr-product-weight',
+                productWeight.replace('Product Weight :', '').trim(),
               );
               const productMaterial =
-                specsArray.find((x) => x.startsWith("Material :")) || "";
+                specsArray.find((x) => x.startsWith('Material :')) || '';
               addHiddenDiv(
-                "custom-attr-product-material",
-                productMaterial.replace("Material :", "").trim()
+                'custom-attr-product-material',
+                productMaterial.replace('Material :', '').trim(),
               );
               const productCountryOfOrigin =
-                specsArray.find((x) => x.startsWith("Country Of Origin :")) ||
-                "";
+                specsArray.find((x) => x.startsWith('Country Of Origin :')) ||
+                '';
               addHiddenDiv(
-                "custom-attr-product-country-of-origin",
-                productCountryOfOrigin.replace("Country Of Origin :", "").trim()
+                'custom-attr-product-country-of-origin',
+                productCountryOfOrigin.replace('Country Of Origin :', '').trim(),
               );
               const productManufacturerWarranty =
                 specsArray.find((x) =>
-                  x.startsWith("Manufacturer Warranty :")
-                ) || "";
+                  x.startsWith('Manufacturer Warranty :'),
+                ) || '';
               addHiddenDiv(
-                "custom-attr-product-manufacturer-warranty",
+                'custom-attr-product-manufacturer-warranty',
                 productManufacturerWarranty
-                  .replace("Manufacturer Warranty :", "")
-                  .trim()
+                  .replace('Manufacturer Warranty :', '')
+                  .trim(),
               );
             }
-            addHiddenDiv("custom-attr-image-zoom-feature-present", "Yes");
-            console.log("availability text", selectedFinish.status);
+            addHiddenDiv('custom-attr-image-zoom-feature-present', 'Yes');
+            console.log('availability text', selectedFinish.status);
             addHiddenDiv(
-              "custom-attr-product-availability-text",
-              selectedFinish.status === "stock" ? "In Stock" : "Out of Stock"
+              'custom-attr-product-availability-text',
+              selectedFinish.status === 'stock' ? 'In Stock' : 'Out of Stock',
             );
 
             const variants = dataLayer.finishes.map((finish) => finish.finish);
@@ -154,37 +154,37 @@ module.exports = {
             const productVariations = variations
               ? variations.variationProducts.map((item) => item.variationName)
               : [];
-            const productVariantsEle = document.createElement("ul");
+            const productVariantsEle = document.createElement('ul');
             [...variants, ...productVariations].forEach((x) => {
-              const liEle = document.createElement("li");
+              const liEle = document.createElement('li');
               liEle.textContent = x;
               productVariantsEle.appendChild(liEle);
             });
-            productVariantsEle.style.display = "none";
-            productVariantsEle.id = "custom-attr-product-variants";
+            productVariantsEle.style.display = 'none';
+            productVariantsEle.id = 'custom-attr-product-variants';
             document.body.appendChild(productVariantsEle);
 
             if (variants) {
               addHiddenDiv(
-                "custom-attr-product-variants-count",
-                variants.length + productVariations.length
+                'custom-attr-product-variants-count',
+                variants.length + productVariations.length,
               );
             }
 
             addHiddenDiv(
-              "custom-attr-product-first-variant",
-              productVariations[0] || variants[0]
+              'custom-attr-product-first-variant',
+              productVariations[0] || variants[0],
             );
 
             const pdfIterator = document.evaluate(
               "//div[@id='manufacturer-resources']//a[contains(@class, 'js-view-pdf')]/@data-href",
               document,
               null,
-              XPathResult.ANY_TYPE
+              XPathResult.ANY_TYPE,
             );
             const pdfNode = pdfIterator.iterateNext();
             if (pdfNode) {
-              addHiddenDiv("custom-attr-product-pdfs", "Yes");
+              addHiddenDiv('custom-attr-product-pdfs', 'Yes');
             }
 
             const productFinish = selectedFinish.finish;
@@ -192,24 +192,24 @@ module.exports = {
               ? dataLayer.variations[0].currentVariation
               : null;
             addHiddenDiv(
-              "custom-attr-product-variants-info",
-              productVariation || productFinish
+              'custom-attr-product-variants-info',
+              productVariation || productFinish,
             );
 
             // Feature Bullets
             const descriptionHeaders = document.querySelectorAll(
-              "div.description p"
+              'div.description p',
             );
             descriptionHeaders.forEach((header) => {
-              if (header.textContent.toLowerCase().includes("feature")) {
+              if (header.textContent.toLowerCase().includes('feature')) {
                 const list = header.nextSibling;
                 if (list) {
-                  const featureBullets = document.createElement("ul");
-                  featureBullets.id = "custom-attr-product-feature-bullets";
-                  featureBullets.style.display = "none";
-                  const liItems = list.getElementsByTagName("li");
+                  const featureBullets = document.createElement('ul');
+                  featureBullets.id = 'custom-attr-product-feature-bullets';
+                  featureBullets.style.display = 'none';
+                  const liItems = list.getElementsByTagName('li');
                   for (const li of liItems) {
-                    const liEle = document.createElement("li");
+                    const liEle = document.createElement('li');
                     liEle.textContent = li.textContent;
                     featureBullets.appendChild(liEle);
                   }
@@ -217,16 +217,16 @@ module.exports = {
                 }
               }
 
-              if (header.textContent.toLowerCase().includes("specification")) {
+              if (header.textContent.toLowerCase().includes('specification')) {
                 const list = header.nextSibling;
                 if (list) {
-                  const featureBullets = document.createElement("ul");
+                  const featureBullets = document.createElement('ul');
                   featureBullets.id =
-                    "custom-attr-product-additional-desc-bullets";
-                  featureBullets.style.display = "none";
-                  const liItems = list.getElementsByTagName("li");
+                    'custom-attr-product-additional-desc-bullets';
+                  featureBullets.style.display = 'none';
+                  const liItems = list.getElementsByTagName('li');
                   for (const li of liItems) {
-                    const liEle = document.createElement("li");
+                    const liEle = document.createElement('li');
                     liEle.textContent = li.textContent;
                     featureBullets.appendChild(liEle);
                   }
@@ -258,13 +258,13 @@ module.exports = {
             // });
             // document.body.appendChild(vidsDuration);
           } catch (error) {
-            console.log("Error: ", error);
+            console.log('Error: ', error);
           }
         }, j);
 
         // await preparePage(j, variantLength);
         if (j !== variantLength - 1) {
-          await context.extract(data, { transform }, { type: "APPEND" });
+          await context.extract(data, { transform }, { type: 'APPEND' });
         }
       }
     }
