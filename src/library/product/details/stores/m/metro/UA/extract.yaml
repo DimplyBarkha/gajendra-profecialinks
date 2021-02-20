@@ -169,9 +169,10 @@ fields:
   - name: brandLink
     singleValue: true
     description: null
-    xpath: //a[contains(@class,'BigProductCardTrademarkName')]//@href
-    regExp: (.+)
-    regExpReplace: https://metro.zakaz.ua$1
+    xpath: //div[@class='jsx-3555213589 BigProductCardTrademarkName']
+#    xpath: //a[contains(@class,'BigProductCardTrademarkName')]//@href
+#    regExp: (.+)
+#    regExpReplace: https://metro.zakaz.ua$1
   - name: internationalShipping
     singleValue: true
     description: Text next to bullet point

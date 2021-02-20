@@ -13,6 +13,27 @@ module.exports = {
     const { transform } = parameters;
     const { productDetails } = dependencies;
     await context.evaluate(() => {
+      function addHiddenDiv (id, text) {
+        const div = document.createElement('div');
+        div.id = id;
+        div.innerHTML = text;
+        document.body.appendChild(div);
+      }
+      // if (document.querySelector('.big-product-card__add-to-cart-btn').innerText === 'Добавить в корзину') {
+      //   addHiddenDiv('stock', 'In Stock');
+      //   //document.querySelector('.main').setAttribute('stock', 'In Stock');
+      // } else {
+      //   addHiddenDiv('stock', 'Out of Stock');
+      //   //document.querySelector('.main').setAttribute('stock', 'Out of Stock');
+      // }
+      var link = document.querySelector('.jsx-3555213589.BigProductCardTrademarkName').getAttribute('href');
+      const h = "https://metro.zakaz.ua";
+      var brandlink = h + link;
+      console.log(brandlink);
+      document.querySelector('.jsx-3555213589.BigProductCardTrademarkName').href=brandlink;
+      //document.querySelector('#brandlink').
+      //addHiddenDiv('brandlink',brandlink);
+
       const btn = document.querySelector('.jsx-3209444046');
       if (btn) {
         btn.click();
