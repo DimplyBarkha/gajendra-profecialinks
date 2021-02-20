@@ -100,7 +100,7 @@ fields:
     xpath: //*[@id="product-attribute-specs-table"]/tbody/tr
   - name: hasComparisonTable
     singleValue: false
-    xpath: //a[contains(.,"TABLEAU COMPARATIF")]/@href | //a[contains(.,"Tableau comparatif des aspirateurs sans fil DYSON")]/@href
+    # xpath: //a[contains(.,"TABLEAU COMPARATIF")]/@href | //a[contains(.,"Tableau comparatif des aspirateurs sans fil DYSON")]/@href
     regExp: (.+)
     regExpReplace: Yes
     defaultValue: No
