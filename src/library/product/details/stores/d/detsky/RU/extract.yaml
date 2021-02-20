@@ -31,9 +31,8 @@ fields:
       and appending " - ${variantType}" if necessary (fixed per feed)
     xpath: //header/h1
   - name: listPrice
-    singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //main/div/div/aside/div/div/div/div[2]/div[1]/div/div[2]/div/span
+    xpath: (//span[contains(text(),'₽')])[1]
   - name: price
     singleValue: true
     description: The offered price for the selected product variant - if a user
