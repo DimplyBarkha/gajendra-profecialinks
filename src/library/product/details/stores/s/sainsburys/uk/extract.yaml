@@ -54,11 +54,11 @@ fields:
     singleValue: true
     description: The manufacturer model code (unique) of the product
     xpath: //span[@id="productSKU"]
-  - name: packSize
-    singleValue: false
-    description: The number of packs in the product offer (if stated separately on
-      the site to quantity)
-    xpath: //*[contains(text(),'Size')]/following-sibling::*[1]  
+  # - name: packSize
+  #   singleValue: false
+  #   description: The number of packs in the product offer (if stated separately on
+  #     the site to quantity)
+  #   xpath: //*[contains(text(),'Size')]/following-sibling::*[1]  
   - name: legalDisclaimer
     singleValue: false
     description: Content under "legal disclaimer" header
@@ -76,10 +76,10 @@ fields:
     description: The stated aggregate rating normalized to be out of 5
     # type: NUMBER
     xpath: //html//div[@id="aggregateRating"]
-  - name: shippingInfo
-    singleValue: false
-    description: Shipping information for the product
-    xpath: //*[contains(text(),'Packaging')]/following-sibling::*[1]
+  # - name: shippingInfo
+  #   singleValue: false
+  #   description: Shipping information for the product
+  #   xpath: //*[contains(text(),'Packaging')]/following-sibling::*[1]
   - name: name
     singleValue: false
     description: The product name

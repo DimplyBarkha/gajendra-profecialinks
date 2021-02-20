@@ -9,9 +9,9 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ({ inputstring }, { country, domain }, context, { productDetails }) => {
-    await context.waitForSelector('h2[class="pt__info__description"]', 30000);
-    await context.click('h2[class="pt__info__description"] a');
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    await context.waitForSelector('h1[class="pd__header"]', 30000);
+    // await context.click('h2[class="pt__info__description"] a');
+    // await new Promise((resolve) => setTimeout(resolve, 5000));
     await context.evaluate(() => {
       function addHiddenDiv(key, value) {
 
