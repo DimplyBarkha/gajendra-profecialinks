@@ -27,7 +27,7 @@ fields:
     xpath: //div[@class="sc-pc-title-full-desktop"]//h1//text()
   - name: listPrice
     singleValue: true
-    xpath: //span[@class="sc-channel-savings-list-price"]
+    xpath: //span[@class="sc-channel-savings-list-price"] | //script[contains(text(), "stockId")]/text()
   - name: price
     singleValue: true
     xpath: //div[@class='sc-pc-large-desktop-layout-content']//span[@class="Price-group"]//@title
@@ -36,7 +36,7 @@ fields:
     xpath: //meta[@itemprop='availability']//@content
   - name: description
     singleValue: false
-    xpath: //div[@class="sc-pc-why-we-love-it"] | //div[@class="sc-pc-about-this-item"]//div[1]//text() | //div[@class="sc-full-description-long"] 
+    xpath: //div[@class="sc-pc-why-we-love-it"] | //div[@class="sc-pc-about-this-item"]//div[1]//text() | //div[@class="sc-full-description-long"]
   - name: descriptionBullets
     singleValue: true
     xpath: count(//div[@class="sc-pc-about-this-item"]//li | //h4[contains(text(),'Specifications')]/following-sibling::div//li/text()[1])
@@ -56,19 +56,15 @@ fields:
   - name: gtin
     xpath: //meta[@itemprop='image']	//@content
     singleValue: true
-  - name: sku
-    singleValue: false
-    xpath: //script[contains(text(), "stockId")]/text()
-    regExp: stockId":([^,]+)
-    regExpReplace: $1 
-      #(//span[@class="sc-product-header-item-number"])[2]
   - name: variantId
     singleValue: false
     xpath: //div[@class='sc-product-header-item-number']
+  - name: sku
+    singleValue: true
+    xpath: //script[contains(text(), "stockId")]/text() | (//span[@class="sc-product-header-item-number"])[2]
   - name: mpc
     singleValue: true
-    xpath: //meta[@itemprop="mpn"]//@content
-    # xpath: //script[@type='application/json'][contains(text(),"manufacturingInfo")]
+    xpath: //script[contains(text(), "stockId")]/text() | //meta[@itemprop="mpn"]//@content
   - name: packSize
     singleValue: true
   - name: legalDisclaimer
