@@ -36,7 +36,7 @@ module.exports = {
     country: 'AR',
     store: 'carrefour',
     domain: 'carrefour.com.ar',
-    url: 'https://www.carrefour.com.ar/catalogsearch/result/?q={searchTerms}',
+    url: 'https://supermercado.carrefour.com.ar/catalogsearch/result/?q={searchTerms}',
     loadedSelector: 'div.home-product-cards',
     noResultsXPath: '//div[@class="no-results"]',
     zipcode: "''",
