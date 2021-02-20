@@ -25,11 +25,19 @@ const transform = (data) => {
     for (const { group } of data) {
         for (let row of group) { 
             if (row.description) {
-                let info = [];
+               // let info = [];
                 row.description.forEach(item => {
-                    info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
+                  const data = JSON.parse(String(item.text));
+                  if(data.product[0].hasOwnProperty('description')){
+                      item.text = data.product[0].description.replace(/(\s*\n\s*)+/g, ' ').trim();
+                      item.text = item.text.replace( /(<([^>]+)>)/ig, '');
+                      item.text = item.text.replace(/[\/\\]/g,'');
+                  }else{
+                    item.text = "";
+                  }
+                    //info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
                 });
-                row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];
+               // row.description = [{'text':info.join(' | '),'xpath':row.description[0].xpath}];
             }
             if (row.availabilityText) {
                 row.availabilityText.forEach(item => {
@@ -42,7 +50,7 @@ const transform = (data) => {
             }
             if (row.aggregateRating) {
               row.aggregateRating.forEach(item => {
-                item.text = item.text + ".o";
+                item.text = item.text + ",0";
               });          
             }
             // if (row.price) {                    
@@ -87,7 +95,8 @@ const transform = (data) => {
                 item.text = item.text.replace('  Информация о приготовлении:', '').trim();
               });
             }
-            if (row.proteinPerServing) {                    
+            if (row.proteinPerServing) {         
+              let protein  = '';           
               row.proteinPerServing.forEach(item => {
                 if(item.text.indexOf(" белки") !== -1){
                   item.text = item.text.substr(item.text.indexOf(" белки"));
@@ -96,9 +105,19 @@ const transform = (data) => {
                   item.text = item.text.substr(item.text.indexOf(" белок"));
                   item.text = item.text.replace(" белок ", "");
                 }
+                protein = item.text
                 item.text = item.text.substr(0, 4);
                 item.text = item.text.replace(/[^\d-,]/g, "");
                 item.text = item.text.replace(/[^\d.,]/g, "");
+                if(item.text == ""){
+                  if(protein.indexOf(" белки") !== -1){
+                    item.text = protein.substr(protein.indexOf(" белки"));
+                    item.text = item.text.replace(" белки ", "");
+                    item.text = item.text.substr(0, 4);
+                    item.text = item.text.replace(/[^\d-,]/g, "");
+                    item.text = item.text.replace(",", "");
+                  }
+                }
               });
             }
             if (row.ingredientsList) {                    

@@ -36,7 +36,7 @@ fields:
     defaultValue: "In stock"
   - name: description
     singleValue: false
-    xpath: //app-product-tabs//app-product-detailed-info//div[contains(@class,'ng-star-inserted')]//div[@class='product-tab_content']//p//text()
+    xpath: //script[@class='structured-data']
   - name: variantCount
     singleValue: false
     xpath: count(//app-product-page//utk-product-variants//utk-scrollbox//div[contains(@class,'product-variants_item')]//a)
@@ -48,16 +48,16 @@ fields:
     xpath: //app-product-tabs//utk-product-properties//li/div[span[contains(text(), "Бренд")]]//following-sibling::div//a[contains(@class,'product-characteristics-value-link')]
   - name: ratingCount
     sinngleValue: false
-    xpath: //app-product-page//div[@class='product-page-rating']//meta[@itemprop='reviewCount']/@content
+    xpath: //div[@class='product-page-rating']//meta[@itemprop='reviewCount']/@content
   - name: aggregateRating
     singleValue: false
-    xpath: //app-product-page//div[@class='product-page-rating']//meta[@itemprop='ratingValue']/@content
+    xpath: //div[@class='product-page-rating']//meta[@itemprop='ratingValue']/@content
   - name: imageAlt
     singleValue: false
     xpath: //div[@class='product-page_images']//div[contains(@class,'gallery__images-preview-item __active')]//img//@alt
   - name: alternateImages
     singleValue: false
-    xpath: //div[contains(@class,'product-page_images')]//div[@class='ng-star-inserted'][position()>1]//img//@src
+    xpath: //div[contains(@class,'product-page_images')]//div[contains(@class,'ng-star-inserted')][position()>1]//img//@src
   - name: quantity
     singleValue: false
     defaultValue: 1
