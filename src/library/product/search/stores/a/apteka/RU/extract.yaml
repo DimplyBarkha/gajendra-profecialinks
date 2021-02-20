@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[contains(@class, "ViewProductPage")] | //div[@class = "ViewSearch__items"]//div[@class = "CategoryItemCard"]
+recordXPath: //div[contains(@class, "ViewProductPage")] | //div[@class = "ViewSearch__items"]//div[@class = "CategoryItemCard"] | //div[contains(@class,"ViewSearch__items")]//div[contains(@class,"catalog-card")]
 fields:
   - name: id
     singleValue: false
@@ -11,7 +11,8 @@ fields:
     xpath: //div[@id="import_search_url"]
   - name: name
     singleValue: false
-    xpath: //div[@class = "ViewSearch__items"]//a[@class = "CategoryItemCard__title"]//span | //div[@class = "ViewProductPage__title"]//h1
+    xpath: //a[contains(@class,"catalog-card__name")]
+    # xpath: //div[@class = "ViewSearch__items"]//a[@class = "CategoryItemCard__title"]//span | //div[@class = "ViewProductPage__title"]//h1
   - name: productUrl
     singleValue: false
     xpath: //div[@id="import_product_url"]
@@ -20,4 +21,5 @@ fields:
     xpath: //div[@id="import_product_image"]
   - name: price
     singleValue: false
-    xpath: //div[@class = "ViewSearch__items"]//div[@class = "CategoryItemCard__price"]//strong | //div[@class = "ProductOffer__price"]//span[@class="moneyprice__content"]
+    xpath: //div[contains(@class,"card-price__new")]
+    # xpath: //div[@class = "ViewSearch__items"]//div[@class = "CategoryItemCard__price"]//strong | //div[@class = "ProductOffer__price"]//span[@class="moneyprice__content"]

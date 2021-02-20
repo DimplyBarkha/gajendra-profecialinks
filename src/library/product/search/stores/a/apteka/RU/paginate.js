@@ -7,8 +7,8 @@ module.exports = {
     nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: '.CatalogItemsList__grid, .ViewProductPage__bannersComponent',
-    noResultsXPath: '//p[contains(text(), "Увы, ничего")]',
+    loadedSelector: '.CatalogItemsList__grid, .ViewProductPage__bannersComponent, div[class*="cards-list"] div[class*="catalog-card"]',
+    noResultsXPath: '//p[contains(text(), "Увы, ничего")] | //*[contains(@class,"SearchResultTitle__not-found")][contains(text(),"По запросу")] | //div[contains(@class,"catalog-empty-response")]',
     openSearchDefinition: {
       template: 'https://apteka.ru/search/?q={searchTerms}&page={page}',
     },

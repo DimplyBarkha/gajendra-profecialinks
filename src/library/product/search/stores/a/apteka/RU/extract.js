@@ -12,6 +12,8 @@ module.exports = {
   implementation: async (inputs, { transform }, context, { productDetails: data }) => {
     await context.click('.TownSelector button.icon-close')
       .catch(() => { });
+    await context.click('*[class*="overlay-close"]')
+      .catch((err) => { console.log('we got some error while clicking on btn', err.message) });
     await context.evaluate(async function () {
       const addHiddenDiv = (id, content, container) => {
         const newDiv = document.createElement('div');
@@ -25,11 +27,17 @@ module.exports = {
       if (nextBtn) {
         nextBtn.remove();
       }
-      const products = document.evaluate('//div[@class = "ViewSearch__items"]//div[@class = "CategoryItemCard-wrapper"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
+      
+      const products = document.evaluate('//div[contains(@class,"ViewSearch__items")]//div[contains(@class,"catalog-card")]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
+      // const products = document.evaluate('//div[@class = "ViewSearch__items"]//div[@class = "CategoryItemCard-wrapper"]', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
       const isProductPage = document.querySelector('.ViewProductPage');
-      const productIds = document.evaluate('//div[@class = "ViewSearch__items"]//a[@class = "CategoryItemCard__title"]/@href', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
+      
+      const productIds = document.evaluate('//div[contains(@class,"ViewSearch__items")]//div[contains(@class,"catalog-card")]//a[contains(@class,"catalog-card__name")]/@href', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
+      // const productIds = document.evaluate('//div[@class = "ViewSearch__items"]//a[@class = "CategoryItemCard__title"]/@href', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
       const productDetailsId = document.evaluate('//meta[@itemprop = "sku"]/@content', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
-      const productImages = document.evaluate('//div[@class = "ViewSearch__items"]//a[contains(@class, "CategoryItemCard__image")]//img/@src', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
+      // const productImages = document.evaluate('//div[@class = "ViewSearch__items"]//a[contains(@class, "CategoryItemCard__image")]//img/@src', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
+      const productImages = document.evaluate('//div[contains(@class,"ViewSearch__items")]//div[contains(@class,"catalog-card")]//img[contains(@class,"card-single-image")]/@src | //div[contains(@class,"ViewSearch__items")]//div[contains(@class,"catalog-card")]//*[contains(@class,"main-photo")]//img/@src', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
+      
       const productDetailsImage = document.evaluate('//div[contains(@class, "ProductPhotos")]//img/@src', document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE);
       for (let i = 0; i < products.snapshotLength; i++) {
         const pdtId = productIds.snapshotItem(i).nodeValue.replace(/.*-(.*)\/$/, '$1');
