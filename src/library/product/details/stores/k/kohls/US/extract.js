@@ -43,7 +43,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
   };
 
-  const extractSingleProduct = async () => {
+  const extractSingleVariant = async () => {
     await context.evaluate(async () => {
       function addElementToDocument (key, value) {
         const catElement = document.createElement('div');
@@ -64,13 +64,78 @@ async function implementation (inputs, parameters, context, dependencies) {
         variantInformation = [variantColor, variantSize].join(' | ');
       } else if (variantColor) {
         variantInformation = variantColor;
+        const colorsSkus = document.querySelectorAll('div[itemprop="offers"] > meta[itemprop="sku"]');
+        const colorsSkusString = Array.from(colorsSkus).map((el) => el.getAttribute('content')).join(' | ');
+        addElementToDocument('color_variants', colorsSkusString);
+        addElementToDocument('color_variants_count', colorsSkus.length);
       } else {
         variantInformation = variantSize;
       }
 
       addElementToDocument('variant_information', variantInformation);
+
+      const firstVariantEl = document.querySelector('div.pdp-main-bazarvoice-ratings > div[data-bv-productid]');
+      if (firstVariantEl) {
+        addElementToDocument('variant_first', firstVariantEl.getAttribute('data-bv-productid'));
+      }
     });
     await context.extract(productDetails, { transform });
+  };
+
+  const clickVariantAndExtract = async (selector, index) => {
+    await context.evaluate(async ({ selector, index }) => {
+      const variantEl = document.querySelectorAll(selector)[index];
+      console.log(variantEl);
+      await variantEl.click();
+      // variants field: only after clicking size we are sure which sku belongs to which size ASK MANAS URL: https://www.kohls.com/product/prd-2891253/adidas-adilette-cloudfoam-womens-ombre-slide-sandals.jsp?color=Cherry%20Metallic
+      const variantSKU = document.querySelector('input#addToBagSkuId');
+      if (variantSKU) {
+        document.querySelector('div#size_variants').textContent += ` ${variantSKU.getAttribute('value')}`;
+      }
+    }, { selector, index });
+    await extractSingleVariant();
+  };
+
+  const loopThroughVariants = async (selector) => {
+    if (selector) {
+      await context.evaluate(async () => {
+        const variants = document.createElement('div');
+        variants.id = 'size_variants';
+        document.body.appendChild(variants);
+        const variantsCount = document.createElement('div');
+        variantsCount.id = 'size_variants_count';
+        document.body.appendChild(variantsCount);
+      });
+
+      if (selector.includes('sbSelector')) {
+        const length = await context.evaluate((variantSelector) => {
+          const variantSizeCount = document.querySelectorAll(`${variantSelector} ~ ul.sbOptions li a[rel]`).length;
+          document.querySelector('div#size_variants_count').textContent = variantSizeCount.toString();
+          return variantSizeCount;
+        }, selector);
+        console.log('ilosc dostepnych size: ', length);
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+
+        for (let i = 0; i < length; i++) {
+          console.log('IM ON THIS SELECTOR: ', selector);
+          console.log(`clicking variant:${i}`);
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+          await clickVariantAndExtract(`${selector} ~ ul.sbOptions li a[rel]`, i);
+        }
+      } else {
+        const length = await context.evaluate((variantSelector) => {
+          const variantSizeCount = document.querySelectorAll(`${variantSelector} a.pdp-size-swatch`).length;
+          document.querySelector('div#size_variants_count').textContent = variantSizeCount.toString();
+          return variantSizeCount;
+        }, selector);
+        for (let i = 0; i < length; i++) {
+          console.log('IM ON THIS SELECTOR: ', selector);
+          console.log(`clicking variant:${i}`);
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+          await clickVariantAndExtract(`${selector} a.pdp-size-swatch`, i);
+        }
+      }
+    }
   };
 
   const returnVariantWrapperSelector = async () => {
@@ -85,43 +150,6 @@ async function implementation (inputs, parameters, context, dependencies) {
     });
   };
 
-  const clickVariantAndExtract = async (selector, index) => {
-    await context.evaluate(async ({ selector, index }) => {
-      const variantEl = document.querySelectorAll(selector)[index];
-      console.log(variantEl);
-      variantEl.click();
-    }, { selector, index });
-    await extractSingleProduct();
-  };
-
-  const loopThroughVariants = async (selector) => {
-    if (selector) {
-      if (selector.includes('sbSelector')) {
-        const length = await context.evaluate((variantSelector) => {
-          return document.querySelectorAll(`${variantSelector} ~ ul.sbOptions li a[rel]`).length;
-        }, selector);
-        console.log('ilosc dostepnych size: ', length);
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        for (let i = 0; i < length; i++) {
-          console.log('IM ON THIS SELECTOR: ', selector);
-          console.log(`clicking variant:${i}`);
-          await new Promise((resolve) => setTimeout(resolve, 1000));
-          await clickVariantAndExtract(`${selector} ~ ul.sbOptions li a[rel]`, i);
-        }
-      } else {
-        const length = await context.evaluate((variantSelector) => {
-          return document.querySelectorAll(`${variantSelector} a.pdp-size-swatch`).length;
-        }, selector);
-        for (let i = 0; i < length; i++) {
-          console.log('IM ON THIS SELECTOR: ', selector);
-          console.log(`clicking variant:${i}`);
-          await new Promise((resolve) => setTimeout(resolve, 1000));
-          await clickVariantAndExtract(`${selector} a.pdp-size-swatch`, i);
-        }
-      }
-    }
-  };
-
   // get valid variant size wrapper selector and either loop through sizes or extract product
   const extractData = async () => {
     const variantWrapperSelector = await returnVariantWrapperSelector();
@@ -131,7 +159,11 @@ async function implementation (inputs, parameters, context, dependencies) {
 
       await loopThroughVariants(variantWrapperSelector);
     } else {
-      await extractSingleProduct();
+      // w tym miejscu albo odpalamy
+      const url = await context.evaluate(async () => {
+        return window.location.href;
+      });
+      url.includes('?color') ? await extractSingleVariant() : await context.extract(productDetails, { transform });
     }
   };
 

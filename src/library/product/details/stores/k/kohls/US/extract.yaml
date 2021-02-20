@@ -132,7 +132,7 @@ fields:
 - name: variantCount
   singleValue: true
   description: Number of variants listed
-  xpath: count(//div[contains(@class,"pdp-product-swatch-outer")]) + count(//a[contains(@class,"pdp-size-swatch")])
+  xpath: //div[@id="color_variants_count"] | //div[@id="size_variants_count"]
   defaultValue: 0
 - name: color
   singleValue: true
@@ -455,10 +455,11 @@ fields:
     to populate "first_variant" for all variants of a product, this rpc becomes the
     common link between other variants. method 3 = apply some logic to determine link
     between variants, this will need analysis
-  xpath: //div[@class="pdp-main-bazarvoice-ratings"]/div/@data-bv-productid
+  xpath: //div[@id="variant_first"]
 - name: variants
   singleValue: false
-  description: //div[contains(@class,"pdp-product-swatch")]/a/@data-skucolor | //a[contains(@class,"pdp-size-swatch")]/@title
+  description: 
+  xpath: //div[@id="color_variants"] | //div[@id="size_variants"]
 - name: additionalDescBulletInfo
   singleValue: false
   description: 
