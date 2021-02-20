@@ -14,6 +14,31 @@ async function implementation (
   const isValidProductPage = await helpers.checkXpathSelector(productPageSelector);
   if (!isValidProductPage && productPageSelector) return; // exit without extracting anything
 
+  let popupCloseBtnSel = '*[id*="FocusFirst"][class*="closeWrapper"]';
+  let popUpPresent = false;
+  try {
+    await context.waitForSelector(popupCloseBtnSel);
+    popUpPresent = true;
+  } catch(err) {
+    console.log('got some error while waiting for pop up btn', err.message);
+    try {
+      await context.waitForSelector(popupCloseBtnSel);
+      popUpPresent = true;
+    } catch(error) {
+      console.log('got some error while waiting for pop up btn, again', error.message);
+    }
+  }
+
+  console.log('popUpPresent', popUpPresent);
+  if(popUpPresent) {
+    try {
+      await context.click(popupCloseBtnSel);
+      console.log('btn clicked');
+    } catch(err) {
+      console.log('got some error while clicking the pop up button', err.message);
+    }
+  }
+
   await context.evaluate(async () => {
     function addElementToDocument (key, value) {
       const catElement = document.createElement('div');

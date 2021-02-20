@@ -75,7 +75,11 @@ const transform = (data) => {
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
 
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
-    el.text = clean(el.text);
+    if(el.text) {
+      el.text = clean(el.text);
+    } else {
+      el.text = '';
+    }
   }))));
   return data;
 };
