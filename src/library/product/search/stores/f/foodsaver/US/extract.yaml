@@ -1,9 +1,10 @@
-singleRecord: true
+singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: null
+recordXPath: '//div[@id="product-search-results"]//div[contains(@class,"product-search-grid")]//div[contains(@class,"product-grid-wrapper")]//div[@class="product"]'
+  # //div[@class="search-result-content"]//ul//li
 fields:
-  - name: image
+  - name: thumbnail
     singleValue: false
     xpath: //div[@class="product-tile"]//img[@class="tile-image"]/@src
     # //div[@class="product-image"]//a/picture/source[1]/@srcset
@@ -11,11 +12,7 @@ fields:
     xpath: //div[@class="product-tile"]//a[@class="product-tile-link"]/@aria-label
     # //div[@class="product-name"]//a/@title
     singleValue: false
-    xpath: //div[@id="maincontent"]//div[contains(@class,"pdp-tile")]//h5
-    # xpath: //div[@id="product-content"]//h1[@class="product-name"]
-  - name: listPrice
-    singleValue: false
-    description: The stated undiscounted price for the product
+    description: The product name 
   - name: price
     singleValue: false
     xpath: //span[@class="price-tag"]//span[contains(@class, "sales")]/span
@@ -34,10 +31,11 @@ fields:
     singleValue: true
   - name: rank
     singleValue: false
-    xpath: //div[@id="collapsible-pdp-details-1"] | //ul[@id="collapsible-pdp-details-2"]
-  - name: brandText
+  - name: productUrl
     singleValue: false
     xpath: //div[@class="product-tile"]//a[@class="product-tile-link"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.foodsaver.com$1
     # //div[@class="product-name"]//a/@href
   - name: aggregateRating
     singleValue: false
