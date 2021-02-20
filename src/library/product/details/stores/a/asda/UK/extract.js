@@ -40,11 +40,11 @@ module.exports = {
       }
     } else {
       console.log('Returning empty data');
-      return context.halt(true);
+      return context.halt(false);
     }
 
     const jsonFromCatalogue = await context.evaluate(async function (inputs) {
-      const ajax = async (url, method, body) => {
+      const ajax = async (url, method, body) => {// eslint-disable-next-line 
         const response = await fetch(url, { method, headers: { 'Content-Type': 'application/json' }, body });
         const rHeaders = {};
         // eslint-disable-next-line no-return-assign
