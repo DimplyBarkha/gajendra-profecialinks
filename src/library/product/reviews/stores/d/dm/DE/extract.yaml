@@ -72,6 +72,10 @@ fields:
   - name: reviewedSku
     singleValue: false
     xpath: ancestor::html//meta[@itemprop='sku']/@content
+  - name: reviewCount
+    description: Total Review
+    xpath: //div[@class='bv_numReviews_text'] | //div[@class='bv_numReviews_text'] | //div[@id="main-section-headline-container"]//div[@role="button"]//span[2]
+    regExp: (?:([\d\.\,]+)\s?)|(\d+)
   - name: user
     description: The user name of the reviewer
     xpath: //span[@itemprop="author"]
