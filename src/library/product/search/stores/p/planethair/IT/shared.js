@@ -22,15 +22,10 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      if (rankCounter < 150) {
-        rankCounter += 1;
-        orgRankCounter += 1;
-        row.rank = [{ text: rankCounter }];
-        row.rankOrganic = [{ text: orgRankCounter }];
-      }
-      if (!row.rank) {
-        delete row.id;
-      }
+      rankCounter += 1;
+      orgRankCounter += 1;
+      row.rank = [{ text: rankCounter }];
+      row.rankOrganic = [{ text: orgRankCounter }];
 
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
