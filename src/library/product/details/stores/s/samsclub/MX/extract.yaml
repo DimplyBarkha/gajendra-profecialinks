@@ -156,6 +156,9 @@ fields:
   - name: calciumPerServing
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Calcio')]//parent::td//following-sibling::td//h3
+  - name: calciumPerServingUom
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Calcio')]//parent::td//following-sibling::td//h3
   - name: caloriesPerServing
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Energía (kcal)')]//parent::td//following-sibling::td//h3

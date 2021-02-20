@@ -94,6 +94,16 @@ const transform = (data) => {
           }
         });
       }
+      if (row.calciumPerServingUom) {
+        row.calciumPerServingUom.forEach(item => {
+          if(item.text.includes('%')){
+          item.text = item.text.slice(-1);
+          }
+          else{
+            item.text = '';
+          }
+        });
+      }
       if (row.totalFatPerServing) {
         row.totalFatPerServing.forEach(item => {
           if(item.text.includes('%')){
