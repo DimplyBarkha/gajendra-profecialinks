@@ -9,8 +9,8 @@ module.exports = {
     //loadedSelector: 'div.sc-plp-layout',
     //openSearchDefinition: null,
     openSearchDefinition: {
-      offset: 48,
-      template: 'https://www.samsclub.com/api/node/vivaldi/v2/az/products/search?sourceType=1&sortKey=relevance&sortOrder=1&limit=48&searchTerm={searchTerms}&clubId=6384&br=true&offset={offset}#[!opt!]{"type":"json"}[/!opt!]',
+      indexOffset: 48,
+      template: 'https://www.samsclub.com/api/node/vivaldi/v2/az/products/search?sourceType=1&sortKey=relevance&sortOrder=1&offset={pageOffset}&limit=48&searchTerm={searchTerms}&clubId=6617&br=true#[!opt!]{"type":"json"}[/!opt!]',
     },
     domain: 'samsclub.com',
   },
