@@ -7,7 +7,7 @@ module.exports = {
     nextLinkSelector: '.pagination-widget__show-more-btn',
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div.product-info img',
+    loadedSelector: 'div.catalog-product img',
     noResultsXPath: "//h4[contains(@class, 'empty-search-results__container-header')]",
     openSearchDefinition: null,
     domain: 'dns-shop.ru',

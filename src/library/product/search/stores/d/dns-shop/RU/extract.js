@@ -9,6 +9,7 @@ module.exports = {
     domain: 'dns-shop.ru',
     zipcode: '',
   },
+  // @ts-ignore
   implementation: async (inputs,
     parameters,
     context,
@@ -19,14 +20,16 @@ module.exports = {
 
     await context.evaluate(async function () {
       let scrollSelector = document.querySelector('footer[class="main-footer"]');
+      // @ts-ignore
       let scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
       let yPos = 0;
       while (scrollLimit && yPos < scrollLimit) {
         yPos = yPos + 350;
         window.scrollTo(0, yPos);
         scrollSelector = document.querySelector('footer[class="main-footer"]');
+        // @ts-ignore
         scrollLimit = scrollSelector ? scrollSelector.offsetTop : '';
-        await new Promise(resolve => setTimeout(resolve, 3500));
+        await new Promise(resolve => setTimeout(resolve, 1000));
       }
     });
     try {
