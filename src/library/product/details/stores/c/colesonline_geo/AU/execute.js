@@ -8,12 +8,23 @@ async function implementation (
   const { zipcode, url, id } = inputs;
   const { loadedSelector, noResultsXPath } = parameters;
   // -------------To set location-----------------
-  await context.goto('https://shop.coles.com.au', {
-    firstRequestTimeout: 60000,
+  await context.setBlockAds(false);
+  await context.setLoadAllResources(true);
+  await context.setLoadImages(true);
+  await context.setJavaScriptEnabled(true);
+  await context.setAntiFingerprint(false);
+  const firstUrl = 'https://shop.coles.com.au#[!opt!]{"block_ads":false,"anti_fingerprint":false,"first_request_timeout":60,"load_timeout":30,"load_all_resources":true,"enable_cache":false,"discard_CSP_header":true,"cookies":[]}[/!opt!]';
+  await context.goto(firstUrl, {
+    firstRequestTimeout: 90000,
     timeout: 60000,
     waitUntil: 'load',
     checkBlocked: false,
   });
+  try {
+    await context.waitForSelector("button[id*='changeLocationBar']", { timeout: 30000 });
+  } catch (error) {
+    console.log('Main page not loaded!!');
+  }
   const locationName = zipcode || 'Sydney, NSW';
   const locationSet = await context.evaluate(async function (locationName) {
     // @ts-ignore
@@ -23,7 +34,14 @@ async function implementation (
 
   async function changeLocation (locationName) {
     console.log('locations-->', locationName);
-    const searchValue = locationName.split(' ')[0];
+    let searchValue = locationName.split(' ')[0];
+    if (locationName.split(' ').length > 3) {
+      searchValue = `${searchValue} ${locationName.split(' ')[1]}`;
+    } else {
+      if (searchValue.length < 3) {
+        searchValue = `${searchValue} ${locationName.split(' ')[1]}`;
+      }
+    }
     await context.waitForSelector("button[id*='changeLocationBar']", { timeout: 30000 });
     await context.click("button[id*='changeLocationBar']");
     await context.waitForSelector("input[id*='localisation-search']", { timeout: 30000 });
@@ -45,7 +63,11 @@ async function implementation (
     const clickElement = `div[id*='search-autocomplete'] li[role*='option']:nth-child(${positionOfMatchedLocation})`;
     await context.clickAndWaitForNavigation(clickElement, {}, { timeout: 60000 });
     const waitingXpathName = `//span[contains(@class,"localised-suburb") and contains(text(),"${searchValue.substring(1).toLowerCase()}")]`;
-    await context.waitForXPath(waitingXpathName, { timeout: 60000 });
+    try {
+      await context.waitForXPath(waitingXpathName, { timeout: 60000 });
+    } catch (error) {
+      console.log('');
+    }
     await context.waitForSelector("input[id*='localisation-search']", { timeout: 60000 });
   }
   try {
