@@ -67,7 +67,7 @@ fields:
     xpath: concat(//div[contains(@id,'_percentual')]/span,  //span[contains(@class," css-17jnlpm eym5xli0")])
   - name: listPrice
     singleValue: true
-    xpath: //p[@id="product-price-original"] | 
+    xpath: //p[@id="product-price-original"] 
   - name: description
     singleValue: false
     xpath: //meta[@property="og:description"]/@content
@@ -90,7 +90,8 @@ fields:
     regExpReplace: $1  
   - name: variantId
     singleValue: true
-    xpath: //input[@id="IdProduto"]/@value   | //div[@class="item price-api-success"]/@data-productid 
+    xpath: //input[@id="IdProduto"]/@value | //div[@class="item price-api-success"]/@data-productid  | //p[@d="block"]/text()
+    regExp: \d{4,}
   - name: firstVariant
     singleValue: true
     xpath: //input[@id='ctl00_Conteudo_hdnIdSkuSelecionado']/@value    
