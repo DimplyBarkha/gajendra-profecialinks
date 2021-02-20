@@ -84,6 +84,46 @@ const transform = (data) => {
           item.text = item.text.replace('i.jpg', 'l.jpg');
         });
       }
+      if (row.calciumPerServing) {
+        row.calciumPerServing.forEach(item => {
+          if(item.text.includes('%')){
+          item.text = item.text.replace('%', '');
+          }
+          else{
+            item.text = item.text;
+          }
+        });
+      }
+      if (row.totalFatPerServing) {
+        row.totalFatPerServing.forEach(item => {
+          if(item.text.includes('%')){
+          item.text = item.text.replace('%', '');
+          }
+          else{
+            item.text = item.text;
+          }
+        });
+      }
+      if (row.totalSugarsPerServing) {
+        row.totalSugarsPerServing.forEach(item => {
+          if(item.text.includes('g')){
+          item.text = item.text.replace('g', '');
+          }
+          else{
+            item.text = item.text;
+          }
+        });
+      }
+      if (row.availabilityText) {
+        row.availabilityText.forEach(item => {
+          if(item.text=== 'true'){
+          item.text = 'In Stock';
+          }
+          else{
+            item.text = 'Out of Stock';
+          }
+        });
+      }
     }
   }
   return cleanUp(data);

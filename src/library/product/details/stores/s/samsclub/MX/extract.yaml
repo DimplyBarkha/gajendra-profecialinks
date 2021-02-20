@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -26,10 +26,10 @@ fields:
     xpath: //h1[@class='prod-name']
   - name: availabilityText
     singleValue: false
-    xpath: //div[contains(@class,'quantity-wrapper')]//div[contains(@class,'cart-button-in-wrap')]//span[text()='Añadir al carrito']
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: boolean(//div[contains(@class,'quantity-wrapper')]//div[contains(@class,'cart-button-in-wrap')]//span[text()='Añadir al carrito'])
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: price1
     singleValue: false
     xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='prod-price-special']//sup[@itemprop='priceCurrency']
@@ -76,17 +76,17 @@ fields:
     xpath: //span[@class='prod-id']
   - name: variantId
     singleValue: false
-    xpath: //span[@class='prod-id']    
+    xpath: //span[@class='prod-id']
   - name: variantCount
     singleValue: false
-    defaultValue: '0'
-    type: NUMBER
+    # defaultValue: '0'
+    # type: NUMBER
   - name: promotion
     singleValue: false
     xpath: //div[contains(@class,'pdp-surcharge')]//span
   - name: warnings
     singleValue: false
-    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Advertencias') or contains(text(),'ADVERTENCIAS')]//parent::td//following-sibling::td//h3
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Advertencias') or contains(text(),'ADVERTENCIAS')]//parent::td//following-sibling::td//h3 | //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Recomendaciones')]//parent::td//following-sibling::td//h3
   - name: ingredientsList
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td/h3[text()='Ingredientes']//parent::td//following-sibling::td//h3
@@ -153,3 +153,28 @@ fields:
   - name: materials
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Material')]//parent::td//following-sibling::td//h3
+  - name: calciumPerServing
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Calcio')]//parent::td//following-sibling::td//h3
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Energía (kcal)')]//parent::td//following-sibling::td//h3
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Proteína cruda')]//parent::td//following-sibling::td//h3
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Grasa cruda')]//parent::td//following-sibling::td//h3
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Azucares totales')]//parent::td//following-sibling::td//h3
+  - name: directions
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Sugerencias_Alimenticias')]//parent::td//following-sibling::td//h3 |  //table[@class='characteristic-table']//tr//td//h3[contains(.,'Sugerencias Alimenticias')]//parent::td//following-sibling::td//h3
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class,'pdp-image-container')]//div[@class='thumb-image-container']//div[contains(@class,'thumb-image') and not(contains(@class,'active'))]//img/@src)
+  - name: quantity
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Contenido del empaque en Club')]//parent::td//following-sibling::td//h3
+
