@@ -30,15 +30,22 @@ async function implementation (inputs, parameters, context, dependencies) {
     const productUrl = document.querySelectorAll('.details>a');
 
     for (let i = 0; i < productUrl.length; i++) {
+      let ratingJson = {};
       try {
         rating = selectorRating[i].getAttribute('data-google-360');
+        ratingJson = JSON.parse(rating);
       } catch (err) {
-        console.log('does not have value for this index');
+        console.log('does not have value for this index', err.message);
       }
 
-      rating = rating.match('"rating":"(.*?)"');
-      rating = rating[1].replace('.', ',');
-      addProp('.details>a', i, 'rating', rating);
+      rating = rating.match('"rating":(.*?),"type":');
+      if(rating && rating.length > 0) {
+        rating = rating[1].replace('.', ',');
+        addProp('.details>a', i, 'rating', rating);
+      } else {
+        console.log('we do not have rating yet');
+      }
+      
       try {
         addProp('.details>a', i, 'producturl', productUrl[i]);
       } catch (err) {
