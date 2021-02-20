@@ -238,4 +238,8 @@ fields:
     xpath: //div[contains(@id, 'youtubeVideoUrl_')]
     #regExp: (vi\/(.*)\/)
     #regExpReplace: https://www.youtube.com/watch?v=$2
-    
+  - name: variantInformation
+    singleValue: false
+    xpath: //h1[@data-dmid='detail-page-headline-product-title']
+    regExp: (.*)(,\s)
+    regExpReplace: $1
