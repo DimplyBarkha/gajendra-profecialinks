@@ -23,8 +23,7 @@ fields:
     xpath: ancestor::html//h1[@data-dmid='detail-page-headline-product-title']
   - name: sku
     singleValue: false
-    description: The store-specific product identifier
-    xpath: ancestor::html//meta[@itemprop='sku']/@content
+    xpath: ancestor::html//meta[@itemprop='gtin13']/@content
   - name: reviewDate
     singleValue: false
     type: DATETIME
@@ -72,10 +71,11 @@ fields:
     regExpReplace: $1#review_root
   - name: reviewedSku
     singleValue: false
-    description: The SKU of the item that was reviewed (may be different from the
-      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
-      value, transform will handle the value.
     xpath: ancestor::html//meta[@itemprop='sku']/@content
+  - name: reviewCount
+    description: Total Review
+    xpath: //div[@class='bv_numReviews_text'] | //div[@class='bv_numReviews_text'] | //div[@id="main-section-headline-container"]//div[@role="button"]//span[2]
+    regExp: (?:([\d\.\,]+)\s?)|(\d+)
   - name: user
     description: The user name of the reviewer
     xpath: //span[@itemprop="author"]
