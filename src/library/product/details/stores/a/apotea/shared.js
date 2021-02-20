@@ -31,6 +31,30 @@ const transform = (data) => {
                 row.description = [{ text }];
             }
 
+            let brandName = '';
+            if(row.brandText && row.brandText.length){
+                brandName = row.brandText[0].text;
+                console.log('brandName -->', brandName);
+            }
+
+            if (row.imNameExtended) {                
+                let text = '';
+                row.imNameExtended.forEach(item => {
+                    text += item.text.replace(/\n/g, '');
+                });
+                if (brandName && brandName.length){
+                    if (text.includes(brandName)){
+                        text = text;
+                    }
+                    else{
+                        text = brandName+" "+text;
+                    }
+                }
+                console.log('imNameExtended -------> ',text);
+                row.imNameExtended = [{ text }];
+            }
+
+
             if (row.directions) {                
                 let text = '';
                 row.directions.forEach(item => {

@@ -11,13 +11,13 @@ fields:
   xpath: //link[contains(@rel,"canonical")]/@href
 - name: category
   singleValue: false
-  xpath: //div[contains(@class,"product-facts")]/div[3]/div[2]
+  xpath: //div[@class="product-facts"]//div[contains(text(), "Kategori")]/following-sibling::div
 - name: nameExtended
   singleValue: false
   xpath: //div[contains(@id,"product-info")]/h1[contains(@id,"product-name")]
 - name: imNameExtended
   singleValue: false
-  xpath: concat(//div[contains(@class,"product-facts")]/div[2]/div[2]," ", //div[contains(@id,"product-info")]/h1[contains(@id,"product-name")])    
+  xpath: //div[contains(@id,"product-info")]/h1[contains(@id,"product-name")]    
 - name: price
   singleValue: false
   xpath: //div[contains(@id,"price-info")]/span
@@ -39,7 +39,7 @@ fields:
   xpath: //div[contains(@id,"tab-product-contents-details")]
 - name: brandText
   singleValue: false
-  xpath: //div[contains(@class,"product-facts")]/div[2]/div[2]
+  xpath: //div[@class="product-facts"]//div[contains(text(), "Varumärke")]/following-sibling::div
 - name: quantity
   singleValue: false
   xpath: //div[@class="product-facts"]//div[contains(text(), "Förpackningsstorlek")]/following-sibling::div/text()
