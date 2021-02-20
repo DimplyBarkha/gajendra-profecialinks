@@ -34,19 +34,21 @@ module.exports = {
       function changeTextBulletPointsToDoublePipes (xpath) {
         let indexOfLastBullet;
         const descriptionTextNodes = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-        for (let i = 0; i < descriptionTextNodes.snapshotLength; i++) {
-          descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*?(•|-|\d\.|✓)/gm, 'SPACEHERE||SPACEHERE');
-          if ((/^\s*(•|-|\*|\d\.|✓)\s*$/).test(descriptionTextNodes.snapshotItem(i).textContent)) {
-            descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*(•|-|\d\.|✓)\s*$/, 'SPACEHERE||SPACEHERE');
+        if (descriptionTextNodes.snapshotLength > 0) {
+          for (let i = 0; i < descriptionTextNodes.snapshotLength; i++) {
+            descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*?(•|-|\d\.|✓)/gm, 'SPACEHERE||SPACEHERE');
+            if ((/^\s*(•|-|\*|\d\.|✓)\s*$/).test(descriptionTextNodes.snapshotItem(i).textContent)) {
+              descriptionTextNodes.snapshotItem(i).textContent = descriptionTextNodes.snapshotItem(i).textContent.replace(/^\s*(•|-|\d\.|✓)\s*$/, 'SPACEHERE||SPACEHERE');
+            }
+            if (descriptionTextNodes.snapshotItem(i).textContent.includes('||')) {
+              indexOfLastBullet = i;
+            }
           }
-          if (descriptionTextNodes.snapshotItem(i).textContent.includes('||')) {
-            indexOfLastBullet = i;
+          if (/^(SPACEHERE\|\|SPACEHERE)\s$/.test(descriptionTextNodes.snapshotItem(indexOfLastBullet).textContent)) {
+            descriptionTextNodes.snapshotItem(descriptionTextNodes.snapshotLength - 1).textContent += ' |';
+          } else {
+            descriptionTextNodes.snapshotItem(indexOfLastBullet).textContent += ' |';
           }
-        }
-        if (/^(SPACEHERE\|\|SPACEHERE)\s$/.test(descriptionTextNodes.snapshotItem(indexOfLastBullet).textContent)) {
-          descriptionTextNodes.snapshotItem(descriptionTextNodes.snapshotLength - 1).textContent += ' |';
-        } else {
-          descriptionTextNodes.snapshotItem(indexOfLastBullet).textContent += ' |';
         }
       }
       // appending double pipes to each li tag in description SPACEHERE placeholder must be appended because spaces at the start of each textNode are beeing omitted durring extraction
