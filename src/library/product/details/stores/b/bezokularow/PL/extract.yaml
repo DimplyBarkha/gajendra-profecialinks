@@ -391,7 +391,7 @@ fields:
   #   description: null
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@itemprop="description"]/table[1]/tbody/tr/td
+    xpath: //div[contains(@class,"tab-content")]//table//tr/td
   # - name: warranty
   #   singleValue: true
   #   description: Guarantee associated with the product
