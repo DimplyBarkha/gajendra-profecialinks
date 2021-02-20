@@ -5,18 +5,15 @@ recordXPath: null
 fields:
   - name: image
     singleValue: false
-    xpath: (//img[@itemprop="image"]/@src)[position()=1]
-    # xpath: //meta[@property="og:image"]/@content 
+    xpath: //meta[@property="og:image"]/@content 
     description: URL of the main product image
   - name: imageAlt
     singleValue: false
-    xpath: (//img[@itemprop="image"]/@alt)[position()=1]
-    # xpath: //picture//img/@alt
+    xpath: //picture//img/@alt
     description: Alt text of the main product image
   - name: alternateImages
     singleValue: false
-    xpath: (//img[@itemprop="image"]/@src)[position()>1]
-    # xpath: //li[@class="thumb"]//a[@class="thumbnail-link"]//img/@src
+    xpath: //li[@class="thumb"]//a[@class="thumbnail-link"]//img/@src
     description: Other product images (not in manufacturer description)
   - name: metaKeywords
     singleValue: false
@@ -28,8 +25,7 @@ fields:
     description: The categories (e.g. from breadcrumbs)
   - name: nameExtended
     singleValue: false
-    xpath: //meta[@name="description"]/@content
-    # xpath: //div[@id="product-content"]//h1[@class="product-name"]
+    xpath: //div[@id="product-content"]//h1[@class="product-name"]
   - name: listPrice
     singleValue: false
     description: The stated undiscounted price for the product
