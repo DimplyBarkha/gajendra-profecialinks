@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class="rating col-xs-12"]
+fields:
+  - name: helpfulCount
+  - name: reviewRating
+    xpath: //div[@class="rating col-xs-12"]/@custom_rating
+  - name: reviewDate
+    type: DATE
+    xpath: //div[contains(@class,"user")]
+  - name: reviewText
+    xpath: //p[2]
+  - name: reviewTitle
+    xpath: //p[@class="header-review"]

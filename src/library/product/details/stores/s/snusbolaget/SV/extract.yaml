@@ -1,0 +1,23 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[contains(@class,"product-page")]
+fields:
+  - name: brandText
+    xpath: //meta[@itemprop="brand"]/@content
+  - name: colour
+  - name: flavour
+    xpath: (//tr[td="Smak"]/td/following-sibling::td)[1]
+  - name: image
+    xpath: //meta[@itemprop="image"]/@content
+  - name: pageTitle
+    xpath: html//title
+  - name: category
+    xpath: //div[contains(@class,"breadcrumb-section")]//a
+  - name: subCategory
+    xpath: (//tr[td="Produkttyp"]/td/following-sibling::td)[1]
+  - name: reviewCount
+    xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: pageOffset
+  - name: sku
+    xpath: //meta[@itemprop="sku"]/@content

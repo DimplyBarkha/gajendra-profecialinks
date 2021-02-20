@@ -1,0 +1,19 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@data-container="product-card"]
+fields:
+  - name: brandText
+    xpath: //span[@class="brand"]
+  - name: name
+    xpath: //a[@class="name"]
+  - name: productUrl
+    xpath: //a[@class="name"]/@href
+    regExp: (.+)
+    regExpReplace: https://www.snusbolaget.se$1
+  - name: reviewCount
+    xpath: //span[@class="reviewcount"]
+    regExp: (\d+)
+    regExpReplace: $1
+  - name: sku
+    xpath: //div[@data-container="product-card"]/@data-product-id
