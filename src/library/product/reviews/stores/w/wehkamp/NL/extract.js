@@ -25,24 +25,24 @@ async function implementation (
 
     if (items.length) {
       items.forEach(item => {
-        const div = document.createElement('div');
-        div.classList.add('review-card');
-        document.body.appendChild(div);
+        const divMain = document.createElement('div');
+        divMain.classList.add('review-card');
+        document.body.appendChild(divMain);
 
-        addHiddenDiv('helper-review-text', item.text, div);
-        addHiddenDiv('helper-review-title', item.title, div);
-        addHiddenDiv('helper-review-rating', item.rating, div);
-        addHiddenDiv('helper-review-date', item.dateSubmitted, div);
-        addHiddenDiv('helper-review-nickname', item.nickname, div);
-        addHiddenDiv('helper-review-vote-count', item.positiveVoteCount, div);
-        addHiddenDiv('helper-review-comments-count', item.comments.length, div);
-        addHiddenDiv('helper-review-reviewedSku', item.productNumber, div);
-        addHiddenDiv('helper-review-brand', json.brand.name, div);
-        addHiddenDiv('helper-review-name', json.name, div);
-        addHiddenDiv('helper-review-gtin', json.gtin13, div);
-        addHiddenDiv('helper-review-aggregateRating', json.aggregateRating.ratingValue.toFixed(1), div);
-        addHiddenDiv('helper-review-sku', id, div);
-        addHiddenDiv('helper-review-url', location.href, div);
+        addHiddenDiv('helper-review-text', item['text'], divMain);
+        addHiddenDiv('helper-review-title', item['title'], divMain);
+        addHiddenDiv('helper-review-rating', item.rating, divMain);
+        addHiddenDiv('helper-review-date', item.dateSubmitted, divMain);
+        addHiddenDiv('helper-review-nickname', item.nickname, divMain);
+        addHiddenDiv('helper-review-vote-count', item.positiveVoteCount, divMain);
+        addHiddenDiv('helper-review-comments-count', item.comments.length, divMain);
+        addHiddenDiv('helper-review-reviewedSku', item.productNumber, divMain);
+        addHiddenDiv('helper-review-brand', json.brand['name'], divMain);
+        addHiddenDiv('helper-review-name', json['name'], divMain);
+        addHiddenDiv('helper-review-gtin', json.gtin13, divMain);
+        addHiddenDiv('helper-review-aggregateRating', json['aggregateRating'].ratingValue.toFixed(1), divMain);
+        addHiddenDiv('helper-review-sku', id, divMain);
+        addHiddenDiv('helper-review-url', location.href, divMain);
       });
     }
   });
