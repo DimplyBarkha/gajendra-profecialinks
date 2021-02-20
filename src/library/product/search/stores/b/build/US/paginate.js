@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'build',
-    nextLinkSelector: "a[role='button'].js-next-page:not([disabled]),div[role='button'][data-automation='next-page-button']:not([disabled])",
+    nextLinkSelector: "a[role='button'].js-next-page:not([disabled]),div[role='button'][data-automation='next-page-button']:not([disabled]):not([class*='not-allowed'])",
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: 'div.js-product-grid-container,div.flex.flex-wrap > div[class*="bg-theme-white"]:nth-child(1)',

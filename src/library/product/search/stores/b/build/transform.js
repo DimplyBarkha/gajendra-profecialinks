@@ -19,7 +19,18 @@ const transform = (data, context) => {
   const state = context.getState();
   let orgRankCounter = state.orgRankCounter || 0;
   let rankCounter = state.rankCounter || 0;
+  const urlParams = new URLSearchParams(data[0].url);
+  const page = parseInt(urlParams.get('p') || urlParams.get('page'));
+  const lastPage = Math.ceil(150 / data[0].rows);
+  const totalRecords = data[0].rows * lastPage;
+  const diff = totalRecords - 150;
+  const lastpageRecords = data[0].rows - diff;
+
   for (const { group } of data) {
+    if (page == lastPage) {
+      group.splice(-diff, diff);
+      data[0].rows = lastpageRecords;
+    }
     for (const row of group) {
       rankCounter += 1;
       if (!row.sponsored) {
