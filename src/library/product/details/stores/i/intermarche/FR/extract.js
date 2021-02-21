@@ -24,7 +24,6 @@ module.exports = {
       await context.waitForSelector('div[class*="ProductGeneralInfoContainer"]', { timeout: 80000 });
     } catch (error) {
       console.log('Page not loaded', error.message);
-      throw new Error('Product page not loaded');
     }
     await context.evaluate(function (parentInput) {
       function addHiddenDiv (id, content) {
