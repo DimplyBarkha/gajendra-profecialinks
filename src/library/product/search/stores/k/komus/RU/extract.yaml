@@ -24,7 +24,7 @@ fields:
   - name: reviewCount
     singleValue: false
     type: NUMBER
-    xpath: //a[@class="b-link b-productParams--noprint b-product-list__top_5"]
+    xpath: //a[contains(@class,"b-link js-fetch-reviews b-productParams--noprint b-product-list")]/span[1]
   - name: name
     singleValue: false
     xpath: //a[@class='b-product-list__item__descr--title']
