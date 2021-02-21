@@ -81,6 +81,17 @@ const transform = (data) => {
         shippingInfos = row.shippingInfo;
         if (shippingInfos.length > 1) row.shippingInfo.splice(1, shippingInfos.length);
       }
+
+      if (row.manufacturerDescription) {
+        // if we have manufacturerDescription as an array, we want to combine all of them to one (i.e as per schema)
+        if (row.manufacturerDescription.length > 1) {
+          const joinedText = row.manufacturerDescription.map(description => description.text).join(' ');
+          
+          row.manufacturerDescription = [{
+            text: joinedText
+          }];
+        }
+      }
     }
   }
   const clean = text => text.toString()
@@ -92,7 +103,7 @@ const transform = (data) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ');
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
