@@ -29,7 +29,7 @@ const transform = (data, context) => {
           }
         });
       }
-    if (row.id) {
+      if (row.id) {
         rankCounter += 1;
         if (!row.sponsored) {
           orgRankCounter += 1;
@@ -37,19 +37,13 @@ const transform = (data, context) => {
         }
         row.rank = [{ text: rankCounter }];
       }
-      // if (row.name) {
-      //   let text = '';
-      //   row.name.forEach(item => {
-      //     text += `${item.text.replace(/\n \n/g,' ' )}`;
-      //     text += `${item.text.replace(' Хиноин, Вен' , ' ')}`;
-      //   });
-      //   row.name = [
-      //     {
-      //       text: text.slice(0, -4),
-      //     },
-      //   ];
-      // }
-      row.rank = [{ text: rankCounter }];
+      if (row.name) {
+        let text = '';
+        row.name.forEach(item => {
+          text += item.text;
+        });
+        row.name = [{text: text}];
+      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
