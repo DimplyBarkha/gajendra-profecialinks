@@ -30,10 +30,18 @@ async function implementation (
   const videoIframe = 'iframe[title *= "Videos"]';
   // manufacturer details loads slow, need to wait for load
   try {
-    await context.waitForSelector(manufacturerDivCss, { timeout: 10000 });
-    await context.waitForSelector(videoIframe, { timeout: 10000 });
-  } catch (error) {
-    console.log(`manufacturerDiv selector not loaded: ${manufacturerDivCss}`);
+    await context.waitForSelector(manufacturerDivCss);
+    await context.waitForSelector(videoIframe);
+    console.log('manufacturer details loaded');
+  } catch (err) {
+    console.log(`manufacturerDiv selector not loaded: ${manufacturerDivCss}`, err.message);
+    try {
+      await context.waitForSelector(manufacturerDivCss);
+      await context.waitForSelector(videoIframe);
+      console.log('manufacturer details loaded');
+    } catch (error) {
+      console.log(`manufacturerDiv selector not loaded: ${manufacturerDivCss}`, error.message);
+    }
   }
 
   // manufacturer details when loaded, evaluate script
