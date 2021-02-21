@@ -34,6 +34,28 @@ async function implementation(
     for (let i = 0; i < products.length; i++) {
     addHiddenDiv('URL', url, i);
   }
+  const getAllXpath = (xpath, prop) => {
+    const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    const result = [];
+    for (let index = 0; index < nodeSet.snapshotLength; index++) {
+      const element = nodeSet.snapshotItem(index);
+      if (element) result.push(prop ? element[prop] : element.nodeValue);
+    }
+    return result;
+  };
+  // var thumbnail = getAllXpath('//div[@class="productNameAndPromotions"]/h3/a/img/@src', 'nodeValue');
+  //     if (!thumbnail.includes('https')) {
+  //       var abc = ('https:') + thumbnail
+
+  //       addHiddenDiv('image', abc);
+  //     }
+  //     else {
+        
+  //       //  ('https:')
+    
+  //       addHiddenDiv('image',thumbnail);
+  //     }
+
   });
   //rank end
   return await context.extract(productDetails, { transform });
