@@ -44,7 +44,6 @@ module.exports = {
     //     //   }
     //     // }
 
-
     const currentUrl = await context.evaluate(() => {
       return window.location.href;
     });
@@ -79,8 +78,8 @@ module.exports = {
         if (img.getAttribute('src')) {
           inTheBoxUrlArray.push(img.getAttribute('src'));
         }
-      })
-      //const textArray = document.querySelectorAll('div.lieferleft p');
+      });
+      // const textArray = document.querySelectorAll('div.lieferleft p');
       const textArray = document.querySelectorAll('div.inthebox span.title');
       const inTheBoxText = [];
       textArray.forEach(txt => {
@@ -90,7 +89,7 @@ module.exports = {
       });
       console.log('inTheBox code execution complete');
 
-      function getNodesFromxpath(STR_XPATH, context) {
+      function getNodesFromxpath (STR_XPATH, context) {
         var xresult = document.evaluate(
           STR_XPATH,
           context,
@@ -109,16 +108,15 @@ module.exports = {
       const compareTableXpath = '//h1[contains(.,"Vergleich")]';
       const comparisionTable = getNodesFromxpath(compareTableXpath, document);
 
-      let aplusImages = document.querySelectorAll('div.gallery_d img, label img, div.feature span img, div.inthebox span img, div.brand img');
-      let aplusImage = [];
+      const aplusImages = document.querySelectorAll('div.gallery_d img, label img, div.feature span img, div.inthebox span img, div.brand img');
+      const aplusImage = [];
       aplusImages.forEach(img => {
         if (img.getAttribute('src')) {
           aplusImage.push(img.getAttribute('src'));
         }
-      })
+      });
       const manufacturercDescr = document.querySelector('div#ds_div .container.threes');
       const manufacturercDesc = manufacturercDescr && manufacturercDescr.innerText.trim();
-
 
       let specsText = '';
       if (document.querySelectorAll('div[class*="p-wrapper"] div[class*="p-spec"]').length !== 0) {
@@ -153,7 +151,7 @@ module.exports = {
     }
 
     await context.evaluate(async function (inTheBoxUrl) {
-      function addHiddenDiv(id, content) {
+      function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
         newDiv.id = id;
         newDiv.textContent = content;
@@ -161,28 +159,25 @@ module.exports = {
         document.body.appendChild(newDiv);
       }
 
-
       if (inTheBoxUrl.comparisionTable.length > 0) {
         addHiddenDiv('hasComparisionTable', 'Yes');
       }
 
-      const inTheboxText = inTheBoxUrl.inTheBoxText.join(' || ')
+      const inTheboxText = inTheBoxUrl.inTheBoxText.join(' || ');
       addHiddenDiv('inTheBoxText', inTheboxText);
 
-      const inTheboxUrls = inTheBoxUrl.inTheBoxUrlArray.join(' || ')
+      const inTheboxUrls = inTheBoxUrl.inTheBoxUrlArray.join(' || ');
       addHiddenDiv('inTheBoxUrl', inTheboxUrls);
 
       console.log('inTheBox code execution completed');
 
-      const aplusImages = inTheBoxUrl.aplusImage.join(' || ')
+      const aplusImages = inTheBoxUrl.aplusImage.join(' || ');
       addHiddenDiv('manufacturerImages', aplusImages);
 
       addHiddenDiv('manufacturercDesc', inTheBoxUrl.manufacturercDesc);
 
-
       addHiddenDiv('specsDiv', inTheBoxUrl.specsText);
     }, inTheBoxUrl);
     return await await context.extract(productDetails, { transform });
-
   },
 };

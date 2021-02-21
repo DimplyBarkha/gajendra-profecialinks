@@ -86,9 +86,9 @@ const transform = (data) => {
         // if we have manufacturerDescription as an array, we want to combine all of them to one (i.e as per schema)
         if (row.manufacturerDescription.length > 1) {
           const joinedText = row.manufacturerDescription.map(description => description.text).join(' ');
-          
+
           row.manufacturerDescription = [{
-            text: joinedText
+            text: joinedText,
           }];
         }
       }

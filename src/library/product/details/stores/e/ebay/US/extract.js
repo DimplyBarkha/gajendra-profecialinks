@@ -83,12 +83,10 @@ async function implementation (
       console.log('we are on page ', document.URL);
       // div[contains(@class,"si-cnt")]//div[contains(@class,"mbg")]/a | //div[contains(@class,"si-content")]//div[contains(@class,"mbg")]//span[contains(@class,"mbg")]
       let shippingInfoPresent = true; let shippingInfo = '';
-      if(document.querySelector('div[class*="seller-details"]'))
-        shippingInfoPresent=true;
-      if(shippingInfoPresent===true){
-        if(document.querySelector('div[class*="seller-details"] span:nth-child(2)  a:first-child'))
-          shippingInfo=document.querySelector('div[class*="seller-details"] span:nth-child(2)  a:first-child').innerText;
-          addElementToDocument('shippingInfo', shippingInfo);
+      if (document.querySelector('div[class*="seller-details"]')) { shippingInfoPresent = true; }
+      if (shippingInfoPresent === true) {
+        if (document.querySelector('div[class*="seller-details"] span:nth-child(2)  a:first-child')) { shippingInfo = document.querySelector('div[class*="seller-details"] span:nth-child(2)  a:first-child').innerText; }
+        addElementToDocument('shippingInfo', shippingInfo);
       }
       console.log('shippininfo is ', shippingInfo);
     });
