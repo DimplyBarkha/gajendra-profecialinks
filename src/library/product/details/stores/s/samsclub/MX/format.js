@@ -164,6 +164,36 @@ const transform = (data) => {
           }
         });
       }
+      if (row.sodiumPerServing) {
+        row.sodiumPerServing.forEach(item => {
+          if(item.text.includes('mg')){
+          item.text = item.text.replace('mg', '');
+          }
+          else{
+            item.text = item.text;
+          }
+        });
+      }
+      if (row.sodiumPerServingUom) {
+        row.sodiumPerServingUom.forEach(item => {
+          if(item.text.includes('mg')){
+          item.text = item.text.slice(-2);
+          }
+          else{
+            item.text = '';
+          }
+        });
+      }
+      if (row.dietaryFibrePerServingUom) {
+        row.dietaryFibrePerServingUom.forEach(item => {
+          if(item.text.includes('g')){
+          item.text = item.text.slice(-1);
+          }
+          else{
+            item.text = '';
+          }
+        });
+      }
     }
   }
   return cleanUp(data);

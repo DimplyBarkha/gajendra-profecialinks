@@ -140,8 +140,8 @@ fields:
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Fibra')]//parent::td//following-sibling::td//h3
     # Get Unit i.e. g by regEx 6 g
-    regExp: ([\d\.]+)
-    regExpReplace: $1
+    # regExp: ([\d\.]+)
+    # regExpReplace: $1
   - name: sodiumPerServing
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Sodio')]//parent::td//following-sibling::td//h3
@@ -149,8 +149,8 @@ fields:
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Sodio')]//parent::td//following-sibling::td//h3
     # Get Unit i.e. g by regEx 6 g
-    regExp: ([\d\.]+)
-    regExpReplace: $1
+    # regExp: ([\d\.]+)
+    # regExpReplace: $1
   - name: materials
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Material')]//parent::td//following-sibling::td//h3
