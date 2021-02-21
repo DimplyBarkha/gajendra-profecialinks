@@ -4,13 +4,15 @@ const implementation = async (
   context,
   dependencies,
 ) => {
-  const timeout = 48000;
+  const timeout = 120000;
+  // const timeout = parameters.timeout ? parameters.timeout : 60000;
   await context.setBlockAds(false);
   await context.setLoadAllResources(true);
   await context.setLoadImages(true);
+  await context.setFirstRequestTimeout(100000);
+  await context.setUseRelayProxy(false);
   await context.setJavaScriptEnabled(true);
-  await context.setAntiFingerprint(false);
-
+  await context.setBypassCSP(true);
   const acceptCookies = async () => {
     try {
       await context.waitForSelector('#onetrust-accept-btn-handler', { timeout });
@@ -30,13 +32,13 @@ const implementation = async (
 
   if (url) {
     await context.setBypassCSP(true);
-    await context.goto(url, { timeout, waitUntil: 'networkidle0' });
+    await context.goto(url, { timeout: timeout, waitUntil: 'networkidle0' });
     console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@GOTO@@@@@@@@@@@@@@@@@@@@@@@@@@');
     await acceptCookies();
     await waitForSelectorLoad();
   } else if (id) {
     await context.setBypassCSP(true);
-    await context.goto(`https://www.currys.co.uk/gbuk/search-keywords/xx_xx_xx_xx_xx/${id}/xx-criteria.html`, { timeout, waitUntil: 'networkidle0' });
+    await context.goto(`https://www.currys.co.uk/gbuk/search-keywords/xx_xx_xx_xx_xx/${id}/xx-criteria.html`, { timeout: timeout, waitUntil: 'networkidle0' });
     console.log('$$$$$$$$$$$$$$$$$$$$$$$$ID$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$');
     await acceptCookies();
     // await context.waitForSelector('input[name="search-field"]', { timeout });

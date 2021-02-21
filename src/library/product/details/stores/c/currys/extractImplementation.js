@@ -23,7 +23,7 @@ const implementation = async (
   if (readMore) {
     await context.click('div[data-open-label="Read more"] ~ .long-text-ctl a');
     const readMore = await context.evaluate(() => {
-      return document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a') && document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a').innerText === 'Read more';
+      return (document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a') && document.querySelector('div[data-open-label="Read more"] ~ .long-text-ctl a').innerText === 'Read more');
     });
     if (readMore) {
       await context.evaluate(() => {
@@ -118,7 +118,10 @@ const implementation = async (
       const intheboxtxt = document.querySelectorAll('.eky-accesory-container .eky-accesory-title');
       intheboxText = [];
       for (let i = 0; i < intheboxtxt.length; i++) {
-        intheboxText.push(intheboxtxt[i].innerText);
+        if(intheboxtxt[i]) {
+          intheboxText.push(intheboxtxt[i].innerText);
+        }
+        
       }
       console.log('in the box URL are', intheboxText);
       return intheboxText;
@@ -174,10 +177,16 @@ const implementation = async (
   } else {
     var intheboxText = await context.evaluate(async function () {
       var intheboxText = document.evaluate('//div[@id="tab2"]//th[contains(text(),"Box contents")]/../td', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-      intheboxText = intheboxText.innerText.split('\n').join(' || ');
-      for (let index = 0; index < intheboxText.match(/-\s/g).length; index++) {
-        intheboxText = intheboxText.replace('- ', '');
+      if(intheboxText) {
+        intheboxText = intheboxText.innerText.split('\n').join(' || ');
       }
+      
+      if(intheboxText && intheboxText.match(/-\s/g)) {
+        for (let index = 0; index < intheboxText.match(/-\s/g).length; index++) {
+          intheboxText = intheboxText.replace('- ', '');
+        }
+      }
+      
       return intheboxText;
     });
     await context.evaluate(async function (intheboxText) {
@@ -263,7 +272,7 @@ const implementation = async (
           const trs = tb.querySelectorAll('tr');
           if (trs) {
             trs.forEach(t => {
-              if (t.innerText) {
+              if (t && t.innerText) {
                 content += ' || ';
               }
               try {
