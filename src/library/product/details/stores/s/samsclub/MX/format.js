@@ -59,6 +59,13 @@ const transform = (data) => {
         row.additionalDescBulletInfo = [{ text: '|| ' + arrBullet.join(' || ') }];
         row.descriptionBullets = [{ text: arrBullet.length }];
       }
+      if (row.description) {
+        var arrDescriptionlet = [];
+        row.description.forEach(item => {
+          arrDescriptionlet.push(item.text);
+        });
+        row.description = [{ text: '|| ' + arrDescriptionlet.join(' || ') }];
+      }
       if (row.specifications) {
         var arrSpecs = [];
         row.specifications.forEach(item => {
@@ -76,6 +83,18 @@ const transform = (data) => {
         row.image.forEach(item => {
           item.text = item.text.replace('img_icon', 'img_large');
           item.text = item.text.replace('i.jpg', 'l.jpg');
+        });
+      }
+      if (row.imageAlt) {
+        row.imageAlt.forEach(item => {
+          if(item.text.includes("# 0")){
+          item.text = item.text.replace('# 0', '');
+          console.log("item.text",item.text);
+          // item.text = item.text.slice(-1);
+          }
+          else{
+            item.text = item.text;
+          }
         });
       }
       if (row.alternateImages) {
