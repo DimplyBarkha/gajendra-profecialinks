@@ -17,7 +17,13 @@
  *  spinnerSelector: string,
  *  stopConditionSelectorOrXpath: string,
  *  resultsDivSelector: string,
+<<<<<<< HEAD
  *  dateSelector: string
+=======
+ *  dateSelector: string,
+ *  datePattern: string,
+ *  dateReplacePattern: string
+>>>>>>> master
  *  openSearchDefinition: { template: string, indexOffset?: number, pageOffset?: number, pageIndexMultiplier?: number, pageStartNb?: number }
  * }} parameters
  * @param { ImportIO.IContext } context
@@ -33,7 +39,7 @@ async function implementation (
   dependencies,
 ) {
   const { id, date, keywords, page, offset } = inputs;
-  const { nextPageUrlSelector, stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, dateSelector, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
+  const { nextPageUrlSelector, stopConditionSelectorOrXpath, nextLinkSelector, loadedSelector, noResultsXPath, mutationSelector, loadedXpath, resultsDivSelector, dateSelector, datePattern, dateReplacePattern, spinnerSelector, openSearchDefinition, nextLinkXpath } = parameters;
 
   let nextLink;
 
@@ -54,15 +60,16 @@ async function implementation (
     // @ts-ignore
     if (conditionIsTrue) return false;
   }
-  console.log(date);
   if (dateSelector) {
-    const stopDateFound = await context.evaluate((sel, stopDate) => {
+    const stopDateFound = await context.evaluate((sel, stopDate, datePattern, dateReplacePattern) => {
       try {
         const isThere = document.querySelectorAll(sel);
         if (isThere[isThere.length - 1]) {
           let pageDateStr = isThere[isThere.length - 1].textContent;
-          // TODO need to find a way with locale
-          pageDateStr = pageDateStr.replace(/(\d{1,2})\.(\d{1,2})\.(\d{4})/, '$3-$2-$1');
+          if (datePattern && dateReplacePattern) {
+            const pattern = new RegExp(datePattern, 'g');
+            pageDateStr = pageDateStr.replace(pattern, dateReplacePattern);
+          }
 
           if (new Date(pageDateStr).getTime() < new Date(stopDate).getTime()) {
             return true;
@@ -72,7 +79,7 @@ async function implementation (
       } catch (error) {
         return error.message;
       }
-    }, dateSelector, date);
+    }, dateSelector, date, datePattern, dateReplacePattern);
     // @ts-ignore
     console.log(stopDateFound);
     if (stopDateFound) return false;

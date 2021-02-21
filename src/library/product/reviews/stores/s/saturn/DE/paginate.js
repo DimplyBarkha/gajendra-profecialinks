@@ -14,6 +14,8 @@ module.exports = {
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     dateSelector: 'section[id*="reviews"] div[class*="Cardstyled__StyledCardWrapper"] div[class*="FlexBox__StyledBox"]:nth-child(1) > div:nth-child(2) span',
+    datePattern: "(\\d{1,2})\\.(\\d{1,2})\\.(\\d{4})",
+    dateReplacePattern: "$3-$2-$1",
     openSearchDefinition: null,
     domain: 'saturn.de',
     zipcode: '',
