@@ -24,15 +24,15 @@ async function implementation (
   }
 
   const { pager } = dependencies;
-  const success = await pager({ loadedSelector, mutationSelector });
+  const success = await pager({ loadedSelector });
   if (success) {
     return true;
   }
 
   const url = await context.evaluate(function () {
     /** @type { HTMLLinkElement } */
-    const next = document.querySelector('a.next');
-    if (!next) {
+    const next = document.querySelector('div.paginate a.current + a.next');
+    if (next) {
       return false;
     }
     return true;

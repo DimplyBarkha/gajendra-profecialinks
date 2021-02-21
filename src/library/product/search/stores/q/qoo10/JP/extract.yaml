@@ -1,22 +1,20 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class='bd_lst_item']//tbody[@id='search_result_item_list']//tr
+recordXPath: ul#search_result_item_list li
 fields:
   - name: brandText
     description: The manufacturer of product
-    xpath: //td[@class='td_item']//div[@class='sbj']//a[@class="tag_brd"]/@title
+    xpath: //a[@class='brand']
   - name: name
     description: The title of the product
-    xpath: //td[@class='td_item']//div[@class='sbj']//a[@data-type="goods_url"]/@title
+    xpath: //a[@class='tt']
   - name: productUrl
     description: The url of the product
-    xpath: //td[@class='td_item']//div[@class='sbj']//a[@data-type="goods_url"]/@href
+    xpath: //a[@class='tt']/@href
   - name: reviewCount
-    xpath: //span[@class="review_total_count"]
+    xpath: //span[@class='review_total_count']
     regExp: ([^()]+)
     regExpReplace: $1
   - name: sku
-    xpath: //a[@class='lnk_sh']/@href
-    regExp: cit=(.*)
-    regExpReplace: $1
+    xpath: //@goodscode
