@@ -24,7 +24,7 @@ fields:
     regExpReplace: https://b-apteka.ru$1
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,"header-card-search")]//h4[@class="header-card-search__title"]
+    xpath: concat(//div[@class="search-card__content"]/div[@class="header-card-search"]/h4, ' ', //div[@class="search-card__content"]/div[@class="header-card-search"]/div)
   - name: rankOrganic
     singleValue: false
   - name: rank
