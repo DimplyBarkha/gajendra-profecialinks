@@ -9,13 +9,23 @@ module.exports = {
     zipcode: "",
   },
   implementation: async ({ parentInput }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-    var hasAcceptLink = await context.evaluate((selector) => !!document.querySelector(selector), '#didomi-popup > div > div > div > a');
-    if (hasAcceptLink) {
-      await context.click('#didomi-popup > div > div > div > a');
-      
+    await new Promise(resolve => setTimeout(resolve, 10000));
+    try {
+      await context.evaluate(async function () {
+        const cookieButton = document.querySelector('.didomi-popup-view .didomi-popup-close.didomi-no-link-style');
+        if (cookieButton) {
+          cookieButton.click();
+        }
+      });
+    } catch (error) {
+      console.log('cookie button not found', error.message);
     }
-    await context.waitForSelector('.styled__ProductWrapper-h5dvb4-1.NvJDv');
-    await new Promise((resolve) => setTimeout(resolve, 5000));
+    try {
+      await context.waitForSelector('div[class*="ProductGeneralInfoContainer"]', { timeout: 80000 });
+    } catch (error) {
+      console.log('Page not loaded', error.message);
+      throw new Error('Product page not loaded');
+    }
     await context.evaluate(function (parentInput) {
       function addHiddenDiv (id, content) {
         const newDiv = document.createElement('div');
