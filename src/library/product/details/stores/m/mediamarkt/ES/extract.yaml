@@ -7,7 +7,7 @@ fields:
   - name: shippingDimensions
     xpath: //td[contains(.,"Tamaño embalaje")]/following-sibling::td[1]
   - name: energyEfficiency
-    xpath: //td[contains(.,"Eficiencia energética")]/following-sibling::td[1]
+    xpath: (//td[contains(.,"Eficiencia energética")]/following-sibling::td[1])[1]
   - name: color
     xpath: //td[contains(.,"Color")]/following-sibling::td[1]
   - name: quantity
@@ -52,16 +52,7 @@ fields:
     xpath: //meta[@name="keywords"]/@content
   - name: category
     description: The categories (e.g. from breadcrumbs)
-    xpath: //ul[contains(@class,"Breadcrumbstyled__StyledUl")]//li/a[not(@aria-label="home-link")]
-  - name: description
-    description:
-      Product description supplied by website - may be concatenanted from
-      multiple places; specifically not the manufacturer description
-    xpath: '@additional-description'
-  - name: descriptionBullets
-    description: Number of ul > li tags in the description
-    type: NUMBER
-    xpath: count(//article[@class="description"]//ul/li)
+    xpath: //ul[contains(@class,"Breadcrumbstyled__StyledUl")]//li/a[not(@aria-label="home-link")
   - name: brandText
     singleValue: false
     xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
@@ -87,6 +78,11 @@ fields:
   - name: eangtin
     xpath: //script[@type="application/ld+json"][contains(text(),"gtin")]
     regExp: gtin13":"([^"]+)
+  - name: sku
+    description: The store-specific product identifier
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
   - name: variantId
     description: Identifier for a variant from a store where variants share the same sku
     xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
@@ -97,62 +93,29 @@ fields:
     xpath: (//td[contains(.,"Modelo")]/following-sibling::td[1])[1]
   - name: ratingCount
     description: The number of ratings
-    xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
-    regExp: ratingCount":"([^"]+)
+    xpath: //div[contains(@class,'StyledAverageRating')]//p
+    regExp: (\d+)
     regExpReplace: $1
-  - name: aggregateRatingText
-    xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
-    regExp: ratingCount":"([^"]+)
   - name: aggregateRating
     description: The stated aggregate rating normalized to be out of 5
-    xpath: //script[@type="application/ld+json"][contains(text(),"aggregateRating")]
-    regExp: ratingCount":"([^"]+)
+    xpath: //span[contains(@class,"AverageRatingSummary")]
   - name: variantCount
     description: Number of variants listed
     type: NUMBER
     xpath: count(//div[contains(@class,"ProductVariantsstyled__StyledVariantsColorsSlider")]//ul/li)
-  - name: manufacturerDescription
-    description: The extended description of the product supplied by the lister
-    xpath: //div[@id='manufacturerDescription']
-  - name: manufacturerImages
-    description: Images within the third party description
-    xpath: //div[@id='aplusImages']
-  - name: videos
-    description: URLs of videos on page
-    xpath: //div[@id='added_video']
-
-
-
-    fields:
- 
 
   - name: description
+    xpath: //div[contains(@class,"ProductDescription__StyledFallbackDescription")]//div | //div[contains(@class,"ProductDescription__StyledFallbackDescription")]//p | //div[contains(@class,"ProductDescription__StyledFallbackDescription")]//h3
     description:
       Product description supplied by website - may be concatenanted from
       multiple places; specifically not the manufacturer description
-    xpath: '@additional-description'
   - name: descriptionBullets
     description: Number of ul > li tags in the description
     type: NUMBER
-    xpath: count(//article[@class="description"]//ul/li)
-  - name: sku
-    description: The store-specific product identifier
-    xpath: //span[@itemprop="sku"]
   - name: mpc
     description: The manufacturer model code (unique) of the product
     xpath: //span[@itemprop="sku"]
 
-
-
-
-  - name: ratingCount
-    description: The number of ratings
-    xpath: //dd[@itemprop="aggregateRating"]/meta[@itemprop="reviewCount"]/@content
-  - name: aggregateRatingText
-    description: The stated aggregate rating
-  - name: aggregateRating
-    description: The stated aggregate rating normalized to be out of 5
-    xpath: //dd[@itemprop="aggregateRating"]/meta[@itemprop="ratingValue"]/@content
 
   - name: shippingWeight
     description: Stated shipping weight
@@ -165,27 +128,23 @@ fields:
     xpath: '@aplus-images | //div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//img/@data-flixsrcset | //div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//img/@data-srcset | //div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//a/@href[contains(.,"media")] | //div[@id="rcm-container"]//img/@src | //div[@class="flix-tech-spacs"]//img/@data-flixsrcset | //div[@id="wrp_cnet"]//div[@data-media-type="image"]/@data-image-url | //div[@id="wrp_cnet"]//img/@data-large'
   - name: videos
     description: URLs of videos on page
-    xpath: '@aplus-videos | //div[contains(@class,"fullJwPlayerWarp") or contains(@class,"flix-feature-video")]//input/@value | //meta[@itemprop="contentURL"]/@content | //div[contains(@class,"cms_html_container") or contains(@class,"embed-responsive")]//iframe/@src | //*[contains(@class,"flix_jw_videoid")]/@data-jw'
+    xpath: //div[@id='added_video']
   - name: galleryVideos
-    xpath: '@aplus-videos | //div[contains(@class,"fullJwPlayerWarp") or contains(@class,"flix-feature-video")]//input/@value | //meta[@itemprop="contentURL"]/@content | //div[contains(@class,"cms_html_container") or contains(@class,"embed-responsive")]//iframe/@src | //*[contains(@class,"flix_jw_videoid")]/@data-jw'
-  - name: coupon
-    description: Text of any coupon offer
+
   - name: secondaryImageTotal
     description: null
     type: NUMBER
-    xpath: count(//ul[contains(@class,"thumb")]/li[position()>1]//img/@src)
+    xpath: count(//div[contains(@class,"Gallerystyled__StyledGallerySlider")]//ul//li[position()>1]//img/@src)
   - name: specifications
     description: The physical dimensions of the product including packaging.
-    xpath: '@specs'
+    xpath: //div[@id='specifications']
   - name: warranty
     description: Guarantee associated with the product
-    xpath: //div[@id="features"]//dt[contains(.,"Garantisi")]/following-sibling::dd[1]
-  - name: countryOfOrigin
-    description: The country from which the product originates
-    xpath: //div[@id="features"]//dt[contains(.,"Üretim Yeri")]/following-sibling::dd[1]
+    xpath: //td[contains(.,"Garantisi")]/following-sibling::td[1]
+
   - name: variantInformation
     description: colour / scent / flavour / other
-    xpath: //div[@id="features"]//dt[contains(.,"Renk:")]/following-sibling::dd[1]
+    # xpath: //div[@id="features"]//dt[contains(.,"Renk:")]/following-sibling::dd[1]
   - name: firstVariant
     description: Unique identifier for a collection of variants. For a subset of
       core feeds (43) we have a column "first_variant" that is populated with a
@@ -196,13 +155,13 @@ fields:
       all variants of a product, this rpc becomes the common link between other
       variants. method 3 = apply some logic to determine link between variants,
       this will need analysis
-    xpath: '@first-variant'
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
   - name: variants
     description: null
-    xpath: //div[contains(@class,"product-attributes")]//@data-action-id 
+    # xpath: //div[contains(@class,"ProductVariantsstyled")]//ol//li
   - name: additionalDescBulletInfo
-    description: null
-    xpath: //article[@class="description"]//ul/li
   - name: technicalInformationPdfPresent
     description: If there is for example a manual in pdf format on the website. ['Yes','No']
     example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
@@ -236,14 +195,12 @@ fields:
     xpath: //ul[@class="products-grid"]/li[not(contains(@class,"cloned"))]//div[contains(@class, "base-info")]//h3/a | //li[contains(@class,'dyItem') and not(contains(@class,'slick-cloned'))]//div[@class="dyBaseInfo"]/@data-gtm-name
   - name: inTheBoxUrl
     singleValue: false
-    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
-    regExp: (.+)(\s200w)
-    regExpReplace: https:$1
-    description: Must include image url to show the accessories/tools which come with the product
+    xpath: //div[@id='inTheBoxUrl']
   - name: inTheBoxText
     singleValue: false
-    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+    xpath: //div[@id='inTheBoxText']
   - name: hasComparisonTable
-    xpath: //div[@class="containerron"]/following-sibling::img[contains(@src,"chart_SE")]/@src
+    xpath: //div[@class="flix-comp-h2"][contains(.,'Tabla de comparación')]
     regExp: (.+)
     regExpReplace: Yes
+    defaultValue: No
