@@ -49,7 +49,7 @@ fields:
     singleValue: true
   - name: quantity
     singleValue: true
-    xpath: //div[@class="price-conditions-container"]/div/table[@class="w-100 table table-hover mb-o"]/tbody/tr[1]/td/label/div
+    xpath: //div[@class="price-conditions-container"]/div/table[@class="w-100 table table-hover mb-o"]/tbody/tr[1]/td/label/div | (//div[@class="productdetails"]//div//div[@class="col-lg-6"][2]//table//tbody//tr//td)[1]
   - name: weightNet
     singleValue: true
   - name: weightGross
@@ -57,9 +57,9 @@ fields:
   - name: gtin
     singleValue: true
     xpath: //table[@class="table mb-0"]//tbody//tr//th[contains(text(),'EAN nummer')]/following-sibling::td
-  # - name: sku
-  #   singleValue: true
-  #   xpath: //div[@class="container productcard"]/@data-rr-product-id
+  - name: sku
+    singleValue: true
+    xpath: //div[@class="container productcard"]/@data-rr-product-id
   - name: variantId
     singleValue: true
     xpath: //div[@class="container productcard"]/@data-rr-product-id
@@ -96,6 +96,9 @@ fields:
     type: NUMBER
   # - name: color
   #   singleValue: true
+  - name: variantInformation
+    singleValue: true
+    xpath: //div[@class="dropdown w-100 variant-dropdown"]//button/text() 
   - name: colorCode
     singleValue: true
   - name: manufacturerDescription
