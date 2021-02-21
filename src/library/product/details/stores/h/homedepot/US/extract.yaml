@@ -247,5 +247,10 @@ fields:
     xpath: count(//a[@class="variants"])
   - name: variants
     xpath: //a[@class="variants"]/@id
+  - name: hasComparisonTable
+    xpath: //h2[contains(text(),'Induction Cooktop Step-Up Chart')] | //h2[contains(text(),'Compare Similar Air Purifiers')]
+    regExp: (.+)
+    regExpReplace: Yes
+    DefaultValue: No 
 
 
