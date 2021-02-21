@@ -20,7 +20,7 @@ module.exports = {
     try {
       await context.click('#description button');
       await context.click('#specifications button');
-      await context.click('#returnsAndWarranty button');
+      await context.click('#returnsAndWarranty');
     } catch (e) {
       console.log(e);
     }
@@ -28,6 +28,10 @@ module.exports = {
       let specificationButton = document.querySelector('button[data-test="showMoreButton-specifications"]');
       if(specificationButton){
         specificationButton.click();
+      }
+      let descriptionButton = document.querySelector('button[data-test="showMoreButton-description"]');
+      if(descriptionButton){
+        descriptionButton.click();
       }
     });
 
