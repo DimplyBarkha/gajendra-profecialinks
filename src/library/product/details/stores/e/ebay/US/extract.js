@@ -16,9 +16,6 @@ async function implementation (
     await context.click('.nodestar-item-card-details__view>a[href*="www.ebay"]');
   }
 
-  // const productUrl = await context.evaluate(async function () {
-  //   return window.location.href;
-  // });
   try {
     await context.waitForSelector('iframe#desc_ifr');
   } catch (err) {
@@ -82,12 +79,7 @@ async function implementation (
       } catch (e) {
         console.log('unInterruptedPDP not found');
       }
-      // let specifications='';
-      //   if(document.querySelectorAll('div[class*="prodDetailDesc"] tr>td')){
-      //   let tableData=document.querySelectorAll('div[class*="prodDetailDesc"] tr>td');
-      //   for(let i=0;i<tableData.length;i++)  specifications+=tableData[i].innerText+' || ';
-      //   addElementToDocument('prodSpecs',specifications);
-      //   }
+
       console.log('we are on page ', document.URL);
       // div[contains(@class,"si-cnt")]//div[contains(@class,"mbg")]/a | //div[contains(@class,"si-content")]//div[contains(@class,"mbg")]//span[contains(@class,"mbg")]
       let shippingInfoPresent = true; let shippingInfo = '';
@@ -98,23 +90,6 @@ async function implementation (
           shippingInfo=document.querySelector('div[class*="seller-details"] span:nth-child(2)  a:first-child').innerText;
           addElementToDocument('shippingInfo', shippingInfo);
       }
-      // if (document.querySelector('div[class*="si-content"] h2[class*="si-ttl"]')) {
-      //   if (document.querySelector('div[class*="si-content"] h2[class*="si-ttl"]').innerText.includes('sur le vendeu')) { shippingInfoPresent = false; }
-      // }
-      // if (shippingInfoPresent === true) {
-      //   if (document.querySelector('div[class*="si-cnt"] div[class*="mbg"]')) {
-      //     console.log(document.querySelector('div[class*="si-cnt"] div[class*="mbg"]').innerText);
-      //     if (!document.querySelector('div[class*="si-cnt"] div[class*="mbg"]').innerText.includes('outlet')) {
-      //       shippingInfo = document.querySelector('div[class*="si-cnt"] div[class*="mbg"]').innerText;
-      //       addElementToDocument('shippingInfo', shippingInfo);
-      //     }
-      //   } else if (document.querySelector('div[class*="si-content"] div[class*="mbg"] span[class*="mbg"]')) {
-      //     if (!document.querySelector('div[class*="si-content"] div[class*="mbg"] span[class*="mbg"]').innerText.includes('outlet')) {
-      //       shippingInfo = document.querySelector('div[class*="si-content"] div[class*="mbg"] span[class*="mbg"]').innerText;
-      //       addElementToDocument('shippingInfo', shippingInfo);
-      //     }
-      //   }
-      // }
       console.log('shippininfo is ', shippingInfo);
     });
   }
