@@ -31,8 +31,8 @@ module.exports = {
     });
     // For mediamarkt ES
     try {
-      await context.waitForSelector('.gdpr-cookie-layer--show');
-      await context.click('button[class*="btn--submit--all"]');
+      await context.waitForSelector('h4[class*="Typostyled__StyledInfoTypo"]');
+      await context.click('button[data-test*="consent-layer-accept-all"]');
     } catch (e) {
       console.log('No cookie box present.');
     }

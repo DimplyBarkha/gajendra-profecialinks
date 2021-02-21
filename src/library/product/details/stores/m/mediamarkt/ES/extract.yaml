@@ -9,7 +9,7 @@ fields:
   - name: energyEfficiency
     xpath: //td[contains(.,"Eficiencia energética")]/following-sibling::td[1]
   - name: color
-    xpath: //td[contains(.,"Color:")]/following-sibling::td[1]
+    xpath: //td[contains(.,"Color")]/following-sibling::td[1]
   - name: quantity
     xpath: //td[contains(.,"pulgadas")]/following-sibling::td[1]
   - name: _input
@@ -23,8 +23,11 @@ fields:
     regExp: (.+)
     regExpReplace: Yes
 
-  # - name: availabilityText
-  #   xpath: //div[contains(@class,"CTACartWishliststyled")]//button[contains(@id,"pdp-add-to-cart-button")]
+  - name: availabilityText
+    xpath: //script[@type="application/ld+json"][contains(text(),'availability":"http://schema.org/InStock"')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
   - name: nameExtended
     xpath: (//div[contains(@data-test,"mms-select-details-header")]//h1)[1]
   - name: name
@@ -117,3 +120,130 @@ fields:
   - name: videos
     description: URLs of videos on page
     xpath: //div[@id='added_video']
+
+
+
+    fields:
+ 
+
+  - name: description
+    description:
+      Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: '@additional-description'
+  - name: descriptionBullets
+    description: Number of ul > li tags in the description
+    type: NUMBER
+    xpath: count(//article[@class="description"]//ul/li)
+  - name: sku
+    description: The store-specific product identifier
+    xpath: //span[@itemprop="sku"]
+  - name: mpc
+    description: The manufacturer model code (unique) of the product
+    xpath: //span[@itemprop="sku"]
+
+
+
+
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //dd[@itemprop="aggregateRating"]/meta[@itemprop="reviewCount"]/@content
+  - name: aggregateRatingText
+    description: The stated aggregate rating
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //dd[@itemprop="aggregateRating"]/meta[@itemprop="ratingValue"]/@content
+
+  - name: shippingWeight
+    description: Stated shipping weight
+    xpath: //td[contains(.,"Peso embalado")]/following-sibling::td[1]
+  - name: manufacturerDescription
+    description: The extended description of the product supplied by the lister
+    xpath: '@aplus-description | //div[@id="flix-inpage"] | //div[@id="rcm-container"] | //div[@id="wrp_cnet"]//div[contains(@id,"inline-content")]'
+  - name: manufacturerImages
+    description: Images within the third party description
+    xpath: '@aplus-images | //div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//img/@data-flixsrcset | //div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//img/@data-srcset | //div[contains(@class,"inpage_selector_feature") or contains(@class,"inpage_selector_gallery")]//a/@href[contains(.,"media")] | //div[@id="rcm-container"]//img/@src | //div[@class="flix-tech-spacs"]//img/@data-flixsrcset | //div[@id="wrp_cnet"]//div[@data-media-type="image"]/@data-image-url | //div[@id="wrp_cnet"]//img/@data-large'
+  - name: videos
+    description: URLs of videos on page
+    xpath: '@aplus-videos | //div[contains(@class,"fullJwPlayerWarp") or contains(@class,"flix-feature-video")]//input/@value | //meta[@itemprop="contentURL"]/@content | //div[contains(@class,"cms_html_container") or contains(@class,"embed-responsive")]//iframe/@src | //*[contains(@class,"flix_jw_videoid")]/@data-jw'
+  - name: galleryVideos
+    xpath: '@aplus-videos | //div[contains(@class,"fullJwPlayerWarp") or contains(@class,"flix-feature-video")]//input/@value | //meta[@itemprop="contentURL"]/@content | //div[contains(@class,"cms_html_container") or contains(@class,"embed-responsive")]//iframe/@src | //*[contains(@class,"flix_jw_videoid")]/@data-jw'
+  - name: coupon
+    description: Text of any coupon offer
+  - name: secondaryImageTotal
+    description: null
+    type: NUMBER
+    xpath: count(//ul[contains(@class,"thumb")]/li[position()>1]//img/@src)
+  - name: specifications
+    description: The physical dimensions of the product including packaging.
+    xpath: '@specs'
+  - name: warranty
+    description: Guarantee associated with the product
+    xpath: //div[@id="features"]//dt[contains(.,"Garantisi")]/following-sibling::dd[1]
+  - name: countryOfOrigin
+    description: The country from which the product originates
+    xpath: //div[@id="features"]//dt[contains(.,"Üretim Yeri")]/following-sibling::dd[1]
+  - name: variantInformation
+    description: colour / scent / flavour / other
+    xpath: //div[@id="features"]//dt[contains(.,"Renk:")]/following-sibling::dd[1]
+  - name: firstVariant
+    description: Unique identifier for a collection of variants. For a subset of
+      core feeds (43) we have a column "first_variant" that is populated with a
+      common code to link all variants for a product. method 1 (Preferred) = use
+      common tag (Could be parent sku) that is same value for all variants of a
+      product. method 2 = first_variant method technique, Identify the first
+      varient in the sequence and use this rpc to populate "first_variant" for
+      all variants of a product, this rpc becomes the common link between other
+      variants. method 3 = apply some logic to determine link between variants,
+      this will need analysis
+    xpath: '@first-variant'
+  - name: variants
+    description: null
+    xpath: //div[contains(@class,"product-attributes")]//@data-action-id 
+  - name: additionalDescBulletInfo
+    description: null
+    xpath: //article[@class="description"]//ul/li
+  - name: technicalInformationPdfPresent
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    xpath: //a[contains(@class,"flix-doc-download")] | //div[contains(@class,"inpage_selector_download")]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: termsAndConditions
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: No
+  - name: privacyPolicy
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: No
+  - name: customerServiceAvailability
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: No
+  - name: Image360Present
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: imageZoomFeaturePresent
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    xpath: //a[@class="zoom"]/@class
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //ul[@class="products-grid"]/li[not(contains(@class,"cloned"))]//div[contains(@class, "base-info")]//h3/a | //li[contains(@class,'dyItem') and not(contains(@class,'slick-cloned'))]//div[@class="dyBaseInfo"]/@data-gtm-name
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+    regExp: (.+)(\s200w)
+    regExpReplace: https:$1
+    description: Must include image url to show the accessories/tools which come with the product
+  - name: inTheBoxText
+    singleValue: false
+    xpath: //div[contains(@class, "InTheBox")]//div[contains(@class, "flix-std-content")]
+  - name: hasComparisonTable
+    xpath: //div[@class="containerron"]/following-sibling::img[contains(@src,"chart_SE")]/@src
+    regExp: (.+)
+    regExpReplace: Yes
