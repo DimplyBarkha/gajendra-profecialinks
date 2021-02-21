@@ -22,7 +22,14 @@ const transform = (data, context) => {
   const productCodes = state.productCodes || [];
   for (const { group } of data) {
     for (const row of group) {
-      if (row.id) {
+      if (row.productUrl) {
+        row.productUrl.forEach(item => {
+          if (!item.text.match('https://')) {
+            item.text = `https://b-apteka.ru/${item.text}`;
+          }
+        });
+      }
+    if (row.id) {
         rankCounter += 1;
         if (!row.sponsored) {
           orgRankCounter += 1;

@@ -7,12 +7,13 @@ fields:
     singleValue: false
     # xpath: //div[contains(@class,"search-card j-search-card")]/@data-card-id | //a[@itemprop="url"]/@href | //a[@class="header-card-search__link"]/@href
     xpath: //a[@itemprop="url"]/@href
-    regExp: \d{5,}
+    regExp: \d{3,}
   - name: productUrl
     singleValue: false
-    xpath:  //a[@itemprop="url"]/@href | //a[@class="header-card-search__link"]/@href
-    regExp: (.+)
-    regExpReplace: https://b-apteka.ru/$1
+    xpath:  //a[@itemprop="url"]/@href
+    #  | //a[@class="header-card-search__link"]/@href
+    # regExp: (.+)
+    # regExpReplace: https://b-apteka.ru/$1
   - name: price
     singleValue: false
     xpath: //div[@class="price-search__present"]
@@ -20,7 +21,7 @@ fields:
     singleValue: false
     xpath: //img[@class="search-card__image"]/@src
     regExp: (.+)
-    regExpReplace: https://b-apteka.ru/$1
+    regExpReplace: https://b-apteka.ru$1
   - name: name
     singleValue: false
     xpath: //div[contains(@class,"header-card-search")]//h4[@class="header-card-search__title"]
