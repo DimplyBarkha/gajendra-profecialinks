@@ -41,8 +41,8 @@ fields:
     # create price like price1+price2 if price3 is not blank then price1+price2+"."+price3
     xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='prod-price-special']//sup[not(@itemprop='priceCurrency')]
   - name: price
-    singleValue: true
-    xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='prod-price-special']//sup[@itemprop='priceCurrency']
+    singleValue: false
+    # xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='prod-price-special']
   - name: listPrice1
     singleValue: false
     xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='price-before-label']//span[@class='price-before-value']
@@ -51,9 +51,10 @@ fields:
     xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='price-before-label']//sup
   - name: listPrice
     singleValue: false
-  - name:  description
+    # xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='price-before-label']
+  - name: description
     singleValue: false
-    xpath: //div[contains(@class,'pdp-header-container') and @id='Descripción']//div[@class='inner-htmlContent']
+    xpath: //div[contains(@class,'pdp-header-container') and @id='Descripción']//div[@class='inner-htmlContent'] | //h2[@itemprop='description']//ul//li
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //h2[@itemprop='description']//ul//li
@@ -79,14 +80,14 @@ fields:
     xpath: //span[@class='prod-id']
   - name: variantCount
     singleValue: false
-    # defaultValue: '0'
-    # type: NUMBER
+    defaultValue: '0'
+    type: NUMBER
   - name: promotion
     singleValue: false
     xpath: //div[contains(@class,'pdp-surcharge')]//span
   - name: warnings
     singleValue: false
-    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Advertencias') or contains(text(),'ADVERTENCIAS')]//parent::td//following-sibling::td//h3 | //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Recomendaciones')]//parent::td//following-sibling::td//h3
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Recomendaciones')]//parent::td//following-sibling::td//h3
   - name: ingredientsList
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td/h3[text()='Ingredientes']//parent::td//following-sibling::td//h3
@@ -165,10 +166,19 @@ fields:
   - name: proteinPerServing
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Proteína cruda')]//parent::td//following-sibling::td//h3
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Proteína cruda')]//parent::td//following-sibling::td//h3
   - name: totalFatPerServing
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Grasa cruda')]//parent::td//following-sibling::td//h3
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Grasa cruda')]//parent::td//following-sibling::td//h3
   - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Azucares totales')]//parent::td//following-sibling::td//h3
+  - name: totalSugarsPerServingUom
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Azucares totales')]//parent::td//following-sibling::td//h3
   - name: directions
@@ -180,4 +190,7 @@ fields:
   - name: quantity
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Contenido del empaque en Club')]//parent::td//following-sibling::td//h3
+  - name: numberOfServingsInPackage
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Porciones por envase')]//parent::td//following-sibling::td//h3
 

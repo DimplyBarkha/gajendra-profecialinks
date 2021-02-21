@@ -21,9 +21,6 @@ async function implementation (
   await context.evaluate(async function () {
     const popUps = document.querySelector('td.viewmore-cell span i.icoBlackbird-Icons_circle-arrow-down');
     if (popUps) popUps.click();
-
-    // const popUps = document.querySelector('td.viewmore-cell span i.icoBlackbird-Icons_circle-arrow-down');
-    // if (popUps) popUps.click();
   });
   return await context.extract(productDetails, { transform });
 }

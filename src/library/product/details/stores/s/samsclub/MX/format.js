@@ -114,6 +114,16 @@ const transform = (data) => {
           }
         });
       }
+      if (row.totalFatPerServingUom) {
+        row.totalFatPerServingUom.forEach(item => {
+          if(item.text.includes('%')){
+          item.text = item.text.slice(-1);
+          }
+          else{
+            item.text = '';
+          }
+        });
+      }
       if (row.totalSugarsPerServing) {
         row.totalSugarsPerServing.forEach(item => {
           if(item.text.includes('g')){
@@ -121,6 +131,26 @@ const transform = (data) => {
           }
           else{
             item.text = item.text;
+          }
+        });
+      }
+      if (row.totalSugarsPerServingUom) {
+        row.totalSugarsPerServingUom.forEach(item => {
+          if(item.text.includes('g')){
+          item.text = item.text.slice(-1);
+          }
+          else{
+            item.text = '';
+          }
+        });
+      }
+      if (row.proteinPerServingUom) {
+        row.proteinPerServingUom.forEach(item => {
+          if(item.text.includes('g')){
+          item.text = item.text.slice(-1);
+          }
+          else{
+            item.text = '';
           }
         });
       }
