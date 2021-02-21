@@ -18,6 +18,35 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  
+  let cookieBtnXpath = '//button[contains(.,"Ich akzeptiere")]';
+  let cookieBtnPresent = false;
+  try {
+    await context.waitForXPath(cookieBtnXpath);
+    cookieBtnPresent = true;
+  } catch(err) {
+    console.log('we got some error while waiting for cookie btn', err.message);
+    try {
+      await context.waitForXPath(cookieBtnXpath);
+      cookieBtnPresent = true;
+    } catch(error) {
+      console.log('we got some error while waiting for cookie btn', error.message);
+    }
+  }
+
+  console.log('cookieBtnPresent', cookieBtnPresent);
+
+  if(cookieBtnPresent) {
+    await context.evaluate(async (cookieBtnXpath) => {
+      console.log('need to click this btn', cookieBtnXpath);
+      let btn = document.evaluate(cookieBtnXpath, document, null, 7, null);
+      if(btn && btn.snapshotLength > 0) {
+        btn.snapshotItem(0).click();
+        console.log('clicked the cookie btn');
+      }
+    }, cookieBtnXpath);
+  }
+
   await context.evaluate(async function () {
     function addHiddenDiv1 (id, content, index) {
       const newDiv = document.createElement('div');
