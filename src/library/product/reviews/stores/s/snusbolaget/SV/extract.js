@@ -50,9 +50,11 @@ async function implementation (
       document.querySelector('a[data-action="show-reviews"]').click();
       await new Promise((resolve, reject) => setTimeout(resolve, 500));
       if (document.querySelector('a[data-action="show-reviews"]')) {
-        // if ((new Date(checkDate()).setHours(0, 0, 0, 0) - new Date(date).setHours(0, 0, 0, 0)) < 0) {
-        //   break;
-        // }
+        const customDate = document.querySelector('meta[itemprop="brand"]').getAttribute('custom_date');
+        // const customDate = date;
+        if ((new Date(checkDate()).setHours(0, 0, 0, 0) - new Date(customDate).setHours(0, 0, 0, 0)) < 0) {
+          break;
+        }
       } else {
         break;
       }
