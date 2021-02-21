@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'alkosto.com',
-    timeout: null,
+    timeout: 100000,
     country: 'CO',
     store: 'alkosto',
     zipcode: '',
@@ -14,6 +14,7 @@ module.exports = {
     await context.setLoadAllResources(true);
     await context.setBlockAds(false);
     await context.setLoadImages(true);
+    await context.setFirstRequestTimeout(100000);
     await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
     if (zipcode) {
