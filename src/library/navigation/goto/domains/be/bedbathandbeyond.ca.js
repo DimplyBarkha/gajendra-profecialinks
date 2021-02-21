@@ -26,11 +26,29 @@ module.exports = {
     });
     if (errorPage) { return context.reportBlocked((response.code || response.status || 0), 'Blocked: error page'); }
 
+    try {
+      await context.waitForSelector('#footer,footer');
+      console.log('footer to scroll to is loaded');
+    } catch(err) {
+      console.log('got some error while waiting for the footer', err.message);
+      try {
+        await context.waitForSelector('#footer,footer');
+        console.log('footer to scroll to is loaded');
+      } catch(error) {
+        console.log('got some error while waiting for the footer, again', error.message);
+      }
+    }
+
     if (url.match(/store\/product/)) {
       await context.evaluate(() => {
-        document.querySelector('#footer,footer').scrollIntoView({
-          behavior: 'smooth',
-        });
+        try {
+          document.querySelector('#footer,footer').scrollIntoView({
+            behavior: 'smooth',
+          });
+        } catch(err) {
+          console.log('got some error while scrolling!');
+        }
+        
       });
       await context.waitForNavigation({ waitUntil: 'networkidle0' });
       try {

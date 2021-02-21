@@ -146,8 +146,11 @@ async function implementation (inputs, parameters, context, dependencies) {
     const iframes = Array.from(document.querySelectorAll('[title="Product Videos"]'));
     for (const iframe of iframes) {
       // @ts-ignore
-      const videoLinks = [...iframe.contentWindow.document.querySelectorAll('video')].map(elm => elm.src);
-      videos = videos.concat(videoLinks);
+      if(iframe && iframe.contentWindow.document) {
+        const videoLinks = [...iframe.contentWindow.document.querySelectorAll('video')].map(elm => elm.src);
+        videos = videos.concat(videoLinks);
+      }
+      
     }
     if (videos.length) {
       document.body.setAttribute('video', videos.join('|'));
@@ -266,7 +269,10 @@ async function implementation (inputs, parameters, context, dependencies) {
     } catch (err) {
       console.log('cannot scroll');
     }
-    var new1 = [...witb.shadowRoot.querySelectorAll('div.syndigo-powerpage-grid-widget')].filter(el => !!el.querySelector('h2').innerText.includes('In the box'));
+    var new1 = '';
+    if(witb && witb.shadowRoot) {
+      new1 = [...witb.shadowRoot.querySelectorAll('div.syndigo-powerpage-grid-widget')].filter(el => !!el.querySelector('h2').innerText.includes('In the box'));
+    }
     try {
       new1[0].scrollIntoView();
     } catch (err) {
@@ -276,18 +282,21 @@ async function implementation (inputs, parameters, context, dependencies) {
       console.log('new1: present' + new1.length);
     }
     var retry = 0;
-    while (new1[0].querySelectorAll('h3').length === 0 && retry < 3) {
+    while (new1 && (new1.length > 0) && new1[0].querySelectorAll('h3').length === 0 && retry < 3) {
       console.log('264 Texts:' + new1[0].querySelectorAll('h3').length);
       // delay(5000);
       await new Promise(resolve => setTimeout(resolve, 5000));
       retry += 1;
     }
-    new1[0].querySelectorAll('h3').forEach(el => {
-      inTheBoxText = inTheBoxText + (inTheBoxText ? ' || ' : '') + el.innerText;
-    });
-    new1[0].querySelectorAll('img').forEach(el => {
-      inTheBoxUrl = inTheBoxUrl + (inTheBoxUrl ? ' || ' : '') + el.getAttribute('src');
-    });
+    if(new1 && (new1.length > 0)) {
+      new1[0].querySelectorAll('h3').forEach(el => {
+        inTheBoxText = inTheBoxText + (inTheBoxText ? ' || ' : '') + el.innerText;
+      });
+      new1[0].querySelectorAll('img').forEach(el => {
+        inTheBoxUrl = inTheBoxUrl + (inTheBoxUrl ? ' || ' : '') + el.getAttribute('src');
+      });
+    }
+    
     document.body.setAttribute('in-the-box-text', inTheBoxText);
     document.body.setAttribute('in-the-box-url', inTheBoxUrl);
   });
@@ -307,9 +316,16 @@ async function implementation (inputs, parameters, context, dependencies) {
     // close the zoom image
     await helper.ifThereClickOnIt('.rclCloseBtnWrapper');
     await context.evaluate(async () => {
-      const shadow = document.querySelector('#syndi_powerpage>div').shadowRoot;
+      let shadow = '';
+      if(document.querySelector('#syndi_powerpage>div')) {
+        shadow = document.querySelector('#syndi_powerpage>div').shadowRoot;
+      }
+      let videos = '';
       // @ts-ignore
-      const videos = [...shadow.querySelectorAll('video')];
+      if(shadow) {
+        videos = [...shadow.querySelectorAll('video')];
+      }
+      
 
       // monkey patch ajax calls
       const originalRequestOpen = XMLHttpRequest.prototype.open;
@@ -331,13 +347,16 @@ async function implementation (inputs, parameters, context, dependencies) {
       XMLHttpRequest.prototype.open = originalRequestOpen;
 
       // @ts-ignore
-      const images = [...shadow.querySelectorAll('div[class*="syndigo"] img')].map(im => im.getAttribute('src'));
-      document.querySelector('body').setAttribute('manu-imgs', images.join(' | '));
-      // @ts-ignore
-      const description = [...shadow.querySelectorAll('div[class*="syndigo"]')]
-        .filter(div => div.innerText)
-        .map(div => div.innerText);
-      document.querySelector('body').setAttribute('manu-desc', description[0]);
+      if(shadow) {
+        const images = [...shadow.querySelectorAll('div[class*="syndigo"] img')].map(im => im.getAttribute('src'));
+        document.querySelector('body').setAttribute('manu-imgs', images.join(' | '));
+        // @ts-ignore
+        const description = [...shadow.querySelectorAll('div[class*="syndigo"]')]
+          .filter(div => div.innerText)
+          .map(div => div.innerText);
+        document.querySelector('body').setAttribute('manu-desc', description[0]);
+      }
+      
 
       document.querySelector('body').setAttribute('manu-videos', [...new Set(response)].join(' | '));
     });
