@@ -1,7 +1,7 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@data-uk-rr-algolia='results']/div
+recordXPath: null
 fields:
   - name: paid
     description: Whether this is a sponsored/paid result
@@ -14,13 +14,13 @@ fields:
     description: The categories (e.g. from breadcrumbs)
     example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
   - name: productUrl
-    xpath: //div[@data-uk-rr-algolia='results']/div//div[@class="card__body"]/a/@href
+    xpath: //div[contains(@class,"card__body")]/a/@href
     regExp: (.+)
     regExpReplace: https://www.pinalli.it$1
   - name: thumbnail
-    xpath: //div[@data-uk-rr-algolia='results']/div//div[@class="card__wrap-image card__wrap-image_small uk-overlay uk-overlay-hover"]//img/@src
+    xpath: //div[contains(@class,"card__body")]/div/a/img/@src
   - name: name
-    xpath: //div[@class="card__data"]
+    xpath: //div[contains(@class,"card__data")]
   - name: sku
     description: The store-specific product identifier
   - name: mpc
@@ -34,7 +34,7 @@ fields:
   - name: reviewCount
     description: The number of reviews
   - name: price
-    xpath: //div[@data-uk-rr-algolia='results']/div//div[@class="card__price"]/div
+    xpath: //div[@data-uk-rr-algolia='results']/div//div[@class="card__price"]/div/span[@class="price__promo"]
     regExp: ((\d+),(\d+))
     regExpReplace: $1
   - name: manufacturer
@@ -50,8 +50,6 @@ fields:
   - name: rankOrganic
     description: The position (rank) within the list excluding sponsored/paid results
   - name: id
-    xpath: //div[@data-uk-rr-algolia='results']/div//div[@class="card__body"]/a/@href
-    regExp: (v=(.+))
-    regExpReplace: $2
+    xpath: //div[contains(@class,"card__body")]/div/a/@data-product-preview
   - name: nameExtended
-    xpath: //div[@class="card__data"]
+    xpath: //div[contains(@class,"card__data")]

@@ -6,8 +6,8 @@ module.exports = {
     store: 'pinalli',
     domain: 'pinalli.it',
     url: 'https://www.pinalli.it/prodotti?q={searchTerms}',
-    loadedSelector: '.uk-grid',
-    noResultsXPath: '//div[@data-uk-rr-algolia="no-results"]/div[contains(text(),"Nessun")]',
+    loadedSelector: '.card__body a img',
+    noResultsXPath: null,
     zipcode: '',
   },
 };
