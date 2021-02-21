@@ -1,9 +1,10 @@
 /* eslint-disable no-mixed-operators */
 const { transform } = require('../shared');
 
-async function implementation (inputs, parameters, context, dependencies) {
+async function implementation(inputs, parameters, context, dependencies) {
   const { helperModule: { Helpers } } = dependencies;
   const helper = new Helpers(context);
+
   const applyScroll = async () => {
     await context.evaluate(async () => {
       let scrollTop = 0;
@@ -18,7 +19,20 @@ async function implementation (inputs, parameters, context, dependencies) {
       }
     });
   };
-  function getAPI () {
+
+  try {
+    await context.waitForSelector('div.bx-wrap');
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await context.click('button[data-click="close"]')
+  } catch (error) {
+    console.log(error)
+  }
+  await applyScroll();
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+
+
+
+  function getAPI() {
     if (!window.location.pathname.includes('/product/')) {
       return false;
     }
@@ -27,7 +41,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     return API;
   }
 
-  async function addRating () {
+  async function addRating() {
     if (!window.location.pathname.includes('/product/')) {
       return false;
     }
@@ -41,7 +55,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     document.body.setAttribute('rating-count', ratingCount);
     document.body.setAttribute('rating-value', (Math.round(ratingValue * 10) / 10).toString());
   }
-  async function getAPIData (api) {
+  async function getAPIData(api) {
     const response = await fetch(api);
     const json = await response.json();
     if (!json.data) {
@@ -78,7 +92,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     return data;
   }
 
-  function generateDynamicTable (jsonData) {
+  function generateDynamicTable(jsonData) {
     const dataLength = jsonData.length;
 
     if (dataLength > 0) {
@@ -134,7 +148,7 @@ async function implementation (inputs, parameters, context, dependencies) {
 
   await context.evaluate(() => {
     if (!document.querySelector('meta[property="og:type"]') || document.querySelector('meta[property="og:type"]') &&
-        document.querySelector('meta[property="og:type"]').getAttribute('content') !== 'product') {
+      document.querySelector('meta[property="og:type"]').getAttribute('content') !== 'product') {
       throw new Error('Not a product Page');
     }
   });
@@ -175,10 +189,10 @@ async function implementation (inputs, parameters, context, dependencies) {
   await helper.ifThereClickOnIt(imagesZoom);
   await context.evaluate(addRating);
 
-  async function addSpecification () {
+  async function addSpecification() {
     await context.evaluate(async function () {
       window.scrollTo(0, document.body.scrollHeight);
-      async function timeout (ms) {
+      async function timeout(ms) {
         console.log('waiting for ' + ms + ' millisecs');
         return new Promise((resolve) => setTimeout(resolve, ms));
       }
@@ -212,6 +226,7 @@ async function implementation (inputs, parameters, context, dependencies) {
   if (await helper.checkSelector('.syndi_powerpage', 'css')) {
     await helper.waitForInDifferentContext('div[class*="comparison-table"] table', '.syndi_powerpage', 10000);
   }
+
   await context.evaluate(async () => {
     const syndiPowerpage = document.querySelector('.syndi_powerpage');
     let inTheBoxText = '';
