@@ -51,6 +51,37 @@ module.exports = {
         seeAllSelector1 && seeAllSelector1.click();
       }
     });
+    await context.evaluate(async () => {
+      const specifications = [];
+      if (document.querySelector('div[class*="features-wrapper"]')) {
+        document.querySelectorAll('div[class*="features-wrapper"]').forEach(el => {
+          const headers1 = [...document.querySelectorAll('div[id="features"] dl dt')]
+          const values1 = [...document.querySelectorAll('div[id="features"] dl dd[style*="min-height"]')]
+          const heads1 = []
+          const vals1 = []
+          headers1.forEach(item => {
+            heads1.push(item.innerText)
+          })
+          values1.forEach(item => {
+            vals1.push(item.innerText)
+          })
+          let specs1 = ''
+          for (let i = 0; i < heads1.length; i++) {
+            specs1 = specs1 + (specs1 ? ` | ${heads1[i]} ${vals1[i]}` : `${heads1[i]} ${vals1[i]}`)
+
+          }
+          specifications.push(specs1);
+          return specs1;
+        });
+      }
+      if (specifications.length) {
+        let appendDiv = document.createElement('div');
+        appendDiv.className = 'specificationsvalue';
+        appendDiv.setAttribute('specifications', specifications.join(' | '));
+        document.body.append(appendDiv);
+      }
+
+    });
     var extractedData = await context.extract(productDetails, { transform });
 
     var productUrl = extractedData[0].group[0].productUrl;

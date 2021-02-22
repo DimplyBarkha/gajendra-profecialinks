@@ -21,7 +21,7 @@ module.exports = {
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
-    url = `https://www.mediamarkt.es/es/product/-${id}.html` + '#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]';
+    // url = `https://www.mediamarkt.es/es/product/-${id}.html` + '#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]';
     await context.goto(url, {
       timeout: timeout,
       waitUntil: 'load',
@@ -31,8 +31,8 @@ module.exports = {
     });
     // For mediamarkt ES
     try {
-      await context.waitForSelector('.gdpr-cookie-layer--show');
-      await context.click('button[class*="btn--submit--all"]');
+      await context.waitForSelector('h4[class*="Typostyled__StyledInfoTypo"]');
+      await context.click('button[data-test*="consent-layer-accept-all"]');
     } catch (e) {
       console.log('No cookie box present.');
     }

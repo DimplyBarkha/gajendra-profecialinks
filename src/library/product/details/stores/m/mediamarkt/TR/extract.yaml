@@ -1,7 +1,7 @@
 singleRecord: true
 regionsSelector: null
 recordSelector: null
-recordXPath: /html/body/div[@id="product-wrapper"]
+recordXPath: /html/body/div[@id="product-wrapper"] | //div[contains(@class,"ProductDetailPagestyled__StyledPdpWrapper-sc-5s3nfq-1")]
 fields:
   - name: image
     description: URL of the main product image
@@ -39,7 +39,7 @@ fields:
     description: Availability as described on page for the selected variant. If
       there is no availability but the product can be added to cart, this field
       should be "In Stock"
-    xpath: ../../head/meta[@property="og:availability"]/@content
+    xpath: ../../head/meta[@property="og:availability"]/@content | //div[contains(@class,"CTACartWishliststyled")]//button[contains(@id,"pdp-add-to-cart-button")]
   - name: description
     description:
       Product description supplied by website - may be concatenanted from

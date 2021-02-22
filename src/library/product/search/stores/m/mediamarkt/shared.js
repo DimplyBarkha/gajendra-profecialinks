@@ -47,16 +47,16 @@ const transform = (data, context) => {
         }
         row.price = [{ text: row.price[0].text.replace('.', ',') }];
       }
-      if (row.gtin && row.gtin[0]) {
-        if (row.gtin[0].text.includes(' = ')) {
-          let jsonData = row.gtin[0].text.split(' = ');
-          jsonData = jsonData.length === 2 ? jsonData[1].replace(';', '') : '';
-          jsonData = jsonData.length ? JSON.parse(jsonData) : {};
-          const ean = Object.keys(jsonData).length ? (jsonData.ean ? jsonData.ean : '') : '';
-          row.gtin = [{ text: ean }];
-        }
-        row.gtin[0].text = row.gtin[0].text.split(':')[1].replace(/['"]+/g, '');
-      }
+      // if (row.gtin && row.gtin[0]) {
+      //   if (row.gtin[0].text.includes(' = ')) {
+      //     let jsonData = row.gtin[0].text.split(' = ');
+      //     jsonData = jsonData.length === 2 ? jsonData[1].replace(';', '') : '';
+      //     jsonData = jsonData.length ? JSON.parse(jsonData) : {};
+      //     const ean = Object.keys(jsonData).length ? (jsonData.ean ? jsonData.ean : '') : '';
+      //     row.gtin = [{ text: ean }];
+      //   }
+      //   row.gtin[0].text = row.gtin[0].text.split(':')[1].replace(/['"]+/g, '');
+      // }
 
       if (row.id && row.id[0]) {
         if (row.id[0].text.match('.html')) {
