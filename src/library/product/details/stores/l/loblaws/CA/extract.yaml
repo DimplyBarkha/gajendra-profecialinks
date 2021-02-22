@@ -264,7 +264,7 @@ fields:
     singleValue: true
     description: Nutritional Information for Calories Per Serving content - Usually
       based on per 100g serving
-    xpath: //span[contains(text(),'Calories')]/following::span[2]
+    xpath: (//span[contains(text(),'Calories')]/following::span/span)[1]
   - name: caloriesFromFatPerServing
     singleValue: true
     description: Nutritional Information for Calories From Fat content - Usually
