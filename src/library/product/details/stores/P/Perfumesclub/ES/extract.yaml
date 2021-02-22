@@ -11,15 +11,17 @@ fields:
   - name: imageAlt
     # singleValue: true
     description: Alt text of the main product image
-    xpath: //div[@id="newZoom"]/img/@data-zoom-image
+    xpath: //div[contains(@id,'newZoom')]/img/@alt
   - name: alternateImages
     # singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: //a[@class="miniZ active"]/img/@src
+    xpath: (//div[contains(@class,'photo')]//div[contains(@id,'gallery')])[1]//img/@src|(//div[contains(@class,'photo')]//div[contains(@class,'gallery')])[1]//img/@src
   - name: category
     # singleValue: false
     description: The categories (e.g. from breadcrumbs)
-    xpath: //div[@class="col-md-12 breadcrumbs inh"]/a
+    xpath: (//div[@class="col-md-12 breadcrumbs inh"]/a)[2]
+  - name: sub category
+    xpath: (//div[@class="col-md-12 breadcrumbs inh"]/a)[3]
   - name: nameExtended
     # singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
@@ -30,7 +32,7 @@ fields:
   - name: listPrice
     # singleValue: true
     description: The stated undiscounted price for the product
-    xpath: //span[@class="totalPrice"]
+    xpath: //div[contains(@class,"contTachado")]
   - name: price
     # singleValue: true
     description: The offered price for the selected product variant - if a user
@@ -51,10 +53,9 @@ fields:
       multiple places; specifically not the manufacturer description
     xpath: //div[@id="description"]/div
     # | //div[@class="row noIntPad mar-t-1x"]/div/dl
-  - name: descriptionBullets
+  - name: size
     # singleValue: true
-    description: Number of ul > li tags in the description
-    type: NUMBER
+    xpath: //div[contains(@class,'priceC active')]//div[contains(@class,'contCapacidad')]/text()NUMBER
   - name: brandText
     # singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
@@ -90,3 +91,9 @@ fields:
     # singleValue: true
     description: The stated aggregate rating normalized to be out of 5
     xpath: //div[@class="font-52 font-w-800 mar-b-2x"]|(//div[@class="circle-chart__info"]/div/div)[1]
+  - name: promotion
+    xpath: //div[contains(@class,'priceC active')]//div[contains(@class,'discount')]
+  - name: metaKeywords
+    xpath: //meta[@name="keywords"]
+  - name: variantCount
+    xpath: count(//div[contains(@class,'carousel-item')]//div[@data-page="1"])
