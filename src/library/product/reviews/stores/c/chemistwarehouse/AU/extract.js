@@ -12,6 +12,7 @@ module.exports = {
 };
 
 async function implementation (
+  // @ts-ignore
   { parentInput },
   parameters,
   context,
@@ -34,6 +35,19 @@ async function implementation (
   });
 
   await context.waitForSelector('#BVRRContainer', { timeout: 10000 });
+  await context.evaluate(async function () {
+    try {
+      await context.waitForSelector('div.bv-control-bar div.bv-dropdown button');
+      // @ts-ignore
+      document.querySelector('div.bv-control-bar div.bv-dropdown button') && document.querySelector('div.bv-control-bar div.bv-dropdown button').click();
+      await context.waitForSelector('li[data-bv-dropdown-value="mostRecent"]');
+      // @ts-ignore
+      document.querySelector('li[data-bv-dropdown-value="mostRecent"]') && document.querySelector('li[data-bv-dropdown-value="mostRecent"]').click();
+    } catch (error) {
+      console.log(error);
+    }
+  });
+  await new Promise((resolve) => setTimeout(resolve, 2000));
   await context.evaluate(() => {
     if (!document.getElementById('siteUrl')) {
       const url = window.location.href;

@@ -79,3 +79,13 @@ fields:
   - name: aggregateRating
     description: The product rating
     xpath: ancestor::html//dd[@class="bv-rating-ratio-number"]/span[@class="bv-rating"]/span
+  - name: maxDays
+    description: Max Days
+    xpath: ancestor::html//script[@id="__input"]
+    type: NUMBER
+    jq: '.days'
+  - name: reviewCount
+    type: NUMBER
+    singleValue: false
+    xpath: ancestor::html//div[contains(@class,"bv-content-pagination-pages-current")]/span
+    regExp: /(?:of )\K\d+/g
