@@ -5,7 +5,7 @@ module.exports = {
     country: 'UK',
     store: 'JD_Sports',
     domain: 'jdsports.co.uk',
-    url: 'https://www.jdsports.co.uk/search/{searchTerms}/?max=150',
+    url: 'https://www.jdsports.co.uk/search/{searchTerms}?max=150',
     loadedSelector:'body',
     noResultsXPath: null,
     zipcode: '',

@@ -1,31 +1,31 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="splitRightContainer"]
+recordXPath: null
 fields:
   - name: productUrl
     description: The URL for the product details page
-    xpath: //span[@class="itemTitle"]/a/@href
+    xpath: //ul[@id="productListMain"]//span[@class="itemTitle"]/a/@href
     regExp: (.+)
     regExpReplace: https://www.jdsports.co.uk$1
   - name: thumbnail
     description: The URL for the product thumbnail image
     singleValue: false
     # xpath: //ul[not(contains(@class,'productList rcHldr'))]//a[@class="itemImage"]/picture//img/@src
-    xpath: //a[@class="itemImage"]/picture/img/@src
+    xpath: //ul[@id="productListMain"]//a[@class="itemImage"]/picture/img/@src
     # regExp: '(\w.+)[,]'
     # regExpReplace: $1
   - name: name
     type: TEXT
-    xpath: //span[@class='itemTitle']//a//text()
+    xpath: //ul[@id="productListMain"]//span[@class='itemTitle']//a//text()
   - name: id
     description: The store-specific product identifier
-    xpath: //span[@class="itemOverlay "]/@data-productsku
+    xpath: //ul[@id="productListMain"]//span[@class="itemOverlay "]/@data-productsku
   - name: aggregateRating2
-    xpath: //div[@class='pr-snippet-rating-decimal']
+    xpath: //ul[@id="productListMain"]//div[@class='pr-snippet-rating-decimal']
   - name: reviewCount
-    xpath: //span[@class='pr-snippet-review-count']
+    xpath: //ul[@id="productListMain"]//span[@class='pr-snippet-review-count']
   - name: price
     description: The offered price for the product
     type: CURRENCY
-    xpath: //div[@class='itemPrice']//span[@data-e2e="product-listing-price"]
+    xpath: //ul[@id="productListMain"]//div[@class='itemPrice']//span[@data-e2e="product-listing-price"]
