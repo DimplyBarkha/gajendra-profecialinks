@@ -9,7 +9,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: null,
     loadedSelector: null,
-    loadedXpath: '//div[@class="product col s6 m3 l3 small-product "]',
+    loadedXpath: '//div[contains(@class,"product col s6 m3 l3 small-product")]',
     noResultsXPath: '//span[@cantidad="0"]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
