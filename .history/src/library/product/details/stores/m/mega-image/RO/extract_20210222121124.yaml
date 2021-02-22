@@ -1,0 +1,175 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: true
+    description: URL of the main product image
+    x-path: //a[@class='sc-1x5hp9o-3 iIPFvr']
+  - name: image_alt_text
+    singleValue: true
+    description: Alt text of the main product image
+    x-path: //h1[@class='e3oax-8 hMyjLR']
+  - name: alternateImages
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+  - name: metaKeywords
+    singleValue: true
+    description: The <meta> keywords content
+  - name: category
+    singleValue: false
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //a[@class='sc-1x5hp9o-3 iIPFvr']
+  - name: nameExtended
+    singleValue: true
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: online_price_currency
+    singleValue: true
+    defaultValue: Lei
+  - name: online_price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    x-path: //div[@class='sc-1qeaiy2-2 ffeegD']
+    regExp: /\d/g
+  - name: harvest_product_description
+    x-path: //h1[@class='e3oax-8 hMyjLR']
+  - name: harvested_price
+    singleValue: true
+    x-path: //div[@class='sc-1qeaiy2-2 ffeegD']
+    regExp: /\d/g
+  - name: availabilityText
+    singleValue: true
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+    xpath: //div[@class='gbh03z-9 dmtqb6-0 jIkOnu']
+  - name: product_description
+    singleValue: false
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    x-path: //header[@class='e3oax-2 dIDIBj']/div[@class='e3oax-4 llgrpH']/h1[@class='e3oax-8 hMyjLR']
+  - name: aditional_description
+    singleValue: true
+    description: Number of ul > li tags in the description
+    x-path: //div[@class='e3oax-13 dOOPjA']/p[@class='e3oax-29 bYbjEW']
+
+  - name: brand
+    singleValue: true
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+    x-path: //div[@class='e3oax-5 ejgVFO']/div[@class='e3oax-6 jgbRkN'][2]/div[@class='sc-1mlozij-0 bSUA-da']
+  
+  - name: quantity
+    singleValue: true
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: retailer_product_code
+    singleValue: true
+    description: 
+    x-path: //footer[@class='sc-1bs3cmj-0 iDuzUN']/p[@class='sc-1bs3cmj-1 iRVfUp']
+  - name: directions_information
+    singleValue: true
+    description: Content under "directions" header
+    xpath: //*[text()[contains(.,'detalii de utilizare')]]//following-sibling::div
+  - name: allergy_advice
+    singleValue: true
+    description: null
+    xpath: //*[text()[contains(.,'Alergeni')]]//following-sibling::div
+ 
+  - name: ingredients_list
+    singleValue: true
+    description: List of Ingredients from site - can be string of data if no
+      discernible start/end point
+    x-path: //*[text()[contains(.,'Ingrediente')]]//following-sibling::div
+  - name: calories_per_serving
+    singleValue: true
+    description: Nutritional Information for Calories Per Serving content - Usually
+      based on per 100g serving
+    xpath: //*[text()[contains(.,'Valoare energetica')]]//following-sibling::td
+    regExp: /\d/g
+  - name: total_fat_per_serving
+    singleValue: true
+    description: Nutritional Information for Total Fat content - Usually based on
+      per 100g serving
+    type: NUMBER
+    xpath: //*[text()[contains(.,'Grasimi')]]//following-sibling::td
+    regExp: /\d/g
+  - name: totalFatPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Total Fat content
+  - name: saturated_fat_per_serving
+    singleValue: true
+    description: Nutritional Information for Saturated Fat content - Usually based
+      on per 100g serving
+    type: NUMBER
+    xpath: //*[text()[contains(.,'Grasimi saturate')]]//following-sibling::td
+    regExp: /\d/g
+  - name: saturatedFatPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Saturated Fat content
+  - name: transFatPerServing
+    singleValue: true
+    description: Nutritional Information for Trans Fat content - Usually based on
+      per 100g serving
+    type: NUMBER
+  - name: transFatPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Trans Fat content
+  - name: total_sodium_per_serving
+    singleValue: true
+    description: Nutritional Information for Sodium content - Usually based on per
+      100g serving
+    type: NUMBER
+    xpath: //*[text()[contains(.,'Sodiu')]]//following-sibling::td
+    regExp: /\d/g
+  - name: sodiumPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Sodium content
+  - name: total_carb_per_serving
+    singleValue: true
+    description: Nutritional Information for Total Carbohydrate content - Usually
+      based on per 100g serving
+    type: NUMBER
+    xpath: //*[text()[contains(.,'Glucide')]]//following-sibling::td
+    regExp: /\d/g
+  - name: totalCarbPerServingUom
+    singleValue: true
+    description: Unit of Measure Data for Total Carbohydrate content
+  - name: dietary_fibre_per_serving
+    singleValue: true
+    description: Nutritional Information for Dietary Fibre content - Usually based
+      on per 100g serving
+    type: NUMBER
+    xpath: //*[text()[contains(.,'Fibre')]]//following-sibling::td
+    regExp: /\d/g
+  - name: dietary_fibre_per_serving_uom
+    singleValue: true
+    description: Unit of Measure Data for Dietary Fibre content
+    xpath: //*[text()[contains(.,'Fibre')]]//following-sibling::td
+    regExp: /^[A-Za-z]+$/
+  - name: protein_per_serving
+    singleValue: true
+    description: Nutritional Information for Protein content - Usually based on per
+      100g serving
+    type: NUMBER
+    xpath: //*[text()[contains(.,'Proteine')]]//following-sibling::td
+    regExp: /\d/g
+  - name: storage
+    singleValue: true
+    description: Suggested storage location for product
+    xpath: //*[text()[contains(.,'detalii pastrare produs')]]//following-sibling::div
+  - name: alcohol_content
+    singleValue: true
+    description: Alcohol content information
+    defaultValue: 0%
+  - name: additional_description
+    singleValue: false
+    description: 
+    xpath: //div[@class='e3oax-13 dOOPjA']/p[@class='e3oax-29 bYbjEW']
