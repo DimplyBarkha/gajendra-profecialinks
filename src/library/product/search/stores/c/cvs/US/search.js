@@ -8,6 +8,7 @@ module.exports = {
   },
   implementation: async ({ keywords, Keywords, Brands, results = 150 }, { country, store, domain, zipcode }, context, { execute, extract, paginate }) => {
     // TODO: consider moving this to a reusable function
+    console.log("Brands",Brands);
     const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
 
     keywords = (Keywords) || (Brands) || (keywords);
@@ -21,6 +22,7 @@ module.exports = {
       console.log('No results were returned');
       return;
     }
+    console.log("Keywords,search",keywords)
 
     // try gettings some search results
     const pageOne = await extract({ results, keywords });
