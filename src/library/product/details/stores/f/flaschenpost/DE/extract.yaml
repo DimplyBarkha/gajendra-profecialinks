@@ -12,34 +12,33 @@ fields:
   - name: category
     xpath: ancestor::html//div[@class='fp-pagination']/a[position() >= 2 and position()<last()]/text()
   - name: nameExtended
-    xpath: ancestor::html//div[@class='fp_product_details']/h5[@class='fp_product_name']/text()  
+    xpath: concat(ancestor::html//div[@class='fp_product_details']/h5[@class='fp_product_name']/text(),//div[@class="fp_article_bottleInfo"]/text())  
   - name: availabilityText
     xpath: //div[@class="fp_article_basket"]//img/@src
     regExp: (.+)
     regExpReplace: In Stock
     defaultValue: OutOfStock
   - name: description
-    xpath: ancestor::html//div[@class="fp-switcher_item active"][contains(text(),'Produktbeschreibung')]//following::p[1]
+    xpath: ancestor::html//div[@class="swiper-slide swiper-slide-active"]/p[1]/text()
   - name: brandText
     xpath: ancestor::html//div[@class="fp-pagination"]/@data-brand-name
   - name: quantity
     xpath: //div[@class="fp_article_bottleInfo"]/text()
   - name: variantId
-    xpath: //html//div[@id="rpc"]
+    xpath: //div[@id="rpc"]
   - name: variantInformation
-    xpath: concat(//html//div[@id="rpc"],'-',//div[@class='fp_product_details']/h5[@class='fp_product_name']/text(),'-',//div[@class="fp_article_bottleInfo"]/text())
+    xpath: //div[@class="fp_article_bottleInfo"]/text()
   - name: variantCount
     type: NUMBER
-    xpath: count(//div[@class='fp-productList_bottleDetails'])
+    xpath: count(//div[@class="fp_article_bottleInfo"]/text())
   - name: name
-    xpath: ancestor::html//div[@class='fp-productList_info']/h5[@class='fp-productList_productName']
+    xpath: concat(ancestor::html//div[@class='fp_product_details']/h5[@class='fp_product_name']/text(),//div[@class="fp_article_bottleInfo"]/text())
   - name: price
-    type: CURRENCY
-    xpath: //b[@class="fp-price-is-special-offer"]/text()
+    xpath: //div[@class="fp_article_price"]/text()
   - name: ingredientsList
-    xpath: //div[@class="swiper-wrapper"]//p[2]/text()
+    xpath: ancestor::html//div[@class="swiper-wrapper"]//p[2]/text()
   - name: manufacturer
-    xpath: ancestor::html//div[@id="fp-zip-check-modal"]//p[@class='fontMedium']
+    xpath: ancestor::html//p[contains(text(),'Hersteller/Inverkehrbringer')]/text()
   - name: caloriesPerServing
     xpath: ancestor::html//tbody//tr//td[contains(text(),'Brennwert')]/following-sibling::td[1]
     regExp: ([^a-zA-Z]+)
