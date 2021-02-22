@@ -25,7 +25,7 @@ fields:
     singleValue: true
     description: The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: (//span[@itemprop="name"])[1]
+    xpath: //meta[@property="og:title"]/@content
   - name: url
     singleValue: true
     xpath: //meta[@property="og:url"]
@@ -63,7 +63,7 @@ fields:
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
-    xpath: (//p[@class="disclaimer xh-highlight"])[1]
+    xpath: //th[contains(text(),"Leverandør")]//following::td[1]//text()
   - name: quantity
     singleValue: true
     description: Quantity as described on the page
@@ -144,7 +144,7 @@ fields:
   - name: name
     singleValue: true
     description: The product name
-    xpath: ((//span[@itemprop="name"])[1]//text())[1]
+    xpath: (//span[@itemprop="name"])[1]//text()
   - name: inStorePrice
     singleValue: true
     description: Price in the selected store
