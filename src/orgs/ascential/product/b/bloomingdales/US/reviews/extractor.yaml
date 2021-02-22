@@ -1,0 +1,20 @@
+proxy:
+  zone: ZUS
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: LINEAR
+  retryWithResidentialProxyAfter: 1
+robot: product/reviews
+parameters:
+  country: US
+  domain: bloomingdales.com
+  store: bloomingdales
+  zipcode: ""
+meta:
+  branches:
+    bloomingdales_us_RD:
+      extractor: f02f2983-3c15-4040-a7a2-f389224e3649
+      legacyAccountId: 63fd92cf-ba0e-42f9-9361-28797373bac8
