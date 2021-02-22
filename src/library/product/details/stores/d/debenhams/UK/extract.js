@@ -36,6 +36,7 @@ module.exports = {
             // categoryEl.style.display = "none";
             // document.body.appendChild(categoryEl);
         });
+        //let nonColorVariant;
         var variantLength = await context.evaluate(async() => {
             const variants = [];
             document.querySelectorAll("div.dbh-product-color-selector div.pw-swatch__item button").forEach(x => {
@@ -43,6 +44,7 @@ module.exports = {
                     variants.push(x);
                 }
             });
+            //nonColorVariant = document.evaluate("//script[contains(text(),'sizeVariants')]", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.innerText.replace(/(.*),"sizeVariants":/g, '').match(/(.*),"colors/)[1];
             return variants.length || 1;
         });
         // variantLength = 0;
@@ -82,6 +84,15 @@ module.exports = {
                             addHiddenDiv("custom-attr-product-brand-text", brandText.textContent.split("-")[0].trim());
                         }
 
+                        let imageText = document.querySelector("div.t-product-details__main-wrapper div.t-product-details__image div.t-product-details__carousel-container img").src;
+                        let sku = "";
+                        if (imageText) {
+                            addHiddenDiv("custom-attr-product-brand-image", imageText.replace("w=1500", "w=640").replace("h=1500", "h=640").replace('fmt=webp', 'fmt=jpg').replace('&qlt=50', '').replace('&qlt=60', ''));
+                            sku = imageText.match(/(_\d+)/g) ? imageText.match(/(_\d+)/g)[0].toString().replace("_", "") : "";
+                        }
+                        // if (sku.length > 0) {
+                        //     addHiddenDiv("custom-attr-product-sku-number", sku || "");
+                        // }
                         // const breadcrumbs = document.querySelectorAll("div.t-breadcrumb div.t-breadcrumb__wrap");
                         // const categoryEl = document.createElement("ul");
                         // breadcrumbs.forEach(x => {
@@ -137,6 +148,11 @@ module.exports = {
                         const materials = descriptionLiItems.find(x => x.startsWith("Material:") || /.*Material|material:.*/.test(x.toLowerCase()));
                         const guarantee = descriptionLiItems.find(x => x.startsWith("Guarantee:"));
                         const warranty = descriptionLiItems.find(x => x.includes("warranty"));
+                        const ingredients = descriptionLiItems.find(x => x.includes("ingredients:"));
+                        if (ingredients) {
+                            const ingredient = volume.replace("Key ingredients:", "").trim();
+                            addHiddenDiv("custom-attr-product-ingredients", ingredient);
+                        }
                         if (volume) {
                             const size = volume.replace("Volume:", "").trim();
                             addHiddenDiv("custom-attr-product-size", size);
@@ -188,10 +204,40 @@ module.exports = {
                             addHiddenDiv("single-custom-attr-product-first_variant", first_variant);
                         }
 
+                        // let iframeSku = document.querySelector('iframe[src*="sku_id"]').src;
+                        // if (iframeSku) {
+                        //     iframeSku = iframeSku.toString().match(/sku_id=(\d+)/g);
+                        //     iframeSku = iframeSku.length > 0 ? iframeSku[0].split("=")[1] : "";
+                        //     if (isNaN(iframeSku) == false) {
+                        //         addHiddenDiv("custom-attr-product-sku-number", iframeSku || "");
+                        //     }
+                        // }
+                        // console.log("-->>>iframeSku::", iframeSku);
+
+
                         const products = (window.getTagProduct_Child_Sku() || "").split("|");
                         if (products.length) {
-                            addHiddenDiv("custom-attr-product-sku-number", products[j] || "");
+                            if (sku.length > 0 && parseInt(products[j]) == parseInt(sku)) {
+                                addHiddenDiv("custom-attr-product-sku-number", products[j] || "");
+                            } else if (isNaN(sku) == false) {
+                                addHiddenDiv("custom-attr-product-sku-number", sku || "");
+                            } else {
+                                addHiddenDiv("custom-attr-product-sku-number", products[j] || "");
+                            }
+                        } else if (isNaN(sku) == false) {
+                            addHiddenDiv("custom-attr-product-sku-number", sku || "");
+                        } else {
+                            let iframeSku = document.querySelector('iframe[src*="sku_id"]').src;
+                            if (iframeSku) {
+                                iframeSku = iframeSku.toString().match(/sku_id=(\d+)/g);
+                                iframeSku = iframeSku.length > 0 ? iframeSku[0].split("=")[1] : "";
+                                if (isNaN(iframeSku) == false) {
+                                    addHiddenDiv("custom-attr-product-sku-number", iframeSku || "");
+                                }
+                            }
+                            console.log("-->>>iframeSku::", iframeSku);
                         }
+
 
                         const selectedVariant = productVariationsField[j];
                         if (selectedVariant) {

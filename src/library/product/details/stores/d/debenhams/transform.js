@@ -26,12 +26,12 @@ const transform = (data) => {
             if (row.alternateImages) {
                 row.alternateImages = row.alternateImages.map(x => ({
                     ...x,
-                    text: `https:${x.text}`.replace("w=130", "w=1500").replace("h=130", "h=1500")
+                    text: `https:${x.text}`.replace("w=130", "w=1500").replace("h=130", "h=1500").replace('fmt=webp', 'fmt=jpg').replace('&qlt=50', '').replace('&qlt=60', '')
                 }));
             }
             if (row.image) {
                 row.image.forEach(element => {
-                    element.text = `https:${element.text}`.replace("w=1500", "w=640").replace("h=1500", "h=640").replace('fmt=webp', 'fmt=jpg')
+                    element.text = `https:${element.text}`.replace('fmt=webp', 'fmt=jpg').replace('&qlt=50', '').replace('&qlt=60', '')
                 });
             }
             if (row.variantInformation) {
@@ -48,6 +48,11 @@ const transform = (data) => {
                     variant = ` ${row.variantInformation[0].text}`;
                 }
                 row.nameExtended[0].text = row.nameExtended[0].text + variant;
+            }
+            if (row.brandText) {
+                row.brandText.forEach(x => {
+                    x.text = x.text.trim();
+                });
             }
             Object.keys(row).forEach(header => row[header].forEach(el => {
                 el.text = clean(el.text);
