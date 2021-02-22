@@ -1,3 +1,16 @@
+  # - name: nameExtended #TODO
+  #   xpath: concat(//span[@class='rd__product-header__title__name'], ' ', //span[@class='rd__product-header__title__classification'])
+  # - name: nameExtendedPrefix
+  #   xpath: //h1//span[@class='rd__copytext rd__copytext--90' or contains(@class, 'rd__product-header__title__brand')]
+  # - name: description
+  #   singleValue: false
+  #   xpath: //div[contains(@class, 'product-detail-content__classifications')]/div
+  # - name: descriptionliChunck
+  #   xpath: //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/ul/li   
+  # - name: ingredientsList
+  #   xpath: //span[contains(.,"Inhaltsstoffe")]/parent::div//following-sibling::div[1]
+  #   regExp: "(INGREDIENTS: )?(.+)"
+  #   regExpReplace: $2
 singleRecord: true
 regionsSelector: null
 recordSelector: null
@@ -8,10 +21,6 @@ fields:
   - name: category
     singleValue: false
     xpath: //div[contains(@class, 'breadcrumb')]//span[contains(@class, 'breadcrumb__list')]/span[position()>1 and not(position() = last())]
-  # - name: nameExtended #TODO
-  #   xpath: concat(//span[@class='rd__product-header__title__name'], ' ', //span[@class='rd__product-header__title__classification'])
-  # - name: nameExtendedPrefix
-  #   xpath: //h1//span[@class='rd__copytext rd__copytext--90' or contains(@class, 'rd__product-header__title__brand')]
   - name: nameExtended
     xpath: concat(//a[contains(@class, 'link link--text product-detail-header__brand-line')], ' ', //span[contains(@class, 'product-detail-header__name')])
   - name: price
@@ -22,19 +31,12 @@ fields:
     xpath: //div[contains(@class, 'product-detail-content__classifications')]/div/span[1]
   - name: descriptionLiData
     xpath: //div[contains(@class, 'product-detail-content__classifications')]/div/span[2]
-  # - name: description
-  #   singleValue: false
-  #   xpath: //div[contains(@class, 'product-detail-content__classifications')]/div
   - name: descriptionChunck
     xpath: //div[contains(@class, 'truncate product-detail-content__description')]
-  # - name: descriptionliChunck
-  #   xpath: //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/ul/li   
   - name: descriptionBullets
-    xpath: count(//div[@class='rd__product-details__description__collapsible']//ul/li[not(@type='non-bullet')])
+    xpath: count(//div[contains(@class, 'product-detail-content__classifications')]/div/span[1])
   - name: ingredientsList
-    xpath: //span[contains(.,"Inhaltsstoffe")]/parent::div//following-sibling::div[1]
-    regExp: "(INGREDIENTS: )?(.+)"
-    regExpReplace: $2
+    xpath: //div[contains(@class, 'product-detail-content__html')]
   - name: brandText
     xpath: //span[contains(@class,"rd__product-header__title__brandname")]//a[1] | //span[@class='rd__product-header__title__brand']
   - name: ratingCount

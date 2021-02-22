@@ -80,6 +80,23 @@ module.exports = {
       const productUrl = window.location.href;
       addHiddenDiv('productUrl', productUrl);
 
+      // Adding product description to dom
+      const prodDescriptionXpath = "//div[contains(@class, 'product-detail-content__classifications')]/ancestor::div[1]";
+      const prodDescription = getEleByXpath(prodDescriptionXpath);
+      if (prodDescription) {
+        document.querySelector('body').appendChild(prodDescription);
+      }
+      
+      // Adding ingredients list to dom
+      const ingredientsListXpath = '//li[contains(., "Inhaltsstoffe")]';
+      const ingredientsLi = getEleByXpath(ingredientsListXpath);
+      if (ingredientsLi) {
+        ingredientsLi.click();
+        // const ingredientsDataEleXpath =  "//div[contains(@class, 'product-detail-content__html')]";
+        // const ingredientsData = getEleByXpath(ingredientsListXpath);
+        // addHiddenDiv('ingredientsList', ingredientsData.textContent);
+      }
+
       const variantContainerLeftPan = document.querySelector('div.rd__product-details__picker__list');
       if (variantContainerLeftPan) {
         let moreVariantsAvailable = document.querySelector('div.rd__product-details__picker__list__show-more');
