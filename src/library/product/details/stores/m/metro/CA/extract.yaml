@@ -22,7 +22,7 @@ fields:
     xpath: //div[@class='pi-regular-price']/span[@class='pi-price']
   - name: price
     singleValue: false
-    xpath: //div[@class='pi--main-price']//@data-main-price
+    xpath: //div[@class='pi-sale-price']
   - name: availabilityText
     xpath: //button[@id="button-addToCart"]/@disabled
     regExp: (.+)
