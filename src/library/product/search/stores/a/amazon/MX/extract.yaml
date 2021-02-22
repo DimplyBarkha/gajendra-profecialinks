@@ -7,7 +7,18 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="a-row a-size-small"]/span[contains(@aria-label,"estrellas")]/following-sibling::span[1]
+<<<<<<< HEAD
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@id="availability"]/span/text()
+    #  name: manufacturerDescription
+    # singleValue: false
+    # xpath:  //div[@id="aplus"]/div/div[2]/div/div[1]/div[1]/div/div[2]
+
+    
+=======
   - name: domain
     defaultValue: 'amazon.com.mx'
   - name: productType
     xpath: //div[@class="a-row a-size-base a-color-base"]/a
+>>>>>>> d05c2ef6ffe06c6e764ce4fe09166ce8f9d73599
