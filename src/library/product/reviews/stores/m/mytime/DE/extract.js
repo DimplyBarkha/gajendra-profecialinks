@@ -23,15 +23,6 @@ module.exports = {
       }
     });
     await context.evaluate(async () => {
-      // const getDatesDiffInDays = (a, b) => {
-      //   const _MS_PER_DAY = 1000 * 60 * 60 * 24;
-      //   // Discard the time and time-zone information.
-      //   const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
-      //   const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
-
-      //   return Math.abs(Math.floor((utc2 - utc1) / _MS_PER_DAY));
-      // };
-      // const today = new Date();
       const reviewDate = document.querySelectorAll('span.product-rating__review__date')
         ? document.querySelectorAll('span.product-rating__review__date') : [];
       reviewDate.forEach(e => {
@@ -40,10 +31,7 @@ module.exports = {
         const year = dateFormat.getFullYear();
         const month = (1 + dateFormat.getMonth()).toString().padStart(2, '0');
         const day = dateFormat.getDate().toString().padStart(2, '0');
-        // const fullDate = new Date(`${year}/${month}/${day}`);
-        // const datesDiffInDays = getDatesDiffInDays(today, fullDate);
-        // console.log(`The difference between dates: ${datesDiffInDays} days`);
-        // if (!(datesDiffInDays > 100))
+
         e.setAttribute('date', `${year}/${month}/${day}`);
       });
       const reviewRating = document.querySelectorAll('div.product-rating__review')
