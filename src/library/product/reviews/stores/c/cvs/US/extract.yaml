@@ -88,3 +88,10 @@ fields:
   - name: aggregateRating
     description: The product rating
     xpath: ancestor::html//div[@class="css-901oao r-suhe1l r-vw2c0b r-7o8qx1"]
+  - name: reviewCount
+    xpath: ancestor::html//div[contains(@class,"css-901oao r-zdkpiq r-1enofrn r-m2pi6t")]
+  - name: maxDays
+    description: Max Days
+    xpath: ancestor::html//script[@id="__input"]
+    type: NUMBER
+    jq: '.days' 
