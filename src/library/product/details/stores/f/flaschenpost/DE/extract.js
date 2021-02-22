@@ -15,18 +15,12 @@ module.exports = {
   ) => {
     const { transform } = parameters;
     const { productDetails } = dependencies;
+    await context.waitForFunction(function (xp) {
+      return Boolean(document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
+    }, { timeout: 50000 }, '//script[contains(text(),"variant")]/text()');
+    
     await context.evaluate(async () => {
-      try {
-        const usernameElements = document.querySelectorAll('#validZipcode');
-        // @ts-ignore
-        usernameElements.forEach(username => username.value = "28203");
-        // @ts-ignore
-        document.querySelector('div[class="fp-modal_input"]>button').click()
-        await new Promise(r => setTimeout(r, 6000));
 
-      } catch (error) {
-
-      }
       var getXpath = (xpath, prop) => {
         var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
@@ -42,13 +36,15 @@ module.exports = {
         const originalDiv = document.querySelectorAll('div[class="fp_product_details"] div[class*="fp_article"] div[class="fp_article_details"]')[index];
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
-      var vari = getXpath('/html/body/div[1]/script[2]/text()', 'nodeValue');
+      var vari = getXpath('//script[contains(text(),"variant")]/text()', 'nodeValue');
+      console.log('karthi', vari)
       if (vari != null) {
         if (vari.includes("id:'")) {
           var ids = vari.split("id:'");
           let finalIds = [];
           for (let j = 1; j < ids.length; j++) {
             if (ids[j].includes("',")) {
+              console.log('abc', ids[j])
               finalIds.push(ids[j]);
             }
           }
@@ -58,7 +54,6 @@ module.exports = {
           }
         }
       }
-
     });
     return await context.extract(productDetails, { transform });
   },
