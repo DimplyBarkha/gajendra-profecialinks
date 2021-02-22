@@ -5,15 +5,14 @@ async function implementation (inputs, parameters, context, dependencies) {
   const { productDetails } = dependencies;
 
   await context.evaluate(async function () {
-    
     const moreItems = document.querySelector('#more-products-button');
     if (moreItems) {
       do {
-        //@ts-ignore
+        // @ts-ignore
         moreItems.click();
         await stall(5000);
       }
-      //@ts-ignore
+      // @ts-ignore
       while (moreItems.style.display !== 'none');
     }
     let scrollTop = 500;
