@@ -16,13 +16,13 @@ async function implementation (
     let x = 1;
     allProducts.forEach(element => {
       // Change price separator
-      const priceSelector = element.querySelector('span.price.final-price');
+      /* const priceSelector = element.querySelector('span.price.final-price');
       if (priceSelector) {
         // @ts-ignore
         const newPrice = priceSelector.innerText.replace(/,/, '.');
         // @ts-ignore
         priceSelector.innerText = newPrice;
-      }
+      */
       const div = element.querySelector('div');
       div.setAttribute('rank', `${x}`);
       x++;

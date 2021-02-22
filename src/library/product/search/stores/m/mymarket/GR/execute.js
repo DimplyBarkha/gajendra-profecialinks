@@ -4,7 +4,7 @@ module.exports = {
     country: 'GR',
     store: 'mymarket',
     domain: 'mymarket.gr',
-    url: 'https://eshop.mymarket.gr/products?search={searchTerms}',
+    url: 'https://eshop.mymarket.gr/products?search={searchTerms}&sort_by=score',
     loadedSelector: 'div.views-row--product-teaser.views-row',
     noResultsXPath: '//div[@class="findastic-no-results"]',
     zipcode: '',
