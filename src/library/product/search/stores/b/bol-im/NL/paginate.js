@@ -12,8 +12,8 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: '.results-area',
     loadedXpath: null,
-    noResultsXPath: '//div[@data-test="no-result-content"]',
-    stopConditionSelectorOrXpath: null,
+    noResultsXPath: '//div[@data-test="no-result-content"]|//p[contains(. , "Niets gevonden. Resultaten met een deel van de zoekwoorden.")]',
+    stopConditionSelectorOrXpath: '//div[@data-test="no-result-content"]|//p[contains(. , "Niets gevonden. Resultaten met een deel van de zoekwoorden.")]',
     resultsDivSelector: null,
     openSearchDefinition: {
       template: 'https://www.bol.com/nl/s/?page={page}&searchtext={searchTerms}&view=list',

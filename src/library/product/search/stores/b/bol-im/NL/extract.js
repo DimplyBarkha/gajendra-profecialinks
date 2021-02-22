@@ -91,8 +91,8 @@ module.exports = {
         addProp('.h-o-hidden>a', i, 'producturl', productUrl);
         addProp('.star-rating', i, 'ratingsCount', ratings);
         addProp('wsp-buy-block.product-item__options.hit-area', i, 'seller', seller);
+        addProp('.h-o-hidden>a', 0, 'currenturl', searchUrl);
       }
-      addProp('.h-o-hidden>a', 0, 'currenturl', searchUrl);
     });
     return await context.extract(productDetails, { transform });
   },

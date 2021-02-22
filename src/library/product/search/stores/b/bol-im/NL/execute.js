@@ -6,7 +6,7 @@ module.exports = {
     domain: 'bol.com',
     url: 'https://www.bol.com/nl/s/?searchtext={searchTerms}&view=list',
     loadedSelector: '.loader-control__content',
-    noResultsXPath: '//div[@data-test="no-result-content"]',
+    noResultsXPath: '//div[@data-test="no-result-content"]|//p[contains(. , "Niets gevonden. Resultaten met een deel van de zoekwoorden.")]',
     zipcode: '',
   },
   implementation: async (inputs, { url, loadedSelector, noResultsXPath }, context, dependencies) => {
