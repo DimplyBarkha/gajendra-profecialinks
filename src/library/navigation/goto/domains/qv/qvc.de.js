@@ -3,7 +3,7 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'qvc.de',
-    timeout: 50000,
+    timeout: 120000,
     country: 'DE',
     store: 'qvc',
     zipcode: '',
@@ -11,10 +11,13 @@ module.exports = {
   implementation: async ({ url, zipcode }, parameters, context, dependencies) => {
     url = `${url}#[!opt!]{"block_ads":false,"first_request_timeout":60,"load_timeout":60,"load_all_resources":true}[/!opt!]`;
     await context.setBlockAds(false);
+    await context.setFirstRequestTimeout(100000);
+    await context.setCssEnabled(true);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
     await context.setJavaScriptEnabled(true);
     await context.setAntiFingerprint(false);
+    await context.setUseRelayProxy(false);
     const responseStatus = await context.goto(url, {
       block_ads: false,
       load_all_resources: true,
