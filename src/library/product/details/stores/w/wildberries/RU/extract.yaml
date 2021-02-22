@@ -40,7 +40,7 @@ fields:
     xpath: //input[@id="tbSrch"]/@data-nm-id
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,"j-size-list size-list")]//label[contains(@class,"active")]//input/@value
+    xpath: //div[contains(@class,"j-size-list ")]//label[contains(@class,"active")]//input[@name="size"]/@value
   - name: variants
     singleValue: false
     xpath: //div[contains(@class,"j-size-list size-list")]/label//input/@value | //div[contains(@class,'colors-preview j-colors-preview')]//ul//li/@data-cod1s
@@ -58,7 +58,7 @@ fields:
     xpath: //span[@class="color"]
   - name: name
     singleValue: false
-    xpath: //span[@class="name"]
+    xpath: ///div[@class="brand-and-name j-product-title"]
   - name: inStorePrice
     singleValue: false
     xpath: //div[@class="final-price-block"]/span[@class="final-cost"]
@@ -76,7 +76,7 @@ fields:
     defaultValue: "Yes"
   - name: variantCount
     singleValue: false
-    xpath: count(//div[contains(@class,"j-size-list size-list")]/label//input/@value | //div[contains(@class,'colors-preview j-colors-preview')]//ul//li/@data-cod1s)
+    xpath: count(//div[contains(@class,"j-size-list ")]//label//input[@name="size"]/@value)
     defaultValue: 0
   - name: countryOfOrigin
     singleValue: false
@@ -104,3 +104,6 @@ fields:
   - name: ingredientsList
     singleValue: false
     xpath: //div[contains(@class, "i-composition-v1")]/span
+  - name: variantUrl
+    singleValue: false
+    xpath: //div[contains(@class, "options ")]//ul/li[contains(@class, "active")]/a/@href

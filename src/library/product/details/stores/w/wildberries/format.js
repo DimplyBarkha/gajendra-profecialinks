@@ -83,6 +83,11 @@ const transform = (data) => {
           });
           row.nameExtended = [{'text':info.join(' | '),'xpath':row.nameExtended[0].xpath}];
         }
+        if (row.variantUrl) {
+          row.variantUrl.forEach(item => {
+              item.text = "https://www.wildberries.ru"+item.text;
+          });
+      }
         if (row.videos) {
           row.videos.forEach(item => {
               item.text = "https:".concat(item.text);
