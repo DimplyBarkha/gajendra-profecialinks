@@ -118,6 +118,8 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
     const csrf = await context.evaluate(getCSRFToken);
     const apiZipChange = await context.evaluate(async (zipcode, csrf) => {
       const country = document.querySelector('[lang]').lang.match(/[^-]+$/)[0].toUpperCase();
+      // Fix for default zipcode for Amazon.com as US code is setting for Lebanon in API
+      if (!zipcode && country === 'US') zipcode = '10001';
       let body;
       if (zipcode) {
         body = `locationType=LOCATION_INPUT&zipCode=${zipcode}&storeContext=generic&deviceType=web&pageType=Gateway&actionSource=glow&almBrandId=undefined`;
@@ -128,6 +130,7 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
         headers: {
           accept: '*/*',
           'accept-language': 'en-US,en;q=0.9',
+          'cache-control': 'no-cache',
           'anti-csrftoken-a2z': csrf,
           'content-type': 'application/x-www-form-urlencoded',
           contenttype: 'application/x-www-form-urlencoded;charset=utf-8',
