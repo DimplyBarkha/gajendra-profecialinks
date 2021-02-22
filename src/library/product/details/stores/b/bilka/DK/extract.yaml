@@ -23,7 +23,7 @@ fields:
     xpath: //ul[contains(@class,'v-breadcrumbs')]//li[position()>2]/a
   - name: name
     singleValue: false
-    xpath: //div[contains(@class,'name')]/h1
+    xpath: //div[contains(@class,'name')]/h1 | //h1[contains(@class,"product__headline")]
   - name: nameExtended
     singleValue: false
     xpath: concat(//div[contains(@class,'brand')], ' - ',
