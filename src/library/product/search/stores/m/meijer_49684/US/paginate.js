@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     template: null,
     country: 'US',
-    store: 'meijer_49684',
+    store: 'meijer',
     nextLinkSelector: null,
     nextLinkXpath: null,
     mutationSelector: null,

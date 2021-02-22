@@ -3,12 +3,16 @@ module.exports = {
   implements: 'product/details/extract',
   parameterValues: {
     country: 'US',
-    store: 'meijer_49684',
+    store: 'meijer',
     transform: cleanUp,
     domain: 'meijer.com',
     zipcode: '',
   },
   implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
+    // await context.waitForSelector('.product-item a');
+    // await context.clickAndWaitForNavigation('.product-item a', {}, {});
+    await new Promise((resolve, reject) => setTimeout(resolve, 100000));
+
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
         const catElement = document.createElement('div');

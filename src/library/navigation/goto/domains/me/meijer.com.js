@@ -3,9 +3,9 @@ module.exports = {
   implements: 'navigation/goto',
   parameterValues: {
     domain: 'meijer.com',
-    timeout: 50000,
+    timeout: 100000,
     country: 'US',
-    store: 'meijer_49684',
+    store: 'meijer',
     zipcode: '',
   },
 };
