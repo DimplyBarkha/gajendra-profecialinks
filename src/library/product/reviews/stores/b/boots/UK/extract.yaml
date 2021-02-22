@@ -81,3 +81,13 @@ fields:
   - name: aggregateRating
     description: The product rating
     xpath: ancestor::html//span[@itemprop="ratingValue"]
+  - name: maxDays
+    description: Max Days
+    xpath: ancestor::html//script[@id="__input"]
+    type: NUMBER
+    jq: '.days'
+  - name: reviewCount
+    singleValue: true
+    type: NUMBER
+    description: Date the review was made
+    xpath: ancestor::html//span[@itemprop="reviewCount"]
