@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //a[contains(@class,"search-result")]
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@class="product-name"]
+  - name: id
+    singleValue: false
+    xpath: //a[contains(@class, "search-result")]/@href
+  - name: thumbnail
+    singleValue: falses
+    xpath: //div[@class="product-image"]/img/@src
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class, "search-result")]/@href
+  - name: price
+    singleValue: false
+    xpath: //span[@class="Price"]
