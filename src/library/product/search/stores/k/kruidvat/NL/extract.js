@@ -18,6 +18,7 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  await context.setFirstRequestTimeout(90000);
   await context.evaluate(async function () {
   // await context.setBlockAds(false); 
   // await context.setLoadAllResources(true); 
