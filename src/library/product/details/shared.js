@@ -19,6 +19,20 @@ const cleanUp = (data, context) => {
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
   }))));
+   for (const { group } of data) {
+    for (const row of group) {
+     if (row.availabilityText) {
+  row.availabilityText.forEach (item => {
+    if (item.text === 'true') {
+      item.text = 'In Stock';
+    } else {
+      item.text = 'Out Of Stock';
+    }
+  });
+}
+
+    }
+  }
   return data;
 };
 
