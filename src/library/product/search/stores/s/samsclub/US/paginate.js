@@ -6,7 +6,7 @@ module.exports = {
     //nextLinkSelector: 'div.sc-pagination-control ol li.sc-pagination-next button' ,
     //mutationSelector: null,
     //spinnerSelector: null,
-    //loadedSelector: 'div.sc-plp-layout',
+    loadedSelector: 'td.records',
     //openSearchDefinition: null,
     openSearchDefinition: {
       pageOffset : 48,
