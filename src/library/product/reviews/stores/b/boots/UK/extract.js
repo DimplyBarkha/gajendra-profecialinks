@@ -9,14 +9,11 @@ module.exports = {
     domain: 'boots.com',
     zipcode: '',
   },
-  implementation: async (
-    inputs,
-    parameters,
-    context,
-    dependencies,
-  ) => {
+  implementation: async (inputs, parameters, context, dependencies) => {
     await context.evaluate(() => {
-      const clickElement = document.querySelector('button#onetrust-pc-btn-handler');
+      const clickElement = document.querySelector(
+        'button#onetrust-pc-btn-handler',
+      );
       if (clickElement) {
         clickElement.click();
       }
@@ -41,21 +38,23 @@ module.exports = {
     }
     await autoScroll(context);
     const checkIfReviewIsFromLast30Days = (lastDate, reviewDate) => {
-      const timestamp = new Date(lastDate).getTime() - (30 * 24 * 60 * 60 * 1000);
-      return (new Date(reviewDate).getTime() > timestamp);
+      const timestamp = new Date(lastDate).getTime() - 30 * 24 * 60 * 60 * 1000;
+      return new Date(reviewDate).getTime() > timestamp;
     };
 
     const totalReviews = await context.evaluate(() => {
       let totalReviews = 0;
-      const totalReviewsElement = document.querySelector('span[itemprop="reviewCount"]');
+      const totalReviewsElement = document.querySelector(
+        'span[itemprop="reviewCount"]',
+      );
       if (totalReviewsElement) {
         totalReviews = parseInt(totalReviewsElement.textContent, 10);
       }
       return totalReviews;
     });
 
-    const getReviewDate = position => {
-      return context.evaluate(position => {
+    const getReviewDate = (position) => {
+      return context.evaluate((position) => {
         let reviewDate = '';
         const reviewSelector = `li[itemprop="review"]:${position}-of-type meta[itemprop="dateCreated"]`;
         const reviewElement = document.querySelector(reviewSelector);
@@ -77,9 +76,12 @@ module.exports = {
     if (allReviewsCount > 0) {
       const latestReviewDate = await getReviewDate('first');
       let lastReviewDate = await getReviewDate('last');
-      while (checkIfReviewIsFromLast30Days(latestReviewDate, lastReviewDate) && allReviewsCount < totalReviews) {
+      while (
+        checkIfReviewIsFromLast30Days(latestReviewDate, lastReviewDate) &&
+        allReviewsCount < totalReviews
+      ) {
         await context.click('button[class*="bv-content-btn-pages-load-more"]');
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 1000));
         allReviewsCount = await getAllReviewsCount();
         lastReviewDate = await getReviewDate('last');
       }
