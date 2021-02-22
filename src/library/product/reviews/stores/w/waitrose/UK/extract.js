@@ -23,16 +23,11 @@ module.exports = {
         ? document.querySelector('#productName > span').textContent
         : '';
 
-      const rating = document.querySelector('span[itemprop="ratingValue"]')
-        ? document.querySelector('span[itemprop="ratingValue"]').textContent
-        : '';
+      document.body.setAttribute('addedName', name);
+      document.body.setAttribute('productUrl', window.location.href);
 
       const containers = document.querySelectorAll('ol li[itemprop="review"]');
       containers.forEach(container => {
-        container.setAttribute('addedName', name);
-        container.setAttribute('productUrl', window.location.href);
-        container.setAttribute('addedAggregateRating', rating);
-
         container.setAttribute('commentCount', container.querySelectorAll('div[class="bv-secondary-content-list"] li').length.toString());
       });
     });
