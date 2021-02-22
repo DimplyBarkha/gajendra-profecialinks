@@ -9,9 +9,18 @@ fields:
   - name: id
     singleValue: false
     xpath: //ul//li[contains(@class,"js-list col-xs-6 col-lg-4 col-md-4 col-xl-3 ng-star-inserted")]//div[contains(@class,"product-image-lazy-transition-wrapper SM ng-star-inserted")]//img/@alt
-#  - name: aggregateRating
-#    singleValue: false
-#    xpath: count(//shop-star-rating/div[contains(@class, 'star-rating')]/span[contains(@class, 'checked')])
+  - name: aggregateRating
+    singleValue: false
+    xpath: //shop-star-rating/@starCounter
   - name: ratingCount
     singleValue: false
     xpath: //div[contains(@class, 'top-header')]/a/span
+  - name: thumbnail
+    singleValue: false
+    xpath: //section[@class='mobile-app-event']/a[@class='ng-star-inserted']/shop-image/div[@class='product-image-lazy-transition-wrapper SM ng-star-inserted']/img/@src
+  - name: price
+    singleValue: false
+    xpath: //ul/li/shop-product-card/div/section/div[contains(@class, 'product-content')]/div[contains(@class, 'product-details')]/div/product-card-view
+  - name: name
+    singleValue: false
+    xpath: //ul/li/shop-product-card/div/section/div[contains(@class, 'product-content')]/h2/a/@title
