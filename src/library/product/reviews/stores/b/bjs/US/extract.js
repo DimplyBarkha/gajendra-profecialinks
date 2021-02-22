@@ -1,3 +1,69 @@
+async function implementation (
+  inputs,
+  parameters,
+  context,
+  dependencies,
+) {
+  const { transform } = parameters;
+  const { productReviews } = dependencies;
+  await context.evaluate(async () => {
+    const shadowDiv = Array.from(document.getElementsByClassName('onetrust-pc-dark-filter'));
+    if (shadowDiv[0]) {
+      shadowDiv[0].style.display = 'none';
+      shadowDiv[0].style.removeProperty('z-index');
+    }
+    function addElementToDocument (key, value) {
+      const catElement = document.createElement('div');
+      catElement.id = key;
+      catElement.textContent = value;
+      catElement.style.display = 'none';
+      document.body.appendChild(catElement);
+    }
+
+    const getAllXpath = (xpath, prop) => {
+      const nodeSet = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+      const result = [];
+      for (let index = 0; index < nodeSet.snapshotLength; index++) {
+        const element = nodeSet.snapshotItem(index);
+        if (element) result.push(prop ? element[prop] : element.nodeValue);
+      }
+      return result;
+    };
+
+    const getXpath = (xpath, prop) => {
+      const elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
+      let result;
+      if (prop && elem && elem.singleNodeValue) result = elem.singleNodeValue[prop];
+      else result = elem ? elem.singleNodeValue : '';
+      return result && result.trim ? result.trim() : result;
+    };
+
+    
+    const reviewXpath = getAllXpath("/html/body/pre/text()",'nodeValue');
+    //console.log("reviewXpath::::", reviewXpath);
+   // const idObj = JSON.stringify(reviewXpath);
+   //var Information = JSON.parse(document.querySelector('body > pre').nodeValue);
+      //addElementToDocument('sku', Information.name);
+      //console.log("name:::", Information.results);
+      // @ts-ignore
+      var Information = JSON.parse(reviewXpath);
+      //console.log("name1:::", Information.results);
+      var jsonValue = JSON.stringify(Information.paging);
+      var jsonPas = JSON.parse(jsonValue);
+      console.log("jsonPas:::", JSON.stringify(jsonPas));
+      var jsonArray = jsonValue.split(',');
+
+
+      for(let i=0; i< jsonArray.length ; i++){
+        //console.log("jsonArray elements:::", jsonArray[i]);
+      }
+
+
+
+  });
+  return await context.extract(productReviews, { transform });
+}
+
 module.exports = {
   implements: 'product/reviews/extract',
   parameterValues: {
@@ -5,91 +71,74 @@ module.exports = {
     store: 'bjs',
     transform: null,
     domain: 'bjs.com',
-    zipcode: '',
+    zipcode: "''",
   },
-
-  implementation: async ({ url }, { country, domain }, context, { productDetails }) => {
-    await context.evaluate(async function () {
-    // @ts-ignore
-      // @ts-ignore
-      // @ts-ignore
-      // @ts-ignore
-      function stall (ms) {
-        return new Promise((resolve, reject) => {
-          setTimeout(() => {
-            resolve();
-          }, ms);
-        });
-      }
-      // const dataObj = window.dataLayer[0].product;
-      function addElementToDocument (key, value) {
-        const catElement = document.createElement('div');
-        catElement.id = key;
-        catElement.textContent = value;
-        catElement.style.display = 'none';
-        document.body.appendChild(catElement);
-      }
-      // function addHiddenDiv (node, id, content) {
-      //   const newDiv = document.createElement('div');
-      //   newDiv.id = id;
-      //   newDiv.textContent = content;
-      //   newDiv.style.display = 'none';
-      //   node.appendChild(newDiv);
-      // }
-      // const aggregateRating = document.querySelectorAll('#lb-results > div > div > ul > li > div > div > a > div > p > span > span');
-      // for (let k = 0; k < aggregateRating.length; k++) {
-      // // @ts-ignore
-      //   let singleRating = aggregateRating[k].style.width;
-      //   singleRating = singleRating.slice(0, singleRating.length - 1);
-      //   singleRating = (5 * singleRating) / 100;
-      //   singleRating = singleRating.toFixed(1);
-      //   addHiddenDiv(aggregateRating[k], 'aggregateRating', singleRating);
-      // }
-
-      // const itemContainers = document.querySelectorAll('#lb-results > div > div > ul > li');
-      // let rank = 1;
-      // for (const itemContainer of itemContainers) {
-      //   console.log(itemContainer);
-      //   const totalRank = itemContainer + rank;
-      //   addHiddenDiv(itemContainer, 'rank', totalRank);
-      //   rank++;
-      // }
-      // await stall(7000);
-      // @ts-ignore
-      // const mainDataObj = window.dataLayer[6].ecommerce.detail.products[0].dimension2;
-      // if (mainDataObj) {
-      //   addElementToDocument('pd_variantId', mainDataObj);
-      // }
-
-      // var str = document.querySelector('#snippet-google-dataLayer-push > script').innerText;
-      // if (str.length > 0) {
-      //   var refStr = 'ecommerce":{"detail":{"products":[{"dimension2":"';
-      //   var id = str.substring(str.indexOf(refStr) + refStr.length, str.indexOf('","name'));
-      //   if (id.match(/(\d{7})/g)) {
-      //     var prodid = id.match(/(\d{7})/g)[0];
-      //     addElementToDocument('pd_variantId', prodid);
-      //   }
-      // }
-
-      // await context.waitForXPath("//a[@class='product-top__main-image-link img-box compare-add-img']/img[@class='img-box__img js-lazy js-only jsOnly product-top__main-image compare-img js-lazy--loaded']/@src | //a[@class='product-top__main-image-link img-box compare-add-img']/img[@class='img-box__img js-lazy js-only jsOnly product-top__main-image compare-img js-lazy--loaded']/@src | //a[@class='product-top__main-image-link img-box compare-add-img js-pdbox']/img[@class='img-box__img js-lazy js-only jsOnly product-top__main-image compare-img js-lazy--loaded']/@src");
-      // await stall(7000);
-      // const image = document.querySelector('#product-main-img > a > img').getAttribute('src');
-      // console.log(image);
-      // if (image) {
-      //   addElementToDocument('image', image);
-      // }
-
-      // var Information = JSON.parse(document.querySelector('script[type="application/ld+json"]').innerText);
-      // addElementToDocument('sku', Information.sku);
-      // addElementToDocument('gtin', Information.gtin13);
-      // addElementToDocument('brand', Information.brand.name);
-      // addElementToDocument('image', Information.image);
-      // addElementToDocument('name', Information.name);
-
-      var reviewXpath = JSON.parse(document.querySelector('body > pre').nodeValue);
-      //const reviewXpath = getAllXpath("/html/body/pre",'nodeValue');
-      console.log("reviewXpath::::", reviewXpath);
-    });
-    await context.extract(productDetails);
-  },
+  implementation,
 };
+
+
+// async function implementation (
+//   inputs,
+//   parameters,
+//   context,
+//   dependencies,
+// ) {
+//   const { productReviews } = dependencies;
+
+//   const cssCookiesDiv = '.container';
+//   const cssCookies = 'button#consent_prompt_submit';
+//   const cssReviews = 'a[data-test="reviews-flag-link"]';
+//   const cssReviewsRow = 'div[data-test="review-item"]';
+//   const cssShowMore = 'button[data-test="show-x-more-reviews-button"]';
+
+//   const isSelectorAvailable = async (cssSelector) => {
+//     return await context.evaluate(function (selector) {
+//       return !!document.querySelector(selector);
+//     }, cssSelector);
+//   };
+
+//   await context.waitForSelector(cssCookiesDiv, { timeout: 1000000 });
+
+//   const coockiesAvailable = await isSelectorAvailable(cssCookies);
+//   if (coockiesAvailable) {
+//     await context.click(cssCookies);
+//   }
+
+//   const reviewsAvailable = await isSelectorAvailable(cssReviews);
+//   if (reviewsAvailable) {
+//     await context.click(cssReviews);
+//   }
+
+//   await context.waitForSelector(cssReviewsRow, { timeout: 500000 });
+
+//   const showMoreAvailable = await isSelectorAvailable(cssShowMore);
+//   console.log(`showMoreAvailable: ${showMoreAvailable}`);
+//   if (showMoreAvailable) {
+//     await context.waitForNavigation({ timeout: 200000, waitUntil: 'load' });
+//     await context.evaluate(async function () {
+//       let moreReviews = true;
+//       while (moreReviews) {
+//         const reviewsButton = document.querySelector('button[data-test="show-x-more-reviews-button"]');
+//         if (reviewsButton) {
+//           reviewsButton.click();
+//           await new Promise((resolve, reject) => setTimeout(resolve, 400000));
+//         } else {
+//           moreReviews = false;
+//         }
+//       }
+//     });
+//   }
+
+//   return await context.extract(productReviews);
+// }
+// module.exports = {
+//     implements: 'product/reviews/extract',
+//     parameterValues: {
+//       country: 'US',
+//       store: 'bjs',
+//       transform: null,
+//       domain: 'bjs.com',
+//       zipcode: "''",
+//     },
+//     implementation,
+//   };
