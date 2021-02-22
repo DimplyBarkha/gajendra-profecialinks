@@ -17,10 +17,9 @@ module.exports = {
     const { productDetails } = dependencies;
     await context.waitForFunction(function (xp) {
       return Boolean(document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 50000 }, '//script[contains(text(),"variant")]/text()');
+    }, { timeout: 100000 }, '//script[contains(text(),"variant")]/text()');
     
-    await context.evaluate(async () => {
-
+    await context.evaluate(async () => {     
       var getXpath = (xpath, prop) => {
         var elem = document.evaluate(xpath, document, null, XPathResult.ANY_UNORDERED_NODE_TYPE, null);
         let result;
