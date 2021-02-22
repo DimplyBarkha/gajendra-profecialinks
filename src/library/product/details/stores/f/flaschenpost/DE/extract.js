@@ -14,10 +14,10 @@ module.exports = {
     dependencies,
   ) => {
     const { transform } = parameters;
-    const { productDetails } = dependencies;
+    const { productDetails } = dependencies;    
     await context.waitForFunction(function (xp) {
       return Boolean(document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 100000 }, '//script[contains(text(),"variant")]/text()');
+    }, { timeout: 100000 }, '//div[@class="fp_product_details"]/div[contains(@class,"fp_article")]');
     
     await context.evaluate(async () => {     
       var getXpath = (xpath, prop) => {
@@ -36,7 +36,7 @@ module.exports = {
         originalDiv.parentNode.insertBefore(newDiv, originalDiv);
       }
       var vari = getXpath('//script[contains(text(),"variant")]/text()', 'nodeValue');
-      console.log('karthi', vari)
+      console.log('pathhhhhhh', vari)
       if (vari != null) {
         if (vari.includes("id:'")) {
           var ids = vari.split("id:'");
@@ -49,11 +49,12 @@ module.exports = {
           }
           for (var i = 0; i < finalIds.length; i++) {
             var temp = finalIds[i].split("',")[0];
+            console.log('tempppppppppp', temp)
             addHiddenDiv('rpc', temp, i);
           }
         }
       }
-    });
+    });    
     return await context.extract(productDetails, { transform });
   },
 }
