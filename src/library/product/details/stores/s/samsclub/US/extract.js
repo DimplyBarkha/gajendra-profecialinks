@@ -17,24 +17,28 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await new Promise(resolve => setTimeout(resolve, 5000) )
+  // await new Promise(resolve => setTimeout(resolve, 5000) )
+  // console.log('No selector Down');
   await context.evaluate(async function () {
     const popUps = document.querySelector('div.sc-modal-content button.sc-modal-close-button')
     if (popUps) {
       popUps.click();
     }
-    await new Promise((resolve, reject) => setTimeout(resolve, 30000));
+    //await new Promise((resolve, reject) => setTimeout(resolve, 30000));
   });
 
   const itemUrl = await context.evaluate(function () {
     const itemCheck = '//div[@class="sc-infinite-loader undefined"]//ul//li//a';
     var checkElement = document.evaluate(itemCheck, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
       try{
-        if (checkElement.snapshotLength > 0) {
-          const url = checkElement.snapshotItem(0).href;
-          console.log("url",url)
-          return url;
-        } else {
+        if(checkElement != null){
+          if (checkElement.snapshotLength > 0) {
+            const url = checkElement.snapshotItem(0).href;
+            console.log("url",url)
+            return url;
+          }
+        }
+         else {
           return null;
         }
       }
