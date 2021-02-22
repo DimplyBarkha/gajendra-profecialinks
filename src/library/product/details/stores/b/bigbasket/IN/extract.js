@@ -30,7 +30,7 @@ module.exports = {
         return results.filter(e => e);
       }
       const dataArr = getElementsByXPath('//*[contains(@id,"about")]/div[2]/div//div/text() | //*[@id="about_3"]/div[2]/div/div//p');
-      const descriptionArr = getElementsByXPath('//span[contains(text(),"About")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//ul/li | //span[contains(text(),"FEATURES")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//p');
+      const descriptionArr = getElementsByXPath('//span[contains(text(),"About")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//ul/li | //span[contains(text(),"FEATURES")]/parent::div/following-sibling::div[1] | //span[contains(text(),"Features")]/parent::div/following-sibling::div[1]//p|//section//div/p/text()[contains(.,"•")]');
       const descriptionBulletsCount = descriptionArr.map(elm => elm.replace(/•/g, ' || ').replace(/(\d+)\./g,' || ').replace(/\s\s+/g, ' ').trim()).join(' || ').split('||').length - 1 ;
       document.body.setAttribute('bullet-count',descriptionBulletsCount.toString());
       const country = dataArr.find(element => element.includes('Country'));
