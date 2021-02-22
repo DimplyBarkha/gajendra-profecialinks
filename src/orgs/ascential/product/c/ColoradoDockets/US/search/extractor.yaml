@@ -1,9 +1,19 @@
 robot: product/search
+proxy:
+  zone: USA  
+  type: DATA_CENTER
+policy:
+  numberRetries: 3
+  priority: MEDIUM
+  retryDelay: 120
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 3
 parameters:
   country: US
   domain: courts.state.co.us
   store: coloradodockets
   zipcode: "''"
+authenticated: false
 meta:
   branches:
     dev:
