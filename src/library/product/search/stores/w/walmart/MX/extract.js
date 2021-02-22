@@ -9,49 +9,31 @@ module.exports = {
     domain: 'walmart.com.mx',
     zipcode: '',
   },
-  implementation,
-};
-async function implementation (
-  inputs,
-  parameters,
-  context,
-  dependencies,
-) {
-  const { transform } = parameters;
-  const { productDetails } = dependencies;
-  await context.evaluate(async () => {
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 6000));
-      await context.waitForXPath('//button[@data-testid="close-tip"]');
-      await context.evaluateInFrame('iframe', () => {
-        const closeButton = document.querySelector('button[data-testid="close-tip');
-        if (closeButton) {
-          // @ts-ignore
-          closeButton.click();
+  implementation: async ({ inputString }, { country, domain, transform }, context, { productDetails }) => {
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    const applyScroll = async function (context) {
+      await context.evaluate(async function () {
+        let scrollTop = 0;
+        while (scrollTop !== 5000) {
+          await stall(1000);
+          scrollTop += 1000;
+          window.scroll(0, scrollTop);
+          if (scrollTop === 5000) {
+            await stall(1000);
+            break;
+          }
+        }
+        function stall (ms) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              resolve();
+            }, ms);
+          });
         }
       });
-    } catch (error) {
-      console.log(error);
-    }
-    async function infiniteScroll () {
-      let prevScroll = document.documentElement.scrollTop;
-      while (true) {
-        window.scrollBy(0, document.documentElement.clientHeight);
-        await new Promise(resolve => setTimeout(resolve, 4000));
-        const currentScroll = document.documentElement.scrollTop;
-        if (currentScroll === prevScroll) {
-          break;
-        }
-        prevScroll = currentScroll;
-      }
-    }
-    await infiniteScroll();
-  });
-
-  try {
-    await new Promise((resolve) => setTimeout(resolve, 6000));
-  } catch (error) {
-    console.log('error: ', error);
-  }
-  return await context.extract(productDetails, { transform });
-}
+    };
+    await applyScroll(context);
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    return await context.extract(productDetails, { transform });
+  },
+};

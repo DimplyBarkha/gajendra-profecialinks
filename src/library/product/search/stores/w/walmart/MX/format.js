@@ -35,44 +35,14 @@ const transform = (data, context) => {
         }));
         if (row.productUrl) {
           row.productUrl.forEach(item => {
-            if ((item.text.includes('https')) || (item.text.includes('http'))) {
-              item.text = item.text;
-            } else {
-              item.text = 'https://www.walmart.com.mx' + item.text;
-            }
+            item.text = 'https://super.walmart.com.mx' + item.text;
           });
         }
         if (row.id) {
           row.id.forEach(item => {
-            const arr = item.text.split('_');
-            const length = arr.length;
-            item.text = arr[length - 1];
+            item.text = item.text.replace(/^.*\/(.*)$/, "$1");
           });
         }
-        if (row.name) {
-          let brandN = '';
-          row.name.forEach(item => {
-            brandN = item.text.split(' ')[0];
-          });
-          if (row.brand) {
-            row.brand.forEach(item => {
-              if (item.text === 'BRAND') {
-                item.text = brandN;
-              }
-            });
-          }
-        }
-  
-        if (row.nameExtended) {
-          row.nameExtended.forEach(item => {
-            item.text = item.text.trim();
-          });
-        }
-        // if (row.price) {
-        //   row.price.forEach((item) => {
-        //     item.text = item.text.replace(/,/g, '').replace(/\./, ',');
-        //   });
-        // }
       }
     }
     return data;
