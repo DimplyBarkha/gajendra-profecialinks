@@ -2,10 +2,16 @@ singleRecord: false
 regionsSelector: null
 recordSelector: null
 recordXPath: //ul[contains(@class,"row product-list ng-star-inserted")]//li[contains(@class,"js-list col-xs-6 col-lg-4 col-md-4 col-xl-3 ng-star-inserted")]
-fields: 
+fields:
   - name: productUrl
-    SingleValue: false
+    singleValue: false
     xpath: //ul//li[contains(@class,"js-list col-xs-6 col-lg-4 col-md-4 col-xl-3 ng-star-inserted")]//a[@class='ng-star-inserted']/@href
   - name: id
-    SingleValue: false
+    singleValue: false
     xpath: //ul//li[contains(@class,"js-list col-xs-6 col-lg-4 col-md-4 col-xl-3 ng-star-inserted")]//div[contains(@class,"product-image-lazy-transition-wrapper SM ng-star-inserted")]//img/@alt
+#  - name: aggregateRating
+#    singleValue: false
+#    xpath: count(//shop-star-rating/div[contains(@class, 'star-rating')]/span[contains(@class, 'checked')])
+  - name: ratingCount
+    singleValue: false
+    xpath: //div[contains(@class, 'top-header')]/a/span

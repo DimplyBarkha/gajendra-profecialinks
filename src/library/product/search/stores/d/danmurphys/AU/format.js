@@ -53,6 +53,10 @@ const transform = (data) => {
             item.text = item.text.replace(/\s\n/g, '').trim();
           });
         }
+        if (row.ratingCount) {
+          console.log(row.ratingCount, 'row.ratingCount');
+          // row.ratingCount = [{ text:  row.ratingCount[0].text.replace(/[^\d.-]/g, '') }]
+        }
         row.rank = row.rankOrganic = [{ "text": rank }];
         rank++;
       }
