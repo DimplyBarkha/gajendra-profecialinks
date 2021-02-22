@@ -82,3 +82,8 @@ fields:
   - name: aggregateRating
     description: The product rating
     xpath: ancestor::html//div[@class="bv-section-summary"]//div[contains(@class, "bv-secondary-rating-summary")]//div[contains(@class, "bv-secondary-rating-summary-list")]//div[contains(@class, "bv-secondary-rating-summary-stars")]//span[contains(@class, "bv-secondary-rating-summary-rating")]
+  - name: maxDays
+    description: Max Days
+    xpath: ancestor::html//script[@id="__input"]
+    type: NUMBER
+    jq: '.days'
