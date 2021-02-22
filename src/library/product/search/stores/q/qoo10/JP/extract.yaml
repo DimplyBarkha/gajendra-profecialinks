@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: ul#search_result_item_list li
+fields:
+  - name: brandText
+    description: The manufacturer of product
+    xpath: //a[@class='brand']
+  - name: name
+    description: The title of the product
+    xpath: //a[@class='tt']
+  - name: productUrl
+    description: The url of the product
+    xpath: //a[@class='tt']/@href
+  - name: reviewCount
+    xpath: //span[@class='review_total_count']
+    regExp: ([^()]+)
+    regExpReplace: $1
+  - name: sku
+    xpath: //@goodscode
