@@ -7,8 +7,9 @@ fields:
     xpath: //div[@class="tools"]//@data-id
     # regExp: (\d+$)
     # regExpReplace: $1
-  - name: price       
-    xpath: //article[@class="product-card box-white"]/@data-price
+  - name: price
+    xpath: //*[@id="price"]
+    # xpath: //article[@class="product-card box-white"]/@data-price
   - name: productUrl
     xpath: //div[@class="col-6 col-sm-12 column-text"]/div/a/@href
   - name: thumbnail

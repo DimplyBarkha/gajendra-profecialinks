@@ -19,7 +19,7 @@ module.exports = {
         await new Promise(r => setTimeout(r, 10000));
 
       } catch (error) {
-
+        console.log('got some error while waiting for the cookie btn', error.message);
       }
       
       function addHiddenDiv(id, content, index) {
