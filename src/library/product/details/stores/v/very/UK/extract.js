@@ -80,7 +80,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         if (pick === true && colors.length) addedVariant.setAttribute('color', colors[i]);
         addedVariant.setAttribute('sku', sku);
         addedVariant.setAttribute('availability', availability2);
-        addedVariant.setAttribute('price', price);
+        addedVariant.setAttribute('price', '£' + price);
 
         const productName = document.querySelector('h1.productHeading')
           ? document.querySelector('h1.productHeading').textContent.trim()
@@ -199,8 +199,8 @@ async function implementation (inputs, parameters, context, dependencies) {
   return await context.extract(productDetails, { transform });
   // const dataRef = await context.extract(productDetails, { transform });
 
-  // if (dataRef[0].group[0].mpc) {
-  //   dataRef[0].group[0].mpc[0].text = dataRef[0].group[0].mpc[0].text.replace('MPN:', '').trim();
+  // if (dataRef[0].group[0].price) {
+  //   dataRef[0].group[0].price[0].text = '£' + dataRef[0].group[0].price[0].text;
   // }
 }
 module.exports = {
