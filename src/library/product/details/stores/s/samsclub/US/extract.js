@@ -19,14 +19,16 @@ async function implementation(
   const { productDetails } = dependencies;
   // await new Promise(resolve => setTimeout(resolve, 5000) )
   // console.log('No selector Down');
-  await context.evaluate(async function () {
-    const popUps = document.querySelector('div.sc-modal-content button.sc-modal-close-button')
-    if (popUps) {
-      popUps.click();
-    }
-    //await new Promise((resolve, reject) => setTimeout(resolve, 30000));
-  });
-
+  // await context.evaluate(async function () {
+  //   const popUps = document.querySelector('div.sc-modal-content button.sc-modal-close-button')
+  //   if (popUps) {
+  //     popUps.click();
+  //   }
+  //   //await new Promise((resolve, reject) => setTimeout(resolve, 30000));
+  // });
+  // if (document.readyState === 'complete') {
+  //   console.log('The page is fully loaded');
+  // }
   const itemUrl = await context.evaluate(function () {
     const itemCheck = '//div[@class="sc-infinite-loader undefined"]//ul//li//a';
     var checkElement = document.evaluate(itemCheck, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
@@ -48,8 +50,8 @@ async function implementation(
   });
   if (itemUrl) {
     await context.goto(itemUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
-    await context.click('div.sc-modal-content button.sc-modal-close-button');
-    await new Promise((resolve, reject) => setTimeout(resolve, 40000));
+    //await context.click('div.sc-modal-content button.sc-modal-close-button');
+    //await new Promise((resolve, reject) => setTimeout(resolve, 40000));
   }
   await context.evaluate(async function () {
     await new Promise((resolve, reject) => setTimeout(resolve, 40000));
