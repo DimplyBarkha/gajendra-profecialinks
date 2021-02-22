@@ -40,10 +40,7 @@ fields:
     xpath: //div[@class="product-price"]/span[@class="product-price-standard"]/text() | //div[@class="product-price"]//span[@class="product-price-sales"]/text()
   - name: availabilityText
     singleValue: true
-    # xpath: //button[@class="default pdp-add-to-cart bopis"]
-    # regExp: Buy & Pickup
-    # regExpReplace: In stock
-    # defaultValue: Out of stock
+    xpath: //body/@availability
   - name: description
     singleValue: false
     xpath: //body/@description

@@ -23,8 +23,47 @@ module.exports = {
       });
       if (!doesProductExist) return;
 
-      await context.evaluate(async () => {
+      // setting zipcode to check availability
+      const isCheckAvailabilityLinkPresent = await context.evaluate(async () => {
+        return document.querySelector('div.pdp-shiptome-wrapper div.delivery-method-message+div > a.check-availability') !== null;
+      });
+      const isEditAvailabilityLinkPresent = await context.evaluate(async () => {
+        return document.querySelector('div.pdp-shiptome-wrapper div.fsa-confirmed-info a.edit-availability') !== null;
+      });
+      if (isCheckAvailabilityLinkPresent) {
+        await context.click('div.pdp-shiptome-wrapper div.delivery-method-message+div > a.check-availability');
+        await context.evaluate(async () => {
+          const zipcodeInput = document.querySelector('form#fsa-form > input[name="fsapostalcode"]');
+          // @ts-ignore
+          if (!zipcodeInput) document.querySelector('div.pdp-shiptome-wrapper div.delivery-method-message+div > a.check-availability').click();
+        });
+      } else if (isEditAvailabilityLinkPresent) {
+        await context.click('div.pdp-shiptome-wrapper div.fsa-confirmed-info a.edit-availability');
+        await context.evaluate(async () => {
+          const zipcodeInput = document.querySelector('form#fsa-form > input[name="fsapostalcode"]');
+          // @ts-ignore
+          if (!zipcodeInput) document.querySelector('div.pdp-shiptome-wrapper div.fsa-confirmed-info a.edit-availability').click();
+        });
+      }
+      const isZipcodeInputPresent = await context.evaluate(async () => {
+        return document.querySelector('form#fsa-form > input[name="fsapostalcode"]') !== null;
+      });
+      if (isZipcodeInputPresent) {
+        await context.setInputValue('form#fsa-form > input[name="fsapostalcode"]', 'M4G 4G9');
+      }
+      await context.click('form#fsa-form > button[type="submit"]');
+      await context.waitForXPath('//div[@class="sth-delivery-available"]//p[contains(@class, "sth-delivery-info-msg")]//span[@class="fsa-available-green"] | //div[@class="sth-delivery-available"]//p[contains(@class, "sth-delivery-info-msg error")]');
+      const isProductAvailable = await context.evaluate(async () => {
+        return document.querySelector('div.sth-delivery-available p.sth-delivery-info-msg span.fsa-available-green') !== null;
+      });
+      const availability = isProductAvailable ? 'In Stock' : 'Out Of Stock';
+      await context.click('div.ReactModal__Content.ReactModal__Content--after-open.pdp-modal > button.modal-close');
+
+      await context.evaluate(async (availability) => {
         const body = document.querySelector('body');
+
+        // setting availability
+        body.setAttribute('availability', availability);
 
         // getting brand from description tab or product header
         let brand = document
@@ -303,7 +342,7 @@ module.exports = {
         //     body.setAttribute('description', addDescription.textContent);
         //   }
         // }
-      });
+      }, availability);
 
       dataRef = dataRef.concat(await context.extract(productDetails, { transform }));
     };
