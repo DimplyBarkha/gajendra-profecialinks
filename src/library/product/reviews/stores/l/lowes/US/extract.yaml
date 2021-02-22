@@ -26,7 +26,7 @@ fields:
     regExpReplace: $2
   - name: reviewDate
     description: Date the review was made
-    # type: DATETIME
+    type: DATETIME
     xpath: //span/@pd_reviewDate
   - name: reviewRating
     description: Rating normalized to be out of 5
@@ -77,3 +77,10 @@ fields:
     xpath: ancestor::html//div[contains(@class,"fsReviewLinkDefault")]/div/@aria-label
     regExp: (.+) out of(.)
     regExpReplace: $1
+  - name: reviewCount
+    xpath: count(//span/@pd_productUrl)
+  - name: maxDays
+    description: Max Days
+    xpath: ancestor::html//script[@id="__input"]
+    type: NUMBER
+    jq: '.days'
