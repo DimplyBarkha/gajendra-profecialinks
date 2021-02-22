@@ -14,7 +14,11 @@ module.exports = {
     domain,
     transform,
   }, context, { productDetails }) => {
-    await context.click('a[class*=\'product-v2\']');
+
+    const productWindow = await context.evaluate(async () => !document.querySelector('a[class*=\'product-v2\']'));
+    if (!productWindow) {
+      await context.click('a[class*=\'product-v2\']');
+    }
     await context.waitForSelector('div[class*=\'product-breadcrumb\']');
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     await context.evaluate(async () => {
