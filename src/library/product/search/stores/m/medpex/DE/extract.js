@@ -26,43 +26,37 @@ module.exports = {
         catElement.style.display = 'none';
         document.body.appendChild(catElement);
       }
-      try{
-      var rating=document.querySelectorAll('div[class="rating"] a[class]')
-      var len=document.querySelectorAll('div.clearfix > div.description > span > b > a').length
-      for(let i=0;i<len;i++)
-     {
-       var data=rating[i].className.split("-")
-       addHiddenDiv("rating",data[data.length-1],i)
-     }
-    }
-    catch(e)
-    {
-      
-    }
-    try{
-      const product = document.querySelectorAll('div#product-list div.data-tracking-product');
-      const URL = window.location.href;
-      for (let i = 0; i < product.length; i++) {
-        let aggrating =document.querySelectorAll('form > div.clearfix > div.description > div.product-icons > div.rating > a')[i];
-        var b=aggrating.classList.value.split('-')
-        // @ts-ignore
-        // aggrating = aggrating !== null ? aggrating.classList : '';
-        // aggrating = aggrating[2] !== undefined ? aggrating[2].split('-')[2] : '';
-        // @ts-ignore
-        const productUrl = product[i].querySelector('span.product-name b a').href;
-       
-         // @ts-ignore
-        const price = document.querySelectorAll('span.normal-price')[i].innerText;
-        addHiddenDiv('pd_productUrl', productUrl, i);
-        addHiddenDiv('pd_url', URL, i);
-        addHiddenDiv('rating1', b[b.length-1], i);
-        addHiddenDiv('price', price, i)
-       } 
-       }catch (error) {
-         
-       } 
-      
-      
+      try {
+        var rating = document.querySelectorAll('div[class="rating"] a[class]')
+        var len = document.querySelectorAll('div.clearfix > div.description > span > b > a').length
+        for (let i = 0; i < len; i++) {
+          var data = rating[i].className.split("-")
+          addHiddenDiv("rating", data[data.length - 1], i)
+        }
+      }
+      catch (e) {
+
+      }
+      try {
+        const product = document.querySelectorAll('div#product-list div.data-tracking-product');
+        const URL = window.location.href;
+        for (let i = 0; i < product.length; i++) {
+          let aggrating = document.querySelectorAll('form > div.clearfix > div.description > div.product-icons > div.rating > a')[i];
+          var b = aggrating.classList.value.split('-')
+          // @ts-ignore
+          const productUrl = product[i].querySelector('span.product-name b a').href;
+
+          // @ts-ignore
+          var price = document.querySelectorAll('span.normal-price')[i].innerText;
+          var c = price.replace(',', '.')
+          addHiddenDiv('pd_productUrl', productUrl, i);
+          addHiddenDiv('pd_url', URL, i);
+          addHiddenDiv('rating1', b[b.length - 1], i);
+          addHiddenDiv('price', c, i)
+        }
+      } catch (error) {
+
+      }
       const URL1 = window.location.href;
       try {
         document.getElementById('pd_url').remove();
