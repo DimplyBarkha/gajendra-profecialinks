@@ -78,7 +78,8 @@ fields:
     regExp: (.+) out of(.)
     regExpReplace: $1
   - name: reviewCount
-    xpath: count(//span/@pd_productUrl)
+    type: TEXT
+    xpath: ancestor::html//div[contains(@class,"product-info")]//span[contains(@class, "total")]
   - name: maxDays
     description: Max Days
     xpath: ancestor::html//script[@id="__input"]
