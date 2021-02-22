@@ -5,7 +5,7 @@ module.exports = {
     country: 'BR',
     store: 'epocacosmeticos',
     domain: 'epocacosmeticos.com',
-    loadedSelector: 'strong.skuBestPrice',
+    loadedSelector: null,
     noResultsXPath: '//h3[@class="nave-title"]',
     zipcode: '',
   },

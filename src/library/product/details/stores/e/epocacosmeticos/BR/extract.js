@@ -1,5 +1,5 @@
 const { transform } = require('../format');
-async function implementation (
+async function implementation(
   inputs,
   parameters,
   context,
@@ -20,6 +20,7 @@ async function implementation (
       availabilityTextDiv.id = 'availabilityText';
       document.body.appendChild(availabilityTextDiv);
     });
+    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
     for (let j = 0; j < variantLength; j++) {
       await context.evaluate(async (j) => {
         document.querySelectorAll('ul.topic li label')[j].click();
