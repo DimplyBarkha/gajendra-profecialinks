@@ -30,6 +30,16 @@ const transform = (data, context) => {
         newText = newText.slice(0, -3);
         row.category = [{ text: newText }];
       }
+      if (row.brandText) {
+        row.brandText.forEach(item => {
+          if(item.text.toLowerCase().includes('glo')){
+            item.text = 'GLO';
+          }
+          else if(item.text.toLowerCase().includes('iqos')){
+            item.text = 'IQOS';
+          }
+        });
+      }
     }
   }
 

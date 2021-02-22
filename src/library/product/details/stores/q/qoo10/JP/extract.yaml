@@ -6,7 +6,7 @@ fields:
   - name: brandText
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name e.g. "Visit the Gillette Store"
-    xpath: //h2[@id="goods_name"]//a[@id='btn_brand']/@title
+    xpath: //h2[@class='name']/text()
   - name: color
     singleValue: false
     xpath: //ul[@class='select_chip big']//li//span/@title
@@ -34,3 +34,5 @@ fields:
     xpath: //div[@class="code"]/text()
     regExp: ([0-9]{1,})
     regExpReplace: $1
+  - name: name
+    xpath: //h2[@class='name']/text()
