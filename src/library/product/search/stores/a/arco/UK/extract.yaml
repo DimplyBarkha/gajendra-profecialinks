@@ -6,7 +6,7 @@ fields:
   - name: productUrl
     xpath: //a/@href | //link[@rel="canonical"]/@href
   - name: thumbnail
-    xpath: //div[@id="imageholder"]//img[1]/@src | //div[@id="infoholder"]//h1/@url 
+    xpath: //div[@class="inner"]//img[1]/@src | //div[@id="infoholder"]//h1/@url 
     regExp: (.+)
     regExpReplace: https://www.arco.co.uk$1
   - name: name

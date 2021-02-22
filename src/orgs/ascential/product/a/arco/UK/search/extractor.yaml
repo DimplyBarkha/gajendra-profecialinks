@@ -1,9 +1,12 @@
 robot: product/search
 parameters:
   country: UK
-  domain: arco.uk
+  domain: arco.co.uk
   store: arco
   zipcode: ""
+proxy:
+  zone: ZUK
+  type: DATA_CENTER
 meta:
   branches:
     arco_search:
@@ -12,4 +15,9 @@ meta:
     arco:
       extractor: da001f63-8860-4410-8d4e-1f710bd932ae
       legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
-      
+    test:
+      extractor: d7c80839-8e06-47ee-ba8f-ebce9fed779b
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    test2:
+      extractor: e53d3dba-7578-4e22-950a-e624fcc427f5
+      legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
