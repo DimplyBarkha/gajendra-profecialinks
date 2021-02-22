@@ -19,10 +19,10 @@ async function implementation (
     let specsArr = [];
     if (document.querySelectorAll('tg-col div[class*="tm-markdown"] p')) {
       const descDiv = document.querySelector('tg-col h4');
-      if (descDiv.innerText.includes('Desc')) {
+      if (descDiv && descDiv.innerText && descDiv.innerText.includes('Desc')) {
         const paraDivs = document.querySelectorAll('tg-col div[class*="tm-markdown"] p');
         for (let i = 0; i < paraDivs.length; i++) {
-          if (paraDivs[i].innerText.includes('Specification')) {
+          if (paraDivs[i] && paraDivs[i].innerText && paraDivs[i].innerText.includes('Specification')) {
             specsText += paraDivs[i + 1].innerText;
           }
         }
