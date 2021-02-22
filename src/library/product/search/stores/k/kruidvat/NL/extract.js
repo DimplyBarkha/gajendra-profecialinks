@@ -19,6 +19,12 @@ async function implementation(
   const { transform } = parameters;
   const { productDetails } = dependencies;
   await context.evaluate(async function () {
+  // await context.setBlockAds(false); 
+  // await context.setLoadAllResources(true); 
+  // await context.setLoadImages(true);
+  // await context.setJavaScriptEnabled(true); 
+  // await context.setAntiFingerprint(false);
+  // await context.setUseRelayProxy(false);
     let scrollTop = 0;
     while (scrollTop !== 1000) {
       await stall(500);
