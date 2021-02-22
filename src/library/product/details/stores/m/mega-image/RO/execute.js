@@ -4,7 +4,7 @@ module.exports = {
   parameterValues: {
     country: 'RO',
     store: 'mega-image',
-    domain: 'mage-image.ro',
+    domain: 'mega-image.ro',
     loadedSelector: null,
     noResultsXPath: null,
     zipcode: '',

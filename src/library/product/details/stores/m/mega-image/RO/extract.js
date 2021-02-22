@@ -5,7 +5,7 @@ module.exports = {
     country: 'RO',
     store: 'mega-image',
     transform: null,
-    domain: 'mage-image.ro',
+    domain: 'mega-image.ro',
     zipcode: '',
   },
 };

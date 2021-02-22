@@ -2,7 +2,7 @@
 module.exports = {
   implements: 'product/details/createUrl',
   parameterValues: {
-    domain: 'mage-image.ro',
+    domain: 'mega-image.ro',
     prefix: null,
     url: null,
     country: 'RO',
