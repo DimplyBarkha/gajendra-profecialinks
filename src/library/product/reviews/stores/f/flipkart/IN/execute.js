@@ -6,9 +6,10 @@ module.exports = {
     store: 'flipkart',
     domain: 'flipkart.com',
     loadedSelector: null,
-    noResultsXPath: null,
+    noResultsXPath: null, // 'div[not(contains(class,"col JOpGWq"))]',
     reviewUrl: null,
     sortButtonSelectors: null,
     zipcode: '',
   },
 };
+

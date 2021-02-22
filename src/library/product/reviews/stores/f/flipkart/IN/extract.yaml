@@ -1,13 +1,14 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: '//div[@class="_27M-vq"]'
+recordXPath: null #'//div[@class="_27M-vq"]'
 fields:
   - name: helpfulCount
     singleValue: false
     # type: NUMBER
     description: Number of people who said the review was helpful
-    xpath: //div[@class="_1LmwT9"]//span[@class="_3c3Px5"]
+    # xpath: //div[@class="_1LmwT9"]//span[@class="_3c3Px5"]
+    xpath: //div[@class="helpful_count"]
   - name: commentCount
     singleValue: true
     type: NUMBER
@@ -16,12 +17,12 @@ fields:
     singleValue: false
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: //div[@id="brandText"]
+    # xpath: //div[@id="brandText"]
   - name: name
     singleValue: false
     description: The product name
-    xpath: ancestor::html//a[contains(@class,"_2rpwqI")]/@title
-    # xpath: //a[contains(@class,"_2rpwqI")]/@title
+    # xpath: ancestor::html//a[contains(@class,"_2rpwqI")]/@title
+    xpath: //div[@class="product_name"]
   - name: sku
     singleValue: false
     description: The store-specific product identifier
@@ -32,12 +33,12 @@ fields:
     description: Date the review was made
     # xpath: //p[@class="_2sc7ZR"]
     xpath: //div[@class="date_time"]
-
   - name: reviewRating
     # type: NUMBER
     singleValue: false
     description: Rating normalized to be out of 5
     xpath: //div[contains(@class,"_3LWZlK ")] 
+    # xpath: //div[@class="review_rating"]
   - name: reviewText
     singleValue: false
     description: The text of the review
@@ -46,7 +47,8 @@ fields:
   - name: reviewTitle
     singleValue: false
     description: The title of the review
-    xpath: //p[@class="_2-N8zT"]
+    # xpath: //p[@class="_2-N8zT"]
+    xpath: //div[@class="review_title"]
   - name: reviewerTags
     singleValue: false
     description: The tags a reviewer has
@@ -62,6 +64,7 @@ fields:
     # type: BOOLEAN
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
     xpath: //span[contains(text(),"Certified Buyer")]
+    # xpath: //div[@class="verified_purchase"]
     regExp: (.+)
     regExpReplace: 'Yes'
     defaultValue: ''
@@ -84,7 +87,14 @@ fields:
   - name: user
     description: The user name of the reviewer
     type: TEXT
-    xpath: //p[@class="_2sc7ZR _2V5EHH"]
+    # xpath: //p[@class="_2sc7ZR _2V5EHH"]
+    xpath: //div[@class="user"]
   - name: aggregateRating2
     description: The product rating
-    xpath: ancestor::html//div[@class='_2d4LTz']
+    # xpath: ancestor::html//div[@class='_2d4LTz']
+    xpath: //div[@class="aggregateRating2"]
+  - name: maxDays
+    description: Max Days
+    xpath: ancestor::html//script[@id="__input"]
+    type: NUMBER
+    jq: '.days'

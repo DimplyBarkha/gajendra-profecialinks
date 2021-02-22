@@ -13,7 +13,7 @@ module.exports = {
     spinnerSelector: null,
     loadedSelector: null,
     loadedXpath: null,
-    noResultsXPath: null,
+    noResultsXPath: null, // 'div[not(contains(class,"col JOpGWq"))]',
     stopConditionSelectorOrXpath: null,
     resultsDivSelector: null,
     openSearchDefinition: null,
@@ -69,38 +69,68 @@ async function implementation (
 
       var days = date2.match(/\w+/g);
       console.log('----', days);
-      if (days[0] == 'Today') {
-        var d = new Date();
-        d.setDate(d.getDate());
-        date2 = date2.replace(date2, d.toString());
+      if (days != undefined) {
+        if (days[0] == 'Today' && days[0] != undefined) {
+          var d = new Date();
+          d.setDate(d.getDate());
+          date2 = date2.replace(date2, d.toString());
+        }
+
+        if (days[1] == 'days' || days[1] == 'day' && days[0] != undefined) {
+          var d = new Date();
+          d.setDate(d.getDate() - parseInt(days[0]));
+          date2 = date2.replace(date2, d.toString());
+        }
+
+        if (days[1] == 'months' || days[1] == 'month' && days[0] != undefined) {
+          var d = new Date();
+          d.setMonth(d.getMonth() - parseInt(days[0]));
+          date2 = date2.replace(date2, d.toString());
+        }
+        function getMonthFromString (mon) {
+          var d = Date.parse(mon + '1, 2012');
+          if (!isNaN(d)) {
+            return new Date(d).getMonth() + 1;
+          }
+          return -1;
+        }
+        function toDate (dateStr) {
+          var parts = dateStr.split('-');
+          return new Date(parts[2], parts[1] - 1, parts[0]);
+        }
+        if (days[0] != 'Today' && days[0] != undefined && days.length <= 2) {
+          var s1 = new Date();
+          var s2 = s1.getDate();
+          var g1 = getMonthFromString(days[0]);
+          var date3 = toDate(s2 + '-' + g1 + '-' + days[1]);
+          date2 = date2.replace(date2, date3.toString());
+        }
+        console.log(date2);
       }
 
-      if (days[1] == 'days' || days[1] == 'day') {
-        var d = new Date();
-        d.setDate(d.getDate() - parseInt(days[0]));
-        date2 = date2.replace(date2, d.toString());
-      }
-
-      if (days[1] == 'months' || days[1] == 'month') {
-        var d = new Date();
-        d.setMonth(d.getMonth() - parseInt(days[0]));
-        date2 = date2.replace(date2, d.toString());
-      }
-
-      console.log('DATE STRING', d.toString());
-      return d.toString();
+      // console.log('DATE STRING', d.toString());
+      return date2;
+      // return d.toString();
     }
 
     // Review Text
-    const review_text = document.querySelectorAll('div[class="t-ZTKy"] > div > div');
+    // const review_text = document.querySelectorAll('div[class="t-ZTKy"] > div > div');
     const date = document.querySelectorAll('p[class="_2sc7ZR"]');
-    console.log('-----', review_text);
-    if (review_text) {
-      for (var i = 0; i < review_text.length; i++) {
-        if (date[i]) {
-          const date_time = timeSince(date[i].textContent);
-          if (date_time) {
-            addHiddenDiv(review_text[i], 'date_time', date_time);
+    const container = document.querySelectorAll('div._27M-vq');
+    // console.log('-----', review_text);
+    if (container != null && container.length != undefined) {
+      for (var i = 0; i < container.length; i++) {
+        const searchUrl = window.location.href;
+        if (searchUrl.includes('page=')) {
+          console.log('Page=2');
+          console.log(searchUrl);
+          if (date[i]) {
+            await new Promise(r => setTimeout(r, 2000));
+            const date_time = timeSince(date[i].textContent);
+            console.log('-------date--type--------', date_time);
+            if (date_time) {
+              addHiddenDiv(container[i], 'date_time', date_time);
+            }
           }
         }
       }
