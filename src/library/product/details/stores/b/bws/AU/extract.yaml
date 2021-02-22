@@ -4,10 +4,10 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: name
-    singleValue: false 
+    singleValue: false
     xpath: //div[@class="detail-item"]//div[@itemprop="name"]
   - name: nameExtended
-    singleValue: false 
+    singleValue: false
     xpath: //div[@class="detail-item"]//h1[contains(@class,"detail-item_brand header--color-secondary")]
   - name: image
     singleValue: false
@@ -21,10 +21,10 @@ fields:
   - name: category
     singleValue: false
   - name: brandText
-    singleValue: false  
+    singleValue: false
     xpath: //div[@class="detail-item"]//span[@itemprop="brand"]//span
   - name: manufacturer
-    singleValue: false  
+    singleValue: false
   - name: price
     singleValue: false
     xpath: //div[contains(@class,"clearfix product-detail_controls-wrapper")]//div[contains(@class,"product-detail_controls-col ng-scope")]//h1[contains(@class,"product-details_controls_title ng-binding")]
@@ -35,7 +35,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,"col-md-12 text-left")]//ul//li
   - name: descriptionBullets
-    singleValue: false    
+    singleValue: false
   - name: availabilityText
     singleValue: false
     xpath: //div[@class="product-detail_btn-group"]//div[contains(@class,'full-width text-center ng-scope')]//span[@class="text_lable"]//span[@class="sr-only"]
@@ -45,24 +45,24 @@ fields:
     xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Product Number"]/parent::*/span
   - name: variantId
     singleValue: false
-    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Product Number"]/parent::*/span 
+    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Product Number"]/parent::*/span
   - name: quantity
     singleValue: false
-    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Liquor Size"]/parent::*/span 
+    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Liquor Size"]/parent::*/span
   - name: countryOfOrigin
     singleValue: false
-    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Country Of Origin"]/parent::*/span 
+    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Country Of Origin"]/parent::*/span
   - name: alcoholContent
     singleValue: false
-    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Alcohol %"]/parent::*/span 
+    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Alcohol %"]/parent::*/span
   - name: variantCount
     singleValue: false
     defaultValue: '0'
   - name: ratingCount
-    singleValue: false 
+    singleValue: false
     xpath: //div[contains(@class,"hidden-xs productTile_rating ng-pristine")]//div[contains(@class,"rating ng-scope")]//span[contains(@class,"rating_count ng-binding")]
   - name: aggregateRating
-    singleValue: false 
+    singleValue: false
     xpath: //div[contains(@class,"review-overview-rating ng-pristine")]//span[@class="sr-only"]//span[@class="ng-binding"]
   - name: termsAndConditions
     singleValue: false
@@ -70,3 +70,6 @@ fields:
   - name: privacyPolicy
     singleValue: false
     defaultValue: 'yes'
+  - name: numberOfServingsInPackage
+    singleValue: false
+    xpath: //div[@expandable-content='product-additional-details']//li//strong[contains(.,'Standard Drinks')]//following-sibling::span//text()
