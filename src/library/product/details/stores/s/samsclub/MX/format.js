@@ -37,7 +37,7 @@ const transform = (data) => {
         });
         row.price = [{ text: row.price1[0].text + row.price2[0].text }];
         if (row.price3) {
-          row.price = [{ text: row.price[0].text + ',' + row.price3[0].text }];
+          row.price = [{ text: row.price[0].text + '.' + row.price3[0].text }];
           delete row.price3;
         }
         delete row.price1;
@@ -47,7 +47,7 @@ const transform = (data) => {
         row.listPrice1.forEach(item => {
           item.text = item.text.replace(',', '');
         });
-        row.listPrice = [{ text: row.listPrice1[0].text + ',' + row.listPrice2[0].text }];
+        row.listPrice = [{ text: row.listPrice1[0].text + '.' + row.listPrice2[0].text }];
         delete row.listPrice1;
         delete row.listPrice2;
       }
@@ -58,6 +58,13 @@ const transform = (data) => {
         });
         row.additionalDescBulletInfo = [{ text: '|| ' + arrBullet.join(' || ') }];
         row.descriptionBullets = [{ text: arrBullet.length }];
+      }
+      if (row.description) {
+        var arrDescriptionlet = [];
+        row.description.forEach(item => {
+          arrDescriptionlet.push(item.text);
+        });
+        row.description = [{ text: '|| ' + arrDescriptionlet.join(' || ') }];
       }
       if (row.specifications) {
         var arrSpecs = [];
@@ -78,10 +85,132 @@ const transform = (data) => {
           item.text = item.text.replace('i.jpg', 'l.jpg');
         });
       }
+      if (row.imageAlt) {
+        row.imageAlt.forEach(item => {
+          if(item.text.includes("# 0")){
+          item.text = item.text.replace('# 0', '');
+          console.log("item.text",item.text);
+          // item.text = item.text.slice(-1);
+          }
+          else{
+            item.text = item.text;
+          }
+        });
+      }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
           item.text = item.text.replace('img_icon', 'img_large');
           item.text = item.text.replace('i.jpg', 'l.jpg');
+        });
+      }
+      if (row.calciumPerServing) {
+        row.calciumPerServing.forEach(item => {
+          if(item.text.includes('%')){
+          item.text = item.text.replace('%', '');
+          }
+          else{
+            item.text = item.text;
+          }
+        });
+      }
+      if (row.calciumPerServingUom) {
+        row.calciumPerServingUom.forEach(item => {
+          if(item.text.includes('%')){
+          item.text = item.text.slice(-1);
+          }
+          else{
+            item.text = '';
+          }
+        });
+      }
+      if (row.totalFatPerServing) {
+        row.totalFatPerServing.forEach(item => {
+          if(item.text.includes('%')){
+          item.text = item.text.replace('%', '');
+          }
+          else{
+            item.text = item.text;
+          }
+        });
+      }
+      if (row.totalFatPerServingUom) {
+        row.totalFatPerServingUom.forEach(item => {
+          if(item.text.includes('%')){
+          item.text = item.text.slice(-1);
+          }
+          else{
+            item.text = '';
+          }
+        });
+      }
+      if (row.totalSugarsPerServing) {
+        row.totalSugarsPerServing.forEach(item => {
+          if(item.text.includes('g')){
+          item.text = item.text.replace('g', '');
+          }
+          else{
+            item.text = item.text;
+          }
+        });
+      }
+      if (row.totalSugarsPerServingUom) {
+        row.totalSugarsPerServingUom.forEach(item => {
+          if(item.text.includes('g')){
+          item.text = item.text.slice(-1);
+          }
+          else{
+            item.text = '';
+          }
+        });
+      }
+      if (row.proteinPerServingUom) {
+        row.proteinPerServingUom.forEach(item => {
+          if(item.text.includes('g')){
+          item.text = item.text.slice(-1);
+          }
+          else{
+            item.text = '';
+          }
+        });
+      }
+      if (row.availabilityText) {
+        row.availabilityText.forEach(item => {
+          if(item.text=== 'true'){
+          item.text = 'In Stock';
+          }
+          else{
+            item.text = 'Out of Stock';
+          }
+        });
+      }
+      if (row.sodiumPerServing) {
+        row.sodiumPerServing.forEach(item => {
+          if(item.text.includes('mg')){
+          item.text = item.text.replace('mg', '');
+          }
+          else{
+            item.text = item.text;
+          }
+        });
+      }
+      if (row.sodiumPerServingUom) {
+        row.sodiumPerServingUom.forEach(item => {
+          if(item.text.includes('mg')){
+          item.text = item.text.slice(-2);
+          }
+          else{
+            item.text = '';
+          }
+        });
+      }
+      if (row.dietaryFibrePerServingUom) {
+        row.dietaryFibrePerServingUom.forEach(item => {
+          if(item.text.includes('g')){
+          item.text = item.text.slice(-1);
+          }
+          else{
+            item.text = '';
+          }
         });
       }
     }

@@ -14,6 +14,7 @@ module.exports = {
     dependencies,
   ) => {
     const timeout = parameters.timeout ? parameters.timeout : 10000;
+    await context.captureRequests();
     await context.setBlockAds(false);
     await context.setLoadAllResources(true);
     await context.setLoadImages(true);
@@ -23,6 +24,10 @@ module.exports = {
         timeout: timeout,
         waitUntil: 'load',
         checkBlocked: true,
+        block_ads: false,
+        load_all_resources: true,
+        images_enabled: true,
+        load_timeout: 0,
       });
     } catch (e) {
       console.log('page load time out ----> ', e);

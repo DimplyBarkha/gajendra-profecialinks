@@ -4,8 +4,23 @@ parameters:
   domain: samsclub.com
   store: samsclub
   zipcode: ""
+proxy:
+  zone: USA
+  type: DATA_CENTER
+policy:
+  numberRetries: 2
+  priority: MEDIUM
+  retryDelay: 60
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 1
 meta:
   branches:
     samsclub:
       extractor: 487d9a88-bac8-497c-8625-8114ffb7f92a
       legacyAccountId: 39255e08-8495-481b-9eba-0eb99bc49e94
+    DS_Samsclub_US:
+      extractor: 691d3540-6091-47b2-8e69-ee37b806011e
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013
+    samsclub_US_core_test:
+      extractor: df357a5b-845e-41f5-bcee-dc7eed1386aa
+      legacyAccountId: f94246b4-2d86-4803-9d39-25905b37f013

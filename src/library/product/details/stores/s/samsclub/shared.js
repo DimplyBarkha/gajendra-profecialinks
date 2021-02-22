@@ -22,9 +22,9 @@ const cleanUp = (data, context) => {
         let text = '';
         row.specifications.forEach((element) => {
           if (element.xpath.includes('li')) {
-            text += ` ${element.text}`;
+            text += ` ${element.text} ||`;
           } else {
-            text += ` ${element.text}`;
+            text += ` ${element.text} ||`;
           }
         });
         row.specifications = [{ text: text.trim() }];
@@ -49,10 +49,16 @@ const cleanUp = (data, context) => {
         });
         row.additionalDescBulletInfo = [{ text: text.trim() }];
       }
+      if (row.manufacturerDescription) {
+        let text = '';
+        text = row.manufacturerDescription.map(element => element.text.trim()).join(' ');
+        row.manufacturerDescription = [{ text: text.trim() }];
+      }
     }
   }
   data.forEach(obj => obj.group.forEach(row => Object.keys(row).forEach(header => row[header].forEach(el => {
     el.text = clean(el.text);
+    el.text = el.text.trim();
   }))));
   return data;
 };

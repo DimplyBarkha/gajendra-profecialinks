@@ -3,12 +3,12 @@ module.exports = {
   parameterValues: {
     country: 'US',
     store: 'samsclub',
-    nextLinkSelector: 'li[class="sc-pagination-next"] > button[class="sc-btn"]',
+    nextLinkSelector: null,
     mutationSelector: null,
     spinnerSelector: null,
-    loadedSelector: 'div[class="sc-image-wrapper"] > img',
+    loadedSelector: null,
     openSearchDefinition: null,
-    noResultsXPath: '//div[@class="sc-error-page-title"]',
+    noResultsXPath: null,
     domain: 'samsclub.com',
   },
 };

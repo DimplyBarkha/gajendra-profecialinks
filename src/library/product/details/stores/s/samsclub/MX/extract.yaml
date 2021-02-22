@@ -1,4 +1,4 @@
-singleRecord: false
+singleRecord: true
 regionsSelector: null
 recordSelector: null
 recordXPath: null
@@ -26,10 +26,10 @@ fields:
     xpath: //h1[@class='prod-name']
   - name: availabilityText
     singleValue: false
-    xpath: //div[contains(@class,'quantity-wrapper')]//div[contains(@class,'cart-button-in-wrap')]//span[text()='Añadir al carrito']
-    regExp: (.+)
-    regExpReplace: In Stock
-    defaultValue: Out of Stock
+    xpath: boolean(//div[contains(@class,'quantity-wrapper')]//div[contains(@class,'cart-button-in-wrap')]//span[text()='Añadir al carrito'])
+    # regExp: (.+)
+    # regExpReplace: In Stock
+    # defaultValue: Out of Stock
   - name: price1
     singleValue: false
     xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='prod-price-special']//sup[@itemprop='priceCurrency']
@@ -42,6 +42,7 @@ fields:
     xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='prod-price-special']//sup[not(@itemprop='priceCurrency')]
   - name: price
     singleValue: false
+    # xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='prod-price-special']
   - name: listPrice1
     singleValue: false
     xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='price-before-label']//span[@class='price-before-value']
@@ -50,9 +51,10 @@ fields:
     xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='price-before-label']//sup
   - name: listPrice
     singleValue: false
-  - name:  description
+    # xpath: //div[contains(@class,'prod-price-wrap ')]//div[@class='price-before-label']
+  - name: description
     singleValue: false
-    xpath: //div[contains(@class,'pdp-header-container') and @id='Descripción']//div[@class='inner-htmlContent']
+    xpath: //div[contains(@class,'pdp-header-container') and @id='Descripción']//div[@class='inner-htmlContent'] | //h2[@itemprop='description']//ul//li
   - name: additionalDescBulletInfo
     singleValue: false
     xpath: //h2[@itemprop='description']//ul//li
@@ -75,7 +77,7 @@ fields:
     xpath: //span[@class='prod-id']
   - name: variantId
     singleValue: false
-    xpath: //span[@class='prod-id']    
+    xpath: //span[@class='prod-id']
   - name: variantCount
     singleValue: false
     defaultValue: '0'
@@ -85,7 +87,7 @@ fields:
     xpath: //div[contains(@class,'pdp-surcharge')]//span
   - name: warnings
     singleValue: false
-    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Advertencias') or contains(text(),'ADVERTENCIAS')]//parent::td//following-sibling::td//h3
+    xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Recomendaciones')]//parent::td//following-sibling::td//h3
   - name: ingredientsList
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td/h3[text()='Ingredientes']//parent::td//following-sibling::td//h3
@@ -138,8 +140,8 @@ fields:
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Fibra')]//parent::td//following-sibling::td//h3
     # Get Unit i.e. g by regEx 6 g
-    regExp: ([\d\.]+)
-    regExpReplace: $1
+    # regExp: ([\d\.]+)
+    # regExpReplace: $1
   - name: sodiumPerServing
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Sodio')]//parent::td//following-sibling::td//h3
@@ -147,8 +149,48 @@ fields:
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Sodio')]//parent::td//following-sibling::td//h3
     # Get Unit i.e. g by regEx 6 g
-    regExp: ([\d\.]+)
-    regExpReplace: $1
+    # regExp: ([\d\.]+)
+    # regExpReplace: $1
   - name: materials
     singleValue: false
     xpath: //table[@class='characteristic-table']//tr//td/h3[contains(text(),'Material')]//parent::td//following-sibling::td//h3
+  - name: calciumPerServing
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Calcio')]//parent::td//following-sibling::td//h3
+  - name: calciumPerServingUom
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Calcio')]//parent::td//following-sibling::td//h3
+  - name: caloriesPerServing
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Energía (kcal)')]//parent::td//following-sibling::td//h3
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Proteína cruda')]//parent::td//following-sibling::td//h3
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Proteína cruda')]//parent::td//following-sibling::td//h3
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Grasa cruda')]//parent::td//following-sibling::td//h3
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Grasa cruda')]//parent::td//following-sibling::td//h3
+  - name: totalSugarsPerServing
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Azucares totales')]//parent::td//following-sibling::td//h3
+  - name: totalSugarsPerServingUom
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Azucares totales')]//parent::td//following-sibling::td//h3
+  - name: directions
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Sugerencias_Alimenticias')]//parent::td//following-sibling::td//h3 |  //table[@class='characteristic-table']//tr//td//h3[contains(.,'Sugerencias Alimenticias')]//parent::td//following-sibling::td//h3
+  - name: secondaryImageTotal
+    singleValue: false
+    xpath: count(//div[contains(@class,'pdp-image-container')]//div[@class='thumb-image-container']//div[contains(@class,'thumb-image') and not(contains(@class,'active'))]//img/@src)
+  - name: quantity
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Contenido del empaque en Club')]//parent::td//following-sibling::td//h3
+  - name: numberOfServingsInPackage
+    singleValue: false
+    xpath: //table[@class='characteristic-table']//tr//td//h3[contains(.,'Porciones por envase')]//parent::td//following-sibling::td//h3
+
