@@ -26,10 +26,10 @@ fields:
     xpath: //label[@class='productDetailsName']
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,'productInformationContainer')]//div[@class='productMainDetailsPriceLabels']//label[@class='productDetailsPrice ']
+    xpath: //div[contains(@class,'productInformationContainer')]//div[@class='productMainDetailsPriceLabels']//label[@class='productDetailsPrice '] |  //div[contains(@class,'productInformationContainer')]//div[@class='productMainDetailsPriceLabels']//label[@class='productDetailsPrice  discount ']
   - name: listPrice
     singleValue: false
-    xpath: //div[contains(@class,'productInformationContainer')]//div[@class='productMainDetailsPriceLabels']//label[@class='productDetailsPrice ']
+    xpath: //div[contains(@class,'productInformationContainer')]//div[@class='productMainDetailsPriceLabels']//label[@class='productDetailsOldPrice']//span[@class='productDetailsInsteadOfPrice']
   - name: availabilityText
     singleValue: false
     xpath: //button[@class='addToCartButton']//label
@@ -43,7 +43,7 @@ fields:
     defaultValue: 0
   - name: description
     singleValue: false
-    xpath: //div[@class='detail__container']
+    xpath: (//div[@class='detail__container'])[1]
   - name: alternateImages
     singleValue: false
     xpath: //div[@class='productMainDetailsImage']//img[@class='sparImageResponsive']//@data-desktop-zoom-src
@@ -59,6 +59,9 @@ fields:
   - name: storage
     singleValue: false
     xpath: //span[@class='detail__title'][contains(.,'Tárolása')]//following-sibling::span
+  - name: allergyAdvice
+    singleValue: false
+    xpath: //span[@class='detail__title'][contains(.,'Allergének')]//following-sibling::span
   - name: ingredientsList
     singleValue: false
     xpath: //span[@class='detail__title'][contains(.,'Összetevők')]//following-sibling::span
@@ -68,3 +71,10 @@ fields:
   - name: proteinPerServingUom
     singleValue: false
     xpath: //div[contains(@class,'productTabsSectionInfo')]//table//tr//td[contains(.,' Fehérje')]//following-sibling::td
+  - name: totalFatPerServing
+    singleValue: false
+    xpath: //div[contains(@class,'productTabsSectionInfo')]//table//tr//td[contains(.,'Zsírtartalom') or contains(.,'Zsír')]//following-sibling::td
+  - name: totalFatPerServingUom
+    singleValue: false
+    xpath: //div[contains(@class,'productTabsSectionInfo')]//table//tr//td[contains(.,'Zsírtartalom') or contains(.,'Zsír')]//following-sibling::td
+

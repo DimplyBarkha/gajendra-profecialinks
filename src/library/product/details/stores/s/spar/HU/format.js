@@ -28,33 +28,28 @@ const transform = (data) => {
             if (row.description) {
                 let info = [];
                 row.description.forEach(item => {
-                    info.push(item.text.replace(/(\s*\n\s*)+/g, ' | ').trim());
+                    info.push(item.text);
                 });
 
-                row.description = [{ 'text': info.join(' | '), 'xpath': row.description[0].xpath }];
+                row.description = [{ 'text': info, 'xpath': row.description[0].xpath }];
             }
             if (row.proteinPerServing) {
-                let info = [];
+                let proteinPerServingInfo = [];
                 row.proteinPerServing.forEach(item => {
-                    console.log("item.text", item.text);
                     if (item.text.includes('g')) {
-                        console.log("item.text", item.text);
                         item.text = item.text.replace('g', '');
                     }
                     else if (item.text.includes('%')) {
-                        console.log("item.text", item.text);
                         item.text = item.text.replace('%', '');
                     }
-                    info.push(item.text);
+                    proteinPerServingInfo.push(item.text);
                 });
-                row.proteinPerServing = [{ 'text': info.join(' | '), 'xpath': row.description[0].xpath }];
+                row.proteinPerServing = [{ 'text': proteinPerServingInfo.join(' | '), 'xpath': row.proteinPerServing[0].xpath }];
             }
             if (row.proteinPerServingUom) {
-                let info = [];
+                let proteinPerServingUomInfo = [];
                 row.proteinPerServingUom.forEach(item => {
-                    console.log("item.text", item.text);
                     if (item.text.includes('g')) {
-                        console.log("item.text", item.text);
                         item.text = item.text.slice(-1);
                     }
                     else if (item.text.includes('%')) {
@@ -63,9 +58,38 @@ const transform = (data) => {
                     else{
                         item.text = '';
                     }
-                    info.push(item.text);
+                    proteinPerServingUomInfo.push(item.text);
                 });
-                row.proteinPerServingUom = [{ 'text': info.join(' | '), 'xpath': row.description[0].xpath }];
+                row.proteinPerServingUom = [{ 'text': proteinPerServingUomInfo.join(' | '), 'xpath': row.proteinPerServingUom[0].xpath }];
+            }
+            if (row.totalFatPerServing) {
+                let totalFatPerServingInfo = [];
+                row.totalFatPerServing.forEach(item => {
+                    if (item.text.includes('g')) {
+                        item.text = item.text.replace('g', '');
+                    }
+                    else if (item.text.includes('%')) {
+                        item.text = item.text.replace('%', '');
+                    }
+                    totalFatPerServingInfo.push(item.text);
+                });
+                row.totalFatPerServing = [{ 'text': totalFatPerServingInfo.join(' | '), 'xpath': row.totalFatPerServing[0].xpath }];
+            }
+            if (row.totalFatPerServingUom) {
+                let totalFatPerServingUomInfo = [];
+                row.totalFatPerServingUom.forEach(item => {
+                    if (item.text.includes('g')) {
+                        item.text = item.text.slice(-1);
+                    }
+                    else if (item.text.includes('%')) {
+                        item.text = item.text.slice(-1);
+                    }
+                    else{
+                        item.text = '';
+                    }
+                    totalFatPerServingUomInfo.push(item.text);
+                });
+                row.totalFatPerServingUom = [{ 'text': totalFatPerServingUomInfo.join(' | '), 'xpath': row.totalFatPerServingUom[0].xpath }];
             }
             if (row.sku) {
                 let sku_number = [];
