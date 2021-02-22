@@ -183,6 +183,38 @@ module.exports = {
             }
         }
 
+        // Technical specification ALternate Start
+        const technicalSpec = document.querySelector('#MainContent_Properties_productDetails').childNodes;
+        console.log("3in techspech"+technicalSpec);
+        if (technicalSpec) {
+          try{
+	          const getAllProductsT = Array.from(technicalSpec).filter(elem=>elem.nodeType===3 || elem.nodeType===1)
+            let takeTextFlag=false;
+            for (let i = 0; i < getAllProductsT.length; i++) {
+                if(getAllProductsT[i].textContent.includes("מפרט טכני")){
+                  takeTextFlag=true;
+                }else if(takeTextFlag){
+                  console.log(getAllProductsT[i].nextSibling.textContent);
+                  if(getAllProductsT[i].textContent!=""){
+                  addElementToDocument(`technicalSpec-${i}`, getAllProductsT[i].textContent);
+                  }
+                  else if((getAllProductsT[i].textContent=="") || (getAllProductsT[i].textContent==" ")){
+                    if((getAllProductsT[i].nextSibling.textContent=="") || (getAllProductsT[i].nextSibling.textContent==" ")){
+                      takeTextFlag=false;
+                    }
+                  }
+                  
+                }
+            }
+            const specs2 = getAllXpath('//div[contains(@id,"technicalSpec-")]','innerText');
+            const specifications2 = String(specs2).split(',').join(' || ');
+            addElementToDocument('technicalSpec2', specifications2);
+          }
+          catch(error){
+            console.log(error)
+          }
+        }
+        // Technical Specification ALternate End
 
     });
   }

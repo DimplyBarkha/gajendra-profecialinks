@@ -403,7 +403,8 @@ fields:
   - name: specifications
     singleValue: true
     description: The physical dimensions of the product including packaging.
-    xpath: //div[@id="added_specificationText"]/text()
+    xpath: //div[@id="added_specificationText"]/text() | //div[contains(@id,"technicalSpec2")]
+   
   - name: warranty
     singleValue: true
     description: Guarantee associated with the product
@@ -525,3 +526,5 @@ fields:
   - name: inTheBoxText
     singleValue: false
     manualSelector: div[id^="inTheBoxText-"]
+ 
+    
