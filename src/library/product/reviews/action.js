@@ -1,8 +1,8 @@
 
 /**
  *
- * @param { { URL: string, id: any, RPC: string, SKU: string, date: any, days: number, results} } inputs
- * @param { { store: any, domain: any, country: any, zipcode: any, mergeType: any } } parameters
+ * @param { { URL: string, id: any, RPC: string, SKU: string, date: any, days: number, results, zipcode} } inputs
+ * @param { { store: any, domain: any, country: any, zipcode: any } } parameters
  * @param { ImportIO.IContext } context
  * @param { { execute: ImportIO.Action, extract: ImportIO.Action, paginate: ImportIO.Action } } dependencies
  */
@@ -14,7 +14,7 @@ async function implementation (
 ) {
   let { URL, RPC, SKU, date = null, days = 30, results = Infinity } = inputs;
   const { execute, extract, paginate } = dependencies;
-  const { mergeType, zipcode } = parameters;
+  const zipcode = inputs.zipcode || parameters.zipcode;
   const url = URL;
   const id = (RPC) || ((SKU) || inputs.id);
   const length = (results) => results.reduce((acc, { group }) => acc + (Array.isArray(group) ? group.length : 0), 0);
@@ -30,7 +30,8 @@ async function implementation (
   date = new Date(date);
   console.log('Date Limit: ', date);
   const pageOne = await extract({ date, results });
-  let collected = length(pageOne.data);
+  // Check added for backward compatibility
+  let collected = pageOne.data ? length(pageOne.data) : length(pageOne);
 
   console.log('Got initial number of results', collected);
 
@@ -41,13 +42,13 @@ async function implementation (
 
   let page = 2;
   while (results > collected && await paginate({ id, page, offset: collected, date })) {
-    const { data, stop } = await extract({ date, results });
-    const count = length(data);
-    if (count === 0 || stop) {
+    const extractData = await extract({ date, results });
+    const count = extractData.data ? length(extractData.data) : length(results);
+    if (count === 0 || extractData.stop) {
       // no results
       break;
     }
-    collected = (mergeType && (mergeType === 'MERGE_ROWS') && count) || (collected + count);
+    collected = (extractData.mergeType && (extractData.mergeType === 'MERGE_ROWS') && count) || (collected + count);
     console.log('Got more results', collected);
     page++;
   }

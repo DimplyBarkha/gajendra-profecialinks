@@ -489,8 +489,9 @@ async function goto (gotoInput, parameterValues, context, dependencies) {
       console.log('attempting to return 404', lastResponseData);
       return;
     }
-
-    await setZip(zipcode);
+    if (zipcode !== 'NOZIP') {
+      await setZip(zipcode);
+    }
     const retry = await retryContext();
     console.log('retryContextAPI: ', retry);
     const shouldRetry = (!retry.isLastRetry && await getHourlyRetryCount() < HOURLY_RETRY_LIMIT);

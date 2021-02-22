@@ -1,4 +1,5 @@
-const { transform } = require('../../../../shared');
+const { transform } = require('../transform');
+const { implementation } = require('../shared');
 module.exports = {
   implements: 'product/reviews/extract',
   parameterValues: {
@@ -8,4 +9,5 @@ module.exports = {
     domain: 'amazon.com',
     filterReviews: true,
   },
+  implementation,
 };
