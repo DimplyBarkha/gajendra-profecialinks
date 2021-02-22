@@ -7,7 +7,7 @@ fields:
     singleValue: false
     xpath: //div[contains(@class,'b_product_detail__sku')]//span[@class='value']
   - name: image
-    xpath: //div[@class='b_gallery__wrap']//a[@tabindex='0']//img/@src
+    xpath: (//div[@class='b_gallery__wrap']//a//img/@src)[1]
   - name: pageTitle
     singleValue: true
     xpath: //title
