@@ -10,7 +10,7 @@ module.exports = {
     loadedSelector: 'div[class = "inner"] > img',
     noResultsXPath: '//div[contains(@class,searchTerms)]/span[contains(text(),"Sorry, your search for ")]',
     openSearchDefinition: {},
-    domain: 'arco.uk',
+    domain: 'arco.co.uk',
     zipcode: '',
   },
 };

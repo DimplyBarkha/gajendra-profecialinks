@@ -29,7 +29,7 @@ module.exports = {
     country: 'UK',
     store: 'arco',
     transform,
-    domain: 'arco.uk',
+    domain: 'arco.co.uk',
     zipcode: '',
   },
   implementation,
