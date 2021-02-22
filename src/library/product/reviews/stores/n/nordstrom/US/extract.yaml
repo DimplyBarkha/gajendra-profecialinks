@@ -13,7 +13,8 @@ fields:
     type: NUMBER
     description: Number of comments on the review
   - name: brandText
-    description: Product brand shown - this may actually NOT be just a brand name,
+    description:
+      Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
     xpath: ancestor::html//div[contains(@id,'product-page-product-title-lockup')]//span[@itemprop='name']
   - name: name
@@ -21,8 +22,8 @@ fields:
     xpath: ancestor::html//div[contains(@id,'product-page-product-title-lockup')]//h1[@itemprop='name']
   - name: sku
     description: The store-specific product identifier
-    xpath: ancestor::html//meta[contains(@property,'og:url')]/@content
-    regExp: \/(\d+)
+    xpath: ancestor::html//script[contains(., 'window.__INITIAL_CONFIG__')]
+    regExp: selectedSku\".(\d+)
     regExpReplace: $1
   - name: reviewDate
     description: Date the review was made
@@ -59,7 +60,8 @@ fields:
   - name: reviewUrl
     description: A direct link to the review
   - name: reviewedSku
-    description: The SKU of the item that was reviewed (may be different from the
+    description:
+      The SKU of the item that was reviewed (may be different from the
       sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
       value, transform will handle the value.
     xpath: ancestor::html//meta[contains(@property,'og:url')]/@content
