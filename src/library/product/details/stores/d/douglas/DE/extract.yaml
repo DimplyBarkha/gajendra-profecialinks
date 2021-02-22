@@ -58,13 +58,17 @@ fields:
   #   xpath: //head//script[contains(., 'dglDataLayer')]
   - name: sku
     xpath: //link[@rel='canonical']/@href
-    regExp: (.+)productbrand_(.+)(\.html)
+    # regExp: (.+)productbrand_(.+)(\.html)
+    regExp: (.+\/p\/)(.+)
     regExpReplace: $2
   - name: variantId
     singleValue: true
-    xpath: //ul[contains(@class, "rd__list")]//*[contains(text(), "Art-Nr.")]/ancestor::span|//script[contains(.,"customExactagConfig")]
+    # xpath: //ul[contains(@class, "rd__list")]//*[contains(text(), "Art-Nr.")]/ancestor::span|//script[contains(.,"customExactagConfig")]
     # regExp: \"product_id\"\s*:\s*\"(.+?)\"
     # regExpReplace: $1
+    xpath: //script[@type="application/ld+json"]
+    regExp: ("sku":\s")(\d+)"
+    regExpReplace: $2
   - name: directions
     singleValue: true
     xpath: //div[contains(.,"Anwendung")]/following-sibling::div[1]/span

@@ -6,6 +6,6 @@ module.exports = {
     store: 'douglas',
     domain: 'douglas.de',
     loadedSelector: 'div.product-detail-component',
-    noResultsXPath: '//main[@id="rd__not-found-page"] | //div[@class="rd__error-content__headline"] | //div[contains(@class, "div.rd__error-content__image")]',
+    noResultsXPath: '//main[@id="rd__not-found-page"] | //div[@class="rd__error-content__headline"] | //div[contains(@class, "div.rd__error-content__image")] | //div[contains(@class,"search-page search-page--empty")]',
   },
 };
