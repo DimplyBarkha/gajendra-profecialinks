@@ -7,6 +7,26 @@ async function implementation (
   context,
   dependencies,
 ) {
+  try {
+    try {
+      await context.waitForSelector('a.row-header__link');
+      await context.waitForSelector('a.customNav__heading');
+    } catch (e) {
+      console.log('Listing page link not found');
+    }
+    await context.evaluate(async function () {
+      if (document.querySelector('a.row-header__link')) {
+        document.querySelector('a.row-header__link').click();
+      } else {
+        if (document.querySelector('a.customNav__heading')) {
+          document.querySelector('a.customNav__heading').click();
+        }
+      }
+    });
+    await context.waitForNavigation();
+  } catch (e) {
+    console.log('Category page found. Could not navigate to listings page.');
+  }
   async function addUrl () {
     function addHiddenDiv1 (id, content) {
       const newDiv = document.createElement('div');
