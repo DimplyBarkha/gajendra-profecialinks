@@ -40,7 +40,7 @@ fields:
   - name: price
     singleValue: false
     xpath: (//*[@id="priceblock_ourprice"] | //div[contains(@id, "variation_size_name")]/ul/li/span/div/span/span[contains(@class, "selected")]//span[contains(@id, "_price")]/span[contains(@class, "Price")])[1]
-  - name: availabilityText
+    name: availabilityText
     singleValue: false
     xpath: (//*[contains(@id,'availability')] |  //*[contains(@id,'vailability')]//*[contains(text(),'tock')])[1]
     defaultValue: 'In Stock'
@@ -143,9 +143,9 @@ fields:
   - name: colorCode
     singleValue: true
     xpath: 
-  - name: manufacturerDescription
-    singleValue: false
-    xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//p[not(img) and text()]
+  # - name: manufacturerDescription
+  #   singleValue: false
+  #   xpath: //div[@id="aplus"]//h3[text()] | //div[@id="aplus"]//h4[text()]| //div[@id="aplus"]//p[not(img) and text()]
   - name: manufacturerImages
     singleValue: false
     xpath: //div[@id="aplus"]//img[not(contains(@src, "common"))]/@src
@@ -272,7 +272,7 @@ fields:
     singleValue: true
     xpath: //form[@id="addToCart"]//div[contains(@class, "addOnItem")]
   - name: fastTrack
-    singleValue: false
+    singleValue: true
     xpath: //div[@id="buybox"]//div[@id="fast-track-message"]
   - name: ingredientsList
     singleValue: true

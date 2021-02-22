@@ -7,4 +7,11 @@ fields:
   - name: reviewCount
     singleValue: false
     xpath: //div[@class="a-row a-size-small"]/span[contains(@aria-label,"estrellas")]/following-sibling::span[1]
+  - name: availabilityText
+    singleValue: false
+    xpath: //div[@id="availability"]/span/text()
+    #  name: manufacturerDescription
+    # singleValue: false
+    # xpath:  //div[@id="aplus"]/div/div[2]/div/div[1]/div[1]/div/div[2]
+
     
