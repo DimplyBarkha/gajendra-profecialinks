@@ -68,3 +68,8 @@ fields:
     type: TEXT
   - name: aggregateRating
     description: The product rating
+  - name: maxDays
+    description: Max Days
+    xpath: ancestor::html//script[@id="__input"]
+    type: NUMBER
+    jq: '.days'
