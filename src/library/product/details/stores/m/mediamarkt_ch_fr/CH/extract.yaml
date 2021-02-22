@@ -87,6 +87,7 @@ fields:
   singleValue: true
   description: Identifier for a variant from a store where variants share the same
     sku
+  xpath: //dl[@class='specification']/dt[text()="Numéro d’article:"]/following-sibling::dd[1]
 - name: mpc
   singleValue: tru
   description: The manufacturer model code (unique) of the product
