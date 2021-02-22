@@ -1,9 +1,10 @@
+const { transform } = require('./../shared');
 module.exports = {
   implements: 'product/reviews/extract',
   parameterValues: {
     country: 'AU',
     store: 'chemistwarehouse',
-    transform: null,
+    transform,
     domain: 'chemistwarehouse.com.au',
     zipcode: '',
   },

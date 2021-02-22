@@ -33,7 +33,7 @@ fields:
     type: NUMBER
     singleValue: false
     description: Rating normalized to be out of 5
-    xpath: //div[@class="bv-content-header-meta"]/span/span/abbr/@title
+    xpath: (//div[@class="bv-content-header-meta"]/span/span/abbr/@title)[1]
     regExp: ^([0-9]+)
   - name: reviewText
     singleValue: false
