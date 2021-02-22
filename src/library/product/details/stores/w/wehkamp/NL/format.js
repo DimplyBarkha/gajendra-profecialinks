@@ -24,11 +24,11 @@ const transform = (data) => {
   };
   for (const { group } of data) {
     for (const row of group) {
-      if (row.nameExtended) {
-        if (row.brandText) {
-          row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
-        }
-      }
+      // if (row.nameExtended) {
+      //   if (row.brandText) {
+      //     row.nameExtended = [{ text: row.brandText[0].text + ' - ' + row.nameExtended[0].text }];
+      //   }
+      // }
       if (row.alternateImages) {
         row.alternateImages.forEach(item => {
           item.text = item.text.replace('?w=200', '');
@@ -110,6 +110,22 @@ const transform = (data) => {
           }
         });
       }
+
+      if (row.brandText) {
+        row.brandText.forEach(item => {
+           let data1 = JSON.parse(item.text);
+          if(data1.hasOwnProperty('brand')){
+            if(data1.brand.hasOwnProperty('name')){
+              item.text = data1.brand.name;
+            }else{
+              item.text = "";
+            }
+          }else{
+            item.text = "";
+          }
+        });
+      }
+
       if (row.variantId) {
         let varient = '';
         row.variantId.forEach(item => {

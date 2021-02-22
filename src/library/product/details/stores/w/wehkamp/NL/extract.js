@@ -62,7 +62,7 @@ async function implementation   (
 
   try{
     const node = await context.evaluate(async function () {
-      return document.querySelector('div[class="H_j8WO position-relative"] button');
+      return document.querySelectorAll('div[class="H_j8WO position-relative"] button');
     });
 
     if(JSON.stringify(node) !== '{}'){
