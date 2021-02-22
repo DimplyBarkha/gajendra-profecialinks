@@ -1,32 +1,61 @@
 extends: ../../../../sharedAmazon/shared
-# singleRecord: false
-# regionsSelector: null
-# recordSelector: null
-# recordXPath: /html[//div[@id="a-page"]]
 fields:
   - name: image
     singleValue: true
     xpath: //div[@id="imgTagWrapperId"]/img/@data-old-hires
-  - name: description
-    singleValue: false
-    #html: true
-    xpath: //*[@id='feature-bullets']//ul/li[not(@id)] 
   - name: extraDescription
     singleValue: true
     xpath: //div[@id="productDescription"][not(h3)]/*[not(@class="disclaim")] | //div[@id="productDescription"]/h3[1]/following-sibling::*[count(preceding-sibling::h3)=1][not(name()="h3")]
-    # xpath: //div[@id="productDescription"]/*[not(@class="disclaim")]
-    #html: true  
   - name: manufacturerDescription
     singleValue: false
     xpath: //div[@id="aplus"]/div | //div[@class="aplus"]
-    #html: true   
   - name: _url
     #singleValue: true
     xpath: //link[@rel='canonical']/@href          
-  - name: asin
-    #singleValue: true
-    xpath: //div[@class="a-section"]//input[@id="ASIN"]/@value
-    description: ASIN value here  
   - name: videos
     singleValue: false
-    xpath: //div[@class="airy-renderer-container"]//video[@preload="auto"]/@src
+    xpath: //div[@id="video-outer-container"]//div[@class="airy-renderer-container"]//video[@preload="auto"]/@src
+  - name: variantCount
+    singleValue: false
+    xpath: //div[@class="a-section"]//input[@id="ASIN"]/@value
+    #defaultValue: 1 
+  - name: promotion
+    singleValue: true
+    xpath: //*[@id="regularprice_savings"]/td[2]
+  - name: manufacturer
+    singleValue: false
+    xpath: //*[normalize-space(text())='Fabrikant']/following-sibling::*[1] | //*[normalize-space(text())='Fabrikant :']/following-sibling::*[1]
+  - name: weightNet
+    # singleValue: true
+    xpath: //*[contains(normalize-space(text()),"Productafmetingen")]/following-sibling::*[1] 
+    regExp: '[^;]+$'
+  - name: quantity
+    singleValue: false
+    xpath: //*[contains(normalize-space(text()),"Productafmetingen")]/following-sibling::*[1][contains(.,';')] 
+    regExp: '[^;]+$'
+  - name: mpc
+    singleValue: false
+    xpath: //*[contains(text(),"Modelnummer item")]/following-sibling::*[1] | //*[contains(text(),"Modelnummer")]/following-sibling::*[1]
+  - name: aggregateRating2
+    xpath: //div[@class='a-icon-row a-spacing-small a-padding-none']/span[@class='a-size-medium a-color-base a-text-beside-button a-text-bold']
+    regExp: ^([^\s]+)
+    type: NUMBER
+  - name: directions
+    # singleValue: true
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Aanwijzingen')]/../p[text()]/text() | //div[@class='a-expander-content a-expander-extend-content a-expander-content-expanded']/p[1]
+  - name: videos
+    singleValue: false
+    xpath: //div[@class="vse-player"]//video[@class="vjs-tech"]/@src
+  - name: ingredientsList
+    #singleValue: true
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Ingrediënten')]/p
+  - name: primeFlag
+    singleValue: false
+    xpath: //div[@id='detailBulletsWrapper_feature_div']/ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-none detail-bullet-list'][1]/li/span[@class='a-list-item'] | //div[@class='a-section table-padding']/table[@id='productDetails_detailBullets_sections1']/tbody/tr[2]/td
+  - name: fastTrack
+    singleValue: false
+    xpath: //div[@id="dynamicDeliveryMessage"]//div[@id="ddmDeliveryMessage"][not(normalize-space(.)="")]
+    # defaultValue: 'Not available'
+  - name: news
+    singleValue: false
+    xpath: //div[@id='detailBulletsWrapper_feature_div']/ul[@class='a-unordered-list a-nostyle a-vertical a-spacing-none detail-bullet-list'][1]/li

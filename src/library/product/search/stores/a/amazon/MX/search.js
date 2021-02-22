@@ -6,5 +6,6 @@ module.exports = {
     store: 'amazon',
     domain: 'amazon.com.mx',
     zipcode: '',
+    storeID: null,
   },
 };

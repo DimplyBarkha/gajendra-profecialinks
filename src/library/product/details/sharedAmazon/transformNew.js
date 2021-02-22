@@ -11,11 +11,11 @@ const transform = (data, context) => {
     .replace(/&amp;#160/g, ' ')
     .replace(/\u00A0/g, ' ')
     .replace(/\s{2,}/g, ' ')
-    // .replace(/"\s{1,}/g, '"')
-    // .replace(/\s{1,}"/g, '"')
+  // .replace(/"\s{1,}/g, '"')
+  // .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
-    // eslint-disable-next-line no-control-regex
+  // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .trim();
 
@@ -46,7 +46,8 @@ const transform = (data, context) => {
 
   const castToInt = (item, def = 0) => Number(item) || Number(item) === 0 ? parseInt(item) : def;
 
-  for (const { group } of data) {
+  for (const { group }
+    of data) {
     for (const row of group) {
       const hostName = row.productUrl && row.productUrl[0] ? row.productUrl[0].text.split('/')[2] : '';
       const websiteName = hostName.split('.').slice(1).join('.');
@@ -56,7 +57,6 @@ const transform = (data, context) => {
         weightGross: item => sg(item).trim(),
         shippingWeight: item => sg(item).replace(/\s\(/g, '').trim(),
         grossWeight: item => sg(item).replace(/\s\(/g, '').trim(),
-        availabilityText: item => sg(item).replace('.', '').trim(),
         largeImageCount: item => {
           const array = sg(item).toString().split('SL1500');
           return array.length === 0 ? 0 : array.length - 1;
@@ -168,12 +168,12 @@ const transform = (data, context) => {
         }
       }
       if (row.additionalDescBulletInfo) {
-        const text = [];
+        const text = [''];
         row.additionalDescBulletInfo.forEach(item => {
           if (item.text.length > 0) { text.push(item.text); }
         });
         if (text.length > 0) {
-          row.additionalDescBulletInfo = [{ text: text.join(' | ').trim().replace(/\|\| \|/g, '|') }];
+          row.additionalDescBulletInfo = [{ text: text.join(' || ').trim().replace(/\|\| \|/g, '|') }];
         }
       }
       if (row.shippingInfo) {
@@ -204,16 +204,18 @@ const transform = (data, context) => {
 
       if (row.variantInformation) {
         const json = JSON.parse(row.variantInformation[0].text.trim());
-        const text = Object.entries(json).map(prop => prop.map(elm => elm.replace('_name', '')).join(':')).join(' | ');
+        // const text = Object.entries(json).map(prop => prop.map(elm => elm.replace('_name', '')).join(':')).join(' | ');
+        // Update done based on callout on Amazon TR.
+        const text = Object.values(json).map(elm => elm.trim()).join(' | ');
         row.variantInformation = [{ text }];
         if (!row.color || row.color[0].text.length === 0) {
           if (json.color_name) {
-            row.color = [{ textvalue: json.color_name }];
+            row.color = [{ text: json.color_name }];
           }
         }
         if (!row.quantity || row.quantity[0].text.length) {
           if (json.size_name) {
-            row.quantity = [{ textvalue: json.size_name }];
+            row.quantity = [{ text: json.size_name }];
           }
         }
       }
@@ -283,6 +285,9 @@ const transform = (data, context) => {
           row.packSize = [{ text: packText[2] }];
         }
       }
+      if (row.videos) {
+        row.galleryVideos = row.videos;
+      }
       if (row.manufacturerVideos) {
         if (!row.videos || row.videos[0].text === '') {
           row.videos = row.manufacturerVideos;
@@ -312,8 +317,26 @@ const transform = (data, context) => {
         row.availabilityText = row.availabilityTextFreshUnavailable;
         delete row.availabilityTextFreshUnavailable;
       }
+      if (row.availabilityText) {
+        // Added the regex for different locale which say Usually ships in etc.
+        const usuallyShipsRegex = /(Usually|Genellikle|Generalmente|Habituellement|Gewöhnlich)/gi;
+        const availabilityMap = {
+          usually: 'In Stock',
+          genellikle: 'Stokta var',
+          generalmente: 'Disponibile',
+          habituellement: 'En stock',
+          gewöhnlich: 'Auf Lager',
+        };
+        const match = row.availabilityText[0].text.match(usuallyShipsRegex);
+        if (match) {
+          row.availabilityText[0].text = availabilityMap[match[0].toLowerCase()];
+        }
+        row.availabilityText[0].text = row.availabilityText[0].text.trim().replace(/\.$/, '');
+      }
       if (row.gtin) {
-        const text = row.gtin.slice(0, 10).map(elm => elm.text).join(' ');
+        // Getting only 10 UPCs.
+        const gtins = row.gtin.map(elm => elm.text.trim());
+        const text = Array.from(new Set(gtins.slice(0, 10))).join(' ');
         row.gtin = [{ text }];
       }
       if (!row.image && row.imageFallback) {
@@ -332,6 +355,38 @@ const transform = (data, context) => {
       if (row.salesRankCategory) {
         const rankCategory = row.salesRankCategory.map(elm => elm.text.trim());
         row.salesRankCategory = [...new Set(rankCategory)].map(elm => ({ text: elm }));
+      }
+      if (row.price) {
+        const price = row.price.find(elm => elm.text.match(/\d+/));
+        row.price = price ? [price] : row.price;
+      }
+      if (row.unInterruptedPDP) {
+        const getUnInterruptedPDP = row.unInterruptedPDP.map(elm => elm.text.trim());
+        row.unInterruptedPDP = [...new Set(getUnInterruptedPDP)].map(elm => ({ text: elm }));
+        const updp = [];
+        let text = '';
+        for (let i = 0; i < row.unInterruptedPDP.length; i++) {
+          if (row.unInterruptedPDP[i].text.includes('…')) {
+            continue;
+          }
+          updp[i] = row.unInterruptedPDP[i].text;
+        }
+        text = updp.join(' || ');
+        text = text.replace(/(\s?\|\|\s?){1,}/g, ' || ').replace(/^(\|\|)/g, '').replace(/(\|\|)$/g, '');
+        while (text.charAt(0) === '|' || text.charAt(0) === ' ') {
+          text = text.substring(1);
+        }
+        row.unInterruptedPDP = [{ text }];
+        const updpLength = text.split(' || ').length;
+        console.log(updpLength);
+      }
+      if (row.alternateImages) {
+        row.secondaryImageTotal = [{ text: row.alternateImages.length }];
+      }
+      if (!row.warnings && row.warningsFallback) {
+        const text = row.warningsFallback[0].text;
+        row.warnings = [{ text }];
+        delete row.warningsFallback;
       }
       Object.keys(row).forEach(header => {
         row[header].forEach(el => {

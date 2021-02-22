@@ -1,1 +1,8 @@
 extends: ../../../../sharedAmazon/shared
+fields:
+  - name: mpc
+    singleValue: false
+    xpath: //*[contains(text(),"Model")]/following-sibling::*[1]
+  - name: galleryvideos
+    singleValue: false
+    xpath: //div[@class="a-carousel-viewport"]//ol/li/div/@data-video-url

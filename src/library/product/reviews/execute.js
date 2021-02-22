@@ -1,45 +1,48 @@
 /**
  *
- * @param { { id: string, url: string, zipcode: string } } inputs
- * @param { { url: string, loadedSelector?: string, noResultsXPath: string, sortButtonSelector: string, reviewUrl: string } } parameters
+ * @param { { id: string, url: string, zipcode: string, date: string, days: string } } inputs
+ * @param { { url: string, loadedSelector?: string, noResultsXPath: string, sortButtonSelectors: string, reviewUrl: string } } parameters
  * @param { ImportIO.IContext } context
  * @param { { goto: ImportIO.Action} } dependencies
  */
 async function implementation (
-  inputs,
-  parameters,
+  { url, id, zipcode, date, days },
+  { reviewUrl, sortButtonSelectors, loadedSelector, noResultsXPath },
   context,
   dependencies,
 ) {
-  console.log('params', parameters);
-  let url;
-  if (inputs.url) {
-    url = inputs.url;
-  } else if (parameters.reviewUrl && inputs.id) {
-    url = parameters.reviewUrl.replace(/{id}/g, inputs.id);
-  }
-  await dependencies.goto({ url, zipcode: inputs.zipcode });
+  const patternReplace = () => {
+    if (!reviewUrl) throw new Error('No pattern provided to generate a valid URL');
+    let tempUrl = reviewUrl;
+    if (id) tempUrl = tempUrl.replace(/{id}/g, encodeURIComponent(id));
+    if (date) tempUrl = tempUrl.replace(/{date}/g, encodeURIComponent(date));
+    if (days) tempUrl = tempUrl.replace(/{days}/g, encodeURIComponent(days));
+    return tempUrl;
+  };
+  const destinationUrl = url || patternReplace();
 
-  if (parameters.sortButtonSelector) {
-    const selectors = parameters.sortButtonSelector.split('|');
+  await dependencies.goto({ url: destinationUrl, zipcode });
+
+  if (sortButtonSelectors) {
+    const selectors = sortButtonSelectors.split('|');
     for (const selector of selectors) {
       await context.click(selector);
     }
   }
-  if (parameters.loadedSelector) {
-    await context.waitForFunction(function (sel, xp) {
+  if (loadedSelector) {
+    await context.waitForFunction((sel, xp) => {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
-    }, { timeout: 10000 }, parameters.loadedSelector, parameters.noResultsXPath);
+    }, { timeout: 10000 }, loadedSelector, noResultsXPath);
   }
 
-  console.log('Checking no results', parameters.noResultsXPath);
-  return await context.evaluate(function (xp) {
+  console.log('Checking no results', noResultsXPath);
+  return await context.evaluate((xp) => {
     const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
     console.log(xp, r);
     const e = r.iterateNext();
     console.log(e);
     return !e;
-  }, parameters.noResultsXPath);
+  }, noResultsXPath);
 }
 
 module.exports = {
@@ -67,10 +70,10 @@ module.exports = {
     },
     {
       name: 'reviewUrl',
-      description: 'review url pattern. Ex: https://www.amazon.in/product-reviews/{id}',
+      description: 'review url pattern. Ex: https://www.amazon.in/product-reviews/{id} supports {date} and {days} in the url',
     },
     {
-      name: 'sortButtonSelector',
+      name: 'sortButtonSelectors',
       description: 'Button to click to sort if url doesn\'t has options',
       optional: true,
     },

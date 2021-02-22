@@ -13,7 +13,7 @@ fields:
     xpath: //*[normalize-space(text())='Hersteller']/following-sibling::*[1]
   - name: quantity
     singleValue: false
-    xpath: //div[contains(@id, 'detail-bullets')]//text()[contains(., 'Größe')]/following-sibling::*[1] | //*[contains(text(),"Stückzahl")]/following-sibling::*[1] | //*[contains(text(),"Netto-Volumen")][not(ancestor::html//*[contains(text(),"Stückzahl")]/following-sibling::*[1])]/following-sibling::*[1]
+    xpath: //div[contains(@id, 'detail-bullets')]//text()[contains(., 'Größe')]/following-sibling::*[1] | //*[contains(text(),"Stückzahl")]/following-sibling::*[1] | //*[contains(text(),"Netto-Volumen") or contains(text(),"Nettovolumen")][not(ancestor::html//*[contains(text(),"Stückzahl")]/following-sibling::*[1])]/following-sibling::*[1]
   - name: shippingWeight
     singleValue: false
     xpath: //*[normalize-space(text())="Verpackungsabmessungen"]/following-sibling::*[1][contains(.,';')]
@@ -24,7 +24,7 @@ fields:
     regExp: '^[^;]+'
   - name: mpc
     singleValue: false
-    xpath: //*[contains(text(),"Modellnummer")]/following-sibling::*[1]
+    xpath: //*[contains(text(),"Modellnummer") or contains(text(),"Herstellerreferenz")]/following-sibling::*[1]
   - name: weightNet
     singleValue: false
     xpath: //*[contains(normalize-space(text()),"Produktabmessungen")]/following-sibling::*[1][contains(.,';')] | //*[contains(text(),"Netto-Gewicht")]/following-sibling::*[1]

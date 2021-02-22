@@ -26,7 +26,7 @@ async function implementation (
         });
       });
       await context.waitForNavigation({ waitUntil: 'networkidle0' });
-      await context.waitForSelector('[data-feature-name="productDetails"],[data-feature-name="detailBullets"]');
+      await context.waitForSelector('[data-feature-name="productDetails"],[data-feature-name="detailBullets"]', { timeout: 10000 });
       return true;
     } catch (err) {
       return false;
@@ -36,11 +36,65 @@ async function implementation (
   const MAX_TRIES = 3;
   let counter = 1;
   let loaded = false;
-  const pageUrl = await context.evaluate(() => window.location.href);
   do {
     loaded = await loadContent();
     if (!loaded) {
-      await goto({ url: pageUrl });
+      console.log('Details not loaded, appending data.');
+      async function appendData () {
+        try {
+          const asin = document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] ? document.evaluate('//*[contains(@id, "imageBlock_feature_div")]//script[contains(text(), "winningAsin")]', document.body, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext().innerText.match(/winningAsin': '([^']+)/s)[1] : (document.querySelector('#all-offers-display-params') ? document.querySelector('#all-offers-display-params').getAttribute('data-asin') : '');
+          const pgid = document.querySelector('html').innerHTML.match(/productGroupID=([\w]+)|productGroupID":"([^"]+)/)[1] || document.querySelector('html').innerHTML.match(/productGroupID=([\w]+)|productGroupID":"([^"]+)/)[2] || '';
+          const params = {
+            asinList: asin,
+            id: asin,
+            parentAsin: window.isTwisterPage ? window.twisterController.twisterJSInitData.parent_asin : asin,
+            pgid,
+            psc: 1,
+            triggerEvent: 'twister',
+            isUDPFlag: 1,
+            json: 1,
+            ptd: document.querySelector('html').innerHTML.match(/productTypeName=([\w]+)|productTypeName":"([^"]+)/) && (document.querySelector('html').innerHTML.match(/productTypeName=([\w]+)|productTypeName":"([^"]+)/)[1] || document.querySelector('html').innerHTML.match(/productTypeName=([\w]+)|productTypeName":"([^"]+)/)[2]) || pgid.match(/^[^_]+/)[0],
+            dpEnvironment: 'hardlines',
+          };
+          const query = Object.entries(params).map(elm => `${elm[0]}=${elm[1]}`);
+
+          const parseResponse = (blob) => {
+            const dataBlobs = blob.split('&&&').map(part => part.replace(/\n/g, '').trim()).filter(part => part.length > 0).map(part => JSON.parse(part));
+            return dataBlobs;
+          };
+          const api = '/gp/page/refresh?sCac=1&twisterView=glance&auiAjax=1&json=1&dpxAjaxFlag=1&ee=2&enPre=1&dcm=1&ppw=&ppl=&isFlushing=2&dpEnvironment=hardlines&mType=full&psc=1&' + query.join('&');
+          const dataRaw = await fetch(api)
+            .then(response => response.text())
+            .then(blob => parseResponse(blob));
+
+          console.log('# elements attempting to append: ', dataRaw.length);
+          let appendedCount = 0;
+          dataRaw.forEach(part => {
+            const element = document.getElementById(Object.keys(part.Value.content)[0]);
+            if (element || Object.keys(part.Value.content)[0].match(/^dpx-.+_feature_div$/)) {
+              // element.innerHTML = Object.values(part.Value.content)[0];
+            } else {
+              const div = document.createElement('div');
+              div.setAttribute('id', Object.keys(part.Value.content)[0]);
+              div.innerHTML = Object.values(part.Value.content)[0];
+              const appendAtBottom = document.getElementById('a-page');
+              if (appendAtBottom) {
+                appendAtBottom.insertBefore(div, document.getElementById('navFooter'));
+                appendedCount++;
+              } else {
+                console.log('couldnt find a good place to append data');
+              }
+            }
+          });
+
+          console.log('Total divs appended: ', appendedCount);
+          return true;
+        } catch (err) {
+          console.log('append data try  catch fail', err);
+          return false;
+        }
+      }
+      await context.evaluate(appendData);
     }
     counter++;
   } while (!loaded && counter <= MAX_TRIES);
@@ -56,6 +110,17 @@ async function implementation (
     let totalCount = 0;
     while (notLastPage) {
       const response = await fetch(api);
+      if (response.status !== 200) {
+        data = Array.from(document.querySelectorAll('#mbc > div.mbc-offer-row')).map(offer => {
+          const sellerPrice = offer.querySelector('span[id^="mbc-price"]') && offer.querySelector('span[id^="mbc-price"]').innerText || '';
+          const sellerName = offer.querySelector('span.mbcMerchantName') && offer.querySelector('span.mbcMerchantName').innerText || '';
+          const shippingPrice = offer.querySelector('span[id^="mbc-shipping-fixed"]') && offer.querySelector('span[id^="mbc-shipping-fixed"]').textContent || '0.00';
+          const sellerId = offer.querySelector('span[data-a-popover]') && offer.querySelector('span[data-a-popover]').getAttribute('data-a-popover');
+          const sellerPrime = offer.querySelector('[target="AmazonHelp"]') && 'YES' || 'NO';
+          return { sellerPrice, sellerName, shippingPrice, sellerPrime, sellerId };
+        });
+        break;
+      }
       const html = await response.text();
       const doc = new DOMParser().parseFromString(html, 'text/html');
       if (page === 1) {
@@ -89,6 +154,16 @@ async function implementation (
       notLastPage = Number(totalCount) > data.length;
       api = `/gp/aod/ajax?asin=${asin}&pageno=${++page}`;
     }
+    if(data.length === 0) {        
+      data = Array.from(document.querySelectorAll('#mbc > div.mbc-offer-row')).map(offer => {
+      const sellerPrice = offer.querySelector('span[id^="mbc-price"]') && offer.querySelector('span[id^="mbc-price"]').innerText || '';
+      const sellerName = offer.querySelector('span.mbcMerchantName') && offer.querySelector('span.mbcMerchantName').innerText || '';
+      const shippingPrice = offer.querySelector('span[id^="mbc-shipping-fixed"]') && offer.querySelector('span[id^="mbc-shipping-fixed"]').textContent || '0.00';
+      const sellerId = offer.querySelector('span[data-a-popover]') && offer.querySelector('span[data-a-popover]').getAttribute('data-a-popover');
+      const sellerPrime = offer.querySelector('[target="AmazonHelp"]') && 'YES' || 'NO';
+      return { sellerPrice, sellerName, shippingPrice, sellerPrime, sellerId };
+    });
+    }
     const lbb = data.find(elm => elm.sellerName.includes('Amazon')) ? 'YES' : 'NO';
     document.body.setAttribute('is-llb', lbb);
     const currentSellerId = document.querySelector('[name="merchantID"]') && document.querySelector('[name="merchantID"]').value;
@@ -104,7 +179,7 @@ async function implementation (
     const sellerPrime = data.map(seller => seller.sellerPrime.trim()).join('|');
     const sellerId = data.map(seller => {
       if (seller.sellerId && seller.sellerId.match(/seller=(\w+)/)) {
-        return seller.sellerId.match(/seller=(\w+)/)[1];
+        return seller.sellerId.match(/(seller|&me)=(\w+)/)[2];
       }
     }).join('|');
     document.body.setAttribute('seller-price', sellerPrice);

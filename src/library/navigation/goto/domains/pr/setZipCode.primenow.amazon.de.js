@@ -1,14 +1,3 @@
-
-// module.exports = {
-//   implements: 'navigation/goto/setZipCode',
-//   parameterValues: {
-//     country: 'DE',
-//     domain: 'primenow.amazon.de',
-//     store: 'amazonPrimeNow',
-//     zipcode: '10115',
-//   },
-// };
-
 module.exports = {
   parameterValues: {
     country: 'DE',

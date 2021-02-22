@@ -1,0 +1,23 @@
+#extends: ../../../../sharedAmazon/shared
+fields:
+  - name: manufacturer
+    #singleValue: false
+    xpath: //*[normalize-space(text())='Manufacturer']/following-sibling::*[1]
+  - name: ingredientsList
+    #singleValue: false
+    xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Ingredients')]/p
+  - name: storage
+    #singleValue: true
+    xpath: //*[normalize-space(text())="Storage Instructions"]/following-sibling::*[1]
+  - name: directions
+    singleValue: false
+    xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text()
+    # xpath: //div[contains(@id, 'important-information')]/div[contains(@class,'content')]/h4[contains(text(), 'Directions')]/../p[text()]/text() | //*[contains(text(), "Directions")]/following-sibling::*[text()]/text()  
+  - name: brandText
+    singleValue: false
+    xpath: //th[contains(text(), 'Brand') and not(contains(text(), "Discontinue")) and not(contains(text(),  "Part"))]/following-sibling::*[1]
+  # - name: pricePerUnitUom
+  #   singleValue: true
+  #   xpath: //div[@class='a-expander-content a-expander-section-content a-section-expander-inner']/table[@id='productDetails_techSpec_section_1']/tbody/tr[8]/td[@class='a-size-base']
+  #   regExp: '[^0-9]/g'
+  

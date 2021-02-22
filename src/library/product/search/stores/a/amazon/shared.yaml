@@ -30,7 +30,6 @@ fields:
     type: LINK
   - name: gtin
     singleValue: true
-    xpath:
   - name: sponsThumbnail
     singleValue: false
     xpath: //img[contains(@class,"_multi-card-creative-desktop_Image")]/@src | //div[@data-click-el="img"]//img/@src | //div[@cel_widget_id="TetrisSoftlinesCreativeDesktop"]/div/div/div/div//a/div/img/@src | //div[@data-creative-type="StoreSpotlightCreativeDesktop"]/div/div/div//a[@data-click-type="page"]//img/@src | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div/div/a//img/@src | //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div//img/@src
@@ -39,8 +38,8 @@ fields:
   - name: thumbnail
     singleValue: false
     xpath: //div[@class="_multi-card-creative-desktop_ImageContainer_container__3o-Yn"]/img/@src | //img[@class="s-image"]/@src
-    regExp: (.+)\.[^\.]*(\.[^\.]+$)
-    regExpReplace: $1$2
+    #regExp: (.+)\.[^\.]*(\.[^\.]+$)
+    #regExpReplace: $1$2
   - name: sponsAgRating
     singleValue: false
     xpath: //div[@cel_widget_id="MultiCardCreativeDesktop"]/div/div/div//@data-rating | //div[@cel_widget_id="TetrisCreativeDesktop"]/div/div//@data-rating
@@ -53,10 +52,8 @@ fields:
     xpath: //div[contains(@class,"_multi-card-creative-desktop_Rating_container")]/span | //span[contains(@aria-label,"stars")]/following-sibling::span[1]//a/span
   - name: manufacturer
     singleValue: true
-    xpath: 
   - name: soldBy
     singleValue: true
-    xpath:
   - name: endorsementText
     singleValue: false
     xpath: //span[contains(@class, "a-badge-label") and @id][contains(.,'Amazon')]

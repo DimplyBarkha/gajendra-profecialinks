@@ -1,6 +1,21 @@
 extends: ../../../../sharedAmazon/shared
 fields:
 - name: shippingInfo
-  singleValue: true
+  singleValue: false
   description: Shipping information for the product
-  xpath:  //*[@id="availability"]/span | //*[@id="buyNewInner"]/div[5]
+  xpath: //div[@id='buyNewInner']/div[@class='a-section a-spacing-small'][2]/div[@id='merchant-info'] | //div[@id='tabular-buybox']/table[@id='tabular-buybox-container']
+- name: ingredientsList
+  #singleValue: true
+  xpath: //div[@id='importantInformation_feature_div']//div[contains(.,'Ingredientes')]/p | //td[contains(.,"Ingredientes")]/following-sibling::td//span[@class="a-truncate-full a-offscreen"]
+- name: brandText
+  singleValue: false
+  xpath: //div[@id="bylineInfo"]/span/span | //div[@id='bylineInfo_feature_div']/div[@id='bylineInfo']
+- name: manufacturer
+  singleValue: false
+  xpath: //*[normalize-space(text())='Fabricante']/following-sibling::*[1]
+- name: gtin
+  singleValue: false
+  xpath: //*[normalize-space(text())="EAN"]/following-sibling::*[1]
+- name: news
+  singleValue: false
+  xpath: //div[@class='a-section table-padding']/table[@id='productDetails_detailBullets_sections1']/tbody/tr[4]/td
