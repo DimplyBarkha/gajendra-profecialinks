@@ -32,7 +32,7 @@ async function implementation (
   const url = await context.evaluate(function () {
     /** @type { HTMLLinkElement } */
     const next = document.querySelector('div.paginate a.current + a.next');
-    if (next) {
+    if (!next) {
       return false;
     }
     return true;
