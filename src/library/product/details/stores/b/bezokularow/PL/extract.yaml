@@ -22,7 +22,7 @@ fields:
     description:
       The product name, prefixing "${brand} - " if not included in "name"
       and appending " - ${variantType}" if necessary (fixed per feed)
-    xpath: //h1[@itemprop="name"]
+    xpath: //h1[@itemprop="name"] | //h1[@class="name"]
   # - name: listPrice
   #   singleValue: true
   #   description: The stated undiscounted price for the product
