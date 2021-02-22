@@ -32,7 +32,7 @@ const transform = (data, context) => {
         //   return (typeof (item.text) === 'string') && (item.text.includes('Comprar')) ? 'In Stock' : 'Out of Stock';
         // });
         // row.availabilityText = [{ text: availabilityTextArr.join(), xpath: row.availabilityText[0].xpath }];
-        row.availabilityText[0].text = row.availabilityText[0].text.toLocaleLowerCase() === 'comprar' ? 'In Stock' : 'Out Of Stock';
+        row.availabilityText[0].text = row.availabilityText[0].text.toLocaleLowerCase().includes('comprar') ? 'In Stock' : 'Out Of Stock';
       }
       if (row.alternateImages) {
         row.alternateImages.shift();
