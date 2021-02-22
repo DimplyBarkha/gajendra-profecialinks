@@ -9,14 +9,17 @@ module.exports = {
     zipcode: '',
   },
   implementation: async ( inputs, { country, domain, transform: transformParam }, context, { productDetails }) => {
-    await context.waitForSelector('.product-item a');
-    await context.clickAndWaitForNavigation('.product-item a', {}, {});
-    const { timeout = 60000, waitUntil = 'load', checkBlocked = true } = {};
+    console.log(inputs, '<==============');
+    // await new Promise((resolve, reject) => setTimeout(resolve, 5000));
+
+    // await context.waitForSelector('.product-item .details a');
+    // await context.clickAndWaitForNavigation('.product-item .details a', {}, {});
+    
     await context.setJavaScriptEnabled(true);
     await context.setCssEnabled(true);
-    // const mainUrl = 'https://www.k-ruoka.fi/';
-    await context.goto(inputs.url, { timeout, waitUntil, checkBlocked });
-    const { zipcode } = inputs;
+    
+
+    const { Postcode } = inputs;
     let locationStreetAddress = '';
     let disabledContinueButton = false;
     await context.setJavaScriptEnabled(true);
@@ -29,7 +32,7 @@ module.exports = {
       return hasIt;
     }
 
-    async function changeLocation (zipcode) {
+    async function changeLocation (Postcode) {
       await context.evaluate(async function () {
         if (document.querySelector('#kconsent')) {
           document.querySelector('#kconsent').remove();
@@ -49,9 +52,21 @@ module.exports = {
           button.click();
         }
       });
-      await context.waitForSelector('input#store-flyout-address');
-      await context.setInputValue('input#store-flyout-address', zipcode);
-      await context.click('.StoreFlyout__store .StoreFlyout__myStore');
+      await context.waitForSelector('input.StoreFlyout__address');
+      await context.setInputValue('input.StoreFlyout__address', Postcode.toString());
+      // await context.evaluate(async function (Postcode) {
+      //   const input = document.querySelector('input.StoreFlyout__address');
+      //   if (input) {
+      //     input.setAttribute('value', Postcode.toString());
+      //   }
+      // });
+      console.log(Postcode, '<===================');
+
+      await context.waitForSelector('.StoreFlyout__search-button.btn.btn-primary');
+      await context.click('.StoreFlyout__search-button.btn.btn-primary');
+
+      await context.waitForSelector('.StoreFlyout__store');
+      await context.click('.StoreFlyout__store button.StoreFlyout__myStore');
       // await context.setInputValue('input[type="search"][value]', zipcode);
     }
 
@@ -61,9 +76,9 @@ module.exports = {
 
     // TODO: need to set this as input
     if (!(changedLocationStreetAddress === '4208 Pleasant Crossing Blvd') && disabledContinueButton === false) {
-      await changeLocation(zipcode);
+      await changeLocation(Postcode);
       if (locationStreetAddress !== changedLocationStreetAddress) {
-        await changeLocation(zipcode);
+        await changeLocation(Postcode);
       }
       if (locationStreetAddress !== changedLocationStreetAddress) {
         console.log(locationStreetAddress);

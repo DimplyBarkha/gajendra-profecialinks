@@ -11,10 +11,10 @@ fields:
     singleValue: true
     description: Alt text of the main product image
     xpath: (//div[@class="owl-item"]//img[@itemprop="image"]/@alt)[1]
-  - name: alternateImages
-    singleValue: false
-    description: Other product images (not in manufacturer description)
-    xpath: //div[@class="image-gallery-nav-wrapper"]//img/@src
+  # - name: alternateImages
+  #   singleValue: false
+  #   description: Other product images (not in manufacturer description)
+  #   xpath: //div[@class="image-gallery-nav-wrapper"]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content
@@ -59,7 +59,7 @@ fields:
     singleValue: true
     description: Product brand shown - this may actually NOT be just a brand name,
       e.g. "Visit the Gillette Store"
-    xpath: (//div[@class="wc-fragment"]/@data-module-brand)[1]
+    xpath: //div[contains(@class, "wc-fragment")]/@data-module-brand
   - name: manufacturer
     singleValue: true
     description: Product manufacturer
