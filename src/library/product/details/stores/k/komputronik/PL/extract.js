@@ -18,10 +18,17 @@ async function implementation (
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
-  await context.waitForSelector('div[class*="snrs-reco"]');
+  try {
+    await context.waitForSelector('div[class*="snrs-reco"]');
+  } catch(err) {
+    console.log('got some error while waiting for div[class*="snrs-reco"] ->', err.message);
+  }
+  
   await context.evaluate(() => {
     var elmt = document.getElementsByClassName('snrs-reco-slider')[0];
-    elmt && elmt.scrollIntoView(true);
+    if(elmt) {
+      elmt.scrollIntoView(true);
+    }
   });
   return await context.extract(productDetails, { transform });
 }
