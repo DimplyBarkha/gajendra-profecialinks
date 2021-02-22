@@ -109,12 +109,12 @@ const transform = (data, inputs) => {
         const driveJson = JSON.parse(row.drive[0].text);
         if(driveJson.zipcode){
           row.drive[0].text = driveJson.zipcode;
-          row.retailerId[0].text = driveJson.zipcode;
-          row.driveId[0].text = driveJson.zipcode;
+          // row.retailerId[0].text = driveJson.zipcode;
+          // row.driveId[0].text = driveJson.zipcode;
         } else if(driveJson['StoreID']){
           row.drive[0].text = driveJson['StoreID'];
-          row.retailerId[0].text = driveJson['StoreID'];
-          row.driveId[0].text = driveJson['StoreID'];
+          // row.retailerId[0].text = driveJson['StoreID'];
+          // row.driveId[0].text = driveJson['StoreID'];
         }
       }
     }
