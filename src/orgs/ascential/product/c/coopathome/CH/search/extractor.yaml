@@ -4,6 +4,15 @@ parameters:
   domain: coop.ch
   store: coopathome
   zipcode: "''"
+proxy:
+  zone: CHE
+  type: DATA_CENTER
+policy:
+  numberRetries: 8
+  priority: MEDIUM
+  retryDelay: 90
+  backoffPolicy: EXPONENTIAL
+  retryWithResidentialProxyAfter: 99
 meta:
   branches:
     dev:
