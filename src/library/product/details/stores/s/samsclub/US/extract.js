@@ -110,9 +110,21 @@ module.exports = {
       }
     });
     await context.evaluate(async () => {
+      var array = [];
       const descEl = document.querySelector('div[id="wc-power-page"] div[class="wc-json-data"]');
       if (descEl) {
         descEl.remove();
+      }
+      var variants = document.querySelector('div.variants');
+      if (variants) {
+        var data = document.querySelector('[id="tb-djs-wml-redux-state"]').textContent;
+        var getSku = JSON.parse(data).cache.products;
+        var count = getSku[Object.keys(getSku)].skus;
+        for (let i = 0; i < count.length; i++) {
+          array.push(count[i].onlineOffer.itemNumber);
+        }
+        document.querySelector('meta[itemprop="sku"]').setAttribute('variants', array);
+        document.querySelector('meta[itemprop="sku"]').setAttribute('firstvariant', array[0]);
       }
     });
     return await context.extract(productDetails, { transform });

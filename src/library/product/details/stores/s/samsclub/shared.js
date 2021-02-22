@@ -33,13 +33,22 @@ const cleanUp = (data, context) => {
         let text = '';
         row.description.forEach((element) => {
           if (element.xpath.includes('li')) {
-            text += `|| ${element.text}`;
+            text += ` || ${element.text}`;
           } else {
             text += ` ${element.text}`;
           }
         });
         row.description = [{ text: text.trim() }];
       }
+
+      if (row.variants) {
+        let text = '';
+        row.variants.forEach(item => {
+          text = item.text.replace(',', ' | ');
+        });
+        row.variants = [{ text }];
+      }
+
       if (row.additionalDescBulletInfo) {
         let text = '';
         row.additionalDescBulletInfo.forEach((element) => {
@@ -49,6 +58,7 @@ const cleanUp = (data, context) => {
         });
         row.additionalDescBulletInfo = [{ text: text.trim() }];
       }
+
       if (row.manufacturerDescription) {
         let text = '';
         text = row.manufacturerDescription.map(element => element.text.trim()).join(' ');

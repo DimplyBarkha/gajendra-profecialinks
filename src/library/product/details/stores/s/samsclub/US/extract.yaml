@@ -21,7 +21,7 @@ fields:
   - name: category
     xpath: //div[@class="sc-pc-breadcrumbs"]/ol/li[position()>1] | //nav[contains(@class,"breadcrumbs")]/ol/li[position()>1]
   - name: nameExtended
-    xpath: /html/head/title | //div[contains(@class,"sc-pc-large-desktop-oos-card-columns")]//div[contains(@class,"sc-pc-title-medium")]//h3 | //meta[@itemprop="name"]/@content | //div[contains(@class,"sc-pc-title-full-desktop")]//h1
+    xpath: //div[contains(@class,"sc-pc-large-desktop-oos-card-columns")]//div[contains(@class,"sc-pc-title-medium")]//h3 | //meta[@itemprop="name"]/@content | //div[contains(@class,"sc-pc-title-full-desktop")]//h1
   - name: listPrice
     xpath: //span[@class="sc-channel-savings-list-price"]
   - name: price
@@ -38,7 +38,7 @@ fields:
     #xpath: //div[@class="sc-pc-why-we-love-it"]|//div[@class="sc-pc-about-this-item"]//div[1]/text()|//div[@class="sc-pc-about-this-item"]//li|//div[@class="sc-full-description-long"]
     xpath: //div[@class="sc-pc-why-we-love-it"]|//div[@class="sc-pc-about-this-item"]//div[1]/text()|//div[@class="sc-pc-about-this-item"]//text()|//div[@class="sc-full-description-long"]
   - name: descriptionBullets
-    xpath: count(//div[@class="sc-pc-about-this-item"]//li | //h4[contains(text(),'Specifications')]/following-sibling::div//li/text()[1])
+    xpath: count(//div[contains(@class,"sc-pc-about-this-item")]//li | //h4[contains(text(),'Specifications')]/following-sibling::div//li/text()[1])
     # xpath: count(//div[@class="sc-manufacturing-element-content"]//li)
   - name: brandText
     xpath: //div[@class="main-wrapper"]//div[@class="sc-pc-large-desktop-layout"]/meta[@itemprop="brand"]/@content | //meta[@itemprop="brand"]/@content
@@ -56,7 +56,7 @@ fields:
   - name: aggregateRating
     xpath: //div[@itemprop="ratingValue"] | //span[contains(@class,'secondary-rating-summary')] | //span[@itemprop="ratingValue"]
   - name: variantCount
-    defaultValue: "0"
+    xpath: count(//div[contains(@class,"variants")]//div[@class="variant-container"])
   - name: manufacturerDescription
     # xpath: //div[contains(@id, 'aplus')]//div[contains(@class,'text-wrap')] | //div[@class="enhancedContent"]
     xpath: //div[@id="wc-power-page"] | //div[@class="enhancedContent"]
@@ -73,12 +73,11 @@ fields:
   - name: specifications
     xpath: //div[@id="policies-link"]//div[@class="sc-manufacturing-element"]/h4[contains(.,'Specifications')]/following-sibling::div[1]//li | //h4[contains(.,'Specifications')]/following-sibling::div[1]//p
   - name: warranty
-    xpath: //div[@id="policies-link"]//div[@class="sc-manufacturing-element"]/h4[text()='Warranty']/following-sibling::div
   - name: countryOfOrigin
     xpath: //div[@id="policies-link"]//div[@class="sc-manufacturing-element"]/h4[text()='Assembled Country']/following-sibling::div
   - name: additionalDescBulletInfo
     # xpath: //div[@class="sc-manufacturing-element-content"]//li | //div[@class="sc-pc-about-this-item"]//li
-    xpath: //div[@class="sc-pc-about-this-item"]//li | //h4[contains(text(),'Specifications')]/following-sibling::div//li/text()[1]
+    xpath: //div[contains(@class,"sc-pc-about-this-item")]//li | //h4[contains(text(),'Specifications')]/following-sibling::div//li/text()[1]
   - name: technicalInformationPdfPresent
     defaultValue: No
   - name: termsAndConditions
@@ -110,3 +109,15 @@ fields:
     regExpReplace: $2
   - name: ingredientsList
     xpath: //p[contains(.,"Ingredients")]/following-sibling::p[1]
+  - name: firstVariant
+    xpath: //meta[@itemprop="sku"]/@firstvariant
+  - name: variants
+    xpath: //meta[@itemprop="sku"]/@variants
+  - name: pricePerUnit2
+    xpath: //div[@class="sc-pc-dual-price"]//span[@class="sc-pc-single-price-inline-price"]
+    regExp: (.+)(/)(.+)
+    regExpReplace: $1
+  - name: pricePerUnitUom
+    xpath: //div[@class="sc-pc-dual-price"]//span[@class="sc-pc-single-price-inline-price"]
+    regExp: (.+)(/)(.+)
+    regExpReplace: $3
