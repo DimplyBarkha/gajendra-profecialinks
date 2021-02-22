@@ -24,5 +24,6 @@ async function implementation (
   await context.click('input#submitform');
   await context.waitForSelector('div#docketresults');
   await new Promise((resolve, reject) => setTimeout(resolve, 20000)); 
+  await context.select('select#Records_Per_Page','3714');
   return await context.extract(productDetails, { transform });
 }
