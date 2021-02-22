@@ -45,7 +45,9 @@ async function implementation (
     const specification = [];
     if (specificationArr) {
       specificationArr.forEach(e => {
-        specification.push(e.innerText.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
+        if(e && e.innerText) {
+          specification.push(e.innerText.replace(/•/g, '||').replace(/\n|\s{2,}/g, ' '));
+        }
       });
     }
     addElementToDocument('specification', specification.join('|'));
@@ -53,7 +55,10 @@ async function implementation (
     if (specDimensions) {
       const nodes = [];
       for (let node = specDimensions.iterateNext(); node; node = specDimensions.iterateNext()) {
-        nodes.push(`${node.innerText}"`);
+        if(node && node.innerText) {
+          nodes.push(`${node.innerText}"`);
+        }
+        
       }
       const dimensions = nodes.join(' x ');
       addElementToDocument('dimensions', dimensions);
@@ -63,12 +68,17 @@ async function implementation (
     const descBulletInfo = [];
     if (keyFeatures) {
       keyFeatures.forEach(e => {
-        descBulletInfo.push(e.innerText);
+        if(e && e.innerText) {
+          descBulletInfo.push(e.innerText);
+        }
+        
       });
     };
     if (bulletInfo) {
       bulletInfo.forEach(e => {
-        descBulletInfo.push(e.innerText);
+        if(e && e.innerText) {
+          descBulletInfo.push(e.innerText);
+        }
       });
     }
     addElementToDocument('descBulletInfo', descBulletInfo.join('||'));
@@ -105,7 +115,7 @@ async function implementation (
       const manDescSelector = [...document.querySelector('.syndi_powerpage').shadowRoot.querySelectorAll('.syndigo-featureset-feature')];
       let manDescArray = [];
       for (let i = 0; i < manDescSelector.length; i++) {
-        if (manDescSelector[i].innerText) {
+        if (manDescSelector[i] && manDescSelector[i].innerText) {
           manDescArray.push(manDescSelector[i].innerText);
         }
       }
@@ -118,9 +128,12 @@ async function implementation (
       let inTheBoxText;
       const inTheBoxHeader = [...document.querySelector('.syndi_powerpage').shadowRoot.querySelectorAll('.syndigo-widget-section-header')];
       for (let i = 0; i < inTheBoxHeader.length; i++) {
-        if (inTheBoxHeader[i].innerText.match('In')) {
+        if (inTheBoxHeader[i] && inTheBoxHeader[i].innerText.match('In')) {
           array = [...inTheBoxHeader[i].parentElement.querySelectorAll('.syndigo-featureset img')];
-          inTheBoxText = inTheBoxHeader[i].parentElement.querySelector('.syndigo-featureset').innerText;
+          if(inTheBoxHeader[i].parentElement.querySelector('.syndigo-featureset')) {
+            inTheBoxText = inTheBoxHeader[i].parentElement.querySelector('.syndigo-featureset').innerText;
+          }
+          
         }
       }
       let inTheBoxImages = [];
@@ -185,7 +198,7 @@ async function implementation (
       priceText += document.querySelector('div[id="product_pricing_container"] span[itemprop="price"]').innerText;
       priceText = priceText.substr(12, priceText.length);
     } else if (document.querySelector('div[class*="pricing-item-price pricing-class-package"]')) {
-      priceText += document.querySelector('div[class*="pricing-item-price pricing-class-package').innerText;
+      priceText += document.querySelector('div[class*="pricing-item-price pricing-class-package"]').innerText;
       priceText = priceText.substr(12, priceText.length);
     }
     if (priceText !== '') addElementToDocument('priceText', priceText);
@@ -193,7 +206,7 @@ async function implementation (
     let targetScript = null;
     let skuStr = '';
     for (let i = 0; i < scripts.length; i++) {
-      if (scripts[i].innerText.includes('Product_')) {
+      if (scripts[i] && scripts[i].innerText && scripts[i].innerText.includes('Product_')) {
         targetScript = scripts[i].innerText;
       }
     }
