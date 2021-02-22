@@ -59,4 +59,10 @@ fields:
     description: The user name of the reviewer
     type: TEXT
   - name: aggregateRating
+    singleValue: false
     description: The product rating
+  - name: maxDays
+    description: Max Days
+    xpath: ancestor::html//script[@id="__input"]
+    type: NUMBER
+    jq: '.days'
