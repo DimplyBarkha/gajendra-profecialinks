@@ -4,28 +4,31 @@ recordSelector: null
 recordXPath: null
 fields:
   - name: image
-    xpath: //div[@id='product_main_image']
-    regExp: >-
-      (.+)imwidth=720
-    regExpReplace: $1imwidth=900
+    xpath: //div[@class='media-gallery__main-image']/img/@src
   - name: category
     singleValue: false
-    xpath: //div[contains(@class,"rd__breadcrumbs__item rd__breadcrumbs__item--back")]//following-sibling::a
+    xpath: //div[contains(@class, 'breadcrumb')]//span[contains(@class, 'breadcrumb__list')]/span[position()>1 and not(position() = last())]
+  # - name: nameExtended #TODO
+  #   xpath: concat(//span[@class='rd__product-header__title__name'], ' ', //span[@class='rd__product-header__title__classification'])
+  # - name: nameExtendedPrefix
+  #   xpath: //h1//span[@class='rd__copytext rd__copytext--90' or contains(@class, 'rd__product-header__title__brand')]
   - name: nameExtended
-    xpath: concat(//span[@class='rd__product-header__title__name'], ' ', //span[@class='rd__product-header__title__classification'])
-  - name: nameExtendedPrefix
-    xpath: //h1//span[@class='rd__copytext rd__copytext--90' or contains(@class, 'rd__product-header__title__brand')]
+    xpath: concat(//a[contains(@class, 'link link--text product-detail-header__brand-line')], ' ', //span[contains(@class, 'product-detail-header__name')])
   - name: price
-    xpath: //div[contains(@class,"rd__product-details__options__price__item__amount__new-price")]/span[1]
+    xpath: //div[contains(@class, 'product-detail__product-info')]//div[contains(@class, 'product-detail__variant-row--spread-content')]//div[contains(@class, 'product-price__base')]
   - name: availabilityText
-    xpath: //div[contains(@class,"rd__product-details__options__availability")]/span[contains(@class,'rd__copytext')][1]
-  - name: description
-    singleValue: false
-    xpath: //ul[contains(@class,'rd__list rd__list--disc')]/li
+    xpath: //div[contains(@class, 'delivery-info')]/span[1]
+  - name: descriptionLiHeaders
+    xpath: //div[contains(@class, 'product-detail-content__classifications')]/div/span[1]
+  - name: descriptionLiData
+    xpath: //div[contains(@class, 'product-detail-content__classifications')]/div/span[2]
+  # - name: description
+  #   singleValue: false
+  #   xpath: //div[contains(@class, 'product-detail-content__classifications')]/div
   - name: descriptionChunck
-    xpath: //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/h2 | //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/div | //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/text()
-  - name: descriptionliChunck
-    xpath: //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/ul/li   
+    xpath: //div[contains(@class, 'truncate product-detail-content__description')]
+  # - name: descriptionliChunck
+  #   xpath: //ul[contains(@class,'rd__list rd__list--disc')]/following-sibling::span/ul/li   
   - name: descriptionBullets
     xpath: count(//div[@class='rd__product-details__description__collapsible']//ul/li[not(@type='non-bullet')])
   - name: ingredientsList

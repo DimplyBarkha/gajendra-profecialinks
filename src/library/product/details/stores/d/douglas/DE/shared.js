@@ -73,6 +73,19 @@ const transform = (data) => {
         ];
       }
 
+      try {
+        if (row.descriptionLiHeaders && row.descriptionLiData) {
+          const descriptonHeaders = row.descriptionLiHeaders;
+          let concatedDescription = descriptonHeaders.map((header, index) => {
+            return {text: `${header.text} : ${row.descriptionLiData[index].text}`};
+          });
+          row.description = concatedDescription;
+        }
+      } catch (err) {
+        console.log(err);
+      }
+     
+      
       if (row.description) {
         // row.description[0].text = `|| ${row.description[0].text}`;
         // for (let i = 0; i < row.description.length; i++) {
