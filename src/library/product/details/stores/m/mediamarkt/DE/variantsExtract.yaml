@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  # - name: variantId
+  #   singleValue: false
+  #   description: variant id, to uniquely identify variant
+  #   xpath: //*[@id='ii_variant']    
+  - name: variantUrl
+    description: variant Url
+    xpath: //*[@id='product_variant']
+    regExp: (\d+)
+    regExpReplace: https://www.mediamarkt.de/de/product/-$1.html
+ 

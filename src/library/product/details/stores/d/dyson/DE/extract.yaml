@@ -1,0 +1,23 @@
+extends: ../shared 
+singleRecord: null
+fields:
+  - name: availabilityText #localedependent
+    # Add no default value, being take care in transform.js
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//*[contains(text(),'Warenkorb') or contains(text(),'auswählen')]//text()
+  - name: weightNet #localedependent
+    singleValue: true
+    description: Net weight as described on the page
+    regExp: ([0-9,\.]+.+)
+    #regExpReplace: $1
+    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Gewicht')]])[1]
+  - name: warranty #localedependent
+    singleValue: true
+    description: Guarantee associated with the product
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),' Garantie')]])[1]
+    
+   #please don't add shipping info for this domain - refer this ticket - 19678
+
+  # - name: shippingInfo #localedependent
+  #   description: Shipping information for the product, ex ; ships and sold by amazon.com
+  #   #xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][not(.//*[contains(text(),'guarantee ')])][.//*[contains(text(),'hipping ')] or .//*[contains(text(),'elivery')]])[1]
+  #   xpath: normalize-space((//div[contains(@class,"reasons-to-buy__reason")]//*[contains(@class,"reasons-to-buy__text")])[1])

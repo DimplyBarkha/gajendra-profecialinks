@@ -1,0 +1,40 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='group-item product-list-item slide-up']
+fields:
+  - name: name
+    singleValue: false
+    xpath: //div[@id='product-list-container']//div[@class='title-section']/h3[@class='product-title']/text()
+  - name: productUrl
+    singleValue: false    
+    xpath: //div[@class='product-list']/a/@href
+    regExp: (.+)
+    regExpReplace: https://www.blivakker.no$1
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@id='product-list-container']//div[@class='image-wrapper']/div/img/@src
+  - name: price
+    singleValue: false
+    xpath: //div[@id='product-list-container']//div[@class='price-final-wrapper']/strong[@class='price-final']/text()
+  - name: id
+    singleValue: false
+    xpath: //div[@class='first-button']//button[contains(@class,'favourite-button')]/@data-productid
+    # regExp: ([0-9][0-9][0-9][0-9][0-9])
+  - name: reviewCount
+    singleValue: false
+    description: The number of reviews
+    xpath: //div[@id='product-list-container']//div[@class='rating-section']//ul/li[@class='rating-count']/text()
+    regExp: (\d*)
+    regExpReplace: $1
+    # defaultValue: 0
+  - name: aggregateRating2
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@class='rating-section']//div[contains(@class,'product-rating-core')]/@class
+    regExp: (\d*)
+    regExpReplace: $1
+  - name: manufacturer
+    singleValue: false
+    description: Product manufacturer
+    xpath: //div[@class='title-section']//h2[@class='product-brand']/text()

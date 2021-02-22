@@ -1,0 +1,40 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: id
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@id="prod-results"]//ul//a/@data-id
+  - name: thumbnail
+    singleValue: true
+    description: URL of the main product image
+    xpath: //div[@class="c-prod-results__imgWrapper"]//img/@src     
+  - name: name
+    singleValue: false
+    xpath: //div[@class="c-prod-results__subtitle"]
+    description: Alt text of the main product image
+  - name: productUrl
+    singleValue: false
+    description: Other product images (not in manufacturer description)
+    xpath: //div[@id="prod-results"]//ul[@class="c-prod-results__list"]//li[@class="c-prod-results__item"]/a/@href
+    regExpReplace: 'https://www.deonlinedrogist.nl'     
+  - name: price
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: //*[@class="c-prod-results__price"]//div[2]
+    regExp: (^([^€]*))(\,)([^\€]*)($)
+    regExpReplace: $5 $2.$4
+  - name: listPrice
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: //div[@id="prod-results"]//div[@class="c-prod-results__price-old"]
+    regExp: (^([^€]*))(\,)([^\€]*)($)
+    regExpReplace: $5 $2.$4
+    defaultValue: "0"
+  - name: manufacturer
+    singleValue: true
+    description: Alt text of the main product image
+    xpath: //div[@class="c-prod-results__brand"]/text()  
+    

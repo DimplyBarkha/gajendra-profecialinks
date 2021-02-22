@@ -1,0 +1,181 @@
+# @format
+
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //div[@id="productData"]//div[contains(@class,"productDetailGallery-root-1P3")]//img[1]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: (//div[@id="productData"]//div[contains(@class,"productDetailGallery-root-1P3")]//img)[1]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //meta[@property="og:image"][1]//following-sibling::meta[@property="og:image"]/@content
+  - name: name
+    singleValue: false
+    xpath: //div[@id="productData"]//h1
+  - name: metaKeywords
+    singleValue: false
+    xpath: //meta[contains(@name,"keyword")]/@content
+  - name: category
+    singleValue: false
+    xpath: //div[@class="productFullDetailDesktopCss-root-2xZ"]//ul[@class="breadcrumbsCss-list-2MN"]/li//following-sibling::li
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[@id="productData"]//h1
+    # //meta[@property="og:title"]/@content
+  - name: listPrice
+    singleValue: false
+    xpath: //div[@class="productShopCss-shock__old__price-276"]/span
+  - name: price
+    singleValue: false
+    xpath: concat(//div[@class="productShopCss-sp__integer-1z1"], '.', normalize-space(//div[@class="productShopCss-sp__formatter-XUK"]))
+  - name: availabilityText
+    singleValue: false
+    # xpath: //link[@itemprop="availability"]/@href
+    xpath: //script[@type="application/ld+json"][contains(text(),'availability":"http://schema.org/InStock"')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    singleValue: false
+    xpath: //div[@id="productData"]//h1|//div[@class="productFullDetailDesktopCss-details__content-3BZ"]//ul[@class="productAttributesCss-attributes__group-q5V productAttributesCss-attributes__group_product-HeK"]//li
+    #  //div[@id="productData"]//h1
+  - name: descriptionBullets
+    singleValue: false
+    type: NUMBER
+    xpath: count(//div[@id="productData"]//div[@class="productFullDetailDesktopCss-details__content-3BZ"]//ul//li)
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@id="productData"]//div[@class="productFullDetailDesktopCss-details__content-3BZ"]//ul//li
+  - name: sku
+    singleValue: false
+    xpath: //div[@class="pageContainer-root-1fe"]//span[@itemprop="sku"]
+  - name: brandText
+    singleValue: false
+    xpath: //div[@class="pageContainer-root-1fe"]//span[@itemprop="brand"]
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[@class="pageContainer-root-1fe"]//span[@itemprop="brand"]
+  - name: ratingCount
+    singleValue: false
+    type: NUMBER
+    xpath: //div[@id="productData"]//div[@class="productRatingCss-ratings-8MD"]
+    regExp: (.*opinie:)(.\d+)
+    regExpReplace: $2
+  - name: specifications
+    singleValue: false
+    xpath: //div[@class="productSpecificationCss-root-3rN"]//div[@class="productSpecificationCss-row-14w"]
+  - name: warranty
+    singleValue: false
+    xpath: //span[contains(text(), 'gwarancji') or contains(text(), 'Gwarancja')]//following-sibling::span/text()
+  - name: color
+    singleValue: false
+    xpath: //div[@id="productSpecification"]//span[contains(text(), "Kolor")]//following-sibling::span/text()|//div[@class="productSpecificationCss-row-14w"]/button/span[contains(text(), "Dominujący odcień")]/../following-sibling::span/text()
+  - name: technicalInformationPdfPresent
+    singleValue: false
+    xpath: //div[contains(@class, "productPdf")][1]//button/text()
+    defaultValue: No
+  - name: weightNet
+    singleValue: false
+    xpath: (//div[@id="productSpecification"]//span[contains(text(), "Waga")])[1]//following-sibling::span/text() | //div[contains(@id,"rich-content-own")]//span[contains(text(), "Waga")]//following-sibling::span/text()
+  #- name: weightGross
+  #  singleValue: false
+  #  xpath: (//div[@id="productSpecification"]//span[contains(text(), "Waga")])[1]//following-sibling::span/text()
+  - name: variantId
+    singleValue: false
+    xpath: //div[@class="productExtraInfoCss-product__gid-1w5"]/strong/text()
+  #- name: shippingWeight
+  #  singleValue: false
+  #  xpath: (//div[@id="productSpecification"]//span[contains(text(), "Waga")])[1]//following-sibling::span/text()
+  - name: legalDisclaimer
+    singleValue: false
+  - name: directions
+    singleValue: false
+  - name: warnings
+    singleValue: false
+  - name: aggregateRating
+    xpath: (//div[@class="productRatingCss-rating-2Og"])[1]/@style
+    regExp: (.*width:)(.\d+)(%)
+    regExpReplace: $2
+  # - name: aggregateRatingText
+  #   singleValue: false
+  #   xpath: (//div[@class="productRatingCss-rating-2Og"])[1]/@style
+  #   regExp: (.*width:)(.\d+)(%)
+  #   regExpReplace: $2
+  - name: variantCount
+    singleValue: false
+    type: NUMBER
+    xpath: count(//div[@class="productSameSeriesSingleCss-set__item-2B4"]/div/a[@aria-label])
+  - name: colorCode
+    singleValue: false
+  - name: manufacturerDescription
+    singleValue: false
+  #  xpath: //div[@class="description-col-md-4"]
+  - name: manufacturerImages
+    singleValue: false
+  #  xpath: //div[@class="description-product"]/div[@class="description-py5"]/following-sibling::div//div[@class="description-col-md-12"]//img/@src
+  - name: videos
+    singleValue: false
+    xpath: //div[@id="added-video"]
+  #  xpath: //iframe[@title="movie"]/@src
+  - name: coupon
+    singleValue: false
+  - name: storage
+    singleValue: false
+  - name: countryOfOrigin
+    singleValue: false
+  - name: recyclingInformation
+    singleValue: false
+  - name: productOtherInformation
+    singleValue: false
+    xpath: //li[@data-role="tab-description"]/div//div[text()]/text()
+  - name: promotion
+    singleValue: false
+    xpath: //a[@aria-label="Dostępne promocje"]//@alt
+  - name: newDescription
+    singleValue: false
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@class="productSameSeriesSingleCss-set__item-2B4"]/div
+  - name: firstVariant
+    singleValue: false
+    xpath: (//div[@class="productSameSeriesSingleCss-set__item-2B4"]/div/a[@aria-label])[1]
+  - name: variants
+    singleValue: false
+    xpath: //div[@class="productSameSeriesSingleCss-set__item-2B4"]/div/a[@aria-label]
+  #- name: shippingDimensions
+  #  singleValue: false
+  #  xpath: concat((//span[contains(text(), "Wymiary")]//following-sibling::span)[1]/text(), '###', (//div[@id="productSpecification"]//span[contains(text(), "Szeroko")])[last()]//following-sibling::span/text(),'  ',(//div[@id="productSpecification"]//span[contains(text(), "Wysoko")])[last()]//following-sibling::span/text(),'  ', (//div[@id="productSpecification"]//span[contains(text(), "Gleboko") or contains(text(), "Głębokość")])[last()]//following-sibling::span/text())
+  - name: termsAndConditions
+    singleValue: false
+    defaultValue: No
+  - name: energyEfficiency
+    singleValue: false
+    xpath: //div[@class="productExtraInfoCss-energy__class-2Tl"]//img/@src
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[contains(@id, "added-manufacturer-images")] | //div[@id="productRichContent"]//img/@src
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="added-manufacturer-description"] | //div[@id="productRichContent"]
+  - name: video1
+    singleValue: false
+    # xpath: //div[@id="added-video"]
+  - name: inTheBoxText
+    singleValue: false
+    description: Must include text to show the accessories/tools which come with the product
+    xpath: //div[contains(@id, "added-inBox-Text")]
+  - name: hasComparisonTable
+    singleValue: false
+    xpath: boolean(//div[@id = 'checkhasComparisionTable'])
+    # xpath: //div[@id="hasComparisonTable11"]
+  - name: unInterruptedPDP
+    singleValue: false
+    xpath: //div[contains(@class,'productsSimilarGallery')]//a[contains(@class,'productSingleCss-title')]
+  - name: inTheBoxUrl
+    singleValue: false
+    xpath: //div[contains(@id, "added-inBox-images-")]

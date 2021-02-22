@@ -1,0 +1,53 @@
+singleRecord: false
+regionsSelector: null
+recordXPath: //a[@class="deal-box deal-col"]
+recordSelector: null
+fields:
+  - name: price
+    singleValue: false
+    xpath: //div[@class='deal-box-text-left-price ']
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@class,'deal-box-text-right-title')]
+  - name: id
+    singleValue: false
+    xpath: //a[@class='deal-box deal-col']/@data-id
+  - name: productUrl
+    singleValue: false
+    xpath: //a[@class='deal-box deal-col']/@href
+    regExp: [^(.*)$]
+    regExpReplace: 'https://www.groo.co.il$1'
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class='category-page-container']//div[@class='category-deal-boxes']/a/div/img/@src
+  - name: aggregateRating
+    singleValue: false
+    description: The stated aggregate rating normalized to be out of 5
+    type: NUMBER
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+    type: NUMBER
+  - name: gtin
+    singleValue: true
+    description: GTIN code (includes UPC/EAN)
+  - name: ratingCount
+    singleValue: true
+    description: The number of ratings
+    selector: span.nosto-reviews
+  - name: reviewCount
+    singleValue: true
+    description: The number of reviews
+    selector: span.nosto-reviews
+  - name: manufacturer
+    singleValue: true
+    description: Product manufacturer 
+  - name: soldBy
+    singleValue: true
+    xpath:
+  - name: endorsementText
+    xpath:
+    singleValue: true
+  - name: gtin
+    singleValue: true
+    xpath:

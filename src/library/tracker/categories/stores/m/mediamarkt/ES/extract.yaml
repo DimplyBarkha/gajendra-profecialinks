@@ -1,0 +1,13 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //li[@data-identifier='category-tree-navigation']//a/span/..
+fields:
+  - name: category
+    singleValue: false
+    description: name of the category
+    xpath: //span/text()
+  - name: categoryUrl
+    singleValue: false
+    description: url of the category
+    xpath: //a/@href

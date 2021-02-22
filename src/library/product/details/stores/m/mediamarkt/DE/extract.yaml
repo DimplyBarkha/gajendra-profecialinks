@@ -1,0 +1,310 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+fields:
+  - name: image
+    xpath: //div[contains(@class, "StyledGallery")]//ul/li[1]//source/@srcset
+    description: URL of the main product image
+    regExp: (.+/)(fee_.+_png)
+    regExpReplace: $1fee_800_800_png
+  - name: imageAlt
+    xpath: //div[contains(@class, "StyledGallery")]//ul/li[1]//picture/img/@alt
+    description: Alt text of the main product image
+  - name: alternateImages
+    xpath: //div[@data-test="mms-th-gallery"]//ul/li[position()>1]//img/@src
+    description: Other product images (not in manufacturer description)
+    regExp: (.+/)(fee_.+_png)
+    regExpReplace: $1fee_800_800_png
+  - name: metaKeywords
+    xpath: //meta[@name="keywords"]/@content
+    description: The <meta> keywords content
+  - name: category
+    xpath: //div[contains(@class,"Breadcrumbstyled__StyledBreadcrumb")]//ul[contains(@class,"Breadcrumbstyled__StyledUl")]//li[position()>1]
+    description: The categories (e.g. from breadcrumbs)
+  - name: nameExtended
+    xpath: //div[@data-test="mms-select-details-header"]//h1
+    description: The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+  - name: listPrice
+    xpath: (//div[contains(@class, "StrikePriceWrapper")]//div[contains(@class, "BrandedStrikePrice")]//span)[1]
+    regExp: (?:([\d\.\,]+)[^.]*$)
+    description: The stated undiscounted price for the product
+  - name: price
+    xpath: (//div[contains(@class, "PriceRow")]//span[contains(@font-family, "price")]|//meta[@itemprop="price"]/@content)[1]
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+  - name: availabilityText
+    xpath: //button[contains(text(), "In den Warenkorb")][not(@disabled)]
+    description: Availability as described on page for the selected variant. If
+      there is no availability but the product can be added to cart, this field
+      should be "In Stock"
+    regExp: (In den Warenkorb)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+  - name: description
+    xpath: //div[@id="additional-description"]
+    description: Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+  - name: descriptionBullets
+    xpath: //body/@bullets
+    description: Number of ul > li tags in the description
+    type: NUMBER
+  - name: promotion
+    xpath: //span[contains(@class, "DiscountLabel")]
+  - name: brandText
+    xpath: (//div[contains(@class, "DetailsHeader")]//img/@title|//div[contains(@data-test, "mms-select-details-header")]//a[contains(@class, "Linkstyled")]//span[contains(@class, "Typostyled") and @color="grey3"])[1]
+    description: Product brand shown - this may actually NOT be just a brand name,
+      e.g. "Visit the Gillette Store"
+  - name: manufacturer
+    xpath: //img[contains(@class, "ManufacturerImage")]/@title
+    description: Product manufacturer
+  - name: quantity
+    description: Quantity as described on the page
+    regExp: (?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]t|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?)$|(?:\s?([\d\.]+\s?)([bB]ar[s]?|[cC]ount|[cC]|[fF][lL][\.]?\s?[oO][zZ][\.]?|FO|[mM][lL]|[oO][zZ][\.]?|pc|[pP]int|[pP]ops|qt|[wW]ipe[s]?).?\s?[\&\-\w\s]+)$
+    regExpReplace: $1$2$3$4
+  - name: weightNet
+    xpath: (//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Gewicht")]//parent::td//following-sibling::td)[1]
+    description: Net weight as described on the page
+  - name: weightGross
+    description: Gross weight as described on the page
+  - name: gtin
+    xpath: //div[@id="ii_ean"]
+    description: GTIN code (includes UPC/EAN)
+  - name: eangtin
+    xpath:  //div[@id="ii_ean"]
+  - name: sku
+    xpath: (//span[contains(@class, "DetailsHeader__")]//span)[1]
+    regExp: (\d+)
+    description: The store-specific product identifier
+  - name: variantId
+    xpath: (//span[contains(@class, "DetailsHeader__")]//span)[1]
+    regExp: (\d+)
+    description: Identifier for a variant from a store where variants share the same sku
+  - name: mpc
+    # xpath: //td[contains(@class,"TableCell")][contains(.,"Hersteller Artikelnummer")]/following-sibling::td
+    xpath: //body/@mpc
+    description: The manufacturer model code (unique) of the product
+  - name: packSize
+    description: The number of packs in the product offer (if stated separately on
+      the site to quantity)
+  - name: legalDisclaimer
+    xpath: (//div[contains(@class,"FooterLegal__StyledFooterLegal")]//div[contains(@class, "Cellstyled")])[2]
+    description: Content under "legal disclaimer" header
+  - name: directions
+    description: Content under "directions" header
+  - name: warnings
+    description: Content under "warnings" header
+  - name: ratingCount
+    xpath: (//meta[@itemprop="ratingCount"]/@content|//div[contains(@class, "ReviewHeader")]//p)[1]
+    description: The number of ratings
+    type: NUMBER
+  - name: aggregateRatingText
+    xpath: //div[contains(@class, "ReviewHeader")]//span//text()
+    description: The stated aggregate rating
+  - name: aggregateRating
+    xpath: //div[contains(@class, "ReviewHeader")]//span//text()
+    description: The stated aggregate rating normalized to be out of 5
+  - name: shippingInfo
+    description: Shipping information for the product
+  - name: shippingDimensions
+    xpath: (//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Packmaße (BxHxT) (cm)")]//parent::td//following-sibling::td)[1]
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    description: Stated shipping weight
+  - name: variantCount
+    xpath: count (//div[contains(@class,"ProductVariantsstyled")]//a|//div[contains(@class,"ProductVariantsstyled")]//li)
+    description: Number of variants listed
+    type: NUMBER
+  - name: color
+    xpath: (//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Farbe")]//parent::td//following-sibling::td)[1]
+    description: A textual description of the colour
+  - name: colorCode
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    xpath: //*[@id="manufContent"]
+    description: The extended description of the product supplied by the lister
+  - name: manufacturerImages
+    xpath: //*[@id="manufImg"]
+    description: Images within the third party description
+  - name: videos
+    xpath: //div[@id="all-videos"]
+    description: URLs of videos on page
+  - name: galleryVideos
+    xpath: //div[@id="all-videos"]
+  - name: name
+    xpath: //h1[@itemprop="name"]
+    description: The product name
+  - name: inStorePrice
+    description: Price in the selected store
+  - name: asin
+    description: null
+  - name: coupon
+    description: Text of any coupon offer
+  - name: amazonChoice
+    description: YES or Blank
+  - name: amazonChoiceCategory
+    description: Text of link next to Amazon choice graphic
+  - name: brandLink
+    description: null
+  - name: internationalShipping
+    description: Text next to bullet point
+  - name: salesRank
+    description: Amazon best selling rank from product details (linked back) - needs
+      to be collapsed
+  - name: salesRankCategory
+    description: Amazon best selling rank from product details (linked back) - needs
+      to be collapsed
+  - name: subscriptionPrice
+    description: Subscribe and save price
+  - name: subscribeAndSave
+    description: YES/NO
+  - name: heroQuickPromoHeadline
+    description: See image - top section hero area
+  - name: heroQuickPromoImageUrl
+    description: null
+  - name: heroQuickPromoUrl
+    description: null
+  - name: pasin
+    description: Parent asin
+  - name: videoLength
+    description: null
+  - name: ingredientImagePresent
+    description: null
+  - name: factImagePresent
+    description: null
+  - name: largeImageCount
+    description: null
+    type: NUMBER
+  - name: variantAsins
+    description: null
+  - name: primeFlag
+    description: null
+  - name: lbb
+    description: Check Lost by Box Requirements (just for Amazon and a couple of
+      other stores) - LBB occurs when a product is bought from someone other
+      than Amazon (on Amazon Website) - even though Amazon has the product "in
+      Stock"
+  - name: lbbPrice
+    description: null
+  - name: featureBullets
+    description: null
+  - name: otherSellersName
+    description: null
+  - name: otherSellersPrice
+    description: null
+  - name: otherSellersShipping
+    description: null
+  - name: secondaryImageTotal
+    xpath: count(//div[@data-test="mms-th-gallery"]//ul/li[position()>1]//img)
+    description: null
+    type: NUMBER
+  - name: news
+    description: null
+  - name: addonItem
+    description: null
+  - name: specifications
+    xpath: concat(//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Packmaße (BxHxT)")]//ancestor::tr, ' ', //tr[contains(@class,"TableRow")]//td//span[contains(text(),"Breite")]//ancestor::tr, ' ', //tr[contains(@class,"TableRow")]//td//span[contains(text(),"Höhe")]//ancestor::tr, ' ', //tr[contains(@class,"TableRow")]//td//span[contains(text(),"Tiefe")]//ancestor::tr, ' ', //tr[contains(@class,"TableRow")]//td//span[contains(text(),"Gewicht")]//ancestor::tr)
+    description: The physical dimensions of the product including packaging.
+  - name: warranty
+    description: Guarantee associated with the product
+  - name: storage
+    description: Suggested storage location for product
+  - name: countryOfOrigin
+    xpath: (//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Ursprungsland/Herkunftsort")]//parent::td//following-sibling::td)[1]
+    description: The country from which the product originates
+  - name: allergyAdvice
+    description: Allergy information associated with the product
+  - name: recyclingInformation
+    description: Recycling information associated with the product
+  - name: productOtherInformation
+    xpath: //tr[contains(@class,"TableRow")]//td
+    description: Any other product information
+  - name: specificationList
+    xpath: //tr[contains(@class,"TableRow")]//td
+  - name: packaging
+    xpath: (//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Lieferumfang")]//parent::td//following-sibling::td)[1]
+    description: Packaging information
+  - name: additives
+    description: List of additives in the product
+  - name: pricePerUnit
+    description: Price of the product split into certain units
+  - name: pricePerUnitUom
+    description: The unit of measurement used in price_per_unit
+  - name: promotion
+    description: promotion text on product page
+  - name: alcoholContent
+    description: Alcohol content information
+  - name: newVersion
+    description: In product page, information about a new version of the product
+      (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
+  - name: newAsin
+    description: In product page, information about a new version of the product -
+      new asin info
+  - name: newDescription
+    description: In product page, information about a new version of the product -
+      new desription info
+  - name: variantInformation
+    xpath: (//div[contains(@class,"ProductVariantsstyled__StyledProductVariantsColors")]//label|//div[contains(@class,"ProductVariantsstyled")]//span[contains(@class,"StyledInfo")])
+    description: colour / scent / flavour / other
+  - name: firstVariant
+    xpath: (//div[contains(@class,"ProductVariantsstyled")]//a/@href)[1]
+    description: Unique identifier for a collection of variants. For a subset of
+      core feeds (43) we have a column "first_variant" that is populated with a
+      common code to link all variants for a product. method 1 (Preferred) = use
+      common tag (Could be parent sku) that is same value for all variants of a
+      product. method 2 = first_variant method technique, Identify the first
+      varient in the sequence and use this rpc to populate "first_variant" for
+      all variants of a product, this rpc becomes the common link between other
+      variants. method 3 = apply some logic to determine link between variants,
+      this will need analysis
+  - name: variants
+    xpath: //div[contains(@class,"ProductVariantsstyled")]//a/@href
+    description: null
+  - name: additionalDescBulletInfo
+    xpath: //div[contains(@data-test, "mms-accordion-description")]//li
+    description: null
+  - name: energyEfficiency
+    xpath: (//tr[contains(@class,"TableRow")]//td//span[contains(text(),"Energieeffizienzklasse")]//parent::td//following-sibling::td)[1]
+    description: Energy rating of a product.
+      https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+  - name: technicalInformationPdfPresent
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    xpath: (//div[@itemscope=""]//a[contains(@href, "pdf")]/@href)[1]
+    regExp: (.*?)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: termsAndConditions
+    description: Terms and conditions information text ['Yes','No']
+    xpath: (//footer//*[contains(text(), "AGB")]//text())[1]
+    regExp: (.*?)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: Image360Present
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: No
+  - name: contentSyndication
+    description: If Zoom feature is available for Main image or images in the
+      carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    regExp: Powered by (.+)
+    regExpReplace: $1
+  - name: productUrl
+    xpath: //*[@id="ii_producturl"]
+  - name: inTheBoxUrl
+    xpath: //*[@id="ii_inBoxUrls"]
+    # xpath: //*[contains(text(), "in the box")]//ancestor::article[1]//img/@src
+  - name: inTheBoxText
+    xpath: //*[@id="ii_inBoxText"]
+    # xpath: //*[contains(text(), "in the box")]//ancestor::div[1]//p
+    description: Must include text to show the accessories/tools which come with the product
+  - name: hasComparisonTable
+    xpath: //*[@id="ii_comparisionText"]
+    # xpath: boolean(//*[contains(text(), "Vergleichen")])
+    defaut: false
+    description: Compare the range table or matrix must be present for all vacuum cleaners & air treatment. This is not required for personal care or lighting. As a minimum the comparison table will compare against 1 additional Dyson product.
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class, "RecommendationSlider")]//p[@data-test="product-title"] | //div[contains(@class, "slick-slide")]//p[@data-test="product-title"]
+    description: Titles of products in the sections 'you may also like' or 'sponsored products'. Combine results from Max 3 sections

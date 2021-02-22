@@ -1,0 +1,32 @@
+Search:
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div[@class='m-offerBox_content'] | //div[@class="m-productsBox_container"]
+fields: 
+- name: name
+  xpath: //a[@class='b-ofr_headDataTitle']
+- name: productUrl
+  xpath: //a[@class='b-ofr_headDataTitle']/@href
+  regExp: (.+)
+  regExpReplace: https://mediamarkt.pl$1
+- name: thumbnail
+  xpath: //img[contains(@class,'js-lazyLoad_img')]/@src
+  regExp: (.+)
+  regExpReplace: https:$1
+- name: id
+  xpath: //input[contains(@class,'js-compare')]/@data-offer-erp
+- name: price
+  xpath: //div[@class='b-ofrBox_cta']/a/@data-price
+- name: gtin
+  xpath: //div[@class='b-ofrBox_cta']/a/@data-offer-ean
+- name: brand
+  xpath: //div[@class='b-ofrBox_cta']/a/@data-offer-brand
+- name: reviewCount
+  xpath: //div[@class='b-offerRWD_reviews']/a/span
+  regExp: (\d+)
+- name: aggregateRating2
+  xpath: //div[@class='b-offerRWD_reviews']/span/@title
+  regExp: (\d+)
+- name: searchUrl
+  xpath: //a[@class='b-ofr_headDataTitle']/@searchurl

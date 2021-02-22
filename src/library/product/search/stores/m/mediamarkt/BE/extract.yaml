@@ -1,0 +1,48 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ul[@class="products-list"]//li
+fields:
+  - name: productUrl
+    singleValue: false
+    xpath: //div[contains(@class,'product-wrapper')]//aside[contains(@class, "product-photo")]//a/@href
+    regExp: (.+)
+    regExpReplace: https://www.mediamarkt.be$1
+    description: The URL for the product details page
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[contains(@class,'product-wrapper')]//aside[contains(@class, "product-photo")]//img/@data-original
+    regExp: (.+)
+    regExpReplace: https:$1
+    description: The URL for the product thumbnail image
+  - name: name
+    singleValue: false
+    xpath: //h2
+    description: The product name
+  - name: ratingCount
+    singleValue: false
+    description: The number of ratings
+  - name: reviewCount
+    singleValue: false
+    xpath: //footer//a[contains(@class, "see-reviews")]
+    regExp: (\d+)
+    description: The number of reviews
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class,'product-wrapper')]//div[contains(@class, "price-box")]//div[contains(@class, "price")]
+    description: The offered price for the product
+  - name: rank
+    singleValue: true
+    description: search/listing rank
+  - name: rankOrganic
+    singleValue: true
+    description: The position (rank) within the list excluding sponsored/paid results
+  - name: id
+    singleValue: false
+    xpath: //div[contains(@class,'product-wrapper')]//@data-modelnumber
+    description: Unique id (within this extractor)
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //footer//div[contains(@class, "rating")]//div/@class
+    regExp: (?<=\-)\s*(.*)
+    description: The stated aggregate rating normalized to be out of 5

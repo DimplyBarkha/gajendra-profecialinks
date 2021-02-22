@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //body
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@id="id"]
+  - name: name
+    singleValue: false
+    xpath: //div[@id="name"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id="productUrl"]
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@id="thumbnail"]
+  - name: searchUrl
+    singleValue: true
+    xpath: ancestor::html//div[@id='added-searchurl'][last()]

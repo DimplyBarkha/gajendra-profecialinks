@@ -1,0 +1,855 @@
+# @format
+
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+<<<<<<< HEAD
+  - name: _input
+  - name: _url
+  - name: productUrl
+    xpath: //div[@id="productUrl"]
+  - name: _pageTimeStamp
+  - name: image
+    description: URL of the main product image
+    # xpath: //img[@class="js_product_img"]/@src
+    xpath: //ol[@id="alternate_images_list"]/li[position() = 1]/@src
+  - name: imageAlt
+    description: Alt text of the main product image
+    xpath: //img[@class="js_product_img"]/@alt
+    # xpath: //ol[@id="alternate_images_list"]/li[position() = 1]/@alt
+  - name: alternateImages
+    description: Other product images (not in manufacturer description)
+    # xpath: (//div[contains(@class, "js_show-more-gallery")]//img)[position() > 1]/@src
+    xpath: //ol[@id="alternate_images_list"]/li[position() > 1]/@src
+    # xpath: //div[contains(@class, "thumb-list")]//ul/li[position()>1]//img/@src
+  - name: metaKeywords
+    description: The <meta> keywords content
+    xpath: //ancestor::html//meta[@name="keywords"]/@content
+  - name: category
+    description: The categories (e.g. from breadcrumbs)
+    xpath: //li[@class="breadcrumbs__item"]//span[@class="breadcrumbs__link-label"]
+  - name: nameExtended
+    description:
+      The product name, prefixing "${brand} - " if not included in "name"
+      and appending " - ${variantType}" if necessary (fixed per feed)
+    xpath: //div[@id="productUrl"]/@product-name
+  - name: listPrice
+    description: The stated undiscounted price for the product
+    xpath: //del[@class="buy-block__list-price"]
+  - name: price
+    description:
+      The offered price for the selected product variant - if a user clicks
+      add to basket this is the price they would be charged
+    xpath: //div[@id="price"]
+  - name: availabilityText
+    description:
+      Availability as described on page for the selected variant. If there
+      is no availability but the product can be added to cart, this field should be
+      "In Stock"
+    # xpath: //div[@id="availability"]
+    xpath: //div[@class="buy-block"]//a[@data-test="add-to-basket"]
+    regExp: .+
+    regExpReplace: In Stock
+    defaultValue: Out Of Stock
+  - name: description
+    description:
+      Product description supplied by website - may be concatenanted from
+      multiple places; specifically not the manufacturer description
+    xpath: //div[@id="description"]
+  - name: descriptionBullets
+    description: Number of ul > li tags in the description
+    xpath: //div[@id="bulletsCount"]
+  - name: brandText
+    description:
+      Product brand shown - this may actually NOT be just a brand name, e.g.
+      "Visit the Gillette Store"
+    xpath: //a[@data-analytics-tag="brand"]
+  - name: manufacturer
+    description: Product manufacturer
+    # xpath: //a[@class="px_pdp_brand_click"]//text()
+  - name: quantity
+    description: Quantity as described on the page
+    xpath: //div[@id="added_quantity"]
+  - name: weightNet
+    description: Net weight as described on the page
+    xpath: //div[@id='weight_net']
+  - name: weightGross
+    description: Gross weight as described on the page
+    xpath: //dt[normalize-space(text())='Verpakkingsgewicht']/following-sibling::dd[1]
+  - name: gtin
+    description: GTIN code (includes UPC/EAN)
+    xpath: normalize-space(//dt[contains(text(), 'EAN')]/following-sibling::dd[1])
+  - name: sku
+    description: The store-specific product identifier
+    xpath: (//div[@data-global-id]/@data-global-id | //a[@data-product-id]/@data-product-id)[1]
+  - name: variantId
+    description:
+      Identifier for a variant from a store where variants share the same
+      sku
+    # xpath: (//div[@data-global-id]/@data-global-id | //a[@data-product-id]/@data-product-id)[1]
+    xpath: //ol[@id="added_variants_list"]/@selected_variant_id
+  - name: mpc
+    description: The manufacturer model code (unique) of the product
+    xpath: //dt[normalize-space(text())='Artikelnummer']/following-sibling::dd
+  - name: packSize
+    description:
+      The number of packs in the product offer (if stated separately on the
+      site to quantity)
+  - name: legalDisclaimer
+    description: Content under "legal disclaimer" header
+  - name: directions
+    description: Content under "directions" header
+    xpath: //div[@id="added_directions"] | //dt[contains(text(),"Gebruiksaanwijzing")]/following-sibling::dd[1]
+  - name: warnings
+    description: Content under "warnings" header
+  - name: ratingCount
+    description: The number of ratings
+    xpath: //div[contains(@class,"rating-horizontal__total-reviews")]/strong
+  - name: aggregateRatingText
+    description: The stated aggregate rating
+  - name: aggregateRating
+    description: The stated aggregate rating normalized to be out of 5
+    xpath: //div[@id="aggregate_rating"]
+  - name: shippingInfo
+    description: Shipping information for the product
+    # xpath: normalize-space(//div[@class="buy-block"]//div[contains(@class,"product-seller")]//a)
+    xpath: //div[@id="shipping_info"]
+  - name: shippingDimensions
+    description: Stated shipping dimensions
+  - name: shippingWeight
+    description: Stated shipping weight
+  - name: variantCount
+    description: Number of variants listed
+    xpath: count(//a[contains(@class, "feature-list__item") or contains(@class, "feature-option")])
+  - name: color
+    description: A textual description of the colour
+    xpath: //dt[normalize-space(text())='Kleur']/following-sibling::dd
+  - name: colorCode
+    description: A code description of the color (e.g. RGB hex)
+  - name: manufacturerDescription
+    description: The extended description of the product supplied by the lister
+    xpath: //div[@id="manufacturer_description"]
+  - name: manufacturerImages
+    description: Images within the third party description
+    xpath: //div[@data-test="main-specs"]//img/@src
+  - name: videos
+    description: URLs of videos on page
+    xpath: //ol[@id="videos_list"]/li/@src
+  - name: name
+    description: The product name
+    xpath: //div[@id="productUrl"]/@product-name
+  - name: inStorePrice
+    description: Price in the selected store
+    xpath: //div[@id="price"]
+  - name: asin
+    description:
+  - name: coupon
+    description: Text of any coupon offer
+  - name: amazonChoice
+    description: YES or Blank
+  - name: amazonChoiceCategory
+    description: Text of link next to Amazon choice graphic
+  - name: brandLink
+    description:
+  - name: internationalShipping
+    description: Text next to bullet point
+  - name: salesRank
+    description:
+      Amazon best selling rank from product details (linked back) - needs
+      to be collapsed
+  - name: salesRankCategory
+    description:
+      Amazon best selling rank from product details (linked back) - needs
+      to be collapsed
+  - name: subscriptionPrice
+    description: Subscribe and save price
+  - name: subscribeAndSave
+    description: YES/NO
+  - name: heroQuickPromoHeadline
+    description: See image - top section hero area
+  - name: heroQuickPromoImageUrl
+    description:
+  - name: heroQuickPromoUrl
+    description:
+  - name: pasin
+    description: Parent asin
+  - name: videoLength
+    description:
+  - name: ingredientImagePresent
+    description:
+  - name: factImagePresent
+    description:
+  - name: largeImageCount
+    description:
+  - name: variantAsins
+    description:
+  - name: primeFlag
+    description:
+  - name: lbb
+    description:
+      Check Lost by Box Requirements (just for Amazon and a couple of other
+      stores) - LBB occurs when a product is bought from someone other than Amazon (on
+      Amazon Website) - even though Amazon has the product "in Stock"
+  - name: lbbPrice
+    description:
+  - name: featureBullets
+    description:
+  - name: otherSellersName
+    description:
+  - name: otherSellersPrime
+  - name: otherSellersPrice
+    description:
+  - name: otherSellersShipping
+    description:
+  - name: secondaryImageTotal
+    description:
+    xpath: count(//div[@data-test="product-images"]//ul/li[not(contains(@class, "nav--video-still")) and position() > 1])
+    # xpath: count((//div[contains(@class, "js_show-more-gallery")]//img)[position() > 1])
+  - name: news
+    description:
+  - name: addonItem
+    description:
+  - name: fastTrack
+    description:
+  - name: ingredientsList
+    description:
+      List of Ingredients from site - can be string of data if no discernible
+      start/end point
+    # xpath: //dt[normalize-space(text())='Ingrediënten']/following-sibling::dd[1]
+    xpath: //div[@id="ingredients_list"]
+  - name: servingSize
+    description: The size of serving Nutritional information is based on.
+  - name: servingSizeUom
+    description: Unit of measure of serving
+  - name: numberOfServingsInPackage
+    description: Suggested number of servings of the product.
+  - name: caloriesPerServing
+    description:
+      Nutritional Information for Calories Per Serving content - Usually
+      based on per 100g serving
+    xpath: //div[@id="energy"]
+  - name: caloriesFromFatPerServing
+    description:
+      Nutritional Information for Calories From Fat content - Usually based
+      on per 100g serving
+  - name: totalFatPerServing
+    description:
+      Nutritional Information for Total Fat content - Usually based on per
+      100g serving
+    xpath: //div[@id="fat"]
+    regExp: '[\d,.]+'
+  - name: totalFatPerServingUom
+    description: Unit of Measure Data for Total Fat content
+    xpath: //div[@id="fat"]
+    regExp: '[^\d,.\s]+'
+  - name: saturatedFatPerServing
+    description:
+      Nutritional Information for Saturated Fat content - Usually based on
+      per 100g serving
+  - name: saturatedFatPerServingUom
+    description: Unit of Measure Data for Saturated Fat content
+  - name: transFatPerServing
+    description:
+      Nutritional Information for Trans Fat content - Usually based on per
+      100g serving
+  - name: transFatPerServingUom
+    description: Unit of Measure Data for Trans Fat content
+  - name: cholesterolPerServing
+    description:
+      Nutritional Information for Cholesterol content - Usually based on
+      per 100g serving
+  - name: cholesterolPerServingUom
+    description: Unit of Measure Data for Cholesterol content
+  - name: sodiumPerServing
+    description:
+      Nutritional Information for Sodium content - Usually based on per 100g
+      serving
+  - name: sodiumPerServingUom
+    description: Unit of Measure Data for Sodium content
+  - name: totalCarbPerServing
+    description:
+      Nutritional Information for Total Carbohydrate content - Usually based
+      on per 100g serving
+  - name: totalCarbPerServingUom
+    description: Unit of Measure Data for Total Carbohydrate content
+  - name: dietaryFibrePerServing
+    description:
+      Nutritional Information for Dietary Fibre content - Usually based on
+      per 100g serving
+    xpath: //div[@id="fiber"]
+    regExp: '[\d,.]+'
+  - name: dietaryFibrePerServingUom
+    description: Unit of Measure Data for Dietary Fibre content
+    xpath: //div[@id="fiber"]
+    regExp: '[^\d,.\s]+'
+  - name: totalSugarsPerServing
+    description:
+      Nutritional Information for Total Sugar content - Usually based on
+      per 100g serving
+    xpath: //div[@id="sugars"]
+    regExp: '[\d,.]+'
+  - name: totalSugarsPerServingUom
+    description: Unit of Measure Data for Total Sugar content
+    xpath: //div[@id="sugars"]
+    regExp: '[^\d,.\s]+'
+  - name: proteinPerServing
+    description:
+      Nutritional Information for Protein content - Usually based on per
+      100g serving
+    xpath: //div[@id="protein"]
+    regExp: '[\d,.]+'
+  - name: proteinPerServingUom
+    description: Unit of Measure Data for Protein
+    xpath: //div[@id="protein"]
+    regExp: '[^\d,.\s]+'
+  - name: vitaminAPerServing
+    description:
+      Nutritional Information for Vitamin A content - Usually based on per
+      100g serving
+  - name: vitaminAPerServingUom
+    description: Unit of Measure Data for Vitamin A
+  - name: vitaminCPerServing
+    description:
+      Nutritional Information for Vitamin C content - Usually based on per
+      100g serving
+  - name: vitaminCPerServingUom
+    description: Unit of Measure Data for Vitamin C
+  - name: calciumPerServing
+    description:
+      Nutritional Information for Calcium content - Usually based on per
+      100g serving
+  - name: calciumPerServingUom
+    description: Unit of Measure Data for Calcium
+  - name: ironPerServing
+    description:
+      Nutritional Information for Iron content - Usually based on per 100g
+      serving
+  - name: ironPerServingUom
+    description: Unit of Measure Data for Iron
+  - name: dietarySymbols
+    description: Information related to the dietary symbols of a specific product
+  - name: magnesiumPerServing
+    description:
+      Nutritional Information for Magnesium content - Usually based on per
+      100g serving
+  - name: magnesiumPerServingUom
+    description: Unit of Measure Data for Magnesium
+  - name: saltPerServing
+    description:
+      Nutritional Information for Salt content - Usually based on per 100g
+      serving
+  - name: saltPerServingUom
+    description: Unit of Measure Data for Salt
+  - name: dietaryInformation
+    description:
+  - name: specifications
+    xpath: //div[@id="specifications"]
+  - name: warranty
+    description: Guarantee associated with the product
+  - name: storage
+    description: Suggested storage location for product
+    xpath: //dt[contains(text(),"Bijzondere Bewaarvoorschriften")]/following-sibling::dd[1]
+  - name: countryOfOrigin
+    description: The country from which the product originates
+  - name: allergyAdvice
+    description: Allergy information associated with the product
+    xpath: //dt[normalize-space(text())='Allergeneninformatie']/following-sibling::dd[1]
+  - name: recyclingInformation
+    description: Recycling information associated with the product
+  - name: productOtherInformation
+    description: Any other product information
+  - name: packaging
+    description: Packaging information
+  - name: additives
+    description: List of additives in the product
+  - name: pricePerUnit
+    description: Price of the product split into certain units
+    xpath: //span[contains(@class,"price-block__unit")]
+  - name: pricePerUnitUom
+    description: The unit of measurement used in price_per_unit
+    xpath: //div[@id="pricePerUnitUom"]
+  - name: promotion
+    description: promotion text on product page
+    xpath: //div[@data-test="price-discount"] | //div[@data-test="discount"] | //div[@class="multibundle__discount"]
+  - name: alcoholContent
+    description: Alcohol content information
+  - name: newVersion
+    description: In product page, information about a new version of the product (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
+  - name: newAsin
+    description:
+      In product page, information about a new version of the product - new
+      asin info
+  - name: newDescription
+    description:
+      In product page, information about a new version of the product - new
+      desription info
+  - name: variantInformation
+    description: colour / scent / flavour / other
+    # xpath: //a[@class="feature-option feature-option--image is-active"]//@title | //a[@class="feature-option feature-option--btn  is-active"]/@title
+    xpath: //ol[@id="added_variants_list"]/@selected_variant_name
+  - name: firstVariant
+    description:
+      Unique identifier for a collection of variants. For a subset of core
+      feeds (43) we have a column "first_variant" that is populated with a common code
+      to link all variants for a product. method 1 (Preferred) = use common tag (Could
+      be parent sku) that is same value for all variants of a product. method 2 = first_variant
+      method technique, Identify the first varient in the sequence and use this rpc
+      to populate "first_variant" for all variants of a product, this rpc becomes the
+      common link between other variants. method 3 = apply some logic to determine link
+      between variants, this will need analysis
+    # xpath: (//a[contains(@class, "feature-list__item") or contains(@class, "feature-option")]//img/@alt)[1]
+    xpath: //ol[@id="added_variants_list"]/li[1]/@variant_id
+  - name: variants
+    description:
+    # xpath: //a[contains(@class, "feature-list__item") or contains(@class, "feature-option")]//img/@alt
+    xpath: //ol[@id="added_variants_list"]/li/@variant_id
+  - name: additionalDescBulletInfo
+    description:
+    xpath: //div[@id="additionalDescBulletInfo"]
+  - name: prop65Warning
+    description:
+  - name: ageSuitability
+    description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
+    example: 4 - 99 years
+  - name: energyEfficiency
+    description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+    example: A+, A+++, B
+  - name: technicalInformationPdfPresent
+    description: If there is for example a manual in pdf format on the website. ['Yes','No']
+    example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+    defaultValue: false
+  - name: termsAndConditions
+    description: Terms and conditions information text ['Yes','No']
+    defaultValue: 'Yes'
+  - name: privacyPolicy
+    description: Privacy Policy information text ['Yes','No']
+    defaultValue: 'Yes'
+  - name: customerServiceAvailability
+    description: Information related to customer service availability (text), ['Yes','No']
+    defaultValue: 'Yes'
+  - name: materials
+    description: Materials used to make the product
+    example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+  - name: Image360Present
+    description: If 360 image is present in the carousel ['Yes','No']
+    example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+    defaultValue: false
+  - name: imageZoomFeaturePresent
+    description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
+    example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+    defaultValue: 'Yes'
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class,"recommended-products") or contains(@class,"additional-products") or contains(@class,"sponsored-products")]//a[contains(@class,"product-title")]
+=======
+- name: _input
+- name: _url
+- name: productUrl
+  xpath: //div[@id="productUrl"]
+- name: _pageTimeStamp
+- name: image
+  description: URL of the main product image
+  # xpath: //img[@class="js_product_img"]/@src
+  xpath: //ol[@id="alternate_images_list"]/li[position() = 1]/@src
+- name: imageAlt
+  description: Alt text of the main product image
+  xpath: //img[@class="js_product_img"]/@alt
+  # xpath: //ol[@id="alternate_images_list"]/li[position() = 1]/@alt
+- name: alternateImages
+  description: Other product images (not in manufacturer description)
+  # xpath: (//div[contains(@class, "js_show-more-gallery")]//img)[position() > 1]/@src
+  xpath: //ol[@id="alternate_images_list"]/li[position() > 1]/@src
+  # xpath: //div[contains(@class, "thumb-list")]//ul/li[position()>1]//img/@src
+- name: metaKeywords
+  description: The <meta> keywords content
+  xpath: //ancestor::html//meta[@name="keywords"]/@content
+- name: category
+  description: The categories (e.g. from breadcrumbs)
+  xpath: //li[@class="breadcrumbs__item"]//span[@class="breadcrumbs__link-label"]
+- name: nameExtended
+  description: The product name, prefixing "${brand} - " if not included in "name"
+    and appending " - ${variantType}" if necessary (fixed per feed)
+  xpath: //div[@id="productUrl"]/@product-name
+- name: listPrice
+  description: The stated undiscounted price for the product
+  xpath: //del[@class="buy-block__list-price"]
+- name: price
+  description: The offered price for the selected product variant - if a user clicks
+    add to basket this is the price they would be charged
+  xpath: //div[@id="price"]
+- name: availabilityText
+  description: Availability as described on page for the selected variant. If there
+    is no availability but the product can be added to cart, this field should be
+    "In Stock"
+  # xpath: //div[@id="availability"]
+  xpath: //div[@class="buy-block"]//a[@data-test="add-to-basket"]
+  regExp: .+
+  regExpReplace: In Stock
+  defaultValue: Out Of Stock
+- name: description
+  description: Product description supplied by website - may be concatenanted from
+    multiple places; specifically not the manufacturer description
+  xpath: //div[@id="description"]
+- name: descriptionBullets
+  description: Number of ul > li tags in the description
+  xpath: //div[@id="bulletsCount"]
+- name: brandText
+  description: Product brand shown - this may actually NOT be just a brand name, e.g.
+    "Visit the Gillette Store"
+  xpath: (//div[@data-test="brand"]/a)[1]
+  # xpath: (//a[@data-analytics-tag="brand" or @data-analytics-tag="author"])[1]
+- name: manufacturer
+  description: Product manufacturer
+  # xpath: //a[@class="px_pdp_brand_click"]//text()
+- name: quantity
+  description: Quantity as described on the page
+  xpath: //div[@id="added_quantity"]
+- name: weightNet
+  description: Net weight as described on the page
+  xpath: //div[@id='weight_net']
+- name: weightGross
+  description: Gross weight as described on the page
+  xpath: //dt[normalize-space(text())='Verpakkingsgewicht']/following-sibling::dd[1]
+- name: gtin
+  description: GTIN code (includes UPC/EAN)
+  xpath: normalize-space(//dt[contains(text(), 'EAN')]/following-sibling::dd[1])
+- name: sku
+  description: The store-specific product identifier
+  xpath: (//div[@data-global-id]/@data-global-id | //a[@data-product-id]/@data-product-id)[1]
+- name: variantId
+  description: Identifier for a variant from a store where variants share the same
+    sku
+  # xpath: (//div[@data-global-id]/@data-global-id | //a[@data-product-id]/@data-product-id)[1]
+  xpath: //ol[@id="added_variants_list"]/@selected_variant_id
+- name: mpc
+  description: The manufacturer model code (unique) of the product
+  xpath: //dt[normalize-space(text())='Artikelnummer']/following-sibling::dd
+- name: packSize
+  description: The number of packs in the product offer (if stated separately on the
+    site to quantity)
+- name: legalDisclaimer
+  description: Content under "legal disclaimer" header
+- name: directions
+  description: Content under "directions" header
+  xpath: //div[@id="added_directions"]
+- name: warnings
+  description: Content under "warnings" header
+- name: ratingCount
+  description: The number of ratings
+  xpath: //div[contains(@class,"rating-horizontal__total-reviews")]/strong
+- name: aggregateRatingText
+  description: The stated aggregate rating
+- name: aggregateRating
+  description: The stated aggregate rating normalized to be out of 5
+  xpath: //div[@id="aggregate_rating"]
+- name: shippingInfo
+  description: Shipping information for the product
+  # xpath: normalize-space(//div[@class="buy-block"]//div[contains(@class,"product-seller")]//a)
+  xpath: //div[@id="shipping_info"]
+- name: shippingDimensions
+  description: Stated shipping dimensions
+- name: shippingWeight
+  description: Stated shipping weight
+- name: variantCount
+  description: Number of variants listed
+  xpath: count(//a[contains(@class, "feature-list__item") or contains(@class, "feature-option")])
+- name: color
+  description: A textual description of the colour
+  xpath: //dt[normalize-space(text())='Kleur']/following-sibling::dd
+- name: colorCode
+  description: A code description of the color (e.g. RGB hex)
+- name: manufacturerDescription
+  description: The extended description of the product supplied by the lister
+  xpath: //div[@id="manufacturer_description"]
+- name: manufacturerImages
+  description: Images within the third party description
+  xpath: //div[@data-test="main-specs"]//img/@src
+- name: videos
+  description: URLs of videos on page
+  xpath: //ol[@id="videos_list"]/li/@src
+- name: name
+  description: The product name
+  xpath: //div[@id="productUrl"]/@product-name
+- name: inStorePrice
+  description: Price in the selected store
+  xpath: //div[@id="price"]
+- name: asin
+  description: 
+- name: coupon
+  description: Text of any coupon offer
+- name: amazonChoice
+  description: YES or Blank
+- name: amazonChoiceCategory
+  description: Text of link next to Amazon choice graphic
+- name: brandLink
+  description: 
+- name: internationalShipping
+  description: Text next to bullet point
+- name: salesRank
+  description: Amazon best selling rank from product details (linked back) - needs
+    to be collapsed
+- name: salesRankCategory
+  description: Amazon best selling rank from product details (linked back) - needs
+    to be collapsed
+- name: subscriptionPrice
+  description: Subscribe and save price
+- name: subscribeAndSave
+  description: YES/NO
+- name: heroQuickPromoHeadline
+  description: See image - top section hero area
+- name: heroQuickPromoImageUrl
+  description: 
+- name: heroQuickPromoUrl
+  description: 
+- name: pasin
+  description: Parent asin
+- name: videoLength
+  description: 
+- name: ingredientImagePresent
+  description: 
+- name: factImagePresent
+  description: 
+- name: largeImageCount
+  description: 
+- name: variantAsins
+  description: 
+- name: primeFlag
+  description: 
+- name: lbb
+  description: Check Lost by Box Requirements (just for Amazon and a couple of other
+    stores) - LBB occurs when a product is bought from someone other than Amazon (on
+    Amazon Website) - even though Amazon has the product "in Stock"
+- name: lbbPrice
+  description: 
+- name: featureBullets
+  description: 
+- name: otherSellersName
+  description: 
+- name: otherSellersPrime
+- name: otherSellersPrice
+  description: 
+- name: otherSellersShipping
+  description: 
+- name: secondaryImageTotal
+  description: 
+  xpath: count(//div[@data-test="product-images"]//ul/li[not(contains(@class, "nav--video-still")) and position() > 1])
+  # xpath: count((//div[contains(@class, "js_show-more-gallery")]//img)[position() > 1])
+- name: news
+  description: 
+- name: addonItem
+  description: 
+- name: fastTrack
+  description: 
+- name: ingredientsList
+  description: List of Ingredients from site - can be string of data if no discernible
+    start/end point
+  # xpath: //dt[normalize-space(text())='Ingrediënten']/following-sibling::dd[1]
+  xpath: //div[@id="ingredients_list"]
+- name: servingSize
+  description: The size of serving Nutritional information is based on.
+- name: servingSizeUom
+  description: Unit of measure of serving
+- name: numberOfServingsInPackage
+  description: Suggested number of servings of the product.
+- name: caloriesPerServing
+  description: Nutritional Information for Calories Per Serving content - Usually
+    based on per 100g serving
+  xpath: //div[@id="energy"]
+- name: caloriesFromFatPerServing
+  description: Nutritional Information for Calories From Fat content - Usually based
+    on per 100g serving
+- name: totalFatPerServing
+  description: Nutritional Information for Total Fat content - Usually based on per
+    100g serving
+  xpath: //div[@id="fat"]
+  regExp: '[\d,.]+'
+- name: totalFatPerServingUom
+  description: Unit of Measure Data for Total Fat content
+  xpath: //div[@id="fat"]
+  regExp: '[^\d,.\s]+'
+- name: saturatedFatPerServing
+  description: Nutritional Information for Saturated Fat content - Usually based on
+    per 100g serving
+- name: saturatedFatPerServingUom
+  description: Unit of Measure Data for Saturated Fat content
+- name: transFatPerServing
+  description: Nutritional Information for Trans Fat content - Usually based on per
+    100g serving
+- name: transFatPerServingUom
+  description: Unit of Measure Data for Trans Fat content
+- name: cholesterolPerServing
+  description: Nutritional Information for Cholesterol content - Usually based on
+    per 100g serving
+- name: cholesterolPerServingUom
+  description: Unit of Measure Data for Cholesterol content
+- name: sodiumPerServing
+  description: Nutritional Information for Sodium content - Usually based on per 100g
+    serving
+- name: sodiumPerServingUom
+  description: Unit of Measure Data for Sodium content
+- name: totalCarbPerServing
+  description: Nutritional Information for Total Carbohydrate content - Usually based
+    on per 100g serving
+- name: totalCarbPerServingUom
+  description: Unit of Measure Data for Total Carbohydrate content
+- name: dietaryFibrePerServing
+  description: Nutritional Information for Dietary Fibre content - Usually based on
+    per 100g serving
+  xpath: //div[@id="fiber"]
+  regExp: '[\d,.]+'
+- name: dietaryFibrePerServingUom
+  description: Unit of Measure Data for Dietary Fibre content
+  xpath: //div[@id="fiber"]
+  regExp: '[^\d,.\s]+'
+- name: totalSugarsPerServing
+  description: Nutritional Information for Total Sugar content - Usually based on
+    per 100g serving
+  xpath: //div[@id="sugars"]
+  regExp: '[\d,.]+'
+- name: totalSugarsPerServingUom
+  description: Unit of Measure Data for Total Sugar content
+  xpath: //div[@id="sugars"]
+  regExp: '[^\d,.\s]+'
+- name: proteinPerServing
+  description: Nutritional Information for Protein content - Usually based on per
+    100g serving
+  xpath: //div[@id="protein"]
+  regExp: '[\d,.]+'
+- name: proteinPerServingUom
+  description: Unit of Measure Data for Protein
+  xpath: //div[@id="protein"]
+  regExp: '[^\d,.\s]+'
+- name: vitaminAPerServing
+  description: Nutritional Information for Vitamin A content - Usually based on per
+    100g serving
+- name: vitaminAPerServingUom
+  description: Unit of Measure Data for Vitamin A
+- name: vitaminCPerServing
+  description: Nutritional Information for Vitamin C content - Usually based on per
+    100g serving
+- name: vitaminCPerServingUom
+  description: Unit of Measure Data for Vitamin C
+- name: calciumPerServing
+  description: Nutritional Information for Calcium content - Usually based on per
+    100g serving
+- name: calciumPerServingUom
+  description: Unit of Measure Data for Calcium
+- name: ironPerServing
+  description: Nutritional Information for Iron content - Usually based on per 100g
+    serving
+- name: ironPerServingUom
+  description: Unit of Measure Data for Iron
+- name: dietarySymbols
+  description: Information related to the dietary symbols of a specific product
+- name: magnesiumPerServing
+  description: Nutritional Information for Magnesium content - Usually based on per
+    100g serving
+- name: magnesiumPerServingUom
+  description: Unit of Measure Data for Magnesium
+- name: saltPerServing
+  description: Nutritional Information for Salt content - Usually based on per 100g
+    serving
+- name: saltPerServingUom
+  description: Unit of Measure Data for Salt
+- name: dietaryInformation
+  description: 
+- name: specifications
+  xpath: //div[@id="specifications"]
+- name: warranty
+  description: Guarantee associated with the product
+- name: storage
+  description: Suggested storage location for product
+- name: countryOfOrigin
+  description: The country from which the product originates
+- name: allergyAdvice
+  description: Allergy information associated with the product
+  xpath: //dt[normalize-space(text())='Allergeneninformatie']/following-sibling::dd[1]
+- name: recyclingInformation
+  description: Recycling information associated with the product
+- name: productOtherInformation
+  description: Any other product information
+- name: packaging
+  description: Packaging information
+- name: additives
+  description: List of additives in the product
+- name: pricePerUnit
+  description: Price of the product split into certain units
+  xpath: //span[contains(@class,"price-block__unit")]
+- name: pricePerUnitUom
+  description: The unit of measurement used in price_per_unit
+  xpath: //div[@id="pricePerUnitUom"]
+- name: promotion
+  description: promotion text on product page
+  xpath: //div[@data-test="price-discount"] | //div[@data-test="discount"] | //div[@class="multibundle__discount"]
+- name: alcoholContent
+  description: Alcohol content information
+- name: newVersion
+  description: In product page, information about a new version of the product (https://www.amazon.es/DODOT-Sensitive-Pa%C3%B1ales-Talla-240/dp/B01ELA8U0Q/ref=sr_1_4?__mk_es_ES=%C3%85M%C3%85%C5%BD%C3%95%C3%91&dchild=1&keywords=dodot%2B-%2Bpa%C3%B1ales%2Bpara%2Bni&qid=1589984387&sr=8-4&th=1)
+- name: newAsin
+  description: In product page, information about a new version of the product - new
+    asin info
+- name: newDescription
+  description: In product page, information about a new version of the product - new
+    desription info
+- name: variantInformation
+  description: colour / scent / flavour / other
+  # xpath: //a[@class="feature-option feature-option--image is-active"]//@title | //a[@class="feature-option feature-option--btn  is-active"]/@title
+  xpath: //ol[@id="added_variants_list"]/@selected_variant_name
+- name: firstVariant
+  description: Unique identifier for a collection of variants. For a subset of core
+    feeds (43) we have a column "first_variant" that is populated with a common code
+    to link all variants for a product. method 1 (Preferred) = use common tag (Could
+    be parent sku) that is same value for all variants of a product. method 2 = first_variant
+    method technique, Identify the first varient in the sequence and use this rpc
+    to populate "first_variant" for all variants of a product, this rpc becomes the
+    common link between other variants. method 3 = apply some logic to determine link
+    between variants, this will need analysis
+  # xpath: (//a[contains(@class, "feature-list__item") or contains(@class, "feature-option")]//img/@alt)[1]
+  xpath: //ol[@id="added_variants_list"]/li[1]/@variant_id
+- name: variants
+  description: 
+  # xpath: //a[contains(@class, "feature-list__item") or contains(@class, "feature-option")]//img/@alt
+  xpath: //ol[@id="added_variants_list"]/li/@variant_id
+- name: additionalDescBulletInfo
+  description: 
+  xpath: //div[@id="additionalDescBulletInfo"]
+- name: prop65Warning
+  description: 
+- name: ageSuitability
+  description: Recommended age displayed on the product page. https://www.amazon.com/LEGO-Classic-Medium-Creative-Brick/dp/B00NHQFA1I
+  example: 4 - 99 years
+- name: energyEfficiency
+  description: Energy rating of a product. https://www.amazon.de/Siemens-WM16W541-Waschmaschine-Schnellwaschprogramm-Nachlegefunktion/dp/B015FJFK14
+  example: A+, A+++, B
+- name: technicalInformationPdfPresent
+  description: If there is for example a manual in pdf format on the website. ['Yes','No']
+  example: https://www.amazon.de/Hasbro-Spiele-44220100-Mastermind-Kinderspiel/dp/B0007OHUG6
+  defaultValue: false
+- name: termsAndConditions
+  description: Terms and conditions information text ['Yes','No']
+  defaultValue: 'Yes'
+- name: privacyPolicy
+  description: Privacy Policy information text ['Yes','No']
+  defaultValue: 'Yes'
+- name: customerServiceAvailability
+  description: Information related to customer service availability (text), ['Yes','No']
+  defaultValue: 'Yes'
+- name: materials
+  description: Materials used to make the product
+  example: https://www.jdsports.co.uk/product/blue-adidas-linear-20-reversible-wind-breaker-jacket/15988125/
+- name: Image360Present
+  description: If 360 image is present in the carousel ['Yes','No']
+  example: https://www.amazon.com/Trinsic-Single-Handle-Magnetic-Champagne-9159-CZ-DST/dp/B0050EN8E6
+  defaultValue: false
+- name: imageZoomFeaturePresent
+  description: If Zoom feature is available for Main image or images in the carousel,['Yes','No']
+  example: https://www.zalando.de/adidas-neo-sneaker-low-blackwhite-a4315i002-q11.html
+  defaultValue: 'Yes'
+- name: hasComparisonTable
+  defaultValue: No
+- name: unInterruptedPDP
+  xpath: //div[contains(@class,"recommended-products") or contains(@class,"additional-products") or contains(@class,"sponsored-products")]//a[contains(@class,"product-title")]
+>>>>>>> bc220301ff6c4af3177fa806aaae92d3c597b816

@@ -1,0 +1,144 @@
+# @format
+
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    xpath: //div[contains(@class, 'is-galleryWrapper')]//div[@class='is-active']//div[contains(@class, 'c-offerBox_galleryItem')]/div[1]/@data-settings
+  - name: imageAlt
+    xpath: //div[contains(@class, 'is-galleryWrapper')]//div[@class='is-active']//div[contains(@class, 'c-offerBox_galleryItem')]//img/@alt
+  - name: category
+    xpath: //ul[contains(@class, 'c-breadcrumb_wrapper')]/li[position()>1 and position()!=last()]
+  - name: nameExtended
+    xpath: //div[contains(@class, 'is-productName')]//h1
+  - name: name
+    xpath: //div[contains(@class, 'is-productName')]//h1
+  - name: price
+    xpath: //meta[@property='product:price:amount']/@content
+  - name: promocodePrice
+    xpath: //div[contains(@class, 'is-shopsOnly')]//div[contains(@class, 'is-prices')]//div[contains(@class, 'is-promoCodeEmblem')]//div[contains(@class, 'is-promoPrice')]
+  - name: availabilityText
+    xpath: //span[@class='is-starred']
+    regExp: (.+)
+    regExpReplace: Out of Stock
+    defaultValue: In Stock
+  - name: description
+    xpath: //div[@data-zone="OFFERBOX_ATTRIBUTES"]
+  - name: brandText
+    xpath: //meta[@property='product:brand']/@content
+  - name: brandLink
+    xpath: //meta[@property='product:brand']/@content
+    regExp: (.+)
+    regExpReplace: https://www.mediaexpert.pl/$1
+  - name: quantity
+    xpath: //div[contains(@class, 'c-offerBox_variantsContent')]//a[contains(@class, 'is-active')]
+  - name: variantId
+    xpath: //meta[contains(@property,'product:retailer_part_no')]/@content
+  - name: alternateImages
+    xpath: //div[not(contains(@class, 'is-active'))]/div[contains(@class,'c-offerBox_galleryItem')]//div[@data-component="magnifier modal"]/@data-settings
+  - name: secondaryImageTotal
+    xpath: count(//div[not(contains(@class, 'is-active'))]/div[contains(@class,'c-offerBox_galleryItem')]//div[@data-component="magnifier modal"])
+  - name: productData
+    xpath: //script[contains(@type, 'application/ld+json')][2]
+  - name: ratingCount
+    xpath: //div[contains(@class, 'is-productNameInfobar')]//div[contains(@class, 'c-reviews_count')]
+  - name: reviewCount
+    xpath: //div[contains(@class, 'is-productNameInfobar')]//div[contains(@class, 'c-reviews_count')]
+  - name: manufacturerImages
+    xpath: //div[@class='prawa']//img/@src | //div[@class='is-description']//section[contains(@class, 'TFL_section') and not(contains(@class, 'TFL_top'))]//img/@src | //div[@id='description']//table//img[contains(@data-component,"lazyLoad")]/@src | //div[@class='is-description']//img[contains(@class,'is-loaded') and (@alt) and not(contains(@alt,'Ikona'))]/@src | //div[@id='description']//*[contains(@class, 'product-page')]/img/@src | //div[contains(@class, 'is-description')]//div[@class='background-image']/img/@src | //div[contains(@class, 'esm-model-packshot') or contains(@class, 'esm-benefit') or contains(@class, 'esm-banner-section')]//div[contains(@class, 'esm-image')]/img/@src | //div[contains(@class, 'DELL_box') or contains(@class, 'dell_box')]/img/@src | //div[contains(@class, 'Rtable-cell')]/img/@src|//div[@class='is-description']//img[@data-component="lazyLoad" and not(contains(@alt,'Ikona'))]/@src|//div[@class='e-image e-widget']//img/@src
+    regExp: (.+)
+    regExpReplace: https://www.mediaexpert.pl$1
+  - name: aplusImages_fallBack
+    xpath: //div[@class='widget text_editor']/div[@class='LG_opis']/div/@style
+    regExp: background(\:) url\('(.+)'\);
+    regExpReplace: https://www.mediaexpert.pl$2
+  # - name: manufacturerDescription
+  #   xpath: //div[@class='prawa'] | //div[@class='is-description']//section[contains(@class, 'TFL_section TFL_info')] | //div[@id='description']//table//td//img[contains(@data-component,"lazyLoad")]/../.. | //div[@class='is-description']//div[contains(@class, 'pure-u-1')]//p[contains(@class, 'text-justify')] | //div[@id='description']//*[contains(@class, 'product-page')]/div[contains(@class, 'feature-wrap')] |//div[@id='description']//div[@class='display-desktop' or @class='DELL_content' or contains(@class, 'dell_content')] | //div[@id='description']//div[contains(@class, 'Rtable-cell')] | //div[contains(@class, 'esm-benfits-section')]
+  - name: manufacturerDescription
+    xpath: //div[contains(@class, 'is-description')]//div[contains(@class, 'text_editor')]
+  - name: specifications
+    xpath: //table[contains(@class, 'is-specification')]//tr
+  - name: warranty
+    xpath: //td[contains(., 'Gwarancja ')]/following-sibling::td[1]
+  - name: videos
+    xpath: //div[contains(@class, 'is-magnifier')]//iframe[@data-component='youtube']/@data-src|//div[@id='videoFromEnhancedContent']|//div[contains(@class, 'youtube')]/a/@href
+    # regExp: (.+)embed\/(.+)
+    # regExpReplace: $2
+  - name: listPrice
+    xpath: //div[@class='inner-wrapper-sticky' or contains(@class, 'c-offerBox_offerSlider is-outlet')]//div[contains(@class,'a-price_old')][1]
+  - name: color
+    xpath: //td[contains(., 'Kolor')]/following-sibling::td
+  - name: variantInformation
+    xpath: //td[contains(., 'Kolor')]/following-sibling::td
+  - name: weightNetUom
+    xpath: //td[contains(., 'Waga')]
+    regExp: (.+)\[(.+)\]
+    regExpReplace: $2
+  - name: weightNet
+    xpath: //td[contains(., 'Waga')]/following-sibling::td
+    regExp: (.+)
+    regExpReplace: $1
+  - name: manufacturer
+    xpath: //td[contains(., 'Nazwa producenta')]/following-sibling::td
+  - name: Image360Present
+    xpath: //img[contains(@src, '/assets/images/icons/360.png')]/@src
+    regExp: (.+)
+    regExpReplace: 'Yes'
+    defaultValue: 'No'
+  - name: imageZoomFeaturePresent
+    defaultValue: 'Yes'
+  - name: productSingleImage
+    xpath: //div[contains(@class, 'is-galleryLens')]/ancestor::div[contains(@data-component, 'magnifier modal')]/@data-settings
+  - name: productSingleImageAltText
+    xpath: //div[contains(@class, 'is-galleryLens')]/preceding-sibling::img/@alt
+  - name: variants
+    xpath: //div[contains(@class, 'c-offerBox_variantsContent')]/div[not(contains(@class, 'is-active'))]//div[contains(@class, 'c-offerBox_photo')]/@data-offer-id
+  - name: variantCount
+    xpath: count(//div[contains(@class, 'c-offerBox_variantsContent')]/div[not(contains(@class, 'is-active'))]//div[contains(@class, 'c-offerBox_photo')])
+  - name: firstVariant
+    xpath: //div[contains(@class, 'c-offerBox_variantsContent')]/div[not(contains(@class, 'is-active'))][1]//div[contains(@class, 'c-offerBox_photo')]/@data-offer-id
+  # - name: videoFromEnhancedContent
+  #   xpath: //link[@rel="canonical"]/@href
+  # - name: haVideo
+  #   xpath: //div[@id='videoFromEnhancedContent']/@text()
+  - name: skuAtLast
+    xpath: //div[contains(@class, 'c-offerBox_compare is-desktopCustom')]/@data-offer-id
+  - name: skuSecondary
+    xpath: //input[@name='enp_product_offer_availability_notification_type[productId]']/@value
+  - name: sku
+    xpath: //meta[@property="product:retailer_part_no"]/@content
+  - name: mpc
+    xpath: //script[contains(., 'ecomm_model')]
+    regExp: ecomm_model:\s\'([A-Z] |\w+)
+    regExpReplace: $1
+  - name: videoFromEnhancedContent
+    xpath: //div[@id='videoFromEnhancedContent']|//div[contains(@class, 'youtube')]/a/@href
+  - name: productUrl
+    xpath: //meta[@property="og:url"]/@content
+  - name: galleryVideos
+    xpath: //div[contains(@class, 'is-magnifier')]//iframe[@data-component='youtube']/@data-src|//div[contains(@class, 'youtube')]/a/@href
+  - name: aggregateRating
+    xpath: //script[contains(., 'rating')]
+    regExp: ratingValue":\s\"(\d(\.?)(\d)?)",
+    regExpReplace: $1
+  - name: gtin
+    xpath: //script[contains(., 'gtin')]
+    regExp: gtin13":\s\"([A-Z] |\w+)",
+    regExpReplace: $1
+  - name: unInterruptedPDP
+    xpath: //div[@id="accessoriesCarousel"]//div[@data-event="OFFERBOX_CLICK"]//a[@data-analytics-on="click"]
+  - name: inTheBoxUrl
+    xpath: //div[@class="description-container" or @class='description_dyson-container' ]/div[contains(.,'W ') or contains(.,'Zawartość')]/following-sibling::*//img/@src | //div[ contains(@class,'description-dyson')]/div[contains(.,'W pudełku')]/following-sibling::*//img/@src | //h3[contains(.,"Zawartość opakowania")]/../../following-sibling::div//img/@data-src | //h3[contains(.,"Zawartość opakowania")]/../../following-sibling::div//img/@src
+    regExp: (.+)
+    regExpReplace: https://mediaexpert.pl$1
+  - name: inTheBoxText
+    xpath: //div[@class="description-container" or @class='description_dyson-container' ]/div[contains(.,'W ') or contains(.,'Zawartość')]/following-sibling::*//img/following-sibling::p[contains(@class,'description')] | //div[contains(@class,'description-dyson-') ]/div[contains(.,'W pudełku')]/following-sibling::*//img/following-sibling::p[contains(@class,'description')]
+  - name: hasComparisonTable
+    xpath: //div[contains(@class, "description_dyson")]//div[@class='table-responsve']/table
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: energyEfficiency
+    xpath: //h2[contains(text(), 'Klasa energetyczna')]/following::td[1]

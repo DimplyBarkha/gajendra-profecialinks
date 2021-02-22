@@ -1,0 +1,21 @@
+extends: ../shared 
+fields:
+  - name: availabilityText
+    # xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//button[contains(text(),'carrello')]//text() | //button[contains(.,'aggiungi al carrello')] | //button[contains(text(),'Aggiungi al carrello')]
+    xpath: //div[contains(concat(' ',normalize-space(@class),' '),' product-hero ')]//form//button[contains(text(),'carrello')]//text() |//div[@class='row']//button[contains(text(),'Aggiungi al carrello')]|//div[@class='row']//button[contains(.,'aggiungi al carrello')] | //div[contains(@class,"row")]//a[contains(text(),'Aggiungi al carrello')]
+    regExp: (.+)
+    regExpReplace: In Stock
+    # Add no default value, being take care in transform.js
+    defaultValue: Out of Stock
+  - name: price
+    singleValue: true
+    description: The offered price for the selected product variant - if a user
+      clicks add to basket this is the price they would be charged
+    xpath: //div[@id='added_price']
+  - name: weightNet
+    xpath: (//ul[contains(concat(' ',normalize-space(@class),' '),' product-specification__specification-container ')]//li[.//*[contains(text(), 'Peso')]])[1]
+  - name: shippingInfo
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'onsegna')]])[1]
+  - name: warranty
+    xpath: (//div[contains(concat(' ',normalize-space(@class),' '),' reasons-to-buy__overlay-content-container ')][.//*[contains(text(),'garanzia ')]])[1]
+  

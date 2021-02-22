@@ -1,0 +1,162 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: image
+    singleValue: false
+    xpath: //img[contains(@class, 'default-prod img-block')]/@src
+  - name: imageAlt
+    singleValue: false
+    xpath: //img[contains(@class, 'default-prod img-block')]/@alt
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[contains(@class,'thumbnails-content')]/img/@src
+  - name: category
+    singleValue: false
+    xpath: //ol[contains(@class, 'breadcrumb')]/li[1]/following-sibling::*
+  - name: nameExtended
+    singleValue: false
+    xpath: //h2[contains(@class,"pdp-title")]
+  - name: price
+    singleValue: false
+    xpath: //div[contains(@class, "info-price-total")]//span[@class="price"]
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'discount-info')]//span[@class='price-info line-through' and normalize-space(.)!='']
+  - name: availabilityText
+    singleValue: false
+    defaultValue: Out of Stock
+    xpath: //span[contains(@class,"bold delivery")]//following-sibling::*
+    regExp: (.+)
+    regExpReplace: In Stock
+  - name: brandText
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"brand")]
+    regExp: brand":{"@type":"[^"]+","name":"([^"]+)
+    regExpReplace: $1
+  - name: quantity
+    singleValue: false
+    xpath: //div[contains(@class,'pdp-description-attr')]//span[contains(@class,'pdp-description-attr-value') and contains(text(), 'Taille')] | //span[contains(@class,'pdp-description-attr-value')][2]
+  - name: sku
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
+  - name: asin
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
+  - name: firstVariant
+    singleValue: false
+    xpath: //button[contains(@class, 'pdp-filter-item color-item')]/@data-genericcolor
+  - name: specifications
+    singleValue: false
+    xpath: //div[@id="specifications"]
+    # xpath: //div[@id='mainProductDescription']//b[contains(text(),'Spécifications')]/following-sibling::text() |//h2[contains(text(),'Caractéristiques détaillées')]/following-sibling::node()|text()
+  - name: color
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"color")]
+    regExp: color":"([^"]+)
+    regExpReplace: $1
+  - name: largeImageCount
+    singleValue: false
+    xpath: //div[contains(@class,'thumbnails-content')]/img/@src
+  - name: gtin
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"gtin")]
+    regExp: gtin13":"([^"]+)
+    regExpReplace: $1
+  - name: additionalDescBulletInfo
+    singleValue: false
+    xpath: //div[@id='mainProductDescription']//dscpdp | //div[@id='mainProductDescription']//colis
+  - name: descriptionBullets
+    singleValue: false
+    xpath: //div[@id='mainProductDescription']//dscpdp
+  - name: description
+    singleValue: false
+    xpath: //div[@id="mainProductDescription"]
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[contains(@id, 'nbReview')]
+    regExp: \d+
+  - name: name
+    singleValue: false
+    xpath: //h2[contains(@class,"pdp-title")]
+  - name: aggregateRatingText
+    singleValue: false
+    xpath: //span[contains(@class,"product-rating-note-value")]
+  - name: aggregateRating
+    singleValue: false
+    xpath: //span[contains(@class, 'enable-stars')]/@class
+    regExp: rating-(.*)
+    regExpReplace: $1
+  - name: manufacturerDescription
+    singleValue: true
+    xpath: //div[@class="flixmedia flixmedia--expanded"] | //div[@id="manufacturerDescription"]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="manfacturerImage"]
+    # regExp: ((.+)( 200w))
+    # regExpReplace: $2
+  - name: brandLink
+    # singleValue: true
+    xpath: //div[contains(@class,"pdp-title-zone")]/div/a/@href
+    regExp: ([^()]+)
+    regExpReplace: https://www.laredoute.fr$1
+  - name: videos
+    singleValue: false
+    xpath: //div[contains(@id,'playerCedemo')]//video/@src | //div[@id="videos"]
+  - name: variants
+    singleValue: false
+    xpath: //button[contains(@class, 'pdp-filter-item color-item')]/@data-genericcolor
+  - name: variantAsins
+    singleValue: false
+    xpath: //button[contains(@class, 'pdp-filter-item color-item')]/@data-genericcolor
+  - name: variantCount
+    singleValue: false
+    xpath: count(//button[contains(@class, 'pdp-filter-item color-item')]/@data-genericcolor)
+  - name: variantInformation
+    singleValue: false
+    xpath: //script[@type="application/ld+json"][contains(text(),"color")]
+    regExp: color":"([^"]+)
+    regExpReplace: $1
+  - name: variantId
+    singleValue: false
+    description: Identifier for a variant from a store where variants share the same sku
+    xpath: //script[@type="application/ld+json"][contains(text(),"sku")]
+    regExp: sku":"([^"]+)
+    regExpReplace: $1
+  - name: weightNet
+    singleValue: false
+    xpath: //td[contains(text(), 'Poids Net')]//following-sibling::*
+  - name: weightGross
+    singleValue: false
+    xpath: //td[contains(text(), 'Poids Brut')]//following-sibling::*
+  - name: shippingWeight
+    singleValue: false
+    xpath: //td[contains(text(), 'Poids Brut')]//following-sibling::*
+  - name: shippingInfo
+    singleValue: false
+    xpath: //div[contains(@class, 'label-vendor')] | //div[contains(@class, 'name-vendor')]
+  - name: warranty
+    singleValue: false
+    xpath: (//div[contains(@id, "guarantyButton")])[1]|//div[@id='mainProductDescription']//table/..//*[contains(text(),'garantie') or contains(text(),'Garantie')]/../following-sibling::text()[not((//div[contains(@id, "guarantyButton")])[1])] | (//div[@id='mainProductDescription']//*[contains(text(),'garantie') or contains(text(),'Garantie')][not((//div[contains(@id, "guarantyButton")])[1])] |//div[@id='mainProductDescription']//text()[contains(.,"arantie")][not(//div[@id='mainProductDescription']//*[contains(text(),'garantie') or contains(text(),'Garantie')])])[not(//div[@id='mainProductDescription']//table/..//*[contains(text(),'garantie') or contains(text(),'Garantie')]/../following-sibling::text())][not((//div[contains(@id, "guarantyButton")])[1])]
+    # xpath: //*[contains(text(), 'Garantie')]
+    # regExp: (Garantie.*?)<
+    # regExpReplace: $1
+  - name: unInterruptedPDP
+    xpath: //div[contains(@class,"catalog-block")]//div[contains(@class,"lslide")]//div[contains(@class,"product-info")] | //div[contains(text(),"Egalement consultés")]/..//div//div[@data-cerberus='detail_product_name']/text()|//div[@class="carousel"]//div[@class="product-brand text-ellipsis"]
+    # regExp: .+(?=à partir de)
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: inTheBoxText
+    # xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"]
+    xpath: //div[contains(@class,"InTheBox")]//div[@class="flix-std-content"]|//b[contains(text(), "Contenu du carton")]/ancestor::tr//following-sibling::tr//td[contains(text(), "Livré avec")]/following-sibling::td
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class,"inpage_selector_InTheBox")]//div[@class="flix-std-container-fluid"]//div[@class="flix-std-table"]//div[contains(@class,"flix-box-modules")]//div[@class="flix-background-image"]//img/@data-flixsrcset|//div[contains(@class,"inpage_selector_InTheBox")]//div[@class="flix-std-container-fluid"]//div[@class="flix-std-table"]//div[contains(@class,"flix-box-image")]//div[@class="flix-background-image"]//img/@data-flixsrcset
+    regExp: ^[^\s]+
+    regExpReplace: https:$1
+  - name: secondaryImageTotal
+    xpath: count(//div[contains(@class,'thumbnails-content')]/img/@src)

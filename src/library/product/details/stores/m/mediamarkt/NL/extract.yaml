@@ -1,0 +1,112 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: url
+    xpath: //link[@rel="canonical"]/@href
+  - name: baseUrl
+    xpath: //div[@id='mm_baseUrl']
+  - name: image
+    xpath: //ul[contains(@class,"thumbs")]/li[position()=1]/a/@data-magnifier
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: imageAlt
+    xpath: //img[@class='img-preview']/@alt
+  - name: alternateImages
+    # xpath: //div[@id='mm_alternateImages']
+    xpath: //ul[contains(@class,"thumbs")]/li[position()>1]/a/@data-magnifier
+    regExp: (.+)
+    regExpReplace: https:$1
+  - name: category
+    # xpath: //div[@id='mm_category']
+    xpath: //ul[contains(@class,"breadcrumbs")]/li[position()>1]/a
+  # - name: category
+  #   xpath: //div[@id='mm_subCategory']
+  - name: quantity
+    xpath: //div[@id='mm_size']
+  - name: weightNet
+    xpath: //div[@id='mm_weight']
+  - name: warranty
+    xpath: //div[@id='mm_warranty']
+  - name: eangtin
+    # xpath: substring-before(substring-after(//body/script[contains(text(),'var product')], '"ean":"'), '",')
+    xpath: //div[@id="gtinvalue"]
+  - name: gtin
+    # xpath: substring-before(substring-after(//body/script[contains(text(),'var product')], '"ean":"'), '",')
+    xpath: //div[@id="gtinvalue"]
+  - name: sku
+    xpath: //div[@id='mm_skuCode']
+  - name: variantId
+    xpath: //div[@id="product-wrapper"]/@data-modelnumber
+  - name: ratingCount
+    # xpath: //div[@id='mm_numberOfCustomerReviews']
+    xpath: //meta[@itemprop="reviewCount"]/@content
+  - name: mpc
+    xpath: //div[@id='mm_mpc']
+  - name: color
+    xpath: //div[@id='mm_color']
+  - name: energyEfficiency
+    xpath: //div[@id='mm_energy']
+  - name: aggregateRating2
+    # xpath: //div[@id='mm_aggregateRating']
+    xpath: //div[@itemprop="ratingValue"]
+  - name: aggregateRating
+    # xpath: //div[@id='mm_aggregateRating']
+    xpath: //div[@itemprop="ratingValue"]
+  - name: promotion
+    xpath: //div[@class='product-promobox']/h4
+  - name: secondaryImageTotal
+    xpath: count(//aside[@id='product-sidebar']/ul[@class='thumbs']/li[not(@class='active')]/a)
+  - name: nameExtended
+    xpath: //aside[@id='product-sidebar']/h1
+  - name: listPrice
+    xpath: //div[@id='product-wrapper']//div[contains(@class, 'old-price-block')]/div[contains(@class, 'price-xs')]
+  - name: price
+    xpath: //div[@id='product-wrapper']//div[contains(@class, 'price-details')]/div[contains(@class, 'big')]
+  - name: availabilityText
+    regExp: (.+)
+    regExpReplace: In Stock
+    defaultValue: Out of Stock
+    xpath: //div[@id='mm_availabilityText']
+  - name: description
+    xpath: //div[@id='mm_description']
+  - name: brandText
+    xpath: //meta[@itemprop='brand']/@content
+  - name: aggregateRatingText
+    xpath: //div[@class='bv-details-bar']/div[@class='bv-percent-recommend-container']
+  - name: name
+    xpath: //aside[@id='product-sidebar']/h1
+  - name: brandLink
+    xpath: //aside[@id='product-sidebar']//div[@class='logo']/a/@href
+  - name: specifications
+    xpath: //div[@id='mm_specifications']
+  - name: shippingDimensions
+    xpath: //div[@id='mm_shippingDimensions']
+  - name: imageZoomFeaturePresent
+    xpath: //div[@id='mm_imageZoomFeaturePresent']
+  - name: unInterruptedPDP
+    xpath: //li[@class="prodrel-item"]//h3/a
+  # - name: inTheBoxUrl
+  #   singleValue: false
+  #   description: Must include image url to show the accessories/tools which come with the product
+  # - name: inTheBoxText
+    # xpath: //article[@id="omschrijving"]/p[last()]
+    # regExp: In de verpakking:\s(.+)|Dit krijg je erbij:(.+)
+    # regExpReplace: $1$2
+  - name: hasComparisonTable
+    defaultValue: No
+  - name: variants
+    xpath: //div[contains(@class,"product-attributes__group")]//@data-action-id | //div[contains(@class,"product-attributes__group")]//@href
+    regExp: (.+)
+    regExpReplace: https://www.mediamarkt.nl$1
+  - name: firstVariant
+    xpath: (//div[contains(@class,"product-attributes__group")]//@data-action-id | //div[contains(@class,"product-attributes__group")]//@href)[1]
+    regExp: (.+)
+    regExpReplace: https://www.mediamarkt.nl$1
+  - name: variantInformation
+    xpath: //div[contains(@class,"product-attributes__group")]//div[contains(@class, '--active')]//@data-value
+  - name: variantCount
+    xpath: count(//div[contains(@class,"product-attributes__group")]//@data-action-id | //div[contains(@class,"product-attributes__group")]//@href)
+  - name: variantId
+    xpath: //span[@itemprop="sku"]

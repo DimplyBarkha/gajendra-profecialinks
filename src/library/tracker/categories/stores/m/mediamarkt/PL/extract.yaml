@@ -1,0 +1,15 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //nav[@id="js-topMenu"]//a[contains(@class, "_listItemLink") and contains(@class, "m-subMenu")][@title]
+fields:
+  - name: category
+    singleValue: false
+    description: name of the category
+    xpath: //@title
+  - name: categoryUrl
+    singleValue: false
+    description: url of the category
+    xpath: //@href
+    regExp: (.+mediamarkt.pl)?(.+)$
+    regExpReplace: 'https://www.mediamarkt.pl$2'

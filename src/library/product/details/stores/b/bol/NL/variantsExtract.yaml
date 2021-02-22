@@ -1,0 +1,12 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ol[@id="added_variants_list"]/li
+fields:
+  - name: variantId
+    singleValue: true
+    description: variant id, to uniquely identify variant
+  - name: variantUrl
+    singleValue: true
+    description: variant Url
+    xpath: '@variant_url'

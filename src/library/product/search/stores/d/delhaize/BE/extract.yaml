@@ -1,0 +1,20 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: '//li[@class="data-item"]'
+fields:
+  - name: name
+    singleValue: false
+    xpath: //p[@class="ellipsis"]
+  - name: id
+    singleValue: false
+    xpath: //div[@class="ProductBasketAdder"]/@data-product-id
+  - name: productUrl
+    singleValue: false
+    xpath: //a[contains(@class, "ProductShot")]/@href
+  - name: price
+    singleValue: false
+    xpath: //span[contains(@class, "quantity-price")]
+  - name: manufacturer
+    singleValue: false
+    xpath: //p[contains(@class, "text-bold")]

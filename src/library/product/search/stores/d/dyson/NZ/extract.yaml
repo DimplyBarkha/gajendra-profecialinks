@@ -1,0 +1,42 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: .productInfo
+recordXPath: null
+
+fields:
+  - name: id
+    singleValue: false
+    xpath: //div[@class="id"]
+  #- name: sponsored
+  #  singleValue: false
+  #  description: Is sponsored/paid
+  #  type: BOOLEAN
+  #  selector: div.detail-messaging-sponsored-wrapper
+  - name: name
+    singleValue: false
+    xpath: //div[@class="name"]
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@class="url"]
+  #- name: gtin
+  #  singleValue: false
+  - name: thumbnail
+    singleValue: false
+    xpath: //div[@class="thumbnail"]
+  - name: aggregateRating2
+    singleValue: false
+    xpath: //div[@class="rating"]
+  - name: reviewCount
+    singleValue: false
+    xpath: //div[@class="reviewCount"]
+  - name: price
+    singleValue: false
+    xpath: //div[@class="price"]
+  #- name: manufacturer
+  #  singleValue: false
+  #  xpath: //a[@data-test="itemDetail-brand"]
+  #- name: soldBy
+  #  singleValue: false
+  #- name: endorsementText
+  #  singleValue: false
+  #  xpath: //div[@class="endorsement"]
