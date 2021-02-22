@@ -1,26 +1,24 @@
 singleRecord: false
 regionsSelector: null
 recordSelector: null
-recordXPath: //div[@class="columns"]
+recordXPath: null
 fields:
   - name: brandText
-    xpath: ancestor::html//meta[@property="product:brand"]/@content
-  - name: colour
+    xpath: //meta[@property="product:brand"]/@content
+  - name: color
   - name: flavour
     xpath: //div[@class="row-left"][1]/div/div[@class="second-part"]/span[1]
   - name: image
-    xpath: ancestor::html//meta[@property="og:image"]/@content
+    xpath: //meta[@property="og:image"]/@content
   - name: pageTitle
-    xpath: ancestor::html//meta[@property="og:title"]/@content
+    xpath: //meta[@property="og:title"]/@content
   - name: category
     xpath: //div[@class="breadcrumbs"]//ul
   - name: subCategory
     xpath: //div[@class="breadcrumbs"]//li[2]
   - name: reviewCount
     xpath: //span[@itemprop="reviewCount"]
-    regExp: (.*)
-    regExpReplace: $1
-    defaultValue: 0
-  - name: pageOffset
   - name: sku
     xpath: (//div[@itemprop="sku"])[1]
+  - name: name
+    xpath: //h1[@class="page-title"]/span
