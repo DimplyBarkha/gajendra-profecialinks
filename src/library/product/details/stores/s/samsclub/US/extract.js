@@ -17,24 +17,34 @@ async function implementation(
 ) {
   const { transform } = parameters;
   const { productDetails } = dependencies;
+  // await new Promise(resolve => setTimeout(resolve, 5000) )
+  // console.log('No selector Down');
   await context.evaluate(async function () {
     const popUps = document.querySelector('div.sc-modal-content button.sc-modal-close-button')
     if (popUps) {
       popUps.click();
     }
-    await new Promise((resolve, reject) => setTimeout(resolve, 30000));
+    //await new Promise((resolve, reject) => setTimeout(resolve, 30000));
   });
 
   const itemUrl = await context.evaluate(function () {
     const itemCheck = '//div[@class="sc-infinite-loader undefined"]//ul//li//a';
     var checkElement = document.evaluate(itemCheck, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
-    if (checkElement.snapshotLength > 0) {
-      const url = checkElement.snapshotItem(0).href;
-      console.log("url",url)
-      return url;
-    } else {
-      return null;
-    }
+      try{
+        if(checkElement != null){
+          if (checkElement.snapshotLength > 0) {
+            const url = checkElement.snapshotItem(0).href;
+            console.log("url",url)
+            return url;
+          }
+        }
+         else {
+          return null;
+        }
+      }
+      catch{
+        console.log('No itemUrl Found');
+      }
   });
   if (itemUrl) {
     await context.goto(itemUrl, { timeout: 30000, waitUntil: 'load', checkBlocked: true });
@@ -51,6 +61,7 @@ async function implementation(
     let getContetImage = document.querySelector('div.syndigo-shadowed-powerpage');
     if (getContent) {
       let getManufatureImage = getContent.contentDocument.querySelectorAll('div.wc-media-available img');
+      try{
       if (getManufatureImage) {
         for (let i = 0; i < getManufatureImage.length; i++) {
           let urls = getManufatureImage[i].src;
@@ -58,7 +69,12 @@ async function implementation(
         }
         console.log("getManufatureImageArray", getManufatureImageArray);
       }
+    }
+    catch{
+      console.log('No getManufatureImage Found');
+    }
       let getManufatureText = getContent.contentDocument.querySelectorAll('div.wc-media-available');
+      try{
       if (getManufatureText) {
         for (let i = 0; i < getManufatureText.length; i++) {
           let text = getManufatureText[i].innerText;
@@ -66,6 +82,10 @@ async function implementation(
         }
         console.log("getManufatureTextArray", getManufatureTextArray);
       }
+    } 
+    catch{
+      console.log('No getManufatureText Found');
+    }
     }
     if (getContetImage) {
       let scrollTop = 0;
@@ -87,6 +107,9 @@ async function implementation(
       }
       // await new Promise((resolve, reject) => setTimeout(resolve, 40000));
       let getImagesFromShadow = getContetImage.shadowRoot.querySelectorAll('img');
+      try{
+        console.log('No getManufatureText Found');
+      
       console.log("getImagesFromShadow", getImagesFromShadow)
       if (getImagesFromShadow) {
         for (let i = 0; i < getImagesFromShadow.length; i++) {
@@ -95,8 +118,13 @@ async function implementation(
         }
         console.log("getManufatureImageFromShadowArray1", getManufatureImageFromShadowArray);
       }
+    }
+      catch{
+        console.log('No getImagesFromShadow Found');
+      }
 
       let getTextFromShadow = getContetImage.shadowRoot.querySelectorAll('div.syndi_powerpage');
+      try{
       if (getTextFromShadow) {
         for (let i = 0; i < getTextFromShadow.length; i++) {
           let text1 = getTextFromShadow[i].innerText;
@@ -104,7 +132,10 @@ async function implementation(
         }
         console.log("getManufatureTextFromShadowArray1", getManufatureTextFromShadowArray);
       }
-
+    }
+    catch{
+      console.log('No getTextFromShadow Found');
+    }
     }
     function addHiddenDiv(elementID, content) {
       const newDiv = document.createElement('div');
