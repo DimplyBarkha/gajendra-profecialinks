@@ -8,7 +8,7 @@ module.exports = {
     store: "meijer",
     zipcode: "",
   },
-  // implementation,
+  implementation,
 };
  async function implementation (
   inputs,
@@ -23,7 +23,7 @@ module.exports = {
     // console.log(url);
     // await new Promise((resolve, reject) => setTimeout(resolve, 5000));
     await context.goto(url, {
-      timeout: 50000,
+      timeout: 20000,
       waitUntil: "load",
       checkBlocked: true,
     });
