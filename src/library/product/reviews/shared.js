@@ -13,22 +13,39 @@ const transform = (data, context) => {
     .replace(/"\s{1,}/g, '"')
     .replace(/\s{1,}"/g, '"')
     .replace(/^ +| +$|( )+/g, ' ')
-  // eslint-disable-next-line no-control-regex
+    // eslint-disable-next-line no-control-regex
     .replace(/[\x00-\x1F]/g, '')
     .replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, ' ')
     .trim();
   for (const { group } of data) {
     for (const row of group) {
-      if (row.sku) {
-        if (!row.reviewedSku) {
-          row.reviewedSku = row.sku;
-        }
-      }
       Object.keys(row).forEach(header => row[header].forEach(el => {
         el.text = clean(el.text);
       }));
     }
   }
+  function checkIfReviewIsFromLast30Days (reviewDate, maxDays = 30) {
+    const timestamp = new Date().getTime() - (maxDays * 24 * 60 * 60 * 1000);
+    if (new Date(reviewDate).getTime() >= timestamp) {
+      return true;
+    }
+    return false;
+  }
+  data = data.filter(function (item) {
+    console.log('group length before' + item.group.length);
+    item.group = item.group.filter(function (row) {
+      if (checkIfReviewIsFromLast30Days(row.reviewDate[0].text)) {
+        return true;
+      }
+      return false;
+    });
+    console.log('group length after' + item.group.length);
+    item.rows = item.group.length;
+    if (item.group.length !== 0) {
+      return true;
+    }
+    return false;
+  });
   return data;
 };
 module.exports = { transform };
