@@ -14,7 +14,6 @@ module.exports = {
     domain,
     transform,
   }, context, { productDetails }) => {
-
     const productWindow = await context.evaluate(async () => !document.querySelector('a[class*=\'product-v2\']'));
     if (!productWindow) {
       await context.click('a[class*=\'product-v2\']');
