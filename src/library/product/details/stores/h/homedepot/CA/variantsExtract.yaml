@@ -1,0 +1,23 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: variantId
+    singleValue: false
+    description: variant id, to uniquely identify variant
+    xpath: //div[@id="pd_variants"]
+  - name: variantId1	
+    singleValue: false	
+    xpath: //nav[@id="breadcrumbs"]//ol//li[@itemscope="false"]
+  - name: variantUrl
+    singleValue: false
+    description: variant Url
+    xpath: //div[@id="pd_variantsUrl"]
+    regExp: (.+)
+    regExpReplace: https://www.homedepot.ca$1
+  - name: variantUrl1	
+    singleValue: false	
+    xpath: //nav[@id="breadcrumbs"]//ol//li[@itemscope="false"]	
+    regExp: (.+)	
+    regExpReplace: https://www.homedepot.ca/product/$1 	

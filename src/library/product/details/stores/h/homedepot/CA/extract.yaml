@@ -1,0 +1,221 @@
+singleRecord: true
+regionsSelector: null
+recordSelector: null
+recordXPath: null
+fields:
+  - name: _input
+    singleValue: false
+  - name: _pageTimestamp
+    singleValue: false
+  - name: productUrl
+    singleValue: false
+    xpath: //div[@id="pd_url"]
+  - name: additionalDescBulletInfo
+    singleValue: false
+  - name: aggregateRatingText
+    singleValue: false
+    xpath: //button[@id="avg-rating-button"]/@aria-label
+  - name: aggregateRating
+    singleValue: false
+    xpath: //div[@id="pd_aggregate"] | //span[@itemprop="ratingValue"]
+  - name: alternateImages
+    singleValue: false
+    xpath: //div[@id="pd_altimage"]
+  - name: secondaryImageTotal
+    singleValue: false
+    description: null
+    xpath: count(//div[@id="pd_altimage"])
+  - name: availabilityText
+    singleValue: false
+    xpath: //link[@itemprop="availability"]/@href
+  - name: brandText
+    singleValue: false
+    xpath: //div[contains(@evtperfname, "product-info-component")]//h1[contains(@class, "description-title")]//span[1]
+  - name: category
+    singleValue: false
+    xpath: //nav[@id="breadcrumbs"]//ol//li[1]/following-sibling::li/a
+  - name: color
+    singleValue: false
+    xpath: //dt[contains(text(), "Color") or contains(text(), "Colour")]/following-sibling::dd[1]
+  - name: colorCode
+    singleValue: false
+  - name: countryOfOrigin
+    singleValue: false
+    xpath: //dt[contains(text(), "Country of Origin")]/following-sibling::dd[1]
+  - name: coupon
+    singleValue: false
+  - name: description
+    singleValue: false
+    xpath: concat(//product-overview-component/div, ' ', //product-overview-component/p )
+  - name: description1
+    singleValue: false
+    xpath: //product-overview-component//p[./a and contains(.,"Delivery & Installation")]
+  - name: descriptionBulletsInfo
+    singleValue: false
+    xpath: //section[@id="productFeature"]
+  - name: descriptionBullets
+    singleValue: false
+    xpath: count(//product-overview-component[contains(@evtperfname,"product-overview-component")]//section//ol)
+    type: NUMBER
+  - name: directions
+    singleValue: false
+  - name: energyEfficiency
+    singleValue: false
+  - name: firstVariant
+    singleValue: false
+    xpath: (//div[@id="pd_variants"])[1]
+  - name: image
+    singleValue: false
+    xpath: //meta[@property="og:image"]/@content
+  - name: Image360Present
+    singleValue: false
+    xpath: //div[contains(@class,"zoomableContainer")]//img[contains(@alt,"360 Degree View")]/@alt
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: imageAlt
+    singleValue: false
+    xpath: //meta[@property="og:image:alt"]/@content
+  - name: lbb
+    singleValue: false
+  - name: lbbPrice
+    singleValue: false
+  - name: legalDisclaimer
+    singleValue: false
+  - name: listPrice
+    singleValue: false
+  - name: manufacturer
+    singleValue: false
+    xpath: //div[contains(@evtperfname, "product-info-component")]//h1/span[contains(@class,"title-manufacturer")]
+  - name: manufacturerDescription
+    singleValue: false
+    xpath: //div[@id="wc-aplus"] | //div[@id="inpage_container"]
+  - name: manufacturerImages
+    singleValue: false
+    xpath: //div[@id="wc-aplus"]//img[contains(@src, ".jpg")]/@src | //div[@id="inpage_container"]//li//img/@data-flixsrcset
+  - name: metaKeywords
+    singleValue: false
+  - name: mpc
+    singleValue: false
+    xpath: //div[contains(@evtperfname, "product-info-component")]//span[contains(text(),"Model")]
+  - name: gtin
+    singleValue: false
+    xpath: //div[contains(@evtperfname, "product-info-component")]//span[contains(text(),"Model")]
+  - name: name
+    singleValue: false
+    xpath: //div[contains(@evtperfname, "product-info-component")]//h1
+  - name: nameExtended
+    singleValue: false
+    xpath: //div[contains(@evtperfname, "product-info-component")]//h1
+  - name: newDescription
+    singleValue: false
+  - name: packaging
+    singleValue: false
+  - name: packSize
+    singleValue: false
+    xpath: //dt[contains(text(), "Pack Size")]/following-sibling::dd[1]
+  - name: price
+    singleValue: false
+    xpath: //div[@id="pd_price"]
+  - name: price1
+    singleValue: false
+    xpath: //div[contains(@evtperfname,"product-localized-price-component")]//p//span[contains(@class,"price-value")]
+  - name: productOtherInformation
+    singleValue: false
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@evtperfname,"product-localized-promotions-component")]//span | //div[@id="pd_promotion"]
+  - name: quantity
+    singleValue: false
+  - name: ratingCount
+    singleValue: false
+    xpath: //span[@itemprop="reviewCount"]
+    type: NUMBER
+  - name: recyclingInformation
+    singleValue: false
+  - name: shippingDimensions
+    singleValue: false
+    xpath: //h3[text()="Dimensions"]/following-sibling::dl
+  - name: shippingInfo
+    singleValue: false
+  - name: shippingWeight
+    singleValue: false
+    xpath: //dt[contains(text(), "Packaged Weight")]/following-sibling::dd[1]
+  - name: sku
+    singleValue: false
+    xpath: //nav[@id="breadcrumbs"]//ol//li[@itemscope="false"]
+  - name: specifications
+    singleValue: false
+    xpath: //h3[text()="Dimensions"]/following-sibling::dl
+  - name: dimensionsSpecifications
+    singleValue: false
+    xpath: //product-specifications//h3[contains(text(), "Dimensions")]/following-sibling::dl[1]
+  - name: detailsSpecifications
+    singleValue: false
+    xpath: //product-specifications//h3[contains(text(), "Details")]/following-sibling::dl[1]
+  - name: warrantySpecifications
+    singleValue: false
+    xpath: //product-specifications//h3[contains(text(), "Warranty")]/following-sibling::div[1]
+  - name: storage
+    singleValue: false
+  - name: technicalInformationPdfPresent
+    xpath: //section[@id="productManual"]
+    singleValue: false
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: termsAndConditions
+    singleValue: false
+    xpath: //a[contains(text(), "Terms & Conditions ")]
+    regExp: (.+)
+    regExpReplace: Yes
+    defaultValue: No
+  - name: variantCount
+    singleValue: false
+    xpath: count(//div[@id="pd_variants"])
+    defaultValue: '0'
+  - name: variantId
+    singleValue: false
+    xpath: //nav[@id="breadcrumbs"]//ol//li[@itemscope="false"]
+  - name: variantInformation
+    singleValue: false
+    xpath: //div[@id="pd_variantInfo"]
+  - name: variants
+    singleValue: false
+    xpath: //div[@id="pd_variants"]
+  - name: videos
+    singleValue: false
+    xpath: //*[contains(@title,"Flix-media-video")]/@src
+  - name: videos1
+    singleValue: false
+    xpath: //div[@id="pd_video"]
+    regExp: (.+)
+    regExpReplace: https://players.brightcove.net/602043299001/B1gUI6kJWz_default/index.html?videoId=$1&autoplay=true&playsinline=false
+  - name: warnings
+    singleValue: false
+    xpath: //h3[text()="Warranty / Certifications"]/following-sibling::div
+  - name: warranty
+    singleValue: false
+    xpath: //h3[text()="Warranty / Certifications"]/following-sibling::div
+  - name: weightGross
+    singleValue: false
+    xpath: //dt[contains(text(), "Packaged Weight")]/following-sibling::dd[1]
+  - name: weightNet
+    singleValue: false
+    xpath: //dt[contains(text(), "Assembled Weight")]/following-sibling::dd[1]
+  - name: imageZoomFeaturePresent
+    singleValue: false
+    defaultValue: Yes
+  - name: inTheBoxUrl
+    xpath: //div[contains(@class, "InTheBox")]//img/@data-flixsrcset
+    regExp: (.+800w,\s)(.+(.png|.jpg))(.+)
+    regExpReplace: $2
+  - name: inTheBoxText
+    xpath: //div[contains(text(),'Accessories')]/following-sibling::ul/li
+  - name: unInterruptedPDP
+    xpath: //h2[contains(text(),'Customers Who Viewed this Item Bought')]/following-sibling::div//a[contains(@class,'hdca-product-box__main-info-label')] | //h2[contains(text(),'Related Products')]/following-sibling::div//h4  | //h2[contains(text(),'Top Sellers')]/following-sibling::div//a[contains(@class,'hdca-product-box__main-info-label')] | //h1/@recommend-products | //h2[contains(text(),'Customers Also Viewed')]/following-sibling::div//a[contains(@class,'hdca-product-box__main-info-label')]
+  - name: hasComparisonTable
+    xpath: //h2[contains(text(),'Induction Cooktop Step-Up Chart')]
+    regExp: (.+)
+    regExpReplace: Yes
+    DefaultValue: No 

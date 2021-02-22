@@ -1,0 +1,125 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //div/div[starts-with(@class,'desktop product-pod')] #| //*[@id="root"]/div/div/div/div[@class="grid"]
+#recordXPath: //div/div[6]/div[2]/div[1]/div/div/div[@class="desktop product-pod"]
+fields:
+- name: paid
+  singleValue: true
+  description: Whether this is a sponsored/paid result
+  type: BOOLEAN
+- name: brand
+  singleValue: false
+  description: The brand name
+  example: Panasonic
+  xpath: //*[contains(@class,"product-pod__title__brand--bold")] 
+  #xpath: //*[@id="root"]/div/div[3]/div/div[6]/div[2]/div[1]/div/div/div/div[4]/div[1]/a/div/h2/span[1]
+  #xpath: //div[@class="product-pod--padding"]/div/a/div/h2/span[1]
+  #xpath: //div[@class="product-pod--padding"]/div/a/div/h2/span[@class="product-pod__title__brand--bold"]
+  #xpath: //div[@class="browse-search__pod col__6-12 col__4-12--xs col__3-12--sm col__3-12--md col__3-12--lg"]/div/div/a/@href
+  #xpath: //div[@class='product-pod__title product-pod__title__product']/a[@class='header product-pod--ie-fix']/div[@class='product-pod__title-control product-pod--ie-fix']/h2[@class='product-pod__title product-pod__title__product']/span[@class='product-pod__title__brand--bold']
+- name: category
+  singleValue: false
+  description: The categories (e.g. from breadcrumbs)
+  example: ["Dental Care","Toothbrushes & Accessories","Electric Toothbrushes & Accessories","Electric Toothbrushes","Rotating"]
+- name: productUrl
+  singleValue: false
+  description: The URL for the product details page
+  xpath: //*[contains(@class,"product-pod__title")]/a/@href | //div[@productURL]/@productURL
+  #xpath: //*[@id="root"]/div/div[3]/div/div[6]/div[2]/div[1]/div/div/div/div[4]/div[@class="product-pod__title product-pod__title__product"]/a/@href       
+  regExp: (\/p.*)
+  #regExp: (.+)
+  regExpReplace: https://www.homedepot.com$1
+- name: thumbnail
+  singleValue: false
+  description: The URL for the product thumbnail image
+  #xpath: //*[@class="product-pod__image__wrapper"]/img/@src
+  xpath: //div[@class="product-pod__image__wrapper"]/img/@src | //div[@productImage]/@productImage 
+  #xpath: //*[@id="root"]/div/div/div/div/div/div/div/div/div/div/a/div[@class="product-pod__image__wrapper"]/img/@src
+  #xpath: //*[@id="root"]/div/div[3]/div/div[6]/div[2]/div[1]/div/div/div/div[3]/a/div/img/@src
+- name: name
+  singleValue: false
+  description: The product name
+  #xpath: concat(//div[2]/div[1]/div/div/div/div[4]/div/a/div/h2/span[1], ' ', //div[2]/div[1]/div/div/div/div[4]/div/a/div/h2/span[2])
+  #xpath: //div[2]/div[1]/div/div/div/div[4]/div/a/div/h2
+  xpath: //div[@id="name"] | //div[@name]/@name
+- name: sku
+  singleValue: true
+  description: The store-specific product identifier
+- name: mpc
+  singleValue: true
+  description: The model code of the product
+  xpath: //*[@id="root"]/div/div[3]/div/div[6]/div[2]/div[1]/div/div/div/div[4]/div[2]/span
+# xpath: substring-after(//*[@id="root"]/div/div[3]/div/div[6]/div[2]/div[1]/div/div/div/div[4]/div[2]/span, '# ')
+- name: gtin
+  singleValue: true
+  description: GTIN code (includes UPC/EAN)
+- name: aggregateRatingText
+  singleValue: true
+  description: The stated aggregate rating
+- name: ratingCount
+  singleValue: false
+  description: The number of ratings
+  xpath: //*[@class="product-pod__ratings-count"] | //div[@ratingCount]/@ratingCount
+  #xpath: //*[@id="root"]/div/div[3]/div/div[6]/div[2]/div[1]/div/div/div/div[4]/div[2]/a/div/span
+
+- name: reviewCount
+  singleValue: false
+  description: The number of reviews
+  xpath: //*[@class="product-pod__ratings-count"] | //div[@ratingCount]/@ratingCount
+  #xpath: //*[@id="root"]/div/div[3]/div/div[6]/div[2]/div[1]/div/div/div/div[4]/div[2]/a/div/span
+
+- name: price
+  singleValue: false
+  description: The offered price for the product
+  xpath: //div[(@class="price-format__main-price")] | //div[@price]/@price
+  regExp: (\d*)([0-9]+\d)
+  regExpReplace: $1.$2
+
+- name: listPrice
+  singleValue: true
+  description: The stated undiscounted price for the product
+- name: manufacturer
+  singleValue: true
+  description: Product manufacturer
+- name: soldBy
+  singleValue: true
+  description: The name of the seller of the item (if available)
+- name: endorsementText
+  singleValue: true
+  description: The text that signifies that a product is endorsed
+- name: shippingInfo
+  singleValue: true
+  description: Shipping information for the product
+  #xpath: //*[@id="root"]/div/div[3]/div/div[6]/div[2]/div[1]/div/div/div/div[4]/div[5]/div[1]/div/span
+- name: rank
+  singleValue: true
+  description: search/listing rank
+  type: NUMBER
+  #xpath: //div[@id="rank"]
+- name: rankOrganic
+  singleValue: true
+  description: The position (rank) within the list excluding sponsored/paid results
+  type: NUMBER
+  #xpath: //div[@id="rank"]
+- name: sponsored
+  singleValue: true
+  description: Is sponsored/paid
+  type: BOOLEAN
+
+# Should these be source specific formulas or in the extractor?
+- name: id
+  singleValue: true
+  description: Unique id (within this extractor)
+  xpath: //meta[@data-prop="productID"]/@content | //div[@productID]/@productID
+- name: nameExtended
+  singleValue: true
+  description: The product name, prefixing "${brand} - " if not included in "name" and appending " - ${variantType}" if necessary (fixed per extractor)
+  xpath: //*[@id="root"]/div/div[3]/div/div[6]/div[2]/div[1]/div/div/div/div[4]/div[1]/a/div/h2/span[2]
+- name: searchUrl
+  singleValue: true
+  xpath: ancestor::html//div[@id='added-searchurl']  
+- name: aggregateRating2
+  singleValue: true
+  description: The stated aggregate rating normalized to be out of 5
+  xpath: //div[@id="aggregateRating"] | //div[@aggregateRating]/@aggregateRating 
