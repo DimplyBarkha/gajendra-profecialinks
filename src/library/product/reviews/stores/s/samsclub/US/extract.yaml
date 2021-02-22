@@ -38,11 +38,12 @@ fields:
     description: The tags a reviewer has
   - name: gtin
     description: GTIN code (includes UPC/EAN)
+    xpath: ancestor::html//meta[@itemprop="image"]/@content
+    regExp: (.*)/(.*?)_(.*)
+    regExpReplace: $2
   - name: productUrl
     description: The url of the product details page
-    xpath: ancestor::html//div[@itemprop="offers"]/meta[@itemprop="url"]/@content
-    regExp: (.+)
-    regExpReplace: https://www.samsclub.com$1
+    xpath: ancestor::html//head//link[@rel="canonical"]/@href
   - name: verifiedPurchase
     type: BOOLEAN
     description: Whether this of an item the reviewer purchased. "Yes" if true else ""
@@ -51,6 +52,7 @@ fields:
     xpath: //li[contains(@class,"bv-content-item bv-secondary-content-clientresponse bv-secondary")]//div[contains(@class,"bv-content-summary-body-text")]
   - name: syndicatedFrom
     description: Stated place the review was syndicated from
+    xpath: //div[@class="bv-content-data-syndication"]//span
   - name: reviewUrl
     description: A direct link to the review
   - name: reviewedSku

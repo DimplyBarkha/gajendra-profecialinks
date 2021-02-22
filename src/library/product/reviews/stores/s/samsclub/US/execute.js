@@ -54,7 +54,12 @@ async function implementation (
     console.log('Clicking on popup btn');
     elem.click();
   });
-
+  await context.evaluate(() => {
+    const elem1 = document.querySelector('.sc-modal-content > div button');
+    if (!elem1) return;
+    console.log('Clicking on popup btn');
+    elem1.click();
+  });
   if (loadedSelector) {
     await context.waitForFunction((sel, xp) => {
       return Boolean(document.querySelector(sel) || document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null).iterateNext());
@@ -95,7 +100,7 @@ module.exports = {
     store: 'samsclub',
     domain: 'samsclub.com',
     loadedSelector: 'ol.bv-content-list-reviews > li',
-    noResultsXPath: '//div[@class="sc-error-page"]',
+    noResultsXPath: '//div[@class="sc-error-page"] | //div[contains(@class,"sc-infinite-loader undefined")] | //button[@class="bv-write-review-label bv-text-link bv-focusable bv-submission-button"]',
     reviewUrl: 'https://www.samsclub.com/p/{id}',
     sortButtonSelectors: null,
     zipcode: '',

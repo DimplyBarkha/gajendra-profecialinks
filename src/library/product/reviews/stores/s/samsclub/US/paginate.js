@@ -78,7 +78,7 @@ module.exports = {
     store: 'samsclub',
     nextLinkXpath: '//span[contains(@class,"bv-content-btn-pages-next")]',
     loadedSelector: 'ol.bv-content-list-reviews > li',
-    noResultsXPath: '//div[@class="sc-error-page"]',
+    noResultsXPath: '//div[@class="sc-error-page"] | //div[contains(@class,"sc-infinite-loader undefined")] | //button[@class="bv-write-review-label bv-text-link bv-focusable bv-submission-button"]',
     domain: 'samsclub.com',
   },
   implementation,
