@@ -70,7 +70,7 @@ fields:
   - name: warnings
     singleValue: false
     description: Content under "warnings" header
-    xpath: //*[text()='Warnings:']/parent::p/following-sibling::p|//div[contains(@class,'clpWarningContainer')]|//*[contains(text(),'CAUTION')]|//*[contains(text(),'Caution')]|//*[contains(text(),'Warning:')]
+    xpath: //*[text()='Warnings:']/parent::p/following-sibling::p|//div[contains(@class,'clpWarningContainer')]|//*[contains(text(),'CAUTION')]|//*[contains(text(),'Caution')]|//*[contains(text(),'Warning:')]|//*[text()='Alcohol']/following-sibling::*[1]
   - name: aggregateRating
     singleValue: true
     description: The stated aggregate rating normalized to be out of 5
