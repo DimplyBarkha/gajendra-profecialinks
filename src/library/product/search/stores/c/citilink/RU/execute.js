@@ -7,7 +7,7 @@ module.exports = {
     domain: 'citilink.ru',
     url: 'https://www.citilink.ru/search/?text={searchTerms}',
     loadedSelector: 'div.ProductCardCategoryList__grid-container',
-    noResultsXPath: '//h1[contains(text(),"По Вашему запросу")]',
+    noResultsXPath: '//h1[contains(text(),"По Вашему запросу")] | //div[contains(@class, "BrandCategories Container")]' ,
     zipcode: '',
   },
 };

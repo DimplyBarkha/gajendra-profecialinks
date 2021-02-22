@@ -8,7 +8,7 @@ module.exports = {
     mutationSelector: null,
     spinnerSelector: '.StickyOverlayLoader__preloader',
     loadedSelector: 'div.ProductCardCategoryList__grid-container',
-    noResultsXPath: '//h1[contains(text(),"По Вашему запросу")]',
+    noResultsXPath: '//h1[contains(text(),"По Вашему запросу")] | //div[contains(@class, "BrandCategories Container")]',
     openSearchDefinition: null,
     domain: 'citilink.ru',
     zipcode: '',
