@@ -105,35 +105,37 @@ const transform = (data) => {
                     if (item.text.includes('Model # ')) {
                         item.text = item.text.replace('Model # ','').trim();
                     }
-                    else if(item.text.includes(itemNo)){
-                        let skuText = "(\"itemNumber\":\""+itemNo+"\".*?\"manufacturingInfo\":{\"model\":\".*?\")";
-                        var skuId1 = item.text.match(skuText);
-                        let skuId2 = ''
-                        if (typeof skuId1 !== 'undefined' && skuId1 != null) {
-                            skuId2 = skuId1[0].match("{\"model\":\".*?\"");
-                            if (typeof skuId2 !== 'undefined' && skuId2 != null) {
-                               item.text = skuId2[0].replace('\"model\":\"','').replace('"','').replace('}','').replace('{','');
-                            }
-                            else {
-                                item.text = '';
-                            }
-                        }
-                        else {
-                            skuText = "(\"itemNumber\":\""+itemNo+"\".*?\"vendor\":{\"stockId\":\".*?\")";
-                            console.log("item.skuText", skuText);
-                            skuId1 = item.text.match(skuText);
+                    else if(itemNo != "--"){
+                        if(item.text.includes(itemNo)){
+                            let skuText = "(\"itemNumber\":\""+itemNo+"\".*?\"manufacturingInfo\":{\"model\":\".*?\")";
+                            var skuId1 = item.text.match(skuText);
+                            let skuId2 = ''
                             if (typeof skuId1 !== 'undefined' && skuId1 != null) {
-                                skuId2 = skuId1[0].match("{\"stockId\":\".*?\"");
-                                console.log("item.skuId2", skuId2);
+                                skuId2 = skuId1[0].match("{\"model\":\".*?\"");
                                 if (typeof skuId2 !== 'undefined' && skuId2 != null) {
-                                    item.text = skuId2[0].replace('\"stockId\":\"','').replace('"','').replace('}','').replace('{','');
+                                item.text = skuId2[0].replace('\"model\":\"','').replace('"','').replace('}','').replace('{','');
                                 }
                                 else {
                                     item.text = '';
                                 }
                             }
                             else {
-                                item.text = '';
+                                skuText = "(\"itemNumber\":\""+itemNo+"\".*?\"vendor\":{\"stockId\":\".*?\")";
+                                console.log("item.skuText", skuText);
+                                skuId1 = item.text.match(skuText);
+                                if (typeof skuId1 !== 'undefined' && skuId1 != null) {
+                                    skuId2 = skuId1[0].match("{\"stockId\":\".*?\"");
+                                    console.log("item.skuId2", skuId2);
+                                    if (typeof skuId2 !== 'undefined' && skuId2 != null) {
+                                        item.text = skuId2[0].replace('\"stockId\":\"','').replace('"','').replace('}','').replace('{','');
+                                    }
+                                    else {
+                                        item.text = '';
+                                    }
+                                }
+                                else {
+                                    item.text = '';
+                                }
                             }
                         }
                     }
@@ -144,28 +146,61 @@ const transform = (data) => {
                     if (item.text.includes('Model # ')) {
                         item.text = item.text.replace('Model # ','').trim();
                     }
-                    else if(item.text.includes(itemNo)){
-                        let mpcText = "(\"itemNumber\":\""+itemNo+"\".*?\"manufacturingInfo\":{\"model\":\".*?\")";
-                        let mpcId1 = item.text.match(mpcText);
-                        let mpcId2 = ''
-                        if (typeof mpcId1 !== 'undefined' && mpcId1 != null) {
-                           mpcId2 = mpcId1[0].match("{\"model\":\".*?\"");
-                           if (typeof mpcId2 !== 'undefined' && mpcId2 != null) {
-                               item.text = mpcId2[0].replace('\"model\":\"','').replace('"','').replace('}','').replace('{','');
-                           }
-                           else {
-                            item.text = '';
-                        }
-                        }
-                        else {
-                            mpcText = "(\"itemNumber\":\""+itemNo+"\".*?\"vendor\":{\"stockId\":\".*?\")";
-                            console.log("item.skuText", mpcText);
-                            mpcId1 = item.text.match(mpcText);
+                    else if(itemNo != "--"){
+                        if(item.text.includes(itemNo)){
+                            let mpcText = "(\"itemNumber\":\""+itemNo+"\".*?\"manufacturingInfo\":{\"model\":\".*?\")";
+                            let mpcId1 = item.text.match(mpcText);
+                            let mpcId2 = ''
                             if (typeof mpcId1 !== 'undefined' && mpcId1 != null) {
-                                mpcId2 = mpcId1[0].match("{\"stockId\":\".*?\"");
-                                console.log("item.skuId2", mpcId2);
-                                if (typeof mpcId2 !== 'undefined' && mpcId2 != null) {
-                                    item.text = mpcId2[0].replace('\"stockId\":\"','').replace('"','').replace('}','').replace('{','');
+                            mpcId2 = mpcId1[0].match("{\"model\":\".*?\"");
+                            if (typeof mpcId2 !== 'undefined' && mpcId2 != null) {
+                                item.text = mpcId2[0].replace('\"model\":\"','').replace('"','').replace('}','').replace('{','');
+                            }
+                            else {
+                                item.text = '';
+                            }
+                            }
+                            else {
+                                mpcText = "(\"itemNumber\":\""+itemNo+"\".*?\"vendor\":{\"stockId\":\".*?\")";
+                                console.log("item.skuText", mpcText);
+                                mpcId1 = item.text.match(mpcText);
+                                if (typeof mpcId1 !== 'undefined' && mpcId1 != null) {
+                                    mpcId2 = mpcId1[0].match("{\"stockId\":\".*?\"");
+                                    console.log("item.skuId2", mpcId2);
+                                    if (typeof mpcId2 !== 'undefined' && mpcId2 != null) {
+                                        item.text = mpcId2[0].replace('\"stockId\":\"','').replace('"','').replace('}','').replace('{','');
+                                    }
+                                    else {
+                                        item.text = '';
+                                    }
+                                }
+                                else {
+                                    item.text = '';
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            if (row.listPrice) {
+                row.listPrice.forEach(item => {
+                    if(itemNo != "--"){
+                        if(item.text.includes(itemNo)){
+                            let listPriceText = "(\"itemNumber\":\""+itemNo+"\".*?\"manufacturingInfo\":{\"model\":.*?\")";
+                            let listPriceDetails = item.text.match(listPriceText);
+                            if (typeof listPriceDetails !== 'undefined' && listPriceDetails != null) {
+                                let listOriginal = listPriceDetails[0].match("\"startPrice\":{\"amount\":.*?\"");
+                                if (typeof listOriginal !== 'undefined' && listOriginal != null) {
+                                    let listDiscount = listPriceDetails[0].match("\"finalPrice\":{\"amount\":.*?\"");
+                                    if (typeof listDiscount !== 'undefined' && listDiscount != null) {
+                                    if(listOriginal[0] == listDiscount[0]){
+                                        listOriginal = '';
+                                        }
+                                        item.text = listOriginal[0].replace('\"startPrice\":{\"amount\":','').replace('\"','').replace(',','');
+                                    }
+                                    else {
+                                        item.text = '';
+                                    }
                                 }
                                 else {
                                     item.text = '';
@@ -176,34 +211,8 @@ const transform = (data) => {
                             }
                         }
                     }
-                });
-            }
-            if (row.listPrice) {
-                row.listPrice.forEach(item => {
-                    if(item.text.includes(itemNo)){
-                        let listPriceText = "(\"itemNumber\":\""+itemNo+"\".*?\"manufacturingInfo\":{\"model\":.*?\")";
-                        let listPriceDetails = item.text.match(listPriceText);
-                        if (typeof listPriceDetails !== 'undefined' && listPriceDetails != null) {
-                            let listOriginal = listPriceDetails[0].match("\"startPrice\":{\"amount\":.*?\"");
-                            if (typeof listOriginal !== 'undefined' && listOriginal != null) {
-                                let listDiscount = listPriceDetails[0].match("\"finalPrice\":{\"amount\":.*?\"");
-                                if (typeof listDiscount !== 'undefined' && listDiscount != null) {
-                                   if(listOriginal[0] == listDiscount[0]){
-                                      listOriginal = '';
-                                    }
-                                    item.text = listOriginal[0].replace('\"startPrice\":{\"amount\":','').replace('\"','').replace(',','');
-                                }
-                                else {
-                                    item.text = '';
-                                }
-                            }
-                            else {
-                                item.text = '';
-                            }
-                        }
-                        else {
-                            item.text = '';
-                        }
+                    else{
+                        item.text = '--';
                     }
                 });
             }
