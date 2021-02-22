@@ -72,7 +72,8 @@ fields:
     xpath: //div[@class="right-side-description"]/h7/text()
   - name: variantId
     singleValue: true
-    xpath: //input[@id="productID"]/@value
+    # xpath: //input[@id="productID"]/@value
+    xpath: //div[@class="right-side-description"]/h7/text()
   - name: mpc
     singleValue: true
     description: The manufacturer model code (unique) of the product
