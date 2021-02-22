@@ -38,8 +38,9 @@ fields:
     singleValue: false
   - name: availabilityText
     singleValue: false
-    xpath: //div[@class="product-detail_btn-group"]//div[contains(@class,'full-width text-center ng-scope')]//span[@class="text_lable"]//span[@class="sr-only"]
-    defaultValue: 'In Stock'
+    xpath: boolean(//div[@class="product-detail_btn-group"]//button[@class='btn--add-to-cart btn--has-icon btn btn-primary text-left ng-scope'][contains(.,'Add to') and contains(.,'Cart')])
+    # xpath: //div[@class="product-detail_btn-group"]//div[contains(@class,'full-width text-center ng-scope')]//span[@class="text_lable"]//span[@class="sr-only"]
+    # defaultValue: 'In Stock'
   - name: sku
     singleValue: false
     xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Product Number"]/parent::*/span
@@ -72,4 +73,7 @@ fields:
     defaultValue: 'yes'
   - name: numberOfServingsInPackage
     singleValue: false
-    xpath: //div[@expandable-content='product-additional-details']//li//strong[contains(.,'Standard Drinks')]//following-sibling::span//text()
+    xpath: //div[contains(@class,"col-md-12 text-left")]//li//strong[text()="Standard Drinks"]/parent::*/span
+  - name: promotion
+    singleValue: false
+    xpath: //div[contains(@class,'product-details-img-container')]//savings-badge[contains(@class,"productTile_savingsBadge")]|//div[contains(@class,'product-details-img-container')]//super-savers-badge[contains(@class,"productTile_savingsBadge")]

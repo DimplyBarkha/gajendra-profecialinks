@@ -43,12 +43,21 @@ const transform = (data) => {
               row.description = [{ "text": description_ar.join(" || "), 'xpath': row.description[0].xpath }];
             }
         }
+        // if(row.availabilityText){
+        //   row.availabilityText.forEach(item => {
+        //     if (item.text == 'Unavailable'){
+        //       row.availabilityText = [{"text": 'Out of Stock', "xpath": row.availabilityText[0].xpath}]
+        //     }else{
+        //       row.availabilityText = [{"text": 'In Stock', "xpath": row.availabilityText[0].xpath}]
+        //     }
+        //   })
+        // }
         if(row.availabilityText){
           row.availabilityText.forEach(item => {
-            if (item.text == 'Unavailable'){
-              row.availabilityText = [{"text": 'Out of Stock', "xpath": row.availabilityText[0].xpath}]
-            }else{
+            if (item.text == 'true'){
               row.availabilityText = [{"text": 'In Stock', "xpath": row.availabilityText[0].xpath}]
+            }else{
+              row.availabilityText = [{"text": 'Out Of Stock', "xpath": row.availabilityText[0].xpath}]
             }
           })
         }
