@@ -37,7 +37,7 @@ async function implementation(
       return result;
       };
     var price = getAllXpath('//div[@class="panel-body"]//span[@class="article-price-default article-club-hidden"]//text()', 'nodeValue');
-    // var productid = getAllXpath('//div[contains(@class,"article-stock")]', 'nodeValue');
+    var productid = getAllXpath('//div[contains(@class,"article-stock")]/@class', 'nodeValue');
 
 
     if (price.length >= 1) {
