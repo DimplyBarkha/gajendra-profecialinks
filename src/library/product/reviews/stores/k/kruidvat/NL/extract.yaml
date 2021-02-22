@@ -1,0 +1,75 @@
+singleRecord: false
+regionsSelector: null
+recordSelector: null
+recordXPath: //ol[contains(@class,'list-reviews')]/li
+fields:
+  - name: helpfulCount
+    singleValue: false
+    type: NUMBER
+    xpath: //span[contains(text(),'Ja')]/span
+  - name: commentCount
+    singleValue: false
+    type: NUMBER
+    description: Number of comments on the review
+  - name: brandText
+    singleValue: false
+    xpath: ancestor::html//span[@itemprop="brand"]
+  - name: name
+    singleValue: false
+    xpath: ancestor::html//h1[@class="product-title"]
+  - name: sku
+    singleValue: false
+    xpath: ancestor::html//span[@itemprop="sku"]
+  - name: reviewDate
+    singleValue: false
+    type: DATETIME
+    xpath: //div[@class="bv-content-datetime"]/meta[@itemprop="dateCreated"]/@content
+  - name: reviewRating
+    type: NUMBER
+    singleValue: false
+    xpath: //meta[@itemprop="ratingValue"]/@content
+  - name: reviewText
+    singleValue: false
+    xpath: //div[@class="bv-content-summary-body-text"]
+  - name: reviewTitle
+    singleValue: false
+    xpath: //div[@class="bv-content-title-container"]/h3
+  - name: reviewerTags
+    singleValue: false
+    description: The tags a reviewer has
+  - name: gtin
+    singleValue: false
+    regExp: :(.+)
+    regExpReplace: $1
+    xpath: ancestor::html//p[@class="product-information__text product-information__ean"]
+  - name: productUrl
+    singleValue: false
+    xpath: ancestor::html//link[@rel="canonical"]/@href
+  - name: verifiedPurchase
+    singleValue: false
+    type: BOOLEAN
+    description: Whether this of an item the reviewer purchased. "Yes" if true else ""
+  - name: manufacturerResponse
+    singleValue: false
+    description: The response of the manufacturer (if any)
+  - name: syndicatedFrom
+    singleValue: false
+    description: Stated place the review was syndicated from
+  - name: reviewUrl
+    singleValue: false
+    description: A direct link to the review
+  - name: reviewedSku
+    singleValue: false
+    description: The SKU of the item that was reviewed (may be different from the
+      sku the review was shown on). 1 if sku == reviewedSku else 0. Get sku
+      value, transform will handle the value.
+  - name: user
+    xpath: //div[@class="bv-author-avatar"]//h3
+    type: TEXT
+  - name: aggregateRating
+    xpath: ancestor::html//span[@itemprop="aggregateRating"]/span[@itemprop="ratingValue"]
+  - name: maxDays
+    description: Max Days
+    xpath: ancestor::html//script[@id="__input"]
+    type: NUMBER
+    jq: .days
