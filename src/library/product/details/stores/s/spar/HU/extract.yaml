@@ -11,7 +11,7 @@ fields:
     xpath: //div[@class='descriptionLabels']//label[@class='productDetailsArticleNumber']
   - name: variantId
     singleValue: false
-    xpath: //div[@class='descriptionLabels']//label[@class='productDetailsArticleNumber']  
+    xpath: //div[@class='descriptionLabels']//label[@class='productDetailsArticleNumber']
   - name: metaKeywords
     singleValue: false
     xpath: //meta[@name="keywords"]/@content
@@ -26,28 +26,45 @@ fields:
     xpath: //label[@class='productDetailsName']
   - name: price
     singleValue: false
-    xpath: //div[contains(@class,'productInformationContainer')]//div[@class='productMainDetailsPriceLabels']//label[@class='productDetailsPrice ']  
+    xpath: //div[contains(@class,'productInformationContainer')]//div[@class='productMainDetailsPriceLabels']//label[@class='productDetailsPrice ']
+  - name: listPrice
+    singleValue: false
+    xpath: //div[contains(@class,'productInformationContainer')]//div[@class='productMainDetailsPriceLabels']//label[@class='productDetailsPrice ']
   - name: availabilityText
     singleValue: false
     xpath: //button[@class='addToCartButton']//label
     defaultValue: "In Stock"
   - name: quantity
     singleValue: false
-    defaultValue: 1  
+    defaultValue: 1
     xpath: //input[@id='productDetailPageQuantity']//@placeholder
   - name: variantCount
     singleValue: false
-    defaultValue: 0   
+    defaultValue: 0
   - name: description
     singleValue: false
-    xpath: //div[@class='detail__container']      
+    xpath: //div[@class='detail__container']
   - name: alternateImages
     singleValue: false
-    xpath: //div[@class='productMainDetailsImage']//img[@class='sparImageResponsive']//@data-desktop-zoom-src 
+    xpath: //div[@class='productMainDetailsImage']//img[@class='sparImageResponsive']//@data-desktop-zoom-src
   - name: brandText
     singleValue: false
-    xpath: //div[@class='descriptionLabels']//label[@class='productDetailsName']//@title  
+    xpath: //div[@class='descriptionLabels']//label[@class='productDetailsName']//@title
   - name: shippingInfo
     singleValue: false
-    xpath: //section[@class='detail__content']  
-  
+    xpath: //section[@class='detail__content']
+  - name: promotion
+    singleValue: false
+    xpath: //label[@class='productDetailsPriceStart']
+  - name: storage
+    singleValue: false
+    xpath: //span[@class='detail__title'][contains(.,'Tárolása')]//following-sibling::span
+  - name: ingredientsList
+    singleValue: false
+    xpath: //span[@class='detail__title'][contains(.,'Összetevők')]//following-sibling::span
+  - name: proteinPerServing
+    singleValue: false
+    xpath: //div[contains(@class,'productTabsSectionInfo')]//table//tr//td[contains(.,' Fehérje')]//following-sibling::td
+  - name: proteinPerServingUom
+    singleValue: false
+    xpath: //div[contains(@class,'productTabsSectionInfo')]//table//tr//td[contains(.,' Fehérje')]//following-sibling::td
