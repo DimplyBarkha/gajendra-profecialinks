@@ -102,7 +102,7 @@ async function implementation(
     // product Description
     var brand1 = getXpath('//span[@itemprop="brand"]/text()', 'nodeValue');
     var brand2 = getAllXpath('//h1[@itemprop="name"]/text()', 'nodeValue');
-    var brand3 = getXpath('//span[@class="checked"]/following::span[1]/text()', 'nodeValue');
+    // var brand3 = getXpath('//span[@class="checked"]/following::span[1]/text()', 'nodeValue');
     // var brand4 = getXpath('//span[@class="attribute-name"]/text()', 'nodeValue');
     // var brand5 = getXpath('//span[@id="selected-product-name"]/text()', 'nodeValue');
 
@@ -119,17 +119,17 @@ async function implementation(
     if (temp != null) {
       final = final + temp;
     }
-    if (brand3 != null) {
-      final = final + " " + brand3;
-    }
+    // if (brand3 != null) {
+    //   final = final + " " + brand3;
+    // }
     var nameextended = []
     for (i = 0; i < attr.length; i++) {
-      if (brand3 == null){
+      // if (brand3 == null){
       var temp = final + " - " + attr[i];
-      }
-      else{
-        var temp = final;
-      }
+      // }
+      // else{
+      //   var temp = final;
+      // }
       nameextended.push(temp)
 
     }
