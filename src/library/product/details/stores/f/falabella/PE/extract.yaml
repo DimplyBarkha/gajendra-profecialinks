@@ -99,10 +99,10 @@ fields:
     xpath: //div[@itemprop='ratingValue'] 
   - name: videos
     singleValue: false
-    xpath: concat(substring-after(//img[contains(@id,'https://www.youtube.com/')]/@id, 'image-') , //iframe[contains(@src,'youtube')]/@src)
+    xpath: //div[@class="ytp-title-text"]/a/@href  | concat(substring-after(//img[contains(@id,'https://www.youtube.com/')]/@id, 'image-') , //iframe[contains(@src,'youtube')]/@src)
   - name: specifications
     singleValue: false
     xpath: //table[contains(@class,'specification-table')]
   - name: manufacturerImages
     singleValue: false
-    xpath: 
+    xpath: //div[@class="fb-product-information__product-information-tab"]//img/@src
