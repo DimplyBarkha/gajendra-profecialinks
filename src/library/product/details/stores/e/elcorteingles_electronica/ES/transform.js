@@ -33,6 +33,16 @@ const transform = (data, context) => {
         text = row.nameExtended[0].text.trim();
         row.nameExtended = [{ text }];
       }
+if (row.inTheBoxUrl) {
+  row.inTheBoxUrl.forEach (item => {
+    if (item.text.includes (' 200w')) {
+      const imgUrl = item.text.split (' 200w, ')[0];
+      if (!item.text.includes ('http')) {
+        item.text = 'https:' + imgUrl;
+      }
+    }
+  });
+}
 
       if (row.manufacturerImages) {
         let text = '';

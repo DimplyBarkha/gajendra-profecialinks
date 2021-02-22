@@ -8,7 +8,7 @@ fields:
     regExp: (.*)
     regExpReplace: https:$&
   - name: imageAlt
-    
+
   - name: alternateImages
     xpath: (//div[@class="image-layout-slides-group"]/div[not(div[@class="play-video-button"])]/img/@data-zoom)[position() > 1]
     regExp: (.+)
@@ -132,9 +132,9 @@ fields:
     singleValue: false
     # xpath : //div[@id="videos"]|//div[contains(@class,'video-slides')]/@data-url
     xpath: //div[@id="flix_hotspots"]/*[@id='flix_product_video']/@src | //div[contains(@class,"slides-group")]//img[@data-type="video"]//@data-url
-    # xpath: //div[@class="image-layout-slides-group"]//img/@data-url | 
+    # xpath: //div[@class="image-layout-slides-group"]//img/@data-url |
   - name: inTheBoxUrl
-    xpath: //div[contains(@class,'InTheBox')]//img/@data-flixsrcset
+    xpath: //div[contains(@class,'InTheBox')]//img/@data-flixsrcset | //div[contains(@class,'flix-std-table')]//div[contains(@class,'flix-background-image')]/img/@srcset
     regExp: ^(.+?)(\d+)w,(.*)
     regExpReplace: https:$1
   - name: inTheBoxText
