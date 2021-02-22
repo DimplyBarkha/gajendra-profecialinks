@@ -88,7 +88,7 @@ fields:
     singleValue: false
     description: List of Ingredients from site - can be string of data if no
       discernible start/end point
-    xpath: //*[contains(text(),'Ingredients')]/following-sibling::*[1]   
+    xpath: //ul[@class="productIngredients"]/li/text()|//strong[contains(text(),'INGREDIENTS:')]/parent::p/text()  
   - name: caloriesFromFatPerServing
     singleValue: false
     description: Nutritional Information for Calories From Fat content - Usually
