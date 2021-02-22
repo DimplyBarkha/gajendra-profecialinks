@@ -14,7 +14,7 @@ fields:
   - name: alternateImages
     singleValue: false
     description: Other product images (not in manufacturer description)
-    xpath: (//div[@class="owl-item"]//img[@itemprop="image"])[position()>1]/@src
+    xpath: //div[@class="image-gallery-nav-wrapper"]//img/@src
   - name: metaKeywords
     singleValue: true
     description: The <meta> keywords content

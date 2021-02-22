@@ -8,10 +8,69 @@ module.exports = {
     domain: 'meijer.com',
     zipcode: '',
   },
-  implementation: async ({ inputString }, { country, domain, transform: transformParam }, context, { productDetails }) => {
-    // await context.waitForSelector('.product-item a');
-    // await context.clickAndWaitForNavigation('.product-item a', {}, {});
-    await new Promise((resolve, reject) => setTimeout(resolve, 100000));
+  implementation: async ( inputs, { country, domain, transform: transformParam }, context, { productDetails }) => {
+    await context.waitForSelector('.product-item a');
+    await context.clickAndWaitForNavigation('.product-item a', {}, {});
+    const { timeout = 60000, waitUntil = 'load', checkBlocked = true } = {};
+    await context.setJavaScriptEnabled(true);
+    await context.setCssEnabled(true);
+    // const mainUrl = 'https://www.k-ruoka.fi/';
+    await context.goto(inputs.url, { timeout, waitUntil, checkBlocked });
+    const { zipcode } = inputs;
+    let locationStreetAddress = '';
+    let disabledContinueButton = false;
+    await context.setJavaScriptEnabled(true);
+    await context.setCssEnabled(true);
+
+    async function hasDisabledContinuedButton () {
+      const hasIt = await context.evaluate(async function () {
+        return document.querySelector('button[data-automation-id="locationFlyout-continueBtn"]').hasAttribute('disabled');
+      });
+      return hasIt;
+    }
+
+    async function changeLocation (zipcode) {
+      await context.evaluate(async function () {
+        if (document.querySelector('#kconsent')) {
+          document.querySelector('#kconsent').remove();
+        }
+      });
+      await context.waitForSelector('span.js-change-store-link');
+      await context.evaluate(async function () {
+        const button = document.querySelector('span.js-change-store-link');
+        if (button) {
+          button.click();
+        }
+      });
+      await context.waitForSelector('a.StoreFlyout__changeStore');
+      await context.evaluate(async function () {
+        const button = document.querySelector('a.StoreFlyout__changeStore');
+        if (button) {
+          button.click();
+        }
+      });
+      await context.waitForSelector('input#store-flyout-address');
+      await context.setInputValue('input#store-flyout-address', zipcode);
+      await context.click('.StoreFlyout__store .StoreFlyout__myStore');
+      // await context.setInputValue('input[type="search"][value]', zipcode);
+    }
+
+    const changedLocationStreetAddress = await context.evaluate(function () {
+      return document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]') ? document.querySelector('div[data-automation-id="changeStoreFulfillmentBannerBtn"] span[class^="AddressPanel__addressLine"]').textContent : '';
+    });
+
+    // TODO: need to set this as input
+    if (!(changedLocationStreetAddress === '4208 Pleasant Crossing Blvd') && disabledContinueButton === false) {
+      await changeLocation(zipcode);
+      if (locationStreetAddress !== changedLocationStreetAddress) {
+        await changeLocation(zipcode);
+      }
+      if (locationStreetAddress !== changedLocationStreetAddress) {
+        console.log(locationStreetAddress);
+        console.log(changedLocationStreetAddress);
+        throw new Error('Fail to change zipcode');
+      }
+    }
 
     await context.evaluate(async function () {
       function addElementToDocument(key, value) {
