@@ -87,7 +87,6 @@ async function implementation (inputs, parameters, context, dependencies) {
       const variantEl = document.querySelectorAll(selector)[index];
       console.log(variantEl);
       await variantEl.click();
-      // variants field: only after clicking size we are sure which sku belongs to which size ASK MANAS URL: https://www.kohls.com/product/prd-2891253/adidas-adilette-cloudfoam-womens-ombre-slide-sandals.jsp?color=Cherry%20Metallic
       const variantSKU = document.querySelector('input#addToBagSkuId');
       if (variantSKU) {
         document.querySelector('div#size_variants').textContent += ` ${variantSKU.getAttribute('value')}`;
@@ -114,12 +113,12 @@ async function implementation (inputs, parameters, context, dependencies) {
           return variantSizeCount;
         }, selector);
         console.log('ilosc dostepnych size: ', length);
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        /* await new Promise((resolve) => setTimeout(resolve, 1000)); */
 
         for (let i = 0; i < length; i++) {
           console.log('IM ON THIS SELECTOR: ', selector);
           console.log(`clicking variant:${i}`);
-          await new Promise((resolve) => setTimeout(resolve, 1000));
+        /*   await new Promise((resolve) => setTimeout(resolve, 1000)); */
           await clickVariantAndExtract(`${selector} ~ ul.sbOptions li a[rel]`, i);
         }
       } else {
@@ -131,7 +130,7 @@ async function implementation (inputs, parameters, context, dependencies) {
         for (let i = 0; i < length; i++) {
           console.log('IM ON THIS SELECTOR: ', selector);
           console.log(`clicking variant:${i}`);
-          await new Promise((resolve) => setTimeout(resolve, 1000));
+       /*    await new Promise((resolve) => setTimeout(resolve, 1000)); */
           await clickVariantAndExtract(`${selector} a.pdp-size-swatch`, i);
         }
       }
@@ -155,7 +154,7 @@ async function implementation (inputs, parameters, context, dependencies) {
     const variantWrapperSelector = await returnVariantWrapperSelector();
     if (variantWrapperSelector) {
       console.log('wybrany selector: ', variantWrapperSelector);
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+/*       await new Promise((resolve) => setTimeout(resolve, 1000)); */
 
       await loopThroughVariants(variantWrapperSelector);
     } else {
