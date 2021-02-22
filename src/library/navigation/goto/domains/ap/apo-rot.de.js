@@ -15,7 +15,7 @@ module.exports = {
     await context.setLoadAllResources(true);
     await context.setJavaScriptEnabled(true);
     const timeout = parameters.timeout ? parameters.timeout : 100000;
-    await context.goto(url, { timeout: timeout, waitUntil: 'load', checkBlocked: true });
+    await context.goto(url, { firstRequestTimeout: 60000, timeout: timeout, waitUntil: 'load', checkBlocked: true });
     console.log(zipcode);
   },
 };
