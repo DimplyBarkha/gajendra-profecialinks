@@ -45,6 +45,10 @@ module.exports = {
       }
     });
 
+    // waiting for noResultXpath if exists
+
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
     console.log('Checking no results', noResultsXPath);
     return await context.evaluate((xp) => {
       const r = document.evaluate(xp, document, null, XPathResult.UNORDERED_NODE_ITERATOR_TYPE, null);
